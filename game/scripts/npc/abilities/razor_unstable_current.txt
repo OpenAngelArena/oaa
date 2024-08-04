@@ -36,7 +36,12 @@
       "strike_internal_cd"
       {
         "value"                                           "3.0"
-        "special_bonus_unique_razor_3"                    "-1"
+        //"special_bonus_unique_razor_3"                    "-1"
+      }
+      "strike_cd_reduction_during_storm"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_razor_thunderhead"           "=2.5"
       }
       "hit_targets_inside_eye_of_the_storm"
       {

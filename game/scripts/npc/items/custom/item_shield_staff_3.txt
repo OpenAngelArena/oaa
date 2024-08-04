@@ -71,103 +71,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 40 60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 525 675 875 1125"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 8 11 14 17"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.0 1.25 1.75 2.5 3.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_armor"                                     "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_attack_damage_block_melee"               "60 120 180 240 300"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_attack_damage_block_ranged"              "30 60 90 120 150"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_attack_damage_block_chance"              "60"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_spell_damage_block"                      "60 90 130 180 240"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_spell_damage_block_chance"               "30"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "300 600 900 1200 1500"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_duration"                                "12"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "600"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_speed"                                      "1200"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_to_enemies"                               "50"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invincibility_window"                            "0.5"
-      }
-      "18"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invincibility_delay"                             "0.5"
-      }
-      "19"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "19 18 17 16 15"
-      }
+      "bonus_intellect"                                   "10 15 25 40 60"
+      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_health_regen"                                "5 8 11 14 17"
+      "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5"
+      "bonus_armor"                                       "0"
+      "bonus_magic_resistance"                            "0"
+      "passive_attack_damage_block_melee"                 "60 120 180 240 300"
+      "passive_attack_damage_block_ranged"                "30 60 90 120 150"
+      "passive_attack_damage_block_chance"                "60"
+      "passive_spell_damage_block"                        "60 90 130 180 240"
+      "passive_spell_damage_block_chance"                 "30"
+      "barrier_block"                                     "300 600 900 1200 1500"
+      "barrier_duration"                                  "12"
+      "push_length"                                       "600"
+      "push_speed"                                        "1200"
+      "damage_to_enemies"                                 "50"
+      "invincibility_window"                              "0.5"
+      "invincibility_delay"                               "0.5"
+      "cooldown_tooltip"                                  "18"
     }
   }
 }

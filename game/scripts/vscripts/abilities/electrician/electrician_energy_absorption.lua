@@ -58,18 +58,6 @@ function electrician_energy_absorption:OnSpellStart()
     local duration = self:GetSpecialValueFor("duration")
     local illusion_multiplier = self:GetSpecialValueFor("illusion_dmg_multiplier")
 
-    -- Talent that increases mana absorb
-    local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_mana")
-    if talent and talent:GetLevel() > 0 then
-      mana_absorb_percent = mana_absorb_percent + talent:GetSpecialValueFor("value")
-    end
-
-    -- Talent that increases damage
-    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_8")
-    if talent2 and talent2:GetLevel() > 0 then
-      damage = damage + talent2:GetSpecialValueFor("value")
-    end
-
     -- set up the amount of mana restored by this cast
     local mana_absorbed = 0
     local speed_absorbed = 0

@@ -29,20 +29,21 @@
         "value"                                           "4"
       }
       "proc_chance_pct"                                   "40 45 50 55 60"
-      "illusion_proc_chance_pct"                          "8"     
+      "illusion_proc_chance_pct"                          "8"
       "illusion_duration"                                 "8"
       "illusion_damage_out_pct" //OAA
       {
-        "value"                                           "-60 -50 -40 -30 -20"
+        "value"                                           "-65 -55 -45 -35 -25"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_facet_phantom_lancer_divergence"   "+6"
+        "special_bonus_facet_phantom_lancer_divergence"   "+2"
+        "special_bonus_unique_phantom_lancer_6"           "+6"
       }
       "tooltip_illusion_damage" //OAA
       {
-        "value"                                           "40 50 60 70 80"
+        "value"                                           "35 45 55 65 75"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_facet_phantom_lancer_divergence"   "+6"
-        "special_bonus_unique_phantom_lancer_6"           "+10"
+        "special_bonus_facet_phantom_lancer_divergence"   "+2"
+        "special_bonus_unique_phantom_lancer_6"           "+6"
       }
       "illusion_damage_in_pct" //OAA
       {
@@ -55,7 +56,7 @@
         "CalculateSpellDamageTooltip"                     "0"
       }
       "illusion_from_illusion_duration"                   "4"
-      "shard_bonus_illusions" 
+      "shard_bonus_illusions"
       {
         "value"                                           "0"
         "RequiresShard"                                   "1"

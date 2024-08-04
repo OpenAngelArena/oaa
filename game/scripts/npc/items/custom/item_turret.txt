@@ -78,41 +78,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_intellect"                                 "40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_strength"                                  "40"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_damage"                                    "50"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_mana_regen"                                "250"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "turret_damage_pct"                               "75"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "turret_range_pct"                                "75"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "turret_atk_spd_pct"                              "75"
       }
     }

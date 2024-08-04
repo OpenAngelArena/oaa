@@ -7,10 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "BaseClass"                                           "riki_permanent_invisibility"
-    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

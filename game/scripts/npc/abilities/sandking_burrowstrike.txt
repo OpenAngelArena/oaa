@@ -52,15 +52,15 @@
       "AbilityCastRange"
       {
         "value"                                           "525 600 675 750 825 900"
-        //"special_bonus_scepter"                         "=1300"
+        "special_bonus_unique_sand_king_8"                "+150"
       }
-      "burrow_speed_scepter" //OAA, probably unused kv, fixing just in case
+      "burrow_speed_scepter" // unused
       {
-        "value"                                           "2000"
+        "value"                                           "3000"
         "RequiresScepter"                                 "1"
       }
-      "scepter_channel_time"                              "2" // unused?
-      "scepter_max_power"                                 "2" // unused?
+      "scepter_channel_time"                              "2" // unused
+      "scepter_max_power"                                 "2" // unused
     }
   }
 }

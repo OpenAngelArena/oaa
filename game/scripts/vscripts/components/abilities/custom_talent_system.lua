@@ -95,9 +95,6 @@ local abilities_with_custom_talents = {
   sandking_epicenter = {
     AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},
   },
-  silencer_last_word = {
-    damage = {"special_bonus_unique_silencer_2_oaa", "+"},
-  },
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
@@ -111,6 +108,9 @@ local abilities_with_custom_talents = {
   spectre_haunt_single = {
     illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
     tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  storm_spirit_electric_vortex = {
+    AbilityCooldown = {"special_bonus_unique_storm_spirit_2_oaa", "+"},
   },
   storm_spirit_overload = {
     overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},

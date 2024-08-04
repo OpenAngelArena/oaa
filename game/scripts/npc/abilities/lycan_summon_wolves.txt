@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -27,33 +26,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityManaCost"
+      "AbilityManaCost" //OAA
       {
-        "value"                                           "115 120 125 130 135 140"
+        "value"                                           "115 120 125 130 135 140 145 150"
         "special_bonus_facet_lycan_spirit_wolves"         "-50"
       }
-      "wolf_index"                                        "1 2 3 4 5 6"
+      "wolf_index"                                        "1 2 3 4 5 6 7 8"
       "wolf_duration"
       {
         "value"                                           "50"
         "special_bonus_facet_lycan_spirit_wolves"         "=25"
       }
-      "wolf_bat"
+      "wolf_bat" //OAA
       {
-        "value"                                           "1.2 1.1 1.0 0.9 0.8 0.7"
-        "RequiresFacet"                                   "lycan_pack_leader"
+        "value"                                           "1.2 1.1 1.0 0.9 0.8 0.7 0.7 0.7"
+        "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0 =0 =0"
       }
       "wolf_damage" //OAA
       {
-        "value"                                           "20 40 60 80 180 280"
+        "value"                                           "20 40 60 80 180 280 380 480"
+        "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0"
         "special_bonus_unique_lycan_3"                    "+20"
-        "RequiresFacet"                                   "lycan_pack_leader"
       }
       "wolf_hp" //OAA
       {
-        "value"                                           "325 425 525 625 1625 2625"
+        "value"                                           "325 425 525 625 1625 2625 2625 2625"
+        "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0 =0 =0"
         "special_bonus_unique_lycan_7"                    "+350"
-        "RequiresFacet"                                   "lycan_pack_leader"
       }
       "bonus_health" // Valve is dumb
       {
@@ -64,6 +63,10 @@
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_3"                    "+20"
+      }
+      "bonus_armor"
+      {
+        "value"                                           "0 0 0 0 5 10 10 10"
       }
       "bash_chance"                                       "15" // slow chance
       "bash_duration"                                     "1.0" // slow duration
@@ -112,6 +115,11 @@
       "death_fx_time"
       {
         "special_bonus_facet_lycan_spirit_wolves"         "1.0"
+      }
+      "max_level" //OAA
+      {
+        "value"                                           "6"
+        "special_bonus_facet_lycan_alpha_wolves"          "+2"
       }
     }
   }

@@ -15,6 +15,10 @@
         "special_bonus_unique_phantom_assassin_3"         "+15"
       }
       "evasion_per_level"                                 "0.5" //OAA
+      "evasion_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
     }
   }
 }

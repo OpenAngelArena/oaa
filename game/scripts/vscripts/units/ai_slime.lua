@@ -1,11 +1,7 @@
 function Spawn( entityKeyValues )
-	if thisEntity == nil then
-		return
-	end
-
-	if IsServer() == false then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
 	thisEntity.hJumpAbility = thisEntity:FindAbilityByName( "boss_slime_jump" )
 	thisEntity.hSlamAbility = thisEntity:FindAbilityByName( "boss_slime_slam" )
@@ -24,7 +20,7 @@ function SlimeBossThink()
   end
 
 	if thisEntity:IsChanneling() then
-		return 2.0
+		return 1.0
 	end
 
   if not thisEntity.bInitialized then
@@ -130,7 +126,7 @@ function CastJump(position)
 		Position = position,
 	})
 
-	return thisEntity.hJumpAbility:GetCastPoint() + 5.0
+	return thisEntity.hJumpAbility:GetCastPoint() + (0.03 / thisEntity.hJumpAbility:GetSpecialValueFor("movement_speed")) + 0.1
 end
 
 function CastSlam( position )
@@ -141,5 +137,5 @@ function CastSlam( position )
 		Position = position,
 	})
 
-	return thisEntity.hSlamAbility:GetCastPoint() + thisEntity.hSlamAbility:GetSpecialValueFor("self_stun")
+	return thisEntity.hSlamAbility:GetCastPoint() + thisEntity.hSlamAbility:GetSpecialValueFor("self_stun") + 0.1
 end

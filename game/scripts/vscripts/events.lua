@@ -77,12 +77,7 @@ function GameMode:OnNPCSpawned(keys)
             local correct_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_health", ability_level-1)
             local correct_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", ability_level-1)
             local correct_armor = force_of_nature_ability:GetLevelSpecialValueFor("treant_armor", ability_level-1)
-            -- Talent that increases health and damage of treants with a multiplier
-            local talent1 = hero:FindAbilityByName("special_bonus_unique_furion_1_oaa")
-            if talent1 and talent1:GetLevel() > 0 then
-              correct_hp = correct_hp * talent1:GetSpecialValueFor("value")
-              correct_damage = correct_damage * talent1:GetSpecialValueFor("value")
-            end
+
             -- Fix DAMAGE
             npc:SetBaseDamageMin(correct_damage)
             npc:SetBaseDamageMax(correct_damage)

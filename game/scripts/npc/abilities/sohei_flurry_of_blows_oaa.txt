@@ -50,18 +50,18 @@
       "flurry_radius"
       {
         "value"                                           "450"
-        "LinkedSpecialBonus"                              "special_bonus_sohei_fob_radius"
+        //"special_bonus_unique_sohei_4_oaa"                "+250"
         "affected_by_aoe_increase"                        "1"
       }
       "max_attacks"
       {
         "value"                                           "6 9 12 15 18"
-        "special_bonus_unique_sohei_8"                    "+6"
+        "special_bonus_unique_sohei_8_oaa"                "+6"
       }
       "max_duration"
       {
         "value"                                           "2.5 3.5 4.5 5.5 6" // min is: (max_attacks + 1) * attack_interval
-        "special_bonus_unique_sohei_8"                    "+1.8"
+        "special_bonus_unique_sohei_8_oaa"                "+1.8"
       }
       "attack_interval"                                   "0.3"
       "bonus_damage"

@@ -13,18 +13,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "120"
-      }
+      "value"                                             "60"
+      "value2"                                            "120"
     }
   }
 }

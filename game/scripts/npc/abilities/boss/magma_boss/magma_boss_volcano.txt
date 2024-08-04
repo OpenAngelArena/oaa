@@ -35,78 +35,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "torrent_aoe"                                     "225"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "torrent_damage"                                  "2500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "torrent_delay"                                   "2.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "torrent_stun_duration"                           "2.0"
-      }
-      "05" // During this time totem is invulnerable
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "totem_rising_duration"                           "2.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magma_initial_radius"                            "175"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magma_radius_max"                                "700"
-      }
-      "08" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magma_spread_speed"                              "5000"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magma_damage_per_second"                         "240"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "magma_damage_interval"                           "0.25"
-      }
-      "11" // 8 damage from heroes, 1 damage from non-heroes
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "totem_health"                                    "36"
-      }
-      "12" // advice: totem_health should be divideable with totem_hero_attacks_to_destroy
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "totem_hero_attacks_to_destroy"                   "6"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "totem_model_scale"                               "0.8"
-      }
-      "14" // max volcano duration in seconds
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "totem_duration_max"                              "50"
-      }
+      "torrent_aoe"                                       "225"
+      "torrent_damage"                                    "2500" // magical
+      "torrent_delay"                                     "2.0"
+      "torrent_stun_duration"                             "2.0"
+      "totem_rising_duration"                             "2.0" // During this time totem is invulnerable
+      "magma_initial_radius"                              "175"
+      "magma_radius_max"                                  "700"
+      "magma_spread_speed"                                "5000"  // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
+      "magma_damage_per_second"                           "250" // magical
+      "magma_damage_interval"                             "0.25"
+      "totem_health"                                      "36" // 8 damage from heroes, 1 damage from non-heroes
+      "totem_hero_attacks_to_destroy"                     "6" // totem_health should be divideable with totem_hero_attacks_to_destroy
+      "totem_model_scale"                                 "0.8"
+      "totem_duration_max"                                "50" // max volcano duration in seconds
     }
   }
 }

@@ -8,18 +8,18 @@
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "nyx_assassin_impale"
     "ScriptFile"                                          "abilities/boss/swiper/boss_swiper_thrust.lua"
-    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AnimationIgnoresModelScale"                          "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "2.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AnimationIgnoresModelScale"                          "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,28 +31,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "700"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_min_range"                                "500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6000"
-      }
+      "range"                                             "900"
+      "width"                                             "200"
+      "target_min_range"                                  "500"
+      "damage"                                            "6000" // physical, should be the same as swipes
     }
   }
 }

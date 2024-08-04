@@ -55,7 +55,7 @@
       }
       "ministun_duration"
       {
-        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
+        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
         "RequiresFacet"                                   "arc_warden_order"
       }
       "tempest_activation_delay"
@@ -71,7 +71,7 @@
       }
       "ministun_duration_tempest"
       {
-        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
+        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
         "RequiresFacet"                                   "arc_warden_disorder"
       }
       "wraith_speed_tempest"

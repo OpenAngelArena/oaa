@@ -266,9 +266,8 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
   local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
   if tar_spill and tar_spill:GetLevel() > 0 then
     -- Keen Contraption applies Tar Spill
-    -- local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
-    -- if talent and talent:GetLevel() > 0 then
-    if caster:HasScepter() then
+    local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
+    if (talent and talent:GetLevel() > 0) or caster:HasScepter() then
       tar_spill:OnProjectileHit(nil, self.center)
     end
   end

@@ -9,18 +9,10 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "10"
-      }
+      "value"                                             "1000"
+      "value2"                                            "10"
     }
   }
 }

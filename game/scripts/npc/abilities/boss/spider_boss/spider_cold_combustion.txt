@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Spider Cold Combustion
+  // Ability: Spider Cold Combustion - Explode on Death or when reaching enemies
   //=================================================================================================================
   "spider_cold_combustion"
   {
@@ -19,18 +19,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "1000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "350"
-      }
+      "damage"                                            "1000"
+      "radius"                                            "350"
     }
 
     // Precache

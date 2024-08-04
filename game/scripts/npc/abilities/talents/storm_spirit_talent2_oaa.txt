@@ -1,12 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earth Splitter Cooldown
+  // Custom Storm Spirit talent: Electric Vortex Cooldown
   //=================================================================================================================
-  "special_bonus_unique_elder_titan_3"
+  "special_bonus_unique_storm_spirit_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -14,11 +15,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "value" //OAA
-      {
-        "value"                                           "25"
-        "ad_linked_abilities"                             "elder_titan_earth_splitter"
-      }
+      "value"                                             "-1"
     }
   }
 }

@@ -18,7 +18,7 @@
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityManaCost"                                     "70 75 80 85 90 95"
+    "AbilityManaCost"                                     "85 90 95 100 105 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@
       "bonus_range"                                       "75 150 225 300 375 450"
       "acorn_shot_damage"
       {
-        "value"                                           "55 90 125 160 320 480"
+        "value"                                           "40 80 120 160 320 480"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "base_damage_pct"
@@ -38,7 +38,7 @@
       "bounce_count"
       {
         "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_hoodwink_acorn_shot_bounces"  "+2"
+        "special_bonus_unique_hoodwink_acorn_shot_bounces"  "+1"
       }
       "bounce_range"
       {

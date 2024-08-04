@@ -48,7 +48,7 @@
       }
       "move_speed_slow_pct"
       {
-        "value"                                           "14 21 28 35 42 49"
+        "value"                                           "15 22 30 39 49 60"
         "RequiresFacet"                                   "arc_warden_order"
       }
       "tempest_damage_per_second"
@@ -58,13 +58,18 @@
       }
       "tempest_move_speed_slow_pct"
       {
-        "value"                                           "6 10 14 18 21 24"
+        "value"                                           "5 8 11 14 17 20"
         "RequiresFacet"                                   "arc_warden_disorder"
       }
       "AbilityCastRange"
       {
         "value"                                           "500 600 700 800 900 1000"
         "special_bonus_unique_arc_warden_5"               "+200"
+      }
+      "applies_silence"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_arc_warden_flux_silences"   "1"
       }
     }
   }

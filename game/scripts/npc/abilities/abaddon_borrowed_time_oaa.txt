@@ -13,6 +13,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -27,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 50 50"
+    "AbilityCooldown"                                     "75 70 65 60 55"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

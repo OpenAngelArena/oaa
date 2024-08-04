@@ -1,26 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Defense Tower 1
-  //=================================================================================================================
-  "item_recipe_azazel_tower_defense_1"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "100"
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_azazel_tower_defense_1"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "SecretShop"                                          "1"
-    "ItemRequirements"
-    {
-      "01"                                                "item_upgrade_core"
-    }
-  }
-  //=================================================================================================================
-  // Azazel: Defense Tower 1
+  // Azazel: Defense Tower
   //=================================================================================================================
   "item_azazel_tower_defense_1"
   {
@@ -30,54 +11,43 @@
     "ScriptFile"                                          "items/azazel_tower_defense.lua"
     "AbilityTextureName"                                  "custom/defense_1"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityCastRange"                                    "600"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "azazel_tower_defense"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "1"
+    "ItemCost"                                            "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "azazel defense tower"
+    "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-    "ItemStackable"                                       "1"
-    "ItemCost"                                            "101"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+
     "SecretShop"                                          "1"
     "IsTempestDoubleClonable"                             "0"
 
+    "AbilityCastRange"                                    "600"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "construction_time"                               "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health"                                          "3500 14000 28000 56000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0 300 700 1500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "true_sight_radius"                               "800"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage"                                  "110 410 810 1610"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "sink_height"                                     "300"
-      }
-    }
-    "precache"
-    {
+      "construction_time"                                 "10"
+      "health"                                            "3500 14000 28000 56000"
+      "bonus_damage"                                      "0 300 700 1500"
+      "true_sight_radius"                                 "800"
+      "tooltip_damage"                                    "110 410 810 1610"
+      "sink_height"                                       "300"
     }
   }
 }

@@ -89,7 +89,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
   local damage_table = {
     attacker = caster,
     damage_type = DAMAGE_TYPE_PHYSICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = self,
   }
 
