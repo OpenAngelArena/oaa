@@ -24,11 +24,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_all_stats"                                   "5"
-      "bonus_hp_regen"                                    "5"
-      "mana_cost_reduction_pct"                           "5"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp_regen"                                  "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_reduction_pct"                         "5"
+      }
     }
   }
 }

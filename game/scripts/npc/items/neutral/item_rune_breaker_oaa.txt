@@ -31,12 +31,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_attack_speed"                                "40"
-      "bonus_armor"                                       "5"
-      "bonus_damage_during_duels"                         "25" // percentage bonus based on base (white) dmg
-      "duration"                                          "4"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+      "03" // percentage bonus based on base (white) dmg
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_during_duels"                       "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "4"
+      }
     }
   }
 }

@@ -79,8 +79,6 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     if tostring(facet) == "2" then
       victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
     end
-  elseif modifier_name == "modifier_wisp_relocate_return" then
-    victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
   end
 
   return true

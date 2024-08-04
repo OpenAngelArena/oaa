@@ -50,11 +50,11 @@
       "avalanche_damage" //OAA
       {
         "value"                                           "80 160 240 320 640 1280"
-        "special_bonus_unique_tiny"                       "+100"
+        "special_bonus_unique_tiny"                       "+160"
       }
-      "toss_damage_bonus_pct"
+      "toss_damage_bonus_pct" //OAA
       {
-        "value"                                           "100"
+        "value"                                           "150"
       }
     }
   }

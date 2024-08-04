@@ -5,28 +5,6 @@
   //=================================================================================================================
   "npc_dota_hero_life_stealer"
   {
-    //"Ability10"                                           "special_bonus_unique_lifestealer_infest_damage"
-    //"Ability11"                                           "special_bonus_unique_lifestealer_2"
 
-    "Ability12"                                           "special_bonus_unique_lifestealer_1_oaa" // replaces special_bonus_unique_lifestealer_5
-    //"Ability13"                                           "special_bonus_unique_lifestealer_4"
-
-    //"Ability14"                                           "special_bonus_unique_lifestealer_infest_target_bonus"
-    //"Ability15"                                           "special_bonus_unique_lifestealer_6"
-
-    //"Ability16"                                           "special_bonus_unique_lifestealer_3"
-    //"Ability17"                                           "special_bonus_unique_lifestealer"
-
-    // special_bonus_unique_lifestealer - Rage/Unfettered duration
-    // special_bonus_unique_lifestealer_2 - Ghoul Frenzy move speed
-    // special_bonus_unique_lifestealer_3 - Feast lifesteal and damage
-    // special_bonus_unique_lifestealer_4 - Open Wounds move speed slow
-    // special_bonus_unique_lifestealer_5 - Ghoul Frenzy attack speed - unused
-    // special_bonus_unique_lifestealer_6 - Open Wounds lifesteal
-    // special_bonus_unique_lifestealer_1_oaa - Open Wounds cooldown - custom
-
-    "AttackRate"                                          "1.8" // 1.7
-    "BaseAttackSpeed"                                     "100" // 100
-    "MovementSpeed"                                       "295" // 320
   }
 }

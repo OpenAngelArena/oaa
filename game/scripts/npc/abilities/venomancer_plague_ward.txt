@@ -15,9 +15,12 @@
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.0"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "24 26 28 30 32 34"
+    "AbilityManaCost"                                     "21 24 27 30 33 36"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,17 +70,10 @@
         "value"                                           "14 22 30 38 138 238"
         "special_bonus_unique_venomancer"                 "x2.5"
       }
-      "threshold"
+      "threshold"                         
       {
         "value"                                           "100 150 200 250 500 750"
         "special_bonus_unique_venomancer"                 "x2.5"
-        "RequiresFacet"                                   "venomancer_plague_carrier"
-      }
-      "threshold_max_hp_pct"                          
-      {
-        "value"                                           "1 1.5 2 2.5 3 3.5"
-        "special_bonus_unique_venomancer"                 "x2.5"
-        "RequiresFacet"                                   "venomancer_plague_carrier"
       }
     }
   }

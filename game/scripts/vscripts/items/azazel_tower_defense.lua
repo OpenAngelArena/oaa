@@ -32,7 +32,7 @@ function item_azazel_tower_defense_1:OnSpellStart()
   building:AddNewModifier(building, self, "modifier_azazel_defense_tower_oaa", {})
   building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {})
 
-  self:SpendCharge(0.1)
+  self:SpendCharge()
 end
 
 -- upgrades

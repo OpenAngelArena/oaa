@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Caustic Finale (Innate)
+  // Ability: Sand King Caustic Finale
   //=================================================================================================================
   "sandking_caustic_finale"
   {
@@ -12,11 +12,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "Innate"                                              "1"
-    "DependentOnAbility"                                  "sandking_epicenter"
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Epicenter) + 1
+    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "-1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +26,8 @@
         "affected_by_aoe_increase"                        "1"
       }
       "caustic_finale_damage_base"                        "20 40 60 80 160 320"
-      "caustic_finale_damage_pct"                         "4 8 12 16 18 20"
-      "caustic_finale_duration"                           "4.5 5 5.5 6 6.5 7"
+      "caustic_finale_damage_pct"                         "6 9 12 15 16 17"
+      "caustic_finale_duration"                           "6"
     }
   }
 }

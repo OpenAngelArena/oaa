@@ -1,21 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Muerta Talent: Pierce The Veil Cooldown Reduction
+  // Custom Undying Talent: Reincarnation talent with custom cooldown - unused
   //=================================================================================================================
-  "special_bonus_unique_muerta_2_oaa"
+  "special_bonus_unique_undying_reincarnation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_reincarnation_250"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value"                                             "-10"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "120" // cooldown in seconds
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Summon Spirit Bear (Innate in OAA)
+  // Lone Druid: Summon Spirit Bear
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
@@ -10,10 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "Innate"                                              "1" //OAA
-
-    "MaxLevel"                                            "7" //OAA
-    "RequiredLevel"                                       "-1" //OAA
+    "MaxLevel"                                            "7"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +30,7 @@
     {
       "bear_hp"                                           "800 1100 1500 1900 2300 3100 5500" //OAA
       "bear_regen_tooltip"                                "4 5 7 9 11 15 21" //OAA
-      "bear_bat" //OAA
+      "bear_bat"
       {
         "value"                                           "1.85 1.75 1.65 1.55 1.45 1.35 1.25"
         //"special_bonus_unique_lone_druid_10"              "-0.1"
@@ -43,7 +40,7 @@
       {
         "value"                                           "40.0"
       }
-      "bear_movespeed" //OAA
+      "bear_movespeed"
       {
         "value"                                           "300 300 330 360 390 420 450"
         "special_bonus_unique_lone_druid_11"              "+30"
@@ -64,11 +61,6 @@
       }
       "damage_gain_per_druid_level"                       "5"
       "hp_gain_per_druid_level"                           "90"
-      "bear_attack_leash_range"
-      {
-        "value"                                           "1100"
-        "special_bonus_facet_lone_druid_unbearable"       "+500"
-      }
     }
   }
 }

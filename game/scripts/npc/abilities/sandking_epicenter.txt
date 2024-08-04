@@ -19,6 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "110 100 90 80 70" //OAA
     "AbilityDuration"                                     "6.0"
     "AbilityCastPoint"                                    "2.0"
 
@@ -30,10 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "110 100 90 80 70"
-      }
       "epicenter_pulses"
       {
         "value"                                           "12 16 20 24 28"
@@ -77,34 +74,7 @@
         "RequiresShard"                                   "1"
       }
       "linger_duration"                                   "3.0"
-      "scepter_explosion_radius_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+15"
-      }
-      "scepter_explosion_min_dist"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+120"
-      }
-      "scepter_explosions_per_pulse"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+3"
-      }   
-      "spine_tick_rate"
-      {
-        "special_bonus_scepter"                           "=0.5"
-      }
-      "spine_damage_pct"
-      {
-        "special_bonus_scepter"                           "=50"
-      }
-      "shard_explosions_per_pulse"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+1"
-      }
     }
   }
+
 }

@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -19,8 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "2.0"
-    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_3"
-    "AbilityCastGestureSlot"                              "DEFAULT"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
     "AnimationIgnoresModelScale"                          "1"
 
     // Time
@@ -33,18 +32,58 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "speed"                                             "900"
-      "max_range"                                         "1200"
-      "min_range"                                         "400"
-      "min_targets"                                       "2"
-      "push_length"                                       "25"
-      "slow"                                              "-50"
-      "slow_duration"                                     "1.25"
-      "max_damage"                                        "4000" // magical
-      "min_damage"                                        "2000" // magical
-      "radius"                                            "200"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_range"                                       "1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_range"                                       "400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_targets"                                     "2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "push_length"                                     "25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage"                                      "8000"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_damage"                                      "2000"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "200"
+      }
     }
   }
 }

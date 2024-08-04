@@ -49,7 +49,6 @@ end
 function modifier_dire_tower_boss_passives:DeclareFunctions()
   return {
     -- MODIFIER_PROPERTY_DISABLE_TURNING, -- if we disable turning, tower isnt able to attack anything behind it
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_EVENT_ON_DEATH,
   }
 end
@@ -67,10 +66,6 @@ function modifier_dire_tower_boss_passives:CheckState()
     [MODIFIER_STATE_ROOTED] = true, -- to prevent the tower from moving
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true, -- to prevent the tower from being pushed or knocked back
   }
-end
-
-function modifier_dire_tower_boss_passives:GetModifierMagicalResistanceBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 end
 
 -- For the death sound and animation

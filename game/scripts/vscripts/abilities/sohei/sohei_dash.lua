@@ -76,7 +76,16 @@ end
 
 if IsClient() then
   function sohei_dash:GetCastRange(location, target)
-    return self:GetSpecialValueFor("dash_range")
+    local caster = self:GetCaster()
+    local range = self:GetSpecialValueFor("dash_range")
+
+    -- Bonus dash range talent
+    local talent = caster:FindAbilityByName("special_bonus_sohei_dash_cast_range")
+    if talent and talent:GetLevel() > 0 then
+      range = range + talent:GetSpecialValueFor("value")
+    end
+
+    return range
   end
 end
 
@@ -89,6 +98,12 @@ function sohei_dash:OnSpellStart()
   local max_speed = self:GetSpecialValueFor("dash_speed")
   local move_speed_multiplier = self:GetSpecialValueFor("move_speed_multiplier")
   local range = self:GetSpecialValueFor("dash_range")
+
+  -- Bonus dash range talent
+  local talent = caster:FindAbilityByName("special_bonus_sohei_dash_cast_range")
+  if talent and talent:GetLevel() > 0 then
+    range = range + talent:GetSpecialValueFor("value")
+  end
 
   -- Calculate range with cast range bonuses
   range = range + caster:GetCastRangeBonus()
@@ -430,6 +445,12 @@ if IsServer() then
 
     local damage = ability:GetSpecialValueFor("damage")
 
+    -- Talent that increases damage
+    local talent = caster:FindAbilityByName("special_bonus_unique_sohei_7")
+    if talent and talent:GetLevel() > 0 then
+      damage = damage + talent:GetSpecialValueFor("value")
+    end
+
     local damage_table = {
       attacker = caster,
       damage = damage,
@@ -541,6 +562,13 @@ function modifier_sohei_dash_slow:OnCreated()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   local attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
+
+  -- Talent that increases the slow amount
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
+  if talent and talent:GetLevel() > 0 then
+    movement_slow = movement_slow + talent:GetSpecialValueFor("value")
+    attack_slow = attack_slow + talent:GetSpecialValueFor("value2")
+  end
 
   self.attack_speed = attack_slow
   -- Move Speed Slow is reduced with Slow Resistance

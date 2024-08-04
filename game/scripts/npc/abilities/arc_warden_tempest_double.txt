@@ -19,17 +19,13 @@
     "AbilityCastPoint"                                    "0.15"
     "AbilityCastRange"                                    "700"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50" //OAA, Valve forgot that even this spell should have a mana cost
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "AbilityCooldown" //OAA, restarts the ability cooldown if the Tempest Double is killed by enemies
       {
-        "value"                                           "60 55 50 45 40"
+        "value"                                           "60"
       }
       "duration"                                          "60"
       "bounty"                                            "180 240 300 480 780"

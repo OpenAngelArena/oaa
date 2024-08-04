@@ -232,13 +232,11 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
     special_bonus_haste = "modifier_special_bonus_haste",
     special_bonus_truestrike = "modifier_special_bonus_truestrike",
+    --special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
-    special_bonus_unique_warlock_4 = "modifier_warlock_rain_of_chaos_death_trigger",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    special_bonus_reincarnation_200 = "modifier_special_bonus_reincarnation",
-    special_bonus_reincarnation_250 = "modifier_special_bonus_reincarnation",
-    special_bonus_reincarnation_300 = "modifier_special_bonus_reincarnation",
+    --special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation",
   }
 
   if exceptionBonuses[name] then
@@ -261,7 +259,6 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local ultimateReqs = {0, 0, 0, 37, 49}
 
   local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 26, 28, 30, 32, 34, 36, 38}
-  local summonWolvesReqs = {0, 0, 0, 0, 28, 34, 40, 46}
   local basicInnateAbilityReqs = {0, 0, 0, 0, 0, 28, 40}
   local ultimateInnateAbilityReqs = {0, 0, 0, 0, 37, 49}
 
@@ -270,7 +267,6 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
     invoker_quas = invokerAbilityReqs,
     invoker_wex = invokerAbilityReqs,
     invoker_exort = invokerAbilityReqs,
-    lycan_summon_wolves = summonWolvesReqs,
   }
 
   local ability = hero:FindAbilityByName(abilityName)
@@ -279,9 +275,6 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
-    if abilityName == "lycan_summon_wolves" and ability:GetSpecialValueFor("max_level") ~= 8 then
-      reqTable = basicReqs
-    end
   elseif IsInnateCustom(abilityName) then
     if IsUltimateAbilityCustom(abilityName) then
       reqTable = ultimateInnateAbilityReqs

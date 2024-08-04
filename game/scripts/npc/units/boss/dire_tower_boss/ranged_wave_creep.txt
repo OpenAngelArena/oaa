@@ -32,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "300" // melee creep version x 1.5
-    "AttackDamageMax"                                     "450" // melee creep version x 1.5
+    "AttackDamageMin"                                     "250"
+    "AttackDamageMax"                                     "350"
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.5"
     "AttackAcquisitionRange"                              "600"
@@ -61,7 +61,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1750"
+    "StatusHealth"                                        "1800"
     "StatusHealthRegen"                                   "2"
     "StatusMana"                                          "500"
     "StatusManaRegen"                                     "1"
@@ -105,14 +105,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "5"
+    "ArmorPhysical"                                       "2"
     "MagicalResistance"                                   "25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "450" // melee creep version x 1.5
-    "AttackDamageMax"                                     "600" // melee creep version x 1.5
+    "AttackDamageMin"                                     "450"
+    "AttackDamageMax"                                     "550"
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.5"
     "AttackAcquisitionRange"                              "600"
@@ -140,7 +140,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2250"
+    "StatusHealth"                                        "2300"
     "StatusHealthRegen"                                   "0" // has boss_regen
     "StatusMana"                                          "1000"
     "StatusManaRegen"                                     "2"
@@ -184,14 +184,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "10"
-    "MagicalResistance"                                   "40"
+    "ArmorPhysical"                                       "8"
+    "MagicalResistance"                                   "25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "600" // melee creep version x 1.5
-    "AttackDamageMax"                                     "750" // melee creep version x 1.5
+    "AttackDamageMin"                                     "650"
+    "AttackDamageMax"                                     "750"
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.5"
     "AttackAcquisitionRange"                              "600"
@@ -219,7 +219,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2750"
+    "StatusHealth"                                        "2800"
     "StatusHealthRegen"                                   "0" // has boss_regen
     "StatusMana"                                          "2000"
     "StatusManaRegen"                                     "4"
@@ -268,8 +268,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "300" // same as npc_dota_creature_ranged_wave1_creep
-    "AttackDamageMax"                                     "450" // same as npc_dota_creature_ranged_wave1_creep
+    "AttackDamageMin"                                     "250" // same as npc_dota_creature_ranged_wave1_creep
+    "AttackDamageMax"                                     "350" // same as npc_dota_creature_ranged_wave1_creep
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.5"
     "AttackAcquisitionRange"                              "600"
@@ -297,7 +297,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2750" // same as npc_dota_creature_ranged_wave3_creep
+    "StatusHealth"                                        "2800" // same as npc_dota_creature_ranged_wave3_creep
     "StatusHealthRegen"                                   "1"
     "StatusMana"                                          "500"
     "StatusManaRegen"                                     "1"

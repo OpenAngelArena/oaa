@@ -13,7 +13,6 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // this is for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
     "AbilityTextureName"                                  "custom/lycan_feral_movement_oaa"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
@@ -21,12 +20,12 @@
 
     //"IsGrantedByShard"                                    "1" // crashes when uncommented
 
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
       }
     }
   }

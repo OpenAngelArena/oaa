@@ -4,9 +4,17 @@
   {
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/charger/boss_charger_summon_pillar.lua"
-    "AbilityTextureName"                                  "custom/boss_charger_summon_pillar"
+    "AbilityTextureName"                                  "juggernaut_healing_ward"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
 
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+    }
   }
 }

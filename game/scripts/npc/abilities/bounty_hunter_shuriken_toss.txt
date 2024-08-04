@@ -31,10 +31,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage" //OAA
+      "bonus_damage"
       {
         "value"                                           "100 170 240 310 620 930"
-        "special_bonus_unique_bounty_hunter_2"            "+310"
+        "special_bonus_unique_bounty_hunter_2"            "+275"
       }
       "speed"                                             "1000"
       "bounce_aoe"
@@ -48,7 +48,7 @@
       }
       "scepter_cast_range"
       {
-        "value"                                           "600"
+        "value"                                           "700"
         "RequiresScepter"                                 "1"
       }
       "scepter_cooldown" //OAA, Valve has it wrong, luckily it's unused

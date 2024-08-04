@@ -80,6 +80,17 @@ function boss_slime_slam:OnSpellStart()
   ParticleManager:SetParticleControl(fissure, 2, Vector(selfStun,0,0))
   ParticleManager:ReleaseParticleIndex(fissure)
 
+  local shakeAbility = caster:FindAbilityByName("boss_slime_shake")
+  if shakeAbility and RandomInt(1, 100) > shakeAbility:GetSpecialValueFor("chance") then
+    ExecuteOrderFromTable({
+      UnitIndex = caster:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+      AbilityIndex = shakeAbility:entindex(),
+    })
+  else
+    caster:AddNewModifier(caster, self, "modifier_stunned", {duration = selfStun})
+  end
+
   local units = self:FindTargets()
 
   local damageTable = {
@@ -122,22 +133,6 @@ function boss_slime_slam:OnSpellStart()
       ApplyDamage(damageTable)
     end
   end
-
-  local shakeAbility = caster:FindAbilityByName("boss_slime_shake")
-  if shakeAbility then
-    if RandomInt(1, 100) > shakeAbility:GetSpecialValueFor("chance") and shakeAbility:IsFullyCastable() then
-      caster:Stop()
-      ExecuteOrderFromTable({
-        UnitIndex = caster:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = shakeAbility:entindex(),
-        Queue = false,
-      })
-      return
-    end
-  end
-
-  caster:AddNewModifier(caster, self, "modifier_stunned", {duration = selfStun})
 end
 
 ---------------------------------------------------------------------------------------------------

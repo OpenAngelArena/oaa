@@ -79,7 +79,7 @@ function boss_killer_tomato_clap:OnSpellStart()
     attacker = caster,
     damage = damage,
     damage_type = self:GetAbilityDamageType(),
-    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self,
   }
 

@@ -60,47 +60,47 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
       "01"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_all_stats"                                 "8 14 21 35"
       }
       "02"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "25 30 35 40"
       }
       // Glimmer Cape Parameters
       "03"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_magical_armor"                             "15 20 25 30"
       }
       "04"
       {
-
+        "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
       }
       "05"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "extra_spell_damage_percent"                      "0" // Zero Spell Amp from Ghost Scepter
       }
       "06"
       {
-
+        "var_type"                                        "FIELD_FLOAT"
         "fade_delay"                                      "0.6"
       }
       "07"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "active_magical_armor"                            "30 36 42 50"
       }
       "08"
       {
-
+        "var_type"                                        "FIELD_INTEGER"
         "range_tooltip"                                   "1000 1200 1400 1600"
       }
     }

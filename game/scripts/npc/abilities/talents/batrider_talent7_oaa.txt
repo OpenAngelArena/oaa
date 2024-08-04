@@ -1,9 +1,9 @@
-"DOTAAbilities"
+﻿"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Lifestealer talent: Open Wounds cooldown
+  // Custom Batrider talent: Sticky Napalm bonus radius
   //=================================================================================================================
-  "special_bonus_unique_lifestealer_1_oaa"
+  "special_bonus_unique_batrider_7_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -13,9 +13,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value"                                             "-2"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "50"
+      }
     }
   }
 }

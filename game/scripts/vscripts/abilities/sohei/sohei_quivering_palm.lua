@@ -162,7 +162,7 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
     victim = victim,
     damage = base_damage + attack_damage + bonus_damage,
     damage_type = self:GetAbilityDamageType(),
-    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self,
   }
   ApplyDamage(damage_table)

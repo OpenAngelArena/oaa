@@ -28,10 +28,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "3.5"
-      "projectile_speed"                                  "550"
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "550"
+      }
     }
   }
 }

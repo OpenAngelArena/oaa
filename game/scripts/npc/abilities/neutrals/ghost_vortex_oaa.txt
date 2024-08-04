@@ -31,15 +31,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
       }
-      "attack_speed"                                      "-50"
-      "duration"                                          "8.0"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "-50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8.0"
+      }
     }
   }
 }

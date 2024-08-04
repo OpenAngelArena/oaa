@@ -31,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_speed_pct"                                "30 35 40 45 50 55" //OAA
+      "movement_speed_pct"                                "35 40 45 50 55 60" //OAA
       "duration"
       {
         "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
@@ -51,12 +51,12 @@
       "cast_range"
       {
         "value"                                           "0"
-        "special_bonus_facet_hoodwink_hunter"             "100 150 200 250 300 350"
+        "special_bonus_facet_hoodwink_hunter"             "50 100 150 200 250 300"
       }
       "attack_range"
       {
         "value"                                           "0"
-        "special_bonus_facet_hoodwink_hunter"             "100 150 200 250 300 350"
+        "special_bonus_facet_hoodwink_hunter"             "50 100 150 200 250 300"
       }
       "radius_increase"
       {

@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
@@ -50,7 +50,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "range"                                             "900"
+      "range"                                             "810"
       "speed"                                             "1100"
       "slow_percent"
       {

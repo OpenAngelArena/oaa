@@ -24,10 +24,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "ethereal_duration"                                 "4"
-      "silence_duration"                                  "3"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ethereal_duration"                               "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "silence_duration"                                "3"
+      }
     }
   }
 }

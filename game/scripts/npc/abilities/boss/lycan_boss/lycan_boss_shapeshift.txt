@@ -23,14 +23,39 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "100"
-      "speed"                                             "650"
-      "bonus_night_vision"                                "1000"
-      "transformation_time"                               "1.5"
-      "crit_chance"                                       "40" // probably unused
-      "crit_multiplier"                                   "140" // probably unused
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "650"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "1000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "1.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "140 160 180"
+      }
     }
   }
 }

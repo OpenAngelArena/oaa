@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "2.0"
 
     // Time
@@ -31,14 +31,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"                                            "2000" // pure
-      "knockback"                                         "200"
-      "slow"                                              "-80"
-      "slow_duration"                                     "2.5"
-      "width"                                             "110"
-      "self_stun"                                         "2.5"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "2000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback"                                       "150"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_stun"                                       "2.5"
+      }
     }
   }
 }

@@ -7,39 +7,37 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_hp"                                          "0"
       "bonus_move_speed"
       {
-        "value"                                           "15 25 35 45 55 65"
+        "value"                                           "5 15 25 35 45 55 65"
         "special_bonus_unique_troll_warlord_2"            "+25"
       }
-      "bonus_armor" //OAA, Valve has var_type FIELD_INTEGER
+      "bonus_armor"
       {
-        "value"                                           "2 3 4 5 6 7"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1 2 3 4 5 6 7"
         "special_bonus_unique_troll_warlord"              "+8"
       }
       "bonus_range"                                       "350"
-      "base_attack_time"                                  "1.4" // this is probably not needed here
+      "base_attack_time"                                  "1.4"
       "ensnare_chance"                                    "20"
-      "ensnare_duration"                                  "0.8 1.2 1.6 2.0 2.1 2.2"
-      "maim_chance"                                       "20"
-      "maim_duration"                                     "0.8 1.2 1.6 2.0 2.1 2.2"
-      "maim_slow"                                         "8 16 24 32 36 40"
-      "maim_attack_slow"                                  "8 16 24 32 36 40"    //note:currently unused in code, just tooltips.
-      "maim_damage"
-      {
-        "value"                                           "5 10 15 20 40 60"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
+      "ensnare_duration"                                  "0.4 0.8 1.2 1.6 2.0 2.1 2.2"
     }
   }
 }

@@ -11,6 +11,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
+    "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -49,11 +51,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "fear_duration"                                     "0"
-      "max_level" //OAA
-      {
-        "value"                                           "6"
-        "special_bonus_facet_lycan_alpha_wolves"          "-1"
-      }
     }
   }
 }

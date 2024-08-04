@@ -57,7 +57,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
         attacker = caster,
         damage = self.damage,
         damage_type = DAMAGE_TYPE_PHYSICAL,
-        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
         ability = self:GetAbility(),
       }
 

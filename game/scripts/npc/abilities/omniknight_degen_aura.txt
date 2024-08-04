@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6" // same as Dependent ability (Guardian Angel) + 1
+    "MaxLevel"                                            "6"
     "Innate"                                              "1"
     "DependentOnAbility"                                  "omniknight_guardian_angel"
 
@@ -19,9 +19,9 @@
     "AbilityValues"
     {
       "speed_bonus"                                       "10 20 30 40 50 60"
-      "radius" //OAA
+      "radius"
       {
-        "value"                                           "360"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage_per_stack"

@@ -9,7 +9,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,16 +18,16 @@
       "duration"                                          "4.0"
       "bonus_attack_speed"
       {
-        "value"                                           "8 16 24 32 36 40"
+        "value"                                           "3 6 14 22 30 38 46"
         "special_bonus_unique_viper_6"                    "+20"
       }
       "bonus_magic_resistance"
       {
-        "value"                                           "10 15 20 25 30 35"
+        "value"                                           "5 10 15 20 25 30 35"
       }
       "damage"
       {
-        "value"                                           "8 16 24 32 64 96"
+        "value"                                           "3 6 14 22 30 60 90"
         "special_bonus_unique_viper_1"                    "+20"
       }
       "max_range"

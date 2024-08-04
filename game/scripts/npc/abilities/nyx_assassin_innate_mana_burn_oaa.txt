@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Mana Burn (Facet)
+  // Nyx Assassin: Innate Mana Burn
   //=================================================================================================================
   "nyx_assassin_innate_mana_burn_oaa"
   {
@@ -9,9 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_nyx_assassin_innate_mana_burn.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "-1"
@@ -20,8 +19,8 @@
 
     "AbilityValues"
     {
-      "mana_pct"                                          "15 18 21 24 27 30"
-      "damage_threshold"                                  "1"
+      "mana_pct"                                          "13 15 17 19 21 23"
+      "damage_threshold"                                  "100"
     }
   }
 }

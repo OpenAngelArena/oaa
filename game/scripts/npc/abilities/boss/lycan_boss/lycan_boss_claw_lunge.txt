@@ -28,12 +28,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "lunge_damage"                                      "6000" // physical
-      "lunge_width"                                       "200"
-      "lunge_speed"                                       "900"
-      "lunge_distance"                                    "1000"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lunge_damage"                                    "6000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lunge_width"                                     "200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lunge_speed"                                     "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lunge_distance"                                  "1000"
+      }
     }
   }
 }

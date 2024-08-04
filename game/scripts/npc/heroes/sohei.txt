@@ -57,26 +57,26 @@
     "Ability9"                                            "generic_hidden"
 
     "Ability10"                                           "special_bonus_strength_10"
-    "Ability11"                                           "special_bonus_unique_sohei_3_oaa"
+    "Ability11"                                           "special_bonus_sohei_dash_cast_range"
 
-    "Ability12"                                           "special_bonus_unique_sohei_7_oaa"
-    "Ability13"                                           "special_bonus_unique_sohei_2_oaa"
+    "Ability12"                                           "special_bonus_unique_sohei_7"
+    "Ability13"                                           "special_bonus_sohei_dash_slow"
 
-    "Ability14"                                           "special_bonus_unique_sohei_1_oaa"
-    "Ability15"                                           "special_bonus_unique_sohei_9_oaa"
+    "Ability14"                                           "special_bonus_sohei_stun"
+    "Ability15"                                           "special_bonus_unique_sohei_9"
 
-    "Ability16"                                           "special_bonus_unique_sohei_5_oaa"
-    "Ability17"                                           "special_bonus_unique_sohei_8_oaa"
+    "Ability16"                                           "special_bonus_unique_sohei_5"
+    "Ability17"                                           "special_bonus_unique_sohei_8"
 
-    // special_bonus_unique_sohei_1_oaa - Repulsive Palm bonus stun duration if the target collides with an obstacle
-    // special_bonus_unique_sohei_2_oaa - Dash bonus slow
-    // special_bonus_unique_sohei_3_oaa - Dash bonus max range
-    // special_bonus_unique_sohei_4_oaa - Flurry of Blows bonus AoE                           - unused
-    // special_bonus_unique_sohei_5_oaa - Momentum bonus crit damage
-    // special_bonus_unique_sohei_6_oaa - Wholeness of Body Knockback                         - unused
-    // special_bonus_unique_sohei_7_oaa - Dash bonus damage
-    // special_bonus_unique_sohei_8_oaa - Flurry of Blows bonus attacks and duration
-    // special_bonus_unique_sohei_9_oaa - Repulsive Palm bonus strength damage
+    // special_bonus_sohei_stun                             - Polarizing Palm bonus stun duration if the target collides with an obstacle
+    // special_bonus_sohei_dash_slow                        - Dash bonus slow
+    // special_bonus_sohei_dash_cast_range                  - Dash bonus max range
+    // special_bonus_sohei_fob_radius                       - Flurry of Blows bonus AoE
+    // special_bonus_unique_sohei_5                         - Momentum bonus crit damage
+    // special_bonus_sohei_wholeness_knockback              - Wholeness of Body Knockback
+    // special_bonus_unique_sohei_7                         - Dash bonus damage
+    // special_bonus_unique_sohei_8                         - Flurry of Blows bonus attacks and duration
+    // special_bonus_unique_sohei_9                         - Polarizing Palm bonus cast range
 
     "AbilityTalentStart"                                  "10"
 

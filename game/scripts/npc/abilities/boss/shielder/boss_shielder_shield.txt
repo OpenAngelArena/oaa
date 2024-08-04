@@ -14,12 +14,26 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_reduction_pct"                              "100" // damage reduction when damaged from the front
-      "shield_width"                                      "0.5 -0.173 -0.766" // In terms of cosine
-      "damage_return_pct"                                 "20" // damage return when damaged from the front
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction_pct"                            "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shield_width"                                    "0.5 -0.173 -0.766" // In terms of cosine
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_return_pct"                               "20"
+      }
     }
     // Precache
     //-------------------------------------------------------------------------------------------------------------

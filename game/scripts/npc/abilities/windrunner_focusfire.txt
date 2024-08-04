@@ -31,19 +31,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityDuration" //OAA
+      "AbilityDuration"               
       {
         "value"                                           "20.0"
-        "special_bonus_facet_windrunner_whirlwind"        "=10.0"
+        "special_bonus_facet_windrunner_whirlwind"        "=8.0"          
       }
       "bonus_attack_speed"
       {
         "value"                                           "350 425 500 575 650"
-        "special_bonus_facet_windrunner_whirlwind"        "=0"
+        "special_bonus_facet_windrunner_whirlwind"        "=0"             
       }
       "attacks_per_second"
       {
-        "special_bonus_facet_windrunner_whirlwind"        "7 9 11 13 15"
+        "special_bonus_facet_windrunner_whirlwind"        "7 9 11 12 13"
       }
       "focusfire_damage_reduction"
       {
@@ -64,19 +64,14 @@
       {
         "value"                                           "0"
         "special_bonus_unique_windranger_2"               "+2"
-        "RequiresFacet"                                   "windrunner_whirlwind"
+        "RequiresFacet"                                   "windrunner_whirlwind"  
       }
       "cooldown_reduction_per_kill"
       {
         "value"                                           "0"
         "special_bonus_unique_windranger_2"               "+18"
-        "RequiresFacet"                                   "windrunner_focusfire"
-      }
-      "bonus_range"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_windrunner_whirlwind"        "+150"
-      }
+        "RequiresFacet"                                   "windrunner_tailwind"   
+      }  
       "unfocused_cancel_initial_cooldown"                 "0.5"
     }
   }

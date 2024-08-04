@@ -47,7 +47,7 @@
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@
       "bonus_strength"                                    "20 30 45 65 90"
       "disarm_range"                                      "4.0 4.5 5.0 5.5 6.0"
       "disarm_melee"                                      "3.0 3.25 3.5 3.75 4.0"
-      "slow_resistance"                                   "25 27 29 31 33"
+      "slow_resistance"                                   "20 22 24 26 28"
       "hp_regen_amp"                                      "25 27 29 31 33"
       "cooldown_tooltip"                                  "18 17 16 15 14"
     }

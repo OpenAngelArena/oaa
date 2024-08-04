@@ -20,9 +20,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_per_point_difference"                       "110"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_point_difference"                     "110"
+      }
     }
   }
 }

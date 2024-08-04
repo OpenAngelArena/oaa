@@ -25,17 +25,53 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "proc_delay"                                        "1.25"
-      "projectile_speed"                                  "700"
-      "impact_radius"                                     "275"
-      "impact_damage"                                     "1700" // magical
-      "blob_duration"                                     "3.0" // blob is just a visual effect
-      "slow_duration"                                     "2.5"
-      "move_speed_slow"                                   "-40"
-      "damage_threshold"                                  "50"
-      "max_scale"                                         "110" // Boss reduces in size as he loses hp
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "proc_delay"                                      "1.25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_radius"                                   "275"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_damage"                                   "1700"
+      }
+      "05" // blob is just a visual effect
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blob_duration"                                   "3.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow"                                 "-40"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_threshold"                                "50"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_scale"                                       "110"
+      }
     }
   }
 }

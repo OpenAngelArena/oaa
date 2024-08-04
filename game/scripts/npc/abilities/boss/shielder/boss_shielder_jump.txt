@@ -17,7 +17,7 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCastRange"                                    "450"
+    "AbilityCastRange"                                    "500"
 
     "AbilityCooldown"                                     "10"
 
@@ -25,16 +25,48 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"                                            "3000" // physical
-      "attack_damage_reduction"                           "40"
-      "proc_chance"                                       "17"
-      "debuff_duration"                                   "5.0"
-      "radius"                                            "450"
-      "jump_duration"                                     "0.4"
-      "jump_height"                                       "250"
-      "jump_horizontal_distance"                          "0"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "1250"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_damage_reduction"                         "40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "proc_chance"                                     "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "8.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_duration"                                   "0.4"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_height"                                     "250"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_horizontal_distance"                        "0"
+      }
     }
   }
 }

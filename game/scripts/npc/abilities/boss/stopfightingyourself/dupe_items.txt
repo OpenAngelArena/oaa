@@ -13,9 +13,13 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "cooldown"                                          "5"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown"                                        "5"
+      }
     }
   }
 }

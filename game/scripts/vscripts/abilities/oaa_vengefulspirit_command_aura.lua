@@ -165,6 +165,15 @@ function modifier_vengefulspirit_command_aura_oaa_damage_buff:DeclareFunctions()
 end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:GetModifierBaseDamageOutgoing_Percentage()
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
+    -- Talent that increases bonus damage
+    local talent = caster:FindAbilityByName("special_bonus_unique_vengeful_spirit_2")
+    if talent and talent:GetLevel() > 0 then
+      return self.damage + math.abs(talent:GetSpecialValueFor("value"))
+    end
+  end
+
   return self.damage
 end
 

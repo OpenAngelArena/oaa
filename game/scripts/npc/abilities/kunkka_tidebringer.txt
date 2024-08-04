@@ -1,22 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kunkka: Tidebringer (Innate)
+  // Kunkka: Tidebringer
   //=================================================================================================================
   "kunkka_tidebringer"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_BREAK_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
+    "MaxLevel"                                            "7"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-
-    // Casting
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
@@ -32,17 +30,17 @@
       }
       "cleave_ending_width"
       {
-        "value"                                           "500 550 600 650 700 750"
+        "value"                                           "450 500 550 600 650 700 750"
         "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance"
       {
-        "value"                                           "650 800 950 1100 1250 1400"
+        "value"                                           "500 650 800 950 1100 1250 1400"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_bonus"
       {
-        "value"                                           "30 60 90 120 360 600"
+        "value"                                           "10 30 60 90 120 360 600"
         "special_bonus_unique_kunkka_2"                   "+60"
       }
       "cleave_damage" //OAA
@@ -62,7 +60,7 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "13.0 10.0 7.0 4.0 3.0 2.0"
+        "value"                                           "16.0 13.0 10.0 7.0 4.0 3.0 2.0"
       }
       "cooldown_reduction_per_hero_hit"
       {

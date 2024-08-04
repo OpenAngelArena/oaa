@@ -46,7 +46,7 @@
       "attack_slow"                                       "50 65 80 95 110"
       "speed_update_interval"                             "0.5"
       "bounces"                                           "0 0 1 2 3" // original: 0/1/2
-      "bounce_range" // original: 500 or 700
+      "bounce_range" // original: 500
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
@@ -60,6 +60,11 @@
       {
         "value"                                           "400 600 800 1000 1200"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "RequiresScepter"                                 "1"
+      }
+      "mana_cost_scepter"
+      {
+        "value"                                           "25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
     }

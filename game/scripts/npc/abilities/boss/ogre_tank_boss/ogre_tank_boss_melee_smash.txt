@@ -17,9 +17,9 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
-    "AnimationPlaybackRate"                               "1.0"
+    "AbilityCastRange"                                    "500" // regular version: 500
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"   // Activity
+    "AnimationPlaybackRate"                               "1.0"                       // Animation speed multiplier
     "AnimationIgnoresModelScale"                          "1"
 
     // Time
@@ -32,12 +32,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "impact_radius"                                     "200"
-      "stun_duration"                                     "1.2" // regular version: 1.0
-      "damage"                                            "3500" // physical
-      "base_swing_speed"                                  "1.0"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_radius"                                   "200" // regular version: 200
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.2" // regular version: 1.0
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "3500" // regular version: 750
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_swing_speed"                                "1.0"
+      }
     }
 
     "precache"

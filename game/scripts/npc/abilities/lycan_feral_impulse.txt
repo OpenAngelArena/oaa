@@ -9,21 +9,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+    "MaxLevel"                                            "6"
+
     "AbilityValues"
     {
-      "bonus_damage" //OAA
+      "bonus_damage"
       {
         "value"                                           "10 20 30 40 50 60"
-        "special_bonus_unique_lycan_4"                    "+20"
+        "special_bonus_unique_lycan_4"                    "+25"
       }
       "bonus_hp_regen" //OAA
       {
         "value"                                           "2 6 10 14 22 34"
-      }
-      "max_level" //OAA
-      {
-        "value"                                           "6"
-        "special_bonus_facet_lycan_alpha_wolves"          "-1"
       }
     }
   }

@@ -173,17 +173,13 @@ function modifier_item_dragon_scale_oaa_debuff:OnIntervalThink()
   local ability = self:GetAbility()
   local caster = self:GetCaster()
   if caster and not caster:IsNull() then
-    local new_damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-    if self.damage_type == DAMAGE_TYPE_PHYSICAL then
-      new_damage_flags = bit.bor(new_damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK)
-    end
     -- Create a damage table
     local damage_table = {
       attacker = caster,
       victim = parent,
       damage = self.damage_per_interval,
       damage_type = self.damage_type,
-      damage_flags = new_damage_flags,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }
 

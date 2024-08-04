@@ -71,10 +71,7 @@ local abilities_with_custom_talents = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
   },
   keeper_of_the_light_illuminate = {
-    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
-  },
-  life_stealer_open_wounds = {
-    AbilityCooldown = {"special_bonus_unique_lifestealer_1_oaa", "+"},
+    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "+"},
   },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
@@ -82,18 +79,15 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
-  muerta_dead_shot = {
-    impact_slow_duration = {"special_bonus_unique_muerta_1_oaa", "+"},
-  },
-  muerta_pierce_the_veil = {
-    AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
-  },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
   sandking_epicenter = {
     AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},
+  },
+  silencer_last_word = {
+    damage = {"special_bonus_unique_silencer_2_oaa", "+"},
   },
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
@@ -109,14 +103,8 @@ local abilities_with_custom_talents = {
     illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
     tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
   },
-  storm_spirit_electric_vortex = {
-    AbilityCooldown = {"special_bonus_unique_storm_spirit_2_oaa", "+"},
-  },
   storm_spirit_overload = {
     overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},
-  },
-  techies_sticky_bomb = {
-    damage = {"special_bonus_unique_techies_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},
@@ -126,6 +114,7 @@ local abilities_with_custom_talents = {
   },
   wisp_overcharge = {
     bonus_spell_amp = {"special_bonus_unique_wisp_1_oaa", "+"},
+    bonus_armor = {"special_bonus_unique_wisp_2_oaa", "+"},
   },
   zuus_thundergods_wrath = {
     AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},

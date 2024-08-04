@@ -12,11 +12,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -33,15 +35,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "impact_damage"                                     "1000"
-      "impact_slow_rate"                                  "-40"
-      "impact_slow_duration"                              "3.0"
-      "explode_time"                                      "5.0"
-      "spiders_count"                                     "3"
-      "projectile_speed"                                  "0.03" // distance traveled during 0.03 seconds (1 second travel time)
-      "projectile_height"                                 "300"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_damage"                                   "800"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "impact_slow_rate"                                "-40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "impact_slow_duration"                            "4.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "explode_time"                                    "5.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiders_count"                                   "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_speed"                                "0.03"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_height"                               "300"
+      }
     }
 
     "precache"

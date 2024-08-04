@@ -444,7 +444,7 @@ if IsServer() then
 
       --if parent:HasScepter() and target:IsMagicImmune() then
         --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
-        --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
+        --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
       --end
 
       -- Sound

@@ -42,13 +42,13 @@
       "damage_per_stack"
       {
         "value"                                           "5 10 15 20 40 60"
-        "special_bonus_unique_batrider_4"                 "+10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4_oaa"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
       {
         "value"                                           "375"
-        "special_bonus_unique_batrider_7"                 "+50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7_oaa"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "6"

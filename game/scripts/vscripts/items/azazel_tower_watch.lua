@@ -32,7 +32,7 @@ function item_azazel_tower_watch_1:OnSpellStart()
   building:AddNewModifier(building, self, "modifier_building_construction", {})
   building:AddNewModifier(building, self, "modifier_building_hide_on_minimap", {})
 
-  self:SpendCharge(0.1)
+  self:SpendCharge()
 end
 
 -- upgrades

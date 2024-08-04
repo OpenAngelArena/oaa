@@ -13,9 +13,13 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_threshold"                                  "200"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_threshold"                                "200"
+      }
     }
   }
 }

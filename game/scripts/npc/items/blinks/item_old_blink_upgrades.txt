@@ -59,11 +59,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "blink_range"                                       "1200 1400 1600 1800 2000"
-      "blink_damage_cooldown"                             "3.0 2.5 2.0 1.5 1.0"
-      "blink_range_clamp"                                 "960 1160 1360 1560 1760"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range"                                     "1200 1400 1600 1800 2000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blink_damage_cooldown"                           "3.0 2.5 2.0 1.5 1.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range_clamp"                               "960 1160 1360 1560 1760"
+      }
     }
   }
 }

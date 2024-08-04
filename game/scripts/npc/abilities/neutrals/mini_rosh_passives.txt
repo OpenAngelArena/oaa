@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Unit Name: Mini Rosh Passives - Spell Block + armor aura
+  // Unit Name: Mini Rosh Passives - Spell Block, Free Pathing, True Sight, Status Resistance
   //=================================================================================================================
   "mini_rosh_passives"
   {
@@ -10,21 +10,29 @@
     "AbilityTextureName"                                  "roshan_spell_block"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
-    "AbilityCooldown"                                     "15" // spell block cooldown
+    "AbilityCooldown"                                     "15"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "aura_bonus_armor"                                  "5"
-      "aura_radius"
+      "01"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resistance"                         "50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_bonus_armor"                                "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Curse of Avernus
+  // Abaddon: Frostmourne
   //=================================================================================================================
   "abaddon_frostmourne"
   {
@@ -12,8 +12,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "Innate"                                              "1"
+
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,19 +28,19 @@
         "value"                                           "1"
       }
       "curse_duration"                                    "2.0"
-      "curse_slow"
+      "curse_slow" //OAA
       {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_unique_abaddon_6"                  "+15"
+        "value"                                           "5 10 15 20 25 30 35"
+        "special_bonus_unique_abaddon_6"                  "+10"
       }
-      "curse_attack_speed"
+      "curse_attack_speed" //OAA
       {
-        "value"                                           "10 20 30 40 50 60"
+        "value"                                           "0 10 20 30 40 50 60"
         "special_bonus_unique_abaddon_3"                  "+80"
       }
-      "curse_dps"
+      "curse_dps" //OAA
       {
-        "value"                                           "10 20 30 40 80 160"
+        "value"                                           "10 20 30 40 50 100 200"
         "special_bonus_unique_abaddon_5"                  "+50"
       }
       "tower_dps_pct"                                     "70"

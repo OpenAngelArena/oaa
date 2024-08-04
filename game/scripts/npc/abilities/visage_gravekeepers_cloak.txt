@@ -9,28 +9,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
 
     "AbilityValues"
     {
-      "max_layers"
+      "max_layers" //OAA
       {
         "value"                                           "4"
-        //"special_bonus_unique_visage_oaa_6"               "+4"
+        "special_bonus_unique_visage_oaa_6"               "+4"
       }
       "damage_reduction"
       {
-        "value"                                           "8 12 16 20 24 28"
+        "value"                                           "4 8 12 16 20 24 28"
       }
       "recovery_time" //OAA
       {
-        "value"                                           "7 6 5 4 3 3"
+        "value"                                           "7 6 5 4 3 3 3"
         "special_bonus_unique_visage_oaa_5"               "-1.5"
       }
       "minimum_damage" //OAA
       {
-        "value"                                           "40 50 60 70 90 130"
+        "value"                                           "40 40 50 60 70 90 130"
         "special_bonus_unique_visage_oaa_1"               "+70"
       }
       "radius"

@@ -37,13 +37,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "attack_speed"                                      "700" // projectile speed
-      "attack_width_initial"                              "110" // collision radius at projectile launch
-      "attack_width_end"                                  "110" // collision radius when projectile is about to expire
-      "attack_distance"                                   "1500" // projectile max travel distance
-      "damage_impact"                                     "2500" // magical
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "700"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_width_initial"                            "110"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_width_end"                                "110"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_distance"                                 "1500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_impact"                                   "2500"
+      }
     }
   }
 }

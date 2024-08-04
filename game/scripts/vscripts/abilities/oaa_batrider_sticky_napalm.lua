@@ -18,13 +18,27 @@ function batrider_sticky_napalm_oaa:GetIntrinsicModifierName()
 end
 
 function batrider_sticky_napalm_oaa:GetAOERadius()
-  return self:GetSpecialValueFor("radius")
+  local radius = self:GetSpecialValueFor("radius")
+
+  -- Check for Sticky Napalm bonus radius talent
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_batrider_7_oaa")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
+  end
+
+  return radius
 end
 
 function batrider_sticky_napalm_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
   local radius = self:GetSpecialValueFor("radius")
+
+  -- Check for Sticky Napalm bonus radius talent
+  local talent = caster:FindAbilityByName("special_bonus_unique_batrider_7_oaa")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
+  end
 
   -- Sounds
   caster:EmitSound("Hero_Batrider.StickyNapalm.Cast")
@@ -117,6 +131,12 @@ function ApplyStickyNapalmDamage(count, ability, caster, target)
   end
 
   local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
+
+  -- Check for Sticky Napalm bonus damage talent
+  local talent = caster:FindAbilityByName("special_bonus_unique_batrider_4_oaa")
+  if talent and talent:GetLevel() > 0 then
+    bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
+  end
 
   local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
   local damage_ancients = ability:GetSpecialValueFor("damage_ancients")

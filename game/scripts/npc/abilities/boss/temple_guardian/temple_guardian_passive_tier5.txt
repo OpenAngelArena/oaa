@@ -10,14 +10,19 @@
 
     "AbilityTextureName"                                  "silencer_last_word"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "movement_speed"                                    "420"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "420"
+      }
     }
   }
 }

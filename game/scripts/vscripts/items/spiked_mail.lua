@@ -156,7 +156,7 @@ if IsServer() then
 
     local damaging_ability = event.inflictor
     local damage_type = event.damage_type
-    local return_damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    local return_damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
 
     -- Interaction with Debuff Immunity
     if attacker:IsDebuffImmune() then
@@ -205,7 +205,7 @@ if IsServer() then
         end
       end
 
-      return_damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+      return_damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
     end
 
     -- Interaction with Spell Immunity
@@ -234,10 +234,6 @@ if IsServer() then
           new_damage = new_damage / (1 + damage_amp/100)
         end
       end
-    end
-
-    if damage_type == DAMAGE_TYPE_PHYSICAL then
-      return_damage_flags = bit.bor(return_damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK)
     end
 
     local damage_table = {
@@ -463,17 +459,12 @@ if IsServer() then
       end
     end
 
-    local return_damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-    if damage_type == DAMAGE_TYPE_PHYSICAL then
-      return_damage_flags = bit.bor(return_damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK)
-    end
-
     local damage_table = {
       attacker = parent,
       victim = attacker,
       damage = new_damage,
       damage_type = damage_type, -- Same damage type as original damage
-      damage_flags = return_damage_flags,
+      damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }
 

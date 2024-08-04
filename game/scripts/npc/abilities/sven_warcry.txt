@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
+    "AbilityCooldown"                                     "23 22 21 20 18 16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,12 +33,11 @@
       "movespeed"
       {
         "value"                                           "10 14 18 22 26 30"
-        "special_bonus_shard"                             "+3"
       }
       "bonus_armor"
       {
-        "value"                                           "6 8 10 12 14 16"
-        "special_bonus_unique_sven_7"                     "+8"
+        "value"                                           "6 9 12 15 18 21"
+        "special_bonus_unique_sven_7"                     "+10"
       }
       "radius"
       {
@@ -57,7 +56,7 @@
       }
       "shard_passive_movespeed"
       {
-        "value"                                           "0"
+        "value"                                           "3"
         "RequiresShard"                                   "1"
       }
       "shard_radius"
@@ -69,7 +68,7 @@
       "base_barrier_amount" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_sven_heavy_plate"            "=100 =175 =250 =325 =650 =975"
+        "special_bonus_facet_sven_heavy_plate"            "=100 =150 =200 =250 =500 =1000"
         "RequiresFacet"                                   "sven_heavy_plate"
       }
       "barrier_per_strength"

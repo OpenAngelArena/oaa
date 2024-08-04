@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -70,7 +70,7 @@
       "creep_agility_multiplier"
       {
         "value"                                           "1"
-        "special_bonus_facet_riki_exterminator"           "=4.5"
+        "special_bonus_facet_riki_exterminator"           "=4"
       }
     }
   }

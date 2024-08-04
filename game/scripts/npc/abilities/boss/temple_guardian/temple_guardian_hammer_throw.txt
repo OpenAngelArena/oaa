@@ -8,10 +8,12 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_hammer_throw.lua"
     "AbilityTextureName"                                  "sven_storm_bolt"
+
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" // it's actually pure
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -34,12 +36,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"                                            "200"
-      "throw_duration"                                    "2.3"
-      "stun_duration"                                     "2.0"
-      "hammer_damage"                                     "2000" // pure
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "throw_duration"                                  "2.3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hammer_damage"                                   "2000"
+      }
     }
 
     "precache"

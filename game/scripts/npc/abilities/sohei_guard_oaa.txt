@@ -40,11 +40,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "charges_required"                                  "2"
-      "guard_duration"                                    "2.0"
-      "knockback_speed"                                   "1200"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charges_required"                                "2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "guard_duration"                                  "2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_speed"                                 "1200"
+      }
     }
   }
 }

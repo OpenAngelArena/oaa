@@ -5,7 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85 80 75 70 65"
+    "AbilityCooldown"                                     "85 80 75 70 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "damage_reduction"                                  "100 100 100 90 80"
-      "damage_amplification"                              "10" //OAA
+      "damage_amplification"                              "30"
       "bonus_attack_speed"
       {
         "value"                                           "65"

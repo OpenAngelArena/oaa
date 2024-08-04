@@ -39,7 +39,7 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "movespeed_bonus"                                   "15" // If changing this, update value in x marks for variant 1
+      "movespeed_bonus"                                   "15 20 25 30 35" //OAA, If changing this, update value in x marks for variant 1
       "buff_duration"                                     "10"
       "stun_duration"                                     "1.2"
       "ghostship_speed"                                   "650"
@@ -52,47 +52,6 @@
       {
         "value"                                           "65 60 55 50 45"
       }
-      "fleet_interval"
-      {
-        "special_bonus_scepter"                           "2.5"
-      }
-      "fleet_count"
-      {
-        "special_bonus_scepter"                           "2"
-      }
-      "fire_cannons"
-      {
-        "special_bonus_scepter"                           "1"
-      }
-      "cannon_ball_damage_pct"
-      {
-        "special_bonus_scepter"                           "40"
-      }
-      "cannon_ball_distance"
-      {
-        "special_bonus_scepter"                           "1200"
-      }
-      "cannon_ball_speed"
-      {
-        "special_bonus_scepter"                           "1400"
-      }
-      "cannon_count"
-      {
-        "special_bonus_scepter"                           "4"
-      }
-      "cannon_ball_radius"
-      {
-        "special_bonus_scepter"                           "100"
-      }
-      "num_cannon_volleys"                                "3"
-      "cannon_fire_interval"
-      {
-        "special_bonus_scepter"                           "0.78"
-      }
-      "base_cannon_rotation"                              "20"
-      "rotation_per_cannon"                               "12"
-      "initial_cannon_offset"                             "-150"
-      "distance_between_cannons"                          "75"
     }
   }
 }

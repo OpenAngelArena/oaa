@@ -30,11 +30,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"                                      "40"
-      "bonus_attack_range_melee"                          "100"
-      "active_lifesteal_percent"                          "250"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range_melee"                        "100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_lifesteal_percent"                        "250"
+      }
     }
 
     "precache"

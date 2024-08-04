@@ -7,14 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_BREAK_DISABLES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "7"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
+    "AbilityCooldown"                                     "16 13 10 7 4 4 4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,13 +23,13 @@
       "min_distance"                                      "275"
       "max_distance"
       {
-        "value"                                           "600 675 750 825 900 975"
+        "value"                                           "525 600 675 750 825 900 975"
         "special_bonus_unique_phantom_lancer"             "+300"
       }
       "bonus_speed"                                       "800"
       "bonus_agility" //OAA, Valve forgot '+' on special_bonus_unique_phantom_lancer_phantom_rush_agility
       {
-        "value"                                           "10 20 30 40 60 90"
+        "value"                                           "5 10 20 30 40 60 90"
         "special_bonus_unique_phantom_lancer_phantom_rush_agility"  "+10"
       }
       "agility_duration"
