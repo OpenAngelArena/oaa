@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 135 145 155 165 175"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,20 +36,23 @@
       "strike_damage" //OAA
       {
         "value"                                           "30 70 110 150 300 600"
-        "special_bonus_scepter"                           "+60"
+        "special_bonus_scepter"                           "+50"
       }
       "duration_damage"                                   "20 40 60 80 160 320"
       "movement_slow"                                     "-35 -45 -55 -65 -70 -75" //OAA
       "projectile_speed"                                  "900"
+      "attack_speed"  
+      {
+        "special_bonus_unique_queen_of_pain_1"            "+35"
+      }
       "damage_interval"
       {
         "value"                                           "3.0"
-        "special_bonus_unique_queen_of_pain_4"            "-0.7"
+        "special_bonus_unique_queen_of_pain_4"            "-1"
       }
       "duration_heal"   
       {
-        "value"                                           "10 20 30 40 80 160"
-        "special_bonus_unique_queen_of_pain_strike_heal"  "+10"
+        "value"                                           "0"
       }
       "generate_scream"
       {
@@ -62,7 +65,7 @@
         "special_bonus_scepter"                           "+375"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "15"
+      "duration"                                          "16"
     }
   }
 }

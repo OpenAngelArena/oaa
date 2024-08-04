@@ -59,9 +59,21 @@
       "cleave_damage_percent_creep"                       "30"
       "quelling_bonus"                                    "8" // like Quelling Blade
       "quelling_bonus_ranged"                             "4" // like Quelling Blade
-      "cleave_starting_width"                             "150"
-      "cleave_ending_width"                               "360"
-      "cleave_distance"                                   "650"
+      "cleave_starting_width"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_ending_width"
+      {
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_distance"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "upgraded_cleave_bonus"                             "0"
       "upgraded_damage_bonus"                             "0"
     }

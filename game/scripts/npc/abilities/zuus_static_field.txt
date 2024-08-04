@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+  "zuus_static_field"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Thundergod's Wrath) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "zuus_thundergods_wrath"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_health_pct" // current hp pct
+      {
+        "value"                                           "2.5 3.0 3.5 4.0 4.5 5.0"
+        "special_bonus_facet_zuus_livewire"               "=0"
+      }
+      "damage_health_pct_max_close"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_zuus_livewire"               "=4 =5 =6 =7 =7 =7"
+      }
+      "damage_health_pct_min_close"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_zuus_livewire"               "2"
+      }
+      "distance_threshold_min"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_zuus_livewire"               "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "distance_threshold_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_zuus_livewire"               "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

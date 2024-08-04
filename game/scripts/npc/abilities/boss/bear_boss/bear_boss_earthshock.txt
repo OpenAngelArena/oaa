@@ -29,33 +29,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow"                                 "-50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-350"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "3.5"
-      }
+      "radius"                                            "450"
+      "damage"                                            "6000" // physical
+      "move_speed_slow"                                   "-50"
+      "attack_speed_slow"                                 "-350"
+      "slow_duration"                                     "3.5"
     }
   }
 }

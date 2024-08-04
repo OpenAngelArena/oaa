@@ -21,10 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "55 65 75 85 95 105"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -46,6 +42,34 @@
       }
       "illusion_incoming_damage"                          "180 160 140 120 80 40" //OAA
       "illusion_incoming_damage_total_tooltip"            "280 260 240 220 180 140" //OAA
+      "strong_illusion"
+      {
+        "value"                                           "0"
+      }
+      "show_particle_effect"
+      {
+        "value"                                           "1"
+      }
+      "appear_as_illusion"
+      {
+        "value"                                           "1"
+      }
+      "hp_cost_perc"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_terrorblade_soul_fragment"   "=15"
+        "RequiresFacet"                                   "terrorblade_soul_fragment"
+      }
+      "illusions_spawn_with_full_hp"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_terrorblade_soul_fragment"   "+1"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "55 65 75 85 95 105"
+        "special_bonus_facet_terrorblade_soul_fragment"   "-100%"
+      }
     }
   }
 }

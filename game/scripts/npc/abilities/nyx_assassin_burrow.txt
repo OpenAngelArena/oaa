@@ -25,12 +25,11 @@
       "health_regen_rate"                                 "1"
       "mana_regen_rate"                                   "1"
       "damage_reduction"                                  "40"
-      "impale_bonus_cast_range"                           "525"
-      "jolt_bonus_cast_range"                             "400"
-      "impale_cooldown_reduction"                         "5" //OAA
+      "cast_range"                                        "500"
+      "cooldown_reduction"                                "25"
       "carapace_radius"
       {
-        "value"                                           "300"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
     }

@@ -37,7 +37,22 @@
       "strength_damage"
       {
         "value"                                           "60 90 120 150 180 210"
-        "special_bonus_unique_centaur_4"                  "+35"
+        "special_bonus_unique_centaur_4"                  "+30"
+      }
+      "stack_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_centaur_counter_strike"      "=6"
+      }
+      "pct_of_incoming_damage_as_bonus"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_centaur_counter_strike"      "=25"
+      }
+      "max_damage_increase_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_centaur_counter_strike"      "=100"
       }
       "radius"
       {
@@ -46,7 +61,7 @@
       }
       "shard_str_pct"
       {
-        "special_bonus_shard"                             "+15"
+        "special_bonus_shard"                             "+12"
       }
       "shard_str_duration"
       {

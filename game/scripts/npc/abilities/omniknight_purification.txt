@@ -10,6 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
 
@@ -20,10 +21,6 @@
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "80 95 110 125 140 155"
@@ -32,18 +29,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal"
+      "heal" //OAA
       {
         "value"                                           "90 160 230 300 600 900"
-        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_unique_omniknight_1"               "+300"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_omniknight_6"               "-3"
       }
       "radius"
       {
         "value"                                           "260"
-        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_4"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_omniknight_4"               "+80"
+      }
+      "recast_delay"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+3.0"
+      }
+      "recast_effectiveness_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+75"       // No tooltip value for this yet because it's set to 100%
       }
     }
   }

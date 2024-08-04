@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1200" //OAA, Valve has it wrong
     "AbilityCastPoint"                                    "0.65"
 
     // Damage.
@@ -33,10 +33,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "path_delay"                                        "0.5"
+      "path_delay"                                        "0.2"
       "stun_duration"
       {
-        "value"                                           "1.25 1.50 1.75 2.0 2.1 2.2"
+        "value"                                           "1.25 1.50 1.75 2.0 2.25 2.5"
         "special_bonus_unique_jakiro"                     "+0.4"
       }
       "path_duration" //OAA
@@ -57,7 +57,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 13 11 9 9 9"
-        "special_bonus_unique_jakiro_6"                   "-2.5"
+        "special_bonus_unique_jakiro_6"                   "-1.5"
       }
     }
   }

@@ -61,67 +61,67 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_charge_bkb;item_charge_bkb_2;item_charge_bkb_3;item_charge_bkb_4"
-    "AbilitySpecial"
+    "AbilityValues"
     {
       //Wand Stats:
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "max_charges"                                     "99"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "charge_radius"                                   "1200"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_strength"                                  "20 30 40 55"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_agility"                                   "0"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_intellect"                                 "0"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "bonus_damage"                                    "48 72 96 120"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "restore_per_charge"                              "0"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "duration"                                        "0.1"    //RamonNZ: This needs to be left as a placeholder and kept low. This duration key is overwritten based on number of charges, but the lua script doesn't seem to be able to lessen the duration if we make it high.
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "charge_decay_time"                               "10"    //RamonNZ: New KV - Each added charge will decay at this time interval.
       }
       "10"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "immunity_time_per_charge"                        "1"
       }
       "11"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "cooldown_time_per_charge"                        "5"
       }
       "12"
       {
-        "var_type"                                        "FIELD_INTEGER"
+
         "model_scale"                                     "34 38 42 45"     // Percentage over model scale
       }
     }

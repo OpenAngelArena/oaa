@@ -10,10 +10,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -29,14 +31,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    // I USED >100% HEALTH CONVERSION TO MANA. HOPE IT DOESNT BREAK. :)
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_conversion"                               "55 70 85 100 130 175"
-      }
+      "health_conversion"                                 "55 70 85 100 130 175"
     }
   }
 }

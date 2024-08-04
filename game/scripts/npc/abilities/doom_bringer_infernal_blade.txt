@@ -18,8 +18,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13 10 7 4 4 4"
     "AbilityManaCost"                                     "40 50 60 70 80 90" //OAA
     "AbilityCastRange"                                    "200"
@@ -27,45 +25,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "burn_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "20 30 40 50 100 200"
+        "value"                                           "20 30 40 50 100 200"
       }
-      "02"
+      "burn_damage_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_damage_pct"                                 "1 2 3 4 5 6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_1"
+        "value"                                           "1 2 3 4 4.5 5"
+        "special_bonus_unique_doom_1"                     "+2.5"
       }
-      "03"
+      "burn_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_duration"                                   "4.0"
+        "value"                                           "4"
       }
-      "04"
+      "ministun_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration"                               "0.6"
+        "value"                                           "0.6"
       }
-      "05" // unused
+      "shard_ministun_duration" // unused
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_ministun_duration"                         "1.0"
+        "value"                                           "1"
         "RequiresShard"                                   "1"
       }
-      "06" // unused
+      "shard_bonus_stun_duration" // unused
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_bonus_stun_duration"                       "1.45"
+        "value"                                           "1.45"
         "RequiresShard"                                   "1"
       }
-      "07" // unused
+      "shard_bonus_damage" // unused
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_damage"                              "125"
+        "value"                                           "125"
         "RequiresShard"                                   "1"
       }
     }

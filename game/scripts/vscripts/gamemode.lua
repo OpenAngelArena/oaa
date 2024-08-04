@@ -33,8 +33,6 @@ require('libraries/math')
 require('libraries/chatcommand')
 -- extension functions to PlayerResource
 require('libraries/playerresource')
--- Extensions to CDOTA_BaseNPC
-require('libraries/basenpc')
 -- Extensions to CDOTA_BaseNPC_Hero
 require('libraries/basehero')
 -- Pseudo-random distribution C constant calculator

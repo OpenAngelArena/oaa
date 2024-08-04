@@ -31,24 +31,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "health_cost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_cost"                                     "3"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                           "4"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=0"
       }
-      "02"
+      "max_health_cost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "5 10 15 20 40 60"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_2"
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=4"
       }
-      "03"
+      "burn_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "9"
+        "value"                                           "5 10 15 20 40 80"
+        "special_bonus_unique_huskar_2"                   "+5"
+      }
+      "burn_damage_max_pct"                   
+      {
+        "value"                                           "0"
+        "special_bonus_facet_huskar_nothl_conflagration"  "+1.0"
+      }
+      "duration"
+      {
+        "value"                                           "9"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=0"
+        "special_bonus_unique_huskar_5"                   "+6"
+      }
+      // having a separate value here instead of doing +67% burning spears duration for level 25 talent
+      "duration_for_nothl_conflagration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=6"
+        "special_bonus_unique_huskar_5"                   "+4"
+        "RequiresFacet"                                   "huskar_nothl_conflagration"
       }
     }
   }

@@ -23,7 +23,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13 10 7 4 4 4"
-    "AbilityDuration"                                     "40" //OAA, same as decay_duration, Valve has it wrong
+    "AbilityDuration"                                     "35" //OAA, same as decay_duration, Valve has it wrong
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,12 +40,12 @@
       }
       "str_steal" //OAA
       {
-        "value"                                           "3 4 5 6 8 10"
+        "value"                                           "3 4 5 6 8 10" // equivalent to 60/80/100/120/160/200 pure damage
         "special_bonus_scepter"                           "+4"
       }
       "decay_duration"
       {
-        "value"                                           "40"
+        "value"                                           "35"
       }
       "radius"
       {

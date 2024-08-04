@@ -3,23 +3,12 @@
   //=================================================================================================================
   // Dash talent: Increases damage
   //=================================================================================================================
-  "special_bonus_unique_sohei_7"
+  "special_bonus_unique_sohei_7_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "75"
-      }
-    }
   }
 }

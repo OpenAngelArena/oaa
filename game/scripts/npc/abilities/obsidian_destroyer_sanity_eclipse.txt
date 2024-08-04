@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 325 450 575 700"
+    "AbilityManaCost"                                     "200 300 400 500 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,13 +39,25 @@
       "damage_multiplier"
       {
         "value"                                           "0.4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "special_bonus_unique_outworld_devourer_4"        "+0.2"
       }
       "illusion_bonus_damage"                             "200"
-      "debuff_duration"                                   "7"
-      "percentage_damage"                                 "0"
-      "percentage_heal"                                   "150"
+      "debuff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+7"                    
+      }
+      "percentage_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"                 
+      }  
+      "percentage_heal"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"                  
+      }  
     }
   }
 }

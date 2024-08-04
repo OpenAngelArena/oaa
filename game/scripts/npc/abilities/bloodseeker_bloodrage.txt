@@ -10,6 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Valve has it wrong (SPELL_IMMUNITY_ENEMIES_YES doesn't make sense if you can target only allies)
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -46,16 +47,16 @@
       "spell_amp"
       {
         "value"                                           "15 20 25 30 35 40"
-        "special_bonus_unique_bloodseeker_6"              "+10"
+        "special_bonus_unique_bloodseeker_6"              "+15"
       }
       "damage_pct"
       {
-        "value"                                           "1.5"
+        "value"                                           "1.4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "shard_max_health_dmg" //OAA
       {
-        "value"                                           "15 20 25 30 60 90"
+        "value"                                           "20 25 30 35 45 55"
         "RequiresShard"                                   "1"
       }
     }

@@ -44,7 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "13"
+    "AbilityCooldown"                                     "14"
     "AbilitySharedCooldown"                               "ethereal"
     "AbilityCastRange"                                    "1200"
 
@@ -56,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9277"
+    "ItemCost"                                            "9177"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -72,7 +72,11 @@
       "bonus_all_stats"                                   "15 20 25 30 35"
       "heal_amp"                                          "32 34 36 38 40"
       "aura_health_regen"                                 "3 6 9 12 15"
-      "aura_radius"                                       "1200"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
       "active_restore_per_charge"                         "17 27 37 47 57"
@@ -82,7 +86,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "max_charges"                                       "22"
-      "charge_radius"                                     "1800"
+      "charge_radius"
+      {
+        "value"                                           "1800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "charge_gain_timer"                                 "10"
       "buff_magic_resistance"                             "15 17 19 21 23"
       "buff_status_resistance"                            "15 17 19 21 23"

@@ -46,7 +46,11 @@
       "speed"                                             "800"
       "damage"                                            "120 180 240 300 600 1200"
       "slow_duration"                                     "4.0"
-      "movement_speed_pct"                                "40"
+      "movement_speed_pct"
+      {
+        "value"                                           "40"
+        "special_bonus_unique_skywrath_concussive_shot_slow"  "+15"
+      }
       "shot_vision"
       {
         "value"                                           "300"

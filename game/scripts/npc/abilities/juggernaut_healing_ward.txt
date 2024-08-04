@@ -20,7 +20,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40" //OAA
     "AbilityDuration"                                     "25.0"
 
     // Cost
@@ -31,12 +30,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "healing_ward_heal_amount"                          "2 3 4 5 6 7"
+      "healing_ward_heal_amount"
+      {
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_juggernaut_healing_ward_heal"  "+1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "30"
+        "special_bonus_unique_juggernaut_5"               "-10"
+      }
       "healing_ward_aura_radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_juggernaut_3"               "+150"
       }
       "healing_ward_movespeed_tooltip"
       {

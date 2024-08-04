@@ -52,12 +52,12 @@
       "turn_rate_slow"                                    "0"
       "aghs_shard_move_slow"
       {
-        "value"                                           "40"
+        "value"                                           "50"
         "RequiresShard"                                   "1"
       }
       "aghs_shard_damage" //OAA
       {
-        "value"                                           "40 50 60 70 140 210"
+        "value"                                           "40 55 70 85 145 205"
         "RequiresShard"                                   "1"
       }
       "aghs_shard_depth"

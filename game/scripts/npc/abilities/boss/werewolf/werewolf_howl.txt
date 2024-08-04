@@ -27,28 +27,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "13.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "150"
-      }
+      "radius"                                            "400"
+      "duration"                                          "13.0"
+      "bonus_damage"                                      "500"
+      "bonus_move_speed"                                  "150"
     }
   }
 }

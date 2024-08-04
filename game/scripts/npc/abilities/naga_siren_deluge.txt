@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Naga Siren: Undertow
+  //=================================================================================================================
+  "naga_siren_deluge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+    "AbilityManaCost"                                     "45 50 55 60 65 70"
+    "AbilityCooldown"                                     "10 9 8 7 6.5 6"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage"
+      {
+        "value"                                           "80 140 200 260 520 1040"
+        "special_bonus_unique_naga_siren_2"               "+30%"
+      }
+      "radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "duration"
+      {
+        "value"                                           "3"
+      }
+      "status_resistance"
+      {
+        "value"                                           "-35"
+      }
+      "max_movement_speed"
+      {
+        "value"                                           "225"
+      }
+    }
+  }
+}

@@ -18,7 +18,6 @@
       "bonus_movement_speed_pct_night"
       {
         "value"                                           "22 28 34 40 46 52"
-        "special_bonus_unique_night_stalker_5"            "+0"
       }
       "bonus_attack_speed_night"
       {
@@ -28,11 +27,11 @@
       "bonus_status_resist_night"
       {
         "value"                                           "0"
-        "special_bonus_unique_night_stalker_hunter_status_resist"  "+25"
+        "special_bonus_unique_night_stalker_hunter_status_resist"  "+35"
       }
       "shard_hp_restore_pct"
       {
-        "value"                                           "30"
+        "value"                                           "25"
         "RequiresShard"                                   "1"
       }
       "shard_mana_restore_pct"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Viper: Viper Strike (OAA rework)
+  // Viper: Viper Strike (OAA rework) - unused
   //=================================================================================================================
   "viper_viper_strike_oaa"
   {
@@ -24,7 +24,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 800 900 900 900"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
@@ -43,7 +43,7 @@
       "damage"
       {
         "value"                                           "70 120 170 320 570"
-        "LinkedSpecialBonus"                              "special_bonus_unique_viper_2" // this works for now
+        "special_bonus_unique_viper_2"                    "+80"
       }
       "bonus_movement_speed"                              "-60 -70 -80 -80 -80"
       "bonus_attack_speed"                                "-80 -120 -160 -200 -240"
@@ -52,6 +52,10 @@
       "projectile_speed"                                  "1500"
       //"max_charges"                                       "2"
       //"charge_restore_time"                               "30.0"
+      "does_break"
+      {
+        "value"                                           "1"
+      }
     }
   }
 }

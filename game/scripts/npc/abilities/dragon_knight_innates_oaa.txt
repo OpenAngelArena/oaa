@@ -1,0 +1,15 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dragon Knight: Custom passive stuff - does not need to be leveled up, needed for additional shard effects
+  // Notes: Not breakable
+  //=================================================================================================================
+  "dragon_knight_innates_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_dragon_knight_innates.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+  }
+}

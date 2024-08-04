@@ -28,20 +28,16 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local owner = caster:GetOwner()
   local casterForwardVector = caster:GetForwardVector()
   local targetPoint = self:GetCursorPosition()
+  local isMegaWard = self:GetSpecialValueFor("is_mega_ward") == 1
+  local megaWardScale = self:GetSpecialValueFor("mega_ward_model_scale_multiplier")
   local wardCount = self:GetSpecialValueFor("ward_count")
+  local wardHealth = self:GetSpecialValueFor("ward_health")
+  local wardDamage = self:GetSpecialValueFor("damage_tooltip")
   local duration = self:GetSpecialValueFor("duration")
   local unitName = "npc_dota_shadow_shaman_ward_" .. self:GetLevel()
   local spawnSpacing = 64
   local xSpaceVector = Vector(spawnSpacing, 0, 0)
   local ySpaceVector = Vector(0, spawnSpacing, 0)
-
-  -- Check whether the caster has the extra ward hitpoint talent
-  local casterHasWardHealth = caster:HasLearnedAbility("special_bonus_unique_shadow_shaman_1")
-
-  local wardBonusHealth = 0
-  if casterHasWardHealth then
-    wardBonusHealth = caster:FindAbilityByName("special_bonus_unique_shadow_shaman_1"):GetSpecialValueFor("value")
-  end
 
   -- Returns the spawn position for the nth ward
   local function GetNthSpawnLocation(n)
@@ -68,12 +64,29 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
 
   local function SpawnWard(point)
     local serpentWard = CreateUnitByName(unitName, point, true, caster, owner, casterTeam)
+    serpentWard.isMegaWard = isMegaWard -- true or false
     serpentWard:SetControllableByPlayer(playerID, false)
     serpentWard:SetOwner(caster)
-    -- Give extra health from talent
-    serpentWard:SetBaseMaxHealth(serpentWard:GetMaxHealth() + wardBonusHealth)
+
+    -- Mark it as serpent ward
     serpentWard:AddNewModifier(caster, self, "modifier_shadow_shaman_serpent_ward", {duration = duration})
+
+    -- Fix ward health
+    serpentWard:SetBaseMaxHealth(wardHealth)
+    serpentWard:SetMaxHealth(wardHealth)
+    serpentWard:SetHealth(wardHealth)
+
+    -- Fix ward damage
+    serpentWard:SetBaseDamageMin(wardDamage)
+    serpentWard:SetBaseDamageMax(wardDamage)
+
+    -- Fix facing of the ward
     serpentWard:SetForwardVector(casterForwardVector)
+
+    -- Fix size of the ward
+    if isMegaWard then
+      serpentWard:SetModelScale(megaWardScale)
+    end
   end
 
   -- Use tail because we don't want the result for n = 0

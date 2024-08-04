@@ -121,11 +121,6 @@ if IsServer() then
       self.attackPrimed = true
 
       local crit_damage = spell:GetSpecialValueFor("crit_damage")
-      -- Talent that increases crit damage
-      local talent = parent:FindAbilityByName("special_bonus_unique_sohei_5")
-      if talent and talent:GetLevel() > 0 then
-        crit_damage = crit_damage + talent:GetSpecialValueFor("value")
-      end
 
       return crit_damage
     end
@@ -343,15 +338,6 @@ if IsServer() then
 
   function modifier_sohei_momentum_knockback:SlowAndStun( unit, caster, ability )
     unit:AddNewModifier( caster, ability, "modifier_sohei_momentum_slow", { duration = ability:GetSpecialValueFor( "slow_duration" ) } )
-
-    local talent = caster:FindAbilityByName( "special_bonus_sohei_stun" )
-
-    if talent and talent:GetLevel() > 0 then
-      local stunDuration = talent:GetSpecialValueFor( "value" )
-      stunDuration = unit:GetValueChangedByStatusResistance( stunDuration )
-
-      unit:AddNewModifier( caster, ability, "modifier_stunned", { duration = stunDuration } )
-    end
   end
 end
 

@@ -1,0 +1,316 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Creature: Siege Wave One Creep
+  //=================================================================================
+  "npc_dota_creature_siege_wave1_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"
+    "SoundSet"                                            "Creep_Bad_Engine"
+    "Level"                                               "1"
+    "ModelScale"                                          "0.8"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_siege"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "450"
+    "AttackDamageMax"                                     "550"
+    "AttackRate"                                          "3.0"
+    "AttackAnimationPoint"                                "0.7"
+    "AttackAcquisitionRange"                              "800"
+    "AttackRange"                                         "690"
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "88"
+    "BountyGoldMin"                                       "59"
+    "BountyGoldMax"                                       "72"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"
+    "MovementTurnRate"                                    "0.5"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "3000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "750"
+    "VisionNighttimeRange"                                "750"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+
+  //=================================================================================
+  // Creature: Siege Wave Two Creep
+  //=================================================================================
+  "npc_dota_creature_siege_wave2_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"
+    "SoundSet"                                            "Creep_Bad_Engine"
+    "Level"                                               "1"
+    "ModelScale"                                          "1.0"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_siege"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "10"
+    "MagicalResistance"                                   "40"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "650"
+    "AttackDamageMax"                                     "750"
+    "AttackRate"                                          "3.0"
+    "AttackAnimationPoint"                                "0.7"
+    "AttackAcquisitionRange"                              "800"
+    "AttackRange"                                         "690"
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "88"
+    "BountyGoldMin"                                       "59"
+    "BountyGoldMax"                                       "72"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"
+    "MovementTurnRate"                                    "0.5"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "3500"
+    "StatusHealthRegen"                                   "0" // has boss_regen
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "750"
+    "VisionNighttimeRange"                                "750"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Siege Wave Three Creep
+  //=================================================================================
+  "npc_dota_creature_siege_wave3_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"
+    "SoundSet"                                            "Creep_Bad_Engine"
+    "Level"                                               "1"
+    "ModelScale"                                          "1.2"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_siege"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "15"
+    "MagicalResistance"                                   "80"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "850"
+    "AttackDamageMax"                                     "950"
+    "AttackRate"                                          "3.0"
+    "AttackAnimationPoint"                                "0.7"
+    "AttackAcquisitionRange"                              "800"
+    "AttackRange"                                         "690"
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "88"
+    "BountyGoldMin"                                       "59"
+    "BountyGoldMax"                                       "72"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"
+    "MovementTurnRate"                                    "0.5"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "4000"
+    "StatusHealthRegen"                                   "0" // has boss_regen
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "750"
+    "VisionNighttimeRange"                                "750"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+
+  //=================================================================================
+  // Creature: Siege Stolen Creep (uncontrollable)
+  //=================================================================================
+  "npc_dota_creature_siege_stolen_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"
+    "SoundSet"                                            "Creep_Good_Engine"
+    "Level"                                               "3"
+    "ModelScale"                                          "0.65"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_siege"
+    "Ability2"                                            "radiant_creeps_passives_oaa" // taking less damage from bosses
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "80"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "450" // same as npc_dota_creature_siege_wave1_creep
+    "AttackDamageMax"                                     "550" // same as npc_dota_creature_siege_wave1_creep
+    "AttackRate"                                          "3.0"
+    "AttackAnimationPoint"                                "0.7"
+    "AttackAcquisitionRange"                              "800"
+    "AttackRange"                                         "690"
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_good.vpcf"
+    "ProjectileSpeed"                                     "1100"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0" // this unit already 'died' once
+    "BountyGoldMin"                                       "0" // this unit already 'died' once
+    "BountyGoldMax"                                       "0" // this unit already 'died' once
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"
+    "MovementTurnRate"                                    "0.5"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "4000" // same as npc_dota_creature_siege_wave3_creep
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "750"
+    "VisionNighttimeRange"                                "750"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+}

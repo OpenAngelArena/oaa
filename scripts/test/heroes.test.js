@@ -3,8 +3,10 @@ const Lib = require('../kv-lib');
 
 let heroes = null;
 let dotaHeroes = null;
+let dotaAbilities = null;
+const abilities = {};
 test('before', function (t) {
-  t.plan(4);
+  t.plan(8);
   Lib.heroes(function (err, result) {
     t.notOk(err, 'should not error');
     t.ok(Object.keys(result).length, 'should get a list of heroes');
@@ -12,8 +14,23 @@ test('before', function (t) {
   });
   Lib.dotaHeroes(function (err, result) {
     t.notOk(err, 'should not error');
-    t.ok(Object.keys(result).length, 'should get a list of heroes');
+    t.ok(Object.keys(result).length, 'should get a list of dota heroes');
     dotaHeroes = result;
+  });
+  Lib.dotaAbilities(function (err, result) {
+    t.notOk(err, 'should not error');
+    t.ok(Object.keys(result).length, 'should get a list of dota abilities');
+    dotaAbilities = result;
+  });
+
+  Lib.abilities(function (err, result) {
+    t.notOk(err, 'should not error');
+    t.ok(Object.keys(result).length, 'should get a list of abilities');
+    Object.keys(result).forEach((fileName) => {
+      Object.keys(result[fileName].DOTAAbilities).filter((v) => v !== 'values').forEach((ability) => {
+        abilities[ability] = result[fileName].DOTAAbilities[ability];
+      });
+    });
   });
 });
 
@@ -50,6 +67,22 @@ test('test', function (t) {
             const abilityName = abilityMap[ability];
             t.equal(abilityName.indexOf('bonus_gold'), -1, 'do not allow gold income talents, ' + ability + ': ' + abilityName);
             t.equal(abilityName.indexOf('bonus_exp'), -1, 'do not allow gold income talents, ' + ability + ': ' + abilityName);
+
+            const abilityMaxLevel = abilities[abilityName]?.values.MaxLevel || dotaAbilities[abilityName]?.values.MaxLevel;
+            const abilityDependentOnAbility = abilities[abilityName]?.values.DependentOnAbility || dotaAbilities[abilityName]?.values.DependentOnAbility;
+            if (abilityDependentOnAbility) {
+              const dependAbilityMaxLevel = abilities[abilityDependentOnAbility]?.values.MaxLevel || dotaAbilities[abilityDependentOnAbility]?.values.MaxLevel;
+              // console.log(dependAbilityMaxLevel);
+              const foundAbilitySlot = Object.values(abilityMap).find((v) => v === abilityDependentOnAbility);
+              const closeAbilitySlot = Object.values(abilityMap).find((v) => v.indexOf(abilityDependentOnAbility) > -1);
+              const tipLine = closeAbilitySlot ? `... Did you mean ${closeAbilitySlot}?` : '';
+              t.ok(foundAbilitySlot, `${abilityName} depends on ${abilityDependentOnAbility} but ${heroName} doesn't have that ability ${tipLine}`);
+              if (abilityMaxLevel && dependAbilityMaxLevel) {
+                const abilityIsInnate = !!(abilities[abilityName]?.values.Innate || dotaAbilities[abilityName]?.values.Innate);
+                const desiredLevel = Number(dependAbilityMaxLevel) + (abilityIsInnate ? 1 : 0);
+                t.equal(Number(abilityMaxLevel), desiredLevel, `${abilityName} has ${abilityMaxLevel} max level, expected ${desiredLevel} because it depends on ${abilityDependentOnAbility} which has ${dependAbilityMaxLevel} max level`);
+              }
+            }
           });
         });
       t.end();

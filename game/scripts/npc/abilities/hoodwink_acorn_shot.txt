@@ -11,35 +11,34 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityManaCost"                                     "70 75 80 85 90 95"
+    "AbilityManaCost"                                     "85 90 95 100 105 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_range"                                       "125 200 275 350 425 500"
+      "bonus_range"                                       "75 150 225 300 375 450"
       "acorn_shot_damage"
       {
-        "value"                                           "55 90 125 160 320 480"
+        "value"                                           "40 80 120 160 320 480"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "base_damage_pct"
       {
-        "value"                                           "75"
+        "value"                                           "75" // special_bonus_unique_hoodwink_1_oaa
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bounce_count"
       {
         "value"                                           "2 3 4 5 6 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_acorn_shot_bounces"
+        "special_bonus_unique_hoodwink_acorn_shot_bounces"  "+1"
       }
       "bounce_range"
       {
@@ -50,6 +49,16 @@
       "slow"                                              "100"
       "bounce_delay"                                      "0.1"
       "projectile_speed"                                  "2200"
+      "can_bounce_off_of_trees"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
+      }
+      "bounces_after_tree_bounce"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
+      }
     }
   }
 }

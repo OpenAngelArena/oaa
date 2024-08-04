@@ -6,38 +6,60 @@
   "npc_dota_hero_tinker"
   {
     "Ability1"                                            "tinkerer_smart_missiles" // replaces tinker_laser
-    "Ability2"                                            "tinkerer_oil_spill" // replaces tinker_heat_seeking_missile
+    "Ability2"                                            "tinkerer_oil_spill" // replaces tinker_march_of_the_machines
     "Ability3"                                            "tinker_defense_matrix"
     "Ability4"                                            "tinkerer_laser_oaa" // replaces tinker_warp_grenade
     "Ability5"                                            "generic_hidden" // replaces tinker_keen_teleport
     "Ability6"                                            "tinkerer_laser_contraption" // replaces tinker_rearm
+    "Ability7"                                            "tinker_eureka"
 
-    "Ability10"                                           "special_bonus_unique_tinkerer_5" // replaces special_bonus_unique_tinker_4
+    "Ability10"                                           "special_bonus_unique_tinkerer_5" // replaces special_bonus_unique_tinker_march_duration
     "Ability11"                                           "special_bonus_unique_tinkerer_6" // replaces special_bonus_mana_reduction_8
 
     "Ability12"                                           "special_bonus_unique_tinker_7"
-    "Ability13"                                           "special_bonus_unique_tinkerer_3" // replaces special_bonus_unique_tinker_6
+    "Ability13"                                           "special_bonus_unique_tinkerer_3" // replaces  special_bonus_unique_tinker
 
-    "Ability14"                                           "special_bonus_unique_tinkerer_9" // replaces special_bonus_unique_tinker_defense_matrix_cdr
+    "Ability14"                                           "special_bonus_unique_tinker_defense_matrix_status_resistance"
     "Ability15"                                           "special_bonus_unique_tinkerer_7" // replaces special_bonus_unique_tinker_5
 
-    "Ability16"                                           "special_bonus_unique_tinkerer_2" // replaces special_bonus_unique_tinker
-    "Ability17"                                           "special_bonus_unique_tinker_defense_matrix_cdr" // replaces special_bonus_unique_tinker_3
+    "Ability16"                                           "special_bonus_unique_tinkerer_2" // replaces special_bonus_unique_tinker_4
+    "Ability17"                                           "special_bonus_unique_tinkerer_9" // replaces special_bonus_unique_tinker_rearm_magic_resistance
 
-    // special_bonus_unique_tinkerer_1 - Smart Rockets Multishot - unused
+    // special_bonus_unique_tinkerer_1 - Smart Rockets Multishot                                          - unused
     // special_bonus_unique_tinkerer_2 - Smart Rockets bonus damage
     // special_bonus_unique_tinkerer_3 - Smart Rockets Explode on Impact
-    // special_bonus_unique_tinkerer_4 - Tar Spill bonus duration - unused
-    // special_bonus_unique_tinkerer_5 - Tar Spill bonus slow
-    // special_bonus_unique_tinkerer_6 - Tar Spill bonus burn damage
-    // special_bonus_unique_tinkerer_7 - Tar Spill amplifies damage
-    // special_bonus_unique_tinkerer_8 - Keen Contraption applies Tar Spill - unused
+    // special_bonus_unique_tinkerer_4 - Tar Spill bonus duration                                         - unused
+    // special_bonus_unique_tinkerer_5 - Tar Spill bonus slow / March of the Machines bonus duration
+    // special_bonus_unique_tinkerer_6 - Tar Spill bonus burn damage / March of the Machines bonus damage
+    // special_bonus_unique_tinkerer_7 - Tar Spill amplifies damage / March of the Machines cooldown
+    // special_bonus_unique_tinkerer_8 - Keen Contraption applies Tar Spill                               - unused
     // special_bonus_unique_tinkerer_9 - Keen Contraption Heals Allies
     // special_bonus_unique_tinker_7 - Defense Matrix bonus damage absorbed
 
     //"Ability25"                                           ""
 
     //"AbilityTalentStart"                                  "10"
+
+    "Facets"
+    {
+      // replace repair bots
+      "tinker_repair_bots"
+      {
+        "Icon"                                            "summons"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
+
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "tinker_march_of_the_machines"
+            "ReplaceAbility"                              "tinkerer_oil_spill"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+    }
 
     "ArmorPhysical"                                       "3"
     "MagicalResistance"                                   "25"

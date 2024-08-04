@@ -36,15 +36,15 @@
       "radius"
       {
         "value"                                           "325 400 475 550 600 650"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_2"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_dark_seer_2"                "+75"
       }
       "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
       "damage"                                            "75 150 225 300 600 1200" //OAA
       "radius_tree" //OAA
       {
         "value"                                           "325 400 475 550 600 650"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_2"
+        "special_bonus_unique_dark_seer_2"                "+75"
         "affected_by_aoe_increase"                        "1"
       }
     }

@@ -1,29 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Watch Tower 1
-  //=================================================================================================================
-  "item_recipe_azazel_tower_watch_1"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "100"
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_azazel_tower_watch_1"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "SecretShop"                                          "1"
-    "ItemRequirements"
-    {
-      "01"                                                "item_upgrade_core"
-      "02"                                                "item_upgrade_core_2"
-      "03"                                                "item_upgrade_core_3"
-      "04"                                                "item_upgrade_core_4"
-    }
-  }
-  //=================================================================================================================
-  // Azazel: Watch Tower 1
+  // Azazel: Watch Tower
   //=================================================================================================================
   "item_azazel_tower_watch_1"
   {
@@ -33,46 +11,42 @@
     "ScriptFile"                                          "items/azazel_tower_watch.lua"
     "AbilityTextureName"                                  "custom/watch_1"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityCastRange"                                    "600"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "azazel_tower_watch"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "1"
+    "ItemCost"                                            "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "azazel watch tower"
+    "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-    "ItemStackable"                                       "1"
-    "ItemCost"                                            "101"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+
     "SecretShop"                                          "1"
     "IsTempestDoubleClonable"                             "0"
 
+    "AbilityCastRange"                                    "600"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "construction_time"                               "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health"                                          "1500 6000 12000 24000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_vision_range"                              "500 800 1100 1500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_vision_range"                            "2000 2300 2600 3000"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "sink_height"                                     "200"
-      }
+      "construction_time"                                 "10"
+      "health"                                            "1500 6000 12000 24000"
+      "bonus_vision_range"                                "500 800 1100 1500"
+      "tooltip_vision_range"                              "2000 2300 2600 3000"
+      "sink_height"                                       "200"
     }
     "precache"
     {

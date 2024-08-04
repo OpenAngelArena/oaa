@@ -48,23 +48,11 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "lifesteal_duration"                                "5"
-      "lifesteal_amt" //OAA
-      {
-        "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+25"
-      }
       "total_bolt_count"
       {
         "value"                                           "1"
-        "special_bonus_scepter"                           "+2"
+        "special_bonus_shard"                             "+1"
       }
-      // "scepter_radius"
-      // {
-        // "value"                                           "700"
-        // "RequiresScepter"                                 "1"
-        // "affected_by_aoe_increase"                        "1"
-      // }
     }
   }
 }

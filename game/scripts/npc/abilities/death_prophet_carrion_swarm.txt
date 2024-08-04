@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Death Prophet: Carrion Swarm
+  // Death Prophet: Crypt Swarm
   //=================================================================================================================
   "death_prophet_carrion_swarm"
   {
@@ -19,16 +19,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 5 5"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "85 165 245 325 650 1300"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +30,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage"
+      {
+        "value"                                           "85 165 245 325 650 975"
+        "special_bonus_unique_death_prophet_crypt_swarm_damage"  "+50"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "9 8 7 6 6 6"
+        "special_bonus_unique_death_prophet_2"            "-2.5"
+      }
       "start_radius"
       {
         "value"                                           "110"
@@ -48,17 +50,15 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "range"                                             "810"
+      "range"                                             "900"
       "speed"                                             "1100"
       "slow_percent"
       {
         "value"                                           "0"
-        "special_bonus_unique_death_prophet_crypt_swarm_slow"  "-50"
       }
       "slow_duration"
       {
         "value"                                           "0"
-        "special_bonus_unique_death_prophet_crypt_swarm_slow"  "+1"
       }
     }
   }

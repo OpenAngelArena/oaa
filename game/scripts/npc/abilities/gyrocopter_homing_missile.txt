@@ -29,10 +29,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120 130 140 150 160 170"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "90 180 270 360 720 1440"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -41,22 +37,21 @@
       "tower_hits_to_kill_tooltip"                        "6"
       "stun_duration"
       {
-        "value"                                           "1.3 1.7 2.1 2.5 2.7 2.9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_6"
+        "value"                                           "1.3 1.7 2.1 2.5 2.6 2.7"
+        "special_bonus_unique_gyrocopter_6"               "+0.3"
       }
       "attack_speed_bonus_pct"                            "400"
-      "min_damage"                                        "50"
+      "hit_damage"
+      {
+        "value"                                           "90 180 270 360 720 1440"
+        "special_bonus_unique_gyrocopter_homing_missile_damage"  "+25%"
+      }
       "max_distance"                                      "1500"
       "pre_flight_time"                                   "2.5"
       "hero_damage"                                       "2"
       "speed"                                             "500"
       "acceleration"                                      "15"
       "enemy_vision_time"                                 "4"
-      "AbilityCharges"
-      {
-        "value"                                           ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_1" // Valve this is the Flak Cannon cooldown talent
-      }
       "shard_delay"
       {
         "value"                                           "1.0 1.0 1.0 1.0 0.5 0.25"

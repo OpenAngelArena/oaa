@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
@@ -27,23 +28,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_prevent_duration"                           "2.5"
-      }
+      "heal_prevent_percent"                              "-25"
+      "attack_speed_slow"                                 "-25"
+      "heal_prevent_duration"                             "2.5"
     }
   }
 }

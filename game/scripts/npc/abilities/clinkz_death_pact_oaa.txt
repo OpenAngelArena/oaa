@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Death Pact
+  // Clinkz: Death Pact (OAA Rework) - unused
   //=================================================================================================================
   "clinkz_death_pact_oaa"
   {
@@ -37,37 +37,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "65"
+      "health_gain_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "65"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_gain_pct"                                 "40 60 80 100 120"
+
+        "value"                                           "40 60 80 100 120"
         "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
       }
-      "03"
+      "damage_gain_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_gain_pct"                                 "4 8 12 16 20"
+
+        "value"                                           "4 8 12 16 20"
         "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
         "LinkedSpecialBonusField"                         "value2"
       }
-      "04"
+      "health_gain_max"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_gain_max"                                 "1000 1500 2000 2500 3000"
+
+        "value"                                           "1000 1500 2000 2500 3000"
         "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
         "LinkedSpecialBonusField"                         "value3"
       }
-      "05"
+      "damage_gain_max"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_gain_max"                                 "100 150 200 350 500"
+
+        "value"                                           "100 150 200 350 500"
         "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
         "LinkedSpecialBonusField"                         "value4"
       }

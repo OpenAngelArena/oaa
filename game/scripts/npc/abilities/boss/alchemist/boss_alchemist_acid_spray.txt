@@ -33,48 +33,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
-      }
-      "02" // debuff duration
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "350"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "15"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "0.2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "700"
-      }
-      "08" // thinker duration
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "area_duration"                                   "8.0"
-      }
+      "radius"                                            "275"
+      "duration"                                          "2" // debuff duration
+      "damage_per_second"                                 "350" // pure
+      "armor_reduction"                                   "15"
+      "damage_interval"                                   "0.2"
+      "slow_movement_speed_pct"                           "-30"
+      "projectile_speed"                                  "700"
+      "area_duration"                                     "8.0" // thinker duration
     }
   }
 }

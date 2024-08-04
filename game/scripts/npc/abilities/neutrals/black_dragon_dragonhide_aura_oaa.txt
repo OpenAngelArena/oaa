@@ -13,22 +13,19 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_armor"                                       "5"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Roshan: Bonus Attack damage
+  // Roshan: Bonus Attack damage - for abilities that reduce base attack damage
   //=================================================================================================================
   "roshan_custom_passive"
   {
@@ -13,13 +13,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "450"
-      }
+      "bonus_damage"                                      "450"
     }
   }
 }

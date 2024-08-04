@@ -10,6 +10,8 @@
     "BaseClass"                                           "sven_great_cleave"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "IsBreakable"                                         "1"
+
     "MaxLevel"                                            "1"
 
     // Special
@@ -31,7 +33,7 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "great_cleave_damage" //OAA 
+      "great_cleave_damage" //OAA
       {
         "value"                                           "100"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_8"

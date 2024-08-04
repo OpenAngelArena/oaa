@@ -19,23 +19,20 @@
       "bonus_armor"                                       "10 17 24"
       "bonus_damage"
       {
-        "value"                                           "50 110 170"
+        "value"                                           "60 120 180"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "tree_bonus_damage_pct"
+      "attack_speed_reduction"
       {
-        "value"                                           "0"
-        "special_bonus_unique_tiny_7"                     "+40"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "-30"
+        "special_bonus_unique_tiny_6"                     "+8"
       }
-      "attack_speed_reduction"                            "-30"
       "toss_bonus_damage" //OAA
       {
-        "value"                                           "100 300 500"
+        "value"                                           "75 300 525"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "slow_resistance"                                   "15 30 45"
+      "move_speed"                                        "10 20 30"
     }
   }
 }

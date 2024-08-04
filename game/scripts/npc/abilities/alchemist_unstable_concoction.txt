@@ -36,7 +36,7 @@
       "brew_time"                                         "5.0"
       "brew_explosion"                                    "5.5"
       "min_stun"                                          "0.25"
-      "max_stun"                                          "1.7 2.2 2.7 3.2 3.7 4.2"
+      "max_stun"                                          "1.7 2.2 2.7 3.2 3.3 3.4"
       "min_damage"                                        "0"
       "max_damage" //OAA
       {
@@ -50,6 +50,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "move_speed"                                        "4 8 12 16 20 24"
+      "chemical_rage_cooldown_reduction_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_alchemist_mixologist"        "=30"
+      }
     }
   }
 }

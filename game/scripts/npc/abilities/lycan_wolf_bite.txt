@@ -11,6 +11,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
@@ -19,11 +20,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "300"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
+    "AbilityCooldown"                                     "110 100 90 85 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,8 +34,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lifesteal_percent"                                 "30"
-      "lifesteal_range"                                   "1200"
+      "lifesteal_percent"                                 "40"
+      "creep_penalty"                                     "0.4"
+      "lifesteal_range"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "attack_range"                                      "150"
     }
   }

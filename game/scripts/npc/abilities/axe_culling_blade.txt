@@ -50,7 +50,7 @@
       "speed_duration"
       {
         "value"                                           "6"
-        "special_bonus_unique_axe_culling_blade_speed_duration"  "+4"
+        "special_bonus_unique_axe_culling_blade_speed_duration"  "+3"
       }
       "speed_aoe"
       {
@@ -58,10 +58,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "charge_speed"                                      "1200"
-      "armor_per_stack" //OAA
+      "armor_per_stack"
       {
-        "value"                                           "1 1.25 1.5 1.75 2"
-        "special_bonus_unique_axe_3"                      "+1"
+        "value"                                           "0"
       }
     }
   }

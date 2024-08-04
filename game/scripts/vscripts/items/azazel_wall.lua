@@ -54,7 +54,7 @@ function item_azazel_wall_1:OnSpellStart()
     return
   end
 
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 -- upgrades

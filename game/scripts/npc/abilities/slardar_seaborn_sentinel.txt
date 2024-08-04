@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Slardar River Warden
+  //=================================================================================================================
+  "slardar_seaborn_sentinel"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6" // same as Dependent ability (Corrosive Haze) + 1
+    "Innate"                                              "1"
+
+    "DependentOnAbility"                                  "slardar_amplify_damage"
+
+    "AbilityValues"
+    {
+      "river_speed"                                       "18"
+      "puddle_regen"
+      {
+        "value"                                           "2 4 6 8 16 32"
+        "special_bonus_scepter"                           "+22"
+      }
+      "puddle_armor"
+      {
+        "value"                                           "1 2 3 4 8 16"
+        "special_bonus_scepter"                           "+11"
+      }
+      "puddle_status_resistance"
+      {
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
+      }
+      "river_speed_tooltip"                               "18"
+      "river_damage"                                      "8 16 24 32 64 128"
+    }
+  }
+}

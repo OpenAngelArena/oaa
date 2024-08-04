@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Terrorblade: Demon Zeal (shard ability)
+  //=================================================================================================================
+  "terrorblade_demon_zeal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra white space
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "berserk_bonus_attack_speed"                        "100"
+      "berserk_bonus_movement_speed"                      "100"
+      "duration"                                          "15" //OAA
+      "hp_regen"                                          "20"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "health_cost_pct"
+      {
+        "value"                                           "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "reflection_pct"                                    "75" //OAA
+    }
+  }
+}

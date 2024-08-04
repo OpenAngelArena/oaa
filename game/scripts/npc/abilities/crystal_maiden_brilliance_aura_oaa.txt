@@ -12,6 +12,7 @@
     "AbilityTextureName"                                  "crystal_maiden_brilliance_aura"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -22,22 +23,18 @@
       "mana_regen" // for tooltip
       {
         "value"                                           "0.5 0.75 1.0 1.25 1.75 2.5"
-        "special_bonus_unique_crystal_maiden_4"           "+0.5"
       }
       "proximity_mana_regen_tooltip" // for tooltip
       {
         "value"                                           "1.5 2.25 3.0 3.75 5.25 7.5"
-        "special_bonus_unique_crystal_maiden_4"           "+1.5"
-      }
-      "self_mana_regen_tooltip" // for tooltip
-      {
-        "value"                                           "3.5 5.25 7.0 8.75 12.25 17.5"
-        "special_bonus_unique_crystal_maiden_4"           "+3.0"
       }
       "proximity_bonus_factor"                            "3" // for tooltip
-      "proximity_bonus_radius"                            "1200" // for tooltip
-      "self_factor"                                       "7" // for tooltip
-
+      "proximity_bonus_radius" // for tooltip
+      {
+        "value"                                           "1200"
+        "special_bonus_facet_crystal_maiden_cold_comfort"  "=1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "cd_reduction"                                      "0"
       "mana_cost_reduction_pct"                           "0"
       "bonus_magic_resistance"                            "0"

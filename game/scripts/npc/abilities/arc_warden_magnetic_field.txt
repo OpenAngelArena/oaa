@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "6"
@@ -22,10 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 70 90 110 130 150"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -34,26 +30,51 @@
       {
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_shard"                             "+75"
       }
-      "duration"                                          "3.5 4.5 5.5 6.5 7.5 8.5"
-      "tempest_duration"                                  "5 6 7 8 9 10"
-      "attack_speed_bonus"
+      "projectile_slow"
       {
-        "value"                                           "50 60 70 80 90 100"
-        "special_bonus_unique_arc_warden_3"               "+20"
-      }
-      "evasion_chance"                                    "100"
-      "shard_magic_resist"
-      {
-        "value"                                           "40"
+        "value"                                           "0"
         "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "+75"
       }
       "shard_slow_pct"
       {
         "value"                                           "30"
         "RequiresShard"                                   "1"
       }
-      "attack_range_bonus"                                "150"
+      "duration"
+      {
+        "value"                                           "4 5 6 7 8 9"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
+      "attack_speed_bonus"
+      {
+        "value"                                           "30 60 90 120 150 180"
+        "special_bonus_unique_arc_warden_3"               "+20"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
+      "evasion_chance"
+      {
+        "value"                                           "100"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
+      "tempest_duration"
+      {
+        "value"                                           "4 5 6 7 8 9"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
+      "attack_range_bonus"
+      {
+        "value"                                           "150"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
+      "attack_damage_bonus" //OAA, Valve has it wrong
+      {
+        "value"                                           "20 40 60 80 100 120"
+        "special_bonus_unique_arc_warden_3"               "+20"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
       "attack_magic_damage"
       {
         "value"                                           "20 40 60 80 100 120"
@@ -64,10 +85,10 @@
         "value"                                           "20 19 18 17 17 17"
         "special_bonus_unique_arc_warden_9"               "-7"
       }
-      "attack_damage_bonus" //OAA, Valve has it wrong
+      "affects_buildings"
       {
-        "value"                                           "20 40 60 80 100 120"
-        "special_bonus_unique_arc_warden_3"               "+20"
+        "value"                                           "0"
+        "special_bonus_unique_arc_warden_7"               "=1"
       }
     }
   }

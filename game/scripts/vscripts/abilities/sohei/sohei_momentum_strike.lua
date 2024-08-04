@@ -244,12 +244,6 @@ if IsServer() then
   function modifier_sohei_momentum_strike_knockback:ApplyStun(unit, caster, ability)
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
-    -- Talent that increases stun duration
-    local talent = caster:FindAbilityByName("special_bonus_sohei_stun")
-    if talent and talent:GetLevel() > 0 then
-      stun_duration = stun_duration + talent:GetSpecialValueFor("value")
-    end
-
     -- Duration is reduced with Status Resistance
     stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
 

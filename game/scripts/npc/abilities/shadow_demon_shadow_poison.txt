@@ -37,27 +37,24 @@
       "stack_damage"
       {
         "value"                                           "24 36 48 60 120 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
+        "special_bonus_unique_shadow_demon_4"             "+15%"
       }
       "max_multiply_stacks"                               "5"
       "bonus_stack_damage"
       {
         "value"                                           "50 50 50 50 100 200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
+        "special_bonus_unique_shadow_demon_4"             "+15%"
       }
-      "radius"
+      "radius"                
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
       "speed"                                             "1200"
-      "hit_damage" // Damage that is applied every time shadow poison is applied.
+      "hit_damage"            
       {
         "value"                                           "30 40 50 60 120 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
+        "special_bonus_unique_shadow_demon_4"             "+15%"
       }
     }
   }

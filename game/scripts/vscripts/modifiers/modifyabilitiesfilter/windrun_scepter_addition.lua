@@ -15,7 +15,7 @@ function modifier_windranger_scepter_oaa:IsPurgable()
 end
 
 function modifier_windranger_scepter_oaa:OnCreated()
-  self.spell_amp = 35
+  self.spell_amp = 45
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then

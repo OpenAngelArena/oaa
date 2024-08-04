@@ -50,6 +50,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       --"npc_dota_boss_tier_4", -- Killer Tomato
@@ -93,6 +94,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       --"npc_dota_boss_tier_4",
@@ -131,6 +133,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       --"npc_dota_boss_tier_4",
@@ -160,6 +163,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       --"npc_dota_boss_tier_4",
@@ -189,6 +193,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       "npc_dota_boss_tier_4",
@@ -219,6 +224,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_creature_magma_boss",
+      "npc_dota_creature_dire_tower_boss",
     },
     {
       "npc_dota_boss_tier_4",

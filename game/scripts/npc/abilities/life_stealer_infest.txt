@@ -37,7 +37,7 @@
       }
       "damage" //OAA
       {
-        "value"                                           "150 400 650 1400 2150"
+        "value"                                           "150 300 450 900 1650"
         "special_bonus_unique_lifestealer_infest_damage"  "+150"
       }
       "bonus_movement_speed"
@@ -74,6 +74,11 @@
       {
         "value"                                           "60 55 50 45 40"
         "special_bonus_scepter"                           "=20"
+      }
+      "open_wounds_duration_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
     }
   }

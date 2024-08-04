@@ -10,14 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "DisplayAdditionalHeroes"                             "1"
-    "LevelsBetweenUpgrades"                               "7"
-    "RequiredLevel"                                       "4"
-    "MaxLevel"                                            "3"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "0"
@@ -29,17 +21,50 @@
       "tooltip_clones"
       {
         "value"                                           "1 2 3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_5"
+        "special_bonus_facet_meepo_more_meepo"            "=0"
+      }
+      "tooltip_clones_multiplicity"
+      {
+        "value"                                           "1 2 3 4"
+        "RequiresFacet"                                   "meepo_more_meepo"
       }
       "tooltip_share_percentage"                          "20"
-      "tooltip_share_percentage_scepter"                  "100"
+      "tooltip_share_percentage_scepter"                  "100" // unused
       "respawn"                                           "0.0"
-      "tooltip_respawn"                                   "20"
-      "magic_resist"                                      "10 15 20"
-      "rat_pack"
+      "tooltip_respawn"                                   "20" // unused
+      "magic_resist"
       {
-        "value"                                           "0"
-        "special_bonus_unique_meepo_7"                    "+1"
+        "value"                                           "10 15 20"              
+      }
+      "tooltip_magic_resist"
+      {
+        "value"                                           "10 15 20"
+        "special_bonus_facet_meepo_more_meepo"            "=0"
+      }
+      "tooltip_magic_resist_multiplicity"
+      {
+        "value"                                           "10 15 20 20"
+        "special_bonus_facet_meepo_pack_rat"              "=0"
+      }
+      "required_level"
+      {
+        "value"                                           "4"
+        "special_bonus_facet_meepo_more_meepo"            "=3"
+      }
+      "levels_between_upgrades"
+      {
+        "value"                                           "7"
+        "special_bonus_facet_meepo_more_meepo"            "=7"
+      }
+      "max_level"
+      {
+        "value"                                           "3"
+        "special_bonus_facet_meepo_more_meepo"            "=4"
+      }
+      "main_meepo_stats_pct"
+      {
+        "value"                                           "100"
+        "special_bonus_facet_meepo_more_meepo"            "=85"
       }
     }
   }

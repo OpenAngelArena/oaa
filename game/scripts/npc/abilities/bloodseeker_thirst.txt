@@ -14,19 +14,35 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15.0"
+    "AbilityCastPoint"                                    "0.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_bonus_pct"                                     "80"
+      "min_bonus_pct"                                     "100"
       "bonus_movement_speed"
       {
-        "value"                                           "16 24 32 40 44 48"
+        "value"                                           "10 20 30 40 45 50"
         "special_bonus_unique_bloodseeker_4"              "+18"
       }
-      "hero_kill_heal"                                    "10 15 20 25 30 35"
-      "creep_kill_heal"                                   "8 12 16 20 24 28"
-      "half_bonus_aoe"                                    "300"
+      "active_movement_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_bloodseeker_bloodrush"       "4 8 12 16 18 20"
+      }
+      "active_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_bloodseeker_bloodrush"       "5"
+      }
       "max_bonus_pct"                                     "25"
       "visibility_threshold_pct"                          "25"
       "invis_threshold_pct"                               "25"

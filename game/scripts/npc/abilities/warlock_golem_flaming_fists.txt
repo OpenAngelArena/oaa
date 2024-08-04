@@ -13,17 +13,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "40 60 80 120 200" //OAA
+        "value"                                           "40 60 80 120 200"
       }
-      "02"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

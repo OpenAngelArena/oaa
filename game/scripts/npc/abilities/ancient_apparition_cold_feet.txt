@@ -36,24 +36,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
+      "frost_stacks"
       {
-        "value"                                           "30 50 70 90 180 270"
-        "special_bonus_unique_ancient_apparition_8"       "+40"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                           "2 4 6 8 10 12"
+        "special_bonus_unique_ancient_apparition_8"       "+2"
       }
       "break_distance"
       {
-        "value"                                           "715"
+        "value"                                           "725 750 775 800 825 850"
         "special_bonus_unique_ancient_apparition_1"       "+300"
         "affected_by_aoe_increase"                        "1"
       }
-      "stun_duration"                                     "1.6 2.0 2.4 2.8 3.0 3.2"
+      "stun_duration"                                     "1.9 2.2 2.5 2.8 2.9 3.0"
       "area_of_effect"
       {
         "value"                                           "0"
-        "special_bonus_unique_ancient_apparition_6"       "+450"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

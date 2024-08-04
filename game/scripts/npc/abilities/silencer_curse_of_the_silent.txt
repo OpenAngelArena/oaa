@@ -22,13 +22,9 @@
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 20 18 16 15 14"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "130 135 140 145 150 155"
+    "AbilityManaCost"                                     "120 130 140 150 160 170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,18 +33,33 @@
       "damage"
       {
         "value"                                           "16 24 32 40 80 160"
-        "special_bonus_unique_silencer"                   "+10"
+        "special_bonus_unique_silencer"                   "+15"
       }
-      "application_damage"                                "20 40 60 80 160 320"
+      "AbilityCooldown"
+      {
+        "value"                                           "22 20 18 16 15 14"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_silencer_arcane_curse_charges"  "2"
+      }
       "radius"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "6"
-      "penalty_duration"                                  "2"
+      "duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_silencer_arcane_curse_duration"  "+2"
+      } 
+      "silence_duration"  
+      {
+        "value"                                           "2"
+        "special_bonus_unique_silencer_arcane_curse_duration"  "+1"
+      } 
       "movespeed"                                         "-10 -15 -20 -25 -30 -35"
-      "penalty_multiplier"                                "1.5"
       "undispellable"
       {
         "value"                                           "0"

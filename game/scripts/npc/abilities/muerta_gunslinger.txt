@@ -18,9 +18,13 @@
       "double_shot_chance" //OAA
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+10"
+        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+20"
       }
       "target_search_bonus_range"                         "175"
+      "bonus_damage"
+      {
+        "special_bonus_unique_muerta_gunslinger_bonus_damage"  "=55"
+      }
     }
   }
 }

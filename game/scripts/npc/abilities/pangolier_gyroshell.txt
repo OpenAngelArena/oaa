@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -22,27 +22,41 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "1.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "180 340 500 980 1460" //OAA
+    "AbilityDamage"                                       "100 225 350 725 1350" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage_pct"                                        "100"
+      "AbilityCooldown"
+      {
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_pangolier_5"                "-16"
+      }
       "cast_time_tooltip"                                 "1.2"
       "tick_interval"                                     "0.05"
-      "forward_move_speed"                                "550"
-      "turn_rate_boosted"                                 "165"
-      "turn_rate"                                         "120"
+      "forward_move_speed"
+      {
+        "value"                                           "550"
+        "special_bonus_facet_pangolier_thunderbolt"       "+115"
+      }
+      "turn_rate_boosted"
+      {
+        "value"                                           "165"
+        "special_bonus_facet_pangolier_thunderbolt"       "+115"
+      }
+      "turn_rate"
+      {
+        "value"                                           "120"
+        "special_bonus_facet_pangolier_thunderbolt"       "+110"
+      }
       "radius"
       {
         "value"                                           "400"
@@ -62,11 +76,13 @@
       }
       "duration"
       {
-        "value"                                           "10.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_6"
+        "value"                                           "10"
+        "special_bonus_unique_pangolier_6"                "+2"
+        "special_bonus_facet_pangolier_thunderbolt"       "-2"
       }
       "jump_recover_time"                                 "0.25"
       "shield_crash_cooldown"                             "9 6 3 2.5 2"
+      "magic_resistance"                                  "60"
     }
   }
 }

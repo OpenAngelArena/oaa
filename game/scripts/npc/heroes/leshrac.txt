@@ -7,6 +7,23 @@
   {
     "Ability1"                                            "leshrac_split_earth_oaa" // replaces leshrac_split_earth
 
-    "Ability11"                                           "special_bonus_unique_leshrac_5_oaa" // replaces special_bonus_unique_leshrac_5
+    //"Ability10"                                           "special_bonus_mp_regen_150"
+    "Ability11"                                           "special_bonus_unique_leshrac_7" // replaces special_bonus_armor_4
+
+    //"Ability12"                                           "special_bonus_unique_leshrac_6"
+    "Ability13"                                           "special_bonus_unique_leshrac_1_oaa" // replaces special_bonus_unique_leshrac_7
+
+    "Ability14"                                           "special_bonus_spell_lifesteal_20" // replaces special_bonus_unique_leshrac_4
+    //"Ability15"                                           "special_bonus_unique_leshrac_3"
+
+    //"Ability16"                                           "special_bonus_unique_leshrac_pulse_nova_lightning"
+    //"Ability17"                                           "special_bonus_unique_leshrac_1"
+
+    // special_bonus_unique_leshrac_1 - Diabolic Edict Explosions
+    // special_bonus_unique_leshrac_3 - Pulse Nova Damage
+    // special_bonus_unique_leshrac_4 - Pulse Nova Damage Reduction - unused
+    // special_bonus_unique_leshrac_6 - Lightning Storm Damage
+    // special_bonus_unique_leshrac_7 - Pulse Nova Move Speed
+    // special_bonus_unique_leshrac_1_oaa - Split Earth Damage - custom
   }
 }

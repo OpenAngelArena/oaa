@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Spectre Talent: Bonus Haunt Illusion Damage
+  // Custom Spectre Talent: Bonus Shadow Step and Haunt Illusion Damage
   //=================================================================================================================
   "special_bonus_unique_spectre_4_oaa"
   {
@@ -13,13 +13,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "40"
-      }
+      "value"                                             "35"
     }
   }
 }

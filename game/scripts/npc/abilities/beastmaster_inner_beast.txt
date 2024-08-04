@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Inner Beast
+  // Beastmaster: Inner Beast (Innate)
   //=================================================================================================================
   "beastmaster_inner_beast"
   {
@@ -13,15 +13,51 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityValues"
     {
-      "radius"                                            "1200"
-      "bonus_attack_speed" //OAA
+      "radius"
       {
-        "value"                                           "10 22 34 46 70 94"
-        "special_bonus_unique_beastmaster_4"              "+12"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bonus_attack_speed" //OAA, affects only Beastmaster and his summons
+      {
+        "value"                                           "15 30 45 60 75 90"
+        "special_bonus_unique_beastmaster_4"              "+15"
+      }
+      "attack_speed_per_unit"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_beastmaster_wild_hunt"       "2 3 4 5 6 7"
+      }
+      "berserk_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_beastmaster_beast_mode"      "+6"
+      }
+      "berserk_bonus_attack_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_beastmaster_beast_mode"      "20 30 40 50 60 70"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_beastmaster_beast_mode"      "=20"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_beastmaster_beast_mode"      "=35"
+      }
+      "magic_resist"
+      {
+        "special_bonus_unique_beastmaster_3"              "5"
+      }
+      "bonus_damage" //OAA
+      {
+        "special_bonus_unique_beastmaster_2"              "+60"
       }
     }
   }

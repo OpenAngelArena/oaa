@@ -33,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 30 35 40 45 50"
+    "AbilityManaCost"                                     "22 27 32 37 42 47"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,23 +41,27 @@
     {
       "damage_per_stack"
       {
-        "value"                                           "4 8 12 16 32 64"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4_oaa"
+        "value"                                           "5 10 15 20 40 60"
+        "special_bonus_unique_batrider_4"                 "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
       {
         "value"                                           "375"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7_oaa"
+        "special_bonus_unique_batrider_7"                 "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "6"
       "movement_speed_pct"                                "-1.5 -3 -4.5 -6 -7.5 -8"
       "turn_rate_pct"                                     "-10 -30 -50 -70 -75 -80"
       "max_stacks"                                        "10"
-      "damage_creeps"                                     "75" // Percentage of damage dealt to non-ancient creeps
-      "damage_ancients"                                   "50" // Percentage of damage dealt to ancient creeps but not bosses
-      "damage_bosses"                                     "100" // Percentage of damage dealt to bosses
+      "damage_creeps"                                     "20" // Percentage of damage dealt to non-ancient creeps
+      "damage_ancients"                                   "20" // Percentage of damage dealt to ancient creeps but not bosses
+      "damage_bosses" // Percentage of damage dealt to bosses
+      {
+        "value"                                           "20"
+        "special_bonus_facet_batrider_arsonist"           "+80"
+      }
       "shard_number_of_attack_proc"
       {
         "value"                                           "2"
