@@ -24,8 +24,8 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "starting_dmg_per_strength"                         "1"
-      "dmg_increase_per_second"                           "5"
+      "dmg_per_strength"                                  "0.5"
+      "dmg_interval"                                      "0.2"
     }
   }
 }

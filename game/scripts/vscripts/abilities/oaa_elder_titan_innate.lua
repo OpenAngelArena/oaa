@@ -1,4 +1,4 @@
--- World Builder
+-- Titan's Foot
 
 LinkLuaModifier("modifier_elder_titan_innate_oaa", "abilities/oaa_elder_titan_innate.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -30,12 +30,9 @@ end
 
 function modifier_elder_titan_innate_oaa:OnCreated()
   local ability = self:GetAbility()
-  self.multiplier = ability:GetSpecialValueFor("starting_dmg_per_strength")
-  self.dmg_increase = ability:GetSpecialValueFor("dmg_increase_per_second")
+  self.multiplier = ability:GetSpecialValueFor("dmg_per_strength")
   self.radius = ability:GetSpecialValueFor("radius")
-  self.last_location = self:GetParent():GetAbsOrigin()
-  self.counter = 0
-  self.interval = 0.2
+  self.interval = ability:GetSpecialValueFor("dmg_interval")
 
   if IsServer() then
     self:StartIntervalThink(self.interval)
@@ -59,23 +56,17 @@ function modifier_elder_titan_innate_oaa:OnIntervalThink()
     return
   end
 
-  -- Check if parent moved recently
-  if (self.last_location - parent:GetAbsOrigin()):Length2D() > 10 then
-    self.last_location = parent:GetAbsOrigin()
-    self.counter = 0
-    return
-  end
-
   local multiplier = self.multiplier
   local radius = self.radius
-  local dmg_increase = self.dmg_increase
   local strength = parent:GetStrength()
-  local starting_dmg = strength * multiplier
+  local dmg_per_interval = strength * multiplier * self.interval
 
   local damage_table = {
     attacker = parent,
+    damage = dmg_per_interval,
     damage_type = DAMAGE_TYPE_MAGICAL,
     damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self:GetAbility(),
   }
 
   local enemies = FindUnitsInRadius(
@@ -90,23 +81,14 @@ function modifier_elder_titan_innate_oaa:OnIntervalThink()
     false
   )
 
-  local second = math.ceil(1 / self.interval)
-
-  if self.counter >= second then
-    damage_table.damage = (starting_dmg  + (self.counter - second) * dmg_increase) * self.interval
-  else
-    self.counter = self.counter + 1
-    return
-  end
-
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not IsSleeping(enemy) then
-      damage_table.victim = enemy
-      ApplyDamage(damage_table)
+    if enemy and not enemy:IsNull() then
+      if not IsSleeping(enemy) then
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+      end
     end
   end
-
-  self.counter = self.counter + 1
 end
 
 function modifier_elder_titan_innate_oaa:CheckState()
