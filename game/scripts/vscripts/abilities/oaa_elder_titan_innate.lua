@@ -49,8 +49,8 @@ end
 function modifier_elder_titan_innate_oaa:OnIntervalThink()
   local parent = self:GetParent()
 
-  -- Don't do anything if broken
-  if parent:PassivesDisabled() then
+  -- Don't do anything if broken or if an illusion
+  if parent:PassivesDisabled() or parent:IsIllusion() then
     return
   end
 
@@ -100,7 +100,7 @@ function modifier_elder_titan_innate_oaa:OnIntervalThink()
   end
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not IsSleeping(unit) then
+    if enemy and not enemy:IsNull() and not IsSleeping(enemy) then
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
