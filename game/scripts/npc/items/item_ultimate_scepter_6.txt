@@ -1,0 +1,80 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Aghanim's Blessing (OAA version)
+  //=================================================================================================================
+  "item_recipe_aghanims_scepter_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe_ultimate_scepter_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1600"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_aghanims_scepter_6"
+    "ItemRequirements"
+    {
+      "01"                                                "item_aghanims_scepter_5;item_aghanim_melter"
+    }
+  }
+
+  //=================================================================================================================
+  // Aghanim's Blessing (OAA version)
+  //=================================================================================================================
+  "item_aghanims_scepter_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/aghanims.lua"
+    "AbilityTextureName"                                  "item_ultimate_scepter_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "Model"                                               "models/props_gameplay/aghanim_scepter.vmdl"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "aghanim_blessing"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "35805"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag;consumable"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "ags;aghanims blessing;aghs"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemStackable"                                       "0"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+
+    "IsTempestDoubleClonable"                             "0"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_all_stats"                                   "10 15 20 25 30" // 5 levels just so tests dont complain
+      "bonus_health"                                      "175 275 425 625 875" // 5 levels just so tests dont complain
+      "bonus_mana"                                        "175 275 425 625 875" // 5 levels just so tests dont complain
+    }
+  }
+}

@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, $, Players, Entities, Game, GameEvents, DOTAKeybindCommand_t, GameUI, CLICK_BEHAVIORS, Abilities, ABILITY_TYPES */
+/* global FindDotaHudElement, $, Players, Entities, Game, GameEvents, DOTAKeybindCommand_t, GameUI, CLICK_BEHAVIORS, Abilities, ABILITY_TYPES, HasModifier */
 'use strict';
 
 // CSS classes
@@ -161,7 +161,6 @@ function InitializeHeroTalents () {
   const talentRowCount = talentWindow.GetChildCount(); // 5 rows for now, but the following code allows more
 
   // Add talents to the talent tree.
-
   for (let index = 1; index < talentRowCount; index++) {
     const talentRow = talentWindowChildren[index];
     const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
@@ -170,14 +169,18 @@ function InitializeHeroTalents () {
     // talentRow.GetChild(0).GetChild(0).GetChild(0).text;
     let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
     let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+    const aghsTalent = talentRow.FindChildrenWithClassTraverse('aghsTalent')[0];
     if (!rightTalent) {
       rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
     }
     if (!leftTalent) {
       leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
     }
+
+    // TALENTS LOCALIZATION
     const rightTalentName = GetTalentNames(requiredLevel)[0];
     const leftTalentName = GetTalentNames(requiredLevel)[1];
+    let aghsTalentName = '';
     // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
     // rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
     if (rightTalentName) {
@@ -189,8 +192,20 @@ function InitializeHeroTalents () {
     }
     const rightTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName + '_Description', rightTalent.GetChild(0));
     const leftTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName + '_Description', leftTalent.GetChild(0));
-    rightTalent.SetPanelEvent('onmouseover', function () { });
-    leftTalent.SetPanelEvent('onmouseover', function () { });
+    let aghsTalentDescription = '#_Description';
+    if (aghsTalent) {
+      const heroName = Entities.GetUnitName(currentlySelectedUnitID);
+      aghsTalentName = heroName.replace('npc_dota_hero_', '') + '_aghanim_talent_oaa_' + requiredLevel;
+      aghsTalent.GetChild(0).text = $.Localize('#' + aghsTalentName, aghsTalent.GetChild(0));
+      aghsTalentDescription = $.Localize('#' + aghsTalentName + '_Description', aghsTalent.GetChild(0));
+    }
+
+    // TALENTS PANEL EVENTS
+    rightTalent.SetPanelEvent('onmouseover', function () { }); // to not show talent description of some other talent from some other hero
+    leftTalent.SetPanelEvent('onmouseover', function () { }); // to not show talent description of some other talent from some other hero
+    if (aghsTalent) {
+      aghsTalent.SetPanelEvent('onmouseover', function () { }); // to not show talent description of some other talent from some other hero
+    }
     // Check if talent descriptions exist before setting panel events (Localize will return the input string if localization not found)
     if (rightTalentDescription !== '#DOTA_Tooltip_Ability_' + rightTalentName + '_Description') {
       rightTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent, rightTalentDescription); });
@@ -199,6 +214,10 @@ function InitializeHeroTalents () {
     if (leftTalentDescription !== '#DOTA_Tooltip_Ability_' + leftTalentName + '_Description') {
       leftTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent, leftTalentDescription); });
       leftTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+    }
+    if (aghsTalent && aghsTalentDescription !== '#' + aghsTalentName + '_Description') {
+      aghsTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', aghsTalent, aghsTalentDescription); });
+      aghsTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
     }
   }
 
@@ -386,6 +405,31 @@ function AnimateTalentTree () {
   }
 }
 
+function AnimateAghanimTalents () {
+  if (currentlySelectedUnitID) {
+    if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && currentlySelectedUnitID === Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
+      // Animate aghanim talents, make them learned/unlearned
+      $.Schedule(0, function () {
+        const talentWindowChildren = talentWindow.Children();
+        const talentRowCount = talentWindow.GetChildCount();
+        for (let index = 1; index < talentRowCount; index++) {
+          const talentRow = talentWindowChildren[index];
+          const aghsTalent = talentRow.FindChildrenWithClassTraverse('aghsTalent')[0];
+          if (aghsTalent) {
+            const level = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
+            const modifierName = 'modifier_aghanim_talent_oaa_' + level;
+            if (HasModifier(currentlySelectedUnitID, modifierName) && !aghsTalent.BHasClass(cssTalentLearned)) {
+              aghsTalent.AddClass(cssTalentLearned);
+            } else if (aghsTalent.BHasClass(cssTalentLearned)) {
+              aghsTalent.RemoveClass(cssTalentLearned);
+            }
+          }
+        }
+      });
+    }
+  }
+}
+
 function CloseTalentWindowUnitDeselected () {
   const unitIDPortrait = Players.GetLocalPlayerPortraitUnit();
 
@@ -426,11 +470,11 @@ function LearnTalent (talent, minLevel) {
   if (GameUI.IsAltDown()) {
     // Pinging talents
     if (talent.BHasClass(cssTalentLearned)) {
-      // Send the event to server with message: 'Talent ready' if ally, 'Beware talent' if enemy
+      // Send the event to allied clients with message: 'Talent ready' if ally, 'Beware talent' if enemy
     } else if (talent.BHasClass(cssTalentLearnable)) {
-      // Send the event to server with message: 'Talent required level' if ally, if enemy, no message
+      // Send the event to allied clients with message: 'Talent required level' if ally, 'Beware talent' if enemy
     } else if (talent.BHasClass(cssTalentUnlearnable)) {
-      // Send the event to server with message: 'Talent not learned'
+      // Send the event to allied clients with message: 'Talent not learned'
     }
   } else {
     // If talent is learned or unlearnable, do nothing
@@ -537,9 +581,9 @@ function ConfigureTalentButtonHotkey () {
   GetHeroTalents();
   GameEvents.Subscribe('dota_player_gained_level', AnimateTalentTree);
   GameEvents.Subscribe('dota_player_learned_ability', AnimateTalentTree);
+  GameEvents.Subscribe('oaa_aghanim_talent_status_changed', AnimateAghanimTalents);
   GameEvents.Subscribe('dota_player_update_query_unit', CheckSelectedAndAnimate);
   GameEvents.Subscribe('dota_player_update_selected_unit', CheckSelectedAndAnimate);
-  // GameEvents.Subscribe("confirm_talent_learned", (event) => OnTalentLearnedConfirmed(event));
   ConfigureTalentButtonHotkey();
   ConfigureTalentLearnHotkeys();
 })();
