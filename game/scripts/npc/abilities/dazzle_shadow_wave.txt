@@ -36,6 +36,7 @@
       "AbilityCastRange"
       {
         "value"                                           "800"
+        "special_bonus_unique_dazzle_shadow_wave_cast_range"  "+150"
       }
       "bounce_radius"
       {
@@ -52,7 +53,7 @@
       "damage" //OAA
       {
         "value"                                           "85 125 165 205 410 820"
-        "special_bonus_unique_dazzle_2"                   "+80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
       }
       "scepter_heal_pct"                                  "150"
       "scepter_cd_increase"                               "2"

@@ -1,3 +1,15 @@
+--[[
+
+Real talk, I copy and pasted this while file from
+https://raw.githubusercontent.com/darklordabc/Legends-of-Dota-Redux/develop/src/game/scripts/vscripts/abilities/tiny_grow_lod.lua
+
+Darklord is a god of the modding community; even though he doesn't contribute directly to OAA,
+his existence alone is an extreme asset to our team. Thanks homie.
+
+Refactored heavily by chrisinajar
+Updated by Darkonius
+
+]]
 tiny_grow_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_tiny_grow_oaa", "abilities/tiny_grow.lua", LUA_MODIFIER_MOTION_NONE)
@@ -116,7 +128,16 @@ function modifier_tiny_grow_oaa:OnCreated()
   --self.attack_speed_reduction = 0
   self.model_scale = 0
 
-  self:OnRefresh()
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
+  --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
+  self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
+  self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 
   local parent = self:GetParent()
   -- Fix for illusions not getting 'modifier_tiny_grow'
@@ -140,8 +161,8 @@ function modifier_tiny_grow_oaa:OnRefresh()
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
-  self.ms = ability:GetSpecialValueFor("bonus_move_speed_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
+  --self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
@@ -153,7 +174,7 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
@@ -167,14 +188,18 @@ end
 -- end
 
 function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
-  -- local parent = self:GetParent()
-  -- if parent:HasModifier("modifier_tiny_tree_grab") then
-    -- local ability = self:GetAbility()
-    -- if not ability or ability:IsNull() then
-      -- return 0
-    -- end
-    -- return ability:GetSpecialValueFor("bonus_damage_with_tree")
-  -- end
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_tiny_tree_grab") then
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return 0
+    end
+    local talent = parent:FindAbilityByName("special_bonus_unique_tiny_7")
+    if talent and talent:GetLevel() > 0 then
+      return ability:GetSpecialValueFor("bonus_damage_with_tree_and_talent")
+    end
+    return ability:GetSpecialValueFor("bonus_damage_with_tree")
+  end
   return self.bonus_damage or 0
 end
 
@@ -184,10 +209,6 @@ end
   -- end
   -- return 0 - math.abs(self.attack_speed_reduction)
 -- end
-
-function modifier_tiny_grow_oaa:GetModifierMoveSpeedBonus_Constant()
-  return self.ms or 0
-end
 
 function modifier_tiny_grow_oaa:GetModifierModelScale()
   return self.model_scale or 0
@@ -200,7 +221,7 @@ function modifier_tiny_grow_oaa:GetModifierOverrideAbilitySpecial(keys)
   if keys.ability:GetAbilityName() ~= "tiny_grow" then
     return 0
   end
-  if keys.ability_special_value == "toss_bonus_damage" then
+  if keys.ability_special_value == "toss_bonus_damage" or keys.ability_special_value == "slow_resistance" then
     return 1
   end
   return 0
@@ -217,9 +238,16 @@ function modifier_tiny_grow_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   end
   if keys.ability_special_value == "toss_bonus_damage" then
     return value + ability:GetSpecialValueFor("bonus_toss_damage_oaa")
+  elseif keys.ability_special_value == "slow_resistance" then
+    return value + ability:GetSpecialValueFor("bonus_slow_resistance")
   end
   return value
 end
+
+  -- Doesn't work, Thanks Valve
+  -- function modifier_tiny_grow_oaa:GetModifierSlowResistance()
+    -- return self.slow_resist or 0
+  -- end
 
 if IsServer() then
   function modifier_tiny_grow_oaa:OnAbilityExecuted(event)

@@ -18,6 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -29,11 +30,6 @@
     "AbilityValues"
     {
       "AbilityCooldown"                                   "14 13 12 11 11 11"
-      "AbilityCastRange"
-      {
-        "value"                                           "650"
-        "special_bonus_unique_lion_2"                     "+600"
-      }
       "damage"
       {
         "value"                                           "105 170 235 300 600 1200"
@@ -50,6 +46,7 @@
       "pierces_immunity"
       {
         "value"                                           "0"
+        "special_bonus_unique_lion_2"                     "+1"
       }
       "cone_shaped"
       {

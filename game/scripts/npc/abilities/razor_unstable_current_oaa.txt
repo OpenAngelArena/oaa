@@ -11,7 +11,6 @@
     "ScriptFile"                                          "abilities/oaa_razor_storm_surge.lua"
     "AbilityTextureName"                                  "razor_unstable_current"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
 
@@ -19,6 +18,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "self_movement_speed_pct" // bonus movement speed (for the tooltip)
+      {
+        "value"                                           "8 12 16 20 24 28"
+        "special_bonus_unique_razor_5"                    "+21"
+      }
       "strike_pct_chance"                                 "18" // for the tooltip
       "strike_target_count"                               "3" // for the tooltip
       "strike_damage" // for the tooltip

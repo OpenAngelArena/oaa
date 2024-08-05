@@ -9,12 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_silver_staff"
     "ItemRequirements"
     {
-      "01"                                                "item_spirit_vessel_2;item_upgrade_core_2"
+      "01"                                                "item_spirit_vessel_3;item_upgrade_core_3"
     }
   }
 
@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/silver_staff.lua"
-    "AbilityTextureName"                                  "custom/dragonstaff_3"
+    "AbilityTextureName"                                  "custom/dragonstaff_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -45,17 +45,17 @@
 
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "silver_staff"
-    "AbilityCastRange"                                    "950 1000 1050"
+    "AbilityCastRange"                                    "1000 1100"
     "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7782"
+    "ItemCost"                                            "15783"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "silver staff; break staff; dragon staff"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,13 +65,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "750 1000 1250"
-      "bonus_mana_regen"                                  "2.5 3.25 4.25"
-      "bonus_all_stats"                                   "17 22 27"
-      "bonus_armor"                                       "5 8 12"
-      "base_damage"                                       "60 90 130"
-      "max_hp_damage"                                     "3.5 4 4.5"
-      "duration"                                          "4.5 5.0 5.5"
+      "bonus_health"                                      "1000 1250"
+      "bonus_mana_regen"                                  "3.25 4.25"
+      "bonus_all_stats"                                   "22 27"
+      "bonus_armor"                                       "8 12"
+      "base_damage"                                       "95 135"
+      "max_hp_damage"                                     "4 4.5"
+      "duration"                                          "5.0"
     }
   }
 }

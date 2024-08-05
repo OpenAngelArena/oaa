@@ -54,6 +54,11 @@
         "value"                                           "2.75"
         "special_bonus_unique_pudge_6"                    "+0.75"
       }
+      "creep_dismember_duration_tooltip"
+      {
+        "value"                                           "5.5"
+        "special_bonus_unique_pudge_6"                    "+0.75"
+      }
       "AbilityCooldown" //OAA
       {
         "value"                                           "22 21 20 19 18"
@@ -74,15 +79,10 @@
         "value"                                           "300"
         "RequiresShard"                                   "1"
       }
-      "gluttony_strength_bonus"
+      "shard_cooldown_reduction"
       {
-        "value"                                           "0"
-        "special_bonus_facet_pudge_fresh_meat"            "1 3 5 7 9"             
-      }
-      "glutton_strength_stack_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_pudge_fresh_meat"            "12"                
+        "value"                                           "5.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

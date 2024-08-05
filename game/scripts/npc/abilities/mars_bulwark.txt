@@ -26,7 +26,7 @@
       "physical_damage_reduction_side"
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+7"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+6"
       }
       "side_angle"                                        "240"
       "redirect_chance"
@@ -37,7 +37,8 @@
       "redirect_range"                                    "900"
       "redirect_speed_penatly" //OAA penatly x)
       {
-        "value"                                           "0"
+        "value"                                           "10"
+        "special_bonus_unique_mars_bulwark_speed"         "-10"
       }
       "redirect_close_range" //OAA, same as Mars attack range
       {

@@ -36,35 +36,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "purge_damage" //OAA
+      "01"
       {
-        "value"                                           "300 600 900 1800 2700"
-        "special_bonus_unique_shadow_demon_1"             "+150"
+        "var_type"                                        "FIELD_INTEGER"
+        "purge_damage"                                    "300 600 900 1800 2700" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
       }
-      "max_charges"
+      "02"
       {
-        "value"                                           "2"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
         "RequiresScepter"                                 "1"
       }
-      "charge_restore_time"
+      "03"
       {
-        "value"                                           "60"
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "60"
         "RequiresScepter"                                 "1"
       }
-      "charge_restore_time_tooltip_scepter"
+      "04"
       {
-        "value"                                           "60"
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time_tooltip_scepter"             "60"
         "RequiresScepter"                                 "1"
       }
-      "max_slow" //OAA
+      "05"
       {
-        "value"                                           "80 85 90 95 100"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_slow"                                        "80 85 90 95 100" //OAA
       }
-      "min_slow"
+      "06"
       {
-        "value"                                           "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "min_slow"                                        "20.0"
       }
     }
   }

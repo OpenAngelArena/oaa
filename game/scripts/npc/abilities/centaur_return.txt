@@ -26,11 +26,7 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "return_damage_str"                                 "16 24 32 40 44 48"
-      "aura_radius"
-      {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "aura_radius"                                       "1200"
     }
   }
 }

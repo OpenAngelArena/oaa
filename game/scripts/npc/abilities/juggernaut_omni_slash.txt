@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "85" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,21 +34,22 @@
     "AbilityValues"
     {
       "attack_rate_multiplier"                            "1.5"
-      "bonus_damage"                                      "10 20 30 40 50" //OAA
-      "bonus_attack_speed"                                "0" //OAA
-      "duration" //OAA
+      "bonus_damage"                                      "40 45 50 100 200"
+      "bonus_attack_speed"                                "40"
+      "duration"
       {
-        "value"                                           "3"
+        "value"                                           "3 3.25 3.5 4.25 4.5"
         "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
       }
       "omni_slash_radius" //OAA
       {
-        "value"                                           "400"
+        "value"                                           "425"
         "affected_by_aoe_increase"                        "1"
       }
       "AbilityCastRange"
       {
         "value"                                           "350"
+        "special_bonus_unique_juggernaut_omnislash_cast_range"  "+75"
       }
       "dispel"
       {

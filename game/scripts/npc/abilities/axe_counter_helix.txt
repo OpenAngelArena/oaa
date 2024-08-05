@@ -22,7 +22,7 @@
       "damage"
       {
         "value"                                           "95 120 145 170 340 510"
-        "special_bonus_unique_axe_4"                      "+20"
+        "special_bonus_unique_axe_4"                      "+30"
       }
       "radius"
       {
@@ -33,23 +33,19 @@
       "AbilityCooldown"
       {
         "value"                                           "0.3"
-        "special_bonus_scepter"                           "-0.3"
+        "special_bonus_shard"                             "-0.3"
       }
-      "debuff_duration"
+      "shard_debuff_duration"
       {
-        "special_bonus_scepter"                           "+6.0"
+        "special_bonus_shard"                             "+6.0"
       }
-      "damage_reduction" //OAA, to prevent 100%
+      "shard_damage_reduction"
       {
-        "special_bonus_scepter"                           "+18"
+        "special_bonus_shard"                             "+15"
       }
-      "max_stacks"
+      "shard_max_stacks"
       {
-        "special_bonus_scepter"                           "+5"
-      }
-      "attacks_increase_counter"
-      {
-        "special_bonus_scepter"                           "1"
+        "special_bonus_shard"                             "+6"
       }
     }
   }

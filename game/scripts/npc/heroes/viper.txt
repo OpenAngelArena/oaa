@@ -5,7 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_viper"
   {
-    //"Ability6"                                            "viper_viper_strike_oaa" // replaces viper_viper_strike
+    "Ability6"                                            "viper_viper_strike_oaa" // replaces viper_viper_strike
 
     //"Ability10"                                           "special_bonus_unique_viper_4"
     //"Ability11"                                           "special_bonus_unique_viper_1"
@@ -27,7 +27,7 @@
   // special_bonus_unique_viper_6 - "+{s:bonus_bonus_magic_resistance}% Corrosive Skin Magic Resistance"
   // special_bonus_unique_viper_7 - "+{s:bonus_damage}% Poison Attack slow/damage"
   // special_bonus_unique_viper_8 - "-{s:bonus_AbilityCooldown}% Viper Strike manacost/cooldown"
-    // special_bonus_unique_viper_3_oaa - Viper Strike Purges and Silences                                                - custom
+    // special_bonus_unique_viper_3_oaa - Viper Strike Silences                                                - custom
 
     "AttributeIntelligenceGain"                           "1.0" // 2.0
   }

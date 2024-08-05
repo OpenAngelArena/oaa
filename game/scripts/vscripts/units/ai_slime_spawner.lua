@@ -13,7 +13,7 @@ function Spawn( kv )
 end
 
 function SlimeSpawnerThink()
-  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
     return -1
   end
 

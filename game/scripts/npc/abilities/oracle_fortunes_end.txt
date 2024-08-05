@@ -38,10 +38,12 @@
       "channel_time"
       {
         "value"                                           "2.5"
+        "special_bonus_unique_oracle_7"                   "-2.5"
       }
       "damage"
       {
         "value"                                           "100 160 220 280 560 1120"
+        "special_bonus_unique_oracle_fortunes_end_damage"  "+80"
       }
       "bolt_speed"                                        "1200"
       "minimum_purge_duration"
@@ -68,10 +70,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_oracle_damage_per_purge"    "+60"
-      }
-      "purge_constantly"
-      {
-        "special_bonus_unique_oracle_7"                   "=1"
       }
     }
   }

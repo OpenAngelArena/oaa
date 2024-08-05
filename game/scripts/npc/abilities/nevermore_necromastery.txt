@@ -1,57 +1,77 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Fiend: Necromastery (Innate)
+  // Ability: Nevermore Necromastery
   //=================================================================================================================
   "nevermore_necromastery"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-
-    "Innate"                                              "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "OnCastbar"                                           "0"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "-1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "necromastery_damage_per_soul" //OAA
+      "01"
       {
-        "value"                                           "1 3 4 5 6 7"
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_damage_per_soul"                    "1 2 3 4 5 6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_unique_nevermore_1"                "+1"
       }
-      "necromastery_max_souls"
+      "02"
       {
-        "value"                                           "20"
-        "special_bonus_scepter"                           "+5"
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_max_souls"                          "11 14 17 20 23 26"
       }
-      "souls_per_kill"                                    "1"
-      "necromastery_soul_release"                         "0.7"
-      "attack_range_bonus"                                "0"
-      "shard_souls_per_kill"
+      "03"
       {
-        "value"                                           "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "necromastery_soul_release"                       "0.7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_max_souls_scepter"                  "16 19 22 25 28 31" //OAA, if it lags tone it down
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_bonus"                              "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_souls_per_kill"                            "2"
         "RequiresShard"                                   "1"
       }
-      "shard_crit_pct"
+      "07"
       {
-        "value"                                           "190"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_crit_pct"                                  "190"
         "RequiresShard"                                   "1"
       }
-      "shard_fear_duration"
+      "08"
       {
-        "value"                                           "0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_fear_duration"                             "0.4"
         "RequiresShard"                                   "1"
       }
-      "soul_release_tooltip"                              "30.0"
-      "max_soul_increase_on_hero_kill" // OAA, because fuck this shit Valve
+      "09"
       {
-        "value"                                           "0"
-        "special_bonus_facet_nevermore_lasting_presence"  "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "soul_release_tooltip"                            "30.0"
       }
     }
   }

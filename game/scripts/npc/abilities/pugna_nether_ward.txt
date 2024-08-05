@@ -41,24 +41,14 @@
       "mana_multiplier" //OAA
       {
         "value"                                           "1 1.2 1.4 1.6"
-        "special_bonus_unique_pugna_3"                    "+2.4"
+        "special_bonus_unique_pugna_3"                    "+2.0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "mana_regen"                                        "0"
-      "health_restore_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_pugna_siphoning_ward"        "+30"
-      }
-      "mana_restore_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_pugna_siphoning_ward"        "+30"
-      }
       "attacks_to_destroy"
       {
         "value"                                           "4"
-        "special_bonus_unique_pugna_6"                    "+2"
+        "special_bonus_unique_pugna_6"                    "+3"
       }
       "spell_damage_reduction"
       {
@@ -69,12 +59,6 @@
       {
         "value"                                           "150"
         "special_bonus_shard"                             "=350"
-      }
-      "nether_ward_gold_bounty"                           "20 40 60 80"
-      "self_restoration_range"
-      {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

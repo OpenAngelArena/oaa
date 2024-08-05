@@ -3,12 +3,9 @@
 
 (function () {
   GameEvents.Subscribe('dota_player_update_selected_unit', function () {
-    // $.Msg('dota_player_update_selected_unit');
-    // when a player clicks on a unit
     $.Schedule(0.1, InjectBottomAbilityDotsStyle);
   });
   GameEvents.Subscribe('dota_player_update_query_unit', function () {
-    // $.Msg('dota_player_update_query_unit');
     $.Schedule(0.1, InjectQueryAbilityDotsStyle);
   });
 }());
@@ -58,26 +55,37 @@ function InjectAbilityDotsStyle (abilitiesPanel, numAbilitiesClassPanel, dotStyl
 function InjectBottomAbilityDotsStyle () {
   const abilitiesPanel = FindDotaHudElement('abilities');
   const numAbilitiesClassPanel = FindDotaHudElement('center_block');
-
   const dotStyles = {
-    default: {
-      AbilityMaxLevel7: {
-        width: '5px',
-        height: '3px',
-        margin: '3px 1px 3px 1px'
-      },
+    SixAbilities: {
       AbilityMaxLevel6: {
-        width: '6px',
-        height: '3px',
+        width: '7px',
         margin: '3px 1px 3px 1px'
       },
       AbilityMaxLevel5: {
-        width: '6px',
-        height: '3px',
-        margin: '3px 1.2px 3px 1.2px',
-        border: null,
-        'border-radius': null,
-        'box-shadow': null
+        width: '7px'
+      },
+      default: {
+        width: null,
+        margin: null
+      }
+    },
+    FiveAbilities: {
+      AbilityMaxLevel6: {
+        width: '7px',
+        margin: '3px 1px 3px 1px'
+      },
+      AbilityMaxLevel5: {
+        width: '7px'
+      },
+      default: {
+        width: null,
+        margin: null
+      }
+    },
+    default: {
+      AbilityMaxLevel6: {
+        width: '7px',
+        margin: '3px 1.5px 3px 1.5px'
       },
       default: {
         width: null,
@@ -88,12 +96,9 @@ function InjectBottomAbilityDotsStyle () {
   InjectAbilityDotsStyle(abilitiesPanel, numAbilitiesClassPanel, dotStyles, null);
 }
 
-// when does this happen?..
-// selecting non-hero units
 function InjectQueryAbilityDotsStyle () {
   const abilitiesPanel = FindDotaHudElement('Abilities');
   const numAbilitiesClassPanel = FindDotaHudElement('QueryUnit');
-
   const dotStyles = {
     default: {
       AbilityMaxLevel6: {

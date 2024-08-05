@@ -16,6 +16,10 @@
 
     "AbilityCastPoint"                                    "0"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40 50 60 70 80 90"
@@ -28,14 +32,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "21 20 19 18 17 16"
-        "special_bonus_unique_gyrocopter_1"               "-5"
-      }
       "radius"
       {
-        "value"                                           "1250" // special_bonus_unique_gyrocopter_1_oaa
+        "value"                                           "1250"
         "affected_by_aoe_increase"                        "1"
       }
       "max_attacks"
@@ -49,23 +48,18 @@
         "value"                                           "0"
         "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"  "+100"
       }
-      "bonus_night_vision"                                "200"
-      "sidegunner_fire_rate"
+      "fire_rate"
       {
         "value"                                           "1.3"
         "RequiresScepter"                                 "1"
       }
-      "sidegunner_radius" //OAA
+      "scepter_radius" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "800"
+        "value"                                           "800"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "double_target"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+1"
-      }
+      "bonus_night_vision"                                "200"
     }
   }
 }

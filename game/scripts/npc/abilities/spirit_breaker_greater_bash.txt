@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spirit Breaker: Greater Bash (Innate in OAA)
+  // Spirit Breaker: Greater Bash
   //=================================================================================================================
   "spirit_breaker_greater_bash"
   {
@@ -12,10 +12,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "Innate"                                              "1"
-
-    "MaxLevel"                                            "7"
-    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -28,20 +27,20 @@
       "chance_pct"
       {
         "value"                                           "17"
-        "special_bonus_unique_spirit_breaker_1"           "+17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_1"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "15 25 30 35 40 50 80"
-        "special_bonus_unique_spirit_breaker_3"           "+35"
+        "value"                                           "25 30 35 40 50 80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_3"
       }
-      "duration"                                          "0.7 0.9 1.1 1.3 1.5 1.5 1.5" //OAA
+      "duration"                                          "0.9 1.1 1.3 1.5 1.5 1.5"
       "knockback_duration"                                "0.5"
-      "knockback_distance"                                "134 144 152 158 162 164 166" //OAA
+      "knockback_distance"                                "143 152 158 162 166 170"
       "knockback_height"                                  "50"
       "bonus_movespeed_pct"                               "17"
-      "movespeed_duration"                                "3"
-      "creep_multiplier"                                  "1"
+      "movespeed_duration"                                "3.0"
+      "creep_multiplier"                                  "1.3"
     }
   }
 }

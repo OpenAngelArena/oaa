@@ -5,7 +5,7 @@
   //=================================================================================================================
   "treant_leech_seed"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -35,12 +35,13 @@
       "leech_damage" //OAA
       {
         "value"                                           "20 40 60 80 160 320"
-        "special_bonus_unique_treant_2"                   "+60"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_2"
       }
       "movement_slow" //OAA
       {
         "value"                                           "-15 -20 -25 -30 -35 -40"
-        "special_bonus_unique_treant_3"                   "-20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_3"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "radius"
       {
@@ -49,16 +50,6 @@
       }
       "duration"                                          "5.0"
       "projectile_speed"                                  "450"
-      "can_target_ground"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_treant_sapling"              "=1"
-      }
-      "creep_damage_reduction_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_treant_sapling"              "=50"
-      }
     }
   }
 }

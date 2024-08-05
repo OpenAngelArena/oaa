@@ -60,26 +60,83 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_health_regen"                                "1.5 4 7 10 13"
-      "bonus_health"                                      "150 400 900 1650 2650"
-      "bonus_all_stats"                                   "0"
-      "aura_radius"
+      "01"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "1.5 4 7 10 13"
       }
-      "aura_mana_regen"                                   "1.5 1.75 2.25 3.0 4.0"
-      "observer_duration"                                 "180" // vanilla dota observer ward duration: 360
-      "sentry_duration"                                   "360" // vanilla dota sentry ward duration: 420
-      "observer_radius"                                   "1600"
-      "sentry_radius"                                     "150"
-      "sentry_reveal_radius"                              "1000"
-      "observer_recharge"                                 "100" // vanilla dota observer ward restock: 135
-      "observer_max"                                      "3" // vanilla dota observer ward max stock: 4
-      "sentry_recharge"                                   "50" // vanilla dota sentry ward restock: 80
-      "sentry_max"                                        "5" // vanilla dota sentry ward max stock: 8
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "150 400 900 1650 2650"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
+      }
+      "06" // vanilla dota observer ward duration: 360
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_duration"                               "180"
+      }
+      "07" // vanilla dota sentry ward duration: 420
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_duration"                                 "360"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_radius"                                 "1400"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_radius"                                   "150"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_reveal_radius"                            "1000"
+      }
+      "11" // vanilla dota observer ward restock: 135
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_recharge"                               "100" // old: 135 120 100 80 60
+      }
+      "12" // vanilla dota observer ward max stock: 4
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_max"                                    "3"
+      }
+      "13" // vanilla dota sentry ward restock: 80
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_recharge"                                 "50" // old: 75 65 50 40 30
+      }
+      "14" // vanilla dota sentry ward max stock: 8
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_max"                                      "5"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "500"
+      }
     }
   }
 }

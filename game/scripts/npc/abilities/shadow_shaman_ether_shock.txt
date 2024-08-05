@@ -51,11 +51,12 @@
       "targets" //OAA
       {
         "value"                                           "9"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" // Valve, this is Hex Breaks talent
       }
-      "damage" //OAA
+      "damage"
       {
         "value"                                           "140 200 260 320 640 1280"
-        "special_bonus_unique_shadow_shaman_3"            "+640"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_3"
       }
     }
   }

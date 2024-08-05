@@ -21,51 +21,22 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
+    "AbilityCooldown"                                     "15" //OAA
     "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "15"
-        "special_bonus_scepter"                           "-5"
-      }
-      "duration_day" //OAA
-      {
-        "value"                                           "3.0 3.5 4.0 4.5 5.0 5.5"
-      }
-      "duration_night"
-      {
-        "value"                                           "4.5 5 5.5 6.0 6.5 7"
-      }
-      "mana_pct_cost"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "6"
-      }
-      "mana_interval"                                     "1"
-      "toggled"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "1"
-      }
+      "duration_day"                                      "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
+      "duration_night"                                    "4.5 5.0 5.5 6.0 6.5 7.0" //OAA
       "radius"
       {
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "dps" //OAA
-      {
-        "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_night_stalker_crippling_fear_damage"  "+100"
-      }
+      "dps"                                               "25 35 45 55 110 220" //OAA
       "tick_rate"                                         "0.1"
-      "death_refresh"
-      {
-        "value"                                           "0"
-      }
     }
   }
 }

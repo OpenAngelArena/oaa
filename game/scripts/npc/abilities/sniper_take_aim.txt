@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -23,38 +23,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"
+      "01"
       {
-        "value"                                           "3"
-        "special_bonus_unique_sniper_4"                   "+1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range"                              "130 220 310 400 450 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_6"
       }
-      "slow"
+      "02"
       {
-        "value"                                           "65"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
       }
-      "headshot_chance"                                   "100"
-      "active_attack_range_bonus"
+      "03"
       {
-        "value"                                           "200" // special_bonus_unique_sniper_6_oaa
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "45 40 35 30 25 20"
       }
-      "bonus_armor"
+      "04"
       {
-        "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_sniper_take_aim_armor"      "+15"
+        "var_type"                                        "FIELD_INTEGER"
+        "headshot_chance"                                 "100"
       }
-      "does_root"
+      "05"
       {
-        "value"                                           "0"
-      }
-      "require_target"
-      {
-        "value"                                           "0"
-      }
-      "no_reveal"
-      {
-        "special_bonus_facet_sniper_ghillie_suit"         "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "active_attack_range_bonus"                       "200"
       }
     }
   }

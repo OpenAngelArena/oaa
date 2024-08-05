@@ -26,17 +26,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "cast_delay"
+      "01"
       {
-        "value"                                           "3.5 3.25 3.0 2.0 1.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_delay"                                      "3.5 3.25 3.0 2.0 1.5"
       }
-      "return_time"
+      "02"
       {
-        "value"                                           "12.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "return_time"                                     "12.0"
       }
-      "shield_hp"                                         "250 350 450 750 1250" //OAA
     }
   }
 }

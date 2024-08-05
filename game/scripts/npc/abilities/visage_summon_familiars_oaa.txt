@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Visage: Summon Familiars (OAA rework) - unused
+  // Visage: Summon Familiars (OAA rework)
   //=================================================================================================================
   "visage_summon_familiars_oaa"
   {
@@ -32,25 +32,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "familiar_hp"                                       "500 700 900 1500 2500"
-      "familiar_armor"                                    "2 4 6 8 10"
-      "familiar_speed"
+      "01"
       {
-        "value"                                           "430"
-        //"special_bonus_unique_visage_2"                   "+40"
+        "var_type"                                        "FIELD_INTEGER"
+        "familiar_hp"                                     "500 700 900 1500 2500"
       }
-      "familiar_attack_damage"
+      "02"
       {
-        "value"                                           "30 75 120 255 390"
-        "special_bonus_unique_visage_7"                   "+6"
+        "var_type"                                        "FIELD_INTEGER"
+        "familiar_armor"                                  "2 4 6 8 10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "familiar_speed"                                  "420"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "familiar_attack_damage"                          "30 75 120 255 390"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "total_familiars"
+      "05"
       {
-        "value"                                           "2"
-        "special_bonus_unique_visage_6"                   "+1"
+        "var_type"                                        "FIELD_INTEGER"
+        "total_familiars"                                 "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_total_familiars"                         "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
+        "RequiresScepter"                                 "0"
       }
     }
   }

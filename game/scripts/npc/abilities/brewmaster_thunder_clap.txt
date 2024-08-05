@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 12 11"
+    "AbilityCooldown"                                     "13"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,16 +34,17 @@
     {
       "radius"
       {
-        "value"                                           "325 350 375 400 425 450"
+        "value"                                           "400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_7"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_brewmaster_7"               "+200"
       }
-      "damage"                                            "75 150 225 300 600 1200"
-      "movement_slow"                                     "15 30 45 60 65 70"
-      "attack_speed_slow"                                 "15 30 45 60 90 120"
+      "damage"                                            "90 160 230 300 600 1200"
+      "movement_slow"                                     "25 35 45 55 65 75"
+      "attack_speed_slow"                                 "25 35 45 55 75 150"
       "duration"
       {
         "value"                                           "4.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
       }
     }
   }

@@ -20,11 +20,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration" //OAA
+      "01"
       {
-        "value"                                           "2 3 4 5"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "2 3 4 5" //OAA
       }
     }
   }

@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
       "radius"
       {
         "value"                                           "275"
-        "special_bonus_unique_dark_seer_5"                "+65"
+        "special_bonus_unique_dark_seer_5"                "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second"
@@ -50,6 +50,7 @@
       "duration"
       {
         "value"                                           "21 24 27 30 33 36"
+        "special_bonus_unique_dark_seer_15"               "+15"
       }
       "tick_interval"                                     "0.2"
       "AbilityCharges"

@@ -18,6 +18,10 @@
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "85 105 125 145 165 185" //OAA
@@ -26,11 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "5"
-        "special_bonus_unique_pugna_4"                    "-2"
-      }
       "structure_damage_mod"                              "165" //OAA, percentage bonus damage against bosses
       "delay"                                             "0.8"
       "radius"
@@ -38,10 +37,10 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "blast_damage" //OAA
+      "blast_damage"
       {
-        "value"                                           "95 170 245 320 640 1280"
-        "special_bonus_unique_pugna_2"                    "+320"
+        "value"                                           "100 180 260 340 680 1360"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pugna_2"
       }
     }
   }

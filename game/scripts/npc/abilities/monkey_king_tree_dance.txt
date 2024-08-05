@@ -28,37 +28,81 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "leap_speed"                                        "700"
-      // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
-      "spring_leap_speed"                                 "1300"
-      "give_up_distance"                                  "1850"
-      "ground_jump_distance"
+      "01"
       {
-        "value"                                           "800"
-        "special_bonus_unique_monkey_king_7"              "+450"
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_speed"                                      "800"
       }
-      "perched_jump_distance"
+      "02" // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
       {
-        "value"                                           "800"
-        "special_bonus_unique_monkey_king_7"              "+450"
+        "var_type"                                        "FIELD_INTEGER"
+        "spring_leap_speed"                               "1300"
       }
-      "jump_damage_cooldown"                              "3.0"
-      "perched_day_vision"                                "700"
-      "perched_night_vision"                              "500"
-      "perched_spot_height"                               "192.0"
-      "unperched_stunned_duration"                        "4.0"
-      "top_level_height"                                  "500"
-      "impact_damage_tooltip"
+      "03"
       {
-        "value"                                           "140 210 280 350 700 1400"
+        "var_type"                                        "FIELD_INTEGER"
+        "give_up_distance"                                "2610" // OAA, Range(800) + Talent(450) + Arcane Supremacy(360) + Far Sight(425) + Seer Stone(350) + Telescope Aura(100) + 125
       }
-      "impact_movement_slow_tooltip"                      "20 40 60 80 85 90"
-      "range"                                             "800"
-      "no_cooldown_hp_threshold"
+      "04"
       {
-        "special_bonus_facet_monkey_king_simian_stride"   "90"
+        "var_type"                                        "FIELD_INTEGER"
+        "ground_jump_distance"                            "800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_7"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "perched_jump_distance"                           "800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_7"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_damage_cooldown"                            "3.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_day_vision"                              "700"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_night_vision"                            "500"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_spot_height"                             "192.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "unperched_stunned_duration"                      "4.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "top_level_height"                                "500"
+      }
+      "12" // same as in Primal Spring ability
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_damage_tooltip"                           "140 210 280 350 700 1400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
+        // Valve, this will result in a tooltip error, AbilitySpecials need to be changed into AbilityValues ...
+      }
+      "13" // same as in Primal Spring ability
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_movement_slow_tooltip"                    "20 40 60 80 85 90"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "800"
       }
     }
   }

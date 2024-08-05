@@ -41,8 +41,9 @@
         "value"                                           "100 120 140 160 180 200"
         "special_bonus_unique_drow_ranger_1"              "+50"
       }
+      "arrow_slow_duration"                               "1.25 2 2.75 3.5 4.25 5"
       "arrow_width"                                       "90"
-      "arrow_speed"                                       "1300"
+      "arrow_speed"                                       "1200"
       "arrow_range_multiplier"                            "1.75"
       "arrow_angle"                                       "50"
       "bypass_block"                                      "1"
@@ -50,11 +51,6 @@
       {
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_drow_ranger_6"              "-6"
-      }
-      "multishot_movespeed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_drow_ranger_sidestep"        "25"
       }
     }
   }

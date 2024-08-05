@@ -5,32 +5,32 @@
   //=================================================================================================================
   "npc_dota_hero_wisp"
   {
-    "Ability10"                                           "special_bonus_unique_wisp_3" // replaces special_bonus_unique_wisp_11
+    //"Ability10"                                           "special_bonus_unique_wisp_11"
     //"Ability11"                                           "special_bonus_unique_wisp_8"
 
-    "Ability12"                                           "special_bonus_unique_wisp_11" // replaces special_bonus_unique_wisp_3
+    //"Ability12"                                           "special_bonus_unique_wisp_3"
     //"Ability13"                                           "special_bonus_unique_wisp"
 
-    "Ability14"                                           "special_bonus_unique_wisp_9" // replaces special_bonus_unique_wisp_10
+    //"Ability14"                                           "special_bonus_unique_wisp_10"
     //"Ability15"                                           "special_bonus_unique_wisp_6"
 
-    "Ability16"                                           "special_bonus_unique_wisp_1_oaa" // replaces special_bonus_unique_wisp_9
-    "Ability17"                                           "special_bonus_unique_wisp_10" // replaces special_bonus_unique_wisp_4
+    //"Ability16"                                           "special_bonus_unique_wisp_9"
+    "Ability17"                                           "special_bonus_unique_wisp_1_oaa" // replaces special_bonus_unique_wisp_4
 
     "Ability18"                                           "special_bonus_unique_wisp_4" // replaces undefined
     "Ability19"                                           "special_bonus_unique_doom_8" // replaces undefined
 
-    // special_bonus_unique_wisp   - Spirits Hero Damage                               - ok
-    // special_bonus_unique_wisp_2 - Tether Stuns                                      - doesn't work
-    // special_bonus_unique_wisp_3 - Tether Movement Speed
-    // special_bonus_unique_wisp_4 - Attack Tethered Ally's Target                     - overpowered
-    // special_bonus_unique_wisp_5 - Tether Scepter Bonus                              - doesn't work
+    // special_bonus_unique_wisp   - Spirits Hero Damage
+    // special_bonus_unique_wisp_2 - Tether Stuns                                                  - doesn't work
+  // special_bonus_unique_wisp_3 - +{s:bonus_movespeed}% Tether Movement Speed
+    // special_bonus_unique_wisp_4 - Attack Tethered Ally's Target                                 - overpowered
+    // special_bonus_unique_wisp_5 - Tether Scepter Bonus                                          - doesn't work
     // special_bonus_unique_wisp_6 - Relocate cooldown
-    // special_bonus_unique_wisp_7 - Spirits Apply Slow                                - scepter does this
-    // special_bonus_unique_wisp_8 - Attack Damage to Tethered Units
-    // special_bonus_unique_wisp_9 - Health to Tethered Units                          - ok
-    // special_bonus_unique_wisp_10 - Overcharge Max HP Regen Bonus                    - ok
-    // special_bonus_unique_wisp_11 - Tether Enemy Move/Attack Slow
-    // special_bonus_unique_wisp_1_oaa - Overcharge Spell Amp                          - custom
+    // special_bonus_unique_wisp_7 - Spirits Apply Slow                                            - scepter does this
+  // special_bonus_unique_wisp_8 - +{s:value} Attack Damage to Tethered Units
+  // special_bonus_unique_wisp_9 - +{s:value} Health to Tethered Units
+  // special_bonus_unique_wisp_10 - +{s:bonus_hp_regen}% Overcharge Max HP Regen Bonus
+  // special_bonus_unique_wisp_11 - +{s:bonus_slow}% Tether Enemy Move/Attack Slow
+  // special_bonus_unique_wisp_1_oaa - +{s:value}% Overcharge Spell Amp                            - custom
   }
 }

@@ -23,38 +23,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "20 19 18 17 16 15"
-        "special_bonus_unique_slardar_7"                  "-2"
-      }
-      "bonus_speed"                                       "10 20 30 40 50 60"
+      "bonus_speed"                                       "25 30 35 40 45 50"
       "duration"                                          "10"
-      "speed_burst_percent"
+      "river_speed"                                       "18"
+      "puddle_regen"
       {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "+8"
-        "RequiresFacet"                                   "slardar_leg_day"
+        "value"                                           "2 4 6 8 12 18"
+        "special_bonus_scepter"                           "+22"
       }
-      "speed_burst_duration"
+      "puddle_armor"
       {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "5.0"
+        "value"                                           "1 2 3 4 6 9"
+        "special_bonus_scepter"                           "+11"
       }
-      "speed_burst_max_duration"
+      "puddle_status_resistance"
       {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "2.0"
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
       }
-      "slow_resistance_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "=100"
-      }
+      "river_speed_tooltip"                               "18" // Valve gave up on calculating total bonus move speed on the river
     }
   }
 }

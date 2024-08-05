@@ -20,7 +20,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,17 +32,13 @@
         "affected_by_aoe_increase"                        "1"
       }
       "max_distance"                                      "1950"
-      "orb_speed"
-      {
-        "value"                                           "550 550 550 550 600 650"
-        "special_bonus_facet_puck_curveball"              "+200"
-      }
+      "orb_speed"                                         "550 550 550 550 600 650"
       "orb_vision"
       {
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "vision_duration"                                   "2.5"
+      "vision_duration"                                   "3.34"
       "damage" //OAA
       {
         "value"                                           "90 160 230 300 600 1200"
@@ -51,42 +47,7 @@
       "AbilityCooldown"
       {
         "value"                                           "11 10 9 8 7 6"
-      }
-      "warning_sound_time"                                "0.25"
-      "curve_orb"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "=1"
-      }
-      "curve_orb_duration_multiplier"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "=100"
-      }
-      "curve_orb_max_acceleration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "=0.0015"
-      }
-      "curve_orb_pullback_bonus_launch_speed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "0.25"
-      }
-      "curve_strength"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "0.6"
-      }
-      "vector_reticle_distance"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "200.0"
-      }
-      "vector_reticle_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_puck_curveball"              "0.0"
+        "special_bonus_unique_puck_8"                     "-2"
       }
     }
   }

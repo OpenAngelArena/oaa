@@ -24,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, special_bonus_unique_storm_spirit_2_oaa
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 70 80 90 180 270"
+    "AbilityManaCost"                                     "60 70 80 90 190 290"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,22 +37,17 @@
       "electric_vortex_pull_distance"                     "180 220 260 300 340 380"
       "electric_vortex_pull_tether_range"                 "1200.0"
       "electric_vortex_self_slow"                         "-50"
-      "electric_vortex_self_slow_duration"                "1.1 1.4 1.7 2.0 2.1 2.2" //OAA
+      "electric_vortex_self_slow_duration"                "0.9 1.3 1.7 2.1 2.4 2.7" //OAA
       "AbilityDuration"
       {
-        "value"                                           "1.1 1.4 1.7 2.0 2.1 2.2"
-        "special_bonus_unique_storm_spirit"               "+0.2"
+        "value"                                           "0.9 1.3 1.7 2.1 2.4 2.7"
+        "special_bonus_unique_storm_spirit"               "+0.3"
       }
       "radius_scepter"
       {
         "value"                                           "475"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
-      }
-      "enemy_overload_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_storm_spirit_shock_collar"   "=5"
       }
     }
   }

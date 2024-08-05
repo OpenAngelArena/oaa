@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -33,53 +33,55 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "ward_count"
+      "01"
       {
-        "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_count"                                      "10"
       }
-      "bonus_damage"
+      "02"
       {
-        "special_bonus_unique_shadow_shaman_4"            "+20"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_tooltip"                                  "30 75 120" //OAA, not piercing in OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_attack_range"
+      "03"
       {
-        "special_bonus_unique_shadow_shaman_8"            "+160"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_tooltip"                            "650"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_8"
       }
-      "duration"                                          "45.0"
-      "spawn_radius"                                      "150"
-      // damage_tooltip ?
-      "hits_to_destroy_tooltip"
+      "04"
       {
-        "value"                                           "2"
-        "special_bonus_unique_shadow_shaman_1"            "50%"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "45.0"
       }
-      "ward_health"
+      "05"
       {
-        "value"                                           "4"
-        "special_bonus_unique_shadow_shaman_1"            "+2"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "0"
+        "RequiresScepter"                                 "1"
       }
-      "is_mega_ward"
+      "06"
       {
-        "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+1"
+        "var_type"                                        "FIELD_INTEGER"
+        "spawn_radius"                                    "150"
       }
-      "mega_ward_multiplier_tooltip"
+      "07"
       {
-        "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
+        "var_type"                                        "FIELD_INTEGER"
+        "hits_to_destroy_tooltip"                         "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
+        "LinkedSpecialBonusField"                         "value2"
       }
-      "mega_ward_health_tooltip"
+      "08"
       {
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
+        "var_type"                                        "FIELD_INTEGER"
+        "hits_to_destroy_tooltip_creeps"                  "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
       }
-      "mega_ward_health_reduction_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=0"
-      }
-      "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5"
     }
   }
 }

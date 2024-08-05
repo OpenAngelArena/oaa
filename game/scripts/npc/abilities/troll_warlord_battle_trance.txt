@@ -29,25 +29,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trance_duration"
-      {
-        "value"                                           "6.5"
-        "special_bonus_unique_troll_warlord_battle_trance_movespeed"  "+1.5"
-      }
+      "trance_duration"                                   "6.5"
       "AbilityCooldown"
       {
         "value"                                           "90 80 70 60 50"
+        "special_bonus_unique_troll_warlord_7"            "-15"
       }
       "lifesteal"                                         "40 60 80 100 120"
       "attack_speed"                                      "140 170 200 230 260"
-      "attack_speed_share_percent"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_troll_warlord_bad_influence"  "+30"
-      }
       "movement_speed"
       {
         "value"                                           "25 30 35 40 45"
+        "special_bonus_unique_troll_warlord_battle_trance_movespeed"  "+20"
       }
       "range"        
       {

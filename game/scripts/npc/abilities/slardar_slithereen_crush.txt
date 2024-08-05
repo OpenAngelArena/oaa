@@ -41,6 +41,7 @@
       "crush_extra_slow"
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_8"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
@@ -53,12 +54,12 @@
       "puddle_duration"
       {
         "value"                                           "7"
-        "special_bonus_scepter"                           "+5"
+        "special_bonus_scepter"                           "+18"
       }
       "puddle_radius"
       {
         "value"                                           "250"
-        "special_bonus_scepter"                           "+300"
+        "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
       "crush_damage" //OAA
@@ -73,7 +74,7 @@
       }
       "shard_bonus_radius"
       {
-        "value"                                           "0"
+        "value"                                           "75"
         "RequiresShard"                                   "1"
       }
     }

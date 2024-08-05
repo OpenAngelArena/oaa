@@ -13,15 +13,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_immolate_damage"                             "100"
-      "bonus_immolate_aoe"
+      "01"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_immolate_damage"                           "100"
       }
-      "immolate_tick"                                     "0.25"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_immolate_aoe"                              "450"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "immolate_tick"                                   "0.25"
+      }
     }
   }
 }

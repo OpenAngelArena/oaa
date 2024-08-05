@@ -20,6 +20,10 @@
     "AbilityCastRange"                                    "600 700 800 900 1000 1100"
     "AbilityCastPoint"                                    "0.25"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40 50 60 70 80 90"
@@ -28,34 +32,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "13 12 11 10 9 8"
-      }
       "stun_min"
       {
         "value"                                           "0.5"
-        "special_bonus_unique_morphling_10"               "+1.0"
+        "special_bonus_unique_morphling_10"               "+0.8"
       }
       "stun_max"
       {
         "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
-        "special_bonus_unique_morphling_10"               "+1.0"
+        "special_bonus_unique_morphling_10"               "+0.8"
       }
-      "knockback_min"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_morphling_agi"               "=100"
-        "RequiresFacet"                                   "morphling_agi"
-      }
-      "knockback_max"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_morphling_agi"               "=500"
-        "RequiresFacet"                                   "morphling_agi"
-      }
+      "knockback_min"                                     "100"
+      "knockback_max"                                     "500"
       "projectile_speed"                                  "1150"
       "shared_cooldown"                                   "1" //OAA
+      "bonus_attributes"
+      {
+        "value"                                           "3 5 7 9 18 27"
+        "special_bonus_shard"                             "+6"
+      }
     }
   }
 }

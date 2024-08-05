@@ -21,7 +21,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
+    "AbilityCooldown"                                     "16 12 8 4 4 4"
     "AbilityDuration"                                     "5.0"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
@@ -40,21 +40,12 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "20 30 40 50 100 200"
+        "special_bonus_unique_jakiro_8"                   "+30"
       }
-      "pct_health_damage"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+2.5"
-      }
-      "tick_rate"                                         "0.5"
-      "building_dmg_pct"                                  "75" // percentage bonus damage against bosses
-      "double_head"
-      {
-        "special_bonus_unique_jakiro_3"                   "+1"
-      }
+      "building_dmg_pct"                                  "175" //OAA, percentage bonus damage against bosses
     }
   }
 }

@@ -33,19 +33,12 @@
       "speed"                                             "550"
       "bonus_night_vision"                                "1000"
       "transformation_time"                               "1.1"
-      "crit_chance"                                       "40"
+      "crit_chance"
+      {
+        "value"                                           "40"
+      }
       "crit_multiplier"                                   "160 190 220 250 280" //OAA, intentional nerf
       "health_bonus"                                      "250 450 650 1050 1850" //OAA
-      "is_wolfpack"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_lycan_pack_leader"           "+1"
-      }
-      "kill_duration_extension"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_lycan_pack_leader"           "+5"
-      }
     }
   }
 }

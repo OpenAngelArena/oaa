@@ -42,7 +42,7 @@
       "slow"
       {
         "value"                                           "-11 -19 -27 -35 -40 -45"
-        "special_bonus_unique_axe_6"                      "-10"
+        "special_bonus_unique_axe_6"                      "-12"
       }
       "damage_per_second" //OAA
       {
@@ -54,14 +54,14 @@
         "value"                                           "1"
         "special_bonus_unique_axe"                        "x3"
       }
+      "scepter_armor_change"
+      {
+        "special_bonus_scepter"                           "+7"
+      }
       "speed_bonus"
       {
         "value"                                           "0"
-        "special_bonus_unique_axe_8"                      "+10"
-      }
-      "should_stack"
-      {
-        "special_bonus_shard"                             "1"
+        "special_bonus_unique_axe_8"                      "+12"
       }
     }
   }

@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Sleight of Fist Hero Damage
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "110" //OAA
+        "ad_linked_abilities"                             "ember_spirit_sleight_of_fist"
+      }
+    }
+  }
+}

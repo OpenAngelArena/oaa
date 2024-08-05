@@ -15,6 +15,7 @@
     "Model"                                               "models/heroes/lycan/lycan_wolf.vmdl"
     "SoundSet"                                            "Hero_Lycan"
     "Level"                                               "1"
+    "IsAncient"                                           "1"
     "ModelScale"                                          "0.9"
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
@@ -43,7 +44,7 @@
     "AttackAcquisitionRange"                              "600"
     "AttackRange"                                         "600"
     "ProjectileModel"                                     ""
-    "ProjectileSpeed"                                     "0"
+    "ProjectileSpeed"                                     "1200"
 
     // Bounds
     //----------------------------------------------------------------
@@ -64,7 +65,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "2500"
-    "StatusHealthRegen"                                   "0" // has boss_regen
+    "StatusHealthRegen"                                   "1"
     "StatusMana"                                          "1250"
     "StatusManaRegen"                                     "10"
 
@@ -76,6 +77,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    
+    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data

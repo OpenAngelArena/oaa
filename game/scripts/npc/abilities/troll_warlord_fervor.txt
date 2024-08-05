@@ -19,33 +19,25 @@
     {
       "attack_speed" //OAA
       {
-        "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_troll_warlord_5"            "+5"
+        "value"                                           "10 15 20 25 30 35"
+        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_5"
       }
       "max_stacks" //OAA
       {
-        "value"                                           "9"
+        "value"                                           "8"
         "special_bonus_shard"                             "+3"
       }
       "extra_attack_chance_per_stack"
       {
-        "value"                                           "3"
+        "value"                                           "4"
         "RequiresShard"                                   "1"
       }
       "base_chance"
       {
-        "value"                                           "16"
+        "value"                                           "20"
         "RequiresShard"                                   "1"
       }
-      "armor_per_stack"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_troll_warlord_insensitive"   "+1"
-      }
-      "range_buffer"
-      {
-        "special_bonus_shard"                             "=175"
-      }
+      "range_buffer"                                      "175"
     }
   }
 }

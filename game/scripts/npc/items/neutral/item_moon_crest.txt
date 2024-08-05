@@ -24,11 +24,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_attack_speed"                                "15"
-      "bonus_armor"                                       "2"
-      "bonus_evasion"                                     "5"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "15"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_armor"                                     "2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "5"
+      }
     }
   }
 }

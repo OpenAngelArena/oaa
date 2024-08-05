@@ -13,22 +13,22 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.7" //OAA
+    "AbilityCooldown"                                     "0.35" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trigger_chance" //OAA
+      "trigger_chance"
       {
         "value"                                           "25"
-        "special_bonus_unique_legion_commander_3"         "+15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_3"
       }
       "buff_duration"                                     "1.0"
-      "hp_leech_percent"
+      "hp_leech_percent" //OAA
       {
-        "value"                                           "55 65 75 85 90 95"
-        "special_bonus_unique_legion_commander_7"         "+75"
+        "value"                                           "55 60 65 70 75 80"
+        "special_bonus_unique_legion_commander_7"         "+65"
       }
     }
   }

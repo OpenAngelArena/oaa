@@ -1,14 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Static Grip becomes pseudo-channel ability - unused
+  // Electrician: Static Grip becomes pseudo-channel ability
   //=================================================================================================================
-  "special_bonus_unique_electrician_7_oaa"
+  "special_bonus_electrician_static_grip_non_channel"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_base"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1"
+      }
+    }
   }
 }

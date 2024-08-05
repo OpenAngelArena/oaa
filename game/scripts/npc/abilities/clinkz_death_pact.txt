@@ -14,12 +14,13 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
+    "AbilityChargeRestoreTime"                            "40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,24 +36,27 @@
         "value"                                           "1 1 2 2 2 2"
         "special_bonus_unique_clinkz_9"                   "+1"
       }
-      "AbilityChargeRestoreTime"
-      {
-        "value"                                           "40"
-        "special_bonus_facet_clinkz_engulfing_step"       "-10"
-      }
       "health_gain"
       {
         "value"                                           "175 250 325 400 800 1600"
         "special_bonus_unique_clinkz_8"                   "+350"
       }
-      "skeletons_spawned"
+      "skeleton_duration"                                 "45"
+      "skeleton_health"
       {
-        "value"                                           "1"
+        "value"                                           "8"
+        "special_bonus_scepter"                           "+4"
       }
-      "spawn_skeleton_on_origin"
+      "skeleton_health_tooltip"
       {
-        "value"                                           "0"
-        "special_bonus_facet_clinkz_engulfing_step"       "1"
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+1"
+      }
+      "skeleton_building_damage_reduction"                "25"
+      "attack_rate"                                       "1.6"
+      "damage_percent" //OAA
+      {
+        "value"                                           "20 22 24 26 28 30"
       }
       "creep_level"                                       "6" //OAA
     }

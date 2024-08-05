@@ -22,6 +22,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "7.0 6.5 6 5.5 5.5 5.5"
+    "AbilityDuration"                                     "3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,23 +34,17 @@
     {
       "radius"                                            "400"
       "rockets_per_second"                                "10"
-      "rocket_interval"                                   "0.1"
-      "barrage_duration"                                  "3"
-      "rocket_damage" //OAA
+      "rocket_damage"
       {
         "value"                                           "8 14 20 26 52 104"
-        "special_bonus_unique_gyrocopter_3"               "+28"
+        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_3"
       }
-      "bonus_movespeed_duration"
+      "bonus_movement_speed"
       {
         "value"                                           "0"
-        "special_bonus_facet_gyrocopter_afterburner"      "=4.0"
+        "special_bonus_unique_gyrocopter_4"               "+30"
       }
-      "bonus_movement_speed_per_hit"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_gyrocopter_afterburner"      "=1 =2 =3 =4 =5 =6"
-      }
+      "slow_resistance"                                   "20 30 40 50 55 60"
     }
   }
 }

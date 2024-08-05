@@ -1,23 +1,14 @@
 electrician_electric_shield = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_electrician_electric_shield", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_electrician_electric_shield_auto_caster", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function electrician_electric_shield:GetIntrinsicModifierName()
-  local isToggleable = self:GetSpecialValueFor("is_toggleable") > 0
-  if isToggleable then
-    return "modifier_electrician_electric_shield_auto_caster"
-  end
-end
-
 function electrician_electric_shield:GetBehavior()
-  local isToggleable = self:GetSpecialValueFor("is_toggleable") > 0
-
+  local caster = self:GetCaster()
   -- Shard that makes Electric Shield toggle
-  if isToggleable then
-    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+  if caster:HasShardOAA() then
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_TOGGLE
   end
   return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL
 end
@@ -28,7 +19,7 @@ function electrician_electric_shield:GetManaCost(level)
   local currentMana = caster:GetMana()
   local cost = baseCost
 
-  if currentMana > baseCost then
+  if baseCost < currentMana then
     local fullCost = caster:GetMaxMana() * ( self:GetSpecialValueFor( "mana_cost" ) * 0.01 )
 
     cost = math.min(currentMana, fullCost)
@@ -42,45 +33,30 @@ function electrician_electric_shield:GetManaCost(level)
     self.recordCost = false
   end
 
+  if caster:HasShardOAA() then
+    return 0
+  end
+
   return cost
 end
-
--- function electrician_electric_shield:GetCooldown(level)
---   return self:GetSpecialValueFor("AbilityCooldown")
--- end
 
 --------------------------------------------------------------------------------
 
 -- this is seemingly the only thing that gets called before OnSpellStart for this kind
 -- of spell, at least as far as non-hacks go
 function electrician_electric_shield:CastFilterResult()
-  local caster = self:GetCaster()
-
-  -- currently being nullified / demonically purged
-  if caster:HasModifier("modifier_item_nullifier_mute") or caster:HasModifier("modifier_shadow_demon_purge_slow") then
-    return UF_FAIL_CUSTOM
-  end
-
 	self.recordCost = true
 	return UF_SUCCESS
 end
-
-function electrician_electric_shield:GetCustomCastError()
-  return "#electrician_cannot_activate_shield_while_nullified"
-end
-
 
 --------------------------------------------------------------------------------
 
 function electrician_electric_shield:OnSpellStart()
   local caster = self:GetCaster()
-  local shieldHP = self.usedCost * self:GetSpecialValueFor("shield_per_mana")
-
-  local shield = caster:FindModifierByName("modifier_electrician_electric_shield")
-  if shield and not shield:IsNull() then
-    -- remove old shield first
-    shield:Destroy()
+  if caster:HasShardOAA() then
+    return
   end
+  local shieldHP = self.usedCost * self:GetSpecialValueFor("shield_per_mana")
 
   -- create the shield modifier
   caster:AddNewModifier( caster, self, "modifier_electrician_electric_shield", {
@@ -89,104 +65,30 @@ function electrician_electric_shield:OnSpellStart()
   } )
 end
 
+function electrician_electric_shield:OnToggle()
+  local caster = self:GetCaster()
+  if not caster:HasShardOAA() then
+    return
+  end
+  if self:GetToggleState() then
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield", {
+      duration = -1,
+      shieldHP = -1,
+    } )
+  else
+    caster:RemoveModifierByNameAndCaster("modifier_electrician_electric_shield", caster)
+  end
+end
+
 function electrician_electric_shield:ProcMagicStick()
+  local caster = self:GetCaster()
+  if caster:HasShardOAA() then
+    return false
+  end
+
   return true
 end
 
-
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
-modifier_electrician_electric_shield_auto_caster = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
-
-function modifier_electrician_electric_shield_auto_caster:IsDebuff()
-  return false
-end
-
-function modifier_electrician_electric_shield_auto_caster:IsHidden()
-  return true
-end
-
-function modifier_electrician_electric_shield_auto_caster:IsPurgable()
-  return false
-end
-
-function modifier_electrician_electric_shield_auto_caster:OnCreated(event)
-  self:CheckTimer()
-end
-function modifier_electrician_electric_shield_auto_caster:OnRefresh(event)
-  self:CheckTimer()
-end
-
-function modifier_electrician_electric_shield_auto_caster:CheckTimer()
-  -- only run on the server
-  if not IsServer() then
-    return
-  end
-
-  self:StartIntervalThink(0.2)
-end
-
-function modifier_electrician_electric_shield_auto_caster:OnIntervalThink()
-  -- only run on the server
-  if not IsServer() then
-    return
-  end
-
-  local newTime = self:CheckCastShield()
-  self:StartIntervalThink(newTime)
-end
-
-function modifier_electrician_electric_shield_auto_caster:CheckCastShield()
-  -- only run on the server
-  if not IsServer() then
-    return
-  end
-
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return -1
-  end
-
-  if not ability:GetAutoCastState() or not ability:IsOwnersManaEnough() or not ability:IsCooldownReady() then
-    return 1
-  end
-
-  local parent = self:GetParent()
-  if not parent or parent:IsNull() or not parent:IsRealHero() then
-    return -1
-  end
-
-  if not parent:IsAlive() then
-    return 2
-  end
-
-  local shield = parent:FindModifierByName("modifier_electrician_electric_shield")
-
-  if shield and not shield:IsNull() then
-    shield.auto_cast_modifier = self
-    return 2
-  end
-
-  if parent:IsSilenced() or parent:IsStunned() then
-    return 0.1
-  end
-
-  -- logic for not casting at dumb times is in CastFilterResult
-  local filterResult = ability:CastFilterResult()
-  ability:GetManaCost(-1)
-
-  if filterResult == UF_SUCCESS then
-    ability:CastAbility()
-  end
-
-  return 0.1
-end
-
-
---------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
 modifier_electrician_electric_shield = class( ModifierBaseClass )
@@ -202,6 +104,10 @@ function modifier_electrician_electric_shield:IsHidden()
 end
 
 function modifier_electrician_electric_shield:IsPurgable()
+  if self:GetParent():HasShardOAA() then
+    return false
+  end
+
   return true
 end
 
@@ -209,8 +115,9 @@ end
 
 function modifier_electrician_electric_shield:DeclareFunctions()
   return {
+    --MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
@@ -242,20 +149,77 @@ if IsServer() then
 	end
   ]]
 
+  function modifier_electrician_electric_shield:GetModifierTotal_ConstantBlock(event)
+    local parent = self:GetParent()
+
+    -- Continue only if parent has a shard
+    if not parent:HasShardOAA() then
+      return 0
+    end
+
+    -- Do nothing if damage has HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
+    -- Don't react on self damage
+    if event.attacker == parent then
+      return 0
+    end
+
+    local ability = self:GetAbility()
+    local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
+    local shield_dmg_block = math.max(ability:GetSpecialValueFor("shard_shield_damage_block"), ability:GetSpecialValueFor("shield_damage_block"))
+    local current_mana = parent:GetMana()
+    local current_shield_hp = current_mana * damage_per_mana
+
+    -- Calculate block amount
+    local block_amount = math.min(event.damage * shield_dmg_block * 0.01, current_shield_hp)
+
+    -- Calculate what shield hp should be after blocking
+    local shield_hp_after = current_shield_hp - block_amount
+
+    -- Calculate what mana should be after blocking
+    local mana_after = shield_hp_after / damage_per_mana
+
+    -- Calculate how much mana should be removed
+    local mana_to_remove = math.max(0, current_mana - mana_after)
+
+    -- Remove mana
+    parent:ReduceMana(mana_to_remove, ability)
+
+    if block_amount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+        alert_type = OVERHEAD_ALERT_BLOCK
+      end
+
+      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+    end
+
+    return block_amount
+  end
+
 --------------------------------------------------------------------------------
 
   function modifier_electrician_electric_shield:OnCreated(event)
     local parent = self:GetParent()
     local spell = self:GetAbility()
+    local caster = self:GetCaster()
 
-    if event.shieldHP ~= -1 then
+    if not caster:HasShardOAA() and event.shieldHP ~= -1 then
       self:SetStackCount(0 - event.shieldHP)
     end
 
     -- grab ability specials
     local damageInterval = spell:GetSpecialValueFor("aura_interval")
     local damage_per_second = spell:GetSpecialValueFor("aura_damage")
-
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_electric_shield_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+    end
     self.shieldRate = spell:GetSpecialValueFor("shield_damage_block") * 0.01
     self.damageRadius =  spell:GetSpecialValueFor("aura_radius")
     self.damagePerInterval = damage_per_second * damageInterval
@@ -282,7 +246,6 @@ if IsServer() then
     if self.partShield then
       ParticleManager:DestroyParticle(self.partShield, false)
       ParticleManager:ReleaseParticleIndex(self.partShield)
-      self.partShield = nil
     end
 
     self:OnCreated(event)
@@ -290,36 +253,7 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
--- damage_pct_to_attacks
--- mana_pct_refund
   function modifier_electrician_electric_shield:OnDestroy()
-    if IsServer() then
-      local parent = self:GetParent()
-      local ability = self:GetAbility();
-
-      if not parent or parent:IsNull() or not ability or ability:IsNull() then
-        return 0
-      end
-
-      local manaRefundPercent = ability:GetSpecialValueFor("mana_pct_refund") / 100
-
-      if manaRefundPercent > 0 then
-        local remainingShieldHP = 0 - self:GetStackCount()
-        if remainingShieldHP > 0 then
-          local shieldPerMana = ability:GetSpecialValueFor("shield_per_mana")
-          local manaCost = remainingShieldHP / shieldPerMana
-          parent:GiveMana(manaCost * manaRefundPercent)
-        end
-      end
-
-      -- asyncronously recast shield
-      Timers:CreateTimer(FrameTime(), function()
-        if self.auto_cast_modifier and self.auto_cast_modifier.CheckCastShield and not self.auto_cast_modifier:IsNull() then
-          self.auto_cast_modifier:CheckCastShield()
-        end
-      end)
-    end
-
     -- destroy the shield particles
     if self.partShield then
       ParticleManager:DestroyParticle(self.partShield, false)
@@ -335,11 +269,6 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local spell = self:GetAbility()
-
-    if not parent or parent:IsNull() or not spell or spell:IsNull() or not caster or caster:IsNull() then
-      return 0
-    end
-
     local parentOrigin = parent:GetAbsOrigin()
 
     local units = FindUnitsInRadius(
@@ -382,19 +311,22 @@ end
 function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(event)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-
-  if not parent or parent:IsNull() or not ability or ability:IsNull() then
-    return 0
-  end
-
   if IsClient() then
     -- Shield numbers (visual only)
     local max_mana = parent:GetMaxMana()
-
-    local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
-    local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
-    local max_shield_hp = max_mana_cost * damage_per_mana
-    local current_shield_hp = math.abs(self:GetStackCount())
+    local current_mana = parent:GetMana()
+    local max_shield_hp
+    local current_shield_hp
+    if parent:HasShardOAA() then
+      local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
+      max_shield_hp = max_mana * damage_per_mana
+      current_shield_hp = current_mana * damage_per_mana
+    else
+      local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
+      local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
+      max_shield_hp = max_mana_cost * damage_per_mana
+      current_shield_hp = math.abs(self:GetStackCount())
+    end
 
     if event.report_max then
       return max_shield_hp
@@ -402,6 +334,10 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
       return current_shield_hp
     end
   else
+    -- Continue only if parent doesn't have a shard
+    if parent:HasShardOAA() then
+      return 0
+    end
 
     -- Don't react to damage with HP removal flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
@@ -439,14 +375,4 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
 
     return -block_amount
   end
-end
-
-function modifier_electrician_electric_shield:GetModifierPreAttack_BonusDamage(event)
-  local ability = self:GetAbility()
-  local auraDamage = ability:GetSpecialValueFor("aura_damage")
-  local damageToAttacks = ability:GetSpecialValueFor("damage_pct_to_attacks") / 100
-  if damageToAttacks > 0 then
-    return auraDamage * damageToAttacks
-  end
-  return 0
 end

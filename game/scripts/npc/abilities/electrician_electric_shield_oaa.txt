@@ -27,36 +27,26 @@
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityCastRange"                                    "350"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.5"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20"
+    "AbilityManaCost"                                     "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
-      {
-        "value"                                           "0.5"
-        "special_bonus_facet_electrician_alternating_current"  "=16"
-      }
-      // max mana pool % to convert into shield at a time
       "mana_cost"                                         "20"
-      "shield_per_mana"
-      {
-        "value"                                           "0.75 0.9 1.05 1.2 1.35 1.5"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
+      "shield_per_mana"                                   "0.75 0.9 1.05 1.2 1.35 1.5"
       "shield_damage_block" // original: 50% at all levels
       {
         "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "shield_duration"
-      {
-        "value"                                           "12"
-        "special_bonus_facet_electrician_alternating_current"  "=7 =8 =9 =10 =11 =12"
-      }
+      "shield_duration"                                   "12.0"
       "aura_radius"
       {
         "value"                                           "350"
@@ -65,24 +55,19 @@
       "aura_damage"
       {
         "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_electrician_electric_shield_damage"  "+100"
-      }
-      "damage_pct_to_attacks"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_electrician_alternating_current"  "=100"
-        "RequiresFacet"                                   "electrician_alternating_current"
-      }
-      "mana_pct_refund"
-      {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
-        "special_bonus_shard"                             "=90"
+        "LinkedSpecialBonus"                              "special_bonus_electrician_electric_shield_damage"
       }
       "aura_interval"                                     "0.25"
-      "is_toggleable"
+      "shard_shield_per_mana"
       {
-        "value"                                           "1"
+        "value"                                           "0.75 0.9 1.05 1.2 1.35 1.5"
+        "RequiresShard"                                   "1"
+      }
+      "shard_shield_damage_block"
+      {
+        "value"                                           "10 18 26 34 42 50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "RequiresShard"                                   "1"
       }
     }
 

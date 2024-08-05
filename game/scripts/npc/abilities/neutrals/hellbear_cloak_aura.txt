@@ -18,20 +18,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_magical_armor"
+      "01"
       {
-        "value"                                           "10 12 14 16"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "10 12 14 16"
       }
-      "bonus_magical_armor_creeps"
+      "02"
       {
-        "value"                                           "20 24 28 32"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor_creeps"                      "20 24 28 32"
       }
-      "radius"
+      "03"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
       }
     }
   }

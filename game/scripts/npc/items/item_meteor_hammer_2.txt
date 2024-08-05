@@ -55,11 +55,11 @@
     "AbilityCastRange"                                    "600"
     "AbilitySharedCooldown"                               "meteor"
     "AbilityCooldown"                                     "24 22 20 18 16"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5151"
+    "ItemCost"                                            "5051"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh 2;meteor hammer 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -88,7 +88,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "130 300 570 940 1410"
+      "impact_damage"                                     "130 330 630 1030 1530"
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }

@@ -18,6 +18,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "90" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 200 250 300 350"
@@ -31,7 +35,6 @@
         "value"                                           "750"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "affected_by_aoe_increase"                        "1"
       }
       "echo_slam_echo_search_range" //OAA
       {
@@ -46,14 +49,9 @@
       "echo_slam_echo_damage" //OAA
       {
         "value"                                           "90 130 170 290 490"
-        "special_bonus_unique_earthshaker_2"              "+100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
       "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "110 105 100 95 90"
-        "special_bonus_unique_earthshaker_echo_cd"        "-50%"
-      }
     }
   }
 }

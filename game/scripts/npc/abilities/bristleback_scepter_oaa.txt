@@ -34,18 +34,12 @@
       "back_angle"                                        "0" //OAA, intentional
       "quill_release_threshold"                           "99999" //OAA, intentional
       "quill_release_interval"                            ".1"
-      "goo_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_snot_rocket"     "+900"
-        "affected_by_aoe_increase"                        "1"
-      }
 
       "activation_cooldown"                               "24"
       "activation_manacost"                               "100"
       "activation_delay"                                  "0.5"
-      "activation_num_quill_sprays"                       "5"
-      "activation_spray_interval"                         "0.4"
+      "activation_num_quill_sprays"                       "6"
+      "activation_spray_interval"                         "0.35"
       "activation_angle"                                  "45"
       "cast_range_bonus"                                  "0"
       "activation_movement_speed_pct"                     "-40"

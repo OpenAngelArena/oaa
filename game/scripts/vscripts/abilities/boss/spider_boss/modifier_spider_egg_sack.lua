@@ -86,6 +86,9 @@ function modifier_spider_egg_sack:Burst( hHero )
 		for i=0,RandomInt( self.spider_min, self.spider_max ) do
 			local hUnit = CreateUnitByName( "npc_dota_creature_spider_small", parent:GetOrigin(), true, parent, parent, parent:GetTeamNumber() )
       hUnit:AddNewModifier(self:GetCaster(), self, "modifier_kill", {duration = self.egg_spider_lifetime })
+			if hUnit ~= nil and parent.zone ~= nil then
+				parent.zone:AddEnemyToZone( hUnit )
+			end
 		end
 		self.bBurst = true
 

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has it wrong, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES is not needed
@@ -40,7 +40,7 @@
       "purge_damage" //OAA
       {
         "value"                                           "300 600 900 1800 2700"
-        "special_bonus_unique_shadow_demon_1"             "+150"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
       }
       "max_charges"
       {

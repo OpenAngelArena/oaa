@@ -180,36 +180,6 @@ if IsServer() then
         end
       end
 
-      if attacker:HasModifier("modifier_creep_siege") then
-        local ability = attacker:FindAbilityByName("creep_siege")
-        if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
-          end
-        end
-      end
-
-      -- if attacker:HasModifier("modifier_creep_piercing") then
-        -- local ability = attacker:FindAbilityByName("creep_piercing")
-        -- if ability then
-          -- local damage_increase_pct = ability:GetSpecialValueFor("creep_damage_bonus")
-          -- if damage_increase_pct and damage_increase_pct > 0 then
-            -- return damage_increase_pct
-          -- end
-        -- end
-      -- end
-
-      if attacker:HasModifier("modifier_primal_beast_colossal") then
-        local ability = attacker:FindAbilityByName("primal_beast_colossal")
-        if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
-          end
-        end
-      end
-
       return 0
     end
 
@@ -219,8 +189,7 @@ if IsServer() then
       bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
-      jakiro_liquid_fire = false,             -- shard gives percentage dmg
-      jakiro_liquid_ice = false,              -- shard gives percentage dmg
+      jakiro_liquid_ice = false,
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
       venomancer_noxious_plague = false,
@@ -235,6 +204,7 @@ if IsServer() then
     -- Spells that do bonus damage to bosses
     local bonusBossDamageSpells = {
       death_prophet_exorcism = true, -- Death Prophet Exorcism
+      ice_shaman_incendiary_bomb = true, -- Ice Shaman neutral creep Icefire Bomb
       jakiro_liquid_fire = true, -- Jakiro Liquid Fire
       pugna_nether_blast = true, -- Pugna Nether Blast
       shredder_flamethrower = true, -- Timbersaw Flamethrower

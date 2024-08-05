@@ -29,19 +29,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage" //OAA
+      "01"
       {
-        "value"                                           "50 150 250 550 1050"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50 150 250 550 1050" //OAA
       }
-      "duration" //OAA
+      "02"
       {
-        "value"                                           "1.6 1.7 1.8 1.9 2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.6"
       }
-      "speed"
+      "03"
       {
-        "value"                                           "800"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
       }
     }
   }

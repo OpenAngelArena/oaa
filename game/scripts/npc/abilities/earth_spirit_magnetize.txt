@@ -51,7 +51,7 @@
       }
       "rock_search_radius"
       {
-        "value"                                           "600"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
       "rock_explosion_radius"
@@ -63,21 +63,6 @@
       "rock_explosion_delay"                              "8.0"
       "silence_duration"                                  "5.0"
       "slow_duration"                                     "2.0"
-      "magnetized_rocks_buff_self"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=1"
-      }
-      "magnetized_rocks_buff_self_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "+8"
-      }
-      "magnetized_rocks_bonus_self_damage"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=40 =80 =120 =160 =200"
-      }
     }
   }
 }

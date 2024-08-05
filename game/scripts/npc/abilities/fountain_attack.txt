@@ -6,6 +6,7 @@
     "ScriptFile"                                          "abilities/fountain_attack.lua"
     "AbilityTextureName"                                  "rubick_empty2"
     "MaxLevel"                                            "1"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -14,9 +15,13 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "timetokill"                                        "2"
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "timetokill"                                      "2"
+      }
     }
 
     "precache"

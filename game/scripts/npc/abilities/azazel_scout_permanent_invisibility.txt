@@ -7,19 +7,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "riki_permanent_invisibility"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
-
+    "BaseClass"                                           "riki_permanent_invisibility"
     "MaxLevel"                                            "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "fade_delay"                                        "0.1" //OAA
-      "movement_speed"                                    "0" //OAA
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.5" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "0" //OAA
+      }
     }
   }
 }

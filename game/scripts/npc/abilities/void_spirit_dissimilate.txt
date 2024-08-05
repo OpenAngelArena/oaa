@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,26 +59,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_void_spirit_dissimilate_outerring"  "+1"
-      }
-      "aether_remnant_count"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_void_spirit_aether_artifice"  "+3"            // NOTE: Only works for +3 currently
-      }
-      "artifice_duration_override_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_void_spirit_aether_artifice"  "+4.0"          // TOOLTIP ONLY
-      }
-      "artifice_pct_effectiveness_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_void_spirit_aether_artifice"  "+60.0"         // TOOLTIP ONLY
-      }
-      "artifice_extra_offset"     // extra offset, in addition to remnant_watch_distance, from the vector drawn from center of middle portal to center of outer portal. Used to spread out remnants a bit so they don't "double pull"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_void_spirit_aether_artifice"  "+125"
       }
     }
   }

@@ -16,6 +16,10 @@
 
     "MaxLevel"                                            "6"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "65"
@@ -29,10 +33,10 @@
         "value"                                           "250 350 450 550 600 650"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_hero_damage" //OAA
+      "bonus_hero_damage"
       {
         "value"                                           "45 85 125 165 330 660"
-        "special_bonus_unique_ember_spirit_6"             "+110"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_interval"                                   "0.25"
@@ -43,27 +47,8 @@
       }
       "AbilityCharges"
       {
-        "value"                                           "0"
-        "special_bonus_unique_ember_spirit_4"             "=2"
-      }
-      "AbilityCooldown"
-      {
-        "value"                                           "12 10 8 6 6 6"
-        "special_bonus_unique_ember_spirit_4"             "=0"
-      }
-      "AbilityChargeRestoreTime"
-      {
-        "value"                                           "12 10 8 6 6 6"
-      }
-      "min_enemies_for_double_sleight"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_ember_spirit_double_impact"  "=2"
-      }
-      "second_attack_damage_penalty"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_ember_spirit_double_impact"  "=50"
+        "value"                                           ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_4"
       }
     }
   }

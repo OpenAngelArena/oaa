@@ -162,6 +162,7 @@ end
 
 function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local parent = self:GetParent()
+  local caster = self:GetCaster()
 
   local move_speed_slow = 15
   local attack_speed_slow = 15
@@ -177,7 +178,25 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     burn_dps = ability:GetSpecialValueFor("burn_dps")
     burn_interval = ability:GetSpecialValueFor("burn_interval")
     extra_duration = ability:GetSpecialValueFor("ignite_extra_duration")
-    damage_amp = ability:GetSpecialValueFor("damage_amp")
+  end
+
+  -- Check for talent that increases the slow amounts
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_5")
+  if talent and talent:GetLevel() > 0 then
+    move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
+    attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
+  end
+
+  -- Check for talent that increases the burn dps
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_6")
+  if talent2 and talent2:GetLevel() > 0 then
+    burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Check for talent that amplifies the damage
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_7")
+  if talent3 and talent3:GetLevel() > 0 then
+    damage_amp = talent3:GetSpecialValueFor("value")
   end
 
   -- Particle
@@ -195,6 +214,8 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnRefresh()
+  local caster = self:GetCaster()
+
   local move_speed_slow = 15
   local attack_speed_slow = 15
   local burn_dps = 30
@@ -209,7 +230,25 @@ function modifier_tinkerer_oil_spill_debuff:OnRefresh()
     burn_dps = ability:GetSpecialValueFor("burn_dps")
     burn_interval = ability:GetSpecialValueFor("burn_interval")
     extra_duration = ability:GetSpecialValueFor("ignite_extra_duration")
-    damage_amp = ability:GetSpecialValueFor("damage_amp")
+  end
+
+  -- Check for talent that increases the slow amounts
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_5")
+  if talent and talent:GetLevel() > 0 then
+    move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
+    attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
+  end
+
+  -- Check for talent that increases the burn dps
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_6")
+  if talent2 and talent2:GetLevel() > 0 then
+    burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Check for talent that amplifies the damage
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_7")
+  if talent3 and talent3:GetLevel() > 0 then
+    damage_amp = talent3:GetSpecialValueFor("value")
   end
 
   self.move_speed_slow = move_speed_slow -- parent:GetValueChangedBySlowResistance(move_speed_slow)

@@ -72,11 +72,6 @@ function item_shield_staff:GetCooldown(level)
         return cooldown / 2
       end
     end
-
-    -- If target is leashed, reduce cd
-    if target:IsLeashedOAA() then
-      return cooldown / 2
-    end
   end
 
   return cooldown
@@ -130,11 +125,6 @@ function item_shield_staff:OnSpellStart()
     if target:HasModifier(modifier) then
       return
     end
-  end
-
-  -- If target is leashed, don't continue
-  if target:IsLeashedOAA() then
-    return
   end
 
   -- Remove particles of the previous shield staff instance in case of refresher

@@ -21,6 +21,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
@@ -29,16 +33,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "19 18 17 16 15 14"
-        "special_bonus_unique_magnus_7"                   "-5"
-      }
       "skewer_speed"                                      "900"
       "range"
       {
         "value"                                           "900 975 1050 1125 1200 1275"
-        "special_bonus_unique_magnus_3"                   "+275"
+        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_3"
       }
       "slow_pct"
       {
@@ -50,24 +49,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "slow_duration"                                     "3.25"
-      "skewer_damage"                                     "75 150 225 300 600 900"
+      "skewer_damage"                                     "70 140 210 280 560 840"
       "tree_radius"
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "tree_hit_damage"
-      {
-        "value"                                           "15 20 25 30 40 70"
-      }
-      "cliff_hit_damage"
-      {
-        "value"                                           "50 75 100 125 250 375"
-      }
-      "terrain_hit_cooldown"
-      {
-        "value"                                           "0.5"
-      }
+      "tool_attack_slow"                                  "20 30 40 50 60 70" //OAA, same as slow_pct
+      "damage_distance_pct"                               "6 9 12 15 18 21"
     }
   }
 }

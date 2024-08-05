@@ -208,6 +208,12 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
     -- Calculate mini-stun duration
     local ministun_duration = self.ability:GetSpecialValueFor("ministun_duration")
 
+    -- Check for the talent (lightning bolt bonus mini-stun duration)
+    local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
+    if talent and talent:GetLevel() > 0 then
+      ministun_duration = ministun_duration + talent:GetSpecialValueFor("value")
+    end
+
     -- Keep status resistance in mind
     ministun_duration = target:GetValueChangedByStatusResistance(ministun_duration)
 

@@ -44,51 +44,13 @@
       "mana_void_ministun"
       {
         "value"                                           "0.3"
-        "special_bonus_unique_antimage_8"                 "+0.7"
+        "special_bonus_unique_antimage_8"                 "+1"
       }
       "mana_void_aoe_radius"
       {
         "value"                                           "500"
         "special_bonus_unique_antimage_manavoid_aoe"      "+150"
         "affected_by_aoe_increase"                        "1"
-      }
-      "thirst_enabled"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_mana_thirst"        "+1"
-      }
-      "thirst_range"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_mana_thirst"        "+2500"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "threshold_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_mana_thirst"        "+15"
-      }
-      "min_bonus_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_mana_thirst"        "+60"
-      }
-      "max_bonus_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_mana_thirst"        "+15"
-      }
-      "bonus_attack_damage"
-      {
-        "value"                                           "20 45 70 120 270"
-        "RequiresFacet"                                   "antimage_mana_thirst"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "linger_duration"
-      {
-        "value"                                           "4.0"
-        "RequiresFacet"                                   "antimage_mana_thirst"
       }
     }
   }

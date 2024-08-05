@@ -3,9 +3,9 @@
 //============================================================================
 "DOTA_Tooltip_Ability_item_dagon_oaa"                                           "Dagon"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa"                                    "Dagon Recipe"
-"DOTA_Tooltip_Ability_item_dagon_oaa_Description"                               "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit. Heals the caster for %burst_heal_percent%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%<br>Cooldown: %cooldown_tooltip% seconds"
+"DOTA_Tooltip_Ability_item_dagon_oaa_Description"                               "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit. Heals the caster for %burst_heal_percent%%% of the damage dealt.<br><br>Damage: %damage%<br>Current HP as Damage: %current_hp_dmg%%%<br>Range: %abilitycastrange%<br>Mana Cost: %mana_cost_tooltip%<br>Cooldown: %cooldown_tooltip% seconds"
 "DOTA_Tooltip_Ability_item_dagon_oaa_Lore"                                      "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user."
-"DOTA_Tooltip_ability_item_dagon_oaa_Note0"                                     "Instantly kills illusions and non-ancient creeps."
+"DOTA_Tooltip_ability_item_dagon_oaa_Note0"                                     "Instantly kills illusions."
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int"                                 "+$int"
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str"                                 "+$str"
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi"                                 "+$agi"
@@ -66,7 +66,7 @@
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_6"                                         "Greater Dagon"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_6"                                  "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_6_Description"                             "<h1>Active: Big Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit and <font color='#FFA500'>blinds it for a short time</font>. Heals the caster for %burst_heal_percent%%% of the damage dealt.<br><br>Base Damage: %damage%<br><font color='#FFA500'>Current HP as Damage: %current_hp_dmg%%%</font><br><font color='#FFA500'>Blind Miss Chance: %blind_pct%%%</font><br><font color='#FFA500'>Blind Duration: %blind_duration%</font><br>Mana Cost: %mana_cost_tooltip%<br>Cooldown: %cooldown_tooltip% seconds"
+"DOTA_Tooltip_Ability_item_dagon_oaa_6_Description"                             "<h1>Active: Big Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit and blinds it for a short time. Heals the caster for %burst_heal_percent%%% of the damage dealt.<br><br>Damage: %damage%<br>Current HP as Damage: %current_hp_dmg%%%<br>Blind Miss Chance: %blind_pct%%%<br>Blind Duration: %blind_duration%<br>Range: %abilitycastrange%<br>Mana Cost: %mana_cost_tooltip%<br>Cooldown: %cooldown_tooltip% seconds"
 "DOTA_Tooltip_Ability_item_dagon_oaa_6_Lore"                                    "#{DOTA_Tooltip_Ability_item_dagon_oaa_Lore}"
 "DOTA_Tooltip_ability_item_dagon_oaa_6_Note0"                                   "#{DOTA_Tooltip_ability_item_dagon_oaa_Note0}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_6_bonus_int"                               "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"

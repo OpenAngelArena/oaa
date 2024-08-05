@@ -37,22 +37,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
+      "radius" //OAA
       {
-        "value"                                           "550"
+        "value"                                           "525"
+        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_8"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_disruptor_8"                "+150"
       }
       "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
         "value"                                           "24"
-        "special_bonus_unique_disruptor_7"                "+6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
+        "LinkedSpecialBonusField"                         "value2"
       }
       "damage_max"                                        "200 350 500 950 1400" //OAA
       "duration"
       {
         "value"                                           "6.0"
-        "special_bonus_unique_disruptor_7"                "+1.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
       }
     }
   }

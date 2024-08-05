@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4200"
+    "ItemCost"                                            "4000"
     "ItemShopTags"                                        "agi;int;attack_speed;move_speed;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "ynk;y&k;sk;yasha and kaya"
@@ -35,7 +35,6 @@
       "movement_speed_percent_bonus"                      "12 14 16 18 20"
       "spell_amp"                                         "12 16 20 24 28"
       "spell_lifesteal_amp"                               "25 27 29 31 33"
-      "cast_speed_pct"                                    "22 24 26 28 30" //OAA
     }
   }
 }

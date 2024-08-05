@@ -289,7 +289,7 @@ function modifier_boss_shielder_jump:OnDestroy()
       attacker = parent,
       damage = damage,
       damage_type = damage_type,
-      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
       ability = ability,
     }
 

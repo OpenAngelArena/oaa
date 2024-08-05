@@ -118,7 +118,7 @@ function item_siege_mode:OnProjectileHit(target, location)
   local damage_table = {
     attacker = caster,
     damage_type = damageType or DAMAGE_TYPE_PHYSICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self,
   }
 

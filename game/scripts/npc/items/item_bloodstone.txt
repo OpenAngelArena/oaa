@@ -32,7 +32,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityTextureName"                                  "custom/bloodstone"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
 
@@ -57,12 +57,12 @@
     "AbilityValues"
     {
       "bonus_aoe"                                         "50" //OAA
-      "bonus_health"                                      "450"
-      "bonus_mana"                                        "450"
+      "bonus_health"                                      "500"
+      "bonus_mana"                                        "500"
       "bonus_mp_regen"                                    "3"
-      "spell_lifesteal"                                   "20"
-      "buff_duration"                                     "5"
-      "lifesteal_multiplier"                              "4"
+      "spell_lifesteal"                                   "28" //OAA
+      "buff_duration"                                     "5" //OAA
+      "lifesteal_multiplier"                              "2.5"
       "hp_cost"                                           "0"
     }
   }

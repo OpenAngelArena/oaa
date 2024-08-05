@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ember Spirit: Flame Guard (Innate)
+  // Ember Spirit: Flame Guard
   //=================================================================================================================
   "ember_spirit_flame_guard"
   {
@@ -16,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500" // OAA, same as active_radius
+    "AbilityCastRange"                                    "500" // OAA, same as radius
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -31,30 +31,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "18" //OAA
-      "passive_radius" // unused
-      {
-        "value"                                           "150"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "tick_interval"                                     "0.2"
-      "damage_per_second"
-      {
-        "value"                                           "20 30 40 50 100 200"
-        "special_bonus_unique_ember_spirit_3"             "+100%"
-      }
-      "linger_duration"                                   "0.5"
+      "duration"                                          "20" //OAA
       "radius"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "shield_pct_absorb"                                 "70"
       "absorb_amount" //OAA
       {
-        "value"                                           "60 120 240 480 960 1920"
-        "special_bonus_unique_ember_spirit_1"             "+480"
+        "value"                                           "95 230 365 500 1000 2000"
+        "special_bonus_unique_ember_spirit_1"             "+500"
       }
+      "tick_interval"                                     "0.2"
+      "damage_per_second" //OAA
+      {
+        "value"                                           "25 35 45 55 110 220"
+        "special_bonus_unique_ember_spirit_3"             "+100"
+      }
+      "blind_pct"                                         "50" // unused
+      "shield_pct_absorb"                                 "70"
+      "linger_duration"                                   "0.5"
     }
   }
 }

@@ -26,26 +26,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_wisp_kritzkrieg"             "50 70 90 110 130 150"
-      }
-      "bonus_spell_amp"
-      {
-        "value"                                           "0" // special_bonus_unique_wisp_1_oaa
-        "special_bonus_facet_wisp_kritzkrieg"             "8 10 12 14 16 18"
-      }
-      "bonus_armor"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_wisp_medigun"                "4 7 10 13 16 19"
-      }
-      "bonus_mres"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_wisp_medigun"                "12 18 24 30 33 36"
-      }
+      "bonus_attack_speed"                                "50 70 90 110 130 150" //OAA
+      "bonus_spell_amp"                                   "8 10 12 14 16 18"
       "hp_regen" // hp regen based on Io's max HP
       {
         "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
@@ -54,8 +36,8 @@
       "duration"                                          "8"
       "shard_bonus_slow_resistance"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+30"
+        "value"                                           "30"
+        "RequiresShard"                                   "1"
       }
       "shard_bonus_spell_lifesteal"
       {

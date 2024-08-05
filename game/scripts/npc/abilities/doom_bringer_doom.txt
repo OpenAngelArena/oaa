@@ -34,8 +34,9 @@
       "duration" //OAA
       {
         "value"                                           "12 13 14 15 16"
+        "special_bonus_unique_doom_7"                     "+3"
       }
-      "damage" //OAA
+      "damage"
       {
         "value"                                           "30 50 70 110 150"
         "special_bonus_unique_doom_5"                     "+30"
@@ -60,20 +61,6 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+250"
         "affected_by_aoe_increase"                        "1"
-      }
-      "applies_dispel_to_self"
-      {
-        "special_bonus_scepter"                           "0"
-      }
-      "upgrade_interval"
-      {
-        "value"                                           "0.0"
-        "special_bonus_facet_doom_bringer_impending_doom"  "=6.66"
-      }
-      "upgrade_amount"
-      {
-        "value"                                           "0.0"
-        "special_bonus_facet_doom_bringer_impending_doom"  "+0.66"
       }
     }
   }

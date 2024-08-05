@@ -13,7 +13,7 @@ function GameMode:_InitGameMode()
   -- SetHeroSelectionTime is ignored because "EnablePickRules"   "1" on addoninfo
   GameRules:SetHeroSelectionTime(CAPTAINS_MODE_TOTAL + 1)
   GameRules:SetHeroSelectPenaltyTime(10)
-  GameRules:SetStrategyTime(40)
+  GameRules:SetStrategyTime(35)
   GameRules:SetShowcaseTime(0)
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )

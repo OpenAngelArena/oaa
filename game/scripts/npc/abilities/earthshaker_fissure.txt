@@ -18,7 +18,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1600"
     "AbilityCastPoint"                                    "0.69"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18 17 16 15 14 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -26,46 +31,53 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "AbilityCastRange"
+      "01"
       {
-        "value"                                           "1600"
-        "special_bonus_unique_earthshaker_3"              "+200"
+        "var_type"                                        "FIELD_INTEGER"
+        "fissure_range"                                   "1600"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_3"
       }
-      "fissure_duration"                                  "6.5 7 7.5 8.0 8.5 9.0"
-      "fissure_radius"                                    "225"
-      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6 1.8"
-      "fissure_damage"
+      "02"
       {
-        "value"                                           "110 160 210 260 520 1040"
-        "special_bonus_unique_earthshaker_4"              "+90"
+        "var_type"                                        "FIELD_FLOAT"
+        "fissure_duration"                                "6.5 7 7.5 8.0 8.5 8.5"
       }
-      "AbilityCooldown"
+      "03"
       {
-        "value"                                           "18 17 16 15 14 13"
-        "special_bonus_shard"                             "-2"
+        "var_type"                                        "FIELD_INTEGER"
+        "fissure_radius"                                  "225"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.6 1.8"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fissure_damage"                                  "110 160 210 260 520 1040"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "2.0"
         "RequiresShard"                                   "1"
       }
-      "shard_aftershock_stun_duration_pct"
+      "07"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "=50"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_aftershock_stun_duration_pct"              "50"
         "RequiresShard"                                   "1"
       }
-      "free_pathing_linger_duration"
+      "08"
       {
-        "value"                                           "0.0"
-        "special_bonus_shard"                             "=1.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_free_pathing_linger_duration"              "1.0"
         "RequiresShard"                                   "1"
       }
-      "free_pathing_application_radius"                   "150"
-      "fissure_movement_speed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earthshaker_fissuresplit"    "+100"
-      }
-      "fissure_max_distance_moved"                        "300"
     }
   }
 }

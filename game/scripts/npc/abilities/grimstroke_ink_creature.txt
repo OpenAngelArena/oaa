@@ -41,13 +41,13 @@
       "destroy_attacks"
       {
         "value"                                           "6 6 9 9 12 12"
-        "special_bonus_unique_grimstroke_4"               "+3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_4"
       }
       "hero_attack_multiplier"                            "3"
       "damage_per_second"
       {
         "value"                                           "10 20 30 40 80 160"
-        "special_bonus_unique_grimstroke_8"               "+65"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_8"
       }
       "enemy_vision_time"                                 "4"
       "tick_interval"                                     "0.5"

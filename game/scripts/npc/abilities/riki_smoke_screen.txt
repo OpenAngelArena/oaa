@@ -36,10 +36,10 @@
       {
         "value"                                           "6"
       }
-      "radius"
+      "radius" //OAA
       {
-        "value"                                           "425"
-        "special_bonus_unique_riki_7"                     "+50"
+        "value"                                           "420"
+        "LinkedSpecialBonus"                              "special_bonus_unique_riki_7"
         "affected_by_aoe_increase"                        "1"
       }
       "miss_rate"                                         "30 45 60 75 80 85"

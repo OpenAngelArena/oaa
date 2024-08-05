@@ -43,7 +43,7 @@
         "value"                                           "1500"
         "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"  "+80%"
       }
-      "flare_debuff_duration"                             "2.5 3 3.5 4 4.5 5"
+      "flare_debuff_duration"                             "2.5 3 3.5 4 4 4"
       "flare_radius"
       {
         "value"                                           "200"
@@ -56,11 +56,7 @@
       }
       "burn_damage"                                       "20 30 40 50 100 200"
       "burn_interval"                                     "0.5"
-      "pause_duration"
-      {
-        "value"                                           "2"
-        "special_bonus_facet_dawnbreaker_gleaming_hammer"  "+2"
-      }
+      "pause_duration"                                    "2"
       "hammer_aoe_radius"                                 "200"
       "travel_speed_pct"                                  "100"
       "return_anim_distance_threshold"                    "300"
@@ -68,17 +64,6 @@
       {
         "value"                                           "700 900 1100 1300 1400 1500"
         "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"  "+80%"
-      }
-      "hammer_solar_guardian_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_gleaming_hammer"  "+200"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "hammer_solar_guardian_effectiveness_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_gleaming_hammer"  "=50"
       }
     }
   }

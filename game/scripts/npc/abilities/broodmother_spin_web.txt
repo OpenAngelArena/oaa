@@ -16,7 +16,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityCooldown"                                     "0.0"
@@ -36,23 +36,20 @@
       "count" //OAA
       {
         "value"                                           "4 6 8 10 12 14"
-        "special_bonus_unique_broodmother_6"              "+2"
+        "special_bonus_unique_broodmother_6"              "+3"
       }
-      "health_regen"
+      "health_regen" //OAA
       {
-        "value"                                           "0"
+        "value"                                           "2 6 10 14 22 34"
+        "special_bonus_unique_broodmother_web_hpregen"    "+8"
       }
       "bonus_movespeed"                                   "10 22 34 46 58 70"
       "AbilityChargeRestoreTime"
       {
         "value"                                           "27"
-        "special_bonus_unique_broodmother_5"              "-5"
+        "special_bonus_unique_broodmother_5"              "-7"
       }
       "bonus_turn_rate"                                   "0.2"
-      "degen" //OAA
-      {
-        "special_bonus_facet_broodmother_necrotic_webs"   "=10 =14 =18 =22 =26 =30"
-      }
     }
   }
 }

@@ -13,11 +13,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_building_damage" // percentage bonus damage against bosses
+      "01" // percentage bonus damage against bosses
       {
-        "value"                                           "80 140 200 320 440"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_building_damage"                           "90 170 250 330 410"
       }
     }
   }

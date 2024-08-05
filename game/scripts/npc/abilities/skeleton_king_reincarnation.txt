@@ -24,25 +24,55 @@
       "movespeed"                                         "-75"
       "attackslow"                                        "-75"
       "slow_duration"                                     "5.0"
-      "AbilityManaCost"
-      {
-        "value"                                           "200"
-        "special_bonus_shard"                             "=0"
-      }
-      "clear_curse"
+      "scepter_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_skeleton_king_facet_cursed_blade"  "=1"
+        "special_bonus_scepter"                           "+7"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_aura_radius" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+900"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_attack_speed" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+50"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_move_speed_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+25"
+        "RequiresScepter"                                 "1"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "180"
+        "special_bonus_shard"                             "=0"
       }
       "shard_skeleton_count"
       {
+        "value"                                           "1 2 3 4 5"
+        "special_bonus_shard"                             "+2"
+      }
+      "scepter_respawn_pct" // this doesn't work in OAA
+      {
         "value"                                           "0"
-        "special_bonus_facet_skeleton_king_facet_bone_guard"  "2 3 4 5 6"
+        "special_bonus_scepter"                           "10"
+        "RequiresScepter"                                 "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "140 130 120 110 100"
+        "value"                                           "140 120 100 95 90"
         "special_bonus_scepter"                           "-15"
+      }
+      "scepter_damage_penalty" //OAA
+      {
+        "value"                                           "25"
+        "RequiresScepter"                                 "1"
       }
     }
   }

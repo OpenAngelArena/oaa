@@ -37,17 +37,18 @@
       "AbilityCastRange"
       {
         "value"                                           "800"
-        "special_bonus_shard"                             "+400"
+        "special_bonus_shard"                             "+800"
       }
       "radius"
       {
         "value"                                           "240"
+        "special_bonus_unique_disruptor_3"                "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "strikes"
       {
         "value"                                           "4"
-        "special_bonus_shard"                             "+1"
+        "special_bonus_shard"                             "+2"
       }
       "strike_interval"                                   "2.0"
       "strike_damage"                                     "40 65 90 115 230 460" //OAA
@@ -62,12 +63,7 @@
         "special_bonus_unique_disruptor"                  "+0.5"
       }
       "slow_amount"                                       "100"
-      "shard_ground_delay"                                "5"
-      "hits_units_inside_kinetic"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_disruptor_thunderstorm"      "+1"
-      }
+      "shard_ground_delay"                                "7"
     }
   }
 }

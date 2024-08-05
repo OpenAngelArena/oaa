@@ -41,7 +41,7 @@
       "quill_stack_damage" //OAA
       {
         "value"                                           "30 35 40 45 90 180"
-        "special_bonus_unique_bristleback_2"              "+40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_2"
       }
       "quill_stack_duration"                              "14.0"
       "max_damage"                                        "2000" //OAA

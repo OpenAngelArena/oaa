@@ -61,26 +61,83 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_health_regen"                                "1.5 4 7 10 13"
-      "bonus_health"                                      "150 400 900 1650 2650"
-      "bonus_all_stats"                                   "0"
-      "aura_radius"
+      "01"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "1.5 4 7 10 13"
       }
-      "aura_mana_regen"                                   "1.5 1.75 2.25 3.0 4.0"
-      "observer_duration"                                 "180"
-      "sentry_duration"                                   "360"
-      "observer_radius"                                   "1600"
-      "sentry_radius"                                     "150"
-      "sentry_reveal_radius"                              "1000"
-      "observer_recharge"                                 "100"
-      "observer_max"                                      "3"
-      "sentry_recharge"                                   "50"
-      "sentry_max"                                        "5"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "150 400 900 1650 2650"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_duration"                               "180"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_duration"                                 "360"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_radius"                                 "1400"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_radius"                                   "150"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_reveal_radius"                            "1000"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_recharge"                               "100"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_max"                                    "3"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_recharge"                                 "50"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_max"                                      "5"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "500"
+      }
     }
   }
 }

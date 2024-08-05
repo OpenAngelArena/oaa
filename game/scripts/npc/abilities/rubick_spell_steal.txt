@@ -37,24 +37,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "projectile_speed"                                  "1500"
-      "stolen_debuff_amp"                                 "10 15 20 25 30" //OAA
-      "cast_range_scepter"            
+      "01"
       {
-        "value"                                           "1400"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "300" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "1400"
         "RequiresScepter"                                 "1"
       }
-      "duration" //OAA
+      "05"
       {
-        "value"                                           "300"
-      }
-      "stolen_mana_reduction"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_rubick_frugal_filch"         "40 50 60 65 70"
+        "var_type"                                        "FIELD_INTEGER"
+        "stolen_debuff_amp"                               "10 15 20 25 30" //OAA
       }
     }
   }
+
 }

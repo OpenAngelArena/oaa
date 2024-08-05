@@ -6,30 +6,5 @@
   "npc_dota_hero_nyx_assassin"
   {
 
-    "Facets"
-    {
-      "nyx_assassin_burn_mana"
-      {
-        "Icon"                                            "nuke"
-        "Color"                                           "Blue"
-        "GradientID"                                      "3"
-
-        "Abilities"
-        {
-          "Ability1"
-          {
-            "AbilityName"                                 "nyx_assassin_innate_mana_burn_oaa"
-            "AutoLevelAbility"                            "true"
-          }
-        }
-      }
-
-      "nyx_assassin_scuttle"
-      {
-        "Icon"                                            "speed"
-        "Color"                                           "Red"
-        "GradientID"                                      "2"
-      }
-    }
   }
 }

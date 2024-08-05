@@ -68,11 +68,7 @@
       "bonus_strength"                                    "27 32"
       "bonus_intellect"                                   "27 32"
       "bonus_attack_range"                                "180 190" // ranged only
-      "passive_splash_radius"
-      {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "passive_splash_radius"                             "250"
       "passive_splash_percent"                            "40"
       "active_damage"                                     "700 1000"
       "active_radius"

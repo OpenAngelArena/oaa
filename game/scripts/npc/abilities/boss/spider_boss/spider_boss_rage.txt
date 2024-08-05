@@ -11,8 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "1"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -21,12 +19,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"                                      "500"
-      "lifesteal_pct"                                     "25"
-      "duration"                                          "25"
-      "bonus_movespeed_pct"                               "25"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_pct"                                   "25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_movespeed_pct"                             "25"
+      }
     }
   }
 }

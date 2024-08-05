@@ -9,8 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    //"AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -21,7 +21,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage_multiplier"
+      {
+        "value"                                           "0.8 1.2 1.6 2.0 2.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_riki_1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "backstab_angle"                                    "105"
       "fade_delay"                                        "4 3.5 3 2.5 2" //OAA
+      "bonus_xp_kill"                                     "0" //OAA
+      "bonus_xp_assist"                                   "0" //OAA
     }
   }
 }

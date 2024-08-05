@@ -14,7 +14,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "slardar_bash"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,11 +31,12 @@
       "bonus_damage"
       {
         "value"                                           "50 100 150 200 400 600"
-        "special_bonus_unique_slardar_2"                  "+40"
+        "special_bonus_unique_slardar_2"                  "+50"
       }
       "duration"                                          "1.1"
       "duration_creep"                                    "1.1"
       "creep_dmg_multiplier"                              "2"
+      "water_damage"                                      "8 16 24 32 64 96" // bonus dmg in the river, puddles etc.
     }
   }
 }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Nature's Prophet talent: Treant HP/Damage multiplier - unused
+  // Custom Nature's Prophet talent: Treant HP/Damage multiplier
   //=================================================================================================================
   "special_bonus_unique_furion_1_oaa"
   {
@@ -13,9 +13,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value"                                             "2.5"
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "2.5"
+      }
     }
   }
 }

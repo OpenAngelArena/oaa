@@ -21,39 +21,40 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "80" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "7 8 9 10 11 12"
-      "attack_range_bonus"                                "275 300 325 350 360 370"
+      "attack_range_bonus"                                "350 400 450 500 550 600"
       "percent_damage"                                    "4 6 8 10 11 12"
-      "tick_rate"                                         "0.5"
+      "tick_rate"                                         "1.0"
       "damage_duration"
       {
         "value"                                           "5.0"
         "CalculateSpellDamageTooltip"                     "0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "special_bonus_unique_winter_wyvern_6"            "+3"
       }
       "move_slow"
       {
         "value"                                           "16 24 32 40 45 50"
-        "special_bonus_unique_winter_wyvern_1"            "+17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_1"
       }
+      "night_vision_bonus"                                "400"
       "projectile_speed_bonus"                            "500"
       "tree_destruction_radius"
       {
         "value"                                           "175"
-        "affected_by_aoe_increase"                        "1"
+        "affected_by_aoe_increase"                        "1" 
       }
       "attack_point"                                      "0.1"
       "max_attacks"                                       "5"
       "mana_cost_scepter" //OAA
       {
-        "value"                                           "20 30 40 50 60 70"
+        "value"                                           "20 25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
       "movement_scepter"

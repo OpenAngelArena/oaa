@@ -76,7 +76,6 @@ function modifier_magus_oaa:OnCreated()
     muerta_parting_shot = 1,                             -- buggy
     night_stalker_hunter_in_the_night = 1,               -- instant kill
     oracle_false_promise = 1,                            -- invulnerability
-    pangolier_gyroshell_stop = 1,                        -- self grief
     phantom_lancer_doppelwalk = 1,                       -- invulnerability and lag
     phoenix_icarus_dive_stop = 1,                        -- self grief
     phoenix_sun_ray_stop = 1,                            -- self grief

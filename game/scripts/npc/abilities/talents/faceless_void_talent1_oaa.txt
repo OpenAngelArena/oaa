@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Faceless Void talent: Time Dilation Bonus Radius - unused
+  // Custom Faceless Void talent: Time Dilation Bonus Radius
   //=================================================================================================================
   "special_bonus_unique_faceless_void_1_oaa"
   {
@@ -13,9 +13,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value"                                             "125"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "125"
+      }
     }
   }
 }

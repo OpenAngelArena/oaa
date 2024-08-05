@@ -8,7 +8,16 @@ function leshrac_split_earth_oaa:Precache(context)
 end
 
 function leshrac_split_earth_oaa:GetAOERadius()
-  return self:GetSpecialValueFor("radius")
+  -- local caster = self:GetCaster()
+  local radius = self:GetSpecialValueFor("radius")
+
+  -- Talent that increases radius - done through KV
+  -- local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
+  -- if radius_talent and radius_talent:GetLevel() > 0 then
+    -- radius = radius + radius_talent:GetSpecialValueFor("value")
+  -- end
+
+  return radius
 end
 
 function leshrac_split_earth_oaa:OnSpellStart()
@@ -62,6 +71,12 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
   local radius = ability:GetSpecialValueFor("radius")
   local damage = ability:GetSpecialValueFor("damage")
   local stun_duration = ability:GetSpecialValueFor("stun_duration")
+
+  -- Talent that increases radius - done through KV
+  -- local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
+  -- if radius_talent and radius_talent:GetLevel() > 0 then
+    -- radius = radius + radius_talent:GetSpecialValueFor("value")
+  -- end
 
   if self.shard_split_earth and self.shard_split_earth_count then
     -- Remove the previous instance of the indicator particle

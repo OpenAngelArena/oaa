@@ -27,6 +27,17 @@ function abyssal_underlord_dark_rift_oaa:OnUpgrade()
   end
 end
 
+function abyssal_underlord_dark_rift_oaa:GetCooldown(level)
+  local cooldown = self.BaseClass.GetCooldown(self, level)
+  local caster = self:GetCaster()
+
+  if caster:HasScepter() then
+    cooldown = self:GetSpecialValueFor("cooldown_scepter")
+  end
+
+  return cooldown
+end
+
 function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
   local originCaster = caster:GetAbsOrigin()

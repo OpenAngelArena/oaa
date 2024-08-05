@@ -12,6 +12,7 @@
     "Model"                                               "models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
     "SoundSet"                                            "DireHound"
     "Level"                                               "1"
+    "IsAncient"                                           "1"
     "ModelScale"                                          ".67"
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
@@ -64,8 +65,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "2000"
     "StatusHealthRegen"                                   "1"
-    "StatusMana"                                          "0"
-    "StatusManaRegen"                                     "0"
+    "StatusMana"                                          "1000"
+    "StatusManaRegen"                                     "10"
 
     // Vision
     //----------------------------------------------------------------
@@ -75,6 +76,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    
+    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "PathfindingSearchDepthScale"                         "0.1"

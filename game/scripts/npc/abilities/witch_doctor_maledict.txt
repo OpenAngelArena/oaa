@@ -14,7 +14,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.35"
 
     // Time
@@ -24,7 +24,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "18 22 26 30 60 90"
+    "AbilityDamage"                                       "12 18 24 30 60 120"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +36,14 @@
     {
       "radius"
       {
-        "value"                                           "200"
+        "value"                                           "180"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_6"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_witch_doctor_6"             "+100"
       }
       "bonus_damage" // this is the percentage of the lost health as damage
       {
         "value"                                           "16 24 32 40 48 56"
-        "special_bonus_unique_witch_doctor_7"             "+30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_7"
       }
       "bonus_damage_threshold"                            "100"
       "ticks"

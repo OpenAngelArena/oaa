@@ -27,10 +27,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "20.0"
-      "fade_time"                                         "1.0"
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "20.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.7"
+      }
     }
   }
 }

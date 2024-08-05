@@ -269,8 +269,8 @@ end
 function modifier_broodmother_giant_spiderling_passive:OnCreated()
   self.bonus_ms = 18
   self.bonus_hp_regen = 3
-  --self.hp_percent_low = 1
-  --self.hp_percent_high = 100
+  self.hp_percent_low = 1
+  self.hp_percent_high = 100
 
   if not IsServer() then
     return
@@ -282,7 +282,7 @@ function modifier_broodmother_giant_spiderling_passive:OnCreated()
     local ability_level = ability:GetLevel()
     if ability_level > 0 then
       self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
-      --self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+      self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
     end
   end
 
@@ -302,7 +302,7 @@ function modifier_broodmother_giant_spiderling_passive:OnRefresh()
   local ability_level = ability:GetLevel()
   if ability_level > 0 then
     self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
-    --self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+    self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
   end
 end
 
@@ -320,11 +320,11 @@ function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
   local parent = self:GetParent()
   local web_radius = ability:GetSpecialValueFor("radius")
   local origin = parent:GetAbsOrigin()
-  --local hp_percent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
+  local hp_percent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
 
-  --local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
+  local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
   local webs = Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", origin, web_radius)
-  local condition = (#webs > 0) --and (multiplier > 0)
+  local condition = (#webs > 0) and (multiplier > 0)
   -- If parent is near a web, apply web buffs
   if condition then
     self:SetStackCount(1)
@@ -336,30 +336,30 @@ end
 function modifier_broodmother_giant_spiderling_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    --MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     --MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
   }
 end
 
 function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus_Percentage()
   if self:GetStackCount() == 1 then
-    --local multiplier = 1
-    --if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
-      --multiplier = math.min(((self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)) + 0.5, 1)
-    --end
-    return self.bonus_ms --* multiplier
+    local multiplier = 1
+    if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
+      multiplier = math.min(((self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)) + 0.5, 1)
+    end
+    return self.bonus_ms * multiplier
   end
 
   return 0
 end
 
--- function modifier_broodmother_giant_spiderling_passive:GetModifierConstantHealthRegen()
-	-- if self:GetStackCount() == 1 then
-    -- return self.bonus_hp_regen
-  -- end
+function modifier_broodmother_giant_spiderling_passive:GetModifierConstantHealthRegen()
+	if self:GetStackCount() == 1 then
+    return self.bonus_hp_regen
+  end
 
-  -- return 0
--- end
+  return 0
+end
 
 -- function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
   -- if self:GetStackCount() == 1 then

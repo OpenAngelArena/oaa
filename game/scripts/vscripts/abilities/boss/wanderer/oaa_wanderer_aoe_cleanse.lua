@@ -89,7 +89,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
   local damage_table = {
     attacker = caster,
     damage_type = DAMAGE_TYPE_PHYSICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self,
   }
 
@@ -118,6 +118,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
     if ward and not ward:IsNull() then
       if ward.HasModifier and ward.IsInvulnerable then
         if not ward:HasModifier("modifier_item_buff_ward") and not ward:IsInvulnerable() then
+          --ward:Kill(self, caster)
           caster:PerformAttack(ward, false, true, true, false, false, false, true)
         end
       end

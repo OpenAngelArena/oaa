@@ -69,7 +69,7 @@ function meepo_divided_we_stand_oaa:OnHeroCalculateStatBonus()
       -- Set stats the same as main meepo
       meepo:SetBaseStrength(mainMeepo:GetStrength())
       meepo:SetBaseAgility(mainMeepo:GetAgility())
-      meepo:SetBaseIntellect(mainMeepo:GetIntellect(false))
+      meepo:SetBaseIntellect(mainMeepo:GetIntellect())
       meepo:CalculateStatBonus(true)
 
     -- Set clone level the same as main meepo

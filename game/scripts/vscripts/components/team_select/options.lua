@@ -322,10 +322,7 @@ end
 function OAAOptions:ChangeDefaultSettings()
   if self:FindHostID() == 7131038 then
     -- Chris is the host
-    if not IsInToolsMode() then
-      -- annoying in tools though
-      self.settingsDefault.GAME_MODE = "RD"
-    end
+    self.settingsDefault.GAME_MODE = "RD"
   end
 
   self:RestoreDefaults()

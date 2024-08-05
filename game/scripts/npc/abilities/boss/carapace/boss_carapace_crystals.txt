@@ -19,18 +19,58 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_amplification"                              "350"
-      "threshold_min"                                     "70" // min hp of the crystal
-      "threshold_max"                                     "200" // max hp of the crystal
-      "range"                                             "700"
-      "damage"                                            "300" // damage done to enemies that destroy the crystal
-      "crystal_distance"                                  "200"
-      "initial"                                           "5" // starting number of crystals
-      "additional"                                        "4"
-      "bonus_armor"                                       "25"
-      "bonus_magic_resistance"                            "25"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_amplification"                            "350"
+      }
+      "02" // min hp of the crystal
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_min"                                   "70"
+      }
+      "03" // max hp of the crystal
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_max"                                   "200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "700"
+      }
+      "05" // damage done to enemies that destroy the crystal
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crystal_distance"                                "200"
+      }
+      "07" // starting number of crystals
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "initial"                                         "5"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "additional"                                      "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "25"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "25"
+      }
     }
   }
 }

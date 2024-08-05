@@ -11,7 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
 
@@ -31,11 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_duration"
-      {
-        "value"                                           "1.5"
-        "special_bonus_unique_meepo_poof_cast_point"      "-1"
-      }
+      "AbilityCastPoint"                                  "1.5 1.5 1.5 1.5 1.0 0.75"
       "radius"
       {
         "value"                                           "400"
@@ -43,7 +39,7 @@
       }
       "poof_damage"
       {
-        "value"                                           "50 80 110 140 280 560"
+        "value"                                           "60 90 120 150 300 600"
         "special_bonus_unique_meepo_2"                    "+50"
       }
     }

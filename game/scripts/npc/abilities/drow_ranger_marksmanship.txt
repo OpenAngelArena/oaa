@@ -23,9 +23,22 @@
       "chance" //OAA
       {
         "value"                                           "20 25 30 35 40"
-        "special_bonus_unique_drow_ranger_3"              "+10"
+        "special_bonus_unique_drow_ranger_3"              "+20"
       }
-      "bonus_damage"                                      "40 60 80 100 120"
+      "bonus_damage"
+      {
+        "value"                                           "40 60 80 110 160"
+      }
+      "agility_multiplier"                                "30 35 40 45 50" //OAA
+      "agility_range"                                     "1200"
+      "agility_multiplier_ally"                           "50"
+      "split_count"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "split_range"                                       "375"
+      "split_damage_reduction"                            "50"
       "disable_range"                                     "400"
     }
   }

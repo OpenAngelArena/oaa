@@ -7,19 +7,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
+    "AbilityCooldown"                                     "12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,31 +31,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "teleport_delay"
+      "01"
       {
-        "value"                                           "6 5 4 3 2"
-      }
-      "movespeed_bonus_duration"                          "4"
-      "ally_movespeed_pct"
-      {
-        "value"                                           "12 16 20 24 28"
-      }
-      "AbilityCooldown"
-      {
-        "value"                                           "21 18 15 12 9"
-        "special_bonus_shard"                             "=0"
-      }
-      "AbilityChargeRestoreTime"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "21 18 15 12 9"
-      }
-      "AbilityCharges"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "=2"
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "4"
       }
     }
   }

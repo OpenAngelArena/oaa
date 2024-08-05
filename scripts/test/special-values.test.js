@@ -98,8 +98,7 @@ const ignoreValuesFor = [
   'item_aghanims_shard',
   'item_cornucopia',
   'item_ring_of_tarrasque',
-  'item_tiara_of_selemene',
-  'centaur_stampede'
+  'item_tiara_of_selemene'
   // 'shredder_chakram',
   // 'shredder_chakram_2',
   // 'tiny_grow',

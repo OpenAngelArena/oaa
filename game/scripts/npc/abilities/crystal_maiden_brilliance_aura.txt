@@ -19,23 +19,21 @@
       "base_mana_regen" //OAA
       {
         "value"                                           "0.5 0.75 1.0 1.25 1.75 2.5"
+        "special_bonus_unique_crystal_maiden_4"           "+0.5"
       }
       "proximity_mana_regen_tooltip" //OAA, base_mana_regen x proximity_bonus_factor
       {
         "value"                                           "1.5 2.25 3.0 3.75 5.25 7.5"
+        "special_bonus_unique_crystal_maiden_4"           "+1.5"
       }
+      "self_mana_regen_tooltip" //OAA, base_mana_regen x self_factor
+      {
+        "value"                                           "3.5 5.25 7.0 8.75 12.25 17.5"
+        "special_bonus_unique_crystal_maiden_4"           "+3.0"
+      }
+      "self_factor"                                       "7"
       "proximity_bonus_factor"                            "3"
-      "proximity_bonus_radius"
-      {
-        "value"                                           "1200"
-        "special_bonus_facet_crystal_maiden_cold_comfort"  "=1200"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "mana_battery_mana_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_cold_comfort"  "10 15 20 25 30 35"
-      }
+      "proximity_bonus_radius"                            "1200"
     }
   }
 }

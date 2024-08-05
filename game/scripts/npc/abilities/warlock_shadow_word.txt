@@ -15,7 +15,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,19 +29,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "15 25 35 45 145 245"
+        "special_bonus_unique_warlock_7"                  "+55"
       }
       "duration"
       {
         "value"                                           "10.0"
+        "special_bonus_unique_warlock_8"                  "+2"
       }
-      "tick_interval"                                     "0.5"
+      "tick_interval"                                     "1.0"
       "spell_aoe"
       {
-        "value"                                           "300"
-        "special_bonus_unique_warlock_7"                  "+150"
+        "value"                                           "0"
+        "special_bonus_unique_warlock_3"                  "450"
         "affected_by_aoe_increase"                        "1"
       }
       "shard_movement_speed_pct"

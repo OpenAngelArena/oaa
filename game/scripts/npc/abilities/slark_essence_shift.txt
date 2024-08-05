@@ -17,27 +17,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "agi_gain"
+      "01"
       {
-        "value"                                           "3"
-        "special_bonus_unique_slark_5"                    "+1"
+        "var_type"                                        "FIELD_INTEGER"
+        "agi_gain"                                        "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slark_5"
       }
-      "stat_loss"                                         "1 1 1 1 2 3" //OAA
-      "duration"
+      "02"
       {
-        "value"                                           "20 40 60 80 100 120"
-        "special_bonus_unique_slark_4"                    "+40"
+        "var_type"                                        "FIELD_INTEGER"
+        "stat_loss"                                       "1 1 1 1 2 3" //OAA
       }
-      "steal_radius"          
+      "03"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "max_stacks_per_hero"
-      {
-        "value"                                           "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "20 40 60 80 100 120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slark_4"
       }
     }
   }

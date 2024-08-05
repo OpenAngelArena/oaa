@@ -28,7 +28,6 @@
       "radius"
       {
         "value"                                           "350"
-        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_speed"                                       "20"
@@ -57,7 +56,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "23 22 21 20 19 18"
+        "value"                                           "24 23 22 21 20 19"
         "special_bonus_unique_lone_druid_4"               "-7"
       }
     }

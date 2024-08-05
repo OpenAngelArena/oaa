@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus attack damage for serpent wards
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "45" //OAA
+        "ad_linked_abilities"                             "shadow_shaman_mass_serpent_ward"
+      }
+    }
+  }
+}

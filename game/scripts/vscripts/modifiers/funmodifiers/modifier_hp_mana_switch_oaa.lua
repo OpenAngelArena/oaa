@@ -20,8 +20,7 @@ end
 
 function modifier_hp_mana_switch_oaa:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_SPELLS_REQUIRE_HP, -- doesnt work properly, thx Valve
-    MODIFIER_PROPERTY_CONVERT_MANA_COST_TO_HEALTH_COST,
+    MODIFIER_PROPERTY_SPELLS_REQUIRE_HP,
     --MODIFIER_PROPERTY_MIN_HEALTH,
     --MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
@@ -29,11 +28,7 @@ function modifier_hp_mana_switch_oaa:DeclareFunctions()
   }
 end
 
--- function modifier_hp_mana_switch_oaa:GetModifierSpellsRequireHP()
-  -- return 1
--- end
-
-function modifier_hp_mana_switch_oaa:GetModifierConvertManaCostToHealthCost()
+function modifier_hp_mana_switch_oaa:GetModifierSpellsRequireHP()
   return 1
 end
 

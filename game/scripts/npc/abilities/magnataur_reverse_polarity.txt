@@ -18,40 +18,18 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
     "AbilityManaCost"                                     "150 225 300 375 450"
-    "AbilityCastRange"                                    "430" //OAA, same as pull_radius (only true when normal Reverse Polarity)
+    "AbilityCastRange"                                    "430" //OAA, same as pull_radius
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "-20"
-      }
       "pull_radius"
       {
         "value"                                           "430"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "-100%"
-      }
-      "push_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+700"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "max_knockback_distance"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+850"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "knockback_height"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+100"
       }
       "polarity_damage" //OAA
       {
@@ -63,15 +41,11 @@
         "value"                                           "2.5 3.0 3.5 3.75 4.0"
         "special_bonus_unique_magnus_5"                   "+0.8"
       }
-      "pull_duration"
-      {
-        "value"                                           "0.0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+0.2"
-      }
-      "stat_buff_duration"
+      "pull_duration"                                     "0.0"
+      "stat_buff_duration" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+15"
+        "special_bonus_unique_magnus_reverse_polarity_stats"  "+20"
       }
       "stats_per_stack" //OAA
       {

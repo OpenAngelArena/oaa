@@ -1,23 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Solar Bind
+  // Keeper of the Light: Radiant Bind
   //=================================================================================================================
   "keeper_of_the_light_radiant_bind"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,25 +37,11 @@
     {
       "duration"                                          "6"
       "slow"                                              "10"
-      "magic_resistance"                                  "25 30 35 40 45" //OAA
+      "magic_resistance"                                  "35"
       "stun_duration"
       {
         "value"                                           "0"
-      }
-      "AbilityCooldown"
-      {
-        "value"                                           "14"
-        "special_bonus_shard"                             "=0"
-      }
-      "AbilityChargeRestoreTime"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "=14"
-      }
-      "AbilityCharges"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "=2"
+        "special_bonus_unique_keeper_of_the_light_10"     "+1.5"
       }
     }
   }

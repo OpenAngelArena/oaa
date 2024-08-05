@@ -32,15 +32,11 @@
     "AbilityValues"
     {
       "duration"                                          "30.0"
-      "replica_damage_outgoing" //OAA
-      {
-        "value"                                           "-30 0 30 90 150"
-        "special_bonus_unique_dark_seer_7"                "+20"
-      }
+      "replica_damage_outgoing"                           "-30 0 30 90 150" //OAA
       "tooltip_outgoing" //OAA
       {
         "value"                                           "70 100 130 190 250"
-        "special_bonus_unique_dark_seer_7"                "+20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_7"
       }
       "replica_damage_incoming"                           "100 100 100 75 25"
       "tooltip_replica_total_damage_incoming"
@@ -59,13 +55,14 @@
       "slow_duration"
       {
         "value"                                           "1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
       "scepter_length_multiplier" // unused
       {
         "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "wall_damage"                                       "25 50 75 150 225" //OAA
+      "wall_damage"                                       "25 40 55 100 145"
     }
   }
 }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Night Stalker talent: Bonus Crippling Fear Damage - unused
+  // Custom Night Stalker talent: Bonus Crippling Fear Damage
   //=================================================================================================================
   "special_bonus_unique_night_stalker_1_oaa"
   {
@@ -13,9 +13,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value"                                             "100"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "100"
+      }
     }
   }
 }

@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4200"
+    "ItemCost"                                            "4000"
     "ItemShopTags"                                        "str;int;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "snk;s&k;sk;sange and kaya"
@@ -30,12 +30,11 @@
     {
       "bonus_strength"                                    "20 25 35 50 70" //OAA
       "bonus_intellect"                                   "20 25 35 50 70" //OAA
-      "slow_resistance"                                   "20 22 24 26 28" //OAA
+      "status_resistance"                                 "18 20 22 24 26" //OAA
       "mana_regen_multiplier"                             "50 60 70 80 90"
       "spell_amp"                                         "12 16 20 24 28"
       "hp_regen_amp"                                      "20 22 24 26 28" //OAA
       "spell_lifesteal_amp"                               "20 22 24 26 28" //OAA
-      "manacost_reduction"                                "20 22 24 26 28" //OAA
     }
   }
 }

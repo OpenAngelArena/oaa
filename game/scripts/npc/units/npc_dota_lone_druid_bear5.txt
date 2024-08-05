@@ -1,24 +1,27 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Spirit Bear 5
+  // Lone Druid Spirit Bear 5
   //=================================================================================
   "npc_dota_lone_druid_bear5"
   {
     "include_keys_from"                                   "npc_dota_lone_druid_bear1"
 
-    "ModelScale"                                          ".87"
+    "ModelScale"                                          ".91"
 
-    "ArmorPhysical"                                       "6" // OAA
-    "AttackRate"                                          "1.45"
+    "ArmorPhysical"                                       "12"
 
-    "BountyXP"                                            "600"
-    "BountyGoldMin"                                       "1200"
-    "BountyGoldMax"                                       "1200"
+    //"AttackDamageMin"                                     "70"
+    //"AttackDamageMax"                                     "70"
+    "AttackRate"                                          "1.4"
 
-    "MovementSpeed"                                       "390"
+    "BountyXP"                                            "900"
+    "BountyGoldMin"                                       "2400"
+    "BountyGoldMax"                                       "2400"
 
-    "StatusHealth"                                        "2300" // OAA
-    "StatusHealthRegen"                                   "11" // OAA
+    "MovementSpeed"                                       "420"
+
+    "StatusHealth"                                        "3100"
+    "StatusHealthRegen"                                   "15"
   }
 }

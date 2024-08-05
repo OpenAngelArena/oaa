@@ -26,15 +26,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage" //OAA
+      "01"
       {
-        "value"                                           "1000 1500 2000 3500 5000"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "1000 1500 2000 3500 5000" //OAA
       }
-      "radius"
+      "02"
       {
-        "value"                                           "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600"
       }
     }
   }

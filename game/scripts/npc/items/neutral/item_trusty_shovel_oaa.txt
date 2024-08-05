@@ -29,10 +29,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_health"                                      "90"
-      "bounty_rune_drop_chance"                           "15"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty_rune_drop_chance"                         "15"
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -36,9 +36,9 @@
     {
       "damage"                                            "90 180 270 360 720 1080"
       "heal_per_second"                                   "15 25 35 45 90 135"
-      "total_heal_tooltip"                                "150 250 350 450 900 1350"
-      "duration"                                          "10"
-      "tick_rate"                                         "0.1"
+      "total_heal_tooltip"                                "135 225 315 405 810 1215"
+      "duration"                                          "9.0"
+      "tick_rate"                                         "1.0"
     }
   }
 }

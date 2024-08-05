@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -40,16 +39,12 @@
       "strength_bonus"
       {
         "value"                                           "3 4 5 6 7 8"
-        "special_bonus_unique_omniknight_2"               "+3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
       }
       "duration"
       {
         "value"                                           "6"
-        "special_bonus_unique_omniknight_5"               "+2"
-      }
-      "magic_resist"
-      {
-        "value"                                           "60"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_5"
       }
     }
   }

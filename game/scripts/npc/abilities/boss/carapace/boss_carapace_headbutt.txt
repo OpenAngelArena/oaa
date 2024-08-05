@@ -33,16 +33,48 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "move_speed_slow_pct"                               "-50"
-      "attack_speed_slow"                                 "-350"
-      "slow_duration"                                     "3.5"
-      "self_stun"                                         "0.5"
-      "damage_range"                                      "300" // length of the rectangle
-      "damage"                                            "2000" // pure
-      "width"                                             "160" // width of the rectangle
-      "range"                                             "150" // caster travel distance and knockback distance
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "-50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-350"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_stun"                                       "0.5"
+      }
+      "05" // length of the rectangle
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_range"                                    "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "2000"
+      }
+      "07" // width of the rectangle
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "160"
+      }
+      "08" // caster travel distance and knockback distance
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "150"
+      }
     }
   }
 }

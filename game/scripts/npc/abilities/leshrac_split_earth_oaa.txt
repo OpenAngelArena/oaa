@@ -40,15 +40,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
-      {
-        "value"                                           "115 170 225 280 560 1120"
-        "special_bonus_unique_leshrac_1_oaa"              "+120"
-      }
+      "damage"                                            "120 180 240 300 600 1200"
       "delay"                                             "0.35"
       "radius"
       {
-        "value"                                           "135 160 185 210 235 235"
+        "value"                                           "150 180 210 240 240 240"
+        "special_bonus_unique_leshrac_5_oaa"              "+25"
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"                                     "1.7"
@@ -59,12 +56,12 @@
       }
       "shard_extra_radius_per_instance"
       {
-        "value"                                           "45"
+        "value"                                           "40"
         "RequiresShard"                                   "1"
       }
       "shard_interval"
       {
-        "value"                                           "5"
+        "value"                                           "5.0"
         "RequiresShard"                                   "1"
       }
     }

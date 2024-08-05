@@ -119,7 +119,7 @@ if IsServer() then
         victim = target,
         damage = damage,
         damage_type = ability:GetAbilityDamageType(),
-        --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
         ability = ability,
       }
 

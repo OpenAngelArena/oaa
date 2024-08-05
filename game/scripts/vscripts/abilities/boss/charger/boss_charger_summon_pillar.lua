@@ -6,7 +6,7 @@ function boss_charger_summon_pillar:OnSpellStart()
   local cursorPosition = self:GetCursorPosition()
   local caster = self:GetCaster()
 
-  local tower = CreateUnitByName("npc_dota_boss_pillar_charger_oaa", cursorPosition, true, caster, caster:GetOwner(), caster:GetTeam())
+  local tower = CreateUnitByName("npc_dota_boss_charger_pillar", cursorPosition, true, caster, caster:GetOwner(), caster:GetTeam())
 
   tower:AddNewModifier(caster, self, "modifier_charger_pillar_passive", {})
 

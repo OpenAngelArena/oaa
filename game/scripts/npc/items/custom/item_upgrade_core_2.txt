@@ -31,10 +31,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    // "AbilityValues"
+    // "AbilitySpecial"
     // {
-      // "channel_time"                                    "3.0"
-      // "core_count"                                      "2"
+      // "01"
+      // {
+        // "var_type"                                        "FIELD_FLOAT"
+        // "channel_time"                                    "3.0"
+      // }
+      // "02"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "core_count"                                      "2"
+      // }
     // }
     "precache"
     {

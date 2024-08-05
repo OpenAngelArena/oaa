@@ -47,14 +47,16 @@
       "requiem_reduction_mres"                            "-5 -10 -15 -20 -25"
       "requiem_slow_duration"
       {
-        "value"                                           "0.6"
-        "special_bonus_unique_nevermore_6"                "+0.2"
+        "value"                                           "0.7"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
       }
       "requiem_slow_duration_max"
       {
         "value"                                           "2.15"
-        "special_bonus_unique_nevermore_6"                "+0.45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
+        "LinkedSpecialBonusField"                         "value2"
       }
+      "requiem_reduction_radius"                          "700"
       "requiem_soul_conversion"                           "1"
       "requiem_line_width_start"
       {
@@ -63,7 +65,7 @@
       }
       "requiem_line_width_end"
       {
-        "value"                                           "300"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "requiem_line_speed"                                "700"

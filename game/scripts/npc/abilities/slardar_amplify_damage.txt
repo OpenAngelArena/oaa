@@ -37,7 +37,7 @@
       "armor_reduction" //OAA
       {
         "value"                                           "-10 -13 -16 -20 -25"
-        "special_bonus_unique_slardar_5"                  "-4"
+        "special_bonus_unique_slardar_5"                  "-3"
       }
       "duration"
       {
@@ -56,16 +56,6 @@
       "puddle_duration"
       {
         "value"                                           "8"
-      }
-      "has_self_buff"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_brineguard"          "+1"
-      }
-      "armor_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_brineguard"          "+40"
       }
     }
   }

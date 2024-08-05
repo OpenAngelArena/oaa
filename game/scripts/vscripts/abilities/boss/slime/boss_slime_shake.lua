@@ -39,7 +39,7 @@ local function RandomPointsInsideCircleUniform( pos, radius, count, uniform, min
 		return true
 	end
 
-	local fallback = 70
+	local fallback = 150
 
 	for i=1,count do
 		local point
@@ -94,12 +94,11 @@ function boss_slime_shake:FireProjectile(point)
       ParticleManager:DestroyParticle(indicator, true)
       ParticleManager:ReleaseParticleIndex(indicator)
     end
-    if caster and not caster:IsNull() then
-      -- Create Firestorm particle
-      local wave = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, caster)
-      ParticleManager:SetParticleControl(wave, 0, pos)
-      ParticleManager:ReleaseParticleIndex(wave)
-    end
+
+    -- Create Firestorm particle
+    local wave = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(wave, 0, pos)
+    ParticleManager:ReleaseParticleIndex(wave)
   end)
 
   local damageTable = {
@@ -109,30 +108,26 @@ function boss_slime_shake:FireProjectile(point)
     ability = self
   }
 
-  local ability = self
-
   Timers:CreateTimer(delay + 0.6, function()
-    if caster and not caster:IsNull() then
-      local units = FindUnitsInRadius(
-        caster:GetTeamNumber(),
-        pos,
-        nil,
-        size,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_ANY_ORDER,
-        false
-      )
+    local units = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      pos,
+      nil,
+      size,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
 
-      for _, unit in pairs(units) do
-        -- Apply modifiers
-        unit:AddNewModifier( caster, ability, "modifier_boss_slime_shake_slow", { duration = ability:GetSpecialValueFor("slow_duration") })
+    for _, victim in pairs(units) do
+      -- Apply modifiers
+      victim:AddNewModifier( caster, self, "modifier_boss_slime_shake_slow", { duration = self:GetSpecialValueFor("slow_duration") })
 
-        -- Apply damage
-        damageTable.victim = unit
-        ApplyDamage(damageTable)
-      end
+      -- Apply damage
+      damageTable.victim = victim
+      ApplyDamage(damageTable)
     end
   end)
 end

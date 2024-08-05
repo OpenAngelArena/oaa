@@ -30,7 +30,7 @@
       "wave_width"
       {
         "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_drow_ranger_4"              "+250"
       }
       "silence_duration"                                  "3 4 5 6 6.5 7"
       "knockback_distance_max"                            "450"
@@ -39,21 +39,23 @@
       "wave_length"                                       "900"
       "bonus_movespeed"
       {
-        "value"                                           "0"
-        "special_bonus_unique_drow_ranger_gust_selfmovespeed"  "+50"
+        "value"                                           "10 12 14 16 18 20"
+        "special_bonus_unique_drow_ranger_gust_selfmovespeed"  "+15"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "16 15 14 13 12 11"
-        "special_bonus_unique_drow_ranger_7"              "-3.5"
+        "value"                                           "16 15 14 13 12 12"
+        "special_bonus_unique_drow_ranger_7"              "-4"
       }
       "miss_chance"
       {
         "value"                                           "0"
+        "special_bonus_unique_drow_ranger_5"              "+50"
       }
       "gust_reveals_invis"
       {
         "value"                                           "1"
+        "special_bonus_unique_drow_ranger_gust_invis"     "=1"
       }
     }
   }

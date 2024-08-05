@@ -50,7 +50,7 @@ function modifier_serpent_ward_global_aura_emitter:GetModifierAura()
 end
 
 function modifier_serpent_ward_global_aura_emitter:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY -- be careful when testing multiple Shadow Shamans because this is an aura
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_serpent_ward_global_aura_emitter:GetAuraSearchType()
@@ -94,15 +94,13 @@ end
 
 function modifier_serpent_ward_global_aura_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    -- special_bonus_unique_shadow_shaman_4 talent is applied automatically to serpent wards created by mass_serpent_wards_vanilla or shard shackles
-    -- so we must use bonus raw dmg instead of bonus base dmg to avoid 'race conditions' (what applies first ...)
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
--- Fix ward damage for serpent wards created with shard Shackles ONLY!!!!!!!!!!!!!!!!!!!
-function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDamage()
+-- Fix for ward damage created with shard shackles
+function modifier_serpent_ward_global_aura_effect:GetModifierBaseAttack_BonusDamage()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
@@ -110,12 +108,16 @@ function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDama
     return 0
   end
 
+  -- Check if caster has Aghanim Shard
+  if not caster:HasShardOAA() then
+    return 0
+  end
+
   if parent.GetUnitName == nil then
     return 0
   end
 
-  -- shard Shackles have a problem with serpent wards lvl 4 and 5
-  -- they crash when they try to spawn them, so we use vanilla Mass Serpent Ward and we fix the dmg here
+  -- Check parent name
   if parent:GetUnitName() ~= "npc_dota_shadow_shaman_ward_3" then
     return 0
   end
@@ -126,34 +128,11 @@ function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDama
     return 0
   end
 
-  -- If Mass Serpent Wards are at levels where everything is correct, dont continue
-  -- Level of mass_serpent_wards_vanilla needs to be 3, and level of mass_serpent_wards_custom needs to be 4 or 5
   if mass_serpent_wards_vanilla:GetLevel() < 3 or mass_serpent_wards_custom:GetLevel() <= 3 then
     return 0
   end
 
-  -- Do not continue if this serpent ward is created by our custom ability (mass_serpent_wards_custom)
-  -- Serpent Wards created by mass_serpent_wards_custom will always have correct damage
-  if parent.isMegaWard ~= nil then
-    return 0
-  end
-
-  -- Get correct damage of the ward (ward damage at current level of mass_serpent_wards_custom)
-  local wardDamage = mass_serpent_wards_custom:GetSpecialValueFor("damage_tooltip")
-  local hasMegaWardsEnabled = mass_serpent_wards_custom:GetSpecialValueFor("is_mega_ward") == 1
-  local megaWardMultiplier = mass_serpent_wards_custom:GetSpecialValueFor("mega_ward_multiplier_tooltip")
-
-  -- Total damage of the ward will be ward dmg at lvl 3 + difference between dmg at later lvls
-  -- mass_serpent_wards_vanilla:GetSpecialValueFor("damage_tooltip") does not work anymore
-  -- because Valve deleted the damage_tooltip kv; used GetLevelSpecialValueFor to get value at specific lvl, used 3-1 for clarity
-  local bonusDamage = wardDamage - mass_serpent_wards_custom:GetLevelSpecialValueFor("damage_tooltip", 3-1)
-
-  -- Shard Shackles always create small wards, so divide the damage of the big ward
-  if hasMegaWardsEnabled then
-    return bonusDamage / megaWardMultiplier
-  end
-
-  return bonusDamage
+  return mass_serpent_wards_custom:GetSpecialValueFor("damage_tooltip") - mass_serpent_wards_vanilla:GetSpecialValueFor("damage_tooltip")
 end
 
 if IsServer() then

@@ -36,21 +36,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "gush_damage" //OAA
+      "gush_damage"
       {
         "value"                                           "110 160 210 260 520 1040"
-        "special_bonus_unique_tidehunter_2"               "+200"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_2"
       }
       "projectile_speed"                                  "2500"
       "movement_speed"
       {
         "value"                                           "-40"
-        "special_bonus_unique_tidehunter_5"               "-15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_5"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "negative_armor"
       {
         "value"                                           "3 4 5 6 8 12"
-        "special_bonus_unique_tidehunter"                 "+4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter"
       }
       "speed_scepter"
       {

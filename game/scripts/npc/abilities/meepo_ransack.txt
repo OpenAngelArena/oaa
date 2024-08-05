@@ -20,14 +20,14 @@
       "health_steal_heroes"
       {
         "value"                                           "9 12 15 18 36 54"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
-        "special_bonus_unique_meepo_6"                    "+8"
       }
-      "health_steal_creeps" //OAA, same as health_steal_heroes
+      "health_steal_creeps" //OAA
       {
-        "value"                                           "9 12 15 18 36 54"
+        "value"                                           "12 20 28 36 72 108"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
-        "special_bonus_unique_meepo_6"                    "+8"
       }
     }
   }

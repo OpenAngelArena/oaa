@@ -10,9 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -37,20 +36,17 @@
     {
       "lifesteal_pct"
       {
-        "value"                                           "12 18 24 30 33 36"
+        "value"                                           "10 15 20 25 30 35"
         "special_bonus_unique_marci_guardian_lifesteal"   "+10"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA
       {
-        "value"                                           "12 18 24 30 36 42"
-        "special_bonus_unique_marci_guardian_damage"      "+20"
+        "value"                                           "6 12 24 48 96 144"
+        "special_bonus_unique_marci_guardian_damage"      "+48"
       }
       "bonus_attack_range"                                "0"
-      "max_partner_distance"
-      {
-        "value"                                           "2500"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "nearest_ally_search_range"                         "1000" //OAA, same as AbilityCastRange
+      "max_partner_distance"                              "2500"
       "max_partner_penalty"                               "50"
       "creep_lifesteal_reduction_pct"                     "40"
     }

@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Bushwack Damage
+  //=================================================================================================================
+  "special_bonus_unique_hoodwink_bushwhack_damage"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "180" // OAA
+        "ad_linked_abilities"                             "hoodwink_bushwhack"
+      }
+    }
+  }
+}

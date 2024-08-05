@@ -2,9 +2,11 @@
 // Slardar's Bash of the Deep
 //=============================================================================
 "DOTA_Tooltip_ability_slardar_bash_oaa"                                         "#{DOTA_Tooltip_ability_slardar_bash}"
-"DOTA_Tooltip_ability_slardar_bash_oaa_Description"                             "<font color='#FFA500'>Slardar will stun and deal bonus physical damage on an attack with a cooldown.</font> Deals double damage against creeps."
+"DOTA_Tooltip_ability_slardar_bash_oaa_Description"                             "<font color='#FFA500'>Slardar will stun and deal bonus physical damage on an attack with a cooldown.</font> Deals double damage against creeps. Passively grants bonus damage to Slardar while he's in water."
 "DOTA_Tooltip_ability_slardar_bash_oaa_Lore"                                    "#{DOTA_Tooltip_ability_slardar_bash_Lore}"
 "DOTA_Tooltip_ability_slardar_bash_oaa_Note0"                                   "Does not stack with Abyssal Blade."
+"DOTA_Tooltip_ability_slardar_bash_oaa_Note1"                                   "Bonus damage in water will always work in puddles. In other cases only if Sprint is learned."
 //"DOTA_Tooltip_ability_slardar_bash_oaa_chance"                                  "%BASH CHANCE:"
 "DOTA_Tooltip_ability_slardar_bash_oaa_bonus_damage"                            "#{DOTA_Tooltip_ability_slardar_bash_bonus_damage}"
 "DOTA_Tooltip_ability_slardar_bash_oaa_duration"                                "#{DOTA_Tooltip_ability_slardar_bash_duration}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_water_damage"                            "#{DOTA_Tooltip_ability_slardar_bash_river_damage}"

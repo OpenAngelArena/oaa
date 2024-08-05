@@ -476,37 +476,15 @@ if IsServer() then
   function modifier_wukongs_command_oaa_thinker:OnIntervalThink()
     local caster = self:GetCaster()
     if not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
-      local ability = self:GetAbility()
-      local linger_time = ability:GetSpecialValueFor("leadership_time_buffer")
-      if linger_time == 0 then
-        self:StartIntervalThink(-1)
-        self:SetDuration(0.01, false)
-      elseif self.remaining then
-        if self:GetRemainingTime() <= 0.01 then
-          self:StartIntervalThink(-1)
-          self.remaining = nil
-        end
-      else
-        self.remaining = self:GetRemainingTime()
-        self:SetDuration(linger_time, false)
-      end
-    elseif self.remaining then
-      self:SetDuration(self.remaining, false)
-      self.remaining = nil
+      self:StartIntervalThink(-1)
+      self:SetDuration(0.01, false)
     end
   end
 
   function modifier_wukongs_command_oaa_thinker:OnDeath(event)
     if event.unit == self:GetCaster() then
-      local ability = self:GetAbility()
-      local linger_time = ability:GetSpecialValueFor("leadership_time_buffer")
-      if linger_time == 0 then
-        self:StartIntervalThink(-1)
-        self:SetDuration(0.01, false)
-      else
-        self:StartIntervalThink(-1)
-        self:SetDuration(linger_time, false)
-      end
+      self:StartIntervalThink(-1)
+      self:SetDuration(0.01, false)
     end
   end
 

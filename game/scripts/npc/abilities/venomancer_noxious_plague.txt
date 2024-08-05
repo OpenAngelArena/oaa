@@ -31,8 +31,8 @@
       "impact_damage"                                     "200 400 600 1200 1800" //OAA
       "health_damage"
       {
-        "value"                                           "3 4 5 5.5 6"
-        "special_bonus_unique_venomancer_4"               "+1"
+        "value"                                           "4 5 6 6 6"
+        "special_bonus_unique_venomancer_4"               "1.5"
       }
       "debuff_radius"
       {
@@ -44,15 +44,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_venomancer_5"               "+300"
-      }
-      "spread_count"
-      {
-        "value"                                           "1"
-        "special_bonus_facet_venomancer_patient_zero"     "+1"
-      }
-      "impact_damage_reduce"
-      {
-        "special_bonus_facet_venomancer_patient_zero"     "100"
       }
       "projectile_speed"                                  "1200"
     }

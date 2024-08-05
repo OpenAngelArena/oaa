@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -33,19 +32,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"
+      "01"
       {
-        "value"                                           "3.5 4 4.5 5.0 5.25 5.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5" //OAA
       }
-      "fx_halo_height" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
+      "02" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {
-        "value"                                           "190 240 300 350"
+        "var_type"                                        "FIELD_FLOAT"
+        "fx_halo_height"                                  "190 240 300 350"
       }
-      "heal_amplify" //OAA
+      "03"
       {
-        "value"                                           "3 4 5 6 7 8"
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_amplify"                                    "3 4 5 6 7 8" //OAA
       }
     }
   }

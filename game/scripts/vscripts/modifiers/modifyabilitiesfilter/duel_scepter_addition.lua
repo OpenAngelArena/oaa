@@ -21,7 +21,7 @@ end
 
 function modifier_legion_duel_buff_oaa:OnIntervalThink()
   local parent = self:GetParent()
-  -- Remove this buff if parent is not affected by Duel anymore
+  -- Remove this debuff if parent is not affected by Duel anymore
   if not parent:HasModifier("modifier_legion_commander_duel") then
     self:StartIntervalThink(-1)
     self:Destroy()
@@ -69,9 +69,8 @@ function modifier_legion_duel_debuff_oaa:OnIntervalThink()
     self:Destroy()
     return
   end
-  if not parent:IsMagicImmune() and not parent:IsDebuffImmune() then
-    parent:Purge(true, false, false, false, false)
-  end
+
+  parent:Purge(true, false, false, false, false)
 end
 
 function modifier_legion_duel_debuff_oaa:GetEffectName()

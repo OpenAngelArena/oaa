@@ -1,16 +1,4 @@
 
--- special bottles, these shouldn't be given out freely:
--- 1: contributor bottle
--- 2: tournament winner bottle
--- 47: bottle_kyler looks a lot like tournament winner bottle
-
--- potential unlockable bottles:
--- 60: frostkitten bottle, swirly blue and cool looking
--- 4: better rainbow one
--- 43: zapp bottle, ghost ship in a bottle
--- 5: universe
--- 56: dota 1 bottle
-
 SPECIAL_BOTTLES = {
   --comments with names indicate a person having access to that icon but another one being currently active
 
@@ -34,7 +22,7 @@ SPECIAL_BOTTLES = {
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
-  [37885614] = {4,5,55, 1}, --Darkonius
+  [37885614] = {4,5,55}, --Darkonius
 
 
   -- golden tournament winners
@@ -93,7 +81,6 @@ SPECIAL_BOTTLES = {
   [858631509] = {3,4,5,54}, -- Obby
   [256293935] = {3,4,5,9}, -- Woozi
   [151615799] = {4,5,60}, -- FrostKitten
-  [111521761] = {3,4,57}, -- Jandiss
 
   -- twitch donators 3
 

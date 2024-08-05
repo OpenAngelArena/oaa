@@ -15,16 +15,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blade_dance_crit_chance"                           "35"
+      "blade_dance_crit_chance"                           "20 25 30 35 40 45"
       "blade_dance_crit_mult"
       {
-        "value"                                           "130 150 170 190 210 230"
+        "value"                                           "190"
         "special_bonus_unique_juggernaut_4"               "+10"
       }
       "blade_dance_lifesteal"
       {
         "value"                                           "0"
-        "special_bonus_unique_juggernaut_blade_dance_lifesteal"  "+50"
+        "special_bonus_unique_juggernaut_blade_dance_lifesteal"  "+60"
       }
     }
   }

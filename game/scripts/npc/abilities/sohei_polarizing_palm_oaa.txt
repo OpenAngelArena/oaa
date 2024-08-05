@@ -59,14 +59,14 @@
       "strength_damage"
       {
         "value"                                           "60 90 120 150 180 210"
-        "special_bonus_unique_sohei_9_oaa"                "+40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sohei_9"
       }
       "push_pull_length"                                  "400" // lower than Flurry of Blows radius
       "push_pull_speed"                                   "1200"
       "stun_duration"
       {
         "value"                                           "1.2 1.4 1.6 1.8 2.0 2.2"
-        "special_bonus_unique_sohei_1_oaa"                "+0.8"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
       }
       "slow_duration"                                     "0.6"
       "move_speed_slow_pct"                               "100"

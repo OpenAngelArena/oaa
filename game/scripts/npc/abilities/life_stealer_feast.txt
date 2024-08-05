@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lifestealer: Feast (Innate)
+  // Lifestealer: Feast
   //=================================================================================================================
   "life_stealer_feast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "DependentOnAbility"                                  "life_stealer_infest"
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Infest) + 1
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,21 +21,14 @@
     {
       "hp_leech_percent" //OAA
       {
-        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
+        "value"                                           "1.6 2.0 2.4 2.8 3.2 3.6"
         "special_bonus_unique_lifestealer_3"              "+1.0"
       }
       "hp_damage_percent" //OAA
       {
-        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
+        "value"                                           "1 1.2 1.4 1.6 1.8 2.0"
         "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
-      }
-      "bonus_hp_per_hero"                                 "15" // if it still works against hero creeps nerf it to 5
-      "bonus_hp_per_creep"                                "1"
-      "creep_deny_percent"                                "75"
-      "bonus_hp_total"
-      {
-        "dynamic_value"                                   "true"
       }
     }
   }

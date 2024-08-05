@@ -12,7 +12,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityTextureName"                                  "meepo_divided_we_stand"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "3"
     "LevelsBetweenUpgrades"                               "12"
@@ -22,14 +21,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_dmg_reduction_pct"
+      "01"
       {
-        "value"                                           "4 6 8"
-        "special_bonus_facet_meepo_more_meepo"            "-1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_dmg_reduction_pct"                         "4 6 8"
       }
-      "aura_radius"                                       "700" // affected_by_aoe_increase wouldnt work because Clones cant get items
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "700"
+      }
     }
   }
 }

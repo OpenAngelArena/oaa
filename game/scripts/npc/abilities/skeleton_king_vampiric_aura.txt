@@ -1,0 +1,87 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Wraith King Vampiric Spirit
+  //=================================================================================================================
+  "skeleton_king_vampiric_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "vampiric_aura"
+      {
+        "value"                                           "20 30 40 50 55 60"
+        "special_bonus_unique_wraith_king_2"              "+10"
+      }
+      "creep_lifesteal_reduction_pct"                     "40"
+      "skeleton_duration" //OAA
+      {
+        "value"                                           "30"
+        "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "+25%"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "30"
+        "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "-25%"
+      }
+      "max_skeleton_charges"                              "8" //OAA
+      "min_skeleton_spawn"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_wraith_king_5"              "+5"
+      }
+      "spawn_interval"                                    "0.25"
+      "reincarnate_time"                                  "3"
+      "gold_bounty"                                       "5"
+      "xp_bounty"                                         "5"
+      "skeleton_damage_tooltip" //OAA
+      {
+        "value"                                           "34"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "talent_skeleton_damage" // Valve is dumb
+      {
+        "value"                                           "0"
+        "special_bonus_unique_wraith_king_6"              "+23"
+      }
+      "skeleton_attack_damage_per_level" //OAA
+      {
+        "value"                                           "2"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "skeleton_bonus_damage_against_creeps" //OAA
+      {
+        "value"                                           "10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "skeleton_bonus_damage_against_bosses" //OAA
+      {
+        "value"                                           "25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "skeleton_attack_speed_per_level"                   "1" //OAA
+      "skeleton_building_damage_reduction"                "35"
+      "skeleton_bonus_hero_damage"                        "25" // percentage increase
+    }
+  }
+}

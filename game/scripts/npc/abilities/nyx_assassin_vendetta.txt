@@ -19,54 +19,44 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70 65 60 55 50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "180 240 300 360 420"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "70 65 60 55 50"
-      }
-      "AbilityManaCost"               
-      {
-        "value"                                           "180 240 300 360 420"
-      }
-      "duration"
-      {
-        "value"                                           "60"
-      }
+      "duration"                                          "60"
       "fade_time"                                         "0.0"
-      "movement_speed"
-      {
-        "value"                                           "16 18 20 22 24"
-      }
+      "movement_speed"                                    "16 18 20 22 24"
       "bonus_damage" //OAA
       {
         "value"                                           "300 500 700 1300 1900"
-        "special_bonus_unique_nyx_vendetta_damage"        "+40"
+        "special_bonus_unique_nyx_vendetta_damage"        "+75"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "health_regen_rate_scepter"                         "3"
       "mana_regen_rate_scepter"                           "3"
-      "break_duration"
+      "break_duration"                                    "4.0"
+      "shard_debuff_duration"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+4"
+        "value"                                           "4.0"
+        "RequiresShard"                                   "1"
       }
-      "free_pathing_duration"
+      "shard_magic_resist_reduction"
       {
-        "value"                                           "0"
-        "special_bonus_facet_nyx_assassin_scuttle"        "=15"
+        "value"                                           "17"
+        "RequiresShard"                                   "1"
       }
-      "free_pathing_movement_speed_bonus"
+      "shard_movement_speed_bonus"
       {
-        "value"                                           "0"
-        "special_bonus_facet_nyx_assassin_scuttle"        "=200"
-      }   
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
+      }
+      "mana_removal_pct"                                  "50"
       "attack_animation_bonus"                            "70"
       "attack_range_bonus"                                "75"
     }

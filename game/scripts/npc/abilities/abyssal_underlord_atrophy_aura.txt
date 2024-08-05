@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Atrophy Aura (Innate in OAA)
+  // Abyssal Underlord: Atrophy Aura
   //=================================================================================================================
   "abyssal_underlord_atrophy_aura"
   {
@@ -12,75 +12,41 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "Innate"                                              "1"
-
-    "MaxLevel"                                            "7"
-    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "900"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "1200" //OAA
       "damage_reduction_pct" //OAA
       {
-        "value"                                           "0 12 18 24 30 33 36"
-        "special_bonus_unique_underlord_3"                "+10"
+        "value"                                           "12 18 24 30 33 36"
+        "special_bonus_unique_underlord_3"                "+15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "bonus_damage_from_creep" //OAA
+      "bonus_damage_from_creep"
       {
-        "value"                                           "1 2 4 6 8 16 32"
-        "special_bonus_unique_underlord_3"                "+10%"
+        "value"                                           "3 5 7 9 18 36"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_from_hero" //OAA
+      "bonus_damage_from_hero"
       {
-        "value"                                           "15 30 35 40 45 55 75"
-        "special_bonus_unique_underlord_3"                "+10%"
+        "value"                                           "30 35 40 45 55 75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_duration" //OAA
+      "bonus_damage_duration"
       {
-        "value"                                           "25 35 45 55 65 70 75"
+        "value"                                           "35 45 55 65 70 75"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_shared_by_allies_pct"
       {
-        "value"                                           "0"
-      }
-      "cleave_damage_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+35"
-      }
-      "cleave_starting_width"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+150"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "cleave_angle"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+75"
-      }
-      "cleave_distance_base"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+100"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "cleave_distance_per_stack"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+5"
+        "special_bonus_unique_underlord_9"                "+50"
       }
     }
   }

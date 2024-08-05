@@ -9,6 +9,6 @@ require("modifiers/baseclass")
 -- Link modifiers that don't have an ability
 require("linker")
 
--- Extensions to CDOTA_BaseNPC
-require("libraries/basenpc")
-require("libraries/abilities")
+if IsClient() then -- Load clientside utility lib
+  require("libraries/basenpc")
+end

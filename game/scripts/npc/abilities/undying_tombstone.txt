@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 150 175 200 225 250"
+    "AbilityManaCost"                                     "120 140 160 180 200 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "80"
+        "value"                                           "90 85 80 75 70 70"
         "special_bonus_unique_undying_7"                  "-15"
       }
       "tombstone_health"
@@ -78,15 +78,10 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "zombie_health"                                     "2"
       "bunker_units"                                      "1"
       "bunker_heal_pct"                                   "0"
-      "tombstone_grab_radius"
-      {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "tombstone_bunker_cd"                               "2"
+      "tombstone_grab_radius"                             "350"
+      "tombstone_bunker_cd"                               "3"
       "tombstone_stun_penalty"                            "2"
       "zombie_damage_interval"
       {

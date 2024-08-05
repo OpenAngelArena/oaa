@@ -44,9 +44,10 @@
       "AbilityCastRange"
       {
         "value"                                           "1000"
-        "special_bonus_unique_phantom_assassin_6"         "+200"
+        "special_bonus_unique_phantom_assassin_6"         "+250"
       }
-      "creep_lifesteal_penalty"                           "40"
+      "lifesteal_pct"                                     "0"
+      "creep_lifesteal_penalty"                           "0"
     }
   }
 }

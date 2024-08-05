@@ -18,16 +18,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_attack_speed" //OAA
+      "01"
       {
-        "value"                                           "15 20 25 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "15 20 25 30" //OAA
       }
-      "radius"
+      "02"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "radius"                                          "1200"
       }
     }
   }

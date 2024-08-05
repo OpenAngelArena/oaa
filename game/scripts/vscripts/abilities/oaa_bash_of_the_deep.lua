@@ -34,7 +34,7 @@ end
 function modifier_slardar_bash_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
-    --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
@@ -113,9 +113,9 @@ if IsServer() then
   end
 end
 
--- function modifier_slardar_bash_oaa:GetModifierPreAttack_BonusDamage()
-  -- local parent = self:GetParent()
-  -- if (parent:HasModifier("modifier_slardar_sprint_river") or parent:HasModifier("modifier_slardar_puddle")) and not parent:PassivesDisabled() then
-    -- return self:GetAbility():GetSpecialValueFor("water_damage")
-  -- end
--- end
+function modifier_slardar_bash_oaa:GetModifierPreAttack_BonusDamage()
+  local parent = self:GetParent()
+  if (parent:HasModifier("modifier_slardar_sprint_river") or parent:HasModifier("modifier_slardar_puddle")) and not parent:PassivesDisabled() then
+    return self:GetAbility():GetSpecialValueFor("water_damage")
+  end
+end

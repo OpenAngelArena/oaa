@@ -39,25 +39,13 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage"
       {
         "value"                                           "200 300 400 500 1000 2000"
-        "special_bonus_unique_techies"                    "+300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies"
       }
       "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
-      "hp_cost"
-      {
-        "value"                                           "20"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "hp_dmg"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_techies_spleens_secret_sauce"  "=15"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
+      "hp_cost"                                           "20"
       "duration"                                          "0.75"
     }
   }

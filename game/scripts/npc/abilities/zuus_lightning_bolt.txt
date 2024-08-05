@@ -57,9 +57,9 @@
       "ministun_duration"
       {
         "value"                                           "0.35"
-        "special_bonus_unique_zeus_3"                     "+0.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_zeus_3"
       }
-      "creep_damage_bonus_pct"                            "0"
+      "creep_damage_bonus_pct"                            "100"
     }
   }
 }

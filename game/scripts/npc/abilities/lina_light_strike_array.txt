@@ -39,26 +39,7 @@
       "light_strike_array_damage"
       {
         "value"                                           "110 160 210 260 520 1040"
-        "special_bonus_unique_lina_3"                     "+150"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "impact_damage_pct"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "light_strike_array_burn_damage_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_lina_3"                     "+150"
-        "special_bonus_facet_lina_dot"                    "=110 =160 =210 =260 =520 =1040"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_percent_tooltip"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "light_strike_array_burn_duration_tooltip"
-      {
-        "value"                                           "0"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_duration"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_ADD"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lina_3"
       }
     }
   }

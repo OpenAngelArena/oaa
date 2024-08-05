@@ -26,29 +26,38 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "800"
-    "ItemShopTags"                                        "consumable"
-    "ItemQuality"                                         "common"
-    "ItemAliases"                                         "Infinity; Infinite bottle"
     "ItemStackable"                                       "1"
     "ItemSellable"                                        "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "3"
-    "ItemRequiresCharges"                                 "1"
-    "ItemKillable"                                        "1"
-    "ItemPurchasable"                                     "1" // Change this to 0 if you dont want people to buy Bottle
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
-
-    "SideShop"                                            "1"
     "IsTempestDoubleClonable"                             "0"
+    "ItemRequiresCharges"                                 "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "health_restore"                                    "100"
-      "mana_restore"                                      "30"
-      "restore_time"                                      "2.7"
-      "break_on_hero_damage"                              "1"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_restore"                                  "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_restore"                                    "30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "restore_time"                                    "2.7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_on_hero_damage"                            "1"
+      }
     }
   }
 }

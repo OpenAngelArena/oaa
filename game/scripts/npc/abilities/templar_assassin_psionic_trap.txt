@@ -46,20 +46,12 @@
         "special_bonus_shard"                             "+4"
       }
       "trap_fade_time"                                    "2.0"
-      "movement_speed_min"
-      {
-        "value"                                           "20"
-        "special_bonus_unique_templar_assassin_3"         "+5"
-      }
-      "movement_speed_max"
-      {
-        "value"                                           "50"
-        "special_bonus_unique_templar_assassin_3"         "+5"
-      }
+      "movement_speed_min"                                "30"
+      "movement_speed_max"                                "60"
       "trap_bonus_damage" //OAA
       {
-        "value"                                           "225 375 525 975 1425"
-        "special_bonus_unique_templar_assassin_3"         "+100"
+        "value"                                           "275 375 475 775 1075"
+        "special_bonus_unique_templar_assassin_3"         "+110"
       }
       "instant_trap_damage"                               "0"
       "extra_damage"                                      "200"
@@ -68,13 +60,13 @@
       "min_silence_duration"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+1.0"
+        "special_bonus_shard"                             "+1.5"
         "RequiresShard"                                   "1"
       }
       "max_silence_duration"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+3.0"
+        "special_bonus_shard"                             "+3.5"
         "RequiresShard"                                   "1"
       }
       "bonus_vision"

@@ -13,10 +13,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "multishot_angle"                                   "30"
-      "multishot_count"                                   "2"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "multishot_angle"                                 "30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "multishot_count"                                 "2"
+      }
     }
   }
 }

@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75 70 65 60 55" //OAA, special_bonus_unique_muerta_2_oaa
+    "AbilityCooldown"                                     "75 70 65 60 55" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,6 @@
       {
         "value"                                           "925"
         "RequiresShard"                                   "1"
-        "affected_by_aoe_increase"                        "1"
       }
       "damage_penalty"                                    "50" //OAA
       "damage_penalty_bosses"                             "40" //OAA

@@ -14,7 +14,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -31,8 +31,7 @@
     {
       "arc_damage"
       {
-        "value"                                           "90 120 150 180 360 540"
-        "special_bonus_unique_zeus_2"                     "+60"
+        "value"                                           "85 110 135 160 320 480"
       }
       "radius"
       {
@@ -41,6 +40,11 @@
       }
       "jump_count"                                        "5 7 9 11 13 15" //OAA
       "jump_delay"                                        "0.25"
+      "damage_health_pct"
+      {
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_unique_zeus_2"                     "+6"
+      }
     }
   }
 }

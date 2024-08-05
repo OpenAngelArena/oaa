@@ -33,17 +33,13 @@
       "destination_travel_speed"                          "2000"
       "destination_radius"
       {
-        "value"                                           "400 450 500 525 550"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
       "destination_status_duration"                       "2.8 3.0 3.2 3.4 3.6"
       "return_travel_speed"                               "600"
       "starting_height"                                   "300"
       "telegraph_to_enemies"                              "0"
-      "impact_damage"
-      {
-        "special_bonus_unique_dark_willow_2"              "+500"
-      }
     }
   }
 }

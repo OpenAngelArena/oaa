@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "600 640 680 720 730 740"
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -52,31 +52,22 @@
         "value"                                           "4 6 8 10 11 12"
         "special_bonus_unique_viper_4"                    "+4"
       }
-      "max_stacks"                                        "6"
-      "bonus_range"                                       "25"
+      "max_stacks"                                        "5"
+      "bonus_range"                                       "25 65 105 145 155 165"
       "shard_armor_reduction"
       {
-        "special_bonus_shard"                             "1"
+        "value"                                           "1"
         "RequiresShard"                                   "1"
       }
       "shard_building_dmg_pct"
       {
-        "special_bonus_shard"                             "40"
+        "value"                                           "40"
         "RequiresShard"                                   "1"
       }
       "shard_bonus_max_stacks"
       {
-        "special_bonus_shard"                             "2"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
-      }
-      "expiration_damage_radius"  
-      {
-        "special_bonus_facet_viper_poison_burst"          "=300"
-        "affected_by_aoe_increase"                        "1"
-      }           
-      "accumulated_damage_explosion_pct"      
-      {
-        "special_bonus_facet_viper_poison_burst"          "=100"
       }
     }
   }

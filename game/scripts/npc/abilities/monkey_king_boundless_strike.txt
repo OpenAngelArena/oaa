@@ -32,18 +32,16 @@
       "stun_duration"
       {
         "value"                                           "0.7 0.9 1.1 1.3 1.5 1.7"
-        "special_bonus_unique_monkey_king_9"              "+0.2"
+        "special_bonus_unique_monkey_king_9"              "+0.3"
       }
       "strike_crit_mult"
       {
-        "value"                                           "120 140 160 180 220 260"
+        "value"                                           "135 165 195 225 255 285"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "special_bonus_unique_monkey_king_10"             "+60"
       }
-      "strike_flat_damage"                                "20 40 60 80 160 240"
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "24 21 18 15 14 13"
+        "value"                                           "25 24 23 22 20 18"
       }
       "strike_radius"
       {

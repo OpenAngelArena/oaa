@@ -5,18 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_sniper"
   {
-    "Ability5"                                            "sniper_keen_scope_oaa" // replaces sniper_keen_scope
+    "Ability16"                                           "special_bonus_unique_sniper_6_oaa" // replaces special_bonus_attack_range_100
 
-    "Ability17"                                           "special_bonus_unique_sniper_6_oaa" // replaces special_bonus_unique_sniper_3
-
-    "Facets"
-    {
-      "sniper_automatic_weaponry"
-      {
-        "Icon"                                            "multi_arrow"
-        "Color"                                           "Blue"
-        "GradientID"                                      "1"
-      }
-    }
+  // special_bonus_unique_sniper_6_oaa - "+{s:value} Take Aim Active Range Bonus" - custom
   }
 }

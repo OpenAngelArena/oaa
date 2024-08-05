@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Degen Aura (OAA rework) - unused
+  // Omniknight: Degen Aura (OAA rework)
   //=================================================================================================================
   "omniknight_degen_aura_oaa"
   {
@@ -14,9 +14,11 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
+
+    //"HasShardUpgrade"                                     "1"
+    //"IsGrantedByShard"                                    "1" // crashes when uncommented
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -24,15 +26,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "move_speed_slow"                                   "-40"
-      "attack_speed_slow"                                 "-45"
-      "heal_prevent_percent"                              "-25"
-      "radius"
+      "01"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow"                                 "-40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_prevent_percent"                            "-25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "450"
       }
     }
   }

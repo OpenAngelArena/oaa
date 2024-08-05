@@ -16,16 +16,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "slow_attack_speed" //OAA
+      "01"
       {
-        "value"                                           "-100 -150 -200 -300 -450"
-        "special_bonus_unique_enchantress_3"              "-80"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed"                               "-100 -150 -200 -300 -450"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_3"
       }
-      "slow_duration"
+      "02"
       {
-        "value"                                           "4"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_duration"                                   "4"
       }
     }
   }

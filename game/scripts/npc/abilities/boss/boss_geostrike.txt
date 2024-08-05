@@ -18,11 +18,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "move_speed_slow"                                   "-50"
-      "attack_speed_slow"                                 "-50"
-      "duration"                                          "2.0"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow"                                 "-50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
+      }
     }
   }
 }

@@ -52,7 +52,7 @@
       "targets"                                           "2 4 6 8 8 8"
       "damage" //OAA
       {
-        "value"                                           "15 30 45 60 160 260"
+        "value"                                           "15 35 55 75 150 300"
         "special_bonus_unique_dazzle_3"                   "+90"
       }
       "slow"
@@ -61,7 +61,7 @@
         "special_bonus_unique_dazzle_1"                   "-40"
       }
       "projectile_speed"                                  "1300"
-      "duration"                                          "5 6 7 8 8.5 9"
+      "duration"                                          "5 5.5 6 6.5 7 7.5" //OAA
       "bonus_damage"                                      "0"
       "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
       "hex_duration" //OAA
@@ -73,23 +73,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+300"
-      }
-      "split_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dazzle_poison_bloom"         "=450"
-      }
-      "split_damage" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dazzle_poison_bloom"         "=30 =60 =90 =120 =240 =480"
-        "special_bonus_unique_dazzle_3"                   "+90"
-        "RequiresFacet"                                   "dazzle_poison_bloom"
-      }
-      "attacks_to_split"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dazzle_poison_bloom"         "=4"
       }
     }
   }

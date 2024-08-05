@@ -13,23 +13,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "aura_radius"               
+      "01"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "300"
       }
-      "aura_damage"                                       "30 50 70 130 190"
-      "health_bonus_pct"                                  "0"
-      "share_damage"                                      "0"
-      "tick_interval"                                     "0.5"
-      "manahealthboost" //OAA
+      "02" // reminder: damage from multiple golems fully stacks with each other.
       {
-        "value"                                           "0"
-        "special_bonus_facet_warlock_golem"               "+50"
-      }   
-      "manaboost_scale_mult"                              ".25"
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_damage"                                     "30 50 70 130 190"
+      }
     }
   }
 }

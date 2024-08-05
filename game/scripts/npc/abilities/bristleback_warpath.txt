@@ -12,14 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
-
-    // Time     
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "55 65 75 85 95"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,41 +21,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_per_stack" //OAA
+      "01"
       {
-        "value"                                           "15 25 35 55 75"
-        "special_bonus_facet_bristleback_berserk"         "=5"
-        "special_bonus_unique_bristleback_3"              "+25"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "15 25 35 55 75" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_3"
       }
-      "aspd_per_stack"
+      "02"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_berserk"         "=10 =15 =20 =25 =30"
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_per_stack"                            "2 3 4 5 6"
       }
-      "move_speed_per_stack"                              "2 3 4 5 6"
-      "stack_duration"                                    "16.0 18.0 20.0 20.0 20.0"
-      "max_stacks"                                        "8 10 12 12 12"
-      "active_bonus_attack_percent"
+      "03"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_seeing_red"      "50"
+        "var_type"                                        "FIELD_FLOAT"
+        "stack_duration"                                  "16.0 18.0 20.0 20.0 20.0"
       }
-      "active_bonus_movement_percent"
+      "04"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_seeing_red"      "50"
-      }
-      "active_duration"                       
-      {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_seeing_red"      "4 5 6"
-      }
-      "active_view_angle_restriction"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_bristleback_seeing_red"      "90"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_stacks"                                      "8 10 12 12 12"
       }
     }
   }

@@ -16,7 +16,7 @@ local function GetAllPillars ()
   )
 
   local function isTower (tower)
-    return tower:GetUnitName() == "npc_dota_boss_pillar_charger_oaa"
+    return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
   end
 
   return filter(isTower, iter(towers))

@@ -18,6 +18,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
+    "AbilitySound"                                        "Hero_MonkeyKing.FurArmy"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -56,7 +58,7 @@
       "num_second_soldiers"                               "9"
       "bonus_armor"
       {
-        "value"                                           "15 20 25 31 37"
+        "value"                                           "14 19 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "attack_interval"                                   "1.1"
@@ -70,11 +72,7 @@
         "value"                                           "40"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_1_oaa"
       }
-      "duration"
-      {
-        "value"                                           "13"
-        "special_bonus_facet_monkey_king_wukongs_faithful"  "+3.0"
-      }
+      "duration"                                          "13"
       "cast_range_tooltip"                                "625"
       "ring_spawn_interval"                               "0.7"
       "cooldown_scepter"
@@ -106,11 +104,6 @@
       {
         "value"                                           "0.5"
         "RequiresScepter"                                 "1"
-      }
-      "leadership_time_buffer"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_monkey_king_wukongs_faithful"  "+3.0"
       }
     }
   }

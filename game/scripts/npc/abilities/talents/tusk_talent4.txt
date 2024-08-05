@@ -12,11 +12,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "value" //OAA
+      "01"
       {
-        "value"                                           "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "10" //OAA
         "ad_linked_abilities"                             "tusk_walrus_punch"
       }
     }

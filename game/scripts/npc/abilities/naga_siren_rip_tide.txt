@@ -25,6 +25,7 @@
       "hits"
       {
         "value"                                           "6"
+        "special_bonus_unique_naga_siren_3"               "-1"
       }
       "armor_reduction"
       {
@@ -32,18 +33,16 @@
       }
       "damage"
       {
-        "value"                                           "25 35 45 55 155 255"
-        "special_bonus_unique_naga_siren_2"               "+30%"
+        "value"                                           "34 41 48 55 155 255"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_2"
       }
       "radius"
       {
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"
-      {
-        "value"                                           "4.0"
-      }
+      "duration"                                          "4.0"
+      "debuff_duration"                                   "10"
     }
   }
 }

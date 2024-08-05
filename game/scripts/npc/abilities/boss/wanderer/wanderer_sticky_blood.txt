@@ -24,13 +24,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_per_stack"                                  "90"
-      "duration"                                          "8.0"
-      "movement_speed_pct"                                "-5"
-      "turn_rate_pct"                                     "-70"
-      "damage_threshold"                                  "50"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "-5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turn_rate_pct"                                   "-70"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_threshold"                                "50"
+      }
     }
   }
 }

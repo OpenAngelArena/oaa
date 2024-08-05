@@ -7,10 +7,11 @@ LinkLuaModifier( "modifier_electrician_static_grip_debuff_tracker", "abilities/e
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-  -- facet that makes Static Grip non-channel (pseudo-channel)
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
+  local caster = self:GetCaster()
 
-  if isPsuedochannel then
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
+  local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_non_channel")
+  if talent and talent:GetLevel() > 0 then
     return 0
   end
 
@@ -22,9 +23,11 @@ function electrician_static_grip:GetChannelTime()
 end
 
 function electrician_static_grip:GetBehavior()
-  -- facet that makes Static Grip non-channel (pseudo-channel)
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
-  if isPsuedochannel then
+  local caster = self:GetCaster()
+
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
+  local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_non_channel")
+  if talent and talent:GetLevel() > 0 then
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
 
@@ -48,9 +51,8 @@ function electrician_static_grip:OnSpellStart()
   -- create the stun modifier on target
   target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
 
-  -- create the movement modifier on caster if he doesn't have the facet
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
-  if isPsuedochannel then
+  -- create the movement modifier on caster if he doesn't have the talent
+  if caster:HasLearnedAbility("special_bonus_electrician_static_grip_non_channel") then
     caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_debuff_tracker", {duration = durationMax})
   else
     caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_movement", {target = target:entindex(), duration = durationMax})
@@ -135,11 +137,14 @@ function modifier_electrician_static_grip:OnCreated( event )
     -- grab ability specials
     local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
     local damage_per_second = spell:GetSpecialValueFor("damage_per_second")
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
+    end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
     self.width = spell:GetSpecialValueFor("damage_width")
-    self.damageInterval = damageInterval
-    self.ellapsedTime = 0
 
     -- create the particle
     self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster )
@@ -173,10 +178,16 @@ function modifier_electrician_static_grip:OnRefresh( event )
 
   if IsServer() then
     local parent = self:GetParent()
+    local caster = self:GetCaster()
 
     -- grab ability specials
     local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
     local damage_per_second = spell:GetSpecialValueFor("damage_per_second")
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
+    end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
     self.width = spell:GetSpecialValueFor("damage_width")
@@ -215,37 +226,9 @@ if IsServer() then
 --------------------------------------------------------------------------------
 
   function modifier_electrician_static_grip:OnIntervalThink()
-    -- parent = enemy
     local parent = self:GetParent()
-    -- caster = chatterjee
     local caster = self:GetCaster()
     local spell = self:GetAbility()
-
-    local attackSpeedPercent = spell:GetSpecialValueFor("attack_speed_pct") / 100
-
-    if attackSpeedPercent > 0 then
-      -- seconeds per attack, so larger = slower
-      -- percent is out of 100, so at 100 it should * 1, and at 50% it should be *2
-      -- if we turn the percent into a 0-1 then we can use it as a divisor
-      -- seconds / percent, so 1 second per attack at 90% becomes 1.111
-      -- seems right?
-      local secondsPerAttack = caster:GetSecondsPerAttack(false) / attackSpeedPercent
-      self.ellapsedTime = self.ellapsedTime + self.damageInterval
-
-      if self.ellapsedTime > secondsPerAttack then
-        self.ellapsedTime = self.ellapsedTime - secondsPerAttack
-
-        local useCastAttackOrb = false
-        local processProcs = true
-        local skipCooldown = true
-        local ignoreInvis = false
-        local useProjectile = false -- only ranged units need a projectile
-        local fakeAttack = false
-        local neverMiss = true -- should it never miss? i kind of want it to....
-
-        caster:PerformAttack(parent, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
-      end
-    end
 
     if parent:IsMagicImmune() or parent:IsInvulnerable() then
       self:StartIntervalThink(-1)

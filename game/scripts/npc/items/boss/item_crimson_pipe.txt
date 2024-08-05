@@ -64,11 +64,7 @@
       "bonus_armor"                                       "18"
       "magic_resistance"                                  "30"
 
-      "aura_radius"
-      {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "aura_radius"                                       "1200"
       "aura_magic_resistance"                             "20"
       "aura_health_regen"                                 "11"
       "aura_block_damage_melee"                           "275"
@@ -76,11 +72,7 @@
       "aura_magic_damage_block"                           "250"
       "block_chance"                                      "75"
 
-      "effect_radius"
-      {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "effect_radius"                                     "1200"
       "block_damage_melee_active"                         "300"
       "block_damage_ranged_active"                        "300"
       "strength_pct_as_damage_block"                      "100"

@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 55 50" //OAA
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "duration"
       {
         "value"                                           "24"
-        "special_bonus_unique_morphling_8"                "+16"
+        "LinkedSpecialBonus"                              "special_bonus_unique_morphling_8"
       }
       "scepter_stat_steal" // unused
       {

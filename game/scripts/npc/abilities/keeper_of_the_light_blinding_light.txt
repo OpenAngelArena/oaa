@@ -19,6 +19,10 @@
     "AbilityCastRange"                                    "400 500 600 700 800 900"
     "AbilityCastPoint"                                    "0.3"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120 130 140 150 160 170"
@@ -30,7 +34,7 @@
       "miss_rate"
       {
         "value"                                           "40"
-        "special_bonus_unique_keeper_of_the_light_8"      "+40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_8"
       }
       "duration"                                          "4"
       "radius"
@@ -45,11 +49,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "damage"                                            "90 160 230 300 600 1200" //OAA
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "19 18 17 16 15 14"
-        "special_bonus_unique_keeper_of_the_light_5"      "-5"
-      }
     }
   }
 }
