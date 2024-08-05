@@ -34,37 +34,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_tick_rate"                                  "0.5" //OAA, this tick rate is used for scepter burrowstrikes too
+      "damage_tick_rate"                                  "0.2"
       "sand_storm_radius"
       {
-        "value"                                           "425 500 575 650 675 700"
+        "value"                                           "450 500 550 600 650 700"
+        "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
         "affected_by_aoe_increase"                        "1"
       }
       "sand_storm_damage" //OAA
       {
-        "value"                                           "25 45 65 85 170 340"
-        "special_bonus_unique_sand_king_2"                "+35"
+        "value"                                           "25 50 75 100 200 350"
+        "special_bonus_unique_sand_king_2"                "+25"
       }
-      "fade_delay"                                        "1.0" //OAA
-      "scepter_explosion_radius_pct" // Burrowstrike spine radius: percentage of sand_storm_radius (10%)
+      "fade_delay" //OAA
+      {
+        "value"                                           "-1"
+        "special_bonus_facet_sand_king_sandshroud"        "=1.0"
+      }
+      "sand_storm_move_speed_pct"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+10"
+        "special_bonus_facet_sand_king_dust_devil"        "+70"
       }
-      "scepter_explosion_min_dist"
+      "sand_storm_max_distance_from_caster"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+90"
+        "special_bonus_facet_sand_king_dust_devil"        "+2500"
       }
-      "scepter_explosions_per_pulse"
+      "sand_storm_move_speed_bonus_when_outside_radius"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+2"
-      }
-      "sand_storm_move_speed"
-      {
-        "value"                                           "25 50 75 100 125 150"
-        "special_bonus_unique_sand_king_3"                "+50"
+        "special_bonus_facet_sand_king_dust_devil"        "+55"
       }
     }
   }

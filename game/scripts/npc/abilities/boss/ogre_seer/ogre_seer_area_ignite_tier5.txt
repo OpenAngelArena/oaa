@@ -33,43 +33,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // debuff duration
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
-      }
-      "02" // damage per second
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "800"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-40"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
-      }
-      "06" // thinker duration
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "area_duration"                                   "8.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "0.2"
-      }
+      "radius"                                            "275"
+      "duration"                                          "2" // debuff duration
+      "burn_damage"                                       "800" // magical damage per second
+      "damage_interval"                                   "0.2"
+      "slow_movement_speed_pct"                           "-40"
+      "projectile_speed"                                  "1200"
+      "area_duration"                                     "8.0" // thinker duration
     }
   }
 }

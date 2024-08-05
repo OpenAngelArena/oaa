@@ -26,12 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 115 135 155 175 195" //OAA
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "10 18 26 34 50 82"
-    "AbilityDuration"                                     "10"
+    "AbilityManaCost"                                     "90 110 130 150 170 190" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,14 +35,34 @@
       "num_explosions"
       {
         "value"                                           "40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_1"
+        "special_bonus_unique_leshrac_1"                  "+20"
       }
       "radius"
       {
-        "value"                                           "500"
+        "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
       "tower_bonus"                                       "0"
+      "affects_buildings"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_leshrac_misanthropy"         "=0"
+      }
+      "damage" //OAA
+      {
+        "value"                                           "10 18 26 34 50 82"
+        "special_bonus_facet_leshrac_misanthropy"         "+20%"
+      }
+      "targets"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_leshrac_misanthropy"         "=1"
+      }
+      "AbilityDuration"
+      {
+        "value"                                           "10"
+        "special_bonus_facet_leshrac_misanthropy"         "=6"
+      }
     }
   }
 }

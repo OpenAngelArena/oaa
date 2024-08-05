@@ -18,8 +18,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
-    //"IsGrantedByScepter"                                  "1"
-    //"HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -44,26 +42,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_duration"                                    "10"
-        "RequiresScepter"                                 "1"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "75"
-        "RequiresScepter"                                 "1"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "str_diff_multiplier"                             "25"
-        "RequiresScepter"                                 "1"
-      }
+      "max_duration"                                      "10"
+      "base_damage"                                       "75"
+      "str_diff_multiplier"                               "25"
     }
   }
 }

@@ -16,13 +16,11 @@
 
     "MaxLevel"                                            "1"
 
-
-    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1500"
+    "AbilityCastRange"                                    "950" // attack_distance + attack_width_end
     "AbilityCastPoint"                                    "0.25"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,33 +32,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "750"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_width_initial"                            "150"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_width_end"                                "150"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_distance"                                 "800"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "1600"
-      }
+      "attack_speed"                                      "750" // projectile speed
+      "attack_width_initial"                              "150" // collision radius at projectile launch
+      "attack_width_end"                                  "150" // collision radius when projectile is about to expire
+      "attack_distance"                                   "800" // projectile max travel distance
+      "attack_damage"                                     "1600"
     }
   }
 }

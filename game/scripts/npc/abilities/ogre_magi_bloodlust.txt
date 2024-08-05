@@ -38,18 +38,23 @@
       "bonus_attack_speed"
       {
         "value"                                           "30 45 60 75 90 105"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi"
+        "special_bonus_unique_ogre_magi"                  "+30"
       }
       "self_bonus"
       {
         "value"                                           "40 60 80 100 120 140"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi"
+        "special_bonus_unique_ogre_magi"                  "+30"
       }
       "duration"                                          "30"
       "multicast_bloodlust_aoe"
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
+      }
+      "required_level"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_ogre_magi_learning_curve"    "-1"
       }
     }
   }

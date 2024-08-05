@@ -25,12 +25,12 @@
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_creeps"                 "%DAMAGE AGAINST CREEPS:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_ancients"               "%DAMAGE AGAINST ANCIENTS:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_bosses"                 "%<font color='#FFA500'>DAMAGE AGAINST BOSSES:</font>"
-"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_shard_description"             "Flaming Lasso no longer disarms you. Every %shard_number_of_attack_proc%nd attack will apply a stack of Sticky Napalm."
+"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_shard_description"             "Every %shard_number_of_attack_proc%nd attack will apply a stack of Sticky Napalm."
 
 "DOTA_Tooltip_modifier_batrider_sticky_napalm_oaa_debuff"                       "#{DOTA_Tooltip_modifier_batrider_sticky_napalm}"
 "DOTA_Tooltip_modifier_batrider_sticky_napalm_oaa_debuff_Description"           "Increasing napalm-caster's damage.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
-//"DOTA_Tooltip_ability_special_bonus_unique_batrider_4"                          "+{s:bonus_damage} Sticky Napalm Damage"
-//"DOTA_Tooltip_ability_special_bonus_unique_batrider_7"                          "+{s:bonus_radius} Sticky Napalm Radius"
-"DOTA_Tooltip_ability_special_bonus_unique_batrider_4_oaa"                      "+{s:value} Sticky Napalm Damage"
-"DOTA_Tooltip_ability_special_bonus_unique_batrider_7_oaa"                      "+{s:value} Sticky Napalm Radius"
+"DOTA_Tooltip_ability_special_bonus_unique_batrider_4"                          "+{s:bonus_damage_per_stack} Sticky Napalm Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_batrider_7"                          "+{s:bonus_radius} Sticky Napalm Radius"
+
+"DOTA_Tooltip_ability_batrider_sticky_napalm_Facet_batrider_arsonist"           "Sticky Napalm deals full damage to Bosses."

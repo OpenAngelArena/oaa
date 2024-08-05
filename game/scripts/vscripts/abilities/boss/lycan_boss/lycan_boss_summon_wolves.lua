@@ -62,9 +62,6 @@ function lycan_boss_summon_wolves:OnSpellStart()
         hHound:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hHound:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHound )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hHound )
-        end
 
         local vRandomOffset = Vector( RandomInt( -300, 300 ), RandomInt( -300, 300 ), 0 )
         local vSpawnPoint = caster_loc + vRandomOffset
@@ -83,9 +80,6 @@ function lycan_boss_summon_wolves:OnSpellStart()
         hHoundBoss:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hHoundBoss:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHoundBoss )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hHoundBoss )
-        end
 
         local vRandomOffset = Vector( RandomInt( -300, 300 ), RandomInt( -300, 300 ), 0 )
         local vSpawnPoint = caster_loc + vRandomOffset
@@ -104,9 +98,6 @@ function lycan_boss_summon_wolves:OnSpellStart()
         hWerewolf:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hWerewolf:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hWerewolf )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hWerewolf )
-        end
 
         local vRandomOffset = Vector( RandomInt( -300, 300 ), RandomInt( -300, 300 ), 0 )
         local vSpawnPoint = caster_loc + vRandomOffset

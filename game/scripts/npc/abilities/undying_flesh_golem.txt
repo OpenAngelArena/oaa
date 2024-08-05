@@ -16,10 +16,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 125 150 175 200"
@@ -28,13 +24,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow"                                              "40 45 50 55 60"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120"
+      }
+      "slow"                                              "35 40 45 50 55"
       "damage_amp"
       {
         "value"                                           "25 30 35 35 35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "slow_duration"                                     "4"
+      "slow_duration"                                     "3"
       "str_percentage" //OAA
       {
         "value"                                           "40 45 50 55 60"
@@ -42,6 +42,17 @@
       }
       "duration"                                          "40"
       "movement_bonus"                                    "20 30 40 45 50"
+      "spawn_zombie_on_attack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_undying_rotting_mitts"       "+1"
+      }
+      "zombie_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_undying_rotting_mitts"       "+15"
+      }
+      "zombie_spawn_padding"                              "36"
     }
   }
 }

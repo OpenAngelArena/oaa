@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 18 16" //OAA
+    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,12 +33,12 @@
       "movespeed"
       {
         "value"                                           "10 14 18 22 26 30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_6"
+        "special_bonus_shard"                             "+3"
       }
       "bonus_armor"
       {
-        "value"                                           "6 9 12 15 18 21"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_7"
+        "value"                                           "6 8 10 12 14 16"
+        "special_bonus_unique_sven_7"                     "+8"
       }
       "radius"
       {
@@ -48,22 +48,35 @@
       "duration"
       {
         "value"                                           "10"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
+        "special_bonus_unique_sven_5"                     "+5"
       }
       "shard_passive_armor" //OAA
       {
         "value"                                           "3 4 5 6 8 12"
         "RequiresShard"                                   "1"
       }
-      "shard_passive_movespeed" 
+      "shard_passive_movespeed"
       {
-        "value"                                           "3"
+        "value"                                           "0"
         "RequiresShard"                                   "1"
       }
       "shard_radius"
       {
         "value"                                           "1200"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "base_barrier_amount" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sven_heavy_plate"            "=100 =175 =250 =325 =650 =975"
+        "RequiresFacet"                                   "sven_heavy_plate"
+      }
+      "barrier_per_strength"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sven_heavy_plate"            "=0"
+        "RequiresFacet"                                   "sven_heavy_plate"
       }
     }
   }

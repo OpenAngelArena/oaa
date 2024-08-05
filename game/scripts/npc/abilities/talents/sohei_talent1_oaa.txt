@@ -3,23 +3,12 @@
   //=================================================================================================================
   // Repulsive Palm talent: bonus stun duration if the target collides with an obstacle
   //=================================================================================================================
-  "special_bonus_sohei_stun"
+  "special_bonus_unique_sohei_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "0.8"
-      }
-    }
   }
 }

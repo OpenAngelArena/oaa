@@ -79,6 +79,17 @@ function CustomWardButtons:CastWard(event)
       true_sight_range = 700,
       duration = ward_duration
     })
+  else
+    local visionRadius = 1400
+
+    -- Io/Wisp Innate
+    local sightseer = hero:FindAbilityByName("wisp_sight_seer")
+    if sightseer then
+      visionRadius = visionRadius + sightseer:GetSpecialValueFor("bonus_vision")
+    end
+
+    ward:SetDayTimeVisionRange(visionRadius)
+    ward:SetNightTimeVisionRange(visionRadius)
   end
 end
 

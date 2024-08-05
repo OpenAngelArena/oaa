@@ -17,12 +17,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCastRange"                                    "400 550 700 850 900 950"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 8 8" //OAA
+    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastRange"                                    "400 500 600 700 800 900"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,35 +28,44 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "dash_range"                                        "400 550 700 850 900 950"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_pangolier_4"                "-3"
+      }
+      "dash_range"                                        "400 500 600 700 800 900"
       "range"
       {
-        "value"                                           "1000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier"
+        "value"                                           "700"
+        "special_bonus_unique_pangolier"                  "+200"
       }
       "damage"
       {
         "value"                                           "30 60 90 120 240 480"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_3"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "attack_damage" // percentage of attack damage
+      {
+        "value"                                           "0"
+        "special_bonus_unique_pangolier_3"                "+15"
       }
       "dash_speed"                                        "2000"
       "attack_interval"                                   "0.1"
       "start_radius"
       {
-        "value"                                           "140"
+        "value"                                           "155"
         "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                           "140"
+        "value"                                           "155"
         "affected_by_aoe_increase"                        "1"
       }
       "strikes"
       {
         "value"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_7"
       }
+      "procs_onhit_effects"                               "1"
     }
   }
 }

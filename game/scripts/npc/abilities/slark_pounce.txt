@@ -38,9 +38,12 @@
       "leash_duration"
       {
         "value"                                           "2.5 2.75 3 3.25 3.5 3.75"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slark"
+        "special_bonus_unique_slark"                      "+0.5"
       }
-      "leash_radius"                                      "400"
+      "leash_radius"
+      {
+        "value"                                           "400"
+      }
       "max_charges"
       {
         "value"                                           "2"
@@ -53,10 +56,14 @@
       }
       "pounce_distance_scepter"
       {
-        "value"                                           "1000"
+        "value"                                           "900"
         "RequiresScepter"                                 "1"
       }
-      "essence_stacks"                                    "0 1 2 3 3 3"
+      "essence_stacks"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_slark_leeching_leash"        "1 2 3 4 5 6"               
+      }
     }
   }
 }

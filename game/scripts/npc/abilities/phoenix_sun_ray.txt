@@ -37,7 +37,7 @@
       "hp_perc_damage"
       {
         "value"                                           "1 2.75 4.5 6.25 7.125 8.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_5"
+        "special_bonus_unique_phoenix_5"                  "+1.5"
       }
       "base_heal"                                         "7 10 13 16 32 64"
       "hp_perc_heal"                                      "0.5 1.0 1.5 2.0 2.5 3.0"
@@ -55,8 +55,21 @@
         "value"                                           "10"
         "RequiresShard"                                   "1"
       }
-      "blind_per_second"                                  "10"
-      "blind_duration"                                    "5"
+      "focal_point_max_multiplier"                    // 0 disables
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phoenix_hotspot"             "150"
+      }
+      "focal_point_start_length_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phoenix_hotspot"             "50"
+      }
+      "focal_point_full_length_tooltip_only"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phoenix_hotspot"             "1200"
+      }
     }
   }
 }

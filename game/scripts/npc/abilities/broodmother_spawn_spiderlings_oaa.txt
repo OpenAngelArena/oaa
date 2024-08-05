@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Broodmother: Spawn Spiderlings (OAA Rework)
+  // Notes: Not breakable
   //=================================================================================================================
   "broodmother_spawn_spiderlings_oaa"
   {
@@ -23,7 +24,7 @@
     {
       "spiderling_base_hp"
       {
-        "value"                                           "320"
+        "value"                                           "270"
         //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
       }
       "spiderling_hp_per_level"
@@ -49,10 +50,10 @@
       }
       "spiderling_duration"                               "40"
       "spiderling_spawn_count"                            "1"
-      "spiderling_max_count"                              "12"
+      "spiderling_max_count"                              "20"
       "giant_spiderling_base_hp"
       {
-        "value"                                           "640"
+        "value"                                           "540"
         //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
       }
       "giant_spiderling_base_attack_damage"

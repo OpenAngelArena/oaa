@@ -52,9 +52,6 @@ function spider_boss_summon_eggs:OnSpellStart()
         if hEgg ~= nil then
 					hEgg:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
 					table.insert( caster.hSummonedUnits, hEgg )
-					if caster.zone ~= nil then
-						caster.zone:AddEnemyToZone( hEgg )
-					end
 
 					local vRandomOffset = Vector( RandomInt( -600, 600 ), RandomInt( -600, 600 ), 0 )
 					local vSpawnPoint = caster:GetAbsOrigin() + vRandomOffset
@@ -82,9 +79,6 @@ function spider_boss_summon_eggs:OnSpellStart()
           hPoisonSpider:AddNewModifier(caster, self, "modifier_kill", {duration = self.spider_lifetime })
 					hPoisonSpider:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
 					table.insert( caster.hSummonedUnits, hPoisonSpider )
-					if caster.zone ~= nil then
-						caster.zone:AddEnemyToZone( hPoisonSpider )
-					end
 
 					local vRandomOffset = Vector( RandomInt( -600, 600 ), RandomInt( -600, 600 ), 0 )
 					local vSpawnPoint = caster:GetAbsOrigin() + vRandomOffset

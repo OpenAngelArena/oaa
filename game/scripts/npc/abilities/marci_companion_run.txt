@@ -10,6 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
@@ -21,7 +22,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastRange"                                    "750" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +37,16 @@
         "special_bonus_shard"                             "-3"
       }
       "move_speed"                                        "1900" //OAA
-      "min_jump_distance"                                 "150"
+      "min_jump_distance"                                 "0"
       "max_jump_distance" //OAA
       {
         "value"                                           "750"
-        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_range"
+        "special_bonus_unique_marci_lunge_range"          "+100"
+      }
+      "AbilityCastRange" //OAA
+      {
+        "value"                                           "750"
+        "special_bonus_unique_marci_lunge_range"          "+100"
       }
       "landing_radius"
       {
@@ -50,8 +55,7 @@
       }
       "impact_damage"
       {
-        "value"                                           "70 150 230 310 620 1240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_damage"
+        "value"                                           "80 160 240 320 640 1280"
       }
       "debuff_duration"
       {

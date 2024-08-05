@@ -39,14 +39,14 @@
       "damage"
       {
         "value"                                           "25 50 75 100 200 300"
-        "special_bonus_unique_death_prophet_3"            "+30"
+        "special_bonus_unique_death_prophet_3"            "+25"
       }
-      "damage_pct"                                        "0"
+      "damage_pct"                                        "0" // special_bonus_unique_death_prophet_1_oaa
       "haunt_duration"                                    "6"
       "siphon_buffer"                                     "250"
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "30"
+        "value"                                           "35" // special_bonus_unique_death_prophet_5_oaa
         "special_bonus_unique_death_prophet_5"            "-22"
       }
       "shard_bonus_charges"

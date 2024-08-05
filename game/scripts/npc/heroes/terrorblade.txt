@@ -5,6 +5,23 @@
   //=================================================================================================================
   "npc_dota_hero_terrorblade"
   {
-
+    "Facets"
+    {
+      "terrorblade_mirror_master"
+      {
+        "Icon"                                            "illusion"
+        "Color"                                           "Red"
+        "GradientID"                                      "1"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "terrorblade_conjure_image_oaa"
+            "ReplaceAbility"                              "terrorblade_conjure_image"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+    }
   }
 }

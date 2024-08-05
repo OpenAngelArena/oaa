@@ -64,19 +64,6 @@ function sohei_flurry_of_blows:OnSpellStart()
     local max_duration = self:GetSpecialValueFor("max_duration")
     local attack_interval = self:GetSpecialValueFor("attack_interval")
 
-    -- Bonus AoE talent
-    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
-    if talent and talent:GetLevel() > 0 then
-      radius = radius + talent:GetSpecialValueFor("value")
-    end
-
-    -- Talent that increases max number of attacks and max duration
-    local talent2 = caster:FindAbilityByName("special_bonus_unique_sohei_8")
-    if talent2 and talent2:GetLevel() > 0 then
-      max_attacks = max_attacks + talent2:GetSpecialValueFor("value")
-      max_duration = max_duration + talent2:GetSpecialValueFor("value2")
-    end
-
     -- Emit sound
     caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
 
@@ -122,16 +109,7 @@ function sohei_flurry_of_blows:OnSpellStart()
 end
 
 function sohei_flurry_of_blows:GetAOERadius()
-  local caster = self:GetCaster()
-  local radius = self:GetSpecialValueFor("flurry_radius")
-
-  -- Bonus AoE talent
-  local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
-  if talent and talent:GetLevel() > 0 then
-    radius = radius + talent:GetSpecialValueFor("value")
-  end
-
-  return radius
+  return self:GetSpecialValueFor("flurry_radius")
 end
 
 function sohei_flurry_of_blows:ProcsMagicStick()

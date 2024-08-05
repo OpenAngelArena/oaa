@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO" // OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES for reasons unknown
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO" // OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO" // OAA
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
@@ -36,6 +36,16 @@
     "AbilityValues"
     {
       "hit_point_minimum_pct"                             "35 30 25 20 20"
+      "ignore_minimum_pct_for_enemies"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_terrorblade_condemned"       "+1"
+      }
+      "ignore_minimum_pct_for_enemies_tooltip"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_terrorblade_condemned"       "=0"
+      }
       "cast_range_tooltip"                                "475 500 525 550 575" //OAA
       "cast_point_tooltip"                                "0.35 0.3 0.25 0.2 0.15" //OAA
     }

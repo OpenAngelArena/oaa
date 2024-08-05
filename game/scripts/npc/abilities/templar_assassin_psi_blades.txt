@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Templar Assassin: Psi Blades
+  // Templar Assassin: Psi Blades (Innate in OAA)
   //=================================================================================================================
   "templar_assassin_psi_blades"
   {
@@ -11,27 +11,45 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "Innate"                                              "1" //OAA
+
+    "MaxLevel"                                            "7" //OAA
+    "RequiredLevel"                                       "-1" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_range"    
+      "bonus_attack_range" //OAA
       {
-        "value"                                           "80 130 180 230 280 330"
-        "special_bonus_unique_templar_assassin_8"         "+120"
+        "value"                                           "0 50 100 150 200 250 300"
+        "special_bonus_unique_templar_assassin_8"         "+100"
       }
-      "attack_spill_range"    
+      "attack_spill_range" //OAA
       {
-        "value"                                           "600 650 700 750 800 850"
-        "special_bonus_unique_templar_assassin_8"         "+120"
+        "value"                                           "350 550 600 650 700 750 800"
+        "special_bonus_unique_templar_assassin_8"         "+100"
       }
-      "attack_spill_width"                                "90"
-      "attack_spill_pct"                                  "100"
-      "attack_spill_penalty"                              "5"
+      "attack_spill_width"
+      {
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_spill_pct"                                  "80 85 90 95 100 105 110" //OAA
+      "meld_strike_spills"
+      {
+        "value"                                           "0.0"
+        "special_bonus_facet_templar_assassin_voidblades"  "+1.0"
+      }
+      "spill_slow_duration"
+      {
+        "value"                                           "0.0"
+        //"special_bonus_facet_templar_assassin_voidblades"  "+3.0"
+      }
+      "spill_movement_slow_pct"
+      {
+        //"special_bonus_facet_templar_assassin_voidblades"  "5 10 15 20 25"
+      }
     }
   }
 

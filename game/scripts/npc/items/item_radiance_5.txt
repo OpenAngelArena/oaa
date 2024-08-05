@@ -35,7 +35,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_radiance"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"                                  "custom/radiance_5"
 
@@ -66,7 +66,11 @@
       "upgrade_day_vision"                                "250"
       "evasion"                                           "20 21 22 23 24"
       "blind_pct"                                         "10 12 14 16 18"
-      "aura_radius"                                       "700 750 800 850 900"
+      "aura_radius"
+      {
+        "value"                                           "650 700 750 800 850"
+        "affected_by_aoe_increase"                        "1"
+      }
       "illusion_multiplier_pct"                           "100"
     }
   }

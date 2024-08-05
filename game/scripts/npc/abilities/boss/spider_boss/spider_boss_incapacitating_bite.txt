@@ -18,28 +18,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "miss_chance"                                     "60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow"                                 "-30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-60"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "2"
-      }
+      "miss_chance"                                       "60"
+      "move_speed_slow"                                   "-30"
+      "attack_speed_slow"                                 "-60"
+      "duration"                                          "2"
     }
   }
 }

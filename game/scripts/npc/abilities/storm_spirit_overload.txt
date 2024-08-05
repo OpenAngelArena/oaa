@@ -29,19 +29,20 @@
       }
       "overload_move_slow"                                "-80"
       "overload_attack_slow"                              "-80"
-      "overload_damage" //OAA
+      "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
       {
-        "value"                                           "50 75 100 125 250 375"
-        "special_bonus_unique_storm_spirit_6"             "+125"
+        "value"                                           "40 60 80 100 200 300"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "+20.0"
       }
       "shard_activation_radius"
       {
         "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
         "RequiresShard"                                   "1"
       }
-      "shard_activation_charges"
+      "shard_activation_charges" //OAA
       {
-        "value"                                           "3"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
       "shard_activation_duration"
@@ -67,7 +68,14 @@
       "overload_cast_range"
       {
         "value"                                           "0"
-        "special_bonus_unique_storm_spirit_overload_aspd"  "+150.0"
+      }
+      "overload_bounces"
+      {
+        "special_bonus_unique_storm_spirit_7"             "=2"
+      }
+      "overload_damage_pct"
+      {
+        "special_bonus_unique_storm_spirit_7"             "=65"
       }
     }
   }

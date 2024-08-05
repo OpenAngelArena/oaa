@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Chen: Summon Comvert (Innate)
+  //=================================================================================================================
+  "chen_summon_convert"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "7"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "chen_holy_persuasion"
+
+    "AbilityCastPoint"                                    "0.3"
+
+    "AbilityCooldown"                                     "30"
+    "AbilityManaCost"                                     "50"
+
+    "AbilityValues"
+    {
+      "health_min"                                        "220 370 520 670 820 1640 3280" //OAA
+      "bonus_health_per_level"                            "80"
+      "summon_centaurs"
+      {
+        "special_bonus_facet_chen_centaur_convert"        "1"
+      }
+      "summon_wolves"
+      {
+        "special_bonus_facet_chen_wolf_convert"           "1"
+      }
+      "summon_hellbears"
+      {
+        "special_bonus_facet_chen_hellbear_convert"       "1"
+      }
+      "summon_trolls"
+      {
+        "special_bonus_facet_chen_troll_convert"          "1"
+      }
+      "summon_satyrs"
+      {
+        "special_bonus_facet_chen_satyr_convert"          "1"
+      }
+      "convert_hp_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

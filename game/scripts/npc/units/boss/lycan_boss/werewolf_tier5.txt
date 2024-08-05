@@ -15,7 +15,6 @@
     "Model"                                               "models/creeps/knoll_1/knoll_1.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "3"
-    "IsAncient"                                           "1"
     "ModelScale"                                          "1.7"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -64,7 +63,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "3000"
-    "StatusHealthRegen"                                   "1"
+    "StatusHealthRegen"                                   "0" // has boss_regen
     "StatusMana"                                          "1500"
     "StatusManaRegen"                                     "750"
 
@@ -76,8 +75,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data

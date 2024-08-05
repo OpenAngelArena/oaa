@@ -1,30 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Static Grip bonus damage per second
+  // Electrician: Static Grip % bonus damage per second
   //=================================================================================================================
-  "special_bonus_electrician_static_grip_damage"
+  "special_bonus_unique_electrician_static_grip_damage"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "1.25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value_tooltip"                                   "25"
-      }
-    }
   }
 }

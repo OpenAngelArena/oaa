@@ -7,27 +7,59 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "7"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_mana" //OAA
-      {
-        "value"                                           "2.0 2.3 2.6 2.9 3.2 3.6 4.0"
-        "special_bonus_unique_medusa_6"                   "+1.7"
-      }
-      "illusion_damage_per_mana"
-      {
-        "value"                                           "1 1.4 1.8 2.2 2.6 3.0 3.4"
-        "special_bonus_unique_medusa_6"                   "+0.9"
-      }
+      "damage_per_mana"                                   "2.4"
+      "damage_per_mana_per_level"                         "0.06" //OAA
+      "illusion_percentage"                               "60"
       "absorption_pct"                                    "98"
-      "bonus_mana"                                        "0 50 100 150 200 400 600"
+      "damage_per_mana_total"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "aspd_increase_smoothness"                          "0.015"
+      "aspd_increase_rate_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=3.5"
+      }
+      "aspd_increase_max_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=35"
+      }
+      "aspd_increase_buff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=15"
+      }
+      "aspd_increase_mana_cost_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=3"
+      }
+      "aspd_increase_max_aspd_time"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=10"
+      }
+      "attack_buff_cooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=35"
+      }
+      "min_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=3"
+      }
     }
   }
 }

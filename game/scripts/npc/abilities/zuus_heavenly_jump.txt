@@ -14,7 +14,7 @@
 
     "MaxLevel"                                            "6"
 
-    // Time
+    // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 60 70 80 90 100"
 
@@ -56,7 +56,7 @@
       "postjump_movespeed"
       {
         "value"                                           "0"
-        "special_bonus_unique_zeus_jump_postjump_movespeed"  "+30"
+        "special_bonus_unique_zeus_jump_postjump_movespeed"  "+25"
       }
     }
   }

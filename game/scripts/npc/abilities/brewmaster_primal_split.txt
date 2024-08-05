@@ -34,7 +34,7 @@
       "duration"
       {
         "value"                                           "16 18 20 22 24"
-        "special_bonus_shard"                             "+12"
+        "special_bonus_shard"                             "+8"
       }
       "split_duration"                                    "0.6"
       "tooltip_earth_brewling_hp" //OAA
@@ -66,6 +66,11 @@
       {
         "value"                                           "0"
         "special_bonus_unique_brewmaster_2"               "+10"
+      }
+      "give_brawler_passive"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_brewmaster_6"               "=1"
       }
     }
   }

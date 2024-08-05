@@ -15,6 +15,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -22,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "17"
+    "AbilityCooldown"                                     "15"
     "AbilityManaCost"                                     "90"
 
     // Special

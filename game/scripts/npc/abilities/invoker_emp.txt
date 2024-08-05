@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "950"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "30"
+    "AbilityCooldown"                                     "27"
     "AbilityManaCost"                                     "125"
 
     // Special
@@ -46,7 +46,7 @@
       }
       "shard_drag_speed" //OAA
       {
-        "value"                                           "200"
+        "value"                                           "125"
         "RequiresShard"                                   "1"
       }
       "self_mana_restore_pct"                             "25"

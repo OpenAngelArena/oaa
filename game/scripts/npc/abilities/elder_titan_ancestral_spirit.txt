@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Ancestral Spirit
+  // Elder Titan: Astral Spirit
   //=================================================================================================================
   "elder_titan_ancestral_spirit"
   {
@@ -14,9 +14,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -31,6 +29,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "1200"
+      }
       "radius"
       {
         "value"                                           "275"
@@ -38,12 +40,22 @@
       }
       "pass_damage" //OAA
       {
-        "value"                                           "50 100 150 200 400 600"
+        "value"                                           "100 150 200 250 500 1000"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "spirit_duration"                                   "10.0"
-      "buff_duration"                                     "10.0"
+      "spirit_duration"
+      {
+        "value"                                           "10.0"
+      }
+      "buff_duration"
+      {
+        "value"                                           "10.0"
+      }
       "speed"                                             "900"
+      "controllable"
+      {
+        "value"                                           "1"
+      }
       "move_pct_creeps"                                   "1.5"
       "move_pct_heroes"
       {

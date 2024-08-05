@@ -1,4 +1,4 @@
-﻿witch_doctor_death_ward_oaa = class(AbilityBaseClass)
+witch_doctor_death_ward_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_death_ward_oaa", "abilities/oaa_witch_doctor_death_ward.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_death_ward_hidden_oaa", "abilities/oaa_witch_doctor_death_ward.lua", LUA_MODIFIER_MOTION_NONE)
@@ -26,12 +26,7 @@ function witch_doctor_death_ward_oaa:OnSpellStart()
   death_ward:EmitSound("Hero_WitchDoctor.Death_WardBuild")
 
   -- Get Death Ward damage (needed if physical and not a spell damage)
-  --local damage = self:GetSpecialValueFor("ward_damage")
-  -- Check for bonus damage talent
-  --local talent = caster:FindAbilityByName("special_bonus_unique_witch_doctor_5")
-  --if talent and talent:GetLevel() > 0 then
-    --damage = damage + talent:GetSpecialValueFor("value")
-  --end
+  --local damage = self:GetSpecialValueFor("damage")
   -- Set Death Ward damage (needed if physical and not a spell damage)
   --death_ward:SetBaseDamageMax(damage)
   --death_ward:SetBaseDamageMin(damage)
@@ -66,12 +61,7 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
   local damage_source = owner --self.ward_unit
 
   -- Damage of the projectile
-  local damage = self:GetSpecialValueFor("ward_damage")
-  -- Check for bonus damage talent
-  local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_5")
-  if talent and talent:GetLevel() > 0 then
-    damage = damage + talent:GetSpecialValueFor("value")
-  end
+  local damage = self:GetSpecialValueFor("damage")
 
   -- Damage table of the projectile
   local damage_table = {
@@ -99,7 +89,7 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
     -- Mark the target as hit
     new_data[tostring(target:GetEntityIndex())] = 1
 
-    local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
+    local bounce_radius = self:GetSpecialValueFor("bounce_radius")
     local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
     -- Find nearest target and fire a projectile from it
     local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
@@ -185,13 +175,9 @@ function modifier_death_ward_oaa:OnCreated()
   ParticleManager:SetParticleControlEnt(self.ward_particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_attack1", parent:GetAbsOrigin(), true)
   ParticleManager:SetParticleControl(self.ward_particle, 2, parent:GetAbsOrigin())
 
-  local owner = self:GetCaster()
-  local attack_range_bonus = 0
-  -- Check for bonus attack range talent
-  local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_1")
-  if talent and talent:GetLevel() > 0 then
-    attack_range_bonus = talent:GetSpecialValueFor("value")
-  end
+  local ability = self:GetAbility()
+
+  local attack_range_bonus = ability:GetSpecialValueFor("bonus_attack_range")
 
   self.attack_range_bonus = attack_range_bonus
 
@@ -302,6 +288,7 @@ end
 if IsServer() then
   function modifier_death_ward_oaa:OnAttackStart(event)
     local parent = self:GetParent()
+    local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
 
@@ -331,6 +318,41 @@ if IsServer() then
 
     -- Attack Sound
     parent:EmitSound("Hero_WitchDoctor_Ward.Attack")
+
+    if IsServer() then
+      -- check if ability is null
+      if not ability or ability:IsNull() then
+        return
+      end
+      local remainingTargets = ability:GetSpecialValueFor("initial_target_count")
+
+      local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+
+      -- Find closest target and fire a projectile from it
+      local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, parent:GetAttackRange(), ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+      for _, enemy in ipairs(enemies) do
+        remainingTargets = remainingTargets - 1
+        if remainingTargets < 1 then
+          break
+        end
+        if enemy ~= target then
+          local useCastAttackOrb = false
+          local processProcs = true
+          local skipCooldown = true
+          local ignoreInvis = false
+          local useProjectile = true -- only ranged units need a projectile
+          local fakeAttack = false
+
+          local owner = self:GetCaster()
+          local neverMiss = owner and not owner:IsNull() and owner:HasScepter()
+
+          -- fortunately this doesn't then call OnAttackStart
+          -- so we don't need to worry about recursion
+          attacker:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+        end
+      end
+
+    end
   end
 
   function modifier_death_ward_oaa:IsInChronosphere()
@@ -395,12 +417,7 @@ if IsServer() then
     end
 
     -- Damage of the projectile
-    local damage = ability:GetSpecialValueFor("ward_damage")
-    -- Check for bonus damage talent
-    local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_5")
-    if talent and talent:GetLevel() > 0 then
-      damage = damage + talent:GetSpecialValueFor("value")
-    end
+    local damage = ability:GetSpecialValueFor("damage")
 
     local damage_source = owner --parent
 
@@ -422,7 +439,7 @@ if IsServer() then
       -- Mark the target as hit
       data[tostring(target:GetEntityIndex())] = 1
 
-      local bounce_radius = ability:GetSpecialValueFor("scepter_bounce_radius")
+      local bounce_radius = ability:GetSpecialValueFor("bounce_radius")
       local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
 
       -- Find closest target and fire a projectile from it
@@ -515,12 +532,7 @@ function witch_doctor_voodoo_switcheroo_oaa:OnSpellStart()
   death_ward:EmitSound("Hero_WitchDoctor.Death_WardBuild")
 
   -- Get Death Ward damage (needed if physical and not a spell damage)
-  --local damage = self:GetSpecialValueFor("ward_damage")
-  -- Check for bonus damage talent
-  --local talent = caster:FindAbilityByName("special_bonus_unique_witch_doctor_5")
-  --if talent and talent:GetLevel() > 0 then
-    --damage = damage + talent:GetSpecialValueFor("value")
-  --end
+  --local damage = self:GetSpecialValueFor("damage")
   -- Set Death Ward damage (needed if physical and not a spell damage)
   --death_ward:SetBaseDamageMax(damage)
   --death_ward:SetBaseDamageMin(damage)
@@ -556,12 +568,7 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
   local damage_source = owner --self.ward_unit
 
   -- Damage of the projectile
-  local damage = self:GetSpecialValueFor("ward_damage")
-  -- Check for bonus damage talent
-  local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_5")
-  if talent and talent:GetLevel() > 0 then
-    damage = damage + talent:GetSpecialValueFor("value")
-  end
+  local damage = self:GetSpecialValueFor("damage")
 
   -- Damage table of the projectile
   local damage_table = {
@@ -589,7 +596,7 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
     -- Mark the target as hit
     new_data[tostring(target:GetEntityIndex())] = 1
 
-    local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
+    local bounce_radius = self:GetSpecialValueFor("bounce_radius")
     local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
     -- Find nearest target and fire a projectile from it
     local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)

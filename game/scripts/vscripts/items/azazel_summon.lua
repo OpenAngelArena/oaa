@@ -83,7 +83,7 @@ function azazel_summon:OnSpellStart()
 
   caster.azazel_summon = azazel_summon
 
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 --------------------------------------------------------------------------------

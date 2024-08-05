@@ -31,48 +31,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_max_range"                                "800"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_min_range"                                "300"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "movement_speed"                                  "0.02"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "2000"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback"                                       "200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-80"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.5"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
-      }
+      "target_max_range"                                  "800"
+      "target_min_range"                                  "300"
+      "movement_speed"                                    "0.02" // distance traveled during 0.03 seconds (1.5s travel time)
+      "damage"                                            "2000" // pure
+      "knockback"                                         "200"
+      "slow"                                              "-80"
+      "slow_duration"                                     "2.5"
+      "radius"                                            "300"
     }
   }
 }

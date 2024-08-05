@@ -15,30 +15,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "maximum_attack_speed"                              "170 220 270 320 370 420"
+      "maximum_health_regen"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "maximum_attack_speed"                            "160 210 260 310 360 410"
+        "value"                                           "25 40 55 70 85 100"
+        "special_bonus_unique_huskar_6"                   "+30"
       }
-      "02"
+      "aura_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "maximum_health_regen"                            "25 40 55 70 85 100"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_6"
+        "value"                                           "0"
       }
-      "04"
+      "aura_effectiveness"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "maximum_magic_resist"                            "10 15 20 25 25 25"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_6" // Valve, this is wrong
+        "value"                                           "0"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_threshold_max"                                "10"
-      }
+      "maximum_magic_resist"                              "15 20 25 30 30 30"
+      "hp_threshold_max"                                  "12"
     }
   }
 }

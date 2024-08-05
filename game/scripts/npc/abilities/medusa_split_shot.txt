@@ -31,7 +31,15 @@
         "value"                                           "45 55 65 75 80 85"
         "special_bonus_unique_medusa_2"                   "+8"
       }
-      "arrow_count"                                       "4"
+      "arrow_count"
+      {
+        "value"                                           "4"
+      }
+      "process_procs"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_medusa_4"                   "+1"
+      }
       "split_shot_bonus_range"                            "150"
     }
   }

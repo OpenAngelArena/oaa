@@ -7,26 +7,52 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+    "IsBreakable"                                         "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "1200"
-      "bonus_damage" //OAA
+      "radius"
       {
-        "value"                                           "3 9 15 21 42 63"
-        "special_bonus_unique_luna_3"                     "+40"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
-      "self_increase_pct"                                 "200"
-      "bonus_night_vision"
+      "bonus_night_vision_self"
       {
-        "value"                                           "250 500 750 1000 1250 1500"
+        "value"                                           "400"
+      }
+      "bonus_night_vision_per_level"
+      {
+        "value"                                           "20"
+      }
+      "bonus_damage_per_level" //OAA
+      {
+        "value"                                           "2"
+        "special_bonus_unique_luna_3"                     "+2"
+      }
+      "allied_bonus_damage_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "self_bonus_damage_per_level" //OAA
+      {
+        "value"                                           "4"
+        "special_bonus_unique_luna_3"                     "+4"
+      }
+      "self_bonus_damage_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "self_bonus_night_vision_tooltip"
+      {
+        "dynamic_value"                                   "true"
       }
     }
   }

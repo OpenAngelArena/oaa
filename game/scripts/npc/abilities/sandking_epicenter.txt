@@ -19,8 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 80 70" //OAA
-    "AbilityDuration"                                     "3.0"
+    "AbilityDuration"                                     "6.0"
     "AbilityCastPoint"                                    "2.0"
 
     // Cost
@@ -31,15 +30,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "110 100 90 80 70"
+      }
       "epicenter_pulses"
       {
-        "value"                                           "6 8 10 12 14"
-        "special_bonus_unique_sand_king"                  "+5"
+        "value"                                           "12 16 20 24 28"
+        "special_bonus_unique_sand_king"                  "+10"
       }
       "epicenter_damage" //OAA
       {
-        "value"                                           "120 140 160 220 280"
-        "special_bonus_shard"                             "+20"
+        "value"                                           "60 70 80 110 140"
+        "special_bonus_shard"                             "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"
@@ -50,8 +53,8 @@
       }
       "epicenter_radius_increment"
       {
-        "value"                                           "25"
-        "special_bonus_unique_sand_king_5"                "+25"
+        "value"                                           "13"
+        "special_bonus_unique_sand_king_5"                "+12"
       }
       "epicenter_slow"
       {
@@ -59,7 +62,7 @@
       }
       "epicenter_slow_as" //OAA
       {
-        "value"                                           "-30 -60 -90 -120 -150"
+        "value"                                           "-50 -70 -90 -110 -130"
       }
       "shard_radius"
       {
@@ -73,7 +76,35 @@
         "value"                                           "3.5"
         "RequiresShard"                                   "1"
       }
+      "linger_duration"                                   "3.0"
+      "scepter_explosion_radius_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+15"
+      }
+      "scepter_explosion_min_dist"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+120"
+      }
+      "scepter_explosions_per_pulse"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+3"
+      }   
+      "spine_tick_rate"
+      {
+        "special_bonus_scepter"                           "=0.5"
+      }
+      "spine_damage_pct"
+      {
+        "special_bonus_scepter"                           "=50"
+      }
+      "shard_explosions_per_pulse"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+      }
     }
   }
-
 }

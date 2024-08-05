@@ -21,6 +21,19 @@ test('before', function (t) {
 
 test('parse translations', function (t) {
   const testData = parseTranslation(true, path.join(__dirname, './fixtures/English'), dotaEnglish);
-  console.log(testData.lang.Tokens);
+  t.same(testData.lang.Tokens.values, {
+    tooltip_subsubfolder_key: 'a thing # asdf }This is a value{... also This is a value',
+    case_insensitivity: 'should work',
+    so_insensitive: 'should work',
+    less_insensitive: 'should work',
+    less_insensitive_reverse: 'should work',
+    so_insensitive_reverse: 'should work',
+    tooltip_subfolder_key: 'a thing # asdf }This is a value{... also This is a value',
+    key_in_different_file: 'a thing # asdf }This is a value{... also This is a value',
+    some_key_name: 'This is a value',
+    some_other_key_name: 'also This is a value',
+    some_complex_key: 'a thing # asdf }This is a value{... also This is a value',
+    dota_value: 'The Radiant'
+  }, 'tooltips can parse from fixture data');
   t.end();
 });

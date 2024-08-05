@@ -6,6 +6,31 @@
   "npc_dota_hero_pugna"
   {
     "Ability3"                                            "pugna_nether_ward_oaa" // replaces pugna_nether_ward
-    "Ability4"                                            "pugna_nether_ward" // replaces generic_hidden
+    "Ability5"                                            "pugna_nether_ward" // replaces generic_hidden
+
+    "Facets"
+    {
+      "pugna_siphoning_ward"
+      {
+        "Icon"                                            "healing"
+        "Color"                                           "Green"
+        "GradientID"                                      "0"
+      }
+      "pugna_rewards_of_ruin"
+      {
+        "Icon"                                            "siege"
+        "Color"                                           "Purple"
+        "GradientID"                                      "2"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "pugna_facet_oaa"
+            "AbilityIndex"                                "4"
+            "AutoLevelAbility"                            "true"
+          }
+        }
+      }
+    }
   }
 }

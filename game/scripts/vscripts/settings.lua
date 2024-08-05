@@ -109,7 +109,7 @@ CAPTURE_LENTGH = 20                     -- amount of time for 1 hero to capture 
 CAPTURE_POINT_RADIUS = 300
 
 -- Bosses
-BOSS_RESPAWN_TIMER = 120                -- time after boss death before spawning the next tier boss
+BOSS_RESPAWN_TIMER = 180                -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 15                   -- boss must take (tier * n) damage before agro

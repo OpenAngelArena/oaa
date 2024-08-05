@@ -1,43 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Caustic Finale
+  // Sand King: Caustic Finale (Innate)
   //=================================================================================================================
   "sandking_caustic_finale"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "sandking_epicenter"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Epicenter) + 1
+    "RequiredLevel"                                       "-1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "caustic_finale_radius" //OAA
+      "caustic_finale_radius"
       {
-        "value"                                           "700"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "caustic_finale_damage_base" //OAA
-      {
-        "value"                                           "70 100 130 160 320 640"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_8"
-      }
-      "caustic_finale_damage_pct"                         "10 14 18 22 26 30"
-      "caustic_finale_duration"                           "6"
-      "caustic_finale_slow" //OAA
-      {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_6"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
+      "caustic_finale_damage_base"                        "20 40 60 80 160 320"
+      "caustic_finale_damage_pct"                         "4 8 12 16 18 20"
+      "caustic_finale_duration"                           "4.5 5 5.5 6 6.5 7"
     }
   }
 }

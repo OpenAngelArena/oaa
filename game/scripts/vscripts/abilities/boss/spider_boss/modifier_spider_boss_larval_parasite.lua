@@ -102,9 +102,6 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 
           hSpiderling:AddNewModifier(self:GetCaster(), self, "modifier_kill", {duration = self.spider_lifetime })
 					table.insert( self:GetCaster().hSummonedUnits, hSpiderling )
-					if self:GetCaster().zone ~= nil then
-						self:GetCaster().zone:AddEnemyToZone( hSpiderling )
-					end
 
 					local vRandomOffset = Vector( RandomInt( -40, 40 ), RandomInt( -40, 40 ), 0 )
 					local vSpawnPoint = hEnemy:GetAbsOrigin() + vRandomOffset

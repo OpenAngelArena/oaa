@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Drow Ranger: Precision Aura (Innate)
+  //=================================================================================================================
+  "drow_ranger_trueshot"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "trueshot_agi_bonus_self"                           "1" //OAA
+      "trueshot_agi_bonus_allies"                         "1"
+      "trueshot_aspd_bonus_creeps"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_1"                           "+3"
+      }
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

@@ -55,7 +55,7 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
       attacker = self:GetCaster(),
       damage = self:GetSpecialValueFor( "attack_damage" ),
       damage_type = DAMAGE_TYPE_PHYSICAL,
-      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
       ability = self
     }
 

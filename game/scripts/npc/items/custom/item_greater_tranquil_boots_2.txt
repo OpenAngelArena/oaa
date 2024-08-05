@@ -70,7 +70,11 @@
       "bonus_str"                                         "13 23 38 58"
       "bonus_int"                                         "13 23 38 58"
       "aura_movement_speed"                               "20 25 30 35"
-      "aura_radius"                                       "1200"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bearing_attack_speed"                              "50 55 60 65"
       "bearing_movement_speed_pct"                        "15 16 17 18"
       "bearing_duration"                                  "6"

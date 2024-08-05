@@ -10,7 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" // OAA, Valve has it wrong
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve has it wrong
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -22,13 +23,9 @@
     "AbilityCastPoint"                                    "0.1"
     "AbilityCastRange"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 17 15 13 12 11" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120" //OAA
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +34,7 @@
       "movement_speed" //OAA
       {
         "value"                                           "350 375 400 425 450 475"
-        "special_bonus_unique_spirit_breaker_4"           "+200"
+        "special_bonus_shard"                             "+100"
       }
       "stun_duration"                                     "1.2 1.5 1.8 2.1 2.2 2.3"
       "bash_radius"
@@ -51,20 +48,30 @@
         "affected_by_aoe_increase"                        "1"
       }
       "vision_duration"                                   "0.94"
-      "scepter_cooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "9"
-        "RequiresScepter"                                 "1"
+        "value"                                           "19 17 15 13 12 11"
+        "special_bonus_unique_spirit_breaker_4"           "-4"
       }
-      "scepter_speed" // OAA, Valve has it wrong, luckily it's unused
+      "out_of_world_time"                                 "0"
+      "guaranteed_bash_time"                              "0"
+      "reveal_charge"                                     "0"
+      "windup_time"                                       "1.5"
+      "min_movespeed_bonus_pct"                           "25"
+      "linger_time_min"
       {
         "value"                                           "0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_facet_spirit_breaker_bull_rush"    "0.5"
       }
-      "scepter_cast_point" // unused
+      "linger_time_max"
       {
-        "value"                                           "0.1"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_facet_spirit_breaker_bull_rush"    "2.5"
+      }
+      "charge_for_max_linger"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_spirit_breaker_bull_rush"    "5"
       }
     }
   }

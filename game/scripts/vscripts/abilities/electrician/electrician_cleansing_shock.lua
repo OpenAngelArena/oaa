@@ -12,7 +12,7 @@ function electrician_cleansing_shock:CastFilterResultTarget(target)
   if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     local caster = self:GetCaster()
     -- Talent that allows to target Spell Immune units
-    local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_pierce")
+    local talent = caster:FindAbilityByName("special_bonus_unique_electrician_3_oaa")
     if talent and talent:GetLevel() > 0 then
       return UF_SUCCESS
     end
@@ -20,16 +20,6 @@ function electrician_cleansing_shock:CastFilterResultTarget(target)
 
   return default_result
 end
-
--- function electrician_cleansing_shock:GetManaCost(level)
-	-- local caster = self:GetCaster()
-  -- local base_mana_cost = self.BaseClass.GetManaCost(self, level)
-  -- if caster:HasScepter() then
-    -- return self:GetSpecialValueFor("mana_cost_scepter")
-  -- end
-
-  -- return base_mana_cost
--- end
 
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
@@ -102,7 +92,7 @@ function electrician_cleansing_shock:ApplyEffect( target )
     -- Check if the enemy target is spell-immune
     if target:IsMagicImmune() then
       -- Check for talent that allows targetting spell immune
-      if not caster:HasLearnedAbility("special_bonus_electrician_cleansing_shock_pierce") then
+      if not caster:HasLearnedAbility("special_bonus_unique_electrician_3_oaa") then
         return
       end
     end
@@ -114,14 +104,14 @@ function electrician_cleansing_shock:ApplyEffect( target )
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
 
     -- Check for mini-stun talent
-    local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_stun")
+    local talent = caster:FindAbilityByName("special_bonus_unique_electrician_2_oaa")
     if talent and talent:GetLevel() > 0 then
       local stun_duration = target:GetValueChangedByStatusResistance(talent:GetSpecialValueFor("value"))
       target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
     end
 
     -- Check for current hp damage talent
-    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_9")
+    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_9_oaa")
     if talent2 and talent2:GetLevel() > 0 then
       local damage_table = {
         attacker = caster,
@@ -198,7 +188,7 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
 
   local targetFlags = DOTA_UNIT_TARGET_FLAG_NONE
   -- Check for talent that allows targetting spell immune
-  local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_pierce")
+  local talent = caster:FindAbilityByName("special_bonus_unique_electrician_3_oaa")
   if talent and talent:GetLevel() > 0 then
     targetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
   end

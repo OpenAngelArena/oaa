@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  "phantom_assassin_immaterial"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "evasion_base"          
+      {
+        "value"                                           "20"
+        "special_bonus_unique_phantom_assassin_3"         "+15"
+      }
+      "evasion_per_level"                                 "0.5" //OAA
+      "evasion_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

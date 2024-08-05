@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 55 60 65 70 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,12 +51,12 @@
       "damage_amp"
       {
         "value"                                           "6 8 10 12 14 16"
-        "special_bonus_unique_beastmaster_9"              "+2.5"
+        "special_bonus_unique_beastmaster_9"              "+2"
       }
       "AbilityCooldown"
       {
         "value"                                           "8"
-        "special_bonus_unique_beastmaster_wild_axe_cooldown"  "-5"
+        "special_bonus_unique_beastmaster_wild_axe_cooldown"  "-8"
       }
       "min_throw_duration"                                "0.4"
       "max_throw_duration"                                "1.0"

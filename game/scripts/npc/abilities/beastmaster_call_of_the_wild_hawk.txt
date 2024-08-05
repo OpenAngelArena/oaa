@@ -39,7 +39,11 @@
         "value"                                           "30 29 28 27 26 25"
         "special_bonus_shard"                             "-7"
       }
-      "attack_radius"                                     "500"
+      "attack_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "hawk_count"
       {
         "value"                                           "1"

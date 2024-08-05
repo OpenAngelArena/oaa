@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shredder: Whirling Death
+  // Timbersaw: Whirling Death
   //=================================================================================================================
   "shredder_whirling_death"
   {
@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 85 90 95 100 105"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,20 +37,27 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "whirling_damage"                                   "85 130 175 220 440 880"
-      "tree_damage_scale"                                 "11 18 25 32 46 60"
+      "whirling_damage"                                   "85 130 175 220 440 660"
+      "tree_damage_scale"
+      {
+        "value"                                           "11 18 25 32 46 60"
+        "special_bonus_unique_timbersaw"                  "+75"
+      }
       "whirling_tick"                                     "0.3"
-      "stat_loss_pct" //OAA, Valve forgot '+' on special_bonus_unique_timbersaw_5
+      "stat_loss_pct"
       {
-        "value"                                           "12"
-        "special_bonus_unique_timbersaw_5"                "+2.5"
+        "value"                                           "13"
+        "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "stat_loss_univ" //OAA
+      "stat_loss_univ"
       {
-        "value"                                           "6"
-        "special_bonus_unique_timbersaw_5"                "+1"
+        "value"                                           "5"
+        "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "duration"                                          "12 13 14 15 16 17"
+      "duration"
+      {
+        "value"                                           "12 13 14 15 16 17"
+      }
     }
   }
 }

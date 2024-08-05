@@ -29,13 +29,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "500"
-      }
+      "bonus_gold_per_minute"                             "500"
     }
   }
 }

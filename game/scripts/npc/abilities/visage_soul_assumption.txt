@@ -34,10 +34,30 @@
     {
       "bolt_speed"                                        "1000"
       "soul_base_damage"                                  "20"
-      "soul_charge_damage"
+      "soul_charge_damage" //OAA
       {
-        "value"                                           "70 70 70 70 120 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_visage_4"
+        "value"                                           "70 70 70 70 120 170"
+        "special_bonus_unique_visage_4"                   "+40"
+      }
+      "soul_charge_gold"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_visage_gold_assumption"      "35"    // if changing this, change gold_max_tooltip
+      }
+      "gold_creep_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_visage_gold_assumption"      "15"
+      }
+      "gold_grace_period_hero"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_visage_gold_assumption"      "3.0"
+      }
+      "gold_max_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_visage_gold_assumption"      "105 140 175 210 245 280"       // TOOLTIP ONLY, if changing this, change soul_charge_gold
       }
       "stack_limit"                                       "3 4 5 6 7 8"
       "stack_duration"                                    "6.0"

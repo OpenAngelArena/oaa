@@ -50,6 +50,7 @@
         "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_lion_6"                     "+15"
       }
+      "movespeed_bonus_when_empty_pct"                    "15"
       "shard_bonus_targets"
       {
         "value"                                           "2"
@@ -57,8 +58,9 @@
       }
       "damage_pct" //OAA
       {
-        "value"                                           "100"
-        "special_bonus_unique_lion_manadrain_damage"      "+200"
+        "value"                                           "0"
+        "special_bonus_facet_lion_essence_eater"          "+100"
+        "RequiresFacet"                                   "lion_essence_eater"
       }
       "magic_resist"
       {

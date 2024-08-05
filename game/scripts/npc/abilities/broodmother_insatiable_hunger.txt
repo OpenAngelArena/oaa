@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -18,7 +17,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "28 27 26 25 24 23" //OAA
+    "AbilityCooldown"                                     "33 32 31 30 29 28" //OAA
     "AbilityManaCost"                                     "80 85 90 95 100 105" //OAA
 
     // Special
@@ -27,17 +26,17 @@
     {
       "bonus_damage"
       {
-        "value"                                           "40 50 60 70 90 120"
+        "value"                                           "40 50 60 70 80 90"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "lifesteal_pct" //OAA
+      "lifesteal_pct"
       {
-        "value"                                           "70 80 90 100 120 140"
+        "value"                                           "40 60 80 100 120 140"
       }
       "creep_lifesteal_reduction_pct"                     "40"
-      "duration" //OAA
+      "duration"
       {
-        "value"                                           "14"
+        "value"                                           "8 10 12 14 14 14"
         "special_bonus_shard"                             "+2"
       }
       "bat_bonus"
@@ -54,6 +53,12 @@
       {
         "value"                                           "1"
         "RequiresShard"                                   "1"
+      }
+      "aura_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_broodmother_feeding_frenzy"  "=800"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

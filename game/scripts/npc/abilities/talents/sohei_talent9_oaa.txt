@@ -3,23 +3,12 @@
   //=================================================================================================================
   // Repulsive Palm talent: bonus strength damage
   //=================================================================================================================
-  "special_bonus_unique_sohei_9"
+  "special_bonus_unique_sohei_9_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "40"
-      }
-    }
   }
 }

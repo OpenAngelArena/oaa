@@ -19,18 +19,12 @@
     {
       "damage_reduction"
       {
-        "value"                                           "16 34 52 70 140 210"
+        "value"                                           "15 35 55 75 150 225"
       }
-      "damage_cleanse"
-      {
-        "value"                                           "600 550 500 450 425 400"
-        "special_bonus_unique_tidehunter_6"               "-100"
-      }
-      "damage_reset_interval"                             "7.0"
-      "bonus_reduction_per_stack"
+      "bonus_reduction_per_kill"
       {
         "value"                                           "0"
-        "special_bonus_unique_tidehunter_4"               "+4"
+        "special_bonus_facet_tidehunter_kraken_swell"     "1 2 3 4 5 6"
       }
     }
   }

@@ -114,7 +114,7 @@ if IsServer() then
       "modifier_item_heart_oaa_active",              -- Heart active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
-      "modifier_item_reduction_orb_active",          -- Reduction Orb buff
+      --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
       "modifier_item_regen_crystal_active",          -- Regen Crystal buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff
@@ -251,15 +251,36 @@ if IsServer() then
 
     if ability.GetAbilityName then
       local damagingByAccident = {
+        item_cloak_of_flames = true,
+        item_gungir = true, -- because of random bounces
+        item_gungir_2 = true,
+        item_gungir_3 = true,
+        item_gungir_4 = true,
+        item_gungir_5 = true,
+        item_mjollnir = true, -- because of random bounces
+        item_mjollnir_2 = true,
+        item_mjollnir_3 = true,
+        item_mjollnir_4 = true,
+        item_mjollnir_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
         item_radiance_4 = true,
         item_radiance_5 = true,
-        item_cloak_of_flames = true,
         item_stormcrafter = true,
-        doom_bringer_scorched_earth = true,
-        mirana_starfall = true,
+        beastmaster_call_of_the_wild_hawk = true,
+        brewmaster_fire_permanent_immolation = true,
+        elder_titan_innate_oaa = true,
+        ember_spirit_immolation = true,
+        furion_wrath_of_nature = true, -- because of random bounces
+        --leshrac_diabolic_edict = true,
+        lina_combustion = true,
+        mirana_starfall = true, -- because of Scepter Arrow
+        phoenix_dying_light = true,
+        razor_storm_surge = true,
+        --sandking_epicenter = true, -- because of shard?
+        sandking_sand_storm = true, -- because of moving Sand Storm facet
+        warlock_golem_permanent_immolation = true,
         wisp_spirits = true,
       }
       local name = ability:GetAbilityName()
@@ -314,9 +335,13 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -335,7 +360,8 @@ if CDOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
@@ -362,6 +388,18 @@ if CDOTA_BaseNPC then
         end
       end
 
+      -- Time Zone always pierces debuff immunity
+      local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+      if time_zone then
+        local caster = time_zone:GetCaster()
+        if caster then
+          -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+          if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+            return true
+          end
+        end
+      end
+
       return false
     end
 
@@ -381,6 +419,18 @@ if CDOTA_BaseNPC then
         end
       end
     end
+
+    local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+    if time_zone then
+      local caster = time_zone:GetCaster()
+      if caster then
+        -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+        if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+          return true
+        end
+      end
+    end
+
     return false
   end
 end
@@ -415,9 +465,13 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -436,7 +490,8 @@ if C_DOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)

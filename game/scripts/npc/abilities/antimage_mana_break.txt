@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Mana Break
+  // Anti-Mage: Mana Break (Innate)
   //=================================================================================================================
   "antimage_mana_break"
   {
@@ -13,22 +13,29 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "percent_damage_per_burn"                           "50"
-      "mana_per_hit"                                      "25 30 35 40 50 60"
+      "mana_per_hit"                                      "25 30 35 40 50 80"
       "mana_per_hit_pct" //OAA
       {
-        "value"                                           "1.5 2 2.5 3 3.5 4"
+        "value"                                           "1.3 1.8 2.3 2.8 3.4 4.0"
         "special_bonus_unique_antimage_7"                 "+1"
       }
       "illusion_percentage"                               "50"
-      "move_slow"                                         "25 30 35 40 45 50"
-      "slow_duration"                                     "0.75"
+      "empowered_max_burn_pct"
+      {
+        "value"                                           "0.0"
+        "special_bonus_scepter"                           "+20.0" // NOTE: Update blink empowered_max_burn_pct_tooltip values
+      }
+      "empowered_mana_break_debuff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+6.0" // NOTE: Update blink empowered_mana_break_debuff_duration_tooltip values
+      }
     }
   }
 }

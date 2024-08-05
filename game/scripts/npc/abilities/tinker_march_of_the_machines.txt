@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinker: March of the Machines
+  //=================================================================================================================
+  "tinker_march_of_the_machines"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.53"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "90 110 130 150 170 190"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown" // OAA
+      {
+        "value"                                           "25.0 23.0 21.0 19.0 17.0 15.0"
+        "special_bonus_unique_tinkerer_7"                 "-6"
+      }
+      "radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "collision_radius"                                  "100" // OAA
+      "splash_radius"                                     "150"
+      "duration" // OAA
+      {
+        "value"                                           "6.0"
+        "special_bonus_unique_tinkerer_5"                 "+1.0"
+      }
+      "speed"                                             "400"
+      "machines_per_sec"                                  "24 27 30 33 36 36" // OAA
+      "distance"                                          "1800"
+      "damage" // OAA
+      {
+        "value"                                           "17 26 35 44 62 80"
+        "special_bonus_unique_tinkerer_6"                 "20%"
+      }
+      "heal_per_second"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tinker_repair_bots"          "+15 +25 +35 +45 +90 +135"
+      }
+      "heal_duration" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tinker_repair_bots"          "+6"
+      }
+    }
+  }
+}

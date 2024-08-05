@@ -5,8 +5,9 @@
   //=================================================================================================================
   "npc_dota_hero_dragon_knight"
   {
-    "Ability5"                                            "dragon_knight_elder_dragon_form" // replaces generic_hidden
-    "Ability6"                                            "dragon_knight_elder_dragon_form_oaa" // replaces dragon_knight_elder_dragon_form
+    //"Ability5"                                            "dragon_knight_elder_dragon_form" // replaces generic_hidden
+    //"Ability6"                                            "dragon_knight_elder_dragon_form_oaa" // replaces dragon_knight_elder_dragon_form
+    "Ability8"                                            "dragon_knight_innates_oaa" // replaces undefined
 
     "Ability10"                                           "special_bonus_strength_15" // replaces special_bonus_attack_damage_15
     //"Ability11"                                           "special_bonus_unique_dragon_knight_3"

@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Juggernaut: Duelist (Innate)
+  //=================================================================================================================
+  "juggernaut_duelist"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+    "IsBreakable"                                         "1"
+
+    "AbilityValues"
+    {
+      "front_angle"                                       "55"
+      "front_damage_increase" //OAA
+      {
+        "value"                                           "6"
+        "special_bonus_unique_juggernaut_3"               "+6"
+      }
+    }
+  }
+}

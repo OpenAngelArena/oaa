@@ -11,6 +11,7 @@
     "ScriptFile"                                          "abilities/oaa_bristleback.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "bristleback_bristleback"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -39,6 +40,12 @@
       "side_angle"                                        "110"
       "back_angle"                                        "70"
       "quill_release_threshold"                           "275 250 225 200 175 150"
+      // "goo_radius"
+      // {
+        // "value"                                           "0"
+        // "special_bonus_facet_bristleback_snot_rocket"     "+900"
+        // "affected_by_aoe_increase"                        "1"
+      // }
     }
 
     "precache"
