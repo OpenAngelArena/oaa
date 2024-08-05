@@ -55,7 +55,7 @@
       "shield_duration"
       {
         "value"                                           "12"
-        "special_bonus_facet_electrician_alternating_current"  "=6 =7 =8 =9 =11 =13"
+        "special_bonus_facet_electrician_alternating_current"  "=7 =8 =9 =10 =11 =12"
       }
       "aura_radius"
       {
@@ -66,12 +66,12 @@
       {
         "value"                                           "25 35 45 55 110 220"
         "special_bonus_unique_electrician_electric_shield_damage"  "+100"
-        "special_bonus_facet_electrician_alternating_current"  "20%"
       }
       "damage_pct_to_attacks"
       {
         "value"                                           "0"
         "special_bonus_facet_electrician_alternating_current"  "=100"
+        "RequiresFacet"                                   "electrician_alternating_current"
       }
       "mana_pct_refund"
       {

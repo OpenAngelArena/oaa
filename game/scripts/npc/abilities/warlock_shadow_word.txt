@@ -29,10 +29,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "16 24 32 40 140 240"
-        "special_bonus_unique_warlock_7"                  "+45"
+        "value"                                           "15 25 35 45 145 245"
       }
       "duration"
       {
@@ -42,6 +41,7 @@
       "spell_aoe"
       {
         "value"                                           "300"
+        "special_bonus_unique_warlock_7"                  "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "shard_movement_speed_pct"

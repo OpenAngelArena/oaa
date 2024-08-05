@@ -1,30 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tar Spill bonus move and attack speed slow
+  // Tar Spill bonus move and attack speed slow / March of the Machines bonus duration
   //=================================================================================================================
   "special_bonus_unique_tinkerer_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "5"
-      }
-    }
   }
 }

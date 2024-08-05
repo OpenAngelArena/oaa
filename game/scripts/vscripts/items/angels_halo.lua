@@ -21,7 +21,7 @@ function item_angels_halo:OnSpellStart()
   if not caster:HasModifier("modifier_angels_halo_active") then
     caster:AddNewModifier(caster, self, "modifier_angels_halo_active", {ms = consumed_ms, vision = consumed_vision, dmg = consumed_dmg, radius = radius})
 
-    self:SpendCharge()
+    self:SpendCharge(0.1)
   end
 end
 

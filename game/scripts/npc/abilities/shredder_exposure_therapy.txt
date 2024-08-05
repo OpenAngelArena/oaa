@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Chakram) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "shredder_chakram"
 
@@ -16,7 +16,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "mana_restore"                                      "3 4 5 6 7 8"
+      "mana_restore"                                      "4 5 6 7 8 9"
     }
   }
 }

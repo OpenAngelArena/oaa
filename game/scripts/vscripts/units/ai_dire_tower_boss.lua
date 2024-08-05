@@ -126,12 +126,6 @@ function DireTowerBossThink()
       end
     end
 
-    -- Sound
-    if not thisEntity.emitedsound then
-      thisEntity:EmitSound("Dire_Tower_Boss.Aggro")
-      thisEntity.emitedsound = true
-    end
-
     -- Find the target for the minions if there is no attackable unit within tower attack range
     -- this is to make minions less idle
     if not thisEntity.minion_target then
@@ -154,6 +148,22 @@ function DireTowerBossThink()
           end
         end
       end
+    end
+
+    -- Sound
+    local sound_source
+    if not thisEntity.aggro_target:IsNull() then
+      sound_source = thisEntity.aggro_target
+    elseif not thisEntity:GetAggroTarget():IsNull() then
+      sound_source = thisEntity:GetAggroTarget()
+    elseif not thisEntity.minion_target:IsNull() then
+      sound_source = thisEntity.minion_target
+    else
+      sound_source = thisEntity
+    end
+    if not thisEntity.emitedsound and sound_source then
+      sound_source:EmitSound("Dire_Tower_Boss.Aggro")
+      thisEntity.emitedsound = true
     end
 
     -- Phases

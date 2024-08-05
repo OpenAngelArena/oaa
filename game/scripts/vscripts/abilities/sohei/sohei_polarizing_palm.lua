@@ -368,12 +368,6 @@ if IsServer() then
 
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
-    -- Talent that increases stun duration
-    local talent = caster:FindAbilityByName("special_bonus_sohei_stun")
-    if talent and talent:GetLevel() > 0 then
-      stun_duration = stun_duration + talent:GetSpecialValueFor("value")
-    end
-
     -- Duration is reduced with Status Resistance
     stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
 
@@ -403,12 +397,6 @@ if IsServer() then
 
     local base_damage = ability:GetSpecialValueFor("damage")
     local str_multiplier = ability:GetSpecialValueFor("strength_damage")
-
-    -- Talent that increases strength multiplier
-    local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
-    if talent and talent:GetLevel() > 0 then
-      str_multiplier = str_multiplier + talent:GetSpecialValueFor("value")
-    end
 
     local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
 

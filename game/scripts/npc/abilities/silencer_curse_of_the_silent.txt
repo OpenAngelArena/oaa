@@ -22,9 +22,6 @@
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120 130 140 150 160 170"
@@ -36,30 +33,38 @@
       "damage"
       {
         "value"                                           "16 24 32 40 80 160"
-        "special_bonus_unique_silencer"                   "+10"
+        "special_bonus_unique_silencer"                   "+15"
       }
-      "AbilityCooldown"                   
+      "AbilityCooldown"
       {
         "value"                                           "22 20 18 16 15 14"
       }
-      "AbilityCharges"                    
+      "AbilityCharges"
       {
         "value"                                           "0"
         "special_bonus_unique_silencer_arcane_curse_charges"  "2"
-      } 
+      }
       "radius"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "6"
+      "duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_silencer_arcane_curse_duration"  "+2"
+      } 
+      "silence_duration"  
+      {
+        "value"                                           "2"
+        "special_bonus_unique_silencer_arcane_curse_duration"  "+1"
+      } 
       "movespeed"                                         "-10 -15 -20 -25 -30 -35"
       "undispellable"
       {
         "value"                                           "0"
         "special_bonus_unique_silencer_arcane_curse_undispellable"  "+1"
       }
-      "silence_duration"                                  "2"
     }
   }
 }

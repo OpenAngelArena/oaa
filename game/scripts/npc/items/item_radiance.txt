@@ -32,7 +32,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot
     "AbilityTextureName"                                  "custom/radiance_1"
 

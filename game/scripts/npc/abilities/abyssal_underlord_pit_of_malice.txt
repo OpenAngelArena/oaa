@@ -41,13 +41,13 @@
       "pit_damage"                                        "20 30 40 50 100 200" // special_bonus_unique_underlord_7_oaa
       "ensnare_duration" // the root from multiple pits do not stack - once the root wears off, the unit becomes immune to all pits for: (pit_interval - ensnare_duration) seconds.
       {
-        "value"                                           "1.5 1.6 1.7 1.8 1.85 1.9"
-        "special_bonus_unique_underlord"                  "+0.65"
+        "value"                                           "1.5 1.6 1.7 1.8 1.9 2.0"
+        "special_bonus_unique_underlord"                  "+0.5"
       }
       "speed_bonus"
       {
         "value"                                           "0"
-        "special_bonus_unique_underlord_6"                "+30"
+        "special_bonus_unique_underlord_6"                "+25"
       }
     }
   }

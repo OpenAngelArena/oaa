@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Inner Beast
+  // Beastmaster: Inner Beast (Innate)
   //=================================================================================================================
   "beastmaster_inner_beast"
   {
@@ -11,9 +11,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "7"
-    "RequiredLevel"                                       "-1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
 
     "AbilityValues"
     {
@@ -22,15 +21,15 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_attack_speed" //OAA
+      "bonus_attack_speed" //OAA, affects only Beastmaster and his summons
       {
-        "value"                                           "5 10 25 40 55 70 85"
+        "value"                                           "15 30 45 60 75 90"
         "special_bonus_unique_beastmaster_4"              "+15"
       }
       "attack_speed_per_unit"
       {
         "value"                                           "0"
-        "special_bonus_facet_beastmaster_wild_hunt"       "1 2 3 4 5 6 7"
+        "special_bonus_facet_beastmaster_wild_hunt"       "2 3 4 5 6 7"
       }
       "berserk_duration"
       {
@@ -40,7 +39,7 @@
       "berserk_bonus_attack_speed"
       {
         "value"                                           "0"
-        "special_bonus_facet_beastmaster_beast_mode"      "10 20 30 40 50 60 70"
+        "special_bonus_facet_beastmaster_beast_mode"      "20 30 40 50 60 70"
       }
       "AbilityCooldown"
       {

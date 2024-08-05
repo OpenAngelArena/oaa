@@ -33,28 +33,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "2000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "radius"                                          "240"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "0.02"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_height"                               "300"
-      }
+      "damage"                                            "3000" // pure
+      "radius"                                            "240"
+      "projectile_speed"                                  "0.02"
+      "projectile_height"                                 "300"
     }
 
     "precache"

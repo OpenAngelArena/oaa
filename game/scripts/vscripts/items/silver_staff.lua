@@ -25,6 +25,7 @@ function item_silver_staff:OnSpellStart()
 end
 
 item_silver_staff_2 = item_silver_staff
+item_silver_staff_3 = item_silver_staff
 
 ---------------------------------------------------------------------------------------------------
 

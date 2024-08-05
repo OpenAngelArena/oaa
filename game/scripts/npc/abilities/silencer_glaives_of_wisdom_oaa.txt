@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Silencer: Glaives of Wisdom (OAA rework)
+  // Silencer: Glaives of Wisdom (OAA rework) - unused
   //=================================================================================================================
   "silencer_glaives_of_wisdom_oaa"
   {
@@ -24,14 +24,14 @@
     "HasScepterUpgrade"                                   "0"
     "HasShardUpgrade"                                     "1"
 
-    // Time
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "15 20 25 30 35 40"
+    "AbilityManaCost"                                     "20 25 30 35 40 45"
     "AbilityCooldown"                                     "0"
 
     // Special

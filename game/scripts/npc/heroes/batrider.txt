@@ -8,10 +8,6 @@
     "Ability1"                                            "batrider_sticky_napalm_oaa" // replaces batrider_sticky_napalm
     "Ability4"                                            "generic_hidden" // replaces batrider_sticky_napalm_application_damage
 
-    "Ability10"                                           "special_bonus_unique_batrider_7_oaa" // replaces special_bonus_unique_batrider_7
-
-    "Ability16"                                           "special_bonus_unique_batrider_4_oaa" // replaces special_bonus_unique_batrider_4
-
   // special_bonus_unique_batrider_1 - "+{s:value}s Firefly Duration"
   // special_bonus_unique_batrider_2 - "Flamebreak applies {s:bonus_napalm_stacks} Sticky Napalm Stacks"
   // special_bonus_unique_batrider_3 - "+{s:bonus_knockback_distance} Flamebreak Knockback Distance"
@@ -19,8 +15,6 @@
   // special_bonus_unique_batrider_5 - "{s:value} Flamebreak Charges"
   // special_bonus_unique_batrider_6 - "-{s:value}s Flaming Lasso Cooldown"
   // special_bonus_unique_batrider_7 - "+{s:bonus_radius} Sticky Napalm Radius"
-  // special_bonus_unique_batrider_4_oaa - "+{s:bonus_damage} Sticky Napalm Damage"
-  // special_bonus_unique_batrider_7_oaa - "+{s:bonus_radius} Sticky Napalm Radius"
 
     "AttributeStrengthGain"                               "2.9" // 2.2
   }

@@ -32,6 +32,7 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local megaWardScale = self:GetSpecialValueFor("mega_ward_model_scale_multiplier")
   local wardCount = self:GetSpecialValueFor("ward_count")
   local wardHealth = self:GetSpecialValueFor("ward_health")
+  local wardDamage = self:GetSpecialValueFor("damage_tooltip")
   local duration = self:GetSpecialValueFor("duration")
   local unitName = "npc_dota_shadow_shaman_ward_" .. self:GetLevel()
   local spawnSpacing = 64
@@ -63,13 +64,26 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
 
   local function SpawnWard(point)
     local serpentWard = CreateUnitByName(unitName, point, true, caster, owner, casterTeam)
-    serpentWard.isMegaWard = isMegaWard
+    serpentWard.isMegaWard = isMegaWard -- true or false
     serpentWard:SetControllableByPlayer(playerID, false)
     serpentWard:SetOwner(caster)
-    -- Give extra health from talent
-    serpentWard:SetBaseMaxHealth(wardHealth)
+
+    -- Mark it as serpent ward
     serpentWard:AddNewModifier(caster, self, "modifier_shadow_shaman_serpent_ward", {duration = duration})
+
+    -- Fix ward health
+    serpentWard:SetBaseMaxHealth(wardHealth)
+    serpentWard:SetMaxHealth(wardHealth)
+    serpentWard:SetHealth(wardHealth)
+
+    -- Fix ward damage
+    serpentWard:SetBaseDamageMin(wardDamage)
+    serpentWard:SetBaseDamageMax(wardDamage)
+
+    -- Fix facing of the ward
     serpentWard:SetForwardVector(casterForwardVector)
+
+    -- Fix size of the ward
     if isMegaWard then
       serpentWard:SetModelScale(megaWardScale)
     end

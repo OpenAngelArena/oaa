@@ -1,25 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Riki Talent - bonus 70 AGI - unused
+  // Custom Techies Talent: Sticky Bomb Damage
   //=================================================================================================================
-  "special_bonus_unique_riki_bonus_agility_70"
+  "special_bonus_unique_techies_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_agility_40"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "70"
-      }
+      "value"                                             "240"
     }
   }
 }

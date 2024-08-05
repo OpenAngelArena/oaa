@@ -1,0 +1,42 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Lycan Wolf 6
+  //=================================================================================
+  "npc_dota_lycan_wolf8"
+  {
+    "include_keys_from"                                   "npc_dota_lycan_wolf1"
+
+    "Level"                                               "8"
+    "ModelScale"                                          "1.3"
+
+    // Abilities
+    //----------------------------------------------------------------
+    // "Ability1"                                            "lycan_summon_wolves_invisibility"
+    // "Ability2"                                            "lycan_summon_wolves_critical_strike"
+    // "Ability3"                                            "lycan_summon_wolves_hamstring"
+    // "Ability4"                                            "lycan_summon_wolves_hightail"
+
+    "MagicalResistance"                                   "70" // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackDamageMin"                                     "480" // Damage range min.
+    "AttackDamageMax"                                     "480" // Damage range max.
+    "AttackRate"                                          "0.7" // BAT
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "140" // Experience earn.
+    "BountyGoldMin"                                       "184" // Gold earned min.
+    "BountyGoldMax"                                       "184" // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementSpeed"                                       "500" // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "2625" // Base health.
+  }
+}

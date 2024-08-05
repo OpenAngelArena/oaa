@@ -1,9 +1,9 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Batrider talent: Sticky Napalm bonus damage
+  // Custom Muerta Talent: Dead Shot bonus Impact Slow duration
   //=================================================================================================================
-  "special_bonus_unique_batrider_4_oaa"
+  "special_bonus_unique_muerta_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -13,13 +13,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "10"
-      }
+      "value"                                             "2"
     }
   }
 }

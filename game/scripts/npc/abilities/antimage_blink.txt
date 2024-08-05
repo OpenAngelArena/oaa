@@ -28,7 +28,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "13 12 11 10 8 6"
-        "special_bonus_unique_antimage"                   "-1"
+        "special_bonus_scepter"                           "-1"
       }
       "AbilityCastRange"
       {
@@ -36,6 +36,21 @@
         "special_bonus_unique_antimage_3"                 "+200"
       }
       "min_blink_range"                                   "200"
+      "empowered_mana_break_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+5.0"
+      }
+      "empowered_max_burn_pct_tooltip"
+      {
+        "value"                                           "0.0"
+        "special_bonus_scepter"                           "+20.0" // NOTE: tooltip only: update empowered_max_burn_pct value
+      }
+      "empowered_mana_break_debuff_duration_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+6.0" // NOTE: tooltip only: update empowered_mana_break_debuff_duration value
+      }
     }
   }
 }

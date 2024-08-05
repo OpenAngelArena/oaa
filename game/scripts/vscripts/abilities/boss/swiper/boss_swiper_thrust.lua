@@ -80,7 +80,7 @@ function boss_swiper_thrust:OnProjectileHit( target, location )
         attacker = self:GetCaster(),
         damage = self:GetSpecialValueFor("damage"),
         damage_type = self:GetAbilityDamageType(),
-        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
         ability = self
       }
       ApplyDamage(damageTable)

@@ -22,10 +22,10 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.25"
+    "AbilityCastRange"                                    "200"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "200"
     "AbilityCooldown"                                     "36 34 32 30 28" //OAA
 
     // Cost
@@ -49,10 +49,20 @@
       {
         "value"                                           "125 225 325 625 925"
       }
-      "channel_time" //OAA
+      "bonus_aoe_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_ferocity"       "+10"
+      }
+      "bonus_aoe_pct_per_hit"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_ferocity"       "+20"
+      }
+      "channel_time"
       {
         "value"                                           "2.3"
-        "special_bonus_unique_primal_beast_pulverize_duration"  "+75%"
+        "special_bonus_unique_primal_beast_pulverize_duration"  "+67%"
       }
       "pierce_immunity"
       {

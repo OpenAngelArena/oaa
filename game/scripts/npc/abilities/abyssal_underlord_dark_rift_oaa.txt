@@ -24,7 +24,7 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastPoint"                                    "1.65"
+    "AbilityCastPoint"                                    "1.67"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Cost
@@ -49,13 +49,13 @@
       "radius"
       {
         "value"                                           "430"
-        "special_bonus_facet_abyssal_underlord_summons"   "+180"
+        "special_bonus_facet_abyssal_underlord_summons"   "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"
       {
         "value"                                           "2.5 2.75 3.0 3.25 3.5"
-        "special_bonus_facet_abyssal_underlord_summons"   "=0.1"
+        "special_bonus_facet_abyssal_underlord_summons"   "=0.01"
       }
       "damage"
       {

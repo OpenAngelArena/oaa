@@ -98,7 +98,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
             attacker = caster,
             damage = self:GetSpecialValueFor("damage"),
             damage_type = self:GetAbilityDamageType(),
-            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
             ability = self
           }
 

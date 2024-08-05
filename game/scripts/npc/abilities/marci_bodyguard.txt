@@ -11,6 +11,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -54,7 +55,7 @@
       {
         "value"                                           "125"
       }
-      "bonus_armor"                                       "4 7 10 13 16 19"
+      "bonus_armor"                                       "4 8 12 16 18 20"
       "counter_cooldown"                                  "0.45"
     }
   }

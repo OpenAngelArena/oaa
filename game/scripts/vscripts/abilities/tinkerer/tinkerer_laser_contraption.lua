@@ -250,6 +250,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   -- Start thinking
   self:OnIntervalThink()
   self:StartIntervalThink(dmg_interval)
+  self:ApplyMarchOfTheMachines()
 end
 
 function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
@@ -265,10 +266,28 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
   local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
   if tar_spill and tar_spill:GetLevel() > 0 then
     -- Keen Contraption applies Tar Spill
-    -- local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
-    -- if talent and talent:GetLevel() > 0 then
-    if caster:HasScepter() then
+    local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
+    if (talent and talent:GetLevel() > 0) or caster:HasScepter() then
       tar_spill:OnProjectileHit(nil, self.center)
+    end
+  end
+end
+
+function modifier_tinkerer_laser_contraption_thinker:ApplyMarchOfTheMachines()
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  local march = caster:FindAbilityByName("tinker_march_of_the_machines")
+  if march and march:GetLevel() > 0 then
+    if caster:HasScepter() then
+      caster:SetCursorPosition(self.center)
+      march:OnSpellStart()
     end
   end
 end

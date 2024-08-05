@@ -84,7 +84,7 @@ function item_infinite_bottle:OnSpellStart()
 
   caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 function item_infinite_bottle:GetAbilityTextureName()

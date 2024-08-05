@@ -12,11 +12,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "7"
+    "MaxLevel"                                            "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "0.5 1.0 1.1 1.2 1.3 1.4 1.5"
+    "AbilityDuration"                                     "1.0 1.1 1.2 1.3 1.4 1.5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,13 +29,13 @@
       }
       "aftershock_damage" //OAA
       {
-        "value"                                           "35 70 100 130 160 320 640"
+        "value"                                           "70 100 130 160 320 640"
         "special_bonus_unique_earthshaker_6"              "+100"
       }
-      "aftershock_range_increase_per_level_interval"
+      "aftershock_range_increase_per_level_interval" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_earthshaker_tectonic_buildup"  "+50"
+        "special_bonus_facet_earthshaker_tectonic_buildup"  "+40"
       }
       "aftershock_range_level_interval"
       {

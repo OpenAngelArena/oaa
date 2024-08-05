@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Mystic Flare) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "skywrath_mage_mystic_flare"
 
@@ -17,7 +17,7 @@
       "spell_lifesteal" //OAA
       {
         "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+15"
+        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+20"
       }
     }
   }

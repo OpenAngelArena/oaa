@@ -23,8 +23,9 @@
     "Ability1"                                            "dire_tower_boss_summon_wave"
     "Ability2"                                            "dire_tower_boss_glyph"
     "Ability3"                                            "dire_tower_boss_passives"
-    "Ability4"                                            "boss_basic_properties_oaa"
-    "Ability5"                                            "boss_regen"
+    "Ability4"                                            "boss_unslowable_attack_speed"
+    "Ability5"                                            "boss_basic_properties_oaa"
+    "Ability6"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -34,8 +35,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1500"    // Damage range min.
-    "AttackDamageMax"                                     "1500"    // Damage range max.
+    "AttackDamageMin"                                     "1620"    // Damage range min.
+    "AttackDamageMax"                                     "1620"    // Damage range max.
     "BaseAttackSpeed"                                     "110"
     "AttackRate"                                          "0.9"   // Speed of attack.
     "AttackAnimationPoint"                                "0.6"   // Normalized time in animation cycle to attack.

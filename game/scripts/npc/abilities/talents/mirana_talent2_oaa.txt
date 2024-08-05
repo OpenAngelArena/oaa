@@ -3,23 +3,12 @@
   //=================================================================================================================
   // Custom Mirana talent: Sacred Arrow Pierces targets - unused
   //=================================================================================================================
-  "special_bonus_mirana_arrow_pierce"
+  "special_bonus_unique_mirana_arrow_pierce"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "4"
-      }
-    }
   }
 }
