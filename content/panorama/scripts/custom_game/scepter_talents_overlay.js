@@ -61,23 +61,3 @@ GameEvents.Subscribe('oaa_scepter_upgrade', function (args) {
   UpdateTalentBranchOption(FindTalentSideRootPanel(lvlMap[args.Level], args.IsRightSide), args.IsRightSide, args.IsUpgrade);
   UpdateTalentTreeBranch(lvlMap[args.Level], args.IsRightSide, args.IsUpgrade);
 });
-
-GameEvents.Subscribe('talent_tree_disable', function (args) {
-  const hudElements = FindDotaHudElement('HUDElements');
-  const centerPanel = hudElements.FindChildTraverse('center_block');
-  // Find the talent tree
-  const talentTree = centerPanel.FindChildTraverse('StatBranch');
-  // Find level up frame for the talent tree
-  const levelUpButton = centerPanel.FindChildTraverse('level_stats_frame');
-  if (args) {
-    if (args.disable === 1) {
-      // Disable clicking on the talent tree
-      talentTree.SetPanelEvent('onactivate', function () {});
-      // Remove level up above the talent tree
-      levelUpButton.style.visibility = 'collapse';
-    }
-  }
-
-  // talentTree.style.visibility = 'collapse';
-  // talentTree.SetPanelEvent('onmouseover', function () {});
-});

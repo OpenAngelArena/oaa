@@ -1,0 +1,61 @@
+#talent_hud_btn {
+	background-image: url("file://{images}/custom_game/talents/OAATalentButton.png");
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+}
+
+#talent_hud_btn.upgradeAvailable {
+	animation-name: glowinganimation;
+	animation-duration: 0.75s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+	background-image: url("file://{images}/custom_game/talents/OAATalentButtonUpgrade.png");
+	background-size: 100% 100%;
+}
+
+#talent_hud_btn_overlay {
+	visibility: collapse;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	background-image: url("file://{images}/custom_game/talents/OAATalentButtonSelected.png");
+	background-size: 100% 100%;
+}
+
+#talent_hud_btn_overlay.visible_overlay {
+	visibility: visible;
+}
+
+#talent_hud_scene {
+	visibility: collapse;
+}
+
+#talent_hud_scene.upgradeAvailable {
+	visibility: visible;
+	width: 100%;
+	height: 300%;
+	margin: -1px;
+	border-radius: 50px;
+	margin-top: -55px;
+}
+
+#talent_btn_container {
+	width: 75px;
+	height: 75px;
+	vertical-align: bottom;
+	z-index: 3;
+	margin-bottom: 15px;
+	margin-right: 3px;
+}
+
+@keyframes 'glowinganimation' {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
