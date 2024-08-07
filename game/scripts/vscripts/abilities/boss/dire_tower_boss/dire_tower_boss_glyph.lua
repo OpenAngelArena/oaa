@@ -2,10 +2,10 @@ LinkLuaModifier( "modifier_dire_tower_boss_glyph", "abilities/boss/dire_tower_bo
 
 dire_tower_boss_glyph = class(AbilityBaseClass)
 
--- function dire_tower_boss_glyph:Precache(context)
-  -- PrecacheResource("particle", "particles/items_fx/backdoor_protection_tube.vpcf", context)
-  -- PrecacheResource("particle", "particles/items_fx/glyph.vpcf", context)
--- end
+function dire_tower_boss_glyph:Precache(context)
+  PrecacheResource("particle", "particles/items_fx/backdoor_protection_tube.vpcf", context)
+  PrecacheResource("particle", "particles/items_fx/glyph.vpcf", context)
+end
 
 function dire_tower_boss_glyph:OnSpellStart()
   local caster = self:GetCaster()
@@ -21,11 +21,15 @@ end
 
 modifier_dire_tower_boss_glyph = class(ModifierBaseClass)
 
-function modifier_dire_tower_boss_glyph:IsPurgable()
+function modifier_dire_tower_boss_glyph:IsHidden() -- needs tooltip
   return false
 end
 
-function modifier_dire_tower_boss_glyph:IsHidden() -- needs tooltip
+function modifier_dire_tower_boss_glyph:IsDebuff()
+  return false
+end
+
+function modifier_dire_tower_boss_glyph:IsPurgable()
   return false
 end
 
