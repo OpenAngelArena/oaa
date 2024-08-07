@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: World Builder (Innate) - custom ability
+  // Elder Titan: Astral Worldsmith (Innate) - custom ability
   //=================================================================================================================
   "elder_titan_innate_oaa"
   {
@@ -19,13 +19,8 @@
 
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "175"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "dmg_per_strength"                                  "0.5"
-      "dmg_interval"                                      "0.2"
+      "dmg_per_strength"                                  "0.45"
+      "base_dmg_penalty_per_strength"                     "50"
     }
   }
 }
