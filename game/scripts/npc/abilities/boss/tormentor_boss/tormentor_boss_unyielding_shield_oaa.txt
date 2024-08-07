@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+  "tormentor_boss_unyielding_shield_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/tormentor_boss/tormentor_unyielding_shield.lua"
+    "AbilityTextureName"                                  "miniboss_unyielding_shield"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_absorb"                                     "2750"
+      "regen_per_second"                                  "200"
+    }
+  }
+}

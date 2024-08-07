@@ -34,7 +34,7 @@ function boss_carapace_headbutt:OnAbilityPhaseStart()
     ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width) + Vector(0, 0, 50))
     ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
-    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 255))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
 
     --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance*2,width,50), direction, Vector(255,0,0), 1, castTime)
