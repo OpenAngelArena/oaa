@@ -39,21 +39,21 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "special_bonus_facet_huskar_nothl_conflagration"  "=0"
       }
-      "max_health_cost"
+      "max_health_cost" //OAA
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "special_bonus_facet_huskar_nothl_conflagration"  "=4"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=8"
       }
       "burn_damage" //OAA
       {
         "value"                                           "5 10 15 20 40 80"
         "special_bonus_unique_huskar_2"                   "+5"
       }
-      "burn_damage_max_pct"                   
+      "burn_damage_max_pct" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_nothl_conflagration"  "+1.0"
+        "special_bonus_facet_huskar_nothl_conflagration"  "+0.1"
       }
       "duration"
       {
