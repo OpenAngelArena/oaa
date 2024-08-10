@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.37x + Frost"
   "hero"          "npc_dota_hero_life_stealer"
   "Title"         "Recommended items for Lifestealer"
 
@@ -13,19 +13,28 @@
       "item"      "item_bracer"
     }
 
-    // "#DOTA_Item_Build_For_Farming"
-    // {
-      // "item"      "item_hand_of_midas_1"
-      // "item"      "item_maelstrom"
-      // "item"      "item_radiance"
-    // }
-
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
-      "item"      "item_desolator"
-      "item"      "item_greater_crit"
-      "item"      "item_satanic"
+      "item"      "item_hand_of_midas_1"
+      "item"      "item_maelstrom"
+      "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_armlet"
+      "item"      "item_angels_demise"
+      "item"      "item_monkey_king_bar"
       "item"      "item_abyssal_blade_2"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_vladmirs_grimoire_1"
+      "item"      "item_assault"
+      "item"      "item_pipe"
+      "item"      "item_lucience"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -35,18 +44,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_armlet"
-      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
-      "item"      "item_heart_oaa_1"
-      "item"      "item_mjollnir"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_gungir"
+      "item"      "item_harpoon"
       "item"      "item_nullifier"
       "item"      "item_overwhelming_blink"
       "item"      "item_sange_and_yasha"
       "item"      "item_silver_edge"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_devastator_oaa_2"
       "item"      "item_trumps_fists_1"
     }
   }
