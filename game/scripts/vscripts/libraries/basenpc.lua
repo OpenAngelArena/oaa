@@ -89,6 +89,10 @@ if IsServer() then
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
   end
 
+  function CDOTA_BaseNPC:DispelWeirdDebuffs()
+    -- Cast Time debuffs
+  end
+
   function CDOTA_BaseNPC:AbsolutePurge()
     -- Remove undispellable debuffs first
     self:DispelUndispellableDebuffs()

@@ -7,10 +7,10 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/heroes/doom/doom.vmdl"
     "vscripts"                                            "units/shielder.lua"
-    "SoundSet"                                            "Roshan" // Name of sound set.
+    "SoundSet"                                            "Roshan"
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
@@ -98,7 +98,9 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
+    "MinimapIconSize"                                     "250"
   }
 }

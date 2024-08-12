@@ -140,25 +140,40 @@ end
 --------------------------------------------------------------------------------
 
 function Bloodlust( hUnit )
-  thisEntity:CastAbilityOnTarget( hUnit, thisEntity.BloodlustAbility, thisEntity:entindex() )
-	return 1
+  local ability = thisEntity.BloodlustAbility
+  local cast_point = ability:GetCastPoint()
+
+  thisEntity:CastAbilityOnTarget( hUnit, ability, thisEntity:entindex() ) -- maybe wrong third argument, replace with ExecuteOrderFromTable?
+
+  return cast_point + 0.1
 end
 
 --------------------------------------------------------------------------------
 
 function IgniteArea( hEnemy )
-  thisEntity:CastAbilityOnPosition( hEnemy:GetOrigin(), thisEntity.IgniteAbility, thisEntity:entindex() )
-	return 1
+  local ability = thisEntity.IgniteAbility
+  local cast_point = ability:GetCastPoint()
+
+  thisEntity:CastAbilityOnPosition( hEnemy:GetOrigin(), ability, thisEntity:entindex() ) -- maybe wrong third argument, replace with ExecuteOrderFromTable?
+
+  return cast_point + 0.1
 end
 
 --------------------------------------------------------------------------------
 
 function RetreatHome()
-  DebugPrint("RetreatHome Ogre Seer")
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
   })
-  return 6
+
+  local speed = thisEntity:GetIdealSpeedNoSlows()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
 end

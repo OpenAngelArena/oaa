@@ -18,7 +18,9 @@ end
 function ogre_tank_boss_melee_smash:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
-    local delay = self:GetCastPoint()
+    local cast_point = self:GetCastPoint()
+    local smash_duration = self:GetSpecialValueFor("base_swing_speed") / self:GetPlaybackRateOverride()
+    local delay = cast_point + smash_duration
 
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
   end

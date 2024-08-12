@@ -46,6 +46,9 @@ function LycanBossThink()
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < aggro_hp_pct
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
+  -- Remove debuff protection that was added during retreat
+  thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+
   if hasDamageThreshold then
     if not thisEntity.bHasAgro then
       DebugPrint("Lycan Boss Agro")
@@ -187,67 +190,121 @@ function LycanBossThink()
 	return 0.5
 end
 
-
 function RetreatHome()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos
+  -- Add Debuff Protection when leashing
+  thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
+
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
   })
-  return 6
+
+  local speed = thisEntity:GetIdealSpeed()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
 end
 
 function CastClawAttack( enemy )
   if enemy and not enemy:IsNull() then
-    thisEntity:CastAbilityOnTarget( enemy, thisEntity.hClawAttackAbility, thisEntity:entindex() )
+    thisEntity:DispelWeirdDebuffs()
+
+    local ability = thisEntity.hClawAttackAbility
+    local cast_point = ability:GetCastPoint()
+    local cooldown = ability:GetCooldown(-1)
+    local stun_duration = ability:GetSpecialValueFor("stun_duration")
+
+    thisEntity:CastAbilityOnTarget( enemy, ability, thisEntity:entindex() ) -- maybe wrong third argument, replace with ExecuteOrderFromTable?
+
+    return math.max(cast_point + cooldown, stun_duration) + 0.1 -- old: 2, new: 1.92
   end
 
-  return 2
+  return 0.5
 end
 
 function CastClawLunge( enemy )
   if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local ability = thisEntity.hClawLungeAbility
+    local cast_point = ability:GetCastPoint()
+    local speed = ability:GetSpecialValueFor("lunge_speed")
+    local distance = ability:GetSpecialValueFor("lunge_distance")
+
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-      AbilityIndex = thisEntity.hClawLungeAbility:entindex(),
+      AbilityIndex = ability:entindex(),
       Position = enemy:GetOrigin(),
+      Queue = false,
     })
+
+    if speed ~= 0 then
+      return cast_point + distance / speed + 0.1
+    else
+      print("DIVISION BY 0: lycan_boss_claw_lunge ABILITY HAS 0 for SPEED, check kv name")
+      return cast_point + 0.1
+    end
   end
 
   return 0.5
 end
 
 function CastSummonWolves()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.hSummonWolvesAbility:entindex(),
-	})
+  thisEntity:DispelWeirdDebuffs()
 
-	return 0.6
+  local ability = thisEntity.hSummonWolvesAbility
+  local cast_point = ability:GetCastPoint()
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = ability:entindex(),
+    Queue = false,
+  })
+
+  return cast_point + 0.1
 end
 
 function CastShapeshift()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.hShapeshiftAbility:entindex(),
-	})
+  thisEntity:DispelWeirdDebuffs()
 
-	return 1
+  local ability = thisEntity.hShapeshiftAbility
+  local cast_point = ability:GetCastPoint()
+  local transformation_time = ability:GetSpecialValueFor("transformation_time")
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = ability:entindex(),
+    Queue = false,
+  })
+
+  return cast_point + transformation_time + 0.1
 end
 
 function CastRuptureBall( unit )
   if unit and not unit:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local ability = thisEntity.hRuptureBallAbility
+    local cast_point = ability:GetCastPoint()
+
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-      AbilityIndex = thisEntity.hRuptureBallAbility:entindex(),
+      AbilityIndex = ability:entindex(),
       Position = unit:GetOrigin(),
       Queue = false,
     })
+
+    return cast_point + 0.1
   end
 
-  return 1
+  return 0.5
 end

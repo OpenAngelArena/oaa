@@ -93,6 +93,9 @@ function CarapaceBossThink()
   local aggro_hp_pct = 1 - ((thisEntity.BossTier * BOSS_AGRO_FACTOR) / thisEntity:GetMaxHealth())
 
   if thisEntity.state == AI_STATE_IDLE then
+    -- Remove debuff protection
+    thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
@@ -174,6 +177,8 @@ function CarapaceBossThink()
       end
     end
   elseif thisEntity.state == AI_STATE_LEASH then
+    -- Add Debuff Protection when leashing
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
     thisEntity:MoveToPosition(thisEntity.spawn_position)
     -- Check if boss reached the spawn_position
@@ -189,12 +194,20 @@ function CarapaceBossThink()
 end
 
 function CastHeadbutt()
-	thisEntity:Stop()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.hHeadbuttAbility:entindex(),
-	})
+  thisEntity:DispelWeirdDebuffs()
 
-	return 4.0
+  thisEntity:Stop()
+
+  local ability = thisEntity.hHeadbuttAbility
+  local cast_point = ability:GetCastPoint()
+  local self_stun = ability:GetSpecialValueFor("self_stun")
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = ability:entindex(),
+    Queue = false,
+  })
+
+  return cast_point + self_stun + 1
 end

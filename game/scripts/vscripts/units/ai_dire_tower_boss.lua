@@ -232,6 +232,8 @@ function DireTowerBossThink()
 end
 
 function CastSummonWave()
+  thisEntity:DispelWeirdDebuffs()
+
   local ability = thisEntity.hSummonWaveAbility
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
@@ -243,6 +245,10 @@ function CastSummonWave()
 end
 
 function CastGlyph()
+  -- Super Strong Dispel for the tower
+  thisEntity:Purge(false, true, false, true, true)
+  thisEntity:DispelUndispellableDebuffs()
+
   local ability = thisEntity.hGlyphAbility
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),

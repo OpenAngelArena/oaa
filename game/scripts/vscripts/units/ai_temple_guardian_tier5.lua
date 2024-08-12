@@ -72,6 +72,9 @@ function TempleGuardianThink()
   local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
+  -- Remove debuff protection that was added during retreat
+  thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+
   --Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
     thisEntity.bHasAgro = false
@@ -161,10 +164,14 @@ function FrendlyHasAgro()
 end
 
 function RetreatHome()
+  -- Add Debuff Protection when leashing
+  thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
+
   local current_loc = thisEntity:GetAbsOrigin()
   local destination = thisEntity.vInitialSpawnPos + Vector(0,15,0)
   local distance = (destination - current_loc):Length2D()
   local speed = thisEntity:GetIdealSpeed()
+  local retreat_time = distance / speed + 15 / speed
 
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
@@ -178,10 +185,13 @@ function RetreatHome()
     Position = thisEntity.vInitialSpawnPos,
     Queue = true,
   })
-  return distance/speed + 15/speed + 0.5
+
+  return retreat_time + 0.5
 end
 
 function Wrath()
+  thisEntity:DispelWeirdDebuffs()
+
   local wrath_ability = thisEntity.WrathAbility
   local cast_point = wrath_ability:GetCastPoint()
   local channel_duration = wrath_ability:GetChannelTime()
@@ -192,29 +202,35 @@ function Wrath()
     AbilityIndex = wrath_ability:entindex(),
     Queue = false,
   })
+
   return cast_point + channel_duration + 1
 end
 
 function Throw( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local hammer_throw_ability = thisEntity.HammerThrowAbility
+    local cast_point = hammer_throw_ability:GetCastPoint()
+    local throw_duration = hammer_throw_ability:GetSpecialValueFor("throw_duration")
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = hammer_throw_ability:entindex(),
+      Position = enemy:GetOrigin(),
+      Queue = false,
+    })
+
+    return cast_point + throw_duration + thisEntity.fFuzz
   end
 
-  local hammer_throw_ability = thisEntity.HammerThrowAbility
-  local cast_point = hammer_throw_ability:GetCastPoint()
-  local throw_duration = hammer_throw_ability:GetSpecialValueFor("throw_duration")
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = hammer_throw_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-  return cast_point + throw_duration + thisEntity.fFuzz
+  return 0.5
 end
 
 function Purification( friendly )
+  thisEntity:DispelWeirdDebuffs()
+
   local purification_ability = thisEntity.PurificationAbility
   local cast_point = purification_ability:GetCastPoint()
 
@@ -225,57 +241,62 @@ function Purification( friendly )
     TargetIndex = friendly:entindex(),
     Queue = false,
   })
+
   return cast_point + thisEntity.fFuzz
 end
 
 function Smash( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local smash_ability = thisEntity.HammerSmashAbility
+    local cast_point = smash_ability:GetCastPoint()
+    local swing_time = smash_ability:GetSpecialValueFor("base_swing_speed")
+    local total = cast_point + swing_time + 0.5
+
+    if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+      --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+      thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+    end
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = smash_ability:entindex(),
+      Position = enemy:GetOrigin(),
+      Queue = false,
+    })
+
+    return cast_point + swing_time + thisEntity.fFuzz
   end
 
-  local smash_ability = thisEntity.HammerSmashAbility
-  local cast_point = smash_ability:GetCastPoint()
-  local swing_time = smash_ability:GetSpecialValueFor("base_swing_speed")
-  local total = cast_point + swing_time + 0.5
-
-  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
-    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
-  end
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = smash_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-
-  return cast_point + swing_time + thisEntity.fFuzz
+  return 0.5
 end
 
 function RageSmash( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local rage_smash_ability = thisEntity.RageHammerSmashAbility
+    local cast_point = rage_smash_ability:GetCastPoint()
+    local swing_time = rage_smash_ability:GetSpecialValueFor("base_swing_speed")
+    local total = cast_point + swing_time + 0.5
+
+    if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+      --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+      thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+    end
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = rage_smash_ability:entindex(),
+      Position = enemy:GetOrigin(),
+      Queue = false,
+    })
+
+    return total
   end
 
-  local rage_smash_ability = thisEntity.RageHammerSmashAbility
-  local cast_point = rage_smash_ability:GetCastPoint()
-  local swing_time = rage_smash_ability:GetSpecialValueFor("base_swing_speed")
-  local total = cast_point + swing_time + 0.5
-
-  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
-    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
-  end
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = rage_smash_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-
-  return total
+  return 0.5
 end

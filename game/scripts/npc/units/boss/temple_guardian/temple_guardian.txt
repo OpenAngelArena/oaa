@@ -1,5 +1,8 @@
 "DOTAUnits"
 {
+  //=================================================================================
+  // Boss tier 4 - Temple Guardian
+  //=================================================================================
   "npc_dota_creature_temple_guardian"
   {
     // Script
@@ -11,14 +14,11 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "GameSoundsFile"                                      "soundevents/game_sounds_creeps.vsndevts"
-    "Level"                                               "1"
-    "ModelScale"                                          "2.3072"
+    "Level"                                               "30"
+    "ModelScale"                                          "2.3"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
-
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "275"
 
     // Abilities
     //----------------------------------------------------------------
@@ -33,15 +33,15 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "37"        // Physical protection.
-    "MagicalResistance"                                   "-25"       // Magical protection.
+    "ArmorPhysical"                                       "37"
+    "MagicalResistance"                                   "-25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "4000" // damage of Hammer Smash
-    "AttackDamageMax"                                     "4000"
-    "AttackRate"                                          "2.8"
+    "AttackDamageMin"                                     "4000" // Hammer Smash damage
+    "AttackDamageMax"                                     "4000" // Hammer Smash damage
+    "AttackRate"                                          "2.6" // Hammer Smash cooldown
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1200"
     "AttackRange"                                         "1"
@@ -50,9 +50,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "4000"  // Experience earn.
-    "BountyGoldMin"                                       "0"     // Gold earned min.
-    "BountyGoldMax"                                       "0"     // Gold earned max.
+    "BountyXP"                                            "4000"
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
 
     // Bounds
     //----------------------------------------------------------------
@@ -78,11 +78,13 @@
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
@@ -104,5 +106,10 @@
       "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf"
       "particle"                                          "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf"
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
   }
 }

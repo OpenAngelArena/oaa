@@ -1,16 +1,16 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Twin Boss (melee) Tier 5 Version
+  // Boss tier 5 - Twin Boss (melee)
   //=================================================================================
   "npc_dota_boss_twin_tier5"
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
-    "Model"                                               "models\creeps\item_creeps\i_creep_necro_warrior\necro_warrior.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creep_neutral" // to use neutral AI
+    "Model"                                               "models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"
     "vscripts"                                            "units/twin_tier5.lua"
-    "SoundSet"                                            "Meepo"          // Name of sound set.
+    "SoundSet"                                            "Creep_Good_Melee"
     "ModelScale"                                          "1"
     "Level"                                               "60"
     "IsAncient"                                           "1"
@@ -26,43 +26,43 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "43"      // Physical protection.
-    "MagicalResistance"                                   "-25"     // Magical protection (percentage).
+    "ArmorPhysical"                                       "43"
+    "MagicalResistance"                                   "-25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "5500"    // Damage range min.
-    "AttackDamageMax"                                     "5500"    // Damage range max.
-    "AttackRate"                                          "0.75"      // Speed of attack.
-    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "128"    // Range within a target can be attacked.
+    "AttackDamageMin"                                     "5500"
+    "AttackDamageMax"                                     "5500"
+    "AttackRate"                                          "0.75"
+    "AttackAnimationPoint"                                "0.56"
+    "AttackAcquisitionRange"                              "150"
+    "AttackRange"                                         "128"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "2500" // Experience earn.
-    "BountyGoldMin"                                       "0"    // Gold earned min.
-    "BountyGoldMax"                                       "0"    // Gold earned max.
+    "BountyXP"                                            "2500" // Total with the other twin: 5000
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
     "RingRadius"                                          "110"
     "HealthBarOffset"                                     "400"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "420"    // Speed
-    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "420"
+    "MovementTurnRate"                                    "0.8"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "16000"    // Base health
-    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
-    "StatusMana"                                          "10000"    // Base mana.
-    "StatusManaRegen"                                     "5000"    // Mana regeneration rate.
+    "StatusHealth"                                        "16000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "10000"
+    "StatusManaRegen"                                     "5000"
 
     // Creature data
     //"Creature"
@@ -72,18 +72,20 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
 
     // Inventory
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

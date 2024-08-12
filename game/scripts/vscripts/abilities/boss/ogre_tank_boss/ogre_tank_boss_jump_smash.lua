@@ -7,13 +7,15 @@ function ogre_tank_boss_jump_smash:ProcsMagicStick()
 end
 
 function ogre_tank_boss_jump_smash:GetPlaybackRateOverride()
-  return self:GetSpecialValueFor("jump_speed") / 1.5 -- 0.9 for 1.8, 0.7 for 1.5
+  return self:GetSpecialValueFor("jump_speed") / 2
 end
 
 function ogre_tank_boss_jump_smash:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
-    local delay = self:GetCastPoint()
+    local cast_point = self:GetCastPoint()
+    local jump_duration = self:GetSpecialValueFor("jump_speed")
+    local delay = cast_point + jump_duration
 
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
   end

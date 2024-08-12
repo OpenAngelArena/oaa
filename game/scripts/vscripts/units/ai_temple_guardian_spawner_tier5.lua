@@ -1,19 +1,24 @@
 function Spawn( kv )
-	if not IsServer() then
-		return
-	end
-
-	if thisEntity == nil then
-		return
+  if not thisEntity or not IsServer() then
+    return
   end
+
   thisEntity.bForceKill = false
 
 	thisEntity:SetContextThink( "TempleGuardianSpawnerThink", TempleGuardianSpawnerThink, 1 )
 end
 
 function TempleGuardianSpawnerThink()
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
+    return 1
+  end
+
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
   end
 

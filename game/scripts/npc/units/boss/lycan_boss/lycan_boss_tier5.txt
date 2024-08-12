@@ -1,8 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Creature: Lycan Boss
-  // Zones: forest, forest_holdout
+  // Boss tier 5 - Lycan Boss
   //=================================================================================
   "npc_dota_creature_lycan_boss_tier5"
   {
@@ -14,16 +13,11 @@
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/heroes/lycan/lycan.vmdl"
     "SoundSet"                                            "Hero_Lycan"
-    "Level"                                               "1"
+    "Level"                                               "60"
     "ModelScale"                                          "1.6"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
-
-    // Minimap
-    //----------------------------------------------------------------
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "250"
 
     // Abilities
     //----------------------------------------------------------------
@@ -66,7 +60,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "500"
+    "MovementSpeed"                                       "520"
     "MovementTurnRate"                                    "0.5"
 
     // Status
@@ -80,6 +74,10 @@
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
 
     // Team
     //----------------------------------------------------------------
@@ -133,5 +131,10 @@
         }
       }
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
   }
 }

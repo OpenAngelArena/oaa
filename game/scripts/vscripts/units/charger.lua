@@ -147,7 +147,7 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
   ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
   thisEntity:SetContextThink("ChargerThink", ChargerThink , 1)
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  --print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })

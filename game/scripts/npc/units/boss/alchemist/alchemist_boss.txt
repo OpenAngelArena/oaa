@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 3 - Alchemist boss
+  // Boss tier 4 - Alchemist boss
   //=================================================================================
   "npc_dota_boss_spiders"
   {
@@ -26,8 +26,8 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "37"            // Physical protection.
-    "MagicalResistance"                                   "-25"           // Magical protection (percentage).
+    "ArmorPhysical"                                       "37"         // Base armor
+    "MagicalResistance"                                   "-25"        // Base magic resistance.
 
     // Attack
     //----------------------------------------------------------------
@@ -124,6 +124,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

@@ -61,7 +61,7 @@ function modifier_lycan_boss_claw_lunge:CheckState()
 end
 
 function modifier_lycan_boss_claw_lunge:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10001
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties and anti-stun
 end
 
 --------------------------------------------------------------------------------

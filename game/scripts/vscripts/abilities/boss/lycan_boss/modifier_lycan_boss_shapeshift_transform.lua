@@ -32,3 +32,7 @@ function modifier_lycan_boss_shapeshift_transform:CheckState()
 		[MODIFIER_STATE_STUNNED] = true,
 	}
 end
+
+function modifier_lycan_boss_shapeshift_transform:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties and anti-stun
+end
