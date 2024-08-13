@@ -30,6 +30,9 @@ function DireHoundBossThink()
   end
 
   local function IsAttackable(entity)
+    if not entity then
+      return false
+    end
     if entity:IsBaseNPC() then
       return entity:IsAlive() and not entity:IsAttackImmune() and not entity:IsInvulnerable() and not entity:IsOutOfGame() and not IsNonHostileWard(entity) and not entity:IsCourier()
     end

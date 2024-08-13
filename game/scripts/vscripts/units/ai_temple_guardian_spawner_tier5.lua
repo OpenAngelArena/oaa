@@ -57,7 +57,6 @@ function TempleGuardianSpawnerThink()
 end
 
 function SpawnPedestals()
-
   thisEntity.Pedestal1 = CreateUnitByName('npc_dota_creature_pedestal', thisEntity:GetAbsOrigin() +  Vector( 300, 300, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
   -- For some reason add z values on CreateUnitByName does not work
   local pos = thisEntity.Pedestal1:GetOrigin();

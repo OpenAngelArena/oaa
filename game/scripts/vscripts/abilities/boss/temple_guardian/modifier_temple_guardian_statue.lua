@@ -16,14 +16,21 @@ end
 
 -------------------------------------------------------------------
 
-function modifier_temple_guardian_statue:OnCreated( kv )
-	if IsServer() then
-		self:GetParent():SetAngles( 0, - 90.0, 0 )
-		self:GetParent():StartGesture( ACT_DOTA_CAST_ABILITY_7 )
-	end
+function modifier_temple_guardian_statue:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    parent:SetForwardVector(Vector(0, -1, 0))
+  end
 end
 
 --------------------------------------------------------------------------------
 
+function modifier_temple_guardian_statue:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_DISABLE_TURNING,
+  }
+end
 
-
+function modifier_temple_guardian_statue:GetModifierDisableTurning()
+  return 1
+end

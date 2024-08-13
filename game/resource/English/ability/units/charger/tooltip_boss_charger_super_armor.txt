@@ -3,12 +3,12 @@
 //=============================================================================
 "DOTA_Tooltip_Ability_boss_charger_super_armor"                                 "Unholy Shielding"
 "DOTA_Tooltip_Ability_boss_charger_super_armor_description"                     "Charger maintains a protective field around himself, greatly reducing incoming damage.\n\nWhen Charger is stunned by charging into a pillar, he loses focus, causing #{DOTA_Tooltip_Ability_boss_charger_super_armor} to be disabled for the duration he is stunned."
-"DOTA_Tooltip_Ability_boss_charger_super_armor_Note0"                           "Boss Resistance does not stack with #{DOTA_Tooltip_Ability_boss_charger_super_armor}."
-"DOTA_Tooltip_Ability_boss_charger_super_armor_Note1"                           "Boss Resistance still applies when #{DOTA_Tooltip_Ability_boss_charger_super_armor} is disabled."
-"DOTA_Tooltip_Ability_boss_charger_super_armor_percent_damage_reduce"           "%DAMAGE REDUCTION:"
+"DOTA_Tooltip_Ability_boss_charger_super_armor_Lore"                            "A demonic shield that requires intense body focus."
+"DOTA_Tooltip_Ability_boss_charger_super_armor_bonus_armor"                     "BONUS ARMOR:"
+"DOTA_Tooltip_Ability_boss_charger_super_armor_bonus_magic_resistance"          "%BONUS MAGIC RESIST:"
 
 "DOTA_Tooltip_modifier_boss_charger_super_armor"                                "#{DOTA_Tooltip_Ability_boss_charger_super_armor}"
-"DOTA_Tooltip_modifier_boss_charger_super_armor_description"                    "Additionaly reducing damage"
+"DOTA_Tooltip_modifier_boss_charger_super_armor_description"                    "Taking less damage."
 
 "DOTA_Tooltip_modifier_boss_charger_pillar_debuff"                              "#{DOTA_Tooltip_Ability_boss_charger_super_armor} Disabled"
 "DOTA_Tooltip_modifier_boss_charger_pillar_debuff_description"                  "Taking more damage while stunned."

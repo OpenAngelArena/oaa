@@ -1,20 +1,15 @@
 require('abilities/boss/swiper/boss_swiper_swipe')
 
 function Spawn( entityKeyValues )
-	if thisEntity == nil then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if IsServer() == false then
-		return
-	end
+  thisEntity.hThrustAbility = thisEntity:FindAbilityByName( "boss_swiper_thrust" )
+  thisEntity.hFrontswipeAbility = thisEntity:FindAbilityByName( "boss_swiper_frontswipe" )
+  thisEntity.hReapersRushAbility = thisEntity:FindAbilityByName( "boss_swiper_reapers_rush" )
 
-	thisEntity.hThrustAbility = thisEntity:FindAbilityByName( "boss_swiper_thrust" )
-	thisEntity.hFrontswipeAbility = thisEntity:FindAbilityByName( "boss_swiper_frontswipe" )
-	thisEntity.hBackswipeAbility = thisEntity:FindAbilityByName( "boss_swiper_backswipe" )
-	thisEntity.hReapersRushAbility = thisEntity:FindAbilityByName( "boss_swiper_reapers_rush" )
-
-	thisEntity:SetContextThink( "SwiperBossThink", SwiperBossThink, 1 )
+  thisEntity:SetContextThink( "SwiperBossThink", SwiperBossThink, 1 )
 end
 
 function SwiperBossThink()
@@ -85,23 +80,25 @@ function SwiperBossThink()
 	-- Swipe
 	local swipeRange = thisEntity.hFrontswipeAbility:GetCastRange(thisEntity:GetAbsOrigin(), thisEntity)
 
-	if thisEntity.hFrontswipeAbility:IsCooldownReady() then
-		local frontSwipeEnemies = FindUnitsInRadius(
-			thisEntity:GetTeamNumber(),
-			thisEntity:GetOrigin(), nil,
-			swipeRange,
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-			FIND_CLOSEST,
-			false
-		)
+  if thisEntity.hFrontswipeAbility:IsCooldownReady() then
+    local frontSwipeEnemies = FindUnitsInRadius(
+      thisEntity:GetTeamNumber(),
+      thisEntity:GetOrigin(),
+      nil,
+      swipeRange,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      FIND_CLOSEST,
+      false
+    )
 
-		if #frontSwipeEnemies >= thisEntity.hFrontswipeAbility:GetSpecialValueFor("min_targets") then
-			thisEntity:SetForwardVector((frontSwipeEnemies[1]:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Normalized())
-			return CastFrontswipe(frontSwipeEnemies[1]:GetAbsOrigin())
-		end
-	end
+    if #frontSwipeEnemies >= thisEntity.hFrontswipeAbility:GetSpecialValueFor("min_targets") then
+      -- this thing here is the main cause for Swiper tilts but it's somehow needed for casting front swipe
+      --thisEntity:SetForwardVector((frontSwipeEnemies[1]:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Normalized())
+      return CastFrontswipe(frontSwipeEnemies[1]:GetAbsOrigin())
+    end
+  end
 
 	-- Thrust
 	local thrustRange = thisEntity.hThrustAbility:GetSpecialValueFor("range")
@@ -217,26 +214,7 @@ function CastFrontswipe( position )
     Queue = false,
   })
 
-  local delay = cast_point + 1.0
-
-  -- Chance for backswipe: Why is this a thing?
-  if RandomInt(1,4) == 1 then
-    Timers:CreateTimer(delay - 0.9, function (  )
-      if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then return end
-      ability:StartCooldown(ability:GetCooldownTime() * 2)
-      thisEntity:Stop()
-      ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = thisEntity.hBackswipeAbility:entindex(),
-        Queue = false,
-      })
-    end)
-
-    return delay * 2
-  else
-    return delay
-  end
+  return cast_point + 1.0
 end
 
 function CastThrust( position )
