@@ -2,6 +2,18 @@ modifier_lycan_boss_shapeshift_transform = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
+function modifier_lycan_boss_shapeshift_transform:IsHidden()
+  return true
+end
+
+function modifier_lycan_boss_shapeshift_transform:IsDebuff()
+  return false
+end
+
+function modifier_lycan_boss_shapeshift_transform:IsPurgable()
+  return false
+end
+
 function modifier_lycan_boss_shapeshift_transform:OnCreated( kv )
   if IsServer() then
     local parent = self:GetParent()

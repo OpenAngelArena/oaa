@@ -1,5 +1,17 @@
 modifier_boss_shielder_shielded_buff = class(ModifierBaseClass)
 
+function modifier_boss_shielder_shielded_buff:IsHidden()
+  return true
+end
+
+function modifier_boss_shielder_shielded_buff:IsDebuff()
+  return false
+end
+
+function modifier_boss_shielder_shielded_buff:IsPurgable()
+  return false
+end
+
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
@@ -53,14 +65,6 @@ if IsServer() then
   end
 end
 
-function modifier_boss_shielder_shielded_buff:IsHidden()
-  return true
-end
-
-function modifier_boss_shielder_shielded_buff:IsPurgable()
-  return false
-end
-
 function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
@@ -71,6 +75,10 @@ function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(key
   local damage_flags = keys.damage_flags
 
   if attacker == parent then -- boss degen
+    return 0
+  end
+
+  if parent:PassivesDisabled() or parent:IsIllusion() then
     return 0
   end
 
@@ -92,7 +100,7 @@ function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(key
     -- Return Damage
     local damage_return = damage * (ability:GetSpecialValueFor("damage_return_pct")) / 100
     local damage_return_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION)
-    if not attacker:IsMagicImmune() and not attacker:IsDebuffImmune() then
+    if not attacker:IsMagicImmune() and not attacker:IsDebuffImmune() and not Duels:IsActive() then
       ApplyDamage({
         victim = attacker,
         attacker = parent,

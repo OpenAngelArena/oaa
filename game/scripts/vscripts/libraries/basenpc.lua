@@ -90,7 +90,21 @@ if IsServer() then
   end
 
   function CDOTA_BaseNPC:DispelWeirdDebuffs()
-    -- Cast Time debuffs
+    -- Debuffs that reduce cast range or increase cast time (reduce cast speed)
+    local a = {
+      "modifier_bane_enfeeble_effect",
+      "modifier_faceless_void_time_zone_effect", -- it will probably get reapplied again
+      "modifier_medusa_venomed_volley_slow",
+      "modifier_tinker_warp_grenade",
+    }
+
+    local function RemoveTableOfModifiersFromUnit(unit, t)
+      for i = 1, #t do
+        unit:RemoveModifierByName(t[i])
+      end
+    end
+
+    RemoveTableOfModifiersFromUnit(self, a)
   end
 
   function CDOTA_BaseNPC:AbsolutePurge()

@@ -80,6 +80,11 @@ function modifier_tormentor_unyielding_shield_oaa:HandleCustomTransmitterData(da
 end
 
 function modifier_tormentor_unyielding_shield_oaa:OnIntervalThink()
+  -- Don't regenerate the shield during Duels
+  if Duels:IsActive() then
+    return
+  end
+
   self.currentShield = math.min(self.currentShield + self.regenPerSecondThink, self.maxShield)
   self:SendBuffRefreshToClients()
 end

@@ -144,6 +144,11 @@ if IsServer() then
       return
     end
 
+    -- Don't return damage during Duels
+    if Duels:IsActive() then
+      return
+    end
+
     local enemies = FindUnitsInRadius(
       self.parent:GetTeamNumber(),
       self.parent:GetAbsOrigin(),

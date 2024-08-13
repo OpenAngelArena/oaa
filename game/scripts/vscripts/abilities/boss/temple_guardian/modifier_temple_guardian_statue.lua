@@ -3,7 +3,15 @@ modifier_temple_guardian_statue = class(ModifierBaseClass)
 -----------------------------------------------------------------------------
 
 function modifier_temple_guardian_statue:IsHidden()
-	return true
+  return true
+end
+
+function modifier_temple_guardian_statue:IsDebuff()
+  return false
+end
+
+function modifier_temple_guardian_statue:IsPurgable()
+  return false
 end
 
 -------------------------------------------------------------------

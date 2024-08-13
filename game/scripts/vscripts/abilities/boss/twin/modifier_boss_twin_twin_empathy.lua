@@ -1,6 +1,18 @@
 
 modifier_boss_twin_twin_empathy_buff = class(AbilityBaseClass)
 
+function modifier_boss_twin_twin_empathy_buff:IsHidden()
+  return false
+end
+
+function modifier_boss_twin_twin_empathy_buff:IsDebuff()
+  return false
+end
+
+function modifier_boss_twin_twin_empathy_buff:IsPurgable()
+  return false
+end
+
 function modifier_boss_twin_twin_empathy_buff:OnCreated()
   if not IsServer() then
     return
@@ -12,14 +24,6 @@ function modifier_boss_twin_twin_empathy_buff:OnCreated()
   end
   self:StartIntervalThink(interval)
   self.interval = interval
-end
-
-function modifier_boss_twin_twin_empathy_buff:IsHidden()
-  return false
-end
-
-function modifier_boss_twin_twin_empathy_buff:IsPurgable()
-  return false
 end
 
 function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()

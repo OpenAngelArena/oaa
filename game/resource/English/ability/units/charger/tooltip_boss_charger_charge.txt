@@ -2,24 +2,32 @@
 // Charger Charge
 //=============================================================================
 "DOTA_Tooltip_Ability_boss_charger_charge"                                      "Charge"
-"DOTA_Tooltip_Ability_boss_charger_charge_Description"                          "Charger channels his charge. It becomes more powerful as he gets closer to death.\nCharging into a pillar will cause Charger to be stunned and take increased damage."
-"DOTA_Tooltip_Ability_boss_charger_charge_Note0"                                "Charger will not be stunned if he crushes a hero into a pillar."
-"DOTA_Tooltip_Ability_boss_charger_charge_hero_pillar_damage"                   "HERO PILLAR DAMAGE:"
-"DOTA_Tooltip_Ability_boss_charger_charge_hero_stun_duration"                   "HERO PILLAR STUN:"
+"DOTA_Tooltip_Ability_boss_charger_charge_Description"                          "After channeling, Charger will charge towards the nearest enemy and grab enemies on its path. Enemies that eluded Charger will be slowed and take minor damage but enemies smashed into a pillar will be broken, stunned and take huge damage. \n If Charger charges into a pillar and it didn't grab any enemy during his charge, it will become stunned and #{DOTA_Tooltip_Ability_boss_charger_super_armor} will be disabled."
+"DOTA_Tooltip_Ability_boss_charger_charge_Lore"                                 "Even without a head, Charger can still defend itself."
+"DOTA_Tooltip_Ability_boss_charger_charge_Note0"                                "Charger will not be stunned if he smashes a hero into a pillar."
+"DOTA_Tooltip_Ability_boss_charger_charge_hero_pillar_damage"                   "PILLAR DAMAGE:"
+"DOTA_Tooltip_Ability_boss_charger_charge_hero_stun_duration"                   "PILLAR STUN:"
 "DOTA_Tooltip_Ability_boss_charger_charge_debuff_duration"                      "CHARGER PILLAR STUN:"
+"DOTA_Tooltip_Ability_boss_charger_charge_glancing_damage"                      "MIN DAMAGE:"
+"DOTA_Tooltip_Ability_boss_charger_charge_glancing_slow"                        "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_Ability_boss_charger_charge_glancing_duration"                    "SLOW DURATION:"
 
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5"                                "#{DOTA_Tooltip_Ability_boss_charger_charge}"
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5_Description"                    "#{DOTA_Tooltip_Ability_boss_charger_charge_Description}"
+"DOTA_Tooltip_Ability_boss_charger_charge_tier5_Lore"                           "#{DOTA_Tooltip_Ability_boss_charger_charge_Lore}"
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5_Note0"                          "#{DOTA_Tooltip_Ability_boss_charger_charge_Note0}"
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5_hero_pillar_damage"             "#{DOTA_Tooltip_Ability_boss_charger_charge_hero_pillar_damage}"
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5_hero_stun_duration"             "#{DOTA_Tooltip_Ability_boss_charger_charge_hero_stun_duration}"
 "DOTA_Tooltip_Ability_boss_charger_charge_tier5_debuff_duration"                "#{DOTA_Tooltip_Ability_boss_charger_charge_debuff_duration}"
+"DOTA_Tooltip_Ability_boss_charger_charge_tier5_glancing_damage"                "#{DOTA_Tooltip_Ability_boss_charger_charge_glancing_damage}"
+"DOTA_Tooltip_Ability_boss_charger_charge_tier5_glancing_slow"                  "#{DOTA_Tooltip_Ability_boss_charger_charge_glancing_slow}"
+"DOTA_Tooltip_Ability_boss_charger_charge_tier5_glancing_duration"              "#{DOTA_Tooltip_Ability_boss_charger_charge_glancing_duration}"
 
 "DOTA_Tooltip__modifier_boss_charger_charge"                                    "Charging"
 "DOTA_Tooltip__modifier_boss_charger_charge_Description"                        "Choo choo."
 
-"DOTA_Tooltip_modifier_boss_charger_glanced"                                    "Glanced by Charge"
+"DOTA_Tooltip_modifier_boss_charger_glanced"                                    "Charger Zoomed"
 "DOTA_Tooltip_modifier_boss_charger_glanced_Description"                        "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "DOTA_Tooltip_modifier_boss_charger_hero_pillar_debuff"                         "Smashed"
-"DOTA_Tooltip_modifier_boss_charger_hero_pillar_debuff_Description"             "Stunned, disabled passives, damage block and evasion."
+"DOTA_Tooltip_modifier_boss_charger_hero_pillar_debuff_Description"             "Stunned and disabled passives."

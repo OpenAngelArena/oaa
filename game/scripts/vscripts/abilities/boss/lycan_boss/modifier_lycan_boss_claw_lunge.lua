@@ -20,13 +20,19 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:IsHidden()
-	return true
+  return true
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_lycan_boss_claw_lunge:IsDebuff()
+  return false
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:IsPurgable()
-	return false
+  return false
 end
 
 --------------------------------------------------------------------------------
@@ -49,14 +55,14 @@ end
 
 function modifier_lycan_boss_claw_lunge:CheckState()
   return {
-    [MODIFIER_STATE_STUNNED] = true, -- self stun to prevent casting during Lunge?
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_STUNNED] = true, -- If the parent has Debuff Protection it will not stun
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true, -- replace with MODIFIER_STATE_DEBUFF_IMMUNE if needed
     [MODIFIER_STATE_HEXED] = false,
     [MODIFIER_STATE_ROOTED] = false,
     [MODIFIER_STATE_SILENCED] = false,
     [MODIFIER_STATE_FROZEN] = false,
     [MODIFIER_STATE_FEARED] = false,
-    --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true, -- motion controller modifier having this is a paradox
   }
 end
 

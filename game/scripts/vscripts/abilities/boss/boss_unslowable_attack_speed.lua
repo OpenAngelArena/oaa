@@ -14,6 +14,10 @@ function modifier_boss_unslowable_attack_speed:IsHidden()
   return true
 end
 
+function modifier_boss_unslowable_attack_speed:IsDebuff()
+  return false
+end
+
 function modifier_boss_unslowable_attack_speed:IsPurgable()
   return false
 end
