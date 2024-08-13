@@ -8,20 +8,6 @@
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "bloodseeker_bloodrage"
     "ScriptFile"                                          "abilities/boss/slime/boss_slime_split.lua"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    // "AbilityCastRange"              "800"
-    // "AbilityCastPoint"              "2.0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    // "AbilityCooldown"               "10"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    // "AbilityManaCost"               "0"
   }
 }

@@ -56,9 +56,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1500"
+    "StatusHealth"                                        "1500" // has 2750 shield
     "StatusHealthRegen"                                   "0"
-    "StatusMana"                                          "3750"
+    "StatusMana"                                          "2125"
     "StatusManaRegen"                                     "5"
 
     // Creature data
@@ -82,7 +82,9 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
+    "MinimapIconSize"                                     "250"
   }
 }

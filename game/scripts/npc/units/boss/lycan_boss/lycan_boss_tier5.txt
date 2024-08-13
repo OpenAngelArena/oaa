@@ -37,9 +37,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "7000" // damage of Claw Attack tier 5
-    "AttackDamageMax"                                     "7000"
-    "AttackRate"                                          "1.45"
+    "AttackDamageMin"                                     "7000" // Claw Attack Damage (visual purpose only)
+    "AttackDamageMax"                                     "7000" // Claw Attack Damage (visual purpose only)
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.55"
     "AttackAcquisitionRange"                              "600"
     "AttackRange"                                         "200"
@@ -67,8 +67,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "16000"
     "StatusHealthRegen"                                   "0"
-    "StatusMana"                                          "10000"
-    "StatusManaRegen"                                     "5000"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Vision
     //----------------------------------------------------------------

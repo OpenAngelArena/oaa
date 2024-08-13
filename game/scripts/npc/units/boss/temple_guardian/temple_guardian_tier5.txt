@@ -39,9 +39,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "8000" // Hammer Smash damage
-    "AttackDamageMax"                                     "8000" // Hammer Smash damage
-    "AttackRate"                                          "2.6" // Hammer Smash cooldown
+    "AttackDamageMin"                                     "8000" // Hammer Smash Damage (visual purpose only)
+    "AttackDamageMax"                                     "8000" // Hammer Smash Damage (visual purpose only)
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1500"
     "AttackRange"                                         "1"
@@ -70,8 +70,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "16000"
     "StatusHealthRegen"                                   "0" // they can spam heal bombs for effective 500 hp/s heals
-    "StatusMana"                                          "10000"
-    "StatusManaRegen"                                     "5000"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Vision
     //----------------------------------------------------------------
