@@ -70,6 +70,7 @@ function modifier_tormentor_radiance_oaa:OnIntervalThink()
     damage = self.dmg_per_interval,
     damage_type = DAMAGE_TYPE_MAGICAL,
     ability = self:GetAbility(),
+    damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
   }
 
   for _, enemy in pairs(enemies) do

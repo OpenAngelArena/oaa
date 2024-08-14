@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_boss_slime_split_passive", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_slime_invulnerable_oaa", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_slime_dead_tracker", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_slime_split = class(AbilityBaseClass)
 
@@ -24,7 +25,7 @@ function modifier_boss_slime_split_passive:IsPurgable()
 end
 
 function modifier_boss_slime_split_passive:RemoveOnDeath()
-	return true
+  return false
 end
 
 function modifier_boss_slime_split_passive:DeclareFunctions()
@@ -72,7 +73,7 @@ if IsServer() then
       return
     end
 
-    if parent:GetHealth() == 1.0 then
+    if parent:GetHealth() <= 1.0 then
       local shakeAbility = parent:FindAbilityByName("boss_slime_shake")
       if shakeAbility then
         parent:Stop()
@@ -81,69 +82,120 @@ if IsServer() then
           UnitIndex = parent:entindex(),
           OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
           AbilityIndex = shakeAbility:entindex(),
+          Queue = false,
         })
         parent:AddNewModifier(parent, shakeAbility, "modifier_boss_slime_invulnerable_oaa", {})
+
+        self.readyToDie = true
+
         -- Do stuff after a delay
-        self:StartIntervalThink(shakeAbility:GetChannelTime())
+        self:StartIntervalThink(shakeAbility:GetChannelTime() + 0.1)
       end
     end
 	end
 
   function modifier_boss_slime_split_passive:OnIntervalThink()
     local parent = self:GetParent()
-    --local ability = self:GetAbility()
-    self.readyToDie = true
+
     self:StartIntervalThink(-1)
-    if not parent or parent:IsNull() then
+
+    -- Somebody killed the boss through invulnerability ...
+    if not parent or parent:IsNull() or not parent:IsAlive() then
       return
     end
+
+    -- Remove invulnerability so we can kill it
     parent:RemoveModifierByName("modifier_boss_slime_invulnerable_oaa")
-    parent:AddNoDraw()
-    if parent.SetClones then
-      parent:SetClones(
-        self:CreateClone(parent:GetAbsOrigin() + Vector( 100,0,0)),
-        self:CreateClone(parent:GetAbsOrigin() + Vector(-100,0,0))
-      )
-    end
-    Timers:CreateTimer(function()
-      if parent and not parent:IsNull() then
-        --parent:Kill(ability, parent) -- crashes
-        parent:ForceKillOAA(false)
-      end
-    end)
+
+    local event = {
+      unit = parent,
+    }
+    self:OnDeath(event)
   end
 
-  -- Needed for deaths not caused by ForceKill, OnDeath ignores ForceKill deaths
   function modifier_boss_slime_split_passive:OnDeath(event)
-    local caster = self:GetParent()
-    if not caster then
+    local parent = self:GetParent()
+    local dead = event.unit
+
+    -- Check if dead unit has this modifier
+    if dead ~= parent then
       return
     end
-    if event.unit == caster then
-      if caster.SetClones then
-        caster:SetClones(
-          self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
-          self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
-        )
-      end
-      caster:AddNoDraw()
-    end
-  end
-end
 
-function modifier_boss_slime_split_passive:CreateClone(origin)
-  local caster = self:GetParent()
-  local unitName = caster:GetUnitName()
-  local clone = CreateUnitByName(unitName, origin, true, caster, caster, caster:GetTeamNumber())
-  clone:RemoveAbility("boss_slime_split")
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = caster:GetItemInSlot(i)
-    if item then
-      --clone:AddItem(CreateItem(item:GetName(), clone, clone))
-      clone:AddItemByName(item:GetName())
+    -- Check if this code was already executed - failsafe if ForceKillOAA triggers OnDeath
+    if self.already_happened then
+      return
+    end
+
+    self.already_happened = true
+
+    local death_location = parent:GetAbsOrigin()
+    local name = parent:GetUnitName()
+    local spawner = parent.Spawner
+    if not spawner or spawner:IsNull() then
+      -- this shouldnt happen but putting a failsafe
+      print("SPAWNER FOR THE SLIME BOSS DOES NOT EXIST, SEARCHING FOR THE NEAREST SLIME SPAWNER!")
+      local friendlies = FindUnitsInRadius(
+        parent:GetTeamNumber(),
+        death_location,
+        nil,
+        FIND_UNITS_EVERYWHERE,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+        FIND_CLOSEST,
+        false
+      )
+      for _, friendly in ipairs(friendlies) do
+        if friendly and not friendly:IsNull() then
+          if friendly:GetUnitName() == "npc_dota_creature_slime_spawner" then
+            spawner = friendly
+            break
+          end
+        end
+      end
+      if not spawner or spawner:IsNull() then
+        print("CANNOT FIND THE SLIME SPAWNER, USING BIG SLIME BOSS AS REPLACEMENT!")
+        spawner = parent
+      else
+        print("FOUND THE NEAREST SLIME SPAWNER!")
+      end
+    end
+
+    -- Hide the unit death animation
+    parent:AddNoDraw()
+
+    self:CreateClone(name, death_location + Vector( 100,0,0), spawner)
+    self:CreateClone(name, death_location + Vector(-100,0,0), spawner)
+
+    -- Needed if OnDeath is triggered through OnIntervalThink and if ForceKillOAA doesn't trigger it
+    if parent and not parent:IsNull() and parent:IsAlive() then
+      --parent:Kill(nil, parent) -- crashes
+      parent:ForceKillOAA(false) -- sometimes triggers OnDeath, sometimes it does not
     end
   end
-  return clone
+
+  function modifier_boss_slime_split_passive:CreateClone(name, origin, owner)
+    local clone = CreateUnitByName(name, origin, true, owner, owner, owner:GetTeamNumber())
+
+    -- Clones should not split into more clones
+    clone:RemoveAbility("boss_slime_split")
+
+    -- Assign constants
+    clone.BossTier = owner.BossTier or 2
+    clone.Spawner = owner
+
+    -- Add the same items as the owner
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      local item = owner:GetItemInSlot(i)
+      if item then
+        clone:AddItemByName(item:GetName())
+      end
+    end
+
+    -- Start tracking clone death, when a clone dies, kill the owner
+    clone:AddNewModifier(clone, nil, "modifier_boss_slime_dead_tracker", {})
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -193,4 +245,72 @@ function modifier_boss_slime_invulnerable_oaa:CheckState()
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_UNSELECTABLE] = true,
   }
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_slime_dead_tracker = class(ModifierBaseClass)
+
+function modifier_boss_slime_dead_tracker:IsHidden()
+  return true
+end
+
+function modifier_boss_slime_dead_tracker:IsDebuff()
+  return false
+end
+
+function modifier_boss_slime_dead_tracker:IsPurgable()
+  return false
+end
+
+function modifier_boss_slime_dead_tracker:RemoveOnDeath()
+  return false
+end
+
+function modifier_boss_slime_dead_tracker:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH, -- OnDeath
+  }
+end
+
+if IsServer() then
+  function modifier_boss_slime_dead_tracker:OnDeath(event)
+    local parent = self:GetParent()
+    local dead = event.unit
+
+    -- Check if dead unit has this modifier
+    if dead ~= parent then
+      return
+    end
+
+    local spawner = parent.Spawner
+
+    -- Check if spawner exists
+    if not spawner or spawner:IsNull() then
+      self:Destroy()
+      return
+    end
+
+    -- Check if spawner is dead
+    if not spawner:IsAlive() then
+      self:Destroy()
+      return
+    end
+
+    local killer = event.attacker
+    local killer_team = killer:GetTeamNumber()
+
+    -- Remove invulnerability so we can kill it
+    if spawner:HasAbility("boss_out_of_game") then
+      spawner:RemoveAbility("boss_out_of_game")
+    end
+
+    if killer_team == DOTA_TEAM_NEUTRALS then
+      spawner:ForceKillOAA(false)
+    else
+      spawner:Kill(event.inflictor, killer) -- this will crash if the killer is on the neutral team
+    end
+
+    self:Destroy()
+  end
 end

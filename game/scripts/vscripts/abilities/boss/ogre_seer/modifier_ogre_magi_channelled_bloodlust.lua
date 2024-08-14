@@ -1,5 +1,17 @@
 modifier_ogre_magi_channelled_bloodlust = class(ModifierBaseClass)
 
+function modifier_ogre_magi_channelled_bloodlust:IsHidden()
+  return false
+end
+
+function modifier_ogre_magi_channelled_bloodlust:IsDebuff()
+  return false
+end
+
+function modifier_ogre_magi_channelled_bloodlust:IsPurgable()
+  return false
+end
+
 -----------------------------------------------------------------------------
 
 function modifier_ogre_magi_channelled_bloodlust:GetAttributes()

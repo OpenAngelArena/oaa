@@ -1,4 +1,4 @@
--- Component for handling the ModifierGained Filter used to block silence and stuns on Silt Bosses
+-- Component for handling the ModifierGained Filter used to block modifiers that pierce debuff immunity or last too long
 
 if not BossProtectionFilter then
   DebugPrint("Creating filter for Preemptive protect from stun")
@@ -12,6 +12,7 @@ if not BossProtectionFilter then
     batrider_flaming_lasso = true, -- pierces bkb
     beastmaster_primal_roar = true, -- pierces bkb
     brewmaster_storm_cyclone = true,
+    --chaos_knight_reality_rift = true, -- displacement pierces bkb with the talent, sadly this displacement is not a modifier
     dawnbreaker_solar_guardian = true, -- pierce bkb
     death_prophet_silence = true,
     disruptor_static_storm = true, -- applied constantly in aoe
@@ -23,6 +24,7 @@ if not BossProtectionFilter then
     faceless_void_chronosphere = true, -- pierces bkb
     faceless_void_time_lock = true, -- pierces bkb
     faceless_void_time_lock_oaa = true, -- pierces bkb
+    faceless_void_time_zone = true,
     --huskar_life_break = true, -- scepter taunt pierces bkb
     keeper_of_the_light_will_o_wisp = true,
     lion_voodoo = true,
@@ -39,6 +41,7 @@ if not BossProtectionFilter then
     puck_dream_coil = true, -- pierces bkb with talent
     pudge_dismember = true, -- pierces bkb
     pudge_meat_hook = true, -- pierces bkb
+    --queenofpain_sonic_wave = true, -- pierces bkb
     rattletrap_hookshot = true, -- pierces bkb
     riki_smoke_screen = true, -- applied constantly in aoe
     shadow_shaman_voodoo = true,
@@ -59,6 +62,12 @@ if not BossProtectionFilter then
     venomancer_latent_poison = true, -- pierces bkb
     warlock_rain_of_chaos = true, -- pierces bkb
     winter_wyvern_winters_curse = true, -- pierces bkb
+  }
+
+  BossProtectionFilter.ForbiddenCasting = {
+    chaos_knight_reality_rift = true, -- because of displacement without a modifier
+    --tusk_walrus_kick = true,
+    vengefulspirit_nether_swap = true, -- because of displacement without a modifier
   }
 
   BossProtectionFilter.ItemsList = {
@@ -88,6 +97,7 @@ if not BossProtectionFilter then
     modifier_huskar_life_break_taunt = true, -- pierces bkb
     modifier_stunned = true, -- sometimes pierces bkb
     modifier_queenofpain_scream_of_pain_fear = true, -- pierces bkb
+    modifier_queenofpain_sonic_wave_knockback = true, -- pierces bkb
     modifier_viper_viper_strike_silence = true,
   }
 end
@@ -95,6 +105,7 @@ end
 function BossProtectionFilter:Init()
   self.moduleName = "Boss Protection Filter"
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
+  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterOrders"))
 end
 
 function BossProtectionFilter:ModifierGainedFilter(keys)
@@ -118,6 +129,57 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
 
   -- protected boss should never be bashed or silenced
   if BossProtectionFilter.ModifierList[modifierName] or BossProtectionFilter.SpellsList[abilityName] or BossProtectionFilter.ItemsList[abilityName] then
+    return false
+  end
+
+  return true
+end
+
+function BossProtectionFilter:FilterOrders(keys)
+  local order = keys.order_type
+  local units = keys.units
+  local playerID = keys.issuer_player_id_const
+
+  local unit_with_order
+  if units and units["0"] then
+    unit_with_order = EntIndexToHScript(units["0"])
+  end
+  local ability_index = keys.entindex_ability
+  local ability
+  if ability_index then
+    ability = EntIndexToHScript(ability_index)
+  end
+  local target_index = keys.entindex_target
+  local target
+  if target_index then
+    target = EntIndexToHScript(target_index)
+  end
+
+  local cancel = false
+  if order == DOTA_UNIT_ORDER_CAST_TARGET then
+    -- Check if needed variables exist
+    if unit_with_order and ability and target then
+      -- Prevent targetting bosses if certain conditions are fulfilled
+      if target ~= unit_with_order and target:IsOAABoss() then
+        -- Check ability name
+        local ability_name = ability:GetAbilityName()
+        if BossProtectionFilter.ForbiddenCasting[ability_name] then
+          -- Check if boss has Debuff Protection or it's a wandering boss
+          if target:HasModifier("modifier_boss_debuff_protection_oaa") or target:HasModifier("modifier_anti_stun_oaa") or target.wandering ~= nil then
+            cancel = true
+          end
+          -- Check if it's idle Charger
+          if target:HasModifier("modifier_boss_charger_super_armor") and not target:HasModifier("modifier_boss_charger_pillar_debuff") then
+            cancel = true
+          end
+        end
+      end
+    end
+  end
+
+  if cancel then
+    -- Error - You cannot target that
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 48, message = ""})
     return false
   end
 

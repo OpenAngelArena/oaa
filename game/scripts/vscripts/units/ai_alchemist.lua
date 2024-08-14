@@ -6,11 +6,7 @@ local SIMPLE_BOSS_LEASH_SIZE = BOSS_LEASH_SIZE or 1200
 local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
 function Spawn(entityKeyValues)
-  if not IsServer() then
-    return
-  end
-
-  if thisEntity == nil then
+  if not thisEntity or not IsServer() then
     return
   end
 
@@ -157,6 +153,9 @@ function AlchemistThink()
   local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
   local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
+    -- Remove debuff protection
+    thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
         -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
@@ -406,6 +405,8 @@ function AlchemistThink()
       thisEntity.bRoamed = not thisEntity.bRoamed
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
+    -- Add Debuff Protection when leashing
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
     thisEntity:MoveToPosition(thisEntity.spawn_position)
     -- Check if boss reached the spawn_position
@@ -421,6 +422,8 @@ function AlchemistThink()
 end
 
 function CastOnPoint(ability, target)
+  thisEntity:DispelWeirdDebuffs()
+
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,

@@ -120,6 +120,10 @@ modifier_boss_spiders_spiderball_slow = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
+function modifier_boss_spiders_spiderball_slow:IsHidden()
+  return false
+end
+
 function modifier_boss_spiders_spiderball_slow:IsDebuff()
   return true
 end

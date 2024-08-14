@@ -208,9 +208,12 @@ function WandererThink ()
     -- Cast abilities if below 75% health
     if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
       if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
+        thisEntity:DispelWeirdDebuffs()
+
         local cast_point = thisEntity.netAbility:GetCastPoint()
         thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
-        return math.max(1, cast_point+0.1)
+
+        return cast_point + 0.1
       end
       if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
         if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() then
@@ -228,14 +231,16 @@ function WandererThink ()
             false
           )
           if #enemiesToCleanse > 1 then
-            local cast_point = ability:GetCastPoint()
+            thisEntity:DispelWeirdDebuffs()
+
             ExecuteOrderFromTable({
               UnitIndex = thisEntity:entindex(),
               OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
               AbilityIndex = ability:entindex(),
               Queue = false,
             })
-            return math.max(1, cast_point+0.1)
+
+            return ability:GetCastPoint() + 0.5
           end
         end
       end

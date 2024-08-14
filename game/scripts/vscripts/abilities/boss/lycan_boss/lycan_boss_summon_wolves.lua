@@ -33,7 +33,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
   local nWerewolves = self:GetSpecialValueFor("num_werewolf_spawn")
   local summon_duration = self:GetSpecialValueFor("wolf_duration")
 
-  if caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil then
+  if caster:HasModifier("modifier_lycan_boss_shapeshift") then
     nHoundSpawns = self:GetSpecialValueFor("num_ss_hound_spawn")
     nHoundBossSpawns = self:GetSpecialValueFor("num_ss_hound_boss_spawn")
     nWerewolves = self:GetSpecialValueFor("num_ss_werewolf_spawn")
@@ -54,7 +54,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
   ParticleManager:SetParticleControlEnt( nFXIndex, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster_loc, true )
   ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-  for i = 0, nHoundSpawns do
+  for i = 1, nHoundSpawns do
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hHound = CreateUnitByName( "npc_dota_creature_dire_hound", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hHound then
@@ -72,7 +72,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
     end
   end
 
-  for i = 0, nHoundBossSpawns do
+  for i = 1, nHoundBossSpawns do
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hHoundBoss = CreateUnitByName( "npc_dota_creature_dire_hound_boss", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hHoundBoss then
@@ -90,7 +90,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
     end
   end
 
-  for i = 0, nWerewolves do
+  for i = 1, nWerewolves do
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hWerewolf = CreateUnitByName( "npc_dota_creature_werewolf", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hWerewolf then

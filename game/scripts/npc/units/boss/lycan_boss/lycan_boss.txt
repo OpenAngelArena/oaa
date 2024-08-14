@@ -1,8 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Creature: Lycan Boss
-  // Zones: forest, forest_holdout
+  // Boss tier 3 - Lycan Boss
   //=================================================================================
   "npc_dota_creature_lycan_boss"
   {
@@ -14,16 +13,11 @@
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/heroes/lycan/lycan.vmdl"
     "SoundSet"                                            "Hero_Lycan"
-    "Level"                                               "1"
+    "Level"                                               "30"
     "ModelScale"                                          "1.6"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
-
-    // Minimap
-    //----------------------------------------------------------------
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "250"
 
     // Abilities
     //----------------------------------------------------------------
@@ -37,15 +31,15 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "32"            // Physical protection.
-    "MagicalResistance"                                   "-25"           // Magical protection (percentage).
+    "ArmorPhysical"                                       "32"
+    "MagicalResistance"                                   "-25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "3500" // damage of Claw Attack
-    "AttackDamageMax"                                     "3500"
-    "AttackRate"                                          "1.45"
+    "AttackDamageMin"                                     "3500" // Claw Attack Damage (visual purpose only)
+    "AttackDamageMax"                                     "3500" // Claw Attack Damage (visual purpose only)
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.55"
     "AttackAcquisitionRange"                              "600"
     "AttackRange"                                         "200"
@@ -80,6 +74,10 @@
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
 
     // Team
     //----------------------------------------------------------------
@@ -133,5 +131,10 @@
         }
       }
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
   }
 }

@@ -36,9 +36,10 @@
       "damage"                                            "2000" // pure
       "knockback"                                         "200"
       "slow"                                              "-80"
+      "attack_slow"                                       "120"
       "slow_duration"                                     "2.5"
       "width"                                             "110"
-      "self_stun"                                         "2.5"
+      "self_stun"                                         "2.5" // also 'fissure' duration
     }
   }
 }

@@ -80,6 +80,11 @@ function modifier_tormentor_unyielding_shield_oaa:HandleCustomTransmitterData(da
 end
 
 function modifier_tormentor_unyielding_shield_oaa:OnIntervalThink()
+  -- Don't regenerate the shield during Duels
+  if Duels:IsActive() then
+    return
+  end
+
   self.currentShield = math.min(self.currentShield + self.regenPerSecondThink, self.maxShield)
   self:SendBuffRefreshToClients()
 end
@@ -149,7 +154,7 @@ function modifier_tormentor_unyielding_shield_oaa:OnTooltip2()
 end
 
 function modifier_tormentor_unyielding_shield_oaa:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties and anti-stun
 end
 
 function modifier_tormentor_unyielding_shield_oaa:CheckState()

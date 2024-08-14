@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Simple Boss 7
+  // Simple Kraken Shell Boss Tier 1
   //=================================================================================
   "npc_dota_boss_simple_7"
   {
@@ -74,8 +74,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
@@ -87,7 +85,9 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
+    "MinimapIconSize"                                     "250"
   }
 }

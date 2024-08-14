@@ -1,23 +1,18 @@
 
 function Spawn( entityKeyValues )
-  if not IsServer() then
+  if not thisEntity or not IsServer() then
     return
   end
 
-  if thisEntity == nil then
-    return
-  end
+  LinkLuaModifier("modifier_temple_guardian_statue", "abilities/boss/temple_guardian/modifier_temple_guardian_statue.lua", LUA_MODIFIER_MOTION_NONE)
 
-  thisEntity.bIsEnraged = false
+  thisEntity.HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" ) or thisEntity:FindAbilityByName( "temple_guardian_hammer_smash_tier5" )
+  thisEntity.HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" ) or thisEntity:FindAbilityByName( "temple_guardian_hammer_throw_tier5" )
+  thisEntity.PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" ) or thisEntity:FindAbilityByName( "temple_guardian_purification_tier5" )
+  thisEntity.WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" ) or thisEntity:FindAbilityByName( "temple_guardian_wrath_tier5" )
 
-  thisEntity.HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" )
-  thisEntity.HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" )
-  thisEntity.PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" )
-  thisEntity.WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" )
-
-  thisEntity.RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" )
+  thisEntity.RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" ) or thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash_tier5" )
   thisEntity.RageHammerSmashAbility:SetHidden( false )
-  thisEntity:StartGesture( ACT_DOTA_CAST_ABILITY_7 )
 
   thisEntity:SetContextThink( "TempleGuardianThink", TempleGuardianThink, 1 )
 end
@@ -36,11 +31,11 @@ function TempleGuardianThink()
   end
 
   if not thisEntity.bInitialized then
-    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.vInitialSpawnPos = thisEntity:GetAbsOrigin()
     thisEntity.bHasAgro = false
+    thisEntity.bIsEnraged = false
     thisEntity.BossTier = thisEntity.BossTier or 4
     thisEntity.SiltBreakerProtection = true
-    thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
     thisEntity.bInitialized = true
   end
 
@@ -59,7 +54,7 @@ function TempleGuardianThink()
 
   local enemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
-    thisEntity:GetOrigin(),
+    thisEntity:GetAbsOrigin(),
     nil,
     thisEntity:GetCurrentVisionRange(),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -70,38 +65,51 @@ function TempleGuardianThink()
   )
 
   local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
-  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+  local fDistanceToOrigin = ( thisEntity:GetAbsOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
-  --Agro
-  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
-    thisEntity.bHasAgro = false
-    thisEntity:SetAbsOrigin( thisEntity.vInitialSpawnPos )
-    thisEntity:SetAngles(0, 90, 0);
-    thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
-    return 5
-  elseif (hasDamageThreshold and #enemies > 0) or FrendlyHasAgro() then
-    if not thisEntity.bHasAgro then
+  -- Remove debuff protection that was added during retreat
+  thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+
+  if not thisEntity.bHasAgro then
+    -- Aggro conditions
+    if #enemies > 0 and hasDamageThreshold then
+      -- Aggro
       thisEntity.bHasAgro = true
       thisEntity:RemoveModifierByName( "modifier_temple_guardian_statue" )
-      thisEntity:AddNewModifier( thisEntity, nil, "modifier_invulnerable", { duration = 3 } )
-      thisEntity:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_5, 3.0)
-
-      Timers:CreateTimer(2.5, function ()
-        thisEntity:RemoveGesture( ACT_DOTA_CAST_ABILITY_7 )
-      end)
-      return 3.3
+      thisEntity:RemoveGesture(ACT_DOTA_CAST_ABILITY_7)
+      if not thisEntity.bIsEnraged then
+        thisEntity:AddNewModifier( thisEntity, nil, "modifier_invulnerable", { duration = 3 } )
+        thisEntity:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_5, 3.0)
+        return 3.3
+      end
+      return 1
+    end
+  else
+    -- Deaggro conditions
+    if #enemies == 0 and not hasDamageThreshold then
+      -- Deaggro
+      thisEntity.bHasAgro = false
+      if fDistanceToOrigin < 10 then
+        return 1
+      end
     end
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
-    if fDistanceToOrigin > 10 then
+  if not thisEntity.bHasAgro or fDistanceToOrigin > BOSS_LEASH_SIZE then
+    if fDistanceToOrigin > 10 and not thisEntity:HasModifier("modifier_temple_guardian_statue") then
       return RetreatHome()
+    elseif not thisEntity:HasModifier("modifier_temple_guardian_statue") and not thisEntity.bIsEnraged then
+      thisEntity:StartGesture(ACT_DOTA_CAST_ABILITY_7)
+      thisEntity:AddNewModifier(thisEntity, nil, "modifier_temple_guardian_statue", {})
     end
     return 1
   end
 
   thisEntity.fFuzz = RandomFloat(0.1, 0.5) -- Adds some timing separation to these units
+  if thisEntity:GetUnitName() == "npc_dota_creature_temple_guardian_tier5" then
+    thisEntity.fFuzz = RandomFloat(0, 0.2)
+  end
 
   local hGuardians = {}
 
@@ -110,12 +118,16 @@ function TempleGuardianThink()
     table.insert( hGuardians, thisEntity.hBrother )
   end
 
-	if #hGuardians == 1 and ( not thisEntity.bIsEnraged ) then
-		-- Our brother died, swap for enraged version of hammer smash
-		thisEntity:SwapAbilities( "temple_guardian_hammer_smash", "temple_guardian_rage_hammer_smash", false, true )
-		thisEntity.bIsEnraged = true
-		thisEntity.fTimeEnrageStarted = GameRules:GetGameTime()
-	end
+  if #hGuardians == 1 and not thisEntity.bIsEnraged then
+    -- Our brother died, swap for enraged version of hammer smash
+    if thisEntity:GetUnitName() == "npc_dota_creature_temple_guardian_tier5" then
+      thisEntity:SwapAbilities( "temple_guardian_hammer_smash_tier5", "temple_guardian_rage_hammer_smash_tier5", false, true )
+    else
+      thisEntity:SwapAbilities( "temple_guardian_hammer_smash", "temple_guardian_rage_hammer_smash", false, true )
+    end
+    thisEntity.bIsEnraged = true
+    thisEntity.fTimeEnrageStarted = GameRules:GetGameTime()
+  end
 
 	if thisEntity.WrathAbility and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
 		if thisEntity.fTimeEnrageStarted and ( GameRules:GetGameTime() > ( thisEntity.fTimeEnrageStarted + 5 ) ) then
@@ -126,7 +138,7 @@ function TempleGuardianThink()
 	if thisEntity.HammerThrowAbility and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
 		local hLastEnemy = enemies[ #enemies ]
 		if hLastEnemy then
-			local flDist = (hLastEnemy:GetOrigin() - thisEntity:GetOrigin()):Length2D()
+			local flDist = (hLastEnemy:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
 			if flDist > 450 then
 				return Throw( hLastEnemy )
 			end
@@ -152,36 +164,37 @@ function TempleGuardianThink()
 	return 0.5
 end
 
-function FrendlyHasAgro()
-  if IsValidEntity(thisEntity.hBrother) and thisEntity.hBrother:IsAlive() then
-    return thisEntity.hBrother.bHasAgro
-  else
-    return true
-  end
-end
-
 function RetreatHome()
+  -- Add Debuff Protection when leashing
+  thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
+
   local current_loc = thisEntity:GetAbsOrigin()
-  local destination = thisEntity.vInitialSpawnPos + Vector(0,15,0)
-  local distance = (destination - current_loc):Length2D()
+  local destination1 = thisEntity.vInitialSpawnPos + Vector(0, 100, 0)
+  local destination2 = thisEntity.vInitialSpawnPos
+  local distance1 = (destination1 - current_loc):Length2D()
+  local distance2 = (destination2 - destination1):Length2D()
   local speed = thisEntity:GetIdealSpeed()
+  local retreat_time = (distance1 + distance2) / speed
 
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = destination,
+    Position = destination1,
     Queue = false,
   })
-  ExecuteOrderFromTable({
+   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = thisEntity.vInitialSpawnPos,
+    Position = destination2,
     Queue = true,
   })
-  return distance/speed + 15/speed + 0.5
+
+  return retreat_time + 0.5
 end
 
 function Wrath()
+  thisEntity:DispelWeirdDebuffs()
+
   local wrath_ability = thisEntity.WrathAbility
   local cast_point = wrath_ability:GetCastPoint()
   local channel_duration = wrath_ability:GetChannelTime()
@@ -192,29 +205,35 @@ function Wrath()
     AbilityIndex = wrath_ability:entindex(),
     Queue = false,
   })
+
   return cast_point + channel_duration + 1
 end
 
 function Throw( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local hammer_throw_ability = thisEntity.HammerThrowAbility
+    local cast_point = hammer_throw_ability:GetCastPoint()
+    local throw_duration = hammer_throw_ability:GetSpecialValueFor("throw_duration")
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = hammer_throw_ability:entindex(),
+      Position = enemy:GetAbsOrigin(),
+      Queue = false,
+    })
+
+    return cast_point + throw_duration + thisEntity.fFuzz
   end
 
-  local hammer_throw_ability = thisEntity.HammerThrowAbility
-  local cast_point = hammer_throw_ability:GetCastPoint()
-  local throw_duration = hammer_throw_ability:GetSpecialValueFor("throw_duration")
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = hammer_throw_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-  return cast_point + throw_duration + thisEntity.fFuzz
+  return 0.5
 end
 
 function Purification( friendly )
+  thisEntity:DispelWeirdDebuffs()
+
   local purification_ability = thisEntity.PurificationAbility
   local cast_point = purification_ability:GetCastPoint()
 
@@ -225,57 +244,62 @@ function Purification( friendly )
     TargetIndex = friendly:entindex(),
     Queue = false,
   })
+
   return cast_point + thisEntity.fFuzz
 end
 
 function Smash( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local smash_ability = thisEntity.HammerSmashAbility
+    local cast_point = smash_ability:GetCastPoint()
+    local swing_time = smash_ability:GetSpecialValueFor("base_swing_speed")
+    local total = cast_point + swing_time + 0.5
+
+    if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+      --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+      thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+    end
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = smash_ability:entindex(),
+      Position = enemy:GetAbsOrigin(),
+      Queue = false,
+    })
+
+    return cast_point + swing_time + thisEntity.fFuzz
   end
 
-  local smash_ability = thisEntity.HammerSmashAbility
-  local cast_point = smash_ability:GetCastPoint()
-  local swing_time = smash_ability:GetSpecialValueFor("base_swing_speed")
-  local total = cast_point + swing_time + 0.5
-
-  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
-    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
-  end
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = smash_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-
-  return cast_point + swing_time + thisEntity.fFuzz
+  return 0.5
 end
 
 function RageSmash( enemy )
-  if not enemy then
-    return 0.5
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
+
+    local rage_smash_ability = thisEntity.RageHammerSmashAbility
+    local cast_point = rage_smash_ability:GetCastPoint()
+    local swing_time = rage_smash_ability:GetSpecialValueFor("base_swing_speed")
+    local total = cast_point + swing_time + 0.5
+
+    if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+      --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+      thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+    end
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = rage_smash_ability:entindex(),
+      Position = enemy:GetAbsOrigin(),
+      Queue = false,
+    })
+
+    return total
   end
 
-  local rage_smash_ability = thisEntity.RageHammerSmashAbility
-  local cast_point = rage_smash_ability:GetCastPoint()
-  local swing_time = rage_smash_ability:GetSpecialValueFor("base_swing_speed")
-  local total = cast_point + swing_time + 0.5
-
-  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
-    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
-  end
-
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = rage_smash_ability:entindex(),
-    Position = enemy:GetOrigin(),
-    Queue = false,
-  })
-
-  return total
+  return 0.5
 end

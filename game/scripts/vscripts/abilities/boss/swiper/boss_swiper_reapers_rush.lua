@@ -298,6 +298,10 @@ end
 
 modifier_boss_swiper_reapers_rush_slow = class(ModifierBaseClass)
 
+function modifier_boss_swiper_reapers_rush_slow:IsHidden()
+  return false
+end
+
 function modifier_boss_swiper_reapers_rush_slow:IsDebuff()
   return true
 end

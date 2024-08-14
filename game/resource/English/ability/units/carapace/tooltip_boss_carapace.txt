@@ -2,7 +2,8 @@
 // Carapace abilities
 //=============================================================================
 "DOTA_Tooltip_Ability_boss_carapace_crystals"                                   "Crystal Shell"
-"DOTA_Tooltip_Ability_boss_carapace_crystals_Description"                       "Carapace Boss takes bonus damage if damaged from the side which has crystals. Crystals have random health and they deal damage to enemies when destroyed. Number of crystals increases when Carapace Boss loses health."
+"DOTA_Tooltip_Ability_boss_carapace_crystals_Description"                       "Weaver takes bonus damage if damaged from the side which has crystals. Crystals have random health and they deal damage to enemies when destroyed. Number of crystals increases when Weaver loses health."
+"DOTA_Tooltip_Ability_boss_carapace_crystals_Lore"                              "Each crystal contains a remnant of some lost reality and when they are destroyed weavers falls into despair."
 "DOTA_Tooltip_Ability_boss_carapace_crystals_damage_amplification"              "%BONUS DAMAGE TAKEN:"
 "DOTA_Tooltip_Ability_boss_carapace_crystals_damage"                            "CRYSTAL EXPLOSION DAMAGE:"
 "DOTA_Tooltip_Ability_boss_carapace_crystals_threshold_min"                     "CRYSTAL MIN HP:"
@@ -11,7 +12,8 @@
 "DOTA_Tooltip_Ability_boss_carapace_crystals_bonus_magic_resistance"            "%BONUS MAGIC RESISTANCE:"
 
 "DOTA_Tooltip_Ability_boss_carapace_headbutt"                                   "Headbutt"
-"DOTA_Tooltip_Ability_boss_carapace_headbutt_Description"                       "Carapace Boss charges at the target in front of it after a short delay, dealing damage, slowing and knocking back enemies. Stuns itself after cast."
+"DOTA_Tooltip_Ability_boss_carapace_headbutt_Description"                       "Weaver charges at the target in front of it after a short delay, dealing damage, slowing and knocking back enemies."
+"DOTA_Tooltip_Ability_boss_carapace_headbutt_Lore"                              "Unlike other weavers this one is not lazy to throw itself into action."
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_move_speed_slow_pct"               "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_attack_speed_slow"                 "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_slow_duration"                     "DEBUFF SLOW DURATION:"
@@ -19,4 +21,4 @@
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_damage"                            "DAMAGE:"
 
 "Dota_Tooltip_modifier_boss_carapace_headbutt_slow"                             "Headbutt Slow"
-"Dota_Tooltip_modifier_boss_carapace_headbutt_slow_description"                 "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+"Dota_Tooltip_modifier_boss_carapace_headbutt_slow_description"                 "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

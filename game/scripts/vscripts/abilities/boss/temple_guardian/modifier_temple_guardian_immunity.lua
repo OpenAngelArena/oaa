@@ -4,13 +4,15 @@ modifier_temple_guardian_immunity = class(ModifierBaseClass)
 -----------------------------------------------------------------------------------------
 
 function modifier_temple_guardian_immunity:IsHidden()
-	return true
+  return true
 end
 
------------------------------------------------------------------------------------------
+function modifier_temple_guardian_immunity:IsDebuff()
+  return false
+end
 
 function modifier_temple_guardian_immunity:IsPurgable()
-	return false
+  return false
 end
 
 -----------------------------------------------------------------------------------------

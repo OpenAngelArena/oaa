@@ -75,24 +75,36 @@ function modifier_tormentor_reflect_oaa:OnCreated()
   }
 
   -- This delay is required because the tormentor team is not set yet when the modifier is created
-  local modifier = self
-  GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("delay"), function()
-    if modifier and not modifier:IsNull() then
-      local parent = modifier.parent
-      if parent and not parent:IsNull() then
-        modifier.shield_pfx = ParticleManager:CreateParticle(modifier.pfx_name[parent.tormentorTeam].shield, PATTACH_CENTER_FOLLOW, parent)
-      end
-      modifier:SetHasCustomTransmitterData(true)
-    end
-  end, 1)
+  self:StartIntervalThink(1)
+
+  -- Needs a transmitter just because of the tooltip
+  self:SetHasCustomTransmitterData(true)
 end
 
+function modifier_tormentor_reflect_oaa:OnIntervalThink()
+  if not IsServer() then return end
+
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    local team = parent.tormentorTeam
+    if team and self.pfx_name[team] then
+      local particle_name = self.pfx_name[team].shield
+      self.shield_pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CENTER_FOLLOW, parent)
+      self:StartIntervalThink(-1)
+    end
+  else
+    self:StartIntervalThink(-1)
+  end
+end
+
+-- server-only function that is called whenever SetHasCustomTransmitterData(true) or SendBuffRefreshToClients() is called
 function modifier_tormentor_reflect_oaa:AddCustomTransmitterData()
   return {
     reflection = self.reflection,
   }
 end
 
+-- client-only function that is called with the table returned by AddCustomTransmitterData()
 function modifier_tormentor_reflect_oaa:HandleCustomTransmitterData(data)
   self.reflection = data.reflection
 end
@@ -129,6 +141,11 @@ if IsServer() then
 
     -- Ignore damage that has the no-spell-amplification flag
     if bit.band(damageFlags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+      return
+    end
+
+    -- Don't return damage during Duels
+    if Duels:IsActive() then
       return
     end
 

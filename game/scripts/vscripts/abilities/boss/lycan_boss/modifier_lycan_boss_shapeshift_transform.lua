@@ -2,6 +2,18 @@ modifier_lycan_boss_shapeshift_transform = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
+function modifier_lycan_boss_shapeshift_transform:IsHidden()
+  return true
+end
+
+function modifier_lycan_boss_shapeshift_transform:IsDebuff()
+  return false
+end
+
+function modifier_lycan_boss_shapeshift_transform:IsPurgable()
+  return false
+end
+
 function modifier_lycan_boss_shapeshift_transform:OnCreated( kv )
   if IsServer() then
     local parent = self:GetParent()
@@ -31,4 +43,8 @@ function modifier_lycan_boss_shapeshift_transform:CheckState()
 	return {
 		[MODIFIER_STATE_STUNNED] = true,
 	}
+end
+
+function modifier_lycan_boss_shapeshift_transform:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties and anti-stun
 end

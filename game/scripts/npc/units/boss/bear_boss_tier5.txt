@@ -1,18 +1,18 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Bear Boss Tier 5 Version
+  // Boss tier 5 - Bear Boss
   //=================================================================================
   "npc_dota_boss_simple_2_tier5"
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/creeps/forest_bear/forest_bear.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/forest_bear/forest_bear.vmdl"
     "vscripts"                                            "units/ai_bear_boss.lua"
-    "SoundSet"                                            "Roshan"          // Name of sound set.
+    "SoundSet"                                            "Roshan"
     "ModelScale"                                          "2"
-    "Level"                                               "30"
+    "Level"                                               "60"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -35,7 +35,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "400"    // Damage range min.
     "AttackDamageMax"                                     "400"    // Damage range max.
-    "AttackRate"                                          "0.1"    // Speed of attack.
+    "AttackRate"                                          "0.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.1"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "200"    // Range within a target can be attacked.
@@ -86,6 +86,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

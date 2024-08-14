@@ -117,6 +117,10 @@ end
 
 modifier_bear_boss_earthshock_debuff = class(ModifierBaseClass)
 
+function modifier_bear_boss_earthshock_debuff:IsHidden()
+  return false
+end
+
 function modifier_bear_boss_earthshock_debuff:IsDebuff()
   return true
 end

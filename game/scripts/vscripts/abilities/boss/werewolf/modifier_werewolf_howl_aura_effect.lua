@@ -1,5 +1,16 @@
 modifier_werewolf_howl_aura_effect = class(ModifierBaseClass)
 
+function modifier_werewolf_howl_aura_effect:IsHidden()
+  return false
+end
+
+function modifier_werewolf_howl_aura_effect:IsDebuff()
+  return false
+end
+
+function modifier_werewolf_howl_aura_effect:IsPurgable()
+  return false
+end
 
 ----------------------------------------
 

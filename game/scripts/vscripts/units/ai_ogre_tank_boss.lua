@@ -1,21 +1,17 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
+  thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
+  thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
+  thisEntity.OgreSummonSeers = { }
 
-	thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
-	thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
-	thisEntity.OgreSummonSeers = { }
-
-	thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
+  thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
 end
 
 function FrendlyHasAgro()
-  for i, hSummonedUnit in pairs( thisEntity.OgreSummonSeers ) do
+  for _, hSummonedUnit in pairs( thisEntity.OgreSummonSeers ) do
     if IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro then
       local hasDamageThreshold = hSummonedUnit:GetHealth() / hSummonedUnit:GetMaxHealth() < 98/100
       if hasDamageThreshold then
@@ -45,15 +41,30 @@ function OgreTankBossThink()
   end
 
   local function IsValidTarget(target)
-    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+    if target and not target:IsNull() then
+      return target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsOther() and not target:IsCourier()
+    end
+    return false
   end
 
   local function FindValidTarget(candidates)
-    for _, enemy in ipairs(candidates) do
-      if IsValidTarget(enemy) then
-        return enemy
+    local closeRadius = 400
+    if thisEntity.JumpAbility then
+      closeRadius = thisEntity.JumpAbility:GetSpecialValueFor("impact_radius")
+    end
+
+    if #candidates ~= 0 then
+      for i = 1, #candidates do
+        local enemy = candidates[i]
+        if enemy and not enemy:IsNull() then
+          local distance = (enemy:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
+          if distance > closeRadius and IsValidTarget(enemy) then
+            return enemy
+          end
+        end
       end
     end
+
     return nil
   end
 
@@ -69,8 +80,12 @@ function OgreTankBossThink()
     false
   )
 
+  -- Difference from tier 5
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+
+  -- Remove debuff protection that was added during retreat
+  thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
 
   --Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
@@ -96,23 +111,26 @@ function OgreTankBossThink()
   if thisEntity.JumpAbility then
     closeRadius = thisEntity.JumpAbility:GetSpecialValueFor("impact_radius")
   end
-  local nCloseEnemies = 0
-  for i, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-      if flDist <= closeRadius and IsValidTarget(enemy) then
-        nCloseEnemies = nCloseEnemies + 1
-        enemies[i] = nil
+  local nCloseEnemies = false
+  if #enemies ~= 0 then
+    for i = 1, #enemies do
+      local enemy = enemies[i]
+      if enemy and not enemy:IsNull() then
+        local distance = (enemy:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
+        if distance <= closeRadius and IsValidTarget(enemy) then
+          nCloseEnemies = true
+          break
+        end
       end
     end
   end
 
-  if thisEntity.JumpAbility and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies > 0 then
+  if thisEntity.JumpAbility and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies then
     return Jump()
   end
 
   local smashTarget = FindValidTarget(enemies)
-  if thisEntity.SmashAbility and thisEntity.SmashAbility:IsFullyCastable() and smashTarget then
+  if thisEntity.SmashAbility and thisEntity.SmashAbility:IsFullyCastable() then
     return Smash(smashTarget)
   end
 
@@ -131,49 +149,71 @@ function SpawnAllies()
 
   table.insert(thisEntity.OgreSummonSeers, ally1)
   table.insert(thisEntity.OgreSummonSeers, ally2)
-
-  --ally2:AddItem(CreateItem("item_heart", ally2, ally2))
-  --ally1:AddItem(CreateItem("item_heart", ally1, ally1))
 end
 
 function Jump()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.JumpAbility:entindex(),
-		Queue = false,
-	})
-  return 3
+  thisEntity:DispelWeirdDebuffs()
+
+  local ability = thisEntity.JumpAbility
+  local cast_point = ability:GetCastPoint()
+  local jump_duration = ability:GetSpecialValueFor("jump_speed")
+  local think_time = cast_point + jump_duration
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = ability:entindex(),
+    Queue = false,
+  })
+
+  return think_time + 1 -- old: 3, new: 2.83
 end
 
 function Smash( enemy )
-	if enemy == nil then
-		return 0.5
-	end
+  if enemy and not enemy:IsNull() then
+    thisEntity:DispelWeirdDebuffs()
 
-	if not thisEntity:HasModifier( "modifier_provide_vision" ) then
-		--print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-		thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = 1.5 } )
-	end
+    local ability = thisEntity.SmashAbility
+    local cast_point = ability:GetCastPoint()
+    local swing_duration = ability:GetSpecialValueFor("base_swing_speed")
+    local playback_rate = ability:GetPlaybackRateOverride()
+    local think_time = cast_point + swing_duration / playback_rate
 
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.SmashAbility:entindex(),
-		Position = enemy:GetOrigin(),
-		Queue = false,
-	})
+    if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+      --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+      thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = think_time } )
+    end
 
-  return thisEntity.SmashAbility:GetPlaybackRateOverride()
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = ability:entindex(),
+      Position = enemy:GetOrigin(),
+      Queue = false,
+    })
+
+    return think_time + 1
+  end
+
+  return 0.5
 end
 
 function RetreatHome()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos,
-		Queue = false,
-  })
-  return 6
-end
+  -- Add Debuff Protection when leashing
+  thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
 
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
+  })
+
+  local speed = thisEntity:GetIdealSpeed()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
+end

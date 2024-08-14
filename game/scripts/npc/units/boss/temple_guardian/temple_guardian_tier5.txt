@@ -1,9 +1,12 @@
 "DOTAUnits"
 {
+  //=================================================================================
+  // Boss tier 5 - Temple Guardian
+  //=================================================================================
   "npc_dota_creature_temple_guardian_tier5"
   {
     // Script
-    "vscripts"                                            "units/ai_temple_guardian_tier5.lua"
+    "vscripts"                                            "units/ai_temple_guardian.lua"
 
     // General
     //----------------------------------------------------------------
@@ -11,14 +14,11 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "GameSoundsFile"                                      "soundevents/game_sounds_creeps.vsndevts"
-    "Level"                                               "1"
-    "ModelScale"                                          "2.3072"
+    "Level"                                               "60"
+    "ModelScale"                                          "2.3"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
-
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "275"
 
     // Abilities
     //----------------------------------------------------------------
@@ -27,32 +27,31 @@
     "Ability3"                                            "temple_guardian_hammer_smash_tier5"
     "Ability4"                                            "temple_guardian_rage_hammer_smash_tier5"
     "Ability5"                                            "temple_guardian_wrath_tier5"
-    "Ability6"                                            "temple_guardian_passive_tier5"
-    "Ability7"                                            "boss_basic_properties_oaa"
-    "Ability8"                                            "boss_regen"
+    "Ability6"                                            "boss_basic_properties_oaa"
+    "Ability7"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "43"        // Physical protection.
-    "MagicalResistance"                                   "-25"       // Magical protection.
+    "ArmorPhysical"                                       "43"
+    "MagicalResistance"                                   "-25"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"                                     "8000" // Hammer Smash Damage (visual purpose only)
+    "AttackDamageMax"                                     "8000" // Hammer Smash Damage (visual purpose only)
+    "AttackRate"                                          "1.0"
+    "AttackAnimationPoint"                                "0.3"
+    "AttackAcquisitionRange"                              "1500"
+    "AttackRange"                                         "1"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "5000"
     "BountyGoldMin"                                       "0"
     "BountyGoldMax"                                       "0"
-
-    // Attack
-    //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "6000" // damage of Hammer Smash tier 5
-    "AttackDamageMax"                                     "6000"
-    "AttackRate"                                          "0.9"
-    "AttackAnimationPoint"                                "0.3"
-    "AttackAcquisitionRange"                              "1500"
-    "AttackRange"                                         "1"
-    "ProjectileModel"                                     ""
-    "ProjectileSpeed"                                     "0"
 
     // Bounds
     //----------------------------------------------------------------
@@ -63,26 +62,28 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "260"
+    "MovementSpeed"                                       "420"
     "MovementTurnRate"                                    "0.2"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "16000"
     "StatusHealthRegen"                                   "0" // they can spam heal bombs for effective 500 hp/s heals
-    "StatusMana"                                          "10000"
-    "StatusManaRegen"                                     "5000"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
@@ -104,5 +105,10 @@
       "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf"
       "particle"                                          "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf"
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "350"
   }
 }

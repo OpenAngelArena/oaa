@@ -2,8 +2,16 @@ modifier_lycan_boss_shapeshift = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
+function modifier_lycan_boss_shapeshift:IsHidden()
+  return false
+end
+
+function modifier_lycan_boss_shapeshift:IsDebuff()
+  return false
+end
+
 function modifier_lycan_boss_shapeshift:IsPurgable()
-	return false
+  return false
 end
 
 --------------------------------------------------------------------------------
