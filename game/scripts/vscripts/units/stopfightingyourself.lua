@@ -340,6 +340,6 @@ function Spawn(entityKeyValues) --luacheck: ignore Spawn
 
   thisEntity.ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
 
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  --print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
   thisEntity:SetContextThink('StopFightingYourselfThink', StopFightingYourselfThink, 1)
 end

@@ -6,11 +6,7 @@ local SIMPLE_BOSS_LEASH_SIZE = BOSS_LEASH_SIZE or 1200
 local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
 function Spawn(entityKeyValues)
-  if not IsServer() then
-    return
-  end
-
-  if thisEntity == nil then
+  if not thisEntity or not IsServer() then
     return
   end
 

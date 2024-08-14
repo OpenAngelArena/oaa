@@ -1,29 +1,36 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
+  thisEntity.IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite" )
+  thisEntity.BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust" )
 
-	thisEntity.IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite" )
-	thisEntity.BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust" )
-
-	thisEntity:SetContextThink( "OgreSeerThink", OgreSeerThink, 1 )
+  thisEntity:SetContextThink( "OgreSeerThink", OgreSeerThink, 1 )
 end
 
 --------------------------------------------------------------------------------
 
 function FindOgreBoss()
-  local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
+  local friendlies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_ALL,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+    FIND_ANY_ORDER,
+    false
+  )
   for _, friendly in pairs ( friendlies ) do
-    if friendly then
+    if friendly and not friendly:IsNull() then
       if friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" then
         return friendly
       end
     end
   end
+  return nil
 end
 
 --------------------------------------------------------------------------------
@@ -38,7 +45,7 @@ function OgreSeerThink()
   end
 
   if not thisEntity.bInitialized then
-    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.vInitialSpawnPos = thisEntity:GetAbsOrigin()
     thisEntity.bHasAgro = false
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
@@ -69,6 +76,7 @@ function OgreSeerThink()
   )
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 99/100
+  -- Difference from tier 5
   if thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() then
     hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   end
@@ -140,7 +148,7 @@ function Approach( hUnit )
     Queue = false,
   })
 
-  return think_time
+  return think_time + 0.1
 end
 
 --------------------------------------------------------------------------------

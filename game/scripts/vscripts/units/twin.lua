@@ -29,7 +29,7 @@ function TwinThink()
     thisEntity.spawn_position = thisEntity:GetAbsOrigin()
     thisEntity.twin_position = thisEntity.spawn_position + Vector(-150, 0, 0)
     thisEntity.twin_dumb_position = thisEntity.spawn_position + Vector(150, 0, 0)
-    thisEntity:SetAbsOrigin(thisEntity.twin_position) -- does not work
+    thisEntity:SetAbsOrigin(thisEntity.twin_position)
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_phased", {duration = FrameTime()})
     SpawnDumbTwin()
     local phaseController = thisEntity:AddNewModifier(thisEntity, thisEntity.ABILITY_empathy, "modifier_boss_phase_controller", {})

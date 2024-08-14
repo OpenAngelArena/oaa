@@ -1,14 +1,10 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
-
-	thisEntity.HowlAbility = thisEntity:FindAbilityByName("werewolf_howl")
-	thisEntity:SetContextThink( "WerewolfThink", WerewolfThink, 1 )
+  thisEntity.HowlAbility = thisEntity:FindAbilityByName("werewolf_howl")
+  thisEntity:SetContextThink( "WerewolfThink", WerewolfThink, 1 )
 end
 
 function WerewolfThink()

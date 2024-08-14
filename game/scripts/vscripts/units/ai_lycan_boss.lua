@@ -1,26 +1,21 @@
 
 function Spawn( entityKeyValues )
-	if thisEntity == nil then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if IsServer() == false then
-		return
-	end
+  thisEntity.LYCAN_BOSS_SUMMONED_UNITS = {}
+  thisEntity.LYCAN_BOSS_MAX_SUMMONS = 50
+  thisEntity.nCAST_SUMMON_WOLVES_COUNT = 0
 
-	thisEntity.LYCAN_BOSS_SUMMONED_UNITS = {}
-	thisEntity.LYCAN_BOSS_MAX_SUMMONS = 50
-	thisEntity.nCAST_SUMMON_WOLVES_COUNT = 0
+  thisEntity.hSummonWolvesAbility = thisEntity:FindAbilityByName( "lycan_boss_summon_wolves" ) or thisEntity:FindAbilityByName( "lycan_boss_summon_wolves_tier5" )
+  thisEntity.hShapeshiftAbility = thisEntity:FindAbilityByName( "lycan_boss_shapeshift" ) or thisEntity:FindAbilityByName( "lycan_boss_shapeshift_tier5" )
+  thisEntity.hClawLungeAbility = thisEntity:FindAbilityByName( "lycan_boss_claw_lunge" ) or thisEntity:FindAbilityByName( "lycan_boss_claw_lunge_tier5" )
+  thisEntity.hClawAttackAbility = thisEntity:FindAbilityByName( "lycan_boss_claw_attack" ) or thisEntity:FindAbilityByName( "lycan_boss_claw_attack_tier5" )
+  thisEntity.hRuptureBallAbility = thisEntity:FindAbilityByName( "lycan_boss_rupture_ball" ) or thisEntity:FindAbilityByName( "lycan_boss_rupture_ball_tier5" )
 
-	thisEntity.hSummonWolvesAbility = thisEntity:FindAbilityByName( "lycan_boss_summon_wolves" )
-	thisEntity.hShapeshiftAbility = thisEntity:FindAbilityByName( "lycan_boss_shapeshift" )
-	thisEntity.hClawLungeAbility = thisEntity:FindAbilityByName( "lycan_boss_claw_lunge" )
-	thisEntity.hClawAttackAbility = thisEntity:FindAbilityByName( "lycan_boss_claw_attack" )
-	thisEntity.hRuptureBallAbility = thisEntity:FindAbilityByName( "lycan_boss_rupture_ball" )
-
-	thisEntity:SetContextThink( "LycanBossThink", LycanBossThink, 1 )
+  thisEntity:SetContextThink( "LycanBossThink", LycanBossThink, 1 )
 end
-
 
 function LycanBossThink()
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
@@ -126,7 +121,7 @@ function LycanBossThink()
     for i = 1, #unit_group do
       local enemy = unit_group[i]
       if enemy and not enemy:IsNull() then
-        if enemy:IsAlive() and not enemy:IsInvulnerable() and not enemy:IsOutOfGame() and not enemy:IsOther() and not enemy:IsCourier() and (enemy:GetAbsOrigin() - entity.vInitialSpawnPos):Length2D() < 2*BOSS_LEASH_SIZE then
+        if enemy:IsAlive() and not enemy:IsAttackImmune() and not enemy:IsInvulnerable() and not enemy:IsOutOfGame() and not enemy:IsOther() and not enemy:IsCourier() and (enemy:GetAbsOrigin() - entity.vInitialSpawnPos):Length2D() < 2*BOSS_LEASH_SIZE then
           return enemy
         end
       end
@@ -149,7 +144,7 @@ function LycanBossThink()
 
   thisEntity.bShapeshift = thisEntity:HasModifier("modifier_lycan_boss_shapeshift")
   if thisEntity.bShapeshift then
-    if thisEntity.hClawLungeAbility and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() and not thisEntity:IsRooted() then
+    if thisEntity.hClawLungeAbility and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() then
       return CastClawLunge(valid_enemy)
     end
   else
@@ -247,7 +242,7 @@ function CastClawLunge( enemy )
     if speed ~= 0 then
       return cast_point + distance / speed + 0.1
     else
-      print("DIVISION BY 0: lycan_boss_claw_lunge ABILITY HAS 0 for SPEED, check kv name")
+      print("DIVISION BY 0: "..ability:GetAbilityName().." ABILITY HAS 0 for SPEED, check kv name")
       return cast_point + 0.1
     end
   end

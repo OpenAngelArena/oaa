@@ -1,11 +1,7 @@
 local Baneling = class({})
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  if not IsServer() then
-    return
-  end
-
-  if thisEntity == nil then
+  if not thisEntity or not IsServer() then
     return
   end
 

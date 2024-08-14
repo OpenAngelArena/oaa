@@ -1,11 +1,11 @@
 
 function Spawn( entityKeyValues )
-	if not thisEntity or not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	thisEntity.QuillAttack = thisEntity:FindAbilityByName( "ranged_quill_attack" )
-	thisEntity:SetContextThink( "DireHoundBossThink", DireHoundBossThink, 1 )
+  thisEntity.QuillAttack = thisEntity:FindAbilityByName( "ranged_quill_attack" )
+  thisEntity:SetContextThink( "DireHoundBossThink", DireHoundBossThink, 1 )
 end
 
 function DireHoundBossThink()
@@ -135,7 +135,7 @@ function Approach(unit)
     Queue = false,
   })
 
-  return think_time
+  return think_time + 0.1
 end
 
 function Retreat(unit)

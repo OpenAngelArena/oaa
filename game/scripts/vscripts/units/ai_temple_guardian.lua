@@ -70,12 +70,10 @@ function TempleGuardianThink()
   -- Remove debuff protection that was added during retreat
   thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
 
-  --Agro
-  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
-    thisEntity.bHasAgro = false
-    return 1
-  elseif (hasDamageThreshold and #enemies > 0) or FrendlyHasAgro() then
-    if not thisEntity.bHasAgro then
+  if not thisEntity.bHasAgro then
+    -- Aggro conditions
+    if #enemies > 0 and hasDamageThreshold then
+      -- Aggro
       thisEntity.bHasAgro = true
       thisEntity:RemoveModifierByName( "modifier_temple_guardian_statue" )
       thisEntity:RemoveGesture(ACT_DOTA_CAST_ABILITY_7)
@@ -86,10 +84,19 @@ function TempleGuardianThink()
       end
       return 1
     end
+  else
+    -- Deaggro conditions
+    if #enemies == 0 and not hasDamageThreshold then
+      -- Deaggro
+      thisEntity.bHasAgro = false
+      if fDistanceToOrigin < 10 then
+        return 1
+      end
+    end
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+  if not thisEntity.bHasAgro or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 and not thisEntity:HasModifier("modifier_temple_guardian_statue") then
       return RetreatHome()
     elseif not thisEntity:HasModifier("modifier_temple_guardian_statue") and not thisEntity.bIsEnraged then
@@ -157,30 +164,29 @@ function TempleGuardianThink()
 	return 0.5
 end
 
-function FrendlyHasAgro()
-  if IsValidEntity(thisEntity.hBrother) and thisEntity.hBrother:IsAlive() then
-    return thisEntity.hBrother.bHasAgro
-  else
-    thisEntity.bIsEnraged = true
-    return true
-  end
-end
-
 function RetreatHome()
   -- Add Debuff Protection when leashing
   thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
 
   local current_loc = thisEntity:GetAbsOrigin()
-  local destination = thisEntity.vInitialSpawnPos
-  local distance = (destination - current_loc):Length2D()
+  local destination1 = thisEntity.vInitialSpawnPos + Vector(0, 100, 0)
+  local destination2 = thisEntity.vInitialSpawnPos
+  local distance1 = (destination1 - current_loc):Length2D()
+  local distance2 = (destination2 - destination1):Length2D()
   local speed = thisEntity:GetIdealSpeed()
-  local retreat_time = distance / speed
+  local retreat_time = (distance1 + distance2) / speed
 
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = thisEntity.vInitialSpawnPos,
+    Position = destination1,
     Queue = false,
+  })
+   ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = destination2,
+    Queue = true,
   })
 
   return retreat_time + 0.5

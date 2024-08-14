@@ -240,7 +240,7 @@ function WandererThink ()
               Queue = false,
             })
 
-            return ability:GetCastPoint() + 0.1
+            return ability:GetCastPoint() + 0.5
           end
         end
       end

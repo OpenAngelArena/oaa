@@ -1,17 +1,13 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
+  thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash_tier5" )
+  thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash_tier5" )
+  thisEntity.OgreSummonSeers = { }
 
-	thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash_tier5" )
-	thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash_tier5" )
-	thisEntity.OgreSummonSeers = { }
-
-	thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
+  thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
 end
 
 function FrendlyHasAgro()
@@ -45,7 +41,10 @@ function OgreTankBossThink()
   end
 
   local function IsValidTarget(target)
-    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+    if target and not target:IsNull() then
+      return target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsOther() and not target:IsCourier()
+    end
+    return false
   end
 
   local function FindValidTarget(candidates)
@@ -111,21 +110,21 @@ function OgreTankBossThink()
   if thisEntity.JumpAbility then
     closeRadius = thisEntity.JumpAbility:GetSpecialValueFor("impact_radius")
   end
-  local nCloseEnemies = 0
+  local nCloseEnemies = false
   if #enemies ~= 0 then
     for i = 1, #enemies do
       local enemy = enemies[i]
       if enemy and not enemy:IsNull() then
         local distance = (enemy:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
         if distance <= closeRadius and IsValidTarget(enemy) then
-          nCloseEnemies = 1
+          nCloseEnemies = true
           break
         end
       end
     end
   end
 
-  if thisEntity.JumpAbility and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies > 0 then
+  if thisEntity.JumpAbility and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies then
     return Jump()
   end
 

@@ -1,11 +1,8 @@
-local ABILITY_charge = nil
-local ABILITY_summon_pillar = nil
-local GLOBAL_origin = nil
 
-local function GetAllPillars ()
+function GetAllPillars ()
   local towers = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
-    GLOBAL_origin,
+    thisEntity.GLOBAL_origin,
     nil,
     1500,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
@@ -22,7 +19,11 @@ local function GetAllPillars ()
   return filter(isTower, iter(towers))
 end
 
-local function CheckPillars ()
+function CheckPillars ()
+  if not thisEntity.ABILITY_summon_pillar then
+    return false
+  end
+
   local towers = GetAllPillars()
 
   -- print('Found ' .. towers:length() .. ' towers!')
@@ -37,21 +38,24 @@ local function CheckPillars ()
     towerLocation = RandomVector(1):Normalized() * RandomFloat(500, 600)
   end
 
-  towerLocation = towerLocation + GLOBAL_origin
+  towerLocation = towerLocation + thisEntity.GLOBAL_origin
 
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = ABILITY_summon_pillar:entindex(), --Optional.  Only used when casting abilities
-    Position = towerLocation, --Optional.  Only used when targeting the ground
-    Queue = 0 --Optional.  Used for queueing up abilities
+    AbilityIndex = thisEntity.ABILITY_summon_pillar:entindex(),
+    Position = towerLocation,
+    Queue = 0,
   })
 
   return true
 end
 
-local function ChargeHero ()
-  if not ABILITY_charge:IsCooldownReady() then
+function ChargeHero ()
+  if not thisEntity.ABILITY_charge then
+    return false
+  end
+  if not thisEntity.ABILITY_charge:IsCooldownReady() then
     return false
   end
   local units = FindUnitsInRadius(
@@ -74,10 +78,9 @@ local function ChargeHero ()
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    TargetIndex = hero:entindex(), --Optional.  Only used when targeting units
-    AbilityIndex = ABILITY_charge:entindex(), --Optional.  Only used when casting abilities
-    Position = hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-    Queue = 0 --Optional.  Used for queueing up abilities
+    AbilityIndex = thisEntity.ABILITY_charge:entindex(),
+    Position = hero:GetAbsOrigin(),
+    Queue = 0,
   })
 
   return true
@@ -92,19 +95,21 @@ function ChargerThink ()
     return 1
   end
 
-  if not GLOBAL_origin then
-    GLOBAL_origin = thisEntity:GetAbsOrigin()
-  else
-    local distance = (GLOBAL_origin - thisEntity:GetAbsOrigin()):Length()
-    if distance > 1000 then
-      ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-        Position = GLOBAL_origin, --Optional.  Only used when targeting the ground
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
-      return 5
-    end
+  if not thisEntity.initialized then
+    thisEntity.GLOBAL_origin = thisEntity:GetAbsOrigin()
+    thisEntity.BossTier = thisEntity.BossTier or 2
+    thisEntity.initialized = true
+  end
+
+  local distance = (thisEntity.GLOBAL_origin - thisEntity:GetAbsOrigin()):Length()
+  if distance > 1000 then
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+      Position = thisEntity.GLOBAL_origin,
+      Queue = false,
+    })
+    return 5
   end
 
   if thisEntity:GetHealth() / thisEntity:GetMaxHealth() >= 99/100 then
@@ -124,8 +129,8 @@ function ChargerThink ()
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = GLOBAL_origin, --Optional.  Only used when targeting the ground
-    Queue = 0 --Optional.  Used for queueing up abilities
+    Position = thisEntity.GLOBAL_origin,
+    Queue = 0,
   })
 
   return 0.1
@@ -136,20 +141,18 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
     return
   end
 
-  thisEntity.BossTier = thisEntity.BossTier or 2
-
   local chargeAbilityName = "boss_charger_charge"
   if not thisEntity:HasAbility( chargeAbilityName ) then
     chargeAbilityName = "boss_charger_charge_tier5"
   end
 
-  ABILITY_charge = thisEntity:FindAbilityByName(chargeAbilityName)
-  ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+  thisEntity.ABILITY_charge = thisEntity:FindAbilityByName(chargeAbilityName)
+  thisEntity.ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
   thisEntity:SetContextThink("ChargerThink", ChargerThink , 1)
   --print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
-  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
+  local phaseController = thisEntity:AddNewModifier(thisEntity, thisEntity.ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })
   phaseController:SetAbilities({
     chargeAbilityName,
