@@ -41,12 +41,12 @@
       "bonus_movement_speed"                              "10 12 14 16 18" // Yasha (10);
       "images_count"                                      "2"
       "illusion_duration"                                 "18"
-      "images_do_damage_percent_melee"                    "-50 -45 -40 -35 -30" //OAA
-      "tooltip_damage_outgoing_melee"                     "50 55 60 65 70" //OAA
+      "images_do_damage_percent_melee"                    "-65 -50 -35 -20 -5" //OAA
+      "tooltip_damage_outgoing_melee"                     "35 50 65 80 95" //OAA
       "images_take_damage_percent"                        "200 170 140 110 80"
       "tooltip_damage_incoming_total_pct"                 "300 270 240 210 180"
-      "images_do_damage_percent_ranged"                   "-55 -50 -45 -40 -35" //OAA
-      "tooltip_damage_outgoing_ranged"                    "45 50 55 60 65" //OAA
+      "images_do_damage_percent_ranged"                   "-68 -58 -48 -38 -28" //OAA
+      "tooltip_damage_outgoing_ranged"                    "32 42 52 62 72" //OAA
       "invuln_duration"                                   "0.1"
       "vision_radius"                                     "1000"
     }
