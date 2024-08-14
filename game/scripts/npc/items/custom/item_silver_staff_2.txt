@@ -56,6 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "15783"
+    "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "silver staff 2; break staff 2; dragon staff 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,11 +66,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "750 1000 1250"
+      "bonus_health"                                      "875 1125 1375"
       "bonus_mana_regen"                                  "2.5 3.25 4.25"
-      "bonus_all_stats"                                   "17 22 27"
+      "bonus_all_stats"                                   "0"
       "bonus_armor"                                       "5 8 12"
-      "base_damage"                                       "60 90 130"
+      "base_damage"                                       "55 85 125"
       "max_hp_damage"                                     "3.5 4 4.5"
       "duration"                                          "4.5 5.0 5.5"
     }
