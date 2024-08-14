@@ -623,6 +623,12 @@ function HeroSelection:ChooseBans ()
     end
   end
 
+  -- we've applied all the ban selections, lets send what was chosen vs what was actually banned to the bottlepass server
+  Bottlepass:SendBans({
+    banChoices = rankedpickorder.banChoices,
+    bans = rankedpickorder.bans
+  })
+
   if OAAOptions and OAAOptions.settings then
     local list_of_hero_names = {}
     if OAAOptions.settings.GAME_MODE == "RD" then
@@ -1131,6 +1137,8 @@ function HeroSelection:EndStrategyTime ()
     self.alreadyDidOnGameInProgressStuff = true
     DebugPrint("EndStrategyTime - Initializing modules in OnGameInProgress when hero selection is over.")
     GameMode:OnGameInProgress()
+
+    Bottlepass:SendHeroPicks(selectedtable)
   end
 
   CustomNetTables:SetTableValue('hero_selection', 'time', {time = -1, mode = ""})

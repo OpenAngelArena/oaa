@@ -9,7 +9,7 @@ AUTH_KEY = GetDedicatedServerKeyV2('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://10.0.10.197:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.0.111:6969/'
 end
 
 function Bottlepass:Init ()
@@ -123,6 +123,60 @@ function Bottlepass:SendWinner (winner)
 
   if IsInToolsMode() then
     Bottlepass:SendEndGameStats()
+  end
+end
+
+function Bottlepass:SendBans (data)
+  DebugPrint('Sending pick screen ban data')
+  local banChoices = {}
+  local didBan = false
+
+  for playerID, choice in pairs(data.banChoices) do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        steamid = tostring(steamid)
+        didBan = true
+        banChoices[steamid] = choice
+      end
+    end
+  end
+  if didBan then
+    self:Request('match/send_bans', {
+      banChoices = banChoices,
+      bans = data.bans
+    }, function (err, data)
+      DebugPrintTable(data)
+    end)
+  end
+end
+
+function Bottlepass:SendHeroPicks (data)
+  Debug:EnableDebugging()
+  DebugPrint('Sending pick screen ban data')
+  local heroPicks = {}
+  local didPick = false
+
+  for playerID, choiceTable in pairs(data) do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        steamid = tostring(steamid)
+        didPick = true
+        heroPicks[steamid] = {
+          hero = choiceTable.selectedhero,
+          random = choiceTable.didRandom == "true",
+          rerandom = choiceTable.didRandom == "rerandom"
+        }
+      end
+    end
+  end
+  if didPick then
+    self:Request('match/send_heroes', {
+      picks = heroPicks
+    }, function (err, data)
+      DebugPrintTable(data)
+    end)
   end
 end
 
