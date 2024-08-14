@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_omniknight"
   "Title"         "Recommended items for Omniknight"
 
@@ -12,13 +12,14 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Physical_Core" // shard build
+    "#DOTA_Item_Build_Physical_Core" // Hammer of Purity build
     {
+      "item"      "item_armlet"
       "item"      "item_harpoon"
       "item"      "item_kaya_and_sange"
       "item"      "item_heart_oaa_1"
-      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
+      "item"      "item_satanic"
     }
 
     "#DOTA_Item_Build_Support_Core" // scepter + healing build
