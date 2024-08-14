@@ -46,7 +46,6 @@
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "14"
     "AbilitySharedCooldown"                               "ethereal"
-    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -92,7 +91,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "charge_gain_timer"                                 "10"
-      "buff_magic_resistance"                             "15 17 19 21 23"
+      "buff_magic_resistance"                             "0"
       "buff_status_resistance"                            "15 17 19 21 23"
       "buff_move_speed"                                   "15 17 19 21 23"
       "buff_duration"                                     "3.0"

@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spell_breaker.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -60,7 +60,7 @@
     "ItemCost"                                            "10427"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "spell breaker;spell disrupter; mage bane; mage slayer"
+    "ItemAliases"                                         "spell breaker 3;spell disrupter 3; mage bane 3; mage slayer 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -74,15 +74,15 @@
       "bonus_intellect"                                   "12 17 27 42 62"
       "spell_amp_debuff"                                  "25 30 35 40 45"
       "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
-      "duration"                                          "5"
+      "duration"                                          "4"
       "dps"                                               "25 35 55 85 125"
       // Spell Breaker passive stats
       "bonus_attack_damage"                               "25 35 55 85 125"
       // Spell Breaker active stuff
       "silence_duration"                                  "0.1"
       "aoe_decrease_percent"                              "25"
-      "spell_lifesteal_reduction"                         "45"
-      "debuff_duration"                                   "5"
+      "spell_lifesteal_reduction"                         "40"
+      "debuff_duration"                                   "6"
     }
   }
 }
