@@ -143,7 +143,7 @@ function CastJump(position)
   local jump_distance_per_interval = ability:GetSpecialValueFor("movement_speed")
   local interval = 0.03
 
-  local position = position or thisEntity:GetAbsOrigin()
+  local destination = position or thisEntity:GetAbsOrigin()
   local jump_duration = interval / jump_distance_per_interval
   local think_time = cast_point + jump_duration
 
@@ -151,7 +151,7 @@ function CastJump(position)
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
-    Position = position,
+    Position = destination,
     Queue = false,
   })
 
@@ -165,14 +165,14 @@ function CastSlam(position)
   local cast_point = ability:GetCastPoint()
   local self_stun = ability:GetSpecialValueFor("self_stun")
   local max_range = ability:GetSpecialValueFor("target_max_range")
-  local position = position or thisEntity:GetAbsOrigin() * thisEntity:GetForwardVector() * max_range
+  local target_location = position or thisEntity:GetAbsOrigin() * thisEntity:GetForwardVector() * max_range
   local think_time = cast_point + self_stun
 
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
-    Position = position,
+    Position = target_location,
     Queue = false,
   })
 
