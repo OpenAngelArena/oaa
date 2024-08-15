@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 55 60 65 70 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,17 +43,17 @@
       "target_damage"
       {
         "value"                                           "100 175 250 325 650 975"
-        "special_bonus_unique_abaddon_2"                  "+40"
+        "special_bonus_unique_abaddon_2"                  "+35"
       }
       "heal_amount"
       {
         "value"                                           "100 175 250 325 650 975"
-        "special_bonus_unique_abaddon_2"                  "+40"
+        "special_bonus_unique_abaddon_2"                  "+35"
       }
       "effect_radius"
       {
         "value"                                           "0"
-        "special_bonus_unique_abaddon_4"                  "+400"
+        "special_bonus_unique_abaddon_4"                  "+350"
         "affected_by_aoe_increase"                        "1"
       }
     }

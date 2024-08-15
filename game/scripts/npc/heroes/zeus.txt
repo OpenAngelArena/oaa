@@ -7,17 +7,23 @@
   {
     "Ability4"                                            "zuus_cloud_oaa" // replaces zuus_cloud
 
-    //"Ability10"                                           "special_bonus_unique_zeus_jump_cooldown"
-    //"Ability11"                                           "special_bonus_hp_250"
+    //"Ability10"                                           "special_bonus_mp_regen_175"
+    //"Ability11"                                           "special_bonus_hp_200"
 
-    //"Ability12"                                           "special_bonus_unique_zeus_jump_postjump_movespeed"
+    "Ability12"                                           "special_bonus_unique_zeus_2" // replaces special_bonus_unique_zeus_4
     //"Ability13"                                           "special_bonus_unique_zeus"
 
     "Ability14"                                           "special_bonus_unique_zeus_4" // replaces special_bonus_unique_zeus_2
     //"Ability15"                                           "special_bonus_unique_zeus_3"
 
     //"Ability16"                                           "special_bonus_unique_zeus_5"
-    "Ability17"                                           "special_bonus_unique_zeus_1_oaa" // replaces special_bonus_unique_zeus_4
-    // put special_bonus_unique_zeus_2 if shard is reworked
+    //"Ability17"                                           "special_bonus_unique_zeus_static_field_dmg"
+
+    // special_bonus_unique_zeus - Heavenly Jump Target
+    // special_bonus_unique_zeus_2 - Arc Lightning Damage
+    // special_bonus_unique_zeus_3 - Lightning Bolt Ministun
+    // special_bonus_unique_zeus_4 - Thundergod's Wrath Damage
+    // special_bonus_unique_zeus_5 - AoE Lightning Bolt
+    // special_bonus_unique_zeus_1_oaa - Thundergod's Wrath Cooldown
   }
 }

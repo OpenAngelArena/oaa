@@ -48,7 +48,6 @@
       "enchant_health"  //OAA, this is bonus hp, not minimum hp
       {
         "value"                                           "200 400 600 800 1600 3200"
-        "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
       "enchant_armor"
       {
@@ -58,7 +57,6 @@
       "enchant_damage" //OAA
       {
         "value"                                           "15 35 55 75 150 300"
-        "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
       "xp_gain_pct"                                       "50"
       "level_req"                                         "6" //OAA
@@ -66,6 +64,21 @@
       {
         "value"                                           "1 2 2 4 5 6"
         "special_bonus_scepter"                           "+1"
+      }
+      "bonus_health"
+      {
+        "value"			"0"
+        "special_bonus_unique_enchantress_enchant_health_damage"		"+150"
+      }
+      "bonus_damage"
+      {
+        "value"			"0"
+        "special_bonus_unique_enchantress_enchant_health_damage"		"+25"
+      }
+      "bonus_attackspeed"
+      {
+        "value"			"0"
+        "special_bonus_unique_enchantress_enchant_attackspeed"		"+30"
       }
     }
   }
