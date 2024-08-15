@@ -165,8 +165,8 @@ function Bottlepass:SendHeroPicks (data)
         didPick = true
         heroPicks[steamid] = {
           hero = choiceTable.selectedhero,
-          random = choiceTable.didRandom == "true",
-          rerandom = choiceTable.didRandom == "rerandom"
+          random = choiceTable.didRandom == "true" or choiceTable.didRandom == "rerandomed",
+          rerandom = choiceTable.didRandom == "rerandomed"
         }
       end
     end
@@ -180,7 +180,7 @@ function Bottlepass:SendHeroPicks (data)
   end
 end
 
-function Bottlepass:SendTeams ()
+function Bottlepass:SendTeams:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
