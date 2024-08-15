@@ -34,6 +34,7 @@
       }
       "smoothness"                                        "0.015"
       "increase_rate"                                     "10 15 20 30 40"
+      "max_total_increase"                                "80 120 160 240 320" // 8 x increase_rate
       "day_vision_multiplier"                             "3"
       "ally_pct"                                          "50"
       "duration"                                          "18"
