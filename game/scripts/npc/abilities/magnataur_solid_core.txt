@@ -5,16 +5,16 @@
   //=================================================================================================================
   "magnataur_solid_core"
   {
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 
-    "Innate"						"1"
-    "MaxLevel"						"6"
-    "DependentOnAbility"			"magnataur_reverse_polarity"
+    "Innate"                                              "1"
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "magnataur_reverse_polarity"
 
     "AbilityValues"
     {
-      "knockback_reduction"		"50"
-      "slow_resistance"			"20 30 40 50 55 60"
+      "knockback_reduction"                               "50"
+      "slow_resistance"                                   "20 30 40 50 55 60"
     }
   }
 }
