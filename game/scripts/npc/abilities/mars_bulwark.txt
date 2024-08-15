@@ -17,16 +17,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "physical_damage_reduction" //OAA
+      "physical_damage_reduction"
       {
-        "value"                                           "40 47 54 61 68 75"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+15"
+        "value"                                           "40 50 60 70 75 80"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+10"
       }
       "forward_angle"                                     "140"
       "physical_damage_reduction_side"
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+7"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+5"
       }
       "side_angle"                                        "240"
       "redirect_chance"

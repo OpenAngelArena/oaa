@@ -23,10 +23,6 @@
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 200 250 300 350"
@@ -35,6 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_unique_mars_arena_cooldown"        "-20"
+      }
       "duration"                                          "5 6 7 8 9"
       "radius"
       {
@@ -59,7 +60,7 @@
       "arena_kill_buff_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+15"
+        "special_bonus_facet_mars_victory_feast"          "+20"
       }
       "arena_kill_buff_damage_pct"
       {

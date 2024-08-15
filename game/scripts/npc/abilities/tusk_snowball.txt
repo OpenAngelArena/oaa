@@ -35,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "snowball_damage"      
+      "snowball_damage"
       {
         "value"                                           "80 140 200 260 520 1040"
         "special_bonus_unique_tusk_2"                     "+120"
@@ -43,24 +43,25 @@
       "snowball_speed"                                    "575 600 625 650 675 700"
       "snowball_damage_bonus"                             "40 65 90 115 230 345"
       "stun_duration"                                     "0.6 0.8 1.0 1.2 1.3 1.4"
-      "snowball_windup_radius"  
+      "stun_duration_bonus"                               "0.2"
+      "snowball_windup_radius"
       {
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
       "snowball_duration"                                 "3.0"
-      "snowball_radius"      
+      "snowball_radius"
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "snowball_grow_rate"    
+      "snowball_grow_rate"
       {
         "value"                                           "40"
         "affected_by_aoe_increase"                        "1"
       }
       "snowball_windup"                                   "3.0"
-      "snowball_grab_radius"    
+      "snowball_grab_radius"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
