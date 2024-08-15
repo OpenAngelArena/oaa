@@ -180,7 +180,7 @@ function Bottlepass:SendHeroPicks (data)
   end
 end
 
-function Bottlepass:SendTeams:SendTeams ()
+function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
