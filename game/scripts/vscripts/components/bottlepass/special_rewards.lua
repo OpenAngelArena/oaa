@@ -27,14 +27,14 @@ SPECIAL_BOTTLES = {
   [141335296] = {1}, -- SquawkyArctangent
   [56309069] = {1}, -- imaGecko
   [116407282] = {1}, -- Haganeko
-  [123791730] = {1,57,61,62,63}, -- Warpdragon
+  [123791730] = {1,57,61,62,63,64}, -- Warpdragon
   [98536810] = {1}, -- Honeth
   [53917791] = {1}, -- Minnakht
   [103179022] = {1}, -- Allan vbhg
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
-  [37885614] = {4,5,55, 1}, --Darkonius
+  [37885614] = {4,5,55, 1,63}, --Darkonius
 
 
   -- golden tournament winners
