@@ -145,8 +145,8 @@ function Bottlepass:SendBans (data)
     self:Request('match/send_bans', {
       banChoices = banChoices,
       bans = data.bans
-    }, function (err, data)
-      DebugPrintTable(data)
+    }, function (err, response)
+      DebugPrintTable(response)
     end)
   end
 end
@@ -174,8 +174,8 @@ function Bottlepass:SendHeroPicks (data)
   if didPick then
     self:Request('match/send_heroes', {
       picks = heroPicks
-    }, function (err, data)
-      DebugPrintTable(data)
+    }, function (err, response)
+      DebugPrintTable(response)
     end)
   end
 end
@@ -200,8 +200,8 @@ function Bottlepass:SendTeams ()
   self:Request('match/send_teams', {
     dire = dire,
     radiant = radiant
-  }, function (err, data)
-    DebugPrintTable(data)
+  }, function (err, response)
+    DebugPrintTable(response)
   end)
 end
 
