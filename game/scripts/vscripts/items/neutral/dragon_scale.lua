@@ -40,7 +40,6 @@ function modifier_item_dragon_scale_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
@@ -124,13 +123,6 @@ if IsServer() then
   end
 end
 
-function modifier_item_dragon_scale_oaa_passive:GetModifierTotalDamageOutgoing_Percentage(event)
-  if event.target:IsOAABoss() then
-    return self.boss_dmg or self:GetAbility():GetSpecialValueFor("bonus_boss_damage")
-  end
-  return 0
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_dragon_scale_oaa_debuff = class(ModifierBaseClass)
@@ -149,6 +141,10 @@ end
 
 function modifier_item_dragon_scale_oaa_debuff:DestroyOnExpire()
   return true
+end
+
+function modifier_item_dragon_scale_oaa_debuff:RemoveOnDeath()
+  return false
 end
 
 function modifier_item_dragon_scale_oaa_debuff:OnCreated()
