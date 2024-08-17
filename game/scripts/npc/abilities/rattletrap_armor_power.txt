@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+  "rattletrap_armor_power"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+    "IsBreakable"                                         "1"
+
+    "AbilityValues"
+    {
+      "damage_per_armor"                                  "0.15" //OAA
+    }
+  }
+}
