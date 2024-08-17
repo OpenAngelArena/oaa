@@ -3,7 +3,7 @@
 //==============================================================================
 "DOTA_Tooltip_Ability_item_shield_staff"                                        "Force Shield Staff"
 "DOTA_Tooltip_Ability_item_recipe_shield_staff"                                 "Force Shield Staff Recipe"
-"DOTA_Tooltip_ability_item_shield_staff_Description"                            "<h1>Active: Force Shield</h1>Pushes any target unit %push_length% units in the direction it is facing. If it's an ally it applies all-damage shield that absorbs up to %barrier_block% damage. Lasts %barrier_duration% seconds. If it's an enemy it interrupts them and damages them for %damage_to_enemies%.<br><br>Range: %abilitycastrange%<br>Cooldown: %cooldown_tooltip% seconds\n<h1>Passive: Superior Damage Block</h1> Grants a %passive_attack_damage_block_chance%%% chance to block %passive_attack_damage_block_melee% damage from incoming attacks on melee heroes, and %passive_attack_damage_block_ranged% damage on ranged. And %passive_spell_damage_block_chance%%% chance to block %passive_spell_damage_block% damage from spells."
+"DOTA_Tooltip_ability_item_shield_staff_Description"                            "<h1>Active: Force Shield</h1>Pushes any target unit %push_length% units in the direction it is facing.  When cast on an enemy it interrupts them and damages them for %damage_to_enemies%.<br><br>Range: %abilitycastrange%<br>Cooldown: %cooldown_tooltip% seconds\n<h1>Passive: Superior Damage Block</h1> Grants a %passive_attack_damage_block_chance%%% chance to block %passive_attack_damage_block_melee% damage from incoming attacks on melee heroes, and %passive_attack_damage_block_ranged% damage on ranged. And %passive_spell_damage_block_chance%%% chance to block %passive_spell_damage_block% damage from spells."
 "DOTA_Tooltip_ability_item_shield_staff_Lore"                                   "A powerful shield staff that defends its wielder from even the most vicious of attacks."
 "DOTA_Tooltip_ability_item_shield_staff_Note0"                                  "Self-cast will cause you to use Force Shield on yourself."
 "DOTA_Tooltip_ability_item_shield_staff_Note1"                                  "Damage Block for spells blocks spell damage of any damage type after reductions."
@@ -61,5 +61,5 @@
 "DOTA_Tooltip_Ability_item_shield_staff_5_bonus_health_regen"                   "#{DOTA_Tooltip_Ability_item_shield_staff_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_shield_staff_5_bonus_mana_regen"                     "#{DOTA_Tooltip_Ability_item_shield_staff_bonus_mana_regen}"
 
-"dota_tooltip_modifier_shield_staff_barrier_buff"                               "Force Shield"
-"dota_tooltip_modifier_shield_staff_barrier_buff_Description"                   "A shield that absorbs damage."
+//"dota_tooltip_modifier_shield_staff_barrier_buff"                               "Force Shield"
+//"dota_tooltip_modifier_shield_staff_barrier_buff_Description"                   "A shield that absorbs damage."
