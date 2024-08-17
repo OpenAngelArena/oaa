@@ -70,6 +70,14 @@ if IsServer() then
       return
     end
 
+    -- Ignore items
+    local inflictor = event.inflictor
+    if inflictor and not inflictor:IsNull() then
+      if inflictor:IsItem() then
+        return
+      end
+    end
+
     -- If unit is dead, spell immune, invulnerable, banished, a ward, tower or in a duel don't do anything
     if not attacker:IsAlive() or attacker:IsMagicImmune() or attacker:IsTower() or attacker:IsOther() or attacker:IsInvulnerable() or attacker:IsOutOfGame() or Duels:IsActive() then
       return
