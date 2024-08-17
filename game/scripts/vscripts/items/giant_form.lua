@@ -90,6 +90,11 @@ if IsServer() then
       return
     end
 
+    -- Prevent some instant attacks proccing the cleave
+    if event.no_attack_cooldown and not parent:InstantAttackCanProcCleave() then
+      return
+    end
+
     local target = event.target
     if not target or target:IsNull() then
       return
@@ -308,6 +313,11 @@ if IsServer() then
     end
 
     if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    -- Prevent some instant attacks proccing the cleave
+    if event.no_attack_cooldown and not parent:InstantAttackCanProcCleave() then
       return
     end
 
