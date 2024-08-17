@@ -473,7 +473,7 @@ if CDOTA_BaseNPC then
       "modifier_tiny_tree_channel",
       "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
-    for _, v in pairs(lits) do
+    for _, v in pairs(list) do
       if self:HasModifier(v) then
         return true
       end
