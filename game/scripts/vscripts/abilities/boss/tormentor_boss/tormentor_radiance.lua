@@ -104,7 +104,7 @@ function modifier_tormentor_radiance_oaa:GetModifierAura()
 end
 
 function modifier_tormentor_radiance_oaa:GetTexture()
-  return "item_radiance"
+  return "dawnbreaker_luminosity"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -124,5 +124,5 @@ function modifier_tormentor_radiance_debuff_oaa:IsDebuff()
 end
 
 function modifier_tormentor_radiance_debuff_oaa:GetTexture()
-  return "item_radiance"
+  return "dawnbreaker_luminosity"
 end
