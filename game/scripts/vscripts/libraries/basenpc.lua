@@ -275,6 +275,7 @@ if IsServer() then
         item_gungir_3 = true,
         item_gungir_4 = true,
         item_gungir_5 = true,
+        item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
         item_mjollnir_3 = true,
@@ -288,7 +289,6 @@ if IsServer() then
         item_stormcrafter = true,
         beastmaster_call_of_the_wild_hawk = true,
         brewmaster_fire_permanent_immolation = true,
-        elder_titan_innate_oaa = true,
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
