@@ -13,16 +13,10 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "3"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_timer"                                      "2 1.5 1"
-      }
+      "heal_timer"                                        "2 1.5 1"
     }
   }
 }

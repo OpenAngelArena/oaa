@@ -28,7 +28,7 @@ function item_greater_phase_boots:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_phase_boots_active", {duration = active_duration})
 
   -- Add the vanilla spider legs modifier (free pathing and cool visual spider effect)
-  caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = active_duration})
+  --caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = active_duration})
 
   -- Add OAA unique greater phase boots modifier, different for melee and ranged
   if not caster:IsRangedAttacker() then

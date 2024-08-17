@@ -37,7 +37,7 @@
       "damage_tick_rate"                                  "0.2"
       "sand_storm_radius"
       {
-        "value"                                           "300 350 400 450 500 550"
+        "value"                                           "450 500 550 600 650 700"
         "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
         "affected_by_aoe_increase"                        "1"
       }
@@ -63,29 +63,6 @@
       "sand_storm_move_speed_bonus_when_outside_radius"
       {
         "special_bonus_facet_sand_king_dust_devil"        "+55"
-      }
-      "scepter_explosion_radius_pct" // Burrowstrike spine radius: percentage of sand_storm_radius (10%)
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+10"
-      }
-      "scepter_explosion_min_dist"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+90"
-      }
-      "scepter_explosions_per_pulse"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+3"
-      }
-      "spine_tick_rate"
-      {
-        "special_bonus_scepter"                           "=0.4"
-      }
-      "spine_damage_pct"
-      {
-        "special_bonus_scepter"                           "=70"
       }
     }
   }

@@ -51,8 +51,9 @@
       }
       "shrapnel_damage"
       {
-        "value"                                           "25 40 55 70 140 280"
+        "value"                                           "30 45 60 75 150 300"
         "special_bonus_facet_sniper_scattershot"          "x4"
+        "special_bonus_unique_sniper_shrapnel_damage"     "+30%"
       }
       "duration"
       {

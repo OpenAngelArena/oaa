@@ -41,7 +41,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "0" // Experience earn.
+    "BountyXP"                                            "0" // Experience reward is handled in vscripts\components\boss\grendel.lua
     "BountyGoldMin"                                       "0"    // Gold earned min.
     "BountyGoldMax"                                       "0"    // Gold earned max.
 
@@ -86,7 +86,9 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
+    "MinimapIconSize"                                     "350"
   }
 }

@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18" //OAA
+    "AbilityCooldown"                                     "30 28 26 24 22 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
       "heal_interval"                                     "0.5"
       "heal"
       {
-        "value"                                           "4 8 12 16 32 64"
+        "value"                                           "4 8 12 16 20 24"
         "special_bonus_unique_enchantress_5"              "+8"
       }
       "radius"
@@ -50,10 +50,10 @@
         "value"                                           "0"
         "special_bonus_unique_enchantress_6"              "+30"
       }
-      "overprotective_damage_threshold"
+      "overprotective_damage_threshold" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_enchantress_overprotective_wisps"  "=250"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=500 =450 =400 =350 =300 =250"
       }
       "overprotective_damage_reset_interval"
       {

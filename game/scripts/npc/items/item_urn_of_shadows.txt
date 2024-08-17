@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "375"
+    "ItemCost"                                            "280"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -25,7 +25,7 @@
     "ItemResult"                                          "item_urn_of_shadows_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_sobi_mask;item_ring_of_protection;item_circlet"
+      "01"                                                "item_sobi_mask;item_ring_of_protection;item_fluffy_hat"
     }
   }
   //=================================================================================================================
@@ -45,13 +45,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastRange"                                    "750"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "10"
     "AbilitySharedCooldown"                               "urn"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "880"
-    "ItemShopTags"                                        "regen_mana;str;int;agi;armor"
+    "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "urn; urn of shadows"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -62,9 +62,14 @@
     "AbilityValues"
     {
       "bonus_mana_regen"                                  "1.4"
-      "bonus_all_stats"                                   "2"
+      "bonus_all_stats"                                   "0"
       "bonus_armor"                                       "2"
-      "soul_radius"                                       "1400"
+      "bonus_health"                                      "125"
+      "soul_radius"
+      {
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "kill_charges"                                      "1"
       "soul_heal_amount"                                  "30"
       "soul_damage_amount"                                "25"

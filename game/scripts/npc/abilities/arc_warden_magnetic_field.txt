@@ -51,7 +51,7 @@
       "attack_speed_bonus"
       {
         "value"                                           "30 60 90 120 150 180"
-        "special_bonus_unique_arc_warden_3"               "+20"
+        "special_bonus_unique_arc_warden_3"               "+16"
         "RequiresFacet"                                   "arc_warden_order"
       }
       "evasion_chance"
@@ -72,13 +72,13 @@
       "attack_damage_bonus" //OAA, Valve has it wrong
       {
         "value"                                           "20 40 60 80 100 120"
-        "special_bonus_unique_arc_warden_3"               "+20"
+        "special_bonus_unique_arc_warden_3"               "+16"
         "RequiresFacet"                                   "arc_warden_disorder"
       }
       "attack_magic_damage"
       {
         "value"                                           "20 40 60 80 100 120"
-        "special_bonus_unique_arc_warden_3"               "+20"
+        "special_bonus_unique_arc_warden_3"               "+16"
       }
       "AbilityCooldown"
       {

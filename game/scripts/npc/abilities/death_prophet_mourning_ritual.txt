@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Death Prophet: Mourning Ritual (Facet)
+  //=================================================================================================================
+  "death_prophet_mourning_ritual"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "death_prophet_exorcism"
+    "Innate"                                              "1"
+    "IsBreakable"                                         "1"
+
+    "AbilityValues"
+    {
+      "delay_pct"                                         "5 10 15 20 25 30" //OAA
+      "delay_time"                                        "5"
+      "damage_interval"                                   "1"
+    }
+  }
+}

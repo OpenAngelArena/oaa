@@ -66,28 +66,8 @@ end
 
 function modifier_mini_rosh_passives:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     MODIFIER_PROPERTY_ABSORB_SPELL,
   }
-end
-
--- function modifier_mini_rosh_passives:CheckState()
-  -- local parent = self:GetParent()
-  -- if not parent:IsControllableByAnyPlayer() then
-    -- return {
-      -- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-      -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    -- }
-  -- end
-  -- return {}
--- end
-
-function modifier_mini_rosh_passives:GetModifierStatusResistanceStacking()
-  if not self:GetParent():IsHero() then
-    return self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
-  else
-    return 0
-  end
 end
 
 if IsServer() then

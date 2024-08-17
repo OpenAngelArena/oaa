@@ -218,6 +218,7 @@ if IsServer() then
       anti_mage_mana_void = false,
       bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
+      huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0,
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_fire = false,             -- shard gives percentage dmg
       jakiro_liquid_ice = false,              -- shard gives percentage dmg
@@ -226,6 +227,7 @@ if IsServer() then
       venomancer_noxious_plague = false,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
       zuus_arc_lightning = false,
+      zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then

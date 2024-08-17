@@ -10,16 +10,13 @@
     "AbilityTextureName"                                  "tidehunter_kraken_shell"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_threshold"                                "200"
-      }
+      "damage_threshold"                                  "200"
     }
   }
 }

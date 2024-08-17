@@ -89,6 +89,24 @@ if IsServer() then
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
   end
 
+  function CDOTA_BaseNPC:DispelWeirdDebuffs()
+    -- Debuffs that reduce cast range or increase cast time (reduce cast speed)
+    local a = {
+      "modifier_bane_enfeeble_effect",
+      "modifier_faceless_void_time_zone_effect", -- it will probably get reapplied again
+      "modifier_medusa_venomed_volley_slow",
+      "modifier_tinker_warp_grenade",
+    }
+
+    local function RemoveTableOfModifiersFromUnit(unit, t)
+      for i = 1, #t do
+        unit:RemoveModifierByName(t[i])
+      end
+    end
+
+    RemoveTableOfModifiersFromUnit(self, a)
+  end
+
   function CDOTA_BaseNPC:AbsolutePurge()
     -- Remove undispellable debuffs first
     self:DispelUndispellableDebuffs()
@@ -251,15 +269,36 @@ if IsServer() then
 
     if ability.GetAbilityName then
       local damagingByAccident = {
+        item_cloak_of_flames = true,
+        item_gungir = true, -- because of random bounces
+        item_gungir_2 = true,
+        item_gungir_3 = true,
+        item_gungir_4 = true,
+        item_gungir_5 = true,
+        item_mjollnir = true, -- because of random bounces
+        item_mjollnir_2 = true,
+        item_mjollnir_3 = true,
+        item_mjollnir_4 = true,
+        item_mjollnir_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
         item_radiance_4 = true,
         item_radiance_5 = true,
-        item_cloak_of_flames = true,
         item_stormcrafter = true,
-        doom_bringer_scorched_earth = true,
-        mirana_starfall = true,
+        beastmaster_call_of_the_wild_hawk = true,
+        brewmaster_fire_permanent_immolation = true,
+        elder_titan_innate_oaa = true,
+        ember_spirit_immolation = true,
+        furion_wrath_of_nature = true, -- because of random bounces
+        --leshrac_diabolic_edict = true,
+        lina_combustion = true,
+        mirana_starfall = true, -- because of Scepter Arrow
+        phoenix_dying_light = true,
+        razor_storm_surge = true,
+        --sandking_epicenter = true, -- because of shard?
+        sandking_sand_storm = true, -- because of moving Sand Storm facet
+        warlock_golem_permanent_immolation = true,
         wisp_spirits = true,
       }
       local name = ability:GetAbilityName()

@@ -10,6 +10,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_sniper_keen_scope.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
 
     "Innate"                                              "1"
     "DependentOnAbility"                                  "sniper_assassinate"
@@ -21,13 +22,13 @@
     {
       "bonus_range"
       {
-        "value"                                           "160 240 320 400 450 500"
+        "value"                                           "160 260 360 460 480 500"
         "special_bonus_facet_sniper_automatic_weaponry"   "=0 =0 =0 =0 =0 =0" // not typing -100 because the tooltip does not show the minus sign so it's confusing
       }
       "bat_reduction"
       {
         "value"                                           "0"
-        "special_bonus_facet_sniper_automatic_weaponry"   "=0.2 =0.25 =0.3 =0.35 =0.4 =0.45"
+        "special_bonus_facet_sniper_automatic_weaponry"   "=0.3 =0.32 =0.34 =0.36 =0.38 =0.4"
         "RequiresFacet"                                   "sniper_automatic_weaponry"
       }
       "attack_range_reduction"

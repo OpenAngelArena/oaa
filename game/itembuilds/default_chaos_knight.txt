@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_chaos_knight"
   "Title"         "Recommended items for Chaos Knight"
 
@@ -13,23 +13,23 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
-    {
-      "item"      "item_harpoon"
-      "item"      "item_assault"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_devastator_oaa_2"
-    }
-
     "#DOTA_Item_Build_Illusions_Core"
     {
       "item"      "item_armlet"
-      "item"      "item_heart_oaa_1"
       "item"      "item_manta"
       "item"      "item_bloodthorn"
+      "item"      "item_heart_oaa_1"
       "item"      "item_vladmirs_grimoire_1"
-      "item"      "item_ultimate_scepter"
+    }
+
+    "#DOTA_Item_Build_Sven_Gigachad"
+    {
+      "item"      "item_radiance"
+      "item"      "item_desolator"
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -39,6 +39,7 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
       "item"      "item_harpoon"
       "item"      "item_heavens_halberd"
@@ -48,6 +49,7 @@
       "item"      "item_satanic"
       "item"      "item_silver_edge"
       "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
     }
   }
 }

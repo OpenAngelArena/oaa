@@ -8,13 +8,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6" // same as Dependent ability (Chronosphere) + 1
+    "MaxLevel"                                            "7" // same as Dependent ability (Time Dilation) + 1
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "faceless_void_chronosphere"
+    "DependentOnAbility"                                  "faceless_void_time_dilation" // OAA
+    // tests fail because FV now does not have an ultimate before choosing a facet.
+    // Valve messed up here because this won't level up with Time Zone unless they hardcoded it, I will put Time Dilation until they fix this properly
 
     "AbilityValues"
     {
-      "attack_projectile_slow"                            "35 40 45 50 55 60"
+      "attack_projectile_slow"                            "25 30 35 40 45 50 55" // OAA
       "slow_distance_max"
       {
         "value"                                           "600"

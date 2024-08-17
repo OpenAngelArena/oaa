@@ -2,41 +2,44 @@
 // Slime abilities
 //=============================================================================
 "DOTA_Tooltip_Ability_boss_slime_split"                                         "Split"
-"DOTA_Tooltip_Ability_boss_slime_split_Description"                             "The Slime boss will split into 2 smaller slimes after Death, Smaller slimes have 100%% HP of the Slime boss and same abilities as the Slime boss."
+"DOTA_Tooltip_Ability_boss_slime_split_Description"                             "The Slime boss will split into 2 smaller slimes after Death, Smaller slimes have the same HP and same abilities as the Slime boss."
 
 "DOTA_Tooltip_Ability_boss_slime_slam"                                          "Slam"
-"DOTA_Tooltip_Ability_boss_slime_slam_Description"                              "The Slime slams its whole body into the enemy direction. Slammed enemies are damaged, knockbacked and slowed. The Slime is stunned for a few seconds after using this ability."
+"DOTA_Tooltip_Ability_boss_slime_slam_Description"                              "The Slime slams its whole body into the enemy direction. Slammed enemies are damaged, knocked back and slowed."
 "DOTA_Tooltip_Ability_boss_slime_slam_damage"                                   "DAMAGE:"
 "DOTA_Tooltip_Ability_boss_slime_slam_slow"                                     "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_Ability_boss_slime_slam_attack_slow"                              "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_slime_slam_slow_duration"                            "SLOW DURATION:"
 //"DOTA_Tooltip_Ability_boss_slime_slam_width"                                    "WIDTH:"
 "DOTA_Tooltip_Ability_boss_slime_slam_self_stun"                                "SELF STUN DURATION:"
 
 "DOTA_Tooltip_Ability_boss_slime_shake"                                         "Acid Rain"
-"DOTA_Tooltip_Ability_boss_slime_shake_Description"                             "The Slime shakes violently, causing its body to launch small, randomly sized drops of acid all around the place. Each acid drop does damage and slows. Every time the Slime uses other abilities there is a chance for Acid Rain to trigger. Acid Rain will trigger on slime's death."
+"DOTA_Tooltip_Ability_boss_slime_shake_Description"                             "The Slime shakes violently, causing its body to launch small, randomly sized drops of acid all around the place. Each acid drop does damage and slows. Every time the Slime uses other abilities there is a chance for Acid Rain to trigger. Acid Rain will trigger on the Slime's death."
 "DOTA_Tooltip_Ability_boss_slime_shake_chance"                                  "%ACID RAIN CHANCE:"
 "DOTA_Tooltip_Ability_boss_slime_shake_radius"                                  "RADIUS:"
 //"DOTA_Tooltip_Ability_boss_slime_shake_projectile_min_size"                     ""
 //"DOTA_Tooltip_Ability_boss_slime_shake_projectile_max_size"                     ""
 "DOTA_Tooltip_Ability_boss_slime_shake_damage"                                  "DAMAGE PER ACID DROP:"
 "DOTA_Tooltip_Ability_boss_slime_shake_slow"                                    "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_Ability_boss_slime_shake_attack_slow"                             "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_slime_shake_slow_duration"                           "SLOW DURATION:"
 
 "DOTA_Tooltip_Ability_boss_slime_jump"                                          "Jump"
-"DOTA_Tooltip_Ability_boss_slime_jump_Description"                              "The Slime jumps into the air towards the enemy. Upon landing all enemies within the radius are damaged, knockbacked and slowed."
+"DOTA_Tooltip_Ability_boss_slime_jump_Description"                              "The Slime jumps into the air towards the enemy. Upon landing all enemies within the radius are damaged, knocked back and slowed."
 "DOTA_Tooltip_Ability_boss_slime_jump_radius"                                   "RADIUS:"
 "DOTA_Tooltip_Ability_boss_slime_jump_damage"                                   "DAMAGE:"
 "DOTA_Tooltip_Ability_boss_slime_jump_slow"                                     "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_Ability_boss_slime_jump_attack_slow"                              "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_slime_jump_slow_duration"                            "SLOW DURATION:"
 
 //=============================================================================
 // Slime modifiers
 //=============================================================================
-"DOTA_Tooltip_modifier_boss_slime_slam_slow"                                    "Slowed"
-"DOTA_Tooltip_modifier_boss_slime_slam_slow_Description"                        ""
+"DOTA_Tooltip_modifier_boss_slime_slam_slow"                                    "Slime Slow"
+"DOTA_Tooltip_modifier_boss_slime_slam_slow_Description"                        "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
-"DOTA_Tooltip_modifier_boss_slime_shake_slow"                                   "Slowed"
-"DOTA_Tooltip_modifier_boss_slime_shake_slow_Description"                       ""
+"DOTA_Tooltip_modifier_boss_slime_shake_slow"                                   "Acid Rain Slow"
+"DOTA_Tooltip_modifier_boss_slime_shake_slow_Description"                       "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
-"DOTA_Tooltip_modifier_boss_slime_jump_slow"                                    "Slowed"
-"DOTA_Tooltip_modifier_boss_slime_jump_slow_Description"                        ""
+"DOTA_Tooltip_modifier_boss_slime_jump_slow"                                    "Slime Slow"
+"DOTA_Tooltip_modifier_boss_slime_jump_slow_Description"                        "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

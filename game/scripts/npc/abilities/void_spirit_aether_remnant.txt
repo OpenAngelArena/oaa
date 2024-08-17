@@ -92,6 +92,16 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+30"
       }
+      "artifice_duration_override"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+4.0"      // artifice_duration_override_tooltip
+      }
+      "artifice_pct_effectiveness"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+70.0"     // artifice_pct_effectiveness_tooltip
+      }
     }
   }
 }

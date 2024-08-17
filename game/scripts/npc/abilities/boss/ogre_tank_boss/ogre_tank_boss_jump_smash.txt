@@ -17,14 +17,14 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.03"
     "AbilityCastRange"                                    "400"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"   // Activity
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AnimationIgnoresModelScale"                          "1"
-    //"AnimationPlaybackRate"         "1.0" // default 1.0
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5.25" // regular: 5.25
+    "AbilityCooldown"                                     "5.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,28 +32,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_radius"                                   "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "3.5" // regular: 4.0
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_speed"                                      "1.8" // regular: 1.8
-      }
+      "impact_radius"                                     "400"
+      "stun_duration"                                     "3.5"
+      "damage"                                            "6000" // physical
+      "jump_speed"                                        "1.8"
     }
 
     "precache"

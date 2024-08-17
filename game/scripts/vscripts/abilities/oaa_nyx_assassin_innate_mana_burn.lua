@@ -26,6 +26,10 @@ function modifier_nyx_assassin_innate_mana_burn_oaa:IsPurgable()
   return false
 end
 
+function modifier_nyx_assassin_innate_mana_burn_oaa:RemoveOnDeath()
+  return false
+end
+
 function modifier_nyx_assassin_innate_mana_burn_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_TAKEDAMAGE
@@ -49,13 +53,13 @@ if IsServer() then
       return
     end
 
-    -- If ability doesn't exist -> don't continue
-    if not ability or ability:IsNull() then
+    -- Check if attacker is broken or illusion
+    if attacker:IsIllusion() or attacker:PassivesDisabled() then
       return
     end
 
-    -- Don't continue if attacker is an illusion
-    if attacker:IsIllusion() then
+    -- If ability doesn't exist -> don't continue
+    if not ability or ability:IsNull() then
       return
     end
 

@@ -61,6 +61,11 @@
       "arrow_min_stun"                                    "0.01"
       "arrow_max_stun"                                    "2.6 3.4 4.2 5 5 5"
       "arrow_bonus_damage"                                "150 160 170 180 190 200"
+      "arrow_vision" // Radius around the arrow while flying and after hitting
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
 
       // OAA configuration values for arrow
       "arrow_vision_duration"                             "3" // Duration of vision after hitting
@@ -75,15 +80,10 @@
         "special_bonus_unique_mirana_2"                   "+25"
       }
       "arrow_start_distance"                              "51"
-      "arrow_vision" // Radius around the arrow while flying and after hitting
-      {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-      }
       "arrow_pierce_count"
       {
         "value"                                           "0 1 1 2 2 3"
-        "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
+        "special_bonus_unique_mirana_arrow_pierce"        "+1"
       }
     }
   }

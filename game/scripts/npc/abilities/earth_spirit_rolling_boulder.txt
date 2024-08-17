@@ -33,12 +33,22 @@
       }
       "speed"                                             "1000"
       "rock_speed"                                        "1600"
+      "allied_hero_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "1900"
+      }
       "distance"
       {
         "value"                                           "750.0"
         "special_bonus_unique_earth_spirit_4"             "+200"
       }
       "rock_distance_multiplier"                          "2"
+      "allied_hero_multiplier"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "2.5"
+      }
       "delay"                                             "0.6"
       "damage" //OAA
       {
@@ -60,6 +70,26 @@
       {
         "value"                                           "1"
         "special_bonus_facet_earth_spirit_stepping_stone"  "=0"
+      }
+      "can_roll_over_allied_heroes"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "1"
+      }
+      "allied_bonus_movespeed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "15 20 25 30 35 40"
+      }
+      "allied_bonus_movespeed_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "4.0"
+      }
+      "allied_bonus_stun_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_earth_spirit_ready_to_roll"  "0.3 0.5 0.7 0.9 1.0 1.1"
       }
     }
   }

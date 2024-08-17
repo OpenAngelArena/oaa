@@ -24,7 +24,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "15 20 25 30 60 120"
+    "AbilityDamage"                                       "18 22 26 30 60 90"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_witch_doctor_6"             "+100"
+        "special_bonus_unique_witch_doctor_6"             "+125"
       }
       "bonus_damage" // this is the percentage of the lost health as damage
       {

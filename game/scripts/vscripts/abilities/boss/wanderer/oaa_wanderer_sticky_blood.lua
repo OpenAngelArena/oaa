@@ -153,7 +153,7 @@ end
 
 function modifier_wanderer_sticky_blood_passive:CheckState()
   return {
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true, -- does not work for some forced movement spells (e.g. CK Reality Rift)
   }
 end
 

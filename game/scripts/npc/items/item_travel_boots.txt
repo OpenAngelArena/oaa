@@ -67,28 +67,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50" // you get these boots a lot earlier,
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_during_duels"                       "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp_during_duels"                    "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_boss_damage"                               "0"
-      }
+      "bonus_movement_speed"                              "50" // you get these boots a lot earlier,
+      "bonus_damage_during_duels"                         "0"
+      "bonus_spell_amp_during_duels"                      "0"
+      "bonus_boss_damage"                                 "0"
     }
   }
 }

@@ -1,11 +1,11 @@
 
 function Spawn( entityKeyValues )
-	if not thisEntity or not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	thisEntity.QuillAttack = thisEntity:FindAbilityByName( "ranged_quill_attack" )
-	thisEntity:SetContextThink( "DireHoundBossThink", DireHoundBossThink, 1 )
+  thisEntity.QuillAttack = thisEntity:FindAbilityByName( "ranged_quill_attack" )
+  thisEntity:SetContextThink( "DireHoundBossThink", DireHoundBossThink, 1 )
 end
 
 function DireHoundBossThink()
@@ -30,6 +30,9 @@ function DireHoundBossThink()
   end
 
   local function IsAttackable(entity)
+    if not entity then
+      return false
+    end
     if entity:IsBaseNPC() then
       return entity:IsAlive() and not entity:IsAttackImmune() and not entity:IsInvulnerable() and not entity:IsOutOfGame() and not IsNonHostileWard(entity) and not entity:IsCourier()
     end
@@ -45,91 +48,129 @@ function DireHoundBossThink()
     return 1
 	end
 
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #enemies == 0 then
-		return 1
-	end
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    1200,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_ALL,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_CLOSEST,
+    false
+  )
 
-	local hAttackTarget = nil
-	local hApproachTarget = nil
-	for _, enemy in pairs( enemies ) do
-		if enemy ~= nil and enemy:IsAlive() and IsAttackable(enemy) then
-			local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-			if flDist < 400 then
-				return Retreat( enemy )
-			end
-			if flDist <= 800 then
-				hAttackTarget = enemy
-			end
-			if flDist > 800 then
-				hApproachTarget = enemy
-			end
-		end
-	end
+  if #enemies == 0 or not thisEntity.QuillAttack then
+    return 1
+  end
 
-	if not hAttackTarget and hApproachTarget then
-		return Approach( hApproachTarget )
-	end
+  local attackDistance = thisEntity.QuillAttack:GetSpecialValueFor("attack_distance")
+  local hAttackTarget
+  local hApproachTarget
+  for _, enemy in ipairs( enemies ) do
+    if enemy and enemy:IsAlive() and IsAttackable(enemy) then
+      local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
+      if flDist < attackDistance / 2 then
+        return Retreat( enemy )
+      elseif flDist <= attackDistance then
+        hAttackTarget = enemy
+      elseif flDist > attackDistance then
+        hApproachTarget = enemy
+      end
+    end
+  end
 
-	if thisEntity.QuillAttack:IsCooldownReady() and IsAttackable(hAttackTarget) then
-		return Attack( hAttackTarget )
-	end
+  if not hAttackTarget and hApproachTarget then
+    return Approach( hApproachTarget )
+  end
 
-	if hAttackTarget then
+  if thisEntity.QuillAttack:IsCooldownReady() and IsAttackable(hAttackTarget) then
+    return Attack( hAttackTarget )
+  end
+
+  -- Just face the enemy if not attackable or on cooldown
+  if hAttackTarget then
     thisEntity:FaceTowards( hAttackTarget:GetOrigin() )
   end
 
-	return 0.5
+  return 0.5
 end
 
 function Attack(unit)
-	thisEntity.bMoving = false
+  thisEntity.bMoving = false
 
-	thisEntity:AddNewModifier( thisEntity, nil, "modifier_provide_vision", { duration = 1.1 } )
+  local ability = thisEntity.QuillAttack
+  local cast_point = ability:GetCastPoint()
+  local cooldown = ability:GetCooldown(-1)
+  local think_time = math.max(cast_point, cooldown) + 0.1
 
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.QuillAttack:entindex(),
-		Position = unit:GetOrigin(),
-		Queue = false,
-	})
-	return 1
+  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+    thisEntity:AddNewModifier( unit, nil, "modifier_provide_vision", { duration = think_time / 2 } )
+  end
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = ability:entindex(),
+    Position = unit:GetOrigin(),
+    Queue = false,
+  })
+
+  return think_time
 end
 
 function Approach(unit)
-	thisEntity.bMoving = true
+  thisEntity.bMoving = true
 
-	local vToEnemy = unit:GetOrigin() - thisEntity:GetOrigin()
-	vToEnemy = vToEnemy:Normalized()
+  local vToEnemy = unit:GetOrigin() - thisEntity:GetOrigin()
+  vToEnemy = vToEnemy:Normalized()
+  local speed = thisEntity:GetIdealSpeed()
+  local think_time = 1
+  local distance = speed * think_time
 
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity:GetOrigin() + vToEnemy * thisEntity:GetIdealSpeed()
-	})
-	return 1
-end
-
-function Retreat(unit)
-	thisEntity.bMoving = true
-
-	local vAwayFromEnemy = thisEntity:GetOrigin() - unit:GetOrigin()
-	vAwayFromEnemy = vAwayFromEnemy:Normalized()
-
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity:GetOrigin() + vAwayFromEnemy * thisEntity:GetIdealSpeed()
-	})
-	return 1.25
-end
-
-function RetreatHome()
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = thisEntity.vInitialSpawnPos
+    Position = thisEntity:GetOrigin() + vToEnemy * distance,
+    Queue = false,
   })
-  return 6
+
+  return think_time + 0.1
+end
+
+function Retreat(unit)
+  thisEntity.bMoving = true
+
+  local vAwayFromEnemy = thisEntity:GetOrigin() - unit:GetOrigin()
+  vAwayFromEnemy = vAwayFromEnemy:Normalized()
+  local speed = thisEntity:GetIdealSpeed()
+  local travel_time = 1
+  local turning_time = 0.25
+  local distance = speed * travel_time
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity:GetOrigin() + vAwayFromEnemy * distance,
+    Queue = false,
+  })
+
+  return travel_time + turning_time
+end
+
+function RetreatHome()
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
+  })
+
+  local speed = thisEntity:GetIdealSpeedNoSlows()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
 end

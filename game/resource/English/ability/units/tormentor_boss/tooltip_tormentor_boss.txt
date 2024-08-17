@@ -1,0 +1,30 @@
+//=============================================================================
+// Tormentor boss abilities
+//=============================================================================
+"DOTA_Tooltip_Ability_tormentor_boss_unyielding_shield_oaa"                     "Unyielding Shield"
+"DOTA_Tooltip_Ability_tormentor_boss_unyielding_shield_oaa_Description"         "Passively grants a regenerating All Damage Barrier."
+"DOTA_Tooltip_Ability_tormentor_boss_unyielding_shield_oaa_damage_absorb"       "SHIELD HEALTH:"
+"DOTA_Tooltip_Ability_tormentor_boss_unyielding_shield_oaa_regen_per_second"    "SHIELD REGEN:"
+
+"DOTA_Tooltip_Ability_tormentor_boss_reflect_oaa"                               "Reflect"
+"DOTA_Tooltip_Ability_tormentor_boss_reflect_oaa_Description"                   "Reflects damage received evenly to the attacker and all other heroes nearby."
+"DOTA_Tooltip_Ability_tormentor_boss_reflect_oaa_passive_reflection_pct"        "%REFLECTED DAMAGE:"
+"DOTA_Tooltip_Ability_tormentor_boss_reflect_oaa_radius"                        "RADIUS:"
+"DOTA_Tooltip_Ability_tormentor_boss_reflect_oaa_illusion_damage_pct"           "%BONUS DAMAGE AGAINST ILLUSIONS:"
+
+"DOTA_Tooltip_Ability_tormentor_boss_radiance_oaa"                              "The Shining"
+"DOTA_Tooltip_Ability_tormentor_boss_radiance_oaa_Description"                  "Deals damage to all enemies nearby every second."
+"DOTA_Tooltip_Ability_tormentor_boss_radiance_oaa_aura_radius"                  "RADIUS:"
+"DOTA_Tooltip_Ability_tormentor_boss_radiance_oaa_aura_damage"                  "DAMAGE PER SECOND:"
+"DOTA_Tooltip_Ability_tormentor_boss_radiance_oaa_aura_interval"                "DAMAGE INTERVAL:"
+
+"DOTA_Tooltip_modifier_tormentor_unyielding_shield_oaa"                         "Unyielding Shield"
+"DOTA_Tooltip_modifier_tormentor_unyielding_shield_oaa_Description"             "Protected by a constantly regenerating %dMODIFIER_PROPERTY_TOOLTIP% All Damage Barrier that regens %dMODIFIER_PROPERTY_TOOLTIP2% HP/s."
+
+"DOTA_Tooltip_modifier_tormentor_reflect_oaa"                                   "Reflect"
+"DOTA_Tooltip_modifier_tormentor_reflect_oaa_Description"                       "Reflecting %dMODIFIER_PROPERTY_TOOLTIP%%% damage received to all nearby enemy heroes."
+
+"DOTA_Tooltip_modifier_tormentor_radiance_oaa"                                  "The Shining"
+"DOTA_Tooltip_modifier_tormentor_radiance_oaa_Description"                      "Dealing damage to all nearby enemies."
+"DOTA_Tooltip_modifier_tormentor_radiance_debuff_oaa"                           "Shining Damage"
+"DOTA_Tooltip_modifier_tormentor_radiance_debuff_oaa_Description"               "Taking damage per second."

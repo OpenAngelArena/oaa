@@ -34,7 +34,7 @@ function boss_carapace_headbutt:OnAbilityPhaseStart()
     ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width) + Vector(0, 0, 50))
     ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
-    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 255))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
 
     --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance*2,width,50), direction, Vector(255,0,0), 1, castTime)
@@ -96,7 +96,7 @@ function boss_carapace_headbutt:OnSpellStart()
     attacker = caster,
     damage = self:GetSpecialValueFor("damage"),
     damage_type = self:GetAbilityDamageType(),
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = self
   }
 
@@ -131,7 +131,9 @@ end
 
 modifier_boss_carapace_headbutt_slow = class(ModifierBaseClass)
 
-------------------------------------------------------------------------------------
+function modifier_boss_carapace_headbutt_slow:IsHidden()
+  return false
+end
 
 function modifier_boss_carapace_headbutt_slow:IsDebuff()
 	return true
@@ -141,16 +143,12 @@ function modifier_boss_carapace_headbutt_slow:IsPurgable()
   return true
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_carapace_headbutt_slow:DeclareFunctions()
 	return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
 end
-
-------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_headbutt_slow:GetModifierMoveSpeedBonus_Percentage()
   return self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")

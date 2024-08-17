@@ -79,7 +79,7 @@ function bear_boss_earthshock:OnSpellStart()
     attacker = caster,
     damage = damage,
     damage_type = self:GetAbilityDamageType(),
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = self,
   }
 
@@ -116,6 +116,10 @@ end
 ---------------------------------------------------------------------------------------------------
 
 modifier_bear_boss_earthshock_debuff = class(ModifierBaseClass)
+
+function modifier_bear_boss_earthshock_debuff:IsHidden()
+  return false
+end
 
 function modifier_bear_boss_earthshock_debuff:IsDebuff()
   return true

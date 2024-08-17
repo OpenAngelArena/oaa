@@ -14,6 +14,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "1"
 
@@ -21,23 +22,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "root_chance"                                     "25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "root_duration"                                   "1.65"
-      }
+      "root_chance"                                       "25"
+      "bonus_damage"                                      "50"
+      "root_duration"                                     "1.65"
     }
   }
 }

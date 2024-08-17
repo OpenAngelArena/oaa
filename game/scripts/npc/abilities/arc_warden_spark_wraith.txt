@@ -45,7 +45,7 @@
       "spark_damage_base"
       {
         "value"                                           "100 180 260 340 680 1020"
-        "special_bonus_unique_arc_warden"                 "+35%"
+        "special_bonus_unique_arc_warden"                 "+40%"
         "RequiresFacet"                                   "arc_warden_order"
       }
       "wraith_speed_base"
@@ -55,7 +55,7 @@
       }
       "ministun_duration"
       {
-        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
+        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
         "RequiresFacet"                                   "arc_warden_order"
       }
       "tempest_activation_delay"
@@ -66,12 +66,12 @@
       "spark_damage_tempest"
       {
         "value"                                           "75 140 205 270 540 810"
-        "special_bonus_unique_arc_warden"                 "+35%"
+        "special_bonus_unique_arc_warden"                 "+40%"
         "RequiresFacet"                                   "arc_warden_disorder"
       }
       "ministun_duration_tempest"
       {
-        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
+        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
         "RequiresFacet"                                   "arc_warden_disorder"
       }
       "wraith_speed_tempest"

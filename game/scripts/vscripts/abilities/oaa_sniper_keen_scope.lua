@@ -35,10 +35,18 @@ end
 
 function modifier_sniper_keen_scope_oaa:GetModifierAttackRangeBonus()
   local ability = self:GetAbility()
-  return ability:GetSpecialValueFor("bonus_range") - math.abs(ability:GetSpecialValueFor("attack_range_reduction"))
+  if self:GetParent():PassivesDisabled() then
+    return 0 - math.abs(ability:GetSpecialValueFor("attack_range_reduction"))
+  else
+    return ability:GetSpecialValueFor("bonus_range") - math.abs(ability:GetSpecialValueFor("attack_range_reduction"))
+  end
 end
 
 function modifier_sniper_keen_scope_oaa:GetModifierBaseAttackTimeConstant()
   local ability = self:GetAbility()
-  return 1.7 - ability:GetSpecialValueFor("bat_reduction")
+  if self:GetParent():PassivesDisabled() then
+    return 0
+  else
+    return 1.7 - ability:GetSpecialValueFor("bat_reduction")
+  end
 end

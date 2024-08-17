@@ -44,11 +44,11 @@
         "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=1"
       }
-      "duration"                                          "45.0 45.0 45.0"
+      "duration"                                          "45.0"
       "spawn_radius"                                      "150"
       "damage_tooltip" // not piercing in OAA
       {
-        "value"                                           "30 75 120 255 390"
+        "value"                                           "30 75 120 255 390" // damage values need to be set in unit KVs because of Rubick and Morphling
         "special_bonus_unique_shadow_shaman_4"            "+20%"
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "900%"
         "CalculateSpellDamageTooltip"                     "0"
@@ -63,26 +63,20 @@
       "attack_range_tooltip"
       {
         "value"                                           "650"
-        "special_bonus_unique_shadow_shaman_8"            "+140"
+        "special_bonus_unique_shadow_shaman_8"            "+160"
       }
-      "scepter_range"
-      {
-        "value"                                           "0"
-        "RequiresScepter"                                 "1"
-      }
-      "hits_to_destroy_tooltip"
+      "hits_to_destroy_tooltip" // hits to destroy for heroes
       {
         "value"                                           "2"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "650%"
-        "special_bonus_unique_shadow_shaman_1"            "50%"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+18"
+        "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
-      "ward_health"
+      "ward_health" // hits to destroy for creeps
       {
         "value"                                           "4"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "650%"
-        "special_bonus_unique_shadow_shaman_1"            "50%"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+36"
+        "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
-
       "is_mega_ward"
       {
         "value"                                           "0"
@@ -95,14 +89,13 @@
       }
       "mega_ward_health_tooltip"
       {
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=7.5"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
       }
-      "mega_ward_health_reduction_pct"
+      "mega_ward_health_reduction_pct" // probably unused
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=25"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=0"
       }
-
       "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5 3.7 3.9"
     }
   }

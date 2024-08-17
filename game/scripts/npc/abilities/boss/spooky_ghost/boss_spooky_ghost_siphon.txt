@@ -28,43 +28,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_hp_dmg"                                      "12"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_pct"                                   "25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow"                                 "-50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-350"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "800"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "buffer_range"                                    "400"
-      }
+      "duration"                                          "6"
+      "max_hp_dmg"                                        "12"
+      "lifesteal_pct"                                     "25"
+      "move_speed_slow"                                   "-50"
+      "attack_speed_slow"                                 "-350"
+      "radius"                                            "800"
+      "buffer_range"                                      "400"
     }
   }
 }

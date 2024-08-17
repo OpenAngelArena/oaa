@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Furion: Wrath of Nature
+  //=================================================================================================================
+  "furion_wrath_of_nature"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.5"
+
+    "AbilityManaCost"                                     "130 160 190 220 250"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "max_targets"                                       "16"
+      "damage" //OAA
+      {
+        "value"                                           "150 185 220 325 500"
+        "special_bonus_unique_furion_5"                   "+30"
+      }
+      "damage_percent_add"
+      {
+        "value"                                           "10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "jump_delay"                                        "0.15"
+      "kill_damage"
+      {
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "kill_damage_duration"
+      {
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "85"
+        "special_bonus_scepter"                           "-25"
+      }
+      "scepter_min_entangle_duration"
+      {
+        "value"                                           "1.5"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_max_entangle_duration"
+      {
+        "value"                                           "3.0"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

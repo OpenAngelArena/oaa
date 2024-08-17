@@ -13,28 +13,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "5"
-      }
-      "03" // Health Max increase
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value3"                                          "1000"
-      }
-      "04" // Damage Max increase
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value4"                                          "100"
-      }
+      "value"                                             "50"
+      "value2"                                            "5"
+      "value3"                                            "1000" // Health Max increase
+      "value4"                                            "100" // Damage Max increase
     }
   }
 }

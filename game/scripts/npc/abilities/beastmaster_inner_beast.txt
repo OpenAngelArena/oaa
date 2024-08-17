@@ -11,10 +11,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "Innate"                                              "1"
-
-    "MaxLevel"                                            "7"
-    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
 
     "AbilityValues"
     {
@@ -25,13 +23,13 @@
       }
       "bonus_attack_speed" //OAA, affects only Beastmaster and his summons
       {
-        "value"                                           "5 10 25 40 55 70 85"
+        "value"                                           "15 30 45 60 75 90"
         "special_bonus_unique_beastmaster_4"              "+15"
       }
       "attack_speed_per_unit"
       {
         "value"                                           "0"
-        "special_bonus_facet_beastmaster_wild_hunt"       "1 2 3 4 5 6 7"
+        "special_bonus_facet_beastmaster_wild_hunt"       "3 4 5 6 7 8"
       }
       "berserk_duration"
       {
@@ -41,7 +39,7 @@
       "berserk_bonus_attack_speed"
       {
         "value"                                           "0"
-        "special_bonus_facet_beastmaster_beast_mode"      "10 20 30 40 50 60 70"
+        "special_bonus_facet_beastmaster_beast_mode"      "20 30 40 50 60 70"
       }
       "AbilityCooldown"
       {

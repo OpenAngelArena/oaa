@@ -148,7 +148,7 @@ function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
         victim = enemy,
         damage = self.damage,
         damage_type = DAMAGE_TYPE_PHYSICAL,
-        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
         ability = ability,
       }
 

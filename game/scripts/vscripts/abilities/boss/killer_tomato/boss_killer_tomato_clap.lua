@@ -79,7 +79,7 @@ function boss_killer_tomato_clap:OnSpellStart()
     attacker = caster,
     damage = damage,
     damage_type = self:GetAbilityDamageType(),
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = self,
   }
 
@@ -111,6 +111,10 @@ end
 ---------------------------------------------------------------------------------------------------
 
 modifier_boss_killer_tomato_clap_debuff = class(ModifierBaseClass)
+
+function modifier_boss_killer_tomato_clap_debuff:IsHidden()
+  return false
+end
 
 function modifier_boss_killer_tomato_clap_debuff:IsDebuff()
   return true

@@ -37,7 +37,6 @@
         "value"                                           "12 10 8 6 6 6"
         "special_bonus_facet_abaddon_mephitic_shroud"     "+2"
       }
-
       "duration"
       {
         "value"                                           "15.0"
@@ -59,7 +58,7 @@
       "regen"
       {
         "value"                                           "0"
-        "special_bonus_unique_abaddon_7"                  "+15"
+        "special_bonus_unique_abaddon_7"                  "+12"
       }
       "absorb_to_damage"
       {
@@ -71,6 +70,8 @@
         "value"                                           "0"
         "special_bonus_facet_abaddon_mephitic_shroud"     "675"
         "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }
