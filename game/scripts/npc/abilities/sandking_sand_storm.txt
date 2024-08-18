@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
+    "AbilityCooldown"                                     "28 26 24 22 21 20" //OAA
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -41,7 +41,7 @@
         "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
         "affected_by_aoe_increase"                        "1"
       }
-      "sand_storm_damage" //OAA
+      "sand_storm_damage"
       {
         "value"                                           "25 50 75 100 200 350"
         "special_bonus_unique_sand_king_2"                "+25"

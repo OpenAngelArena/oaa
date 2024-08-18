@@ -30,19 +30,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "110 100 90 80 70"
+        "value"                                           "120 110 100 90 80 70"
       }
       "epicenter_pulses"
       {
         "value"                                           "12 16 20 24 28"
         "special_bonus_unique_sand_king"                  "+10"
       }
-      "epicenter_damage" //OAA
+      "epicenter_damage"
       {
         "value"                                           "60 70 80 110 140"
-        "special_bonus_shard"                             "+10"
+        "special_bonus_shard"                             "+5"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"

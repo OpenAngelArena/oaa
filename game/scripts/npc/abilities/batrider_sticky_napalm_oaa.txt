@@ -33,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "22 27 32 37 42 47"
+    "AbilityManaCost"                                     "30"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
       "damage_bosses" // Percentage of damage dealt to bosses
       {
         "value"                                           "20"
-        "special_bonus_facet_batrider_arsonist"           "+80"
+        "special_bonus_facet_batrider_arsonist"           "+30"
       }
       "shard_number_of_attack_proc"
       {
