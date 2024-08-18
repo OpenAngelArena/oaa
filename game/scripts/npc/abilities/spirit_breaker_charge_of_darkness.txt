@@ -56,8 +56,8 @@
       "out_of_world_time"                                 "0"
       "guaranteed_bash_time"                              "0"
       "reveal_charge"                                     "0"
-      "windup_time"                                       "1.5"
-      "min_movespeed_bonus_pct"                           "25"
+      "windup_time"                                       "0.5" //OAA
+      "min_movespeed_bonus_pct"                           "50" //OAA
       "linger_time_min"
       {
         "value"                                           "0"
