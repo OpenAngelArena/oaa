@@ -38,14 +38,14 @@
         "value"                                           "25 50 75 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "damage_per_second" //OAA
+      "damage_per_second"
       {
-        "value"                                           "10 20 30 40 80 120"
+        "value"                                           "25 30 35 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "damage_duration" //OAA
+      "damage_duration"
       {
-        "value"                                           "5"
+        "value"                                           "2 3 4 5 5 5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }
