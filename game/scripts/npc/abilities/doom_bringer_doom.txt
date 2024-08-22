@@ -34,14 +34,14 @@
       "duration" //OAA
       {
         "value"                                           "12 13 14 15 16"
-        "special_bonus_facet_doom_bringer_impending_doom" "+0"        // this is needed for facet tooltip to recognize that it's modifying this value
+        "special_bonus_facet_doom_bringer_impending_doom"  "+0"        // this is needed for facet tooltip to recognize that it's modifying this value
         "dynamic_value"                                   "true"
       }
       "damage" //OAA
       {
         "value"                                           "30 50 70 110 150"
         "special_bonus_unique_doom_5"                     "+30"
-        "special_bonus_facet_doom_bringer_impending_doom" "=30 =45 =60 =90 =120"
+        "special_bonus_facet_doom_bringer_impending_doom"  "=30 =45 =60 =90 =120"
       }
       "deniable_pct"                                      "25"
       "AbilityCooldown" //OAA

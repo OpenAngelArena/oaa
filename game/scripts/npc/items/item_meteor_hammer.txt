@@ -91,7 +91,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "130 300 570 940 1410" // vanilla: 130
+      "impact_damage"                                     "140 280 490 770 1120" // vanilla: 130; impact_damage_boss * 0.7
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }
