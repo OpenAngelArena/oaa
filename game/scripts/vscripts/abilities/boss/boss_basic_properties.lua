@@ -224,6 +224,7 @@ if IsServer() then
       jakiro_liquid_ice = false,              -- shard gives percentage dmg
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
+      ringmaster_impalement = true,
       venomancer_noxious_plague = false,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
       zuus_arc_lightning = false,
