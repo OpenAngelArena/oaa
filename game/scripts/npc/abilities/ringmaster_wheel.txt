@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "90 80 70 65 60"
+    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@
     "AbilityValues"
     {
       "min_range"                                         "700"
-      "mesmerize_radius"      
+      "mesmerize_radius"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
@@ -46,9 +46,9 @@
       "wheel_stun"                                        "2.75 3.0 3.25 3.5 3.75"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 75 100 175 250"
+      "aura_damage"                                       "50 75 100 175 300"
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 450 600 1200 1800"
+      "explosion_damage"                                  "300 600 900 1800 2700" //OAA
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"
