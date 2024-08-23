@@ -30,9 +30,9 @@
     {
       "heal_duration"                                     "13" //OAA
       "heal_interval"                                     "0.5"
-      "heal"
+      "heal" //OAA
       {
-        "value"                                           "4 8 12 16 20 24"
+        "value"                                           "5 8 11 14 17 20"
         "special_bonus_unique_enchantress_5"              "+8"
       }
       "radius"
@@ -53,7 +53,7 @@
       "overprotective_damage_threshold" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_enchantress_overprotective_wisps"  "=500 =450 =400 =350 =300 =250"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=500"
       }
       "overprotective_damage_reset_interval"
       {
@@ -70,10 +70,10 @@
         "value"                                           "0"
         "special_bonus_facet_enchantress_overprotective_wisps"  "=1"
       }
-      "overprotective_max_wisps"
+      "overprotective_max_wisps" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_enchantress_overprotective_wisps"  "=4"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=3"
       }
     }
   }

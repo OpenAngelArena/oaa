@@ -7,7 +7,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // to use neutral AI
+    "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"
     "vscripts"                                            "units/twin.lua"
     "SoundSet"                                            "Creep_Good_Melee"
@@ -15,7 +15,7 @@
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
-    //"UseNeutralCreepBehavior"                             "0"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -64,10 +64,10 @@
     "StatusManaRegen"                                     "5"
 
     // Creature data
-    //"Creature"
-    //{
-      //"DisableResistance"                                 "50.0"
-    //}
+    "Creature"
+    {
+      "DisableResistance"                                 "50.0"
+    }
 
     // Team
     //----------------------------------------------------------------

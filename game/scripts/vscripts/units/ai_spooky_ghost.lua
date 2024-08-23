@@ -205,18 +205,23 @@ function GhostThink()
       end
     else -- phase 2
       if thisEntity.ethereal_ability and thisEntity.ethereal_ability:IsFullyCastable() then
+        local ability = thisEntity.ethereal_ability
+        local cast_point = ability:GetCastPoint()
+
         thisEntity:DispelWeirdDebuffs()
 
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-          AbilityIndex = thisEntity.ethereal_ability:entindex(),
+          AbilityIndex = ability:entindex(),
           Queue = false,
         })
-        thisEntity.aoe_ability:EndCooldown()
+
+        return cast_point + 1
       end
 
-      if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() then
+      local chance = 50
+      if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() and (RandomInt(1, 100) <= chance or thisEntity:IsAttackImmune() or thisEntity:IsDisarmed()) then
         local ability = thisEntity.aoe_ability
         local radius = ability:GetSpecialValueFor("radius")
         local cast_point = ability:GetCastPoint()

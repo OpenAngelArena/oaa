@@ -278,8 +278,14 @@ function modifier_offside:OnIntervalThink()
     attacker = self.damage_source,
     damage = (h * ((0.15 * ((stackCount - 7)^2 + 10 * (stackCount - 7)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
   }
+
+  -- Interaction with Debuff Immunity
+  if parent:IsDebuffImmune() then
+    damageTable.damage_type = DAMAGE_TYPE_MAGICAL
+    damageTable.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR)
+  end
 
   if stackCount >= 8 then
     return ApplyDamage(damageTable)

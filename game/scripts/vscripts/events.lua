@@ -95,6 +95,28 @@ function GameMode:OnNPCSpawned(keys)
     end
   end
   ]]
+
+  if npc.RemoveAbility then
+    local abilities_to_remove = {
+      ability_capture = GetMapName() ~= "oaa_bigmode",
+      ability_lamp_use = GetMapName() ~= "oaa_bigmode" and GetMapName() ~= "tinymode",
+      ability_pluck_famango = true,
+      abyssal_underlord_portal_warp = true,
+      neutral_upgrade = true,
+      twin_gate_portal_warp = GetMapName() ~= "oaa_bigmode",
+      --special_bonus_attributes = true,
+    }
+
+    for i = 0, DOTA_MAX_ABILITIES - 1 do
+      local ab = npc:GetAbilityByIndex(i)
+      if ab then
+        local name = ab:GetAbilityName()
+        if abilities_to_remove[name] then
+          npc:RemoveAbility(name)
+        end
+      end
+    end
+  end
 end
 
 -- Custom event that fires when an entity takes damage that reduces its health to 0

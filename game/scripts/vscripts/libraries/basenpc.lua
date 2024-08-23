@@ -275,6 +275,7 @@ if IsServer() then
         item_gungir_3 = true,
         item_gungir_4 = true,
         item_gungir_5 = true,
+        item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
         item_mjollnir_3 = true,
@@ -288,7 +289,6 @@ if IsServer() then
         item_stormcrafter = true,
         beastmaster_call_of_the_wild_hawk = true,
         brewmaster_fire_permanent_immolation = true,
-        elder_titan_innate_oaa = true,
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
@@ -449,6 +449,35 @@ if CDOTA_BaseNPC then
       end
     end
 
+    return false
+  end
+
+  function CDOTA_BaseNPC:InstantAttackCanProcCleave()
+    local list = {
+      "modifier_ember_spirit_sleight_of_fist_caster",
+      "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
+      "modifier_ember_spirit_sleight_of_fist_in_progress",
+      "modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      "modifier_juggernaut_omnislash",
+      "modifier_juggernaut_omnislash_invulnerability",
+      --"modifier_mars_gods_rebuke_crit",                         -- Mars W
+      "modifier_monkey_king_boundless_strike_crit",               -- MK Q
+      "modifier_wukongs_command_oaa_buff",                        -- MK R
+      "modifier_pangolier_swashbuckle",
+      "modifier_pangolier_swashbuckle_attack",
+      "modifier_phantom_assassin_stiflingdagger_caster",          -- PA Q
+      "modifier_riki_tricks_of_the_trade_phase",
+      --"modifier_sand_king_scorpion_strike",                     -- Sand King E
+      --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
+      "modifier_sohei_flurry_self",
+      "modifier_tiny_tree_channel",
+      "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+    }
+    for _, v in pairs(list) do
+      if self:HasModifier(v) then
+        return true
+      end
+    end
     return false
   end
 end
