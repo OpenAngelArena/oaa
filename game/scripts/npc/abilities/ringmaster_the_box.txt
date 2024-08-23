@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // RINGMASTER: The Box
+  //=================================================================================================================
+  "ringmaster_the_box"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCastRange"
+      {
+        "value"                                           "600"
+        "special_bonus_unique_ringmaster_box_cast_range"        "+200"
+      }
+      "invis_duration"                                    "2.0 2.4 2.8 3.2 3.3 3.4"
+      "move_speed"                                        "5 10 15 20 25 30"
+      "magic_resist"                                      "50 60 70 80 85 90"
+      "slow_resist"                                       "100"
+      "transform_time"                                    "0.5"
+      "model_scale_time"                                  "0.2"
+      "leash_radius"                                      "500"
+      "heal_ally"                                         "0"
+      "launch_daggers"
+      {
+        "value"                                           "0"
+      }
+      "leap_distance"                                     "250"
+      "leap_speed"                                        "1300.0"
+      "leap_acceleration"                                 "20000.0"
+      "grant_debuff_immunity"
+      {
+        "value"                                           "0"
+      }
+      "strong_dispel"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying" "+1"
+      }
+      "grant_flying"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying" "+1"
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // RINGMASTER: Tame The Beasts
+  //=================================================================================================================
+  "ringmaster_tame_the_beasts"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+    "AbilityChannelTime"                                  "1.0"
+    "AbilityCastRange"                                    "700 750 800 850 900 950"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 14 12 10 9 8"
+    "AbilityManaCost"                                     "90 105 120 135 150 165"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "start_width"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_ringmaster_whip_radius"     "+75"
+      }
+      "end_width"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_ringmaster_whip_radius"     "+75"
+      }
+      "damage_min"
+      {
+        "value"                                           "45 70 95 120 170 220"
+        "special_bonus_unique_ringmaster_whip_damage"     "+75"
+      }
+      "damage_max"
+      {
+        "value"                                           "180 280 380 480 680 880" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+        "special_bonus_unique_ringmaster_whip_damage"     "+300"
+      }
+      "crack_duration"                                    "0.2"
+      "max_multiplier"                                    "4.0"
+      "whip_channel_reduction"
+      {
+        "value"                                           "0"
+      }
+      "whip_cooldown_reduction"
+      {
+        "value"                                           "0"
+      }
+      "magic_resist"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ringmaster_whip_debuff_immunity"  "+50"
+      }
+      "has_debuff_immunity"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ringmaster_whip_debuff_immunity"  "+1"
+      }
+      "fear_duration_min"                                 "0.1 0.2 0.3 0.4 0.5 0.6"
+      "fear_duration_max"                                 "0.6 0.8 1.0 1.2 1.4 1.6"
+    }
+  }
+}
