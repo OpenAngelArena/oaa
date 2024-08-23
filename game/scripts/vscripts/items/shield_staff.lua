@@ -117,7 +117,7 @@ function item_shield_staff:OnSpellStart()
     }
 
     ApplyDamage(damage_table)
-  else
+  --else
     -- Apply barrier buff to the target
     -- target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {
       -- duration = self:GetSpecialValueFor("barrier_duration"),
