@@ -198,7 +198,7 @@ function dotaHeroes (cb) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body);
+    const data = parseKV(result.body.replace('}\t\t}', '}\n\t\t}'));
     cb(null, data.DOTAHeroes);
   });
 }
