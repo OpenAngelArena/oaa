@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // RINGMASTER: The Wheel
+  //=================================================================================================================
+  "ringmaster_wheel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCooldown"                                     "90 80 70 65 60"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "175 275 375 475 575"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "min_range"                                         "700"
+      "mesmerize_radius"      
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_ringmaster_wheel_radius"    "+100"
+      }
+      "projectile_speed"                                  "1200"
+      "AbilityCastRange"
+      {
+        "value"                                           "1400"
+        "special_bonus_unique_ringmaster_wheel_radius"    "+100"
+      }
+      "trap_duration"                                     "8"
+      "wheel_stun"                                        "2.75 3.0 3.25 3.5 3.75"
+      "face_duration"                                     "0.5"
+      "aura_tick_interval"                                "0.5"
+      "aura_damage"                                       "50 75 100 175 250"
+      "aura_slow"                                         "-50"
+      "explosion_damage"                                  "300 450 600 1200 1800"
+      "vision_radius"                                     "400"
+      "damage_per_second"                                 "0"
+      "tick_rate"                                         "0.25"
+      "vision_cone"                                       "0.08715"       // 85 degree cone
+      "knockback_radius"                                  "100"
+      "knockback_duration"                                "0.35"
+      "knockback_distance"                                "100"
+      "knockback_height"                                  "100"
+    }
+  }
+}
