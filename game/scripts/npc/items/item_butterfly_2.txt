@@ -50,7 +50,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "6951"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
@@ -64,7 +63,7 @@
     {
       "bonus_agility"                                     "25 30 40 55 75"
       "bonus_evasion"                                     "20 25 30 35 40"
-      "bonus_attack_speed"                                "20 25 30 35 40"
+      "bonus_attack_speed"                                "0"
       "bonus_attack_speed_per_agility_pct"                "10"
       "bonus_damage"                                      "20 30 50 80 120"
       "buff_ms_per_agility"                               "0.1"

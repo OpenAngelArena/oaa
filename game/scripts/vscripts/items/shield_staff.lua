@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_item_shield_staff_non_stacking_stats", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shield_staff_active_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_shield_staff_barrier_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_shield_staff_barrier_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_shield_staff = class(ItemBaseClass)
 
@@ -69,13 +69,13 @@ function item_shield_staff:GetCooldown(level)
     local target = self:GetCursorTarget()
     for _, modifier in pairs(forbidden_modifiers) do
       if target:HasModifier(modifier) then
-        return cooldown / 2
+        return 0.1 -- cooldown / 2
       end
     end
 
     -- If target is leashed, reduce cd
     if target:IsLeashedOAA() then
-      return cooldown / 2
+      return 0.1 -- cooldown / 2
     end
   end
 
@@ -117,12 +117,12 @@ function item_shield_staff:OnSpellStart()
     }
 
     ApplyDamage(damage_table)
-  else
+  --else
     -- Apply barrier buff to the target
-    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {
-      duration = self:GetSpecialValueFor("barrier_duration"),
-      barrierHP = self:GetSpecialValueFor("barrier_block"),
-    })
+    -- target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {
+      -- duration = self:GetSpecialValueFor("barrier_duration"),
+      -- barrierHP = self:GetSpecialValueFor("barrier_block"),
+    -- })
   end
 
   -- If target has any of these debuffs, don't continue
@@ -321,9 +321,9 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_Const
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
-    return 0
-  end
+  -- if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+    -- return 0
+  -- end
 
   local chance = ability:GetSpecialValueFor("passive_attack_damage_block_chance") / 100
 
@@ -382,9 +382,9 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
-    return 0
-  end
+  -- if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+    -- return 0
+  -- end
 
   local chance = ability:GetSpecialValueFor("passive_spell_damage_block_chance") / 100
 
@@ -449,7 +449,7 @@ modifier_shield_staff_barrier_buff.OnRefresh = modifier_shield_staff_barrier_buf
 
 function modifier_shield_staff_barrier_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
+    --MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
   }
 end
 

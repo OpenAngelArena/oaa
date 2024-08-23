@@ -56,7 +56,7 @@
     "ItemCost"                                            "5726"
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "shield staff 2;shield 2;force 2"
+    "ItemAliases"                                         "infused staff 2;force staff 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -74,7 +74,7 @@
     "AbilityValues"
     {
       "bonus_intellect"                                   "10 15 25 40 60"
-      "bonus_health"                                      "425 550 725 950 1225"
+      "bonus_health"                                      "425 675 925 1175 1425"
       "bonus_health_regen"                                "5 8 11 14 17"
       "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5"
       "bonus_armor"                                       "0"
@@ -83,9 +83,7 @@
       "passive_attack_damage_block_ranged"                "30 60 90 120 150"
       "passive_attack_damage_block_chance"                "60"
       "passive_spell_damage_block"                        "60 90 130 180 240"
-      "passive_spell_damage_block_chance"                 "30"
-      "barrier_block"                                     "0"
-      "barrier_duration"                                  "12"
+      "passive_spell_damage_block_chance"                 "25"
       "push_length"                                       "600"
       "push_speed"                                        "1200"
       "damage_to_enemies"                                 "50"
