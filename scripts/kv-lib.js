@@ -158,6 +158,7 @@ function dotaAbilities (cb) {
     'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/heroes/npc_dota_hero_wisp.txt',
     'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/heroes/npc_dota_hero_witch_doctor.txt',
     'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/heroes/npc_dota_hero_zuus.txt',
+    'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/heroes/npc_dota_hero_ringmaster.txt',
     'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/npc_abilities.txt'
   ];
   let finalResult = {};
@@ -198,7 +199,7 @@ function dotaHeroes (cb) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body);
+    const data = parseKV(result.body.replace('}\t\t}', '}\n\t\t}'));
     cb(null, data.DOTAHeroes);
   });
 }
