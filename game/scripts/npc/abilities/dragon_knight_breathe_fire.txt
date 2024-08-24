@@ -45,9 +45,9 @@
       "range"                                             "750"
       "AbilityCastRange"                                  "600"
       "speed"                                             "1050"
-      "damage"
+      "damage" //OAA, special_bonus_unique_dragon_knight_1_oaa
       {
-        "value"                                           "80 160 240 320 640 1280"
+        "value"                                           "90 160 230 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "reduction"
