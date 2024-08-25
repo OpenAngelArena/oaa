@@ -334,7 +334,7 @@ if IsServer() then
     end
 
     -- Normal lifesteal should not work for spells and magic damage attacks
-    if inflictor or event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+    if event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
 
