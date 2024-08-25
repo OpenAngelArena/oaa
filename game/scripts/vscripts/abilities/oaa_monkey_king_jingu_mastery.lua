@@ -124,7 +124,6 @@ end
 
 function modifier_monkey_king_jingu_mastery_oaa_count_debuff:OnCreated()
   local parent = self:GetParent()
-  local caster = self:GetCaster()
 
   if not IsServer() then
     return
@@ -288,7 +287,6 @@ end
 if IsServer() then
   function modifier_monkey_king_jingu_mastery_oaa_buff:OnAttackLanded(event)
     local parent = self:GetParent()
-    local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
 
