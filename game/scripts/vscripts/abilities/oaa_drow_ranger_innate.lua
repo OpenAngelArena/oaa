@@ -79,8 +79,8 @@ end
 
 function modifier_drow_ranger_innate_oaa_aura_effect:OnCreated()
   self.lock = false
-
-	self:StartIntervalThink(0.1)
+  self:OnIntervalThink()
+  self:StartIntervalThink(0.1)
 end
 
 function modifier_drow_ranger_innate_oaa_aura_effect:OnRefresh()
@@ -97,33 +97,36 @@ function modifier_drow_ranger_innate_oaa_aura_effect:OnIntervalThink()
     return
   end
 
+  -- Get caster's (aura owner's) level
+  local lvl = caster:GetLevel()
+
+  -- Get caster multiplier
+  local caster_mult = ability:GetSpecialValueFor("trueshot_agi_bonus_self")
+
+  -- Calculate agility multiplier for the caster
+  self.agi_mult = lvl * caster_mult / 100
+
+  -- Get caster's (aura owner's) total agility
+  local total_agility = caster:GetAgility()
+
+  -- Calculate unmodified agility
+  local unmodified_agility = total_agility / (1 + self.agi_mult)
+
   if parent ~= caster then
     -- Parent is an ally of the aura owner,
     -- stuff is easier
 
-    -- Get caster's (aura owner's) agility
-    local agility = caster:GetAgility()
-
-    -- Get caster's (aura owner's) level
-    local lvl = caster:GetLevel()
-
-    -- Get multiplier
-    local mult = ability:GetSpecialValueFor("trueshot_agi_bonus_allies")
+    -- Get ally multiplier
+    local ally_mult = ability:GetSpecialValueFor("trueshot_agi_bonus_allies")
 
     -- Calculate bonus agility for the parent
-    self.agi = math.ceil(lvl * agility * mult / 100)
+    self.agi = math.ceil(lvl * unmodified_agility * ally_mult / 100)
   else
     -- Parent is the caster (aura owner)
     -- We need to avoid recursion
 
-    -- Get caster's (aura owner's) level
-    local lvl = caster:GetLevel()
-
-    -- Get multiplier
-    local mult = ability:GetSpecialValueFor("trueshot_agi_bonus_self")
-
-    -- Calculate agility multiplier
-    self.agi_mult = lvl * mult / 100
+    -- Calculate the value for the tooltip, actual value is calculated in GetModifierBonusStats_Agility
+    self.agi = math.ceil(total_agility - unmodified_agility)
   end
 end
 
@@ -147,8 +150,7 @@ function modifier_drow_ranger_innate_oaa_aura_effect:GetModifierBonusStats_Agili
       self.lock = true
       local agility = caster:GetAgility()
       self.lock = false
-      self.agi = math.ceil(self.agi_mult * agility)
-      return self.agi
+      return math.ceil(self.agi_mult * agility)
     end
   end
 end
