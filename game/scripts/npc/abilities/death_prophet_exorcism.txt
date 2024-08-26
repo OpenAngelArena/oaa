@@ -41,14 +41,14 @@
       }
       "spirits" //OAA
       {
-        "value"                                           "16 20 24"
+        "value"                                           "16 20 24 24 24"
         "special_bonus_unique_death_prophet"              "+8"
       }
       "spirit_speed"                                      "525"
       "max_distance"                                      "2000"
       "give_up_distance"                                  "1200"
-      "min_damage"                                        "62 82 102 162 262" //OAA
-      "max_damage"                                        "67 87 107 167 267" //OAA
+      "min_damage"                                        "62 72 82 112 162" //OAA
+      "max_damage"                                        "67 77 87 117 167" //OAA
       "hero_spirit_min_damage"
       {
         "value"                                           "0"
@@ -60,7 +60,7 @@
         "special_bonus_facet_death_prophet_ghosts"        "=94 =102 =110 =170 =270"
       }
       "heal_percent"                                      "25"
-      "average_damage"                                    "65 85 105 165 265" //OAA, important for tooltip
+      "average_damage"                                    "65 75 85 115 165" //OAA, important for tooltip
       "ghost_spawn_rate"                                  "0.35"
       "scepter_movespeed_slow"
       {
