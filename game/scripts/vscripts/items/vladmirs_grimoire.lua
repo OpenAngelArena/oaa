@@ -292,7 +292,6 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
     local damage = event.damage
-    local inflictor = event.inflictor
 
     if not ability or ability:IsNull() then
       return
