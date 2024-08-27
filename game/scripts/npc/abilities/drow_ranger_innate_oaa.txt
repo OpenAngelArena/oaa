@@ -1,27 +1,28 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Drow Ranger: Precision Aura (Innate) - unused
+  // Drow Ranger: Precision Aura (Innate) - custom ability
   //=================================================================================================================
-  "drow_ranger_trueshot"
+  "drow_ranger_innate_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_drow_ranger_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
+
     "Innate"                                              "1"
+
+    "RequiredLevel"                                       "-1"
     "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trueshot_agi_bonus_self"                           "2"
-      "trueshot_agi_bonus_allies"                         "1"
-      "trueshot_aspd_bonus_creeps"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_1"                           "+3"
-      }
+      "trueshot_agi_bonus_self"                           "0.5"
+      "trueshot_agi_bonus_allies"                         "0.5"
       "radius"
       {
         "value"                                           "1200"
