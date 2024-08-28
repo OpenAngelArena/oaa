@@ -75,6 +75,18 @@ if IsServer() then
       return
     end
 
+    -- Store ability cooldowns and charges
+    local cds = {}
+    for abilityIndex = 0, parent:GetAbilityCount() - 1 do
+      local ab = parent:GetAbilityByIndex(abilityIndex)
+        if ab then
+        cds[ab:GetAbilityName()] = {
+          cooldown = ab:GetCooldownTimeRemaining(),
+          charges = ab:GetCurrentAbilityCharges()
+        }
+      end
+    end
+
     local playerID = parent:GetPlayerOwnerID()
 
     local illusion_table = {
@@ -82,8 +94,8 @@ if IsServer() then
       incoming_damage = ability:GetSpecialValueFor("scepter_illusion_damage_in_pct") - 100,
       bounty_base = 0,
       bounty_growth = 0,
-      outgoing_damage_structure = 0,
-      outgoing_damage_roshan = 0,
+      outgoing_damage_structure = 100 - ability:GetSpecialValueFor("scepter_illusion_damage_out_pct"),
+      outgoing_damage_roshan = 100 - ability:GetSpecialValueFor("scepter_illusion_damage_out_pct"),
     }
     local illusions = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
     for _, illusion in pairs(illusions) do
@@ -91,6 +103,19 @@ if IsServer() then
       illusion:SetMana(illusion:GetMaxMana())
       illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
       --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
+
+      -- Set ability cooldowns and charges
+      for name, abilityState in pairs(cds) do
+        local ab = illusion:FindAbilityByName(name)
+        if ab then
+          ab:EndCooldown()
+          ab:StartCooldown(abilityState.cooldown)
+          if ab:GetMaxAbilityCharges(ab:GetLevel()) > 1 then
+            ab:SetCurrentAbilityCharges(abilityState.charges)
+          end
+        end
+      end
+
       self.illusion = illusion
 
       Timers:CreateTimer(1/30, function()
@@ -116,12 +141,35 @@ if IsServer() then
     if event.unit ~= parent then
       return
     end
-    --[[
+
     if self.illusion and not self.illusion:IsNull() then
-      self.illusion:AddNoDraw()
-      self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
+      -- Store ability cooldowns and charges
+      local cds = {}
+      for abilityIndex = 0, self.illusion:GetAbilityCount() - 1 do
+        local ab = self.illusion:GetAbilityByIndex(abilityIndex)
+        if ab then
+          cds[ab:GetAbilityName()] = {
+            cooldown = ab:GetCooldownTimeRemaining(),
+            charges = ab:GetCurrentAbilityCharges()
+          }
+        end
+      end
+
+      -- Set ability cooldowns and charges
+      for name, abilityState in pairs(cds) do
+        local ab = parent:FindAbilityByName(name)
+        if ab then
+          ab:EndCooldown()
+          ab:StartCooldown(abilityState.cooldown)
+          if ab:GetMaxAbilityCharges(ab:GetLevel()) > 1 then
+            ab:SetCurrentAbilityCharges(abilityState.charges)
+          end
+        end
+      end
+      --self.illusion:AddNoDraw()
+      --self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
     end
-    ]]
+
     local playerID = parent:GetPlayerOwnerID()
     local player = PlayerResource:GetPlayer(playerID)
     if player then
