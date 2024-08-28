@@ -35,15 +35,16 @@
     "AbilityValues"
     {
       "damage_tick_rate"                                  "0.2"
-      "sand_storm_radius"
+      "sand_storm_radius" //OAA
       {
-        "value"                                           "450 500 550 600 650 700"
+        "value"                                           "475 500 525 550 575 600"
         "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
         "affected_by_aoe_increase"                        "1"
       }
-      "sand_storm_damage"
+      "sand_storm_damage" //OAA
       {
         "value"                                           "25 50 75 100 200 300"
+        "special_bonus_facet_sand_king_dust_devil"        "=20 =35 =50 =65 =130 =260"
         "special_bonus_unique_sand_king_2"                "+25"
       }
       "fade_delay" //OAA

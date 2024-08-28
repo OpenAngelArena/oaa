@@ -34,7 +34,7 @@
     {
       "health_drain" //OAA
       {
-        "value"                                           "160 320 480 960 1760"
+        "value"                                           "160 320 480 960 1440"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
@@ -45,7 +45,7 @@
       }
       "ally_healing" //OAA
       {
-        "value"                                           "160 320 480 960 1760"
+        "value"                                           "160 320 480 960 1440"
       }
       "health_to_mana_rate"                               "50"
       "tick_rate"                                         "0.25"

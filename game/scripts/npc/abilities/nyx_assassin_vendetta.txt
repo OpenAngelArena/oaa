@@ -17,12 +17,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -31,7 +25,7 @@
       {
         "value"                                           "70 65 60 55 50"
       }
-      "AbilityManaCost"               
+      "AbilityManaCost"
       {
         "value"                                           "180 240 300 360 420"
       }
@@ -46,7 +40,7 @@
       }
       "bonus_damage" //OAA
       {
-        "value"                                           "300 500 700 1300 1900"
+        "value"                                           "300 450 600 1050 1500"
         "special_bonus_unique_nyx_vendetta_damage"        "+40"
         "CalculateSpellDamageTooltip"                     "1"
       }
@@ -66,7 +60,7 @@
       {
         "value"                                           "0"
         "special_bonus_facet_nyx_assassin_scuttle"        "=200"
-      }   
+      }
       "attack_animation_bonus"                            "70"
       "attack_range_bonus"                                "75"
     }

@@ -54,14 +54,14 @@
       "end_vision_duration"                               "3.0"
       "main_damage" //OAA, Valve bad at math (+25 every non-OAA lvl)
       {
-        "value"                                           "55 80 105 130 155 180 205 230 280 330 380 430 480 530 605"
+        "value"                                           "55 80 105 130 155 180 205 230 280 330 380 430 480 530 580"
         "levelkey"                                        "exortlevel"
         "special_bonus_unique_invoker_6"                  "+80%"
       }
       "burn_duration"                                     "3.0"
       "burn_dps" //OAA
       {
-        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 142"
+        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
         "special_bonus_unique_invoker_6"                  "+80%"

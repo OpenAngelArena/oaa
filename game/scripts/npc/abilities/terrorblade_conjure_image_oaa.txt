@@ -13,7 +13,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -53,6 +53,18 @@
       }
       "illusion_incoming_damage"                          "180 160 140 120 80 40"
       "illusion_incoming_damage_total_tooltip"            "280 260 240 220 180 140"
+      "creep_illusion_outgoing_damage"
+      {
+        "value"                                           "-30 -20 -10 0 20 50"
+        "special_bonus_unique_terrorblade_4"              "+10"
+      }
+      "creep_illusion_outgoing_tooltip"
+      {
+        "value"                                           "70 80 90 100 120 150"
+        "special_bonus_unique_terrorblade_4"              "+10"
+      }
+      "creep_illusion_incoming_damage"                    "0 -10 -20 -30 -40 -50"
+      "creep_illusion_incoming_damage_total_tooltip"      "100 90 80 70 60 50"
     }
   }
 }

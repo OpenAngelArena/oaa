@@ -39,10 +39,10 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "200 300 400 500 1000 2000"
-        "special_bonus_unique_techies"                    "+300"
+        "value"                                           "200 300 400 500 1000 1500"
+        "special_bonus_unique_techies"                    "+200"
       }
       "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
       "hp_cost"

@@ -74,9 +74,8 @@ function electrician_energy_absorption:OnSpellStart()
     for _, target in pairs( units ) do
       if target and not target:IsNull() then
         -- Get mana values of the target
-        local target_max_mana = target:GetMaxMana()
-        local mana_to_remove = mana_absorb_base + target_max_mana*mana_absorb_percent*0.01
         local target_current_mana = target:GetMana()
+        local mana_to_remove = mana_absorb_base + target_current_mana*mana_absorb_percent*0.01
 
         -- Check if target has less mana
         if target_current_mana < mana_to_remove then
