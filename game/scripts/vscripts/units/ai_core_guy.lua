@@ -36,34 +36,41 @@ function CoreGuyThink ()
     thisEntity:SetAbsOrigin(thisEntity.vInitialSpawnPos)
   end
 
-  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  -- Drop items
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = thisEntity:GetItemInSlot(itemIndex)
     if item then
-      local itemName = item:GetName()
+      --local itemName = item:GetName()
       --print(string.sub(itemName, 0, 17))
-      if string.sub(itemName, 0, 17) ~= "item_upgrade_core" then
+      --if string.sub(itemName, 0, 17) ~= "item_upgrade_core" then
         thisEntity:DropItemAtPositionImmediate(item, thisEntity:GetAbsOrigin())
-      else
+      --else
         -- consume core and reap the mana
-        local corePoints = 1
-        if itemName == "item_upgrade_core_2" then
-          corePoints = 2
-        elseif itemName == "item_upgrade_core_3" then
-          corePoints = 4
-        elseif itemName == "item_upgrade_core_4" then
-          corePoints = 8
-        end
-        item:Destroy()
-        thisEntity.corePoints = thisEntity.corePoints + corePoints
-      end
+        -- local corePoints = 1
+        -- if itemName == "item_upgrade_core_2" then
+          -- corePoints = 2
+        -- elseif itemName == "item_upgrade_core_3" then
+          -- corePoints = 4
+        -- elseif itemName == "item_upgrade_core_4" then
+          -- corePoints = 8
+        -- end
+        -- item:Destroy()
+        -- thisEntity.corePoints = thisEntity.corePoints + corePoints
+      --end
     end
+  end
+
+  -- Drop neutral items
+  local neutral_item = thisEntity:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item then
+    thisEntity:DropItemAtPositionImmediate(neutral_item, thisEntity:GetAbsOrigin())
   end
 
   local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
   if cooldown > 0 and thisEntity.corePoints > 0 then
-    print("cooldown before putting core: " .. cooldown)
+    --print("cooldown before putting core: " .. cooldown)
     cooldown = cooldown - (thisEntity.corePoints * 20)
-    print("cooldown after putting core: " .. cooldown)
+    --print("cooldown after putting core: " .. cooldown)
     thisEntity.ability:EndCooldown()
     if cooldown > 0 then
       thisEntity.ability:StartCooldown(cooldown)
