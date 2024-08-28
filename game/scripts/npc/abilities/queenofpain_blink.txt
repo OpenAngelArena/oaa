@@ -32,7 +32,7 @@
       "shard_damage" //OAA, it's applied twice if blinked within shard_aoe
       {
         "RequiresShard"                                   "1"
-        "value"                                           "75 100 125 150 300 600"
+        "value"                                           "50 75 100 125 250 500"
       }
       "shard_duration"
       {
