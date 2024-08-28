@@ -16,6 +16,10 @@ function CoreGuyThink ()
     return -1
   end
 
+  if thisEntity:IsDominated() or thisEntity:IsIllusion() then
+    return -1
+  end
+
   if GameRules:IsGamePaused() then
     return 1
   end

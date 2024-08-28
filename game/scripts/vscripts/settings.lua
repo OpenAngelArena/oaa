@@ -175,7 +175,7 @@ BOUNTY_RUNE_SPAWN_INTERVAL = 180     -- How long in seconds should we wait betwe
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
 -- Power-up Runes
-FIRST_POWER_RUNE_SPAWN_TIME = 0      -- After what delay in seconds will the first power-up rune spawn?
+FIRST_POWER_RUNE_SPAWN_TIME = 120    -- After what delay in seconds will the first power-up rune spawn?
 POWER_RUNE_SPAWN_INTERVAL = 120      -- How long in seconds should we wait between power-up runes respawns?
 
 -- end OAA specific settings

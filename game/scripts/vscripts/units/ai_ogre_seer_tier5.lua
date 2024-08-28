@@ -36,9 +36,13 @@ end
 --------------------------------------------------------------------------------
 
 function OgreSeerThink()
-	if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() or thisEntity:IsDominated() then
-		return -1
-	end
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if thisEntity:IsDominated() or thisEntity:IsIllusion() then
+    return -1
+  end
 
 	if GameRules:IsGamePaused() then
 		return 1

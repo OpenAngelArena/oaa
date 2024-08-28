@@ -25,6 +25,10 @@ function Baneling:Think()
     return
   end
 
+  if self.entity:IsDominated() or self.entity:IsIllusion() then
+    return
+  end
+
   if GameRules:IsGamePaused() then
     return 1
   end
