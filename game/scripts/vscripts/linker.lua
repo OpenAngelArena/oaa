@@ -77,6 +77,8 @@ LinkLuaModifier("modifier_viper_viper_strike_silence", "abilities/oaa_viper_stri
 LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabilitiesfilter/mars_blood_sport_facet_replacement.lua", LUA_MODIFIER_MOTION_NONE)
 -- Io Relocate shield additional effect
 LinkLuaModifier("modifier_wisp_relocate_shield_oaa", "modifiers/modifyabilitiesfilter/wisp_relocate_shield.lua", LUA_MODIFIER_MOTION_NONE)
+-- Bristleback Seeing Red facet fix
+LinkLuaModifier("modifier_bristleback_seeing_red_oaa", "modifiers/modifyabilitiesfilter/bristleback_seeing_red_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
