@@ -22,7 +22,7 @@
 
     "AbilityCooldown"                                     "4.0"
 
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "60"
     "AbilityProcsMagicStick"                              "1"
 
     // Special
@@ -31,7 +31,7 @@
     {
       "initial_damage"//OAA
       {
-        "value"                                           "100 150 300 600" 
+        "value"                                           "100 150 300 600"
       }
       "jump_range"
       {

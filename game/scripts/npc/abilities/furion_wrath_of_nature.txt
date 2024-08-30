@@ -17,8 +17,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -38,7 +36,7 @@
       "max_targets"                                       "16"
       "damage" //OAA
       {
-        "value"                                           "150 185 220 325 500"
+        "value"                                           "130 170 210 330 450"
         "special_bonus_unique_furion_5"                   "+30"
       }
       "damage_percent_add"

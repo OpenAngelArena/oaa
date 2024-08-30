@@ -104,9 +104,6 @@ function CustomRuneSystem:SpawnRunes(rune_type)
         local random_int = RandomInt(1, #CustomRuneSystem.power_runes_enums)
         local rune_to_spawn = CustomRuneSystem.power_runes_enums[random_int]
         CreateRune(rune_locations[i], rune_to_spawn)
-        if not CustomRuneSystem.rune_protector or CustomRuneSystem.rune_protector:IsNull() or not CustomRuneSystem.rune_protector:IsAlive() then
-          CustomRuneSystem.rune_protector = CreateUnitByName("npc_dota_neutral_custom_rune_protector", rune_locations[i] + Vector(0, 200, 0), true, nil, nil, DOTA_TEAM_NEUTRALS)
-        end
       end
     end
   end)
