@@ -81,6 +81,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
   elseif modifier_name == "modifier_wisp_relocate_return" then
     victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
+  elseif modifier_name == "modifier_bristleback_warpath_active" then
+    victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
   end
 
   return true
