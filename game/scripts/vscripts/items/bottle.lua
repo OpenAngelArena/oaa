@@ -72,6 +72,7 @@ local bonusNames = {
   'custom/bottles/bottle_skull',
   'custom/bottles/bottle_eye',
   'custom/bottles/bottle_coffee',
+  'custom/bottles/salt_bottle',
 }
 
 --------------------------------------------------------------------------------
