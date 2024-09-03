@@ -34,7 +34,7 @@ SPECIAL_BOTTLES = {
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
-  [37885614] = {4,5,55,1,63}, --Darkonius
+  [37885614] = {1,55,63,70}, --Darkonius
 
 
   -- golden tournament winners
