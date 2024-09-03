@@ -9,7 +9,7 @@ end
 function item_black_king_bar_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Basic Dispel
+  -- Basic Dispel (for the caster)
   caster:Purge( false, true, false, false, false )
 
   -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity

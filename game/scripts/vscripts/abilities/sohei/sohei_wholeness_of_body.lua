@@ -22,7 +22,7 @@ function sohei_wholeness_of_body:OnSpellStart()
   -- Activation sound
   target:EmitSound("Sohei.Guard")
 
-  -- Strong Dispel
+  -- Strong Dispel (for the target)
   target:Purge(false, true, false, true, true)
 
   -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity

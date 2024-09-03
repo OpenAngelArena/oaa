@@ -27,7 +27,7 @@ function alchemist_chemical_rage_oaa:OnSpellStart()
     remove_stuns = true
   end
 
-  -- Apply Basic Dispel always
+  -- Basic Dispel (for caster, always) or Strong Dispel (with talent)
   caster:Purge(false, true, false, remove_stuns, remove_stuns)
 
   -- Disjoint disjointable/dodgeable projectiles
