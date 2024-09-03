@@ -12,19 +12,19 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "spawn_radius"                                      "250"
-      "shard_hp_percentage"                               "75"
-      "shard_dmg_percentage"                              "75"
+      "shard_hp_percentage"                               "75 80 85 90"
+      "shard_dmg_percentage"                              "75 80 90 100"
       "shard_xp_percentage"                               "75"
       "shard_gold_percentage"                             "50"
       "shard_duration"                                    "60"
-      "number_of_splits"                                  "2"
+      "number_of_splits"                                  "2 2 3 3"
     }
   }
 }

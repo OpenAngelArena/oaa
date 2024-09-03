@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alpha Wold: Invisibility - removed on attack or when spell cast
+  // Alpha Wolf: Invisibility - removed on attack or when spell cast
   //=================================================================================================================
   "alpha_wolf_invisibility_oaa"
   {
@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     "AbilityCastPoint"                                    "0"
 
@@ -29,8 +29,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "20.0"
-      "fade_time"                                         "1.0"
+      "duration"                                          "16 18 20 22"
+      "fade_time"                                         "1.1 1.0 0.9 0.8"
     }
   }
 }

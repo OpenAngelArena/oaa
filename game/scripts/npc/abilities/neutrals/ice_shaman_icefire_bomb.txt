@@ -1,8 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ice Shaman: Icefire Bomb
-  // Notes: TODO: add % max hp dmg
+  // Ice Shaman: Vanilla Icefire Bomb - unused
   //=================================================================================================================
   "ice_shaman_incendiary_bomb"
   {
@@ -14,6 +13,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "4"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +35,8 @@
     "AbilityValues"
     {
       "duration"                                          "8"
-      "burn_damage"                                       "50 100 200 300" //OAA
-      "building_damage_pct"                               "250" //OAA, percentage bonus damage against bosses
+      "burn_damage"                                       "50 60 120 180" //OAA
+      "building_damage_pct"                               "25"
     }
   }
 }

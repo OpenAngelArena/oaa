@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kobold: Disarm
+  // Kobold: Disarm - unused
   //=================================================================================================================
   "kobold_disarm"
   {
@@ -13,8 +13,9 @@
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     //"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
+    "MaxLevel"                                            "4" // Valve, wtf is this if creeps can level up their abilities?
 
     "AbilityCooldown"                                     "9.0"
 
