@@ -162,6 +162,7 @@ function modifier_item_dispel_orb_active:OnIntervalThink()
   local modifiers = parent:FindAllModifiers()
   local modifierCount = #modifiers
 
+  -- Basic Dispel (for the caster)
   parent:Purge(false, true, false, false, false)
 
   modifiers = parent:FindAllModifiers()

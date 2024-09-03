@@ -32,8 +32,8 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
     buff_duration = self:GetSpecialValueFor("duration_scepter")
   end
 
-  -- Strong Dispel
-  caster:Purge(false, true, false, true, false)
+  -- Strong Dispel (for caster)
+  caster:Purge(false, true, false, true, true)
 
   -- Add the Borrowed Time modifier to the caster
   caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})

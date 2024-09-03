@@ -6,7 +6,7 @@ boss_spooky_ghost_ethereal = class(AbilityBaseClass)
 function boss_spooky_ghost_ethereal:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Basic Dispel
+  -- Basic Dispel (for the boss)
   caster:Purge(false, true, false, false, false)
 
   -- Apply buff

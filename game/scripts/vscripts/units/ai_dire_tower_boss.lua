@@ -245,7 +245,7 @@ function CastSummonWave()
 end
 
 function CastGlyph()
-  -- Super Strong Dispel for the tower
+  -- Dispel all debuffs (99.99% at least)
   thisEntity:Purge(false, true, false, true, true)
   thisEntity:DispelUndispellableDebuffs()
 

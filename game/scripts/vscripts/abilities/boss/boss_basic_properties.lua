@@ -308,8 +308,8 @@ if IsServer() then
     end
 
     if ability:IsCooldownReady() and (parent:IsStunned() or parent:IsSilenced()) then
-      -- Strong Dispel
-      parent:Purge(false, true, false, true, false)
+      -- Strong Dispel (for the boss)
+      parent:Purge(false, true, false, true, true)
 
       -- Add debuff protection
       parent:AddNewModifier(parent, ability, "modifier_boss_debuff_protection_oaa", {duration = self.debuff_protection_duration})

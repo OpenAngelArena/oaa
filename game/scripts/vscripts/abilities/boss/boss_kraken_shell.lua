@@ -97,7 +97,7 @@ if IsServer() then
       local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, parent)
       ParticleManager:ReleaseParticleIndex(fx)
 
-      -- Strong Dispel
+      -- Strong Dispel (for the boss)
       parent:Purge(false, true, false, true, true)
 
       -- Reset the dmg counter

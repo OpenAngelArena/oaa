@@ -256,9 +256,10 @@ if IsServer() then
 
     -- Dispel bools
     local BuffsCreatedThisFrameOnly = false
-    local RemoveExceptions = false              -- Offensive Strong Dispel (yes or no), can cause errors, crashes etc.
-    local RemoveStuns = true                    -- Defensive Strong Dispel (yes or no)
+    local RemoveExceptions = true               -- For hex and similar
+    local RemoveStuns = true                    -- For stuns
 
+    -- Remove most dispellable modifiers
     self:Purge(true, true, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
   end
 

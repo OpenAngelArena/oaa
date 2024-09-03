@@ -129,7 +129,7 @@ if IsServer() then
 
       -- Dispel all debuffs (99.99% at least)
       parent:DispelUndispellableDebuffs()
-      parent:Purge(false, true, false, true, false)
+      parent:Purge(false, true, false, true, true)
 
       -- Particle
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})

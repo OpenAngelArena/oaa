@@ -23,7 +23,7 @@ function item_charge_bkb:OnSpellStart()
   caster:GiveMana(amount_to_restore)
   --RamonNZ: BKB Effect:
   local modifier_duration = self:GetSpecialValueFor("immunity_time_per_charge") * self:GetCurrentCharges()
-  -- Basic Purge:
+  -- Basic Dispel (for the caster)
   local RemovePositiveBuffs = false
   local RemoveDebuffs = true
   local BuffsCreatedThisFrameOnly = false

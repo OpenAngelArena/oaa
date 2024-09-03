@@ -71,7 +71,8 @@ function item_bubble_orb_1:OnSpellStart()
   )
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
-      ally:Purge(false, true, false, true, false)
+      -- Strong Dispel (for the allies)
+      ally:Purge(false, true, false, true, true)
     end
   end
 end

@@ -25,7 +25,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     false
   )
 
-  -- Apply basic dispel to caster
+  -- Basic Dispel (for the caster)
   caster:Purge(false, true, false, false, false)
 
   local function ReplenishMana(hero)

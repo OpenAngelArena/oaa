@@ -53,7 +53,7 @@ function item_vladmirs_grimoire_1:OnSpellStart()
 
       -- Dispel all debuffs (99.99% at least)
       unit:DispelUndispellableDebuffs()
-      unit:Purge(false, true, false, true, false)
+      unit:Purge(false, true, false, true, true)
 
       -- Hide it
       unit:AddNoDraw()
