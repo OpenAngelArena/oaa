@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Oracle: Field Medic (Innate) - custom ability
+  //=================================================================================================================
+  "oracle_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_oracle_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "oracle_purifying_flames"
+
+    "MaxLevel"                                            "7" // same as Dependent ability + 1
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "ms_pct"                                            "15 20 25 30 35 40 45"
+      "duration"                                          "0.5"
+    }
+  }
+}
