@@ -155,6 +155,11 @@ function HeroSelection:Init ()
     if hero then
       hero_name = hero:GetUnitName()
     end
+    -- Prevent hero changing if game time is after MIN_MATCH_TIME
+    if HudTimer and HudTimer:GetGameTime() > MIN_MATCH_TIME then
+      lockedHeroes[playerid] = hero_name
+      return
+    end
     if not lockedHeroes[playerid] then
       -- Player didnt lock a hero before disconnecting
       -- Indirectly check when player reconnected (during picking or when game started)
