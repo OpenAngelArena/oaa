@@ -10,8 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "MaxLevel"                                            "6" //OAA
-    "RequiredLevel"                                       "1" //OAA
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,11 +28,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bear_hp"                                           "1100 1500 1900 2300 3400 4500" //OAA
-      "bear_regen_tooltip"                                "5 7 9 11 15 21" //OAA
+      "bear_hp"                                           "1100 1500 1900 2300 3300 4300" //OAA
+      "bear_regen_tooltip"                                "5 6 7 8 10 13"
       "bear_bat" //OAA
       {
-        "value"                                           "1.75 1.65 1.55 1.45 1.40 1.35"
+        "value"                                           "1.7 1.65 1.6 1.55 1.5 1.45"
         //"special_bonus_unique_lone_druid_10"              "-0.1"
       }
       "bear_armor"                                        "0 2 4 6 8 10"
@@ -50,7 +49,7 @@
       {
         "value"                                           "0"
       }
-      "bonus_bear_hp" //OAA
+      "bonus_bear_hp"
       {
         "value"                                           "0"
         //"special_bonus_unique_lone_druid_7"               "+1000"
