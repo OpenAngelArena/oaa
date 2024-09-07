@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  "dazzle_innate_weave"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+
+    "AbilityValues"
+    {
+      "armor_change" //OAA
+      {
+        "value"                                           "1.5"
+        "special_bonus_unique_dazzle_4"                   "+1.5"
+      }
+      "duration"                                          "8"
+      "affects_allies"                                    "1"
+      "affects_enemies"                                   "1"
+      "heal_reduction"                                    "0"
+      "ultimate_always_applies"                           "0"
+    }
+  }
+}

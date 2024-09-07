@@ -34,12 +34,12 @@
         "special_bonus_scepter"                           "+1"
       }
       "base_damage"                                       "0"
-      "strength_damage"
+      "strength_damage" //OAA
       {
-        "value"                                           "2 2.5 3 4 6"
+        "value"                                           "2 3 4 6 8"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "slow_duration"                                     "3"
+      "slow_duration"                                     "3 3 3 3.5 4"
       "radius"
       {
         "value"                                           "105"

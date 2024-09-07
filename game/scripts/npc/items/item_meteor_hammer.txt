@@ -80,7 +80,7 @@
       "spell_lifesteal_amp"                               "20 22 24 26 28" // Kaya (20);
 
       "burn_dps_boss"                                     "150 300 450 600 750"
-      "burn_dps"                                          "60 160 260 360 460" // vanilla: 50
+      "burn_dps"                                          "60 150 240 330 420" // vanilla: 50
       "burn_duration"                                     "6"
       "stun_duration"                                     "1.5" // vanilla: 0.5
       "burn_interval"                                     "1.0"
@@ -91,7 +91,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "140 280 490 770 1120" // vanilla: 130; impact_damage_boss * 0.7
+      "impact_damage"                                     "140 270 455 715 1040" // vanilla: 130; impact_damage_boss * 0.65
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }
