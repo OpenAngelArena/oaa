@@ -55,7 +55,7 @@
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
 				m_flRandomMin = 25.0
-				m_flRandomMax = 55.0
+				m_flRandomMax = 40.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -225,6 +225,7 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flBias = 0.4
 			m_flEndScale = 2.0
+			m_flStartScale = 0.5
 		},
 		{
 			_class = "C_OP_FadeOutSimple"

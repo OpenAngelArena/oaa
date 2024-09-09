@@ -63,8 +63,8 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 1.5
-				m_flRandomMax = 2.5
+				m_flRandomMin = 0.7
+				m_flRandomMax = 1.8
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -254,8 +254,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 155, 255, 138, 255 ]
-			m_ColorMin = [ 228, 255, 133, 255 ]
+			m_ColorMax = [ 206, 255, 102 ]
+			m_ColorMin = [ 0, 16, 255 ]
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -784,6 +784,7 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flEndScale = 0.25
 			m_flBias = 0.6
+			m_flStartScale = 0.9
 		},
 		{
 			_class = "C_OP_BasicMovement"
@@ -803,7 +804,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 0, 77, 18, 255 ]
+			m_ColorFade = [ 30, 132, 32 ]
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
@@ -834,6 +835,12 @@
 		},
 		{
 			m_ChildRef = resource:"particles/items/elixiers/elixier_sustain_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/items/elixiers/elixier_sustain_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/items/elixiers/elixier_sustain_rope.vpcf"
 		},
 	]
 }

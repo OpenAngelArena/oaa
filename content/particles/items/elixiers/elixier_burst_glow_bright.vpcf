@@ -26,7 +26,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 50.0
+				m_flLiteralValue = 60.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -95,7 +95,7 @@
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
 				m_flRandomMin = 0.4
-				m_flRandomMax = 1.0
+				m_flRandomMax = 0.6
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -154,8 +154,8 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 20.0
-				m_flRandomMax = 50.0
+				m_flRandomMin = 10.0
+				m_flRandomMax = 30.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -213,7 +213,7 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 0.8
+				m_flRandomMin = 1.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
@@ -291,8 +291,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 235, 86, 0 ]
-			m_ColorMax = [ 255, 57, 77 ]
+			m_ColorMin = [ 254, 209, 31 ]
+			m_ColorMax = [ 255, 239, 187 ]
 		},
 		{
 			_class = "C_INIT_CreateOnModel"
@@ -325,11 +325,11 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flBias = 5.0
 			m_flEndScale = 2.0
-			m_flStartScale = 0.5
+			m_flStartScale = 0.2
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.4
+			m_flFadeOutTime = 0.6
 		},
 		{
 			_class = "C_OP_BasicMovement"
@@ -598,7 +598,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 193, 0, 0 ]
+			m_ColorFade = [ 255, 140, 0 ]
 			m_flFadeEndTime = 0.9
 		},
 		{
