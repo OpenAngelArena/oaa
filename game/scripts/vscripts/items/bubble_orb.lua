@@ -35,7 +35,7 @@ function item_bubble_orb_1:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    --DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     FIND_ANY_ORDER,
     false
   )
@@ -50,7 +50,7 @@ function item_bubble_orb_1:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       --knockback_table.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
-      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0)
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1)
       knockback_table.duration = knockback_table.knockback_duration
 
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
