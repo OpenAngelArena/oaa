@@ -33,7 +33,7 @@
       "duration"                                          "16"
       "destroy_attacks" //OAA
       {
-        "value"                                           "8"
+        "value"                                           "6 6 8 8 8 8"
         "special_bonus_unique_weaver_4"                   "+2"
       }
       "radius"
@@ -55,7 +55,7 @@
       "experience_gain" //OAA
       {
         "value"                                           "0 0 0 0"
-        "special_bonus_facet_weaver_hivemind"             "=8 =12 =16 =20 =40 =60"
+        "special_bonus_facet_weaver_hivemind"             "=6 =10 =14 =18 =36 =72"
         "RequiresFacet"                                   "weaver_hivemind"
       }
     }

@@ -113,6 +113,7 @@ BOSS_RESPAWN_TIMER = 180                -- time after boss death before spawning
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 15                   -- boss must take (tier * n) damage before agro
+BOSS_DMG_RED_FOR_PCT_SPELLS = 50        -- boss additional damage reduction against percent damage spells (in %)
 BOSS_WANDERER_MIN_SPAWN_TIME = 12       -- min time at which first Wanderer can spawn (in minutes)
 BOSS_WANDERER_MAX_SPAWN_TIME = 15       -- max time at which first Wanderer can spawn (in minutes)
 BOSS_WANDERER_MIN_RESPAWN_TIME = 4      -- min respawn time of the Wanderer (in minutes)

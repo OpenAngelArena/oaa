@@ -24,7 +24,6 @@ if not BossProtectionFilter then
     faceless_void_chronosphere = true, -- pierces bkb
     faceless_void_time_lock = true, -- pierces bkb
     faceless_void_time_lock_oaa = true, -- pierces bkb
-    faceless_void_time_zone = true,
     --huskar_life_break = true, -- scepter taunt pierces bkb
     keeper_of_the_light_will_o_wisp = true,
     lion_voodoo = true,
@@ -96,9 +95,22 @@ if not BossProtectionFilter then
     modifier_bashed = true, -- pierces bkb
     modifier_huskar_life_break_taunt = true, -- pierces bkb
     modifier_stunned = true, -- sometimes pierces bkb
-    modifier_queenofpain_scream_of_pain_fear = true, -- pierces bkb
     modifier_queenofpain_sonic_wave_knockback = true, -- pierces bkb
-    modifier_viper_viper_strike_silence = true,
+    modifier_viper_viper_strike_silence = true, -- pierces bkb
+  }
+
+  BossProtectionFilter.ModifierBlockAlwaysList = {
+    modifier_bane_enfeeble_effect = true,
+    modifier_brewmaster_fear = true, -- fear
+    modifier_death_prophet_spirit_siphon_fear = true, -- fear
+    modifier_faceless_void_time_zone_effect = true,
+    modifier_medusa_venomed_volley_slow = true,
+    modifier_muerta_dead_shot_fear = true, -- fear
+    modifier_nevermore_requiem_fear = true, -- fear
+    modifier_ringmaster_tame_the_beasts_fear = true, -- fear
+    modifier_queenofpain_scream_of_pain_fear = true, -- fear
+    modifier_terrorblade_fear = true, -- fear
+    modifier_tinker_warp_grenade = true,
   }
 end
 
@@ -109,7 +121,6 @@ function BossProtectionFilter:Init()
 end
 
 function BossProtectionFilter:ModifierGainedFilter(keys)
-
   if not keys.entindex_parent_const or not keys.entindex_caster_const or not keys.entindex_ability_const then
     return true
   end
@@ -120,6 +131,11 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
 
   local abilityName = ability:GetName()
   local modifierName = keys.name_const
+
+  -- Modifiers that should never be applied to bosses
+  if parent:IsOAABoss() and BossProtectionFilter.ModifierBlockAlwaysList[modifierName] then
+    return false
+  end
 
   -- True Debuff Immunity
   local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa") or parent:HasModifier("modifier_anti_stun_oaa")

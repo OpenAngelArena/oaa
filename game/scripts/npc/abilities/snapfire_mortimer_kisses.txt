@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80"
+    "AbilityCooldown"                                     "100 90 80 75 70" //OAA
     "AbilityDuration"                                     "5.5"
 
     // Cost
@@ -70,9 +70,9 @@
         "special_bonus_unique_snapfire_5"                 "+20"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "move_slow_pct"
+      "move_slow_pct" //OAA
       {
-        "value"                                           "15 20 25 30 35"
+        "value"                                           "25 35 45 55 65"
       }
       "burn_ground_duration"                              "3.0"
       "dist_change_speed"                                 "75"
