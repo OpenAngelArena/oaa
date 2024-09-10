@@ -109,24 +109,32 @@ function modifier_item_silver_staff_debuff:IsPurgable()
 end
 
 function modifier_item_silver_staff_debuff:OnCreated()
-  if IsServer() then
-    local ability = self:GetAbility()
-    if ability and not ability:IsNull() then
-      self.base_damage = ability:GetSpecialValueFor("base_damage")
-      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
-    end
-    self:OnIntervalThink()
-    self:StartIntervalThink(1.0)
+  if not IsServer() then
+    return
   end
+
+  self:OnRefresh()
+  self:OnIntervalThink()
+  self:StartIntervalThink(1)
 end
 
 function modifier_item_silver_staff_debuff:OnRefresh()
-  if IsServer() then
-    local ability = self:GetAbility()
-    if ability and not ability:IsNull() then
-      self.base_damage = ability:GetSpecialValueFor("base_damage")
-      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
-    end
+  if not IsServer() then
+    return
+  end
+
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.base_damage = ability:GetSpecialValueFor("base_damage")
+    self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+  else
+    self.base_damage = 55
+    self.percent_damage = 3.5
+  end
+
+  -- Do reduced damage to bosses
+  if self:GetParent():IsOAABoss() then
+    self.percent_damage = self.percent_damage *  (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 end
 
@@ -140,17 +148,19 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
   if not IsServer() then
     return
   end
+
   local parent = self:GetParent()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
 
-  local base_damage = self.base_damage
-  local percent_damage = self.percent_damage
-  if ability and not ability:IsNull() then
-    base_damage = ability:GetSpecialValueFor("base_damage")
-    percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
   end
-  local damage_per_second = base_damage + percent_damage * parent:GetMaxHealth() * 0.01
+
+  local damage_per_second = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01)
 
   local damage_table = {
     victim = parent,
@@ -160,11 +170,6 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
     damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
     ability = ability,
   }
-
-  -- Do reduced damage to bosses
-  if parent:IsOAABoss() then
-    damage_table.damage = base_damage + (percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
-  end
 
   ApplyDamage(damage_table)
 end

@@ -294,7 +294,7 @@ if IsServer() then
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
         lina_combustion = true,
-        mirana_starfall = true, -- because of Scepter Arrow
+        --mirana_starfall = true, -- because of Scepter Arrow
         phoenix_dying_light = true,
         razor_storm_surge = true,
         --sandking_epicenter = true, -- because of shard?

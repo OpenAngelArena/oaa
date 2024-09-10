@@ -154,7 +154,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local bonus_damage = target:GetMaxHealth() * max_hp_mult * 0.01
 
   if target:IsOAABoss() then
-    bonus_damage = bonus_damage * 15/100
+    bonus_damage = bonus_damage * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 
   -- Calculate total damage
@@ -205,13 +205,15 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = rocket_debuff_duration})
 
       -- Damage (make sure damage is based on the enemy's max hp and not the target's)
-      damage_table.victim = enemy
-      damage_table.damage = base_damage + enemy:GetMaxHealth() * max_hp_mult * 0.01
+      local enemy_bonus_dmg = enemy:GetMaxHealth() * max_hp_mult * 0.01
 
       -- Check if boss
       if enemy:IsOAABoss() then
-        damage_table.damage = damage_table.damage * 15/100
+        enemy_bonus_dmg =  enemy_bonus_dmg * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
       end
+
+      damage_table.victim = enemy
+      damage_table.damage = base_damage + enemy_bonus_dmg
 
       ApplyDamage(damage_table)
     end

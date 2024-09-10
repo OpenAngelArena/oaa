@@ -75,6 +75,10 @@ function item_dagon_oaa:OnSpellStart()
   local isRealHero = target:IsRealHero() -- do this check before doing dmg to prevent doing check on a killed/deleted target
   local isStrongIllu = target:IsStrongIllusionOAA()
 
+  if target:IsOAABoss() then
+    hp_percent = hp_percent *  (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
+  end
+
   local damageDone = ApplyDamage({
     victim = target,
     attacker = caster,

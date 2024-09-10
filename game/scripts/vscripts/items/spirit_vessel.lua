@@ -464,6 +464,7 @@ function modifier_urn_of_shadows_oaa_debuff:OnCreated()
   if not IsServer() then
     return
   end
+
   self:OnRefresh()
   self:OnIntervalThink()
   self:StartIntervalThink(1)
@@ -473,9 +474,12 @@ function modifier_urn_of_shadows_oaa_debuff:OnRefresh()
   if not IsServer() then
     return
   end
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
+  else
+    self.damage_per_second = 20
   end
 end
 
@@ -485,13 +489,22 @@ function modifier_urn_of_shadows_oaa_debuff:OnIntervalThink()
   end
 
   local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
 
   local damageTable = {
     victim = parent,
-    attacker = self:GetCaster(),
+    attacker = caster,
     damage = self.damage_per_second,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    ability = self:GetAbility()
+    ability = ability
   }
 
   ApplyDamage(damageTable)
@@ -529,6 +542,7 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnCreated()
   if not IsServer() then
     return
   end
+
   self:OnRefresh()
   self:OnIntervalThink()
   self:StartIntervalThink(1)
@@ -538,11 +552,21 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnRefresh()
   if not IsServer() then
     return
   end
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
     self.current_hp_dmg = ability:GetSpecialValueFor("current_hp_as_dmg")
     self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_with_charge")
+  else
+    self.damage_per_second = 25
+    self.current_hp_dmg = 4
+    self.heal_reduction = 50
+  end
+
+  -- Do reduced damage to bosses
+  if self:GetParent():IsOAABoss() then
+    self.current_hp_dmg = self.current_hp_dmg * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 end
 
@@ -552,13 +576,22 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnIntervalThink()
   end
 
   local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
 
   local damageTable = {
     victim = parent,
-    attacker = self:GetCaster(),
+    attacker = caster,
     damage = self.damage_per_second + (parent:GetHealth() * self.current_hp_dmg / 100),
     damage_type = DAMAGE_TYPE_MAGICAL,
-    ability = self:GetAbility()
+    ability = ability
   }
 
   ApplyDamage(damageTable)
