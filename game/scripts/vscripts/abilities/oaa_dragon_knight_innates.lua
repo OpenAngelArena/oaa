@@ -217,27 +217,32 @@ function modifier_dragon_knight_custom_shard_effect_oaa:IsPurgable()
 end
 
 function modifier_dragon_knight_custom_shard_effect_oaa:OnCreated()
-  if IsServer() then
-    self.percent_damage = 4
-    self.interval = 0.5
-    local ability = self:GetAbility()
-    if ability and not ability:IsNull() then
-      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
-      self.interval = ability:GetSpecialValueFor("burn_interval")
-    end
-    self:StartIntervalThink(self.interval)
+  if not IsServer() then
+    return
   end
+
+  self:OnRefresh()
+  self:OnIntervalThink()
+  self:StartIntervalThink(self.interval)
 end
 
 function modifier_dragon_knight_custom_shard_effect_oaa:OnRefresh()
-  if IsServer() then
+  if not IsServer() then
+    return
+  end
+
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+    self.interval = ability:GetSpecialValueFor("burn_interval")
+  else
     self.percent_damage = 4
     self.interval = 0.5
-    local ability = self:GetAbility()
-    if ability and not ability:IsNull() then
-      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
-      self.interval = ability:GetSpecialValueFor("burn_interval")
-    end
+  end
+
+  -- Do reduced damage to bosses
+  if self:GetParent():IsOAABoss() then
+    self.percent_damage = self.percent_damage * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 end
 
@@ -245,28 +250,20 @@ function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
   if not IsServer() then
     return
   end
+
   local parent = self:GetParent()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
 
+  -- ApplyDamage crashes the game if attacker or victim do not exist
   if not parent or parent:IsNull() or not caster or caster:IsNull() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
   end
 
-  local percent_damage = self.percent_damage
-  if ability and not ability:IsNull() then
-    percent_damage = ability:GetSpecialValueFor("max_hp_damage")
-  end
-
   -- Calculate dps
-  local damage_per_second = percent_damage * parent:GetMaxHealth() * 0.01
-
-  -- Do reduced damage to bosses
-  if parent:IsOAABoss() then
-    damage_per_second = damage_per_second * 15/100
-  end
+  local damage_per_second = self.percent_damage * parent:GetMaxHealth() * 0.01
 
   local damage_table = {
     victim = parent,
