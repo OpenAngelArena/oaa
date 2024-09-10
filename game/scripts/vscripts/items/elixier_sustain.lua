@@ -47,7 +47,7 @@ function modifier_elixier_sustain_active:RemoveOnDeath()
 end
 
 function modifier_elixier_sustain_active:GetEffectName()
-  return "particles/generic_gameplay/rune_regeneration_sparks.vpcf"
+  return "particles/items/elixiers/elixier_sustain.vpcf"
 end
 
 function modifier_elixier_sustain_active:GetEffectAttachType()
