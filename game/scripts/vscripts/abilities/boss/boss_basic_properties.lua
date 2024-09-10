@@ -180,6 +180,7 @@ if IsServer() then
         end
       end
 
+      -- Units with Reinforced ability (e.g. Nature's Prophet large treants)
       if attacker:HasModifier("modifier_creep_siege") then
         local ability = attacker:FindAbilityByName("creep_siege")
         if ability then
@@ -200,6 +201,7 @@ if IsServer() then
         -- end
       -- end
 
+      -- Primal Beast innate: Primal Beast attacks do bonus damage
       if attacker:HasModifier("modifier_primal_beast_colossal") then
         local ability = attacker:FindAbilityByName("primal_beast_colossal")
         if ability then
@@ -215,18 +217,22 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
+      abyssal_underlord_firestorm = true,     -- when it starts working against ancients
       anti_mage_mana_void = false,
       bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       death_prophet_spirit_siphon = inflictor:GetSpecialValueFor("damage_pct") ~= 0, -- talent gives pct dmg
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
+      enigma_midnight_pulse = true,           -- when it starts working against ancients
       huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       life_stealer_feast = false,             -- physical dmg does not need to be reduced and it also does not work
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
       ringmaster_impalement = true,
+      shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg
       venomancer_noxious_plague = false,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
+      witch_doctor_maledict = false,
       zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()
@@ -252,7 +258,7 @@ if IsServer() then
       end
     end
 
-    -- Primal Beast spells do bonus damage because of Primal Beast innate
+    -- Primal Beast innate: Primal Beast spells do bonus damage
     local primal_beast_abilities = {
       primal_beast_onslaught = true,
       primal_beast_pulverize = true,
@@ -275,7 +281,6 @@ if IsServer() then
       jakiro_liquid_fire = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
       jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
     }
-
     if jakiro_abilities[name] then
       local ability = attacker:FindAbilityByName(name)
       if ability then

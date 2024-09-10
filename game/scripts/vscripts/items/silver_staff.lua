@@ -134,7 +134,7 @@ function modifier_item_silver_staff_debuff:OnRefresh()
 
   -- Do reduced damage to bosses
   if self:GetParent():IsOAABoss() then
-    self.percent_damage = self.percent_damage *  (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
+    self.percent_damage = self.percent_damage * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 end
 
