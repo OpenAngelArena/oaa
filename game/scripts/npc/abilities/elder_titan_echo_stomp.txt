@@ -49,10 +49,10 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
         "value"                                           "14 13 12 11 11 11"
-        "special_bonus_shard"                             "-2"
+        "special_bonus_shard"                             "-1"
       }
     }
   }
