@@ -22,10 +22,10 @@
     {
       "chance" //OAA
       {
-        "value"                                           "20"
+        "value"                                           "20 22 24 26 28"
         "special_bonus_unique_drow_ranger_3"              "+10"
       }
-      "bonus_damage"                                      "50 70 90 110 130"
+      "bonus_damage"                                      "10 20 30 40 50" //OAA
       "disable_range"                                     "400"
     }
   }

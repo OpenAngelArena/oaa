@@ -1,36 +1,29 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ancient Relic - custom neutral tier 4 item
+  // Aviana's Feather - neutral tier 4 item
   //=================================================================================================================
-  "item_ancient_relic"
+  "item_avianas_feather"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/ancient_relic.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "item_ancient_perseverance"
-
+        
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemSellable"                                        "0"
 
-    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
-
-    // Special
+    // Special  
     //-------------------------------------------------------------------------------------------------------------
+
     "AbilityValues"
     {
-      "bonus_move_speed"                                  "30"
-      "bonus_damage"                                      "50"
-      "bonus_spell_amp"                                   "15"
-      "bonus_hp_regen"                                    "8"
-      "bonus_mana_regen"                                  "8"
+      "evasion"                                           "25"
+      "move_speed"                                        "30"
+      "flight_threshold"                                  "50" //OAA
     }
   }
 }
