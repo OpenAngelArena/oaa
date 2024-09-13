@@ -171,6 +171,7 @@ function GameMode:OnGameInProgress()
   --InitModule(StatusResistance)
   InitModule(SaveLoadState)
   InitModule(PassiveExperience)
+  InitModule(StatTracker)
 
   -- valve is a really great company that totally cares about custom game mode creators and it's a breath of fresh air
   GameRules:SetTimeOfDay( 0.251 )

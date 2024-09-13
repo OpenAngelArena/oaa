@@ -32,10 +32,13 @@ function Bottlepass:SendEndGameStats()
         progress = progress
       }
     end
-    if PlayerResource:IsValidPlayerID(k) and PlayerResource:IsValidPlayer(k) then
+  end
+
+  for k = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(k) and not PlayerResource:IsBlackBoxPlayer(k) then
       playerStats[k] = {
         damage_dealt = PlayerResource:GetRawPlayerDamage(k),
-        damage_taken = PlayerResource:GetCreepDamageTaken(k, true) + PlayerResource:GetHeroDamageTaken(k, true),
+        damage_taken = PlayerResource:GetHeroDamageTaken(k, true),
         healing = PlayerResource:GetHealing(k),
       }
     else
