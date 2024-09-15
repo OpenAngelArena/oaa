@@ -172,6 +172,11 @@ function handleOAASettingsChange (n, key, settings) {
     return;
   }
 
+  if (!settings) {
+    $.Msg('Failed to lock and load settings, they are undefined');
+    return;
+  }
+
   const lines = [];
 
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));

@@ -1,33 +1,40 @@
 
 if StatTracker == nil then
-  --Debug:EnableDebugging()
-  --DebugPrint('Creating new StatTracker object.')
   StatTracker = class({})
 end
 
 function StatTracker:Init()
   self.moduleName = "StatTracker"
-  --CreateModifierThinker( nil, nil, "modifier_stat_tracker_oaa", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
-  local global_tracker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
-  global_tracker:AddNewModifier(xpm_thinker, nil, "modifier_oaa_thinker", {})
-  global_tracker:AddNewModifier(xpm_thinker, nil, "modifier_stat_tracker_oaa", {})
 
   self.stats = {}
   for i = 0, DOTA_MAX_PLAYERS - 1 do
     if PlayerResource:IsValidPlayerID(i) then
-      self.stats[i] = {
-        damage_dealt_to_heroes = 0,
-        damage_dealt_to_bosses = 0,
-        damage_dealt_to_player_creeps = 0,
-        damage_dealt_to_neutral_creeps = 0,
-        damage_taken_from_players = 0,
-        damage_taken_from_bosses = 0,
-        damage_taken_from_neutral_creeps = 0,
-      }
+      self:InitializeForId(i)
     end
   end
 
-  ChatCommand:LinkDevCommand("-trackertest", Dynamic_Wrap(StatTracker, "StatTrackerCommand"), self)
+  --CreateModifierThinker( nil, nil, "modifier_stat_tracker_oaa", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
+  local global_tracker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+  global_tracker:AddNewModifier(global_tracker, nil, "modifier_oaa_thinker", {})
+  global_tracker:AddNewModifier(global_tracker, nil, "modifier_stat_tracker_oaa", {})
+
+  self.global_tracker = global_tracker
+  self.tracking = true -- to enable/disable tracking just change this bool
+
+  ChatCommand:LinkDevCommand("-dmgtrackertest", Dynamic_Wrap(StatTracker, "TestDamageTracker"), self)
+  ChatCommand:LinkDevCommand("-resettracker", Dynamic_Wrap(StatTracker, "ResetTracking"), self)
+end
+
+function StatTracker:InitializeForId(pID)
+  self.stats[pID] = {
+    damage_dealt_to_heroes = 0,
+    damage_dealt_to_bosses = 0,
+    damage_dealt_to_player_creeps = 0,
+    damage_dealt_to_neutral_creeps = 0,
+    damage_taken_from_players = 0,
+    damage_taken_from_bosses = 0,
+    damage_taken_from_neutral_creeps = 0,
+  }
 end
 
 function StatTracker:GetDamageDoneToHeroes(pID)
@@ -42,17 +49,38 @@ function StatTracker:GetDamageDoneToHeroes(pID)
   return math.floor(result)
 end
 
-function StatTracker:StatTrackerCommand(keys)
+function StatTracker:TestDamageTracker(keys)
   local text = string.lower(keys.text)
   local splitted = split(text, " ")
   local id = tonumber(splitted[2]) or 0
 
   print("Stored damage values: ")
   DeepPrintTable(StatTracker.stats[id])
-  print("1 Valve damage dealt to heroes is "..tostring(PlayerResource:GetRawPlayerDamage(id)))
-  print("2 Valve damage dealt to heroes is "..tostring(StatTracker:GetDamageDoneToHeroes(id)))
-  print("Valve damage taken from heroes is "..tostring(PlayerResource:GetHeroDamageTaken(id, true)))
-  print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true)))
+  --print("1 Valve damage dealt to heroes is "..tostring(PlayerResource:GetRawPlayerDamage(id)))
+  --print("2 Valve damage dealt to heroes is "..tostring(StatTracker:GetDamageDoneToHeroes(id)))
+  --print("Valve damage taken from heroes is "..tostring(PlayerResource:GetHeroDamageTaken(id, true))) -- 0 until the end of the game
+  print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true))) -- check if it counts player creeps too
+end
+
+function StatTracker:ResetTracking(keys)
+  self.tracking = false
+  self.global_tracker:ForceKillOAA(false)
+
+  self.stats = {}
+  for i = 0, DOTA_MAX_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(i) then
+      self:InitializeForId(i)
+    end
+  end
+
+  print("Stored stats are reset. Global Damage Tracker will be definitely be removed in "..tostring(MANUAL_GARBAGE_CLEANING_TIME).." seconds.")
+
+  local global_tracker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+  global_tracker:AddNewModifier(global_tracker, nil, "modifier_oaa_thinker", {})
+  global_tracker:AddNewModifier(global_tracker, nil, "modifier_stat_tracker_oaa", {})
+
+  self.global_tracker = global_tracker
+  self.tracking = true
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -84,10 +112,9 @@ end
 if IsServer() then
   function modifier_stat_tracker_oaa:OnTakeDamageKillCredit(event)
     local attacker = event.attacker
-    local victim = event.unit
+    local victim = event.target
     local dmg_flags = event.damage_flags
     local damage = event.damage
-    --local inflictor = event.inflictor
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -104,8 +131,8 @@ if IsServer() then
       return
     end
 
-    -- Check if damaged entity is an item, rune or something weird
-    if victim.GetUnitName == nil then
+    -- Check if attacker or damaged entity are npcs
+    if victim.GetUnitName == nil or attacker.GetTeamNumber == nil then
       return
     end
 
@@ -119,9 +146,15 @@ if IsServer() then
       return
     end
 
-    if attacker.GetTeamNumber = nil then
+    if not StatTracker then
       return
     end
+
+    if not StatTracker.tracking then
+      return
+    end
+
+    --print("StatTracker damage tracker is working")
 
     local attacker_team = attacker:GetTeamNumber()
     local victim_team = victim:GetTeamNumber()
@@ -135,6 +168,10 @@ if IsServer() then
         return
       else
         victim_id = UnitVarToPlayerID(victim)
+        -- Initialize for newly added bots to prevent an error
+        if victim_id and not StatTracker.stats[victim_id] and PlayerResource:IsValidPlayerID(victim_id) then
+          StatTracker:InitializeForId(victim_id)
+        end
         if victim:IsRealHero() and not victim:IsTempestDouble() and not victim:IsSpiritBearOAA() then
           -- Victim is a player's hero
           if attacker:IsOAABoss() then
@@ -155,6 +192,10 @@ if IsServer() then
         -- Victim is a neutral
         -- It does not matter if attacker is a creep or not, it belongs to a player
         attacker_id = UnitVarToPlayerID(attacker)
+        -- Initialize for newly added bots to prevent an error
+        if attacker_id and not StatTracker.stats[attacker_id] and PlayerResource:IsValidPlayerID(attacker_id) then
+          StatTracker:InitializeForId(attacker_id)
+        end
         if victim:IsIllusion() then
           -- Neutral illusion of something -> ignore
           return
@@ -177,6 +218,13 @@ if IsServer() then
         else
           victim_id = UnitVarToPlayerID(victim)
           attacker_id = UnitVarToPlayerID(attacker)
+          -- Initialize for newly added bots to prevent an error
+          if victim_id and not StatTracker.stats[victim_id] and PlayerResource:IsValidPlayerID(victim_id) then
+            StatTracker:InitializeForId(victim_id)
+          end
+          if attacker_id and not StatTracker.stats[attacker_id] and PlayerResource:IsValidPlayerID(attacker_id) then
+            StatTracker:InitializeForId(attacker_id)
+          end
           if victim:IsRealHero() and not victim:IsTempestDouble() and not victim:IsSpiritBearOAA() then
             -- Victim is a player's hero
             -- It does not matter if attacker is a creep or not, it belongs to a player
@@ -188,11 +236,6 @@ if IsServer() then
           end
         end
       end
-    end
-
-    -- Damage with HP removal flag
-    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
-      print(tostring(attacker:GetUnitName()).." is dealing "..tostring(damage).." HP REMOVAL damage to "..tostring(victim:GetUnitName()))
     end
   end
 end
