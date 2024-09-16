@@ -29,9 +29,13 @@
                 <Label class="es-legend-kdalevel" text="K" />
                 <Label class="es-legend-kdalevel" text="D" />
                 <Label class="es-legend-kdalevel" text="A" />
-                <Label class="es-legend-gold" text="Gold" />
-                <Label class="es-legend-dmg-done" text="Dmg Done" />
-                <Label class="es-legend-dmg-received" text="Dmg Rec" />
+                <!-- <Label class="es-legend-gold" text="Gold" /> -->
+                <Label class="es-legend-gpm" text="GPM" />
+                <Label class="es-legend-xpm" text="XPM" />
+                <Label class="es-legend-dmg-done-to-heroes" text="DMG to Heroes" />
+                <Label class="es-legend-dmg-done-to-bosses" text="DMG to Bosses" />
+                <Label class="es-legend-dmg-taken-from-players" text="DMG from Players" />
+                <Label class="es-legend-dmg-taken-from-bosses" text="DMG from Bosses" />
                 <Label class="es-legend-healing" text="Heal" />
                 <Label class="es-legend-imr" text="MMR" />
                 <Label class="es-legend-xp" text="Bottlepass XP" />
@@ -51,9 +55,13 @@
                 <Label class="es-legend-kdalevel" text="K" />
                 <Label class="es-legend-kdalevel" text="D" />
                 <Label class="es-legend-kdalevel" text="A" />
-                <Label class="es-legend-gold" text="Gold" />
-                <Label class="es-legend-dmg-done" text="DMG Done" />
-                <Label class="es-legend-dmg-received" text="DMG Rec" />
+                <!-- <Label class="es-legend-gold" text="Gold" /> -->
+                <Label class="es-legend-gpm" text="GPM" />
+                <Label class="es-legend-xpm" text="XPM" />
+                <Label class="es-legend-dmg-done-to-heroes" text="DMG to Heroes" />
+                <Label class="es-legend-dmg-done-to-bosses" text="DMG to Bosses" />
+                <Label class="es-legend-dmg-taken-from-players" text="DMG from Players" />
+                <Label class="es-legend-dmg-taken-from-bosses" text="DMG from Bosses" />
                 <Label class="es-legend-healing" text="Heal" />
                 <Label class="es-legend-imr" text="MMR" />
                 <Label class="es-legend-xp" text="Bottlepass XP" />
@@ -69,7 +77,7 @@
 						<Label text="See detailed statistics about this Game" />
 					</Button> -->
 
-					<Button id="es-buttons-website" onactivate="DOTADisplayURL('https://oaa.gg');">
+					<Button id="es-buttons-website" onactivate="DOTADisplayURL('https://openangelarena.com/');">
 						<Label text="Go to our Official Website" />
 					</Button>
 

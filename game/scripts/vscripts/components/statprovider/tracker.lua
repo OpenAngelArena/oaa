@@ -41,7 +41,7 @@ function StatTracker:GetDamageDoneToHeroes(pID)
   local result = 0
   for i = 0, DOTA_MAX_PLAYERS - 1 do
     if PlayerResource:IsValidPlayerID(i) then
-      if not pID ~= i then
+      if pID == i then
         result = result + PlayerResource:GetDamageDoneToHero(pID, i)
       end
     end
@@ -113,7 +113,6 @@ if IsServer() then
   function modifier_stat_tracker_oaa:OnTakeDamageKillCredit(event)
     local attacker = event.attacker
     local victim = event.target
-    local dmg_flags = event.damage_flags
     local damage = event.damage
 
     -- Check if attacker exists

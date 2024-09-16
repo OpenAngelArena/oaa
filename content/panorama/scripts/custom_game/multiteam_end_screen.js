@@ -150,9 +150,6 @@ function EndScoreboard (table, key, args) {
 
     const xpBar = pp.FindChildrenWithClassTraverse('es-player-xp');
 
-    //    $.Msg("Player:");
-    //    $.Msg(player);
-
     const values = {
       name: pp.FindChildInLayoutFile('es-player-name'),
       avatar: pp.FindChildInLayoutFile('es-player-avatar'),
@@ -162,9 +159,13 @@ function EndScoreboard (table, key, args) {
       deaths: pp.FindChildInLayoutFile('es-player-d'),
       assists: pp.FindChildInLayoutFile('es-player-a'),
       imr: pp.FindChildInLayoutFile('es-player-imr'),
-      gold: pp.FindChildInLayoutFile('es-player-gold'),
-      dmgDone: pp.FindChildInLayoutFile('es-player-dmg-done'),
-      dmgReceived: pp.FindChildInLayoutFile('es-player-dmg-received'),
+      // gold: pp.FindChildInLayoutFile('es-player-gold'),
+      gpm: pp.FindChildInLayoutFile('es-player-gpm'),
+      xpm: pp.FindChildInLayoutFile('es-player-xpm'),
+      dmgDoneHeroes: pp.FindChildInLayoutFile('es-player-dmg-done-to-heroes'),
+      dmgDoneBosses: pp.FindChildInLayoutFile('es-player-dmg-done-to-bosses'),
+      dmgReceivedHeroes: pp.FindChildInLayoutFile('es-player-dmg-taken-from-players'),
+      dmgReceivedBosses: pp.FindChildInLayoutFile('es-player-dmg-taken-from-bosses'),
       healing: pp.FindChildInLayoutFile('es-player-healing'),
       level: pp.FindChildInLayoutFile('es-player-level'),
       xp: {
@@ -198,23 +199,35 @@ function EndScoreboard (table, key, args) {
     values.kills.text = player.info.player_kills;
     values.deaths.text = player.info.player_deaths;
     values.assists.text = player.info.player_assists;
-    values.gold.text = player.info.player_gold;
+    // values.gold.text = player.info.player_gold;
     if (stats !== undefined && player.id !== undefined) {
       if (stats[player.id] !== undefined) {
-        values.dmgDone.text = stats[player.id].damage_dealt;
-        values.dmgReceived.text = stats[player.id].damage_taken;
+        values.gpm.text = stats[player.id].gpm;
+        values.xpm.text = stats[player.id].xpm;
+        values.dmgDoneHeroes.text = stats[player.id].damage_dealt;
+        values.dmgDoneBosses.text = stats[player.id].damage_dealt_to_bosses;
+        values.dmgReceivedHeroes.text = stats[player.id].damage_taken;
+        values.dmgReceivedBosses.text = stats[player.id].damage_taken_from_bosses;
         values.healing.text = stats[player.id].healing;
       } else {
         $.Msg('stats[player.id] is ' + stats[player.id]);
-        values.dmgDone.text = 'N/A';
-        values.dmgReceived.text = 'N/A';
+        values.gpm.text = 'N/A';
+        values.xpm.text = 'N/A';
+        values.dmgDoneHeroes.text = 'N/A';
+        values.dmgDoneBosses.text = 'N/A';
+        values.dmgReceivedHeroes.text = 'N/A';
+        values.dmgReceivedBosses.text = 'N/A';
         values.healing.text = 'N/A';
       }
     } else {
       $.Msg('stats is ' + stats);
       $.Msg('player ID is ' + player.id);
-      values.dmgDone.text = 'N/A';
-      values.dmgReceived.text = 'N/A';
+      values.gpm.text = 'N/A';
+      values.xpm.text = 'N/A';
+      values.dmgDoneHeroes.text = 'N/A';
+      values.dmgDoneBosses.text = 'N/A';
+      values.dmgReceivedHeroes.text = 'N/A';
+      values.dmgReceivedBosses.text = 'N/A';
       values.healing.text = 'N/A';
     }
     values.level.text = player.info.player_level;

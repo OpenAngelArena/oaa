@@ -10,15 +10,19 @@
 			<Label id="es-player-name" text="N/A" />
 			<Label id="es-player-desc" text="N/A" />
 		</Panel>
-      <Label id="es-player-level" class="es-player-kdalevel es-player-line-text"  text="999" />
-      <Label id="es-player-k" class="es-player-kdalevel es-player-line-text" text="999" />
-      <Label id="es-player-d" class="es-player-kdalevel es-player-line-text" text="999" />
-      <Label id="es-player-a" class="es-player-kdalevel es-player-line-text" text="999" />
-      <Label id="es-player-gold" class="es-player-line-text" text="99999" />
-      <Label id="es-player-dmg-done" class="es-player-line-text" text="123456" />
-      <Label id="es-player-dmg-received" class="es-player-line-text" text="123456" />
+      <Label id="es-player-level" class="es-player-kdalevel es-player-line-text" text="00" />
+      <Label id="es-player-k" class="es-player-kdalevel es-player-line-text" text="00" />
+      <Label id="es-player-d" class="es-player-kdalevel es-player-line-text" text="00" />
+      <Label id="es-player-a" class="es-player-kdalevel es-player-line-text" text="00" />
+      <!-- <Label id="es-player-gold" class="es-player-line-text" text="99999" /> -->
+      <Label id="es-player-gpm" class="es-player-line-text" text="1234" />
+      <Label id="es-player-xpm" class="es-player-line-text" text="1234" />
+      <Label id="es-player-dmg-done-to-heroes" class="es-player-line-text" text="123456" />
+      <Label id="es-player-dmg-done-to-bosses" class="es-player-line-text" text="123456" />
+      <Label id="es-player-dmg-taken-from-players" class="es-player-line-text" text="123456" />
+      <Label id="es-player-dmg-taken-from-bosses" class="es-player-line-text" text="123456" />
       <Label id="es-player-healing" class="es-player-line-text" text="123456" />
-      <Label id="es-player-imr" class="es-player-line-text" text="10000 (-50)" />
+      <Label id="es-player-imr" class="es-player-line-text" text="1000 (-50)" />
 		<Panel class="es-player-xp">
 			<Panel id="es-player-xp-progress" />
 			<Label id="es-player-xp-level" text="N/A" />

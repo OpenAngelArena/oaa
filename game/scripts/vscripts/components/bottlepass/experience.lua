@@ -51,8 +51,8 @@ function Bottlepass:SendEndGameStats()
       if StatTracker and StatTracker.stats and StatTracker.stats[k] then
         local tracked_stats = StatTracker.stats[k]
         playerStats[k].damage_dealt = math.ceil(tracked_stats.damage_dealt_to_heroes)
-        playerStats[k].damage_dealt_to_bosses = = math.ceil(tracked_stats.damage_dealt_to_bosses)
-        --playerStats[k].damage_dealt_to_summons = = math.ceil(tracked_stats.damage_dealt_to_player_creeps)
+        playerStats[k].damage_dealt_to_bosses = math.ceil(tracked_stats.damage_dealt_to_bosses)
+        --playerStats[k].damage_dealt_to_summons = math.ceil(tracked_stats.damage_dealt_to_player_creeps)
         playerStats[k].damage_taken = math.ceil(tracked_stats.damage_taken_from_players)
         playerStats[k].damage_taken_from_bosses = math.ceil(tracked_stats.damage_taken_from_bosses)
         --playerStats[k].damage_taken_from_creeps = math.ceil(tracked_stats.damage_taken_from_neutral_creeps
