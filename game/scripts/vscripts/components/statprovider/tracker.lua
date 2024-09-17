@@ -37,11 +37,12 @@ function StatTracker:InitializeForId(pID)
   }
 end
 
+-- UNUSED, Gives the same result as PlayerResourceGetRawPlayerDamage(pID)
 function StatTracker:GetDamageDoneToHeroes(pID)
   local result = 0
   for i = 0, DOTA_MAX_PLAYERS - 1 do
     if PlayerResource:IsValidPlayerID(i) then
-      if pID == i then
+      if i ~= pID then -- ignore self damage
         result = result + PlayerResource:GetDamageDoneToHero(pID, i)
       end
     end
@@ -59,7 +60,7 @@ function StatTracker:TestDamageTracker(keys)
   --print("1 Valve damage dealt to heroes is "..tostring(PlayerResource:GetRawPlayerDamage(id)))
   --print("2 Valve damage dealt to heroes is "..tostring(StatTracker:GetDamageDoneToHeroes(id)))
   --print("Valve damage taken from heroes is "..tostring(PlayerResource:GetHeroDamageTaken(id, true))) -- 0 until the end of the game
-  --print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true))) -- it does not counts player creeps too but it counts boss damage
+  --print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true))) -- it doesn't count dmg from player creeps but it does count dmg from bosses
 end
 
 function StatTracker:ResetTracking(keys)
