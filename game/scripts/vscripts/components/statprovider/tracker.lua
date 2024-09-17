@@ -59,7 +59,7 @@ function StatTracker:TestDamageTracker(keys)
   --print("1 Valve damage dealt to heroes is "..tostring(PlayerResource:GetRawPlayerDamage(id)))
   --print("2 Valve damage dealt to heroes is "..tostring(StatTracker:GetDamageDoneToHeroes(id)))
   --print("Valve damage taken from heroes is "..tostring(PlayerResource:GetHeroDamageTaken(id, true))) -- 0 until the end of the game
-  print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true))) -- check if it counts player creeps too
+  --print("Valve damage taken from creeps is "..tostring(PlayerResource:GetCreepDamageTaken(id, true))) -- it does not counts player creeps too but it counts boss damage
 end
 
 function StatTracker:ResetTracking(keys)
