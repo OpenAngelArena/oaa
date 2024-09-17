@@ -270,6 +270,10 @@ function EndScoreboard (table, key, args) {
       }
     } else {
       values.imr.text = 'N/A';
+      if (Game.IsInToolsMode()) {
+        values.imr.text = '1234 (+ 00)';
+        values.imr.AddClass('es-text-green');
+      }
     }
 
     // XP
