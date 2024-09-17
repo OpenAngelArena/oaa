@@ -50,7 +50,7 @@ function item_bubble_orb_1:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       --knockback_table.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
-      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0)
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1)
       knockback_table.duration = knockback_table.knockback_duration
 
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
@@ -71,7 +71,8 @@ function item_bubble_orb_1:OnSpellStart()
   )
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
-      ally:Purge(false, true, false, true, false)
+      -- Strong Dispel (for the allies)
+      ally:Purge(false, true, false, true, true)
     end
   end
 end

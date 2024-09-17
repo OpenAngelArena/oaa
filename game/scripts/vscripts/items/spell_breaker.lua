@@ -26,7 +26,7 @@ function item_spell_breaker_1:OnSpellStart()
     return
   end
 
-  -- Basic Dispel for enemies
+  -- Basic Dispel (for enemies)
   local RemovePositiveBuffs = true
   local RemoveDebuffs = false
   local BuffsCreatedThisFrameOnly = false

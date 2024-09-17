@@ -180,6 +180,7 @@ if IsServer() then
         end
       end
 
+      -- Units with Reinforced ability (e.g. Nature's Prophet large treants)
       if attacker:HasModifier("modifier_creep_siege") then
         local ability = attacker:FindAbilityByName("creep_siege")
         if ability then
@@ -200,6 +201,7 @@ if IsServer() then
         -- end
       -- end
 
+      -- Primal Beast innate: Primal Beast attacks do bonus damage
       if attacker:HasModifier("modifier_primal_beast_colossal") then
         local ability = attacker:FindAbilityByName("primal_beast_colossal")
         if ability then
@@ -215,30 +217,34 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
+      abyssal_underlord_firestorm = true,     -- when it starts working against ancients
       anti_mage_mana_void = false,
       bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
+      death_prophet_spirit_siphon = inflictor:GetSpecialValueFor("damage_pct") ~= 0, -- talent gives pct dmg
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
-      huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0,
+      enigma_midnight_pulse = true,           -- when it starts working against ancients
+      huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
-      jakiro_liquid_fire = false,             -- shard gives percentage dmg
-      jakiro_liquid_ice = false,              -- shard gives percentage dmg
+      life_stealer_feast = false,             -- physical dmg does not need to be reduced and it also does not work
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
-      phantom_assassin_fan_of_knives = false,
+      phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
       ringmaster_impalement = true,
+      shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg
       venomancer_noxious_plague = false,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
-      zuus_arc_lightning = false,
+      witch_doctor_maledict = false,
       zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
-      return 0 - self.dmg_reduction
+      return 0 - BOSS_DMG_RED_FOR_PCT_SPELLS
     end
 
     -- Spells that do bonus damage to bosses
     local bonusBossDamageSpells = {
       death_prophet_exorcism = true, -- Death Prophet Exorcism
-      jakiro_liquid_fire = true, -- Jakiro Liquid Fire
+      jakiro_liquid_fire = inflictor:GetSpecialValueFor("pct_health_damage") == 0, -- Jakiro Liquid Fire
+      jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") == 0, -- Jakiro Liquid Ice
       pugna_nether_blast = true, -- Pugna Nether Blast
       shredder_flamethrower = true, -- Timbersaw Flamethrower
     }
@@ -248,6 +254,39 @@ if IsServer() then
         local damage_increase_pct = math.max(ability:GetSpecialValueFor("building_dmg_pct"), ability:GetSpecialValueFor("building_damage_pct"), ability:GetSpecialValueFor("structure_damage_mod"))
         if damage_increase_pct and damage_increase_pct > 0 then
           return damage_increase_pct
+        end
+      end
+    end
+
+    -- Primal Beast innate: Primal Beast spells do bonus damage
+    local primal_beast_abilities = {
+      primal_beast_onslaught = true,
+      primal_beast_pulverize = true,
+      primal_beast_rock_throw = true,
+      primal_beast_trample = true,
+      primal_beast_uproar = true,
+    }
+    if attacker:HasModifier("modifier_primal_beast_colossal") and primal_beast_abilities[name] then
+      local ability = attacker:FindAbilityByName("primal_beast_colossal")
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    end
+
+    -- Jakiro special cases when his abilities do pct dmg
+    local jakiro_abilities = {
+      jakiro_liquid_fire = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
+      jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
+    }
+    if jakiro_abilities[name] then
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct - BOSS_DMG_RED_FOR_PCT_SPELLS
         end
       end
     end
@@ -308,8 +347,8 @@ if IsServer() then
     end
 
     if ability:IsCooldownReady() and (parent:IsStunned() or parent:IsSilenced()) then
-      -- Strong Dispel
-      parent:Purge(false, true, false, true, false)
+      -- Strong Dispel (for the boss)
+      parent:Purge(false, true, false, true, true)
 
       -- Add debuff protection
       parent:AddNewModifier(parent, ability, "modifier_boss_debuff_protection_oaa", {duration = self.debuff_protection_duration})

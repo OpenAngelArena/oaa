@@ -96,6 +96,10 @@
 "DOTA_Tooltip_Ability_sohei_ki_attraction_strength_damage"                      "%STRENGTH DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_pull_length"                          "PULL DISTANCE:"
 
+"DOTA_Tooltip_ability_sohei_innate_oaa"                                         "Impulsive"
+"DOTA_Tooltip_ability_sohei_innate_oaa_Description"                             "Sohei gains bonus base attack damage based on his current movement speed."
+"DOTA_Tooltip_ability_sohei_innate_oaa_base_attack_dmg_per_ms"                  "BASE ATTACK DAMAGE PER MOVE SPEED:"
+
 // modifiers
 //"DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"
 "DOTA_Tooltip_modifier_sohei_dash_slow"                                         "Dash Slow"
@@ -130,6 +134,9 @@
 
 "DOTA_Tooltip_modifier_sohei_ki_attraction_buff"                                "Ki Attraction"
 "DOTA_Tooltip_modifier_sohei_ki_attraction_buff_Description"                    "Outgoing damage increased by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
+
+"DOTA_Tooltip_modifier_sohei_innate_oaa"                                        "#{DOTA_Tooltip_ability_sohei_innate_oaa}"
+"DOTA_Tooltip_modifier_sohei_innate_oaa_Description"                            "Bonus %dMODIFIER_PROPERTY_TOOLTIP% base attack damage."
 
 // talents
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_1_oaa"                         "+{s:bonus_stun_duration}s Repulsive Palm Stun"

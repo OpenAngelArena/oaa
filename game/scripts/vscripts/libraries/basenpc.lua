@@ -256,9 +256,10 @@ if IsServer() then
 
     -- Dispel bools
     local BuffsCreatedThisFrameOnly = false
-    local RemoveExceptions = false              -- Offensive Strong Dispel (yes or no), can cause errors, crashes etc.
-    local RemoveStuns = true                    -- Defensive Strong Dispel (yes or no)
+    local RemoveExceptions = true               -- For hex and similar
+    local RemoveStuns = true                    -- For stuns
 
+    -- Remove most dispellable modifiers
     self:Purge(true, true, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
   end
 
@@ -293,7 +294,7 @@ if IsServer() then
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
         lina_combustion = true,
-        mirana_starfall = true, -- because of Scepter Arrow
+        --mirana_starfall = true, -- because of Scepter Arrow
         phoenix_dying_light = true,
         razor_storm_surge = true,
         --sandking_epicenter = true, -- because of shard?

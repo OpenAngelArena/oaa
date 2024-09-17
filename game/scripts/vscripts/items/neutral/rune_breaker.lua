@@ -16,7 +16,7 @@ function item_rune_breaker_oaa:OnSpellStart()
     return
   end
 
-  -- Basic Dispel
+  -- Basic Dispel (for enemies)
   local RemovePositiveBuffs = true
   local RemoveDebuffs = false
   local BuffsCreatedThisFrameOnly = false

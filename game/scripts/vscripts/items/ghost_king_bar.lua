@@ -12,7 +12,7 @@ end
 function item_ghost_king_bar_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Basic Dispel
+  -- Basic Dispel (for the caster)
   caster:Purge(false, true, false, false, false)
 
   -- Apply Ghost King Bar buff to caster (but only if they dont have spell immunity)

@@ -14,7 +14,7 @@ function item_reflection_shard_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
 
-  -- Basic Dispel
+  -- Basic Dispel (for the caster)
   caster:Purge(false, true, false, false, false)
 
   -- Sound

@@ -55,14 +55,16 @@ function broodmother_incapacitating_bite_oaa:OnProjectileHit(target, location)
   -- Apply debuff
   target:AddNewModifier(caster, self, "modifier_broodmother_incapacitating_bite_debuff_oaa", {duration = debuff_duration})
 
-  -- Calculate damage
+  -- Get max health
   local target_max_health = target:GetMaxHealth()
-  local actual_damage = base_damage + max_hp_damage_percent * target_max_health * 0.01
 
   -- Do reduced damage to bosses
   if target:IsOAABoss() then
-    actual_damage = base_damage + (max_hp_damage_percent * target_max_health * 0.01) * 15/100
+    max_hp_damage_percent = max_hp_damage_percent * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
+
+  -- Calculate damage
+  local actual_damage = base_damage + max_hp_damage_percent * target_max_health * 0.01
 
   local damage_table = {
     victim = target,

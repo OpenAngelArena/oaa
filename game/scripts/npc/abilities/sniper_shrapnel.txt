@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityChargeRestoreTime"      
+      "AbilityChargeRestoreTime"
       {
         "value"                                           "35"
         "special_bonus_unique_sniper_2"                   "-30"
@@ -64,7 +64,7 @@
       {
         "value"                                           "1.2"
         "special_bonus_facet_sniper_scattershot"          "=0.8"
-      } 
+      }
       "slow_duration"
       {
         "value"                                           "2"
@@ -73,6 +73,10 @@
       "AbilityCharges"
       {
         "value"                                           "3"
+      }
+      "fast_tick"
+      {
+        "special_bonus_facet_sniper_scattershot"          "=1"
       }
     }
   }

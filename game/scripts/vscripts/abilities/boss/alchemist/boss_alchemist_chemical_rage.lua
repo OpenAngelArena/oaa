@@ -9,7 +9,7 @@ function boss_alchemist_chemical_rage:OnSpellStart()
 
   local remove_stuns = true
 
-  -- Apply Basic Dispel always
+  -- Strong Dispel (for the boss)
   caster:Purge(false, true, false, remove_stuns, remove_stuns)
 
   -- Disjoint disjointable/dodgeable projectiles

@@ -127,6 +127,7 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     local manaReductionAmount = targetMaxMana / killTicks
 
     target:MakeVisibleDueToAttack(teamID, 0)
+    -- Basic Dispel (for enemies)
     target:Purge(true, false, false, false, false)
     target:ReduceMana(manaReductionAmount, ability)
     if targetHealth - healthReductionAmount < 1 then

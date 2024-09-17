@@ -70,6 +70,7 @@ function modifier_legion_duel_debuff_oaa:OnIntervalThink()
     return
   end
   if not parent:IsMagicImmune() and not parent:IsDebuffImmune() then
+    -- Basic Dispel (for enemies)
     parent:Purge(true, false, false, false, false)
   end
 end

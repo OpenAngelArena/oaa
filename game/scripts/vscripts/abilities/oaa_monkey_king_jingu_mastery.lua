@@ -36,12 +36,6 @@ function modifier_monkey_king_jingu_mastery_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_monkey_king_jingu_mastery_oaa:OnCreated()
-
-end
-
-modifier_monkey_king_jingu_mastery_oaa.OnRefresh = modifier_monkey_king_jingu_mastery_oaa.OnCreated
-
 function modifier_monkey_king_jingu_mastery_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
