@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_satanic_core"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone;item_reaver"
+      "01"                                                "item_bloodstone;item_ultimate_orb"
     }
   }
 
@@ -71,7 +71,7 @@
       "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
       "spell_lifesteal"                                   "0"
       // Satanic/Blood Core KVs
-      "bonus_strength"                                    "25 30 40 55 75"
+      "primary_attribute_bonus"                           "20 25 30 35 40"
       "bonus_status_resist"                               "0"
       "hp_regen_amp"                                      "0"
       "hero_spell_lifesteal"                              "22 24 26 28 30"
