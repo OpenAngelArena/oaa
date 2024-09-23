@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 25 30 35 40 45" //OAA
+    "AbilityManaCost"                                     "20 25 30 35 60 85" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,13 +42,13 @@
       }
       "int_steal" //OAA
       {
-        "value"                                           "1 1 2 2 3 3"
+        "value"                                           "1 1 2 2 2 2"
         "special_bonus_shard"                             "+1"
       }
-      "int_steal_duration"
+      "int_steal_duration" //OAA
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_shard"                             "+50"
+        "special_bonus_shard"                             "+25"
       }
       "bounce_range"
       {
