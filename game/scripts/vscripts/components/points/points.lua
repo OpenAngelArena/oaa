@@ -158,7 +158,11 @@ function PointsManager:SetWinner(teamID)
     --elseif teamID == DOTA_TEAM_BADGUYS then
       --GameRules:SetCustomVictoryMessage("#dota_post_game_dire_victory")
     --end
-    GameRules:SetCustomVictoryMessageDuration(POST_GAME_TIME)
+    if IsInToolsMode() then
+      GameRules:SetCustomVictoryMessageDuration(99999)
+    else
+      GameRules:SetCustomVictoryMessageDuration(POST_GAME_TIME)
+    end
   end)
 end
 

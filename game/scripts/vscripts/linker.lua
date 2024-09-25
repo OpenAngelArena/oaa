@@ -50,6 +50,9 @@ LinkLuaModifier("modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LU
 -- Passive Gold
 LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Global stat tracker
+LinkLuaModifier("modifier_stat_tracker_oaa", "components/statprovider/tracker.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Additional ability effects: TODO: Refactor this to be linked somewhere else
 -- Requiem Fear duration manipulation and Requiem Fear immunity:
 LinkLuaModifier("modifier_oaa_requiem_allowed", "modifiers/modifyabilitiesfilter/requiem_fear_manager.lua", LUA_MODIFIER_MOTION_NONE)
