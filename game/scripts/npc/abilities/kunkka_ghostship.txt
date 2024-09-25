@@ -43,10 +43,10 @@
       "buff_duration"                                     "10"
       "stun_duration"                                     "1.2"
       "ghostship_speed"                                   "650"
-      "ghostship_absorb"
+      "ghostship_absorb" //OAA
       {
-        "value"                                           "35"  // If changing this, update value in x marks for variant 1
-        "special_bonus_unique_kunkka_rum"                 "+15"
+        "value"                                           "30"  // If changing this, update value in x marks for variant 1
+        "special_bonus_unique_kunkka_rum"                 "+10"
       }
       "AbilityCooldown" //OAA
       {

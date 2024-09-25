@@ -22,17 +22,17 @@
     {
       "bonus_attack_speed"
       {
-        "value"                                           "20 35 50 65 80 95"
+        "value"                                           "20 35 50 65 70 75"
         "special_bonus_unique_lone_druid_spirit_link_attack_speed"  "+45"
       }
       "lifesteal_percent"
       {
-        "value"                                           "15 30 45 60 75 90"
+        "value"                                           "15 30 45 60 65 70"
       }
-      "armor_sharing"
+      "armor_sharing" //OAA
       {
-        "value"                                           "8 12 16 20 24 28"
-        "special_bonus_facet_lone_druid_bear_with_me"     "+25%"
+        "value"                                           "8 12 16 20 22 24"
+        "special_bonus_facet_lone_druid_bear_with_me"     "+15%"
       }
       "lifesteal_both_ways"
       {

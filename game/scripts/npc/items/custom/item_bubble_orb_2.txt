@@ -47,7 +47,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastRange"                                    "300"
 
@@ -68,8 +68,8 @@
       "bonus_health_regen"                                "16 19"
       "bonus_mana_regen"                                  "5.5 6.5"
       "bonus_mana"                                        "700 950"
-      "duration"                                          "6"
-      "radius"                                            "250"
+      "duration"                                          "5"
+      "radius"                                            "225"
       "aura_stickiness"                                   "0.1"
     }
   }
