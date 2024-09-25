@@ -202,12 +202,18 @@
 	margin-right: 5px;
 }
 
+.es-legend-kdalevel.level {
+  width: 28px;
+}
 .es-legend-kdalevel {
-	width: 26px;
+	width: 15px;
 }
 
+.es-player-kdalevel.level {
+  width: 28px;
+}
 .es-player-kdalevel {
-	width: 26px;
+	width: 15px;
 	vertical-align: center;
 	text-align: center;
 	color: #eee;
@@ -302,13 +308,14 @@
 }
 
 .es-legend-imr {
-	width: 75px;
+	width: 80px;
 }
 
 #es-player-imr {
-	width: 75px;
+	width: 80px;
 	vertical-align: center;
 	text-align: center;
+  white-space: nowrap;
 }
 
 .es-legend-xp {

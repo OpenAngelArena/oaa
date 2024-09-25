@@ -13,42 +13,12 @@ if (typeof module !== 'undefined' && module.exports) {
   EndScoreboard(null, 'game_info', CustomNetTables.GetTableValue('end_game_scoreboard', 'game_info'));
 })();
 
+function EndScoreboard (table, key, args) {
 /*
 // PLACEHOLDERS: testing purpose only
-let args = {
-  xp_info: {
-    0: {
-      progress: 0.7,
-      level: 12,
-      rank: 'Legend',
-      earned: 17
-    },
-
-    info: {
-      radiant_score: 100,
-      dire_score: 99
-    },
-
-    players: {
-      0: {
-        // GetPlayer lua thing
-      }
-    }
-  },
-
-  info: {
-    map: {
-      map_name: 'maps/oaa.vpk',
-      map_display_name: 'oaa'
-    },
-
-    ids1: [0],
-    ids2: []
-  }
-};
-*/
-
-function EndScoreboard (table, key, args) {
+args = {"info":{"winner":2,"dire_score":6,"radiant_score":65},"stats":{"0":{"damage_dealt_to_bosses":813125,"damage_taken":72328,"damage_dealt":21346244,"damage_taken_from_bosses":63411,"healing":16666,"gpm":6133,"xpm":211},"1":{"damage_dealt_to_bosses":0,"damage_taken":984,"damage_dealt":689,"damage_taken_from_bosses":0,"healing":0,"gpm":254,"xpm":0},"2":{"damage_dealt_to_bosses":0,"damage_taken":900,"damage_dealt":576,"damage_taken_from_bosses":0,"healing":0,"gpm":111,"xpm":0},"3":{"damage_dealt_to_bosses":0,"damage_taken":1355,"damage_dealt":118,"damage_taken_from_bosses":0,"healing":0,"gpm":166,"xpm":0},"4":{"damage_dealt_to_bosses":0,"damage_taken":935,"damage_dealt":422,"damage_taken_from_bosses":0,"healing":0,"gpm":141,"xpm":0},"5":{"damage_dealt_to_bosses":0,"damage_taken":302,"damage_dealt":1212,"damage_taken_from_bosses":0,"healing":0,"gpm":132,"xpm":0},"6":{"damage_dealt_to_bosses":0,"damage_taken":12,"damage_dealt":666,"damage_taken_from_bosses":0,"healing":0,"gpm":108,"xpm":0},"7":{"damage_dealt_to_bosses":0,"damage_taken":157,"damage_dealt":1105,"damage_taken_from_bosses":0,"healing":0,"gpm":100,"xpm":0},"8":{"damage_dealt_to_bosses":0,"damage_taken":667,"damage_dealt":947,"damage_taken_from_bosses":0,"healing":0,"gpm":110,"xpm":0},"9":{"damage_dealt_to_bosses":0,"damage_taken":911,"damage_dealt":973,"damage_taken_from_bosses":0,"healing":92,"gpm":119,"xpm":0},"10":{"damage_dealt_to_bosses":0,"damage_taken":0,"damage_dealt":0,"damage_taken_from_bosses":0,"healing":0,"gpm":0,"xpm":0},"11":{"damage_dealt_to_bosses":0,"damage_taken":0,"damage_dealt":0,"damage_taken_from_bosses":0,"healing":0,"gpm":0,"xpm":0},"12":{"damage_dealt_to_bosses":0,"damage_taken":0,"damage_dealt":0,"damage_taken_from_bosses":0,"healing":0,"gpm":0,"xpm":0},"13":{"damage_dealt_to_bosses":0,"damage_taken":0,"damage_dealt":0,"damage_taken_from_bosses":0,"healing":0,"gpm":0,"xpm":0},"14":{"damage_dealt_to_bosses":0,"damage_taken":0,"damage_dealt":0,"damage_taken_from_bosses":0,"healing":0,"gpm":0,"xpm":0},"15":{"damage_dealt_to_bosses":0,"damage_taken":0,}}}
+// */
+  // $.Msg(JSON.stringify(args));
   if (!args || key !== 'game_info') {
     $.Msg(key);
     $.Msg('Got bad end screen data');
@@ -70,6 +40,7 @@ function EndScoreboard (table, key, args) {
   const xpInfo = args.xp_info;
   const stats = args.stats;
   const mapInfo = Game.GetMapInfo();
+
   const radiantPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
   const direPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS);
 
@@ -204,11 +175,11 @@ function EndScoreboard (table, key, args) {
       if (stats[player.id] !== undefined) {
         values.gpm.text = stats[player.id].gpm;
         values.xpm.text = stats[player.id].xpm;
-        values.dmgDoneHeroes.text = stats[player.id].damage_dealt;
-        values.dmgDoneBosses.text = stats[player.id].damage_dealt_to_bosses;
-        values.dmgReceivedHeroes.text = stats[player.id].damage_taken;
-        values.dmgReceivedBosses.text = stats[player.id].damage_taken_from_bosses;
-        values.healing.text = stats[player.id].healing;
+        values.dmgDoneHeroes.text = shortenNumber(stats[player.id].damage_dealt);
+        values.dmgDoneBosses.text = shortenNumber(stats[player.id].damage_dealt_to_bosses);
+        values.dmgReceivedHeroes.text = shortenNumber(stats[player.id].damage_taken);
+        values.dmgReceivedBosses.text = shortenNumber(stats[player.id].damage_taken_from_bosses);
+        values.healing.text = shortenNumber(stats[player.id].healing);
       } else {
         $.Msg('stats[player.id] is ' + stats[player.id]);
         values.gpm.text = 'N/A';
@@ -376,4 +347,22 @@ function EndScoreboard (table, key, args) {
 
 function CloseBottlepassReward () {
   $('#es-player-reward-container').style.visibility = 'collapse';
+}
+
+function shortenNumber(number) {
+  if (number > 1000000000000000) {
+    return Math.round(number / 100000000000000) / 10 + "q";
+  }
+  if (number > 1000000000000) {
+    return Math.round(number / 100000000000) / 10 + "t";
+  }
+  if (number > 1000000000) {
+    return Math.round(number / 100000000) / 10 + "b";
+  }
+  if (number > 1000000) {
+    return Math.round(number / 100000) / 10 + "m";
+  }
+  if (number > 1000) {
+    return Math.round(number / 100) / 10 + "k";
+  }
 }

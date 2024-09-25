@@ -10,7 +10,7 @@
 			<Label id="es-player-name" text="N/A" />
 			<Label id="es-player-desc" text="N/A" />
 		</Panel>
-      <Label id="es-player-level" class="es-player-kdalevel es-player-line-text" text="00" />
+      <Label id="es-player-level" class="es-player-kdalevel es-player-line-text level" text="00" />
       <Label id="es-player-k" class="es-player-kdalevel es-player-line-text" text="00" />
       <Label id="es-player-d" class="es-player-kdalevel es-player-line-text" text="00" />
       <Label id="es-player-a" class="es-player-kdalevel es-player-line-text" text="00" />

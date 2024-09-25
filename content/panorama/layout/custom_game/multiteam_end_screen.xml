@@ -3,7 +3,6 @@
 		<include
 			src="file://{resources}/styles/custom_game/multiteam_end_screen.css" />
 	</styles>
-
 	<scripts>
 		<include
 			src="file://{resources}/scripts/custom_game/multiteam_end_screen.js" />
@@ -25,7 +24,7 @@
 							</Panel>
 
 							<Panel class="es-legend">
-                <Label class="es-legend-kdalevel" text="LVL" />
+                <Label class="es-legend-kdalevel level" text="LVL" />
                 <Label class="es-legend-kdalevel" text="K" />
                 <Label class="es-legend-kdalevel" text="D" />
                 <Label class="es-legend-kdalevel" text="A" />
@@ -51,7 +50,7 @@
 							</Panel>
 
 							<Panel class="es-legend">
-                <Label class="es-legend-kdalevel" text="LVL" />
+                <Label class="es-legend-kdalevel level" text="LVL" />
                 <Label class="es-legend-kdalevel" text="K" />
                 <Label class="es-legend-kdalevel" text="D" />
                 <Label class="es-legend-kdalevel" text="A" />
