@@ -349,20 +349,20 @@ function CloseBottlepassReward () {
   $('#es-player-reward-container').style.visibility = 'collapse';
 }
 
-function shortenNumber(number) {
+function shortenNumber (number) {
   if (number > 1000000000000000) {
-    return Math.round(number / 100000000000000) / 10 + "q";
+    return Math.round(number / 100000000000000) / 10 + 'q';
   }
   if (number > 1000000000000) {
-    return Math.round(number / 100000000000) / 10 + "t";
+    return Math.round(number / 100000000000) / 10 + 't';
   }
   if (number > 1000000000) {
-    return Math.round(number / 100000000) / 10 + "b";
+    return Math.round(number / 100000000) / 10 + 'b';
   }
   if (number > 1000000) {
-    return Math.round(number / 100000) / 10 + "m";
+    return Math.round(number / 100000) / 10 + 'm';
   }
   if (number > 1000) {
-    return Math.round(number / 100) / 10 + "k";
+    return Math.round(number / 100) / 10 + 'k';
   }
 }
