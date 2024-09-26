@@ -12,7 +12,7 @@ function ProtectionAura:Init ()
   if legacy then
     self.max_rooms = 4
   end
-  self.IsValidMap = GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" or legacy or GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" or GetMapName() == "tinymode"
+  self.IsValidMap = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_mrclark" or GetMapName() == "1v1" or legacy or GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" or GetMapName() == "tinymode"
 
   self.zones = {
     [DOTA_TEAM_GOODGUYS] = {},

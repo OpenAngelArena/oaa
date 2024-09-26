@@ -29,7 +29,7 @@ function HeroSelection:Init ()
 
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode"
+  self.isRanked = GetMapName() == "oaa_mrclark" or GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode"
   self.lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
 
   local herolistFile = 'scripts/npc/herolist.txt'
