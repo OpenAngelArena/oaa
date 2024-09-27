@@ -4,6 +4,7 @@
 	maps = 
 	[
 		"oaa_seasonal",
+		"oaa_mrclark",
 		"1v1",
 		"oaa_legacy",
 		"oaa_bigmode",
@@ -18,6 +19,10 @@
 		{
 			MaxPlayers = 10
 			map = "oaa_seasonal"
+		},
+		{
+			MaxPlayers = 10
+			map = "oaa_mrclark"
 		},
 		{
 			MaxPlayers = 2
