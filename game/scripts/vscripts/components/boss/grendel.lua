@@ -3,7 +3,7 @@ Grendel = Components:Register('Grendel', COMPONENT_STRATEGY)
 
 function Grendel:Init()
   self.moduleName = "Grendel Spawner"
-  local spawn_time = 12 * 60
+  local spawn_time = 16 * 60
   HudTimer:At(spawn_time, partial(Grendel.SpawnGrendel, Grendel))
   ChatCommand:LinkDevCommand("-spawngrendel", Dynamic_Wrap(self, 'SpawnGrendel'), self)
   self.level = 0
