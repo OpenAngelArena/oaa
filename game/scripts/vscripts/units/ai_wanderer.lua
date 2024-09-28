@@ -140,7 +140,7 @@ function WandererThink ()
     Wanderer:DisableOffside("Enable")
   else
     -- If the score difference isn't too big, disable offside if Wanderer is aggroed on it
-    if math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)) < 25 then
+    if math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)) < 20 then
       if IsLocationInRadiantOffside(thisEntity:GetAbsOrigin()) then
         Wanderer:DisableOffside("Radiant")
       elseif IsLocationInDireOffside(thisEntity:GetAbsOrigin()) then
