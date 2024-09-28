@@ -71,17 +71,17 @@ if IsServer() then
     end
 
     local target_team = target:GetTeamNumber()
-    local oposite_team
+    local opposite_team
     if target_team == DOTA_TEAM_GOODGUYS then
-      oposite_team = DOTA_TEAM_BADGUYS
+      opposite_team = DOTA_TEAM_BADGUYS
     elseif target_team == DOTA_TEAM_BADGUYS then
-      oposite_team = DOTA_TEAM_GOODGUYS
+      opposite_team = DOTA_TEAM_GOODGUYS
     else
       print("Wanderer attacked a hero with an invalid team.")
       return
     end
 
-    local difference = PointsManager:GetPoints(target_team) - PointsManager:GetPoints(oposite_team)
+    local difference = PointsManager:GetPoints(target_team) - PointsManager:GetPoints(opposite_team)
 
     -- If the score difference is negative or 0, it means this team is losing or even, don't do bonus damage
     if difference <= 0 then

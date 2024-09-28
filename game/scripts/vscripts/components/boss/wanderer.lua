@@ -83,8 +83,8 @@ function Wanderer:SpawnWanderer ()
         BossAI:RewardBossKill(2, teamId)
         BossAI:RewardBossKill(3, teamId)
       elseif self.level > 2 then
+        BossAI:RewardBossKill(3, teamId)
         BossAI:RewardBossKill(4, teamId)
-        PointsManager:AddPoints(teamId, 1)
       end
 
       -- Apply Wanderer buff to the capturing team
