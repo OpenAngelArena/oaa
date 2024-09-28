@@ -40,6 +40,10 @@ function WandererThink ()
   end
 
   if not thisEntity.hasSpawned then
+    local stickyAbility = thisEntity:FindAbilityByName("wanderer_sticky_blood")
+    local lvl = math.min(thisEntity.BossTier - 2, 3)
+    stickyAbility:SetLevel(lvl)
+    thisEntity.cleanseAbility:SetLevel(lvl)
     thisEntity.hasSpawned = true
     StartWandering()
     return 1

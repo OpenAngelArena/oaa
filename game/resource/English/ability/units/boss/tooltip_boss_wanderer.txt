@@ -3,10 +3,10 @@
 "npc_dota_boss_wanderer_3"                                                      "#{npc_dota_boss_wanderer_1}"
 
 "DOTA_Tooltip_modifier_wanderer_team_buff"                                      "Wanderer's Spirit"
-"DOTA_Tooltip_modifier_wanderer_team_buff_Description"                          "Bonus 20%% movement speed, and 20%% attack damage"
+"DOTA_Tooltip_modifier_wanderer_team_buff_Description"                          "Bonus 20%% move speed, 20%% attack damage and 20%% spell amp."
 
 "DOTA_Tooltip_ability_wanderer_aoe_cleanse"                                     "Cleanse"
-"DOTA_Tooltip_ability_wanderer_aoe_cleanse_Description"                         "When below half health, Wanderer tries to cleanse vermin around him. Applies knockback, purge and damage to enemies around him. Affects player-controlled wards too."
+"DOTA_Tooltip_ability_wanderer_aoe_cleanse_Description"                         "When below half health, Wanderer tries to cleanse vermin around him. Knocks back all enemies around him, purges them and attacks them with bonus damage. Affects player-controlled wards too."
 "DOTA_Tooltip_ability_wanderer_aoe_cleanse_radius"                              "RADIUS:"
 "DOTA_Tooltip_ability_wanderer_aoe_cleanse_damage"                              "BASE DAMAGE:"
 "DOTA_Tooltip_ability_wanderer_aoe_cleanse_max_hp_percent"                      "%MAX HP AS DAMAGE:"
@@ -24,7 +24,7 @@
 "DOTA_Tooltip_ability_wanderer_point_aversion_damage_per_point_difference"      "DAMAGE PER POINT DIFFERENCE:"
 
 "DOTA_Tooltip_ability_wanderer_sticky_blood"                                    "Sticky Blood"
-"DOTA_Tooltip_ability_wanderer_sticky_blood_Description"                        "Every time Wanderer takes too much damage, his blood is sprayed on the original attacker. Heroes affected by Sticky Blood have their move speed and turn speed slowed and they take extra damage from the Wanderer."
+"DOTA_Tooltip_ability_wanderer_sticky_blood_Description"                        "Every time Wanderer takes too much damage, his blood is sprayed on the attacker. Heroes affected by Sticky Blood have their move speed and turn speed slowed and they take extra damage from the Wanderer."
 "DOTA_Tooltip_ability_wanderer_sticky_blood_damage_per_stack"                   "EXTRA DAMAGE PER STACK:"
 "DOTA_Tooltip_ability_wanderer_sticky_blood_duration"                           "DURATION:"
 "DOTA_Tooltip_ability_wanderer_sticky_blood_movement_speed_pct"                 "%MOVE SPEED SLOW PER STACK:"
@@ -32,6 +32,6 @@
 "DOTA_Tooltip_ability_wanderer_sticky_blood_damage_threshold"                   "DAMAGE THRESHOLD:"
 
 "DOTA_Tooltip_modifier_wanderer_sticky_blood_debuff"                            "Sticky Blood"
-"DOTA_Tooltip_modifier_wanderer_sticky_blood_debuff_Description"                "Each stack increases Wanderer's attack damage by 100.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_wanderer_sticky_blood_debuff_Description"                "Each stack increases Wanderer's attack damage.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "wanderer_slain_message"                                                        "The Wanderer has been slain!"
