@@ -41,6 +41,7 @@ TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TE
 KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
 TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
 ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = min(ONE_V_ONE_LIMIT_INCREASE x number of players, 6): 1v1 - 4; 2v2 - 6; 3v3 - 6; 4v4 - 6; solo - 2;
+LIMIT_INCREASE_STARTING_COOLDOWN = 60 * 10
 
 -- poop wards
 POOP_WARD_DURATION = 360

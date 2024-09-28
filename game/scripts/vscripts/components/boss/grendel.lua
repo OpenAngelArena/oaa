@@ -154,10 +154,10 @@ end
 function Grendel:GoNearTeam(team)
   if team == DOTA_TEAM_GOODGUYS then
     self.was_called = true
-    self.to_location = PointsManager.radiant_shrine + 200 * Vector(0, 1, 0)
+    self.to_location = PointsManager.radiant_shrine_location + 200 * Vector(0, 1, 0)
   elseif team == DOTA_TEAM_BADGUYS then
     self.was_called = true
-    self.to_location = PointsManager.dire_shrine + 200 * Vector(0, 1, 0)
+    self.to_location = PointsManager.dire_shrine_location + 200 * Vector(0, 1, 0)
   else
     self.was_called = false
     self.to_location = nil

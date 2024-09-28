@@ -368,8 +368,8 @@ end
 function IsNearRadiantFountain (pos)
   local radiant_fountain = Entities:FindByName(nil, "fountain_good_trigger")
   if not radiant_fountain then
-    print("Radiant fountain trigger not found or referenced name is wrong.")
-    return DistanceFromFountainOAA(pos, DOTA_TEAM_GOODGUYS) <= DistanceFromFountainOAA(PointsManager.radiant_shrine, DOTA_TEAM_GOODGUYS)
+    print("Radiant fountain trigger not found or referenced name is wrong. Searching radiant fountain entity instead.")
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_GOODGUYS) <= DistanceFromFountainOAA(PointsManager.radiant_shrine_location, DOTA_TEAM_GOODGUYS)
   end
   local origin = radiant_fountain:GetAbsOrigin()
   local bounds = radiant_fountain:GetBounds()
@@ -392,8 +392,8 @@ end
 function IsNearDireFountain (pos)
   local bad_fountain = Entities:FindByName(nil, "fountain_bad_trigger")
   if not bad_fountain then
-    print("Dire fountain trigger not found or referenced name is wrong.")
-    return DistanceFromFountainOAA(pos, DOTA_TEAM_BADGUYS) <= DistanceFromFountainOAA(PointsManager.dire_shrine, DOTA_TEAM_BADGUYS)
+    print("Dire fountain trigger not found or referenced name is wrong. Searching dire fountain entity instead.")
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_BADGUYS) <= DistanceFromFountainOAA(PointsManager.dire_shrine_location, DOTA_TEAM_BADGUYS)
   end
   local origin = bad_fountain:GetAbsOrigin()
   local bounds = bad_fountain:GetBounds()
