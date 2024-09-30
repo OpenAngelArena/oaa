@@ -30,8 +30,6 @@ end
 
 function modifier_grendel_passives:GetModifierTotal_ConstantBlock(keys)
   local parent = self:GetParent()
-  local ability = self:GetAbility()
-
   local attacker = keys.attacker
   local damage = keys.damage
 
