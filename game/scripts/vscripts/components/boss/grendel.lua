@@ -56,7 +56,7 @@ function Grendel:SpawnGrendel()
   self.level = self.level + 1
 
   if self.level > 4 then
-    return
+    self.level = 4
   end
 
   local location = self:FindWhereToSpawn()
