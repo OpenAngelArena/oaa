@@ -566,66 +566,83 @@ function HeroSelection:ChooseBans ()
   local goodBanChoices = 0
   local badBanChoices = 0
   local playerIDs = {}
+  local rollForBans = true
 
-  for playerID, choice in pairs(rankedpickorder.banChoices) do
-    table.insert(playerIDs, playerID)
-    local team = PlayerResource:GetTeam(playerID)
-    if team == DOTA_TEAM_GOODGUYS then
-      goodBanChoices = goodBanChoices + 1
-    end
-    if team == DOTA_TEAM_BADGUYS then
-      badBanChoices = badBanChoices + 1
+  if OAAOptions and OAAOptions.settings then
+    if OAAOptions.settings.GAME_MODE == "AP" or OAAOptions.settings.GAME_MODE == "AR" then
+      rollForBans = false
     end
   end
 
-  local totalChoices = badBanChoices + goodBanChoices
+  if rollForBans then
+    -- 50% chance bans, to change this -> change the condition that has RandomInt if totalChoices is 1 and while condition if totalChoices is > 1
+    for playerID, choice in pairs(rankedpickorder.banChoices) do
+      table.insert(playerIDs, playerID)
+      local team = PlayerResource:GetTeam(playerID)
+      if team == DOTA_TEAM_GOODGUYS then
+        goodBanChoices = goodBanChoices + 1
+      end
+      if team == DOTA_TEAM_BADGUYS then
+        badBanChoices = badBanChoices + 1
+      end
+    end
 
-  DebugPrint('Choosing bans from ' .. totalChoices .. ' nominations...')
+    local totalChoices = badBanChoices + goodBanChoices
 
-  if totalChoices == 1 then
-    if RandomInt(0, 1) == 1 then
-      for playerID, choice in pairs(rankedpickorder.banChoices) do
-        if choice then
-          table.insert(rankedpickorder.bans, choice)
-          DebugPrint('Only suggestion was ' .. choice)
+    DebugPrint('Choosing bans from ' .. totalChoices .. ' nominations...')
+
+    if totalChoices == 1 then
+      if RandomInt(0, 1) == 1 then
+        for playerID, choice in pairs(rankedpickorder.banChoices) do
+          if choice then
+            table.insert(rankedpickorder.bans, choice)
+            DebugPrint('Only suggestion was ' .. choice)
+          end
         end
+      else
+        DebugPrint('Rolled 0, no bans!')
       end
     else
-      DebugPrint('Rolled 0, no bans!')
+      local skippedBans = 0
+      local maxBansPerTeam = 3
+      if HeroSelection.is10v10 then
+        maxBansPerTeam = 6
+      end
+      while banCount < totalChoices / 2 do
+        local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
+        local playerID = playerIDs[choiceNum]
+        table.remove(playerIDs, choiceNum)
+        local team = PlayerResource:GetTeam(playerID)
+        local canBan = true
+        if team == DOTA_TEAM_BADGUYS then
+          if badBans >= maxBansPerTeam then
+            canBan = false
+            DebugPrint('Not chosing this ban because we already choose ' .. badBans .. ' bans from the Dire team')
+          end
+          badBans = badBans + 1
+        elseif team == DOTA_TEAM_GOODGUYS then
+          if goodBans >= maxBansPerTeam then
+            canBan = false
+            DebugPrint('Not chosing this ban because we already choose ' .. goodBans .. ' bans from the Radiant team')
+          end
+          goodBans = goodBans + 1
+        end
+        if canBan then
+          banCount = banCount + 1
+          DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
+          table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+        else
+          skippedBans = skippedBans + 1
+        end
+      end
     end
   else
-    local skippedBans = 0
-    local maxBansPerTeam = 3
-    if HeroSelection.is10v10 then
-      maxBansPerTeam = 6
-    end
-    while banCount < totalChoices / 2 do
-      local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
-      local playerID = playerIDs[choiceNum]
-      table.remove(playerIDs, choiceNum)
-      local team = PlayerResource:GetTeam(playerID)
-      local canBan = true
-      if team == DOTA_TEAM_BADGUYS then
-        if badBans >= maxBansPerTeam then
-          canBan = false
-          DebugPrint('Not chosing this ban because we already choose ' .. badBans .. ' bans from the Dire team')
-        end
-        badBans = badBans + 1
-      elseif team == DOTA_TEAM_GOODGUYS then
-        if goodBans >= maxBansPerTeam then
-          canBan = false
-          DebugPrint('Not chosing this ban because we already choose ' .. goodBans .. ' bans from the Radiant team')
-        end
-        goodBans = goodBans + 1
-      end
-      if canBan then
-        banCount = banCount + 1
-        DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
+    -- 100% chance bans
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+      if rankedpickorder.banChoices[playerID] then
         table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
-      else
-        skippedBans = skippedBans + 1
       end
-    end
+    end)
   end
 
   -- we've applied all the ban selections, lets send what was chosen vs what was actually banned to the bottlepass server
@@ -642,11 +659,11 @@ function HeroSelection:ChooseBans ()
       end
 
       -- Randomly ban certain number of heroes
-      local random_draft_bans = 75
+      local random_draft_bans = math.ceil(#list_of_hero_names * 60/100)
       if HeroSelection.is10v10 then
-        random_draft_bans = 50
+        random_draft_bans = math.ceil(#list_of_hero_names * 40/100)
       end
-      print("RANDOM DRAFT: Banning "..tostring(random_draft_bans).." random heroes")
+      DebugPrint("RANDOM DRAFT: Banning "..tostring(random_draft_bans).." random heroes")
       local i = 0
       while i <= random_draft_bans do
         local random_number = RandomInt(1, #list_of_hero_names)
@@ -665,13 +682,6 @@ function HeroSelection:ChooseBans ()
           i = i + 1
         end
       end
-    elseif OAAOptions.settings.GAME_MODE == "AR" then
-      -- 100% chance bans
-      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        if rankedpickorder.banChoices[playerID] then
-          table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
-        end
-      end)
     elseif OAAOptions.settings.GAME_MODE == "SD" then
       -- generate 3 hero choices for each player
       local heroExclusions = {}
