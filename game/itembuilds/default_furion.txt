@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_furion"
   "Title"         "Recommended items for Nature's Prophet"
 
@@ -23,14 +23,15 @@
       "item"      "item_devastator_oaa_2"
     }
 
-    // "#DOTA_Item_Build_Treants"
-    // {
-      // "item"      "item_bloodthorn"
-      // "item"      "item_vladmirs_grimoire_1"
-      // "item"      "item_assault"
-      // "item"      "item_devastator_oaa_2"
-      // "item"      "item_lucience"
-    // }
+    "#DOTA_Item_Build_Summons_Core"
+    {
+      "item"      "item_solar_crest"
+      "item"      "item_ancient_janggo"
+      "item"      "item_vladmirs_grimoire_1"
+      "item"      "item_bloodthorn"
+      "item"      "item_assault"
+      "item"      "item_lucience"
+    }
 
     "#DOTA_Item_Build_Support_Core"
     {
