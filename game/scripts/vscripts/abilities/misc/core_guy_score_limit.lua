@@ -40,10 +40,10 @@ function core_guy_score_limit:OnSpellStart()
 end
 
 function core_guy_score_limit:GetCooldown()
-  --return (self.timesUsed or 1) * 60 * 10
+  --return (self.timesUsed or 1) * 60 * 8
   if IsServer() then
     return PointsManager.timesUsedShrine * LIMIT_INCREASE_STARTING_COOLDOWN
   else
-    return 60 * 10 -- TODO: Fix the cooldown display on the client when you hover over the ability after extending, not a major issue
+    return 60 * 8 -- TODO: Fix the cooldown display on the client when you hover over the ability after extending, not a major issue
   end
 end

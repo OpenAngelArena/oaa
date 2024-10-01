@@ -55,8 +55,8 @@ function Grendel:SpawnGrendel()
 
   self.level = self.level + 1
 
-  if self.level > 4 then
-    self.level = 4
+  if self.level > 5 then
+    return
   end
 
   local location = self:FindWhereToSpawn()
@@ -165,13 +165,14 @@ function Grendel:FindWhereToSpawn()
 end
 
 function Grendel:GoNearTeam(team)
-  if team == DOTA_TEAM_GOODGUYS then
+  local difference = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if team == DOTA_TEAM_GOODGUYS and difference <= 0 then
     self.was_called = true
     self.to_location = PointsManager.radiant_shrine_location + 200 * Vector(0, 1, 0)
-  elseif team == DOTA_TEAM_BADGUYS then
+  elseif team == DOTA_TEAM_BADGUYS and difference >= 0 then
     self.was_called = true
     self.to_location = PointsManager.dire_shrine_location + 200 * Vector(0, 1, 0)
-  else
+  elseif team == nil then
     self.was_called = false
     self.to_location = nil
   end
