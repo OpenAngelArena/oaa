@@ -19,9 +19,6 @@
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75 100 125 150 175"
@@ -33,7 +30,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "40 35 30 25 20"
-        "special_bonus_facet_windrunner_whirlwind"        "=40 =35 =30 =25 =20"
+        "special_bonus_facet_windrunner_whirlwind"        "=45 =40 =35 =30 =25"
       }
       "AbilityDuration"
       {
