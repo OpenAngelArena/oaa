@@ -5,11 +5,8 @@
 	[
 		"oaa_seasonal",
 		"oaa_alternate",
-		"1v1",
-		"oaa_legacy",
 		"oaa_bigmode",
 		"tinymode",
-		"10v10",
 	]
 	IsPlayable = 1
 	PenaltiesEnabled = false
@@ -23,22 +20,6 @@
 		{
 			MaxPlayers = 10
 			map = "oaa_alternate"
-		},
-		{
-			MaxPlayers = 2
-			map = "1v1"
-		},
-		{
-			MaxPlayers = 20
-			map = "10v10"
-		},
-		{
-			MaxPlayers = 10
-			map = "captains_mode"
-		},
-		{
-			MaxPlayers = 10
-			map = "oaa_legacy"
 		},
 		{
 			MaxPlayers = 20
