@@ -58,13 +58,13 @@ Layer0
 	//---- Layer 3 ----
 	g_flTexCoordRotate3 "0.000"
 	g_flTexCoordScale3 "4.000"
-	g_vColorTint3 "[0.815686 0.850980 0.890196 1.000000]"
+	g_vColorTint3 "[0.839216 0.854902 0.870588 1.000000]"
 	g_vTexCoordOffset3 "[0.000 0.000]"
 	g_vTexCoordScroll3 "[0.000 0.000]"
 	TextureBloom3 "materials/default/default_bloom.tga"
 	TextureColor3 "materials/ground/snow_directional_00_color.png"
 	TextureNormal3 "materials/ground/snow_directional_00_normal_psd_6ffc95d.png"
-	TextureReflectance3 "materials/ground/snow_directional_00_normal_refl.png"
+	TextureReflectance3 "materials/ground/snow_refl.png"
 	TextureRevealMask3 "materials/ground/snow_directional_00_normal_blend.png"
 	TextureSelfIllumMask3 "materials/default/default_selfillum.tga"
 
