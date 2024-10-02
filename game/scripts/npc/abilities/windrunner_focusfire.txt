@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40 35 30 25 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,10 +30,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "40 35 30 25 20"
+        "special_bonus_facet_windrunner_whirlwind"        "=40 =35 =30 =25 =20"
+      }
       "AbilityDuration"
       {
         "value"                                           "20.0"
-        "special_bonus_facet_windrunner_whirlwind"        "=9.0"
+        "special_bonus_facet_windrunner_whirlwind"        "=8.0"
       }
       "bonus_attack_speed"
       {
@@ -48,6 +52,7 @@
       "focusfire_damage_reduction"
       {
         "value"                                           "-30"
+        "special_bonus_facet_windrunner_whirlwind"        "-5"
         "special_bonus_unique_windranger_8"               "+10"
       }
       "focusfire_fire_on_the_move"                        "1"
@@ -75,7 +80,7 @@
       "bonus_range"
       {
         "value"                                           "0"
-        "special_bonus_facet_windrunner_whirlwind"        "+125"
+        "special_bonus_facet_windrunner_whirlwind"        "+100"
       }
       "unfocused_cancel_initial_cooldown"                 "0.5"
     }

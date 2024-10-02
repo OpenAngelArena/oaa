@@ -35,11 +35,12 @@
     "AbilityValues"
     {
       "AbilityCastRange"                                  "900"
+      "alt_cast_castrange_pct"                            "50"
       "buff_duration"                                     "6.0"
       "pull_duration"                                     "0.2"
       "min_distance"                                      "250"
       "max_distance"                                      "1200"
-      "movespeed_bonus"                                   "25 27 29 31 33 35" //OAA
+      "movespeed_bonus"                                   "10 15 20 25 30 35"
       "attackdamage_bonus"
       {
         "value"                                           "20 45 70 95 190 285"
