@@ -170,6 +170,8 @@ if IsServer() then
     local dead = event.unit
     local killer = event.attacker
     local item = self:GetAbility()
+    local current_charges = item:GetCurrentCharges() or 0
+    local charges_per_kill = item:GetSpecialValueFor("kill_charges")
 
     if not caster:IsRealHero() then
       return
@@ -186,8 +188,6 @@ if IsServer() then
 
           -- Charge gain - only if caster is near the dead unit or if caster is the killer
           if isDeadInChargeRange or killer == caster then
-            local current_charges = item:GetCurrentCharges() or 0
-            local charges_per_kill = item:GetSpecialValueFor("kill_charges")
             if current_charges >= 1 then
               item:SetCurrentCharges(current_charges + charges_per_kill)
             else
@@ -198,12 +198,8 @@ if IsServer() then
         end
       end
     -- caster died
-    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() and not caster:IsSpiritBearOAA() then
-      local current_charges = item:GetCurrentCharges() or 0
-      -- caster has no charges? add 1 on death
-      if current_charges == 0 then
-        item:SetCurrentCharges(1)
-      end
+    elseif not caster:IsTempestDouble() and not caster:IsClone() and not caster:IsSpiritBearOAA() then -- and not caster:IsReincarnating()
+      item:SetCurrentCharges(current_charges + charges_per_kill)
       caster.spiritVesselChargesOAA = item:GetCurrentCharges()
     end
   end
