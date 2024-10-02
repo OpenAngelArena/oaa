@@ -57,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10452"
+    "ItemCost"                                            "10752"
     "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir 3;gliepnir 3;glaypnir 3"
@@ -68,23 +68,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "30 40 60 90 130"
-      "bonus_attack_speed"                                "30 35 40 45 50"
+      "bonus_damage"                                      "25 35 55 85 125"
+      "bonus_attack_speed"                                "25 30 35 40 45"
       "chain_chance"                                      "25"
-      "chain_damage"                                      "160 200 280 400 580"
+      "chain_damage"                                      "140 180 260 380 560"
       "chain_strikes"                                     "4"
       "chain_radius"                                      "650 750 850 950 1050"
       "chain_delay"                                       "0.25"
       "chain_cooldown"                                    "0.2"
       "bonus_intellect"                                   "24 29 39 54 74"
-      "bonus_hp"                                          "300 550 800 1050 1300"
+      "bonus_hp"                                          "275 525 775 1025 1275"
       "duration"                                          "2.0 2.5 3.0 3.5 4.0"
       "radius"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "active_damage"                                     "150 300 500 750 1050"
+      "active_damage"                                     "165 315 515 765 1065"
       "illusion_multiplier_pct"                           "100"
     }
   }
