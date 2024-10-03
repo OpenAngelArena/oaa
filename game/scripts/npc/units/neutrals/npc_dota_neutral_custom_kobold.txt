@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "" // TODO: add some ability
+    "Ability1"                                            "" // TODO: add evasion ability
     "Ability2"                                            "" // kobold_tunneler_prospecting
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"     // Physical protection.
-    "MagicalResistance"                                   "25"     // Magical protection.
+    "MagicalResistance"                                   "25"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -55,7 +55,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "290"   // Speed.
+    "MovementSpeed"                                       "550"   // Speed.
 
     // Status
     //----------------------------------------------------------------
