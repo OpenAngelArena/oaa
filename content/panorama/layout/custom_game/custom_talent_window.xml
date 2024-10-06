@@ -1,0 +1,90 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_talent_window.css"/>
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
+    <include src="file://{resources}/scripts/custom_game/custom_talent_tree.js"/>
+  </scripts>
+
+ <Panel class="OAA_Talent_Window">
+    <Label id="TalentsHeader" text="Talents" />
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="55"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalentSuper">
+            <Label class="talentImage" text="L55-S1"/>
+        </Panel>
+        <Panel class="rightTalentSuper">
+            <Label class="talentImage" text="R55-S2"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="25"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <Label class="talentImage" text="L25"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <Label class="talentImage" text="R25"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A25"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="20"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <Label class="talentImage" text="L20"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <Label class="talentImage" text="R20"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A20"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="15"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <Label class="talentImage" text="L15"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <Label class="talentImage" text="R15"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A15"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="10"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <Label class="talentImage" text="L10"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <Label class="talentImage" text="R10"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A10"/>
+        </Panel>
+    </Panel>
+  </Panel>
+</root>

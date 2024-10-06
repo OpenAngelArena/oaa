@@ -4,7 +4,6 @@
 "DOTA_Tooltip_Ability_item_aghanims_scepter_1"                                  "#{DOTA_Tooltip_Ability_item_ultimate_scepter}"
 "DOTA_Tooltip_Ability_item_recipe_aghanims_scepter_1"                           "Aghanim's Scepter Recipe"
 //"DOTA_Tooltip_Ability_item_ultimate_scepter_Description"                        "<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of all heroes."
-//"DOTA_Tooltip_Ability_item_aghanims_scepter_1_Description"                      "<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of certain heroes."
 "DOTA_Tooltip_Ability_item_aghanims_scepter_1_Lore"                             "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Lore}"
 "DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_all_stats"                  "+$all"
 "DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_health"                     "+$health"
@@ -12,7 +11,8 @@
 
 "DOTA_Tooltip_Ability_item_aghanims_scepter_2"                                  "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1}"
 "DOTA_Tooltip_Ability_item_recipe_aghanims_scepter_2"                           "#{DOTA_Tooltip_Ability_item_recipe_aghanims_scepter_1}"
-"DOTA_Tooltip_Ability_item_aghanims_scepter_2_Description"                      "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Description}\n\n<h1>Passive: Talent Booster</h1>Enables both talent options for up to level %talent_level_tooltip%."
+//"DOTA_Tooltip_Ability_item_aghanims_scepter_2_Description"                      "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Description}\n\n<h1>Passive: Talent Booster</h1>Enables both talent options for up to level %talent_level_tooltip%."
+"DOTA_Tooltip_Ability_item_aghanims_scepter_2_Description"                      "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Description}\n\n<h1>Passive: Aghanim Talents</h1>Grants special talents with each upgrade."
 "DOTA_Tooltip_Ability_item_aghanims_scepter_2_Lore"                             "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_Lore}"
 "DOTA_Tooltip_Ability_item_aghanims_scepter_2_bonus_all_stats"                  "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_aghanims_scepter_2_bonus_health"                     "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_health}"
@@ -44,8 +44,27 @@
 
 //"DOTA_Tooltip_Ability_item_ultimate_scepter_2"                                  "Aghanim's Blessing"
 //"DOTA_Tooltip_Ability_item_recipe_ultimate_scepter_2"                           "Aghanim's Blessing Recipe"
-"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"                      "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Description}\n\nCan be consumed but it doesn't provide stats and it doesn't enable non-learned talents!"
+//"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"                      "#{DOTA_Tooltip_Ability_item_ultimate_scepter_Description}\n\nCan be consumed but it doesn't provide stats and it doesn't enable non-learned talents!"
+
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6"                                  "#{DOTA_Tooltip_Ability_item_ultimate_scepter_2}"
+"DOTA_Tooltip_Ability_item_recipe_aghanims_scepter_6"                           "#{DOTA_Tooltip_Ability_item_recipe_ultimate_scepter_2}"
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6_Description"                      "#{DOTA_Tooltip_ability_item_ultimate_scepter_2_Description}\n\nCan be consumed. <font color='#FFA500'>Retains stats and Aghanim talents.</font>"
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6_Lore"                             "#{DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore}"
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6_bonus_all_stats"                  "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_all_stats}"
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6_bonus_health"                     "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_health}"
+"DOTA_Tooltip_Ability_item_aghanims_scepter_6_bonus_mana"                       "#{DOTA_Tooltip_Ability_item_aghanims_scepter_1_bonus_mana}"
 
 "DOTA_Tooltip_Ability_item_aghanim_melter"                                      "Aghanim's Melter"
-"DOTA_Tooltip_Ability_item_aghanim_melter_Description"                          "<font color='#FF0000'>Costs 10 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_aghanim_melter_Description"                          "<font color='#FF0000'>Costs 30 #{oaa_core_points}.</font>"
+
+"dota_tooltip_modifier_aghanim_talent_oaa_10"                                   "Aghanim Level 10 Talent"
+"dota_tooltip_modifier_aghanim_talent_oaa_15"                                   "Aghanim Level 15 Talent"
+"dota_tooltip_modifier_aghanim_talent_oaa_20"                                   "Aghanim Level 20 Talent"
+"dota_tooltip_modifier_aghanim_talent_oaa_25"                                   "Aghanim Level 25 Talent"
+//"DOTA_Tooltip_modifier_item_ultimate_scepter_consumed"                          "Aghanim's Blessing"
+//"DOTA_Tooltip_modifier_item_ultimate_scepter_consumed_Description"              "Permanently granted Aghanim's Scepter hero upgrade."
+//"DOTA_Tooltip_modifier_item_ultimate_scepter_consumed_alchemist"                "Aghanim's Blessing (Alchemist)"
+//"DOTA_Tooltip_modifier_item_ultimate_scepter_consumed_alchemist_Description"    "Permanently granted Aghanim's Scepter hero upgrade and Aghanim stat bonuses."
+"dota_tooltip_modifier_item_aghanims_scepter_oaa_consumed"                      "#{DOTA_Tooltip_modifier_item_ultimate_scepter_consumed}"
+"dota_tooltip_modifier_item_aghanims_scepter_oaa_consumed_Description"          "#{DOTA_Tooltip_modifier_item_ultimate_scepter_consumed_alchemist_Description} And permanently granted Aghanim talents."
 
