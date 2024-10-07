@@ -30,10 +30,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA 100s -60s vanilla
       {
-        "value"                                           "60"
-        "special_bonus_unique_elder_titan_3"              "-25"
+        "value"                                           "65"
+        "special_bonus_unique_elder_titan_3"              "-20"
       }
       "crack_time"                                        "2.7182"
       "crack_width"
@@ -50,7 +50,7 @@
       "speed"                                             "1100"
       "damage_pct"
       {
-        "value"                                           "34 42 50 55 60"
+        "value"                                           "34 42 50 54 58"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "vision_width"

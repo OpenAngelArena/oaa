@@ -45,16 +45,16 @@
         "special_bonus_shard"                             "+5"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "epicenter_radius_base"
+      "epicenter_radius_base" //OAA
       {
-        "value"                                           "500"
+        "value"                                           "400"
         "special_bonus_unique_sand_king_5"                "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "epicenter_radius_increment"
+      "epicenter_radius_increment" //OAA
       {
-        "value"                                           "13"
-        "special_bonus_unique_sand_king_5"                "+12"
+        "value"                                           "8"
+        "special_bonus_unique_sand_king_5"                "+7"
       }
       "epicenter_slow"
       {
