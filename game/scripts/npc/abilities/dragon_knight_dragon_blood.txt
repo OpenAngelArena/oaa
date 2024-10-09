@@ -26,14 +26,14 @@
         "value"                                           "5 10 15 20 40 80"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
-      "corrosive_breath_duration"
+      "corrosive_breath_duration" //OAA
       {
-        "value"                                           "3"
+        "value"                                           "6"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
-      "corrosive_breath_armor_reduction"
+      "corrosive_breath_armor_reduction" //OAA
       {
-        "value"                                           "0 1 2 3 5 9"
+        "value"                                           "1 2 3 4 6 10"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
       // RED DRAGON
