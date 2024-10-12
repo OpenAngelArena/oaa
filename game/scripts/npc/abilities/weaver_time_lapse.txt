@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA
     "AbilityCastRange"                                    "500"

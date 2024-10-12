@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "AbilityCastPoint"                                    "0"
 
@@ -50,7 +52,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "damage_penalty"                                    "50 45 40 35 30" //OAA
-      "damage_penalty_bosses"                             "40" //OAA
+      "damage_penalty_bosses"                             "50" //OAA
     }
   }
 }

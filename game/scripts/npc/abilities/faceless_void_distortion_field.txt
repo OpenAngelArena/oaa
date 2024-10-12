@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "7" // same as Dependent ability (Time Dilation) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "faceless_void_time_dilation" // OAA

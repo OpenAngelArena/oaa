@@ -10,9 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "Innate"                                              "1"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "6" // same as Dependent ability (Requiem) + 1
+    "DependentOnAbility"                                  "nevermore_requiem"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tusk: Bitter Chill
+  // Tusk: Bitter Chill (Innate)
   //=================================================================================================================
   "tusk_bitter_chill"
   {
@@ -9,6 +9,7 @@
 
     "MaxLevel"                                            "7"
     "Innate"                                              "1"
+    // DependentOnAbility is probably hardcoded here depending on the picked facet
 
     "AbilityValues"
     {

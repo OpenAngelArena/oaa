@@ -10,12 +10,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
     "AbilityManaCost"                                     "100" //OAA
-    "AbilityCooldown"                                     "50 45 40 35 30 30" //OAA
+    "AbilityCooldown"                                     "40 38 36 34 32 30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

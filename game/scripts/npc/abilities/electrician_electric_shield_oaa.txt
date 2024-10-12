@@ -18,6 +18,8 @@
     "ScriptFile"                                          "abilities/electrician/electrician_electric_shield.lua"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "HasShardUpgrade"                                     "1"
 

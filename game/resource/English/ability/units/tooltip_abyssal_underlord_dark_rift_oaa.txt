@@ -2,7 +2,7 @@
 // Underlord Dark Rift
 //=============================================================================
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa"                          "Dark Rift"
-"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Description"              "After casting for %abilitycastpoint% seconds, Underlord teleports to the target location, stunning and damaging enemies in a radius."
+"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Description"              "After casting for %abilitycastpoint% seconds, Underlord teleports to the target location, stunning and damaging enemies in a radius. Underlord will move faster and take less damage for a few seconds after teleporting."
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Lore"                     "The wicked know no rest; to and fro they go, reaping desolation anew before old flames burn out."
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Note0"                    "Teleporting destroys trees and disjoints projectiles."
 //"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Note0"                    "Does not teleport non-player units or rooted units."
@@ -11,7 +11,7 @@
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_radius"                   "RADIUS:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_stun_duration"            "STUN DURATION:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_damage"                   "DAMAGE:"
-"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description"      "Underlord will gain damage reduction and bonus movement speed for a few seconds after teleporting. Reduces cooldown by %bonus_AbilityCooldown% seconds."
+"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description"      "Increases damage reduction and bonus move speed. Reduces cooldown by %bonus_AbilityCooldown% seconds."
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_damage_reduction"         "%DAMAGE REDUCTION:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_bonus_ms"                 "%BONUS MOVE SPEED:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_buff_duration"            "BUFF DURATION:"
@@ -29,4 +29,4 @@
 "DOTA_Tooltip_modifier_underlord_dark_rift_oaa_stun_Description"                "Stunned."
 
 "DOTA_Tooltip_modifier_underlord_dark_rift_oaa_scepter_buff"                    "Dark Rift"
-"DOTA_Tooltip_modifier_underlord_dark_rift_oaa_scepter_buff_Description"        "Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed."
+"DOTA_Tooltip_modifier_underlord_dark_rift_oaa_scepter_buff_Description"        "Takes %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% less damage and bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed."
