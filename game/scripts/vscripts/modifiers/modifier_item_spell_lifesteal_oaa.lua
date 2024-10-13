@@ -201,7 +201,7 @@ function modifier_item_spell_lifesteal_oaa:NumberOfSameItemInstances()
   end
 
   local ability_name = ability:GetAbilityName()
-  local same_items = 1
+  local same_items = 0
   local max_slot = DOTA_ITEM_SLOT_6
   if parent:HasModifier("modifier_techies_spoons_stash") then
     max_slot = DOTA_ITEM_SLOT_9
