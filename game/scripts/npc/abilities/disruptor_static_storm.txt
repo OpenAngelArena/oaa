@@ -37,11 +37,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
+      "radius" //OAA
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_disruptor_8"                "+150"
+        "special_bonus_unique_disruptor_8"                "+100"
       }
       "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
