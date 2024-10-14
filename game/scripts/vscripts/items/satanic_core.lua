@@ -3,13 +3,13 @@ LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-item_satanic_core = class(ItemBaseClass)
+item_satanic_core_1 = class(ItemBaseClass)
 
-function item_satanic_core:GetIntrinsicModifierName()
+function item_satanic_core_1:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_satanic_core:GetIntrinsicModifierNames()
+function item_satanic_core_1:GetIntrinsicModifierNames()
   return {
     "modifier_item_bloodstone",
     "modifier_item_satanic_core",
@@ -17,7 +17,7 @@ function item_satanic_core:GetIntrinsicModifierNames()
   }
 end
 
-function item_satanic_core:OnSpellStart()
+function item_satanic_core_1:OnSpellStart()
   local hCaster = self:GetCaster()
   local unholy_duration = self:GetSpecialValueFor("duration")
 
@@ -25,10 +25,10 @@ function item_satanic_core:OnSpellStart()
   hCaster:AddNewModifier( hCaster, self, "modifier_satanic_core_unholy", { duration = unholy_duration } )
 end
 
-item_satanic_core_2 = item_satanic_core
-item_satanic_core_3 = item_satanic_core
-item_satanic_core_4 = item_satanic_core
-item_satanic_core_5 = item_satanic_core
+item_satanic_core_2 = item_satanic_core_1
+item_satanic_core_3 = item_satanic_core_1
+item_satanic_core_4 = item_satanic_core_1
+item_satanic_core_5 = item_satanic_core_1
 
 ---------------------------------------------------------------------------------------------------
 
