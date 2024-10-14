@@ -15,14 +15,14 @@
 
     "AbilityValues"
     {
-      "radius" //OAA, Valve has it wrong 
+      "radius" //OAA, Valve has it wrong
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "health_threshold"
+      "health_threshold" // probably unused because Tombstone has 40% value as threshold
       {
-        "value"                                           "100 200 300 400 800 1600"
+        "value"                                           "100 200 300 400 800 1200"
       }
       "zombie_interval" // OAA, Valve has it wrong
       {

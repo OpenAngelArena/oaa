@@ -41,9 +41,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "slow_per_second"                                   "11 14 17 20 23 26"
-      "duration"                                          "3.0"
+      "duration"                                          "3.0" // linger duration
       "max_slow"                                          "70 80 90 100 100 100" //OAA
-      "aspd_per_second"                                   "10" // Valve forgot special_bonus_unique_warlock_10
+      "aspd_per_second"                                   "10" // special_bonus_unique_warlock_10
       "base_damage"           
       {
         "special_bonus_unique_warlock_3"                  "=40"

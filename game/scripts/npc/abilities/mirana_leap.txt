@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve has extra space
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve has extra space; DOTA_ABILITY_BEHAVIOR_NO_TARGET missing
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -39,7 +39,7 @@
       "leap_speedbonus"                                   "8 16 24 32 40 48"
       "leap_speedbonus_as" //OAA
       {
-        "value"                                           "25 50 75 100 150 300"
+        "value"                                           "25 50 75 100 125 150"
         "special_bonus_unique_mirana_1"                   "+100"
       }
       "leap_bonus_duration"                               "5" // special_bonus_unique_mirana_3_oaa

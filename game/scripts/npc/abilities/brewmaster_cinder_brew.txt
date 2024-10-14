@@ -80,13 +80,13 @@
         "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
         "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
       }
-      "min_movement" //OAA, Valve has the wrong facet
+      "min_movement" //OAA, Valve has the wrong RequiresFacet
       {
         "value"                                           "0"
-        "special_bonus_facet_brewmaster_drunken_master"   "-20"
+        "special_bonus_facet_brewmaster_drunken_master"   "-15"
         "RequiresFacet"                                   "brewmaster_drunken_master"
       }
-      "max_movement" //OAA, Valve has the wrong facet
+      "max_movement" //OAA, Valve has the wrong RequiresFacet
       {
         "value"                                           "0"
         "special_bonus_facet_brewmaster_drunken_master"   "50"
