@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "DependentOnAbility"                                  "bounty_hunter_track"
     "MaxLevel"                                            "6" // same as Dependent ability (Track) + 1
 
