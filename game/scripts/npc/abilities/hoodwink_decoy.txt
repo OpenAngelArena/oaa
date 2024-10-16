@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Hoodwink: Decoy
+  //=================================================================================================================
+  "hoodwink_decoy"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "IsGrantedByScepter"                                  "1"
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+
+    // Time     
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0"
+
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"                                          "6.0"
+      "decoy_detonate_radius"     
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1" 
+      }
+      "decoy_stun_duration"                               "1.6"
+      "images_do_damage_percent"                          "100"
+      "images_take_damage_percent"                        "100"
+      "projectile_speed"                                  "1200"
+      "movement_speed"                                    "15"
+      "sharpshooter_damage_pct"                           "100" //OAA
+    }
+  }
+}
