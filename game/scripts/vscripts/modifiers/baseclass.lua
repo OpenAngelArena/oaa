@@ -19,7 +19,11 @@ function ModifierBaseClass:IsFirstItemInInventory()
   --[[
   local ability_name = ability:GetAbilityName()
   local same_items = {}
-  for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  local max_slot = DOTA_ITEM_SLOT_6
+  if parent:HasModifier("modifier_techies_spoons_stash") then
+    max_slot = DOTA_ITEM_SLOT_9
+  end
+  for item_slot = DOTA_ITEM_SLOT_1, max_slot do
     local item = parent:GetItemInSlot(item_slot)
     if item then
       local item_name = item:GetAbilityName()

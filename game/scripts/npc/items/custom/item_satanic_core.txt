@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Blood Core 1
   //=================================================================================================================
-  "item_recipe_satanic_core"
+  "item_recipe_satanic_core_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_satanic_core"
+    "ItemResult"                                          "item_satanic_core_1"
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone;item_ultimate_orb"
@@ -30,7 +30,7 @@
   //=================================================================================================================
   // Blood Core 1
   //=================================================================================================================
-  "item_satanic_core"
+  "item_satanic_core_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -77,8 +77,8 @@
       "hero_spell_lifesteal"                              "22 24 26 28 30"
       "creep_spell_lifesteal"                             "4.4 4.8 5.2 5.6 6" // (hero_spell_lifesteal / 5) is the minimum
       // Satanic/Blood Core active stuff
-      "unholy_hero_spell_lifesteal"                       "200"
-      "unholy_creep_spell_lifesteal"                      "40" // (unholy_hero_spell_lifesteal / 5) is the minimum
+      "unholy_hero_spell_lifesteal"                       "180"
+      "unholy_creep_spell_lifesteal"                      "36" // (unholy_hero_spell_lifesteal / 5) is the minimum
       "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
     }

@@ -261,16 +261,16 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_earth_spirit = "midas",
     npc_dota_hero_earthshaker = "midas",
     npc_dota_hero_elder_titan = "midas",
-    npc_dota_hero_electrician = "power", -- midas
+    npc_dota_hero_electrician = "midas", -- midas
     npc_dota_hero_ember_spirit = "power",
-    npc_dota_hero_enchantress = "cleave",
+    npc_dota_hero_enchantress = "midas",
     npc_dota_hero_enigma = "power",
     npc_dota_hero_faceless_void = "cleave", -- cleave or power
     npc_dota_hero_furion = "power", -- cleave
     npc_dota_hero_grimstroke = "midas",
     npc_dota_hero_gyrocopter = "cleave",
-    npc_dota_hero_hoodwink = "cleave",
-    npc_dota_hero_huskar = "cleave",
+    npc_dota_hero_hoodwink = "power",
+    npc_dota_hero_huskar = "power",
     npc_dota_hero_invoker = "midas",
     npc_dota_hero_jakiro = "midas",
     npc_dota_hero_juggernaut = "power", -- cleave
@@ -286,7 +286,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_luna = "cleave",
     npc_dota_hero_lycan = "power",
     npc_dota_hero_magnataur = "power",
-    npc_dota_hero_marci = "power",
+    npc_dota_hero_marci = "midas",
     npc_dota_hero_mars = "power",
     npc_dota_hero_medusa = "cleave",
     npc_dota_hero_meepo = "power",
@@ -299,7 +299,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_nevermore = "cleave",
     npc_dota_hero_night_stalker = "power",
     npc_dota_hero_nyx_assassin = "midas",
-    npc_dota_hero_obsidian_destroyer = "cleave",
+    npc_dota_hero_obsidian_destroyer = "midas",
     npc_dota_hero_ogre_magi = "midas",
     npc_dota_hero_omniknight = "midas",
     npc_dota_hero_oracle = "midas",
@@ -315,6 +315,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_rattletrap = "midas",
     npc_dota_hero_razor = "cleave",
     npc_dota_hero_riki = "power", -- cleave or power
+    npc_dota_hero_ringmaster = "midas",
     npc_dota_hero_rubick = "midas",
     npc_dota_hero_sand_king = "power",
     npc_dota_hero_shadow_demon = "midas",
@@ -325,7 +326,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_skywrath_mage = "midas",
     npc_dota_hero_slardar = "power",
     npc_dota_hero_slark = "power",
-    npc_dota_hero_snapfire = "cleave",
+    npc_dota_hero_snapfire = "power",
     npc_dota_hero_sniper = "cleave",
     npc_dota_hero_sohei = "power", -- cleave or power
     npc_dota_hero_spectre = "power",
@@ -337,7 +338,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_terrorblade = "power",
     npc_dota_hero_tidehunter = "power",
     npc_dota_hero_tinker = "midas",
-    npc_dota_hero_tiny = "power",
+    npc_dota_hero_tiny = "midas",
     npc_dota_hero_treant = "midas",
     npc_dota_hero_troll_warlord = "power", -- cleave or power
     npc_dota_hero_tusk = "midas",
@@ -351,7 +352,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_warlock = "midas",
     npc_dota_hero_weaver = "cleave",
     npc_dota_hero_windrunner = "cleave",
-    npc_dota_hero_winter_wyvern = "cleave",
+    npc_dota_hero_winter_wyvern = "midas",
     npc_dota_hero_wisp = "midas",
     npc_dota_hero_witch_doctor = "midas",
     npc_dota_hero_zuus = "midas",
