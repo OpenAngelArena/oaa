@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "375" //OAA
+    "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -34,9 +34,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_radius" //OAA
+      "cast_radius"
       {
-        "value"                                           "375"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second" //OAA
