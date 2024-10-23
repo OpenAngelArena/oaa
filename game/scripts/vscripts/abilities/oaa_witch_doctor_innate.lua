@@ -82,8 +82,6 @@ if IsServer() then
       return
     end
 
-    local ability = self:GetAbility()
-
     -- Check if inflictor exists (if it doesn't, it's not a spell) and damage category
     -- if not inflictor or event.damage_category ~= DOTA_DAMAGE_CATEGORY_SPELL then
       -- return
