@@ -37,7 +37,7 @@
       }
       "cooldown_percentage"                               "35 40 45 50 55 60" //OAA
       "base_damage"                                       "0"
-      "damage_per_stack" //OAA
+      "damage_per_stack" //OAA, special_bonus_unique_faceless_void_6 is not used
       {
         "value"                                           "14 16 18 20 40 80"
         "special_bonus_unique_faceless_void_6"            "+7"

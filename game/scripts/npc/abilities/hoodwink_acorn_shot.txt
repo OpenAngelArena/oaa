@@ -14,6 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"

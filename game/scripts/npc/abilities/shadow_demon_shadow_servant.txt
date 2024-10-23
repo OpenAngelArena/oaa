@@ -1,14 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Demon: Shadow Servant
+  // Shadow Demon: Shadow Servant (Facet)
   //=================================================================================================================
   "shadow_demon_shadow_servant"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "MaxLevel"                                            "7"
+
+    "MaxLevel"                                            "7" // same as Dependent ability (Disruption) + 1
     "DependentOnAbility"                                  "shadow_demon_disruption"
 
     // Special

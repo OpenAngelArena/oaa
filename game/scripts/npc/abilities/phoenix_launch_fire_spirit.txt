@@ -13,6 +13,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +41,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "4.0"
-      "attackspeed_slow"                                  "-50 -80 -110 -140 -280 -420" //OAA, Valve has it wrong
+      "attackspeed_slow"                                  "-50 -80 -110 -140 -280 -420"
       "damage_per_second" //OAA
       {
         "value"                                           "20 40 60 80 160 320"

@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "AbilityChargeRestoreTime" //OAA
       {
         "value"                                           "35" // special_bonus_unique_death_prophet_5_oaa
-        "special_bonus_unique_death_prophet_5"            "-22"
+        "special_bonus_unique_death_prophet_5"            "-15" // special_bonus_unique_death_prophet_5 is not used
       }
       "shard_bonus_charges"
       {

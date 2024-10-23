@@ -6,9 +6,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "7" // same as Dependent ability (Nature's Call) + 1
     "DependentOnAbility"                                  "furion_force_of_nature"
     "Innate"                                              "1"
+
     "AbilityValues"
     {
       "damage_per_tree_pct"                               "2 3 4 5 6 7 8"

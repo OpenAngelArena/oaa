@@ -18,6 +18,8 @@
     "ScriptFile"                                          "abilities/electrician/electrician_static_grip.lua"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

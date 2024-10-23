@@ -28,21 +28,24 @@
       "radius" //OAA
       {
         "value"                                           "800"
+        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=755"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_radius" //OAA
       {
         "value"                                           "305"
+        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=290"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_interval"                                "0.1"
-      "movespeed_slow"                                    "-40 -50 -60 -70 -80" //OAA
+      "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA
       "attack_slow"                                       "-80 -120 -160 -200 -240"
       "slow_duration"                                     "1.0"
       "explosion_min_dist"                                "195"
       "explosion_max_dist" //OAA
       {
         "value"                                           "770"
+        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=730"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA

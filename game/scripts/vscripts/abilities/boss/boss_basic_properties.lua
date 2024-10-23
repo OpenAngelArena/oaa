@@ -230,9 +230,10 @@ if IsServer() then
       phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
       ringmaster_impalement = true,
       shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg
-      venomancer_noxious_plague = false,
+      venomancer_noxious_plague = true,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
-      witch_doctor_maledict = false,
+      witch_doctor_maledict = true,
+      witch_doctor_voodoo_restoration = attacker:HasLearnedAbility("special_bonus_unique_witch_doctor_2"), -- talent gives pct dmg
       zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()

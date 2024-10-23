@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sniper: Custom Keen Scope (Innate)
+  // Sniper: Keen Scope (Innate) - custom ability
   //=================================================================================================================
   "sniper_keen_scope_oaa"
   {
@@ -14,8 +14,7 @@
 
     "Innate"                                              "1"
     "DependentOnAbility"                                  "sniper_assassinate"
-
-    "RequiredLevel"                                       "-1"
+    "RequiredLevel"                                       "-1" // maybe not needed
     "MaxLevel"                                            "6" // same as Dependent ability (Assassinate) + 1
 
     "AbilityValues"

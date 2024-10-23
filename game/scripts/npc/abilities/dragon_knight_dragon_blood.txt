@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,9 +23,9 @@
         "value"                                           "0"
         "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
       }
-      "corrosive_breath_damage"
+      "corrosive_breath_damage" //OAA
       {
-        "value"                                           "5 10 15 20 40 80"
+        "value"                                           "10 15 20 25 50 75"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
       "corrosive_breath_duration" //OAA
@@ -78,7 +80,7 @@
       }
       "frost_bonus_attack_speed"
       {
-        "value"                                           "-14 -21 -28 -35 -49 -63"
+        "value"                                           "-14 -21 -28 -35 -42 -49"
         "RequiresFacet"                                   "dragon_knight_frost_dragon"
       }
       "frost_duration"

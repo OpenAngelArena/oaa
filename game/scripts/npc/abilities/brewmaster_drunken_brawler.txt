@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster: Drunken Brawler (Innate)
+  // Brewmaster: Drunken Brawler
   //=================================================================================================================
   "brewmaster_drunken_brawler"
   {
@@ -12,6 +12,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "0"
 
