@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Witch Doctor: Voodoo Curse (Innate) - custom ability
+  //=================================================================================================================
+  "witch_doctor_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_witch_doctor_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "heal_prevent_percent"                              "-15"
+      "duration"                                          "3"
+    }
+  }
+}
