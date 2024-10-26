@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Hoodwink: Decoy
+  // Hoodwink: Decoy (scepter ability)
   //=================================================================================================================
   "hoodwink_decoy"
   {
@@ -10,16 +10,19 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "IsGrantedByScepter"                                  "1"
     "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
 
-    // Time     
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "60"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -30,10 +33,10 @@
     "AbilityValues"
     {
       "duration"                                          "6.0"
-      "decoy_detonate_radius"     
+      "decoy_detonate_radius"
       {
         "value"                                           "250"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "decoy_stun_duration"                               "1.6"
       "images_do_damage_percent"                          "100"
