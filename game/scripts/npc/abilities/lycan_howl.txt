@@ -24,17 +24,16 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40"
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "howl_duration"                                     "8"
-      "attack_damage_reduction" //OAA
+      "attack_damage_reduction"
       {
         "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_lycan_6"                    "+10"
       }
       "total_attack_damage_reduction"
       {
