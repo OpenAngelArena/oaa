@@ -379,7 +379,7 @@ if IsServer() then
       -- Reset cooldown for abilities
       for abilityIndex = 0, unit:GetAbilityCount() - 1 do
         local ability = unit:GetAbilityByIndex(abilityIndex)
-        if ability ~= nil and RefreshAbilityFilter(ability) then
+        if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
           ability:EndCooldown()
           ability:RefreshCharges()
         end

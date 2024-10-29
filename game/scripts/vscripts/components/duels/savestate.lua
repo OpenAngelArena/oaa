@@ -4,7 +4,7 @@ local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 local export = {}
 
 local function RefreshAbilityFilter(ability)
-  return ability:GetAbilityType() ~= 1
+  return ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE
 end
 
 local function PurgeDuelHighgroundBuffs(hero)
