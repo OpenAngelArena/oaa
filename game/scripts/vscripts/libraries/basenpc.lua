@@ -318,6 +318,105 @@ if IsServer() then
     self:AddNewModifier(self, nil, "modifier_generic_dead_tracker_oaa", {duration = MANUAL_GARBAGE_CLEANING_TIME})
     self:ForceKill(param)
   end
+
+  function CDOTA_BaseNPC:ResetHeroOAA(resetAbilities)
+    local hero = self
+
+    -- Reset the hero, respawn if the hero is dead
+    if not hero:ResetUnitOAA(resetAbilities) then
+      hero:RespawnHero(false, false)
+      hero:ResetUnitOAA(resetAbilities)
+    end
+
+    -- Remove offside penalties
+    if hero:HasModifier("modifier_offside") then
+      hero:RemoveModifierByName("modifier_offside")
+    end
+    if hero:HasModifier("modifier_is_in_offside") then
+      hero:RemoveModifierByName("modifier_is_in_offside")
+    end
+  end
+
+  function CDOTA_BaseNPC:ResetUnitOAA(resetAbilities)
+    local unit = self
+
+    if not unit:IsAlive() then
+      -- ResetUnitOAA called on a dead unit, respawning it is not a good idea
+      return false
+    end
+
+    -- Disjoint disjointable projectiles
+    ProjectileManager:ProjectileDodge(unit)
+
+    -- Reset health before purge to avoid some weird interactions
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+    unit:AbsolutePurge()
+
+    if not unit or unit:IsNull() then
+      -- Unit got deleted so fast from the memory after purge, nothing we can do
+      return false
+    end
+
+    if not unit:IsAlive() then
+      -- Unit died after purge but still exists in memory, respawning it is not a good idea
+      return false
+    end
+
+    -- Reset health again just in case purge damaged the unit
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Reset mana
+    unit:SetMana(unit:GetMaxMana())
+
+    -- Do not continue if resetAbilities bool is false
+    if not resetAbilities then
+      return true
+    end
+
+    if unit.GetAbilityCount ~= nil then
+      -- Reset cooldown for abilities
+      for abilityIndex = 0, unit:GetAbilityCount() - 1 do
+        local ability = unit:GetAbilityByIndex(abilityIndex)
+        if ability ~= nil and RefreshAbilityFilter(ability) then
+          ability:EndCooldown()
+          ability:RefreshCharges()
+        end
+      end
+    end
+
+    if unit.GetItemInSlot ~= nil and unit:HasInventory() then
+      -- Reset cooldown for items that are not in backpack and not in stash
+      for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = unit:GetItemInSlot(i)
+        if item then
+          item:EndCooldown()
+        end
+      end
+
+      -- Reset neutral item cooldown
+      local neutral_item = unit:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+      if neutral_item then
+        neutral_item:EndCooldown()
+      end
+    end
+
+    -- Special thing for Ward Stack - set counts to at least 1 ward
+    if unit.sentryCount then
+      if unit.sentryCount == 0 then
+        unit.sentryCount = 1
+      end
+    end
+
+    if unit.observerCount then
+      if unit.observerCount == 0 then
+        unit.observerCount = 1
+      end
+    end
+
+    return true
+  end
 end
 
 -- On Server:

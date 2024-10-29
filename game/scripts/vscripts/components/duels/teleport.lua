@@ -68,7 +68,7 @@ local function CheckIfUnitIsValidForTeleport(unit)
   return not unit:IsCourier() and not unit:IsZombie() and unit:HasMovementCapability() and not_thinker and valid_name
 end
 
-local function SafeTeleportAll(mainUnit, location, maxDistance)
+local function SafeTeleportAll(mainUnit, location, maxDistance, resetAbilities)
   -- Teleport the main hero first
   SafeTeleport(mainUnit, location, maxDistance)
 
@@ -95,22 +95,14 @@ local function SafeTeleportAll(mainUnit, location, maxDistance)
     :foreach(function (unit)
       SafeTeleport(unit, location, maxDistance)
 
-      -- Restore hp and mana
-      unit:SetHealth(unit:GetMaxHealth())
-      unit:SetMana(unit:GetMaxMana())
-
-      -- Disjoint disjointable projectiles
-      ProjectileManager:ProjectileDodge(unit)
-
-      -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-      unit:AbsolutePurge()
+      unit:ResetUnitOAA(resetAbilities)
     end)
 end
 
 -- Test SafeTeleport function
 local function TestSafeTeleport(keys)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
-  SafeTeleportAll(hero, Vector(0, 0, 0), 150)
+  SafeTeleportAll(hero, Vector(0, 0, 0), 150, true)
 end
 
 ChatCommand:LinkDevCommand("-test_tp", TestSafeTeleport, nil)
