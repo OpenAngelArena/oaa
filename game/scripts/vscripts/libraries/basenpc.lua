@@ -46,8 +46,7 @@ if IsServer() then
     local undispellable_ability_debuffs = {
       "modifier_axe_berserkers_call",
       "modifier_bloodseeker_rupture",
-      "modifier_bristleback_quill_spray",       -- Quill Spray stacks
-      "modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+      --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
@@ -57,6 +56,7 @@ if IsServer() then
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_obsidian_destroyer_equilibrium_debuff_counter",
       "modifier_queenofpain_sonic_wave_damage",
       "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
@@ -64,7 +64,7 @@ if IsServer() then
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
       "modifier_shadow_demon_disruption",
       "modifier_shadow_demon_purge_slow",
-      "modifier_shadow_demon_shadow_poison",
+      "modifier_shadow_demon_shadow_poison",    -- Shadow Poison stacks
       "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
       "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
@@ -79,6 +79,13 @@ if IsServer() then
       "modifier_winter_wyvern_winters_curse_aura",
     }
 
+    local debuffs_with_multiple_instances = {
+      "modifier_bristleback_quill_spray",                -- Quill Spray stacks
+      "modifier_dazzle_innate_weave_armor",              -- same modifier used as a buff and debuff
+      "modifier_huskar_burning_spear_counter",           -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+      "modifier_obsidian_destroyer_equilibrium_debuff",  -- these stacks reduce mana
+    }
+
     local function RemoveTableOfModifiersFromUnit(unit, t)
       for i = 1, #t do
         unit:RemoveModifierByName(t[i])
@@ -87,6 +94,10 @@ if IsServer() then
 
     RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
+
+    for i = 1, #debuffs_with_multiple_instances do
+      self:RemoveAllModifiersOfName(debuffs_with_multiple_instances[i])
+    end
   end
 
   function CDOTA_BaseNPC:DispelWeirdDebuffs()
@@ -150,6 +161,7 @@ if IsServer() then
       "modifier_centaur_stampede",
       "modifier_clinkz_wind_walk",
       "modifier_dark_willow_shadow_realm_buff",
+      "modifier_dazzle_innate_weave_armor_counter",
       "modifier_dazzle_shallow_grave",
       "modifier_doom_bringer_scorched_earth_effect",
       "modifier_doom_bringer_scorched_earth_effect_aura",
@@ -166,6 +178,7 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_obsidian_destroyer_equilibrium_buff_counter",
       "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
@@ -190,7 +203,9 @@ if IsServer() then
     }
 
     local buffs_with_multiple_instances = {
+      "modifier_dazzle_innate_weave_armor",
       "modifier_leshrac_diabolic_edict",
+      "modifier_obsidian_destroyer_equilibrium_buff",
       "modifier_razor_eye_of_the_storm",
       "modifier_skywrath_mage_shard_bonus",
     }
