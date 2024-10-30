@@ -31,17 +31,17 @@
       "souls_per_kill"                                    "1"
       "necromastery_soul_release"                         "0.7"
       "attack_range_bonus"                                "0"
-      "shard_souls_per_kill"
+      "shard_souls_per_kill" // unused
       {
         "value"                                           "2"
         "RequiresShard"                                   "1"
       }
-      "shard_crit_pct"
+      "shard_crit_pct" // unused
       {
         "value"                                           "190"
         "RequiresShard"                                   "1"
       }
-      "shard_fear_duration"
+      "shard_fear_duration" // unused
       {
         "value"                                           "0.4"
         "RequiresShard"                                   "1"
