@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Rubick: Might and Magus
+  //=================================================================================================================
+  "rubick_might_and_magus"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "one_tooltip"                                       "1"
+      "bonus_damage_pct"                                  "50" //OAA
+      "bonus_damage_pct_tooltip"                          "0.5" //OAA
+      "magic_resist_pct"                                  "50" //OAA
+      "magic_resist_pct_tooltip"                          "0.5" //OAA
+    }
+  }
+
+}
