@@ -48,6 +48,7 @@ if IsServer() then
       "modifier_bloodseeker_rupture",
       --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
+      "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
       "modifier_grimstroke_soul_chain",
@@ -174,10 +175,13 @@ if IsServer() then
       "modifier_life_stealer_rage",
       "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
+      "modifier_luna_lucent_beam_damage_buff_counter",    -- Luna Moonstorm stacks
+      "modifier_luna_moon_glaive_shield",                 -- Luna Lunar Orbit
       "modifier_medusa_stone_gaze",
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_obsidian_destroyer_equilibrium_barrier",   -- OD scepter shield
       "modifier_obsidian_destroyer_equilibrium_buff_counter",
       "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
@@ -188,6 +192,7 @@ if IsServer() then
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
       "modifier_skywrath_mage_shard_bonus_counter",
+      "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",

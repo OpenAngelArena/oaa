@@ -36,7 +36,7 @@
     {
       "hp_cost_perc_per_second"                           "6"
       "base_damage"                                       "26 28 30 32 64 128" //OAA
-      "hp_perc_damage"
+      "hp_perc_damage" // this is max dmg, dmg increases over time
       {
         "value"                                           "1 2.75 4.5 6.25 7 7.75"
         "special_bonus_unique_phoenix_5"                  "+1.5"
@@ -57,7 +57,7 @@
         "value"                                           "10"
         "RequiresShard"                                   "1"
       }
-      "focal_point_max_multiplier"                    // 0 disables
+      "focal_point_max_multiplier"
       {
         "value"                                           "0"
         "special_bonus_facet_phoenix_hotspot"             "150"

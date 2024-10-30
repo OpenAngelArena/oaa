@@ -60,24 +60,24 @@
       {
         "value"                                           "0"
       }
-      "bonus_movespeed_pct_self"
+      "bonus_movespeed_pct_self" // OAA, Valve has wrong facet name
       {
         "value"                                           "0"
         "special_bonus_facet_primal_beast_romp_n_stomp"   "=10"
-        "RequiresFacet"                                   "light_footed"
+        "RequiresFacet"                                   "primal_beast_romp_n_stomp"
       }
-      "bonus_movespeed_pct_allies"
+      "bonus_movespeed_pct_allies" // OAA, Valve has wrong facet name
       {
         "value"                                           "0"
         "special_bonus_facet_primal_beast_romp_n_stomp"   "=5"
-        "RequiresFacet"                                   "light_footed"
+        "RequiresFacet"                                   "primal_beast_romp_n_stomp"
       }
-      "aura_radius"
+      "aura_radius" // OAA, Valve has wrong facet name
       {
         "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_facet_primal_beast_romp_n_stomp"   "=1200"
-        "RequiresFacet"                                   "light_footed"
+        "RequiresFacet"                                   "primal_beast_romp_n_stomp"
       }
     }
   }

@@ -23,7 +23,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0"
-    //"AbilityChannelTime"                                  "2.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "channel_time"
+      "channel_time" // AbilityChannelTime
       {
         "value"                                           "2.5"
       }
@@ -61,11 +60,11 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_buff"       
+      "damage_per_buff"
       {
         "value"                                           "0"
         "special_bonus_unique_oracle_damage_per_purge"    "+60"
-      } 
+      }
       "heal_per_debuff"
       {
         "value"                                           "0"

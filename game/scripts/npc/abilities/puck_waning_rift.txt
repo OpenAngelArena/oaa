@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13"
+    "AbilityCooldown"                                     "16 15 14 13 13 13" // special_bonus_unique_puck_2
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
       "damage" //OAA
       {
         "value"                                           "70 140 210 280 560 1120"
-        "special_bonus_unique_puck_6"                     "+75"
+        "special_bonus_unique_puck_6"                     "+70"
       }
       "max_distance"
       {
@@ -71,7 +71,6 @@
         "special_bonus_facet_puck_jostling_rift"          "0.3"
         "RequiresFacet"                                   "puck_jostling_rift"
       }
-      
       "pull_distance"
       {
         "value"                                           "0"
