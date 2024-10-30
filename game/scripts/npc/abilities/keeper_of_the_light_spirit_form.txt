@@ -15,11 +15,9 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    //"LinkedAbility"                                       "keeper_of_the_light_radiant_bind"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85 80 75 70 70" //OAA
+    "AbilityCooldown"                                     "85 80 75 70 65" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +33,7 @@
         "special_bonus_unique_keeper_of_the_light_11"     "+15"
       }
       "movement_speed"                                    "15 20 25 30 35"
-      "cast_range"                                        "125 225 325 425 525" //OAA
+      "cast_range"                                        "125 250 375 425 475"
       "illuminate_heal" //OAA
       {
         "value"                                           "50 65 80 125 170"

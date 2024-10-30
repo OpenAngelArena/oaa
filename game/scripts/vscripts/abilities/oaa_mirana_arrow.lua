@@ -69,6 +69,10 @@ if IsServer() then
       self.arrow_hit_count = {}
     end
     self.arrow_hit_count[pid] = arrow_data.arrow_pierce_count
+
+    if not self.last_stun_duration then
+      self.last_stun_duration = {}
+    end
   end
 
   function mirana_arrow_oaa:OnProjectileHit_ExtraData(target, location, data)
@@ -79,8 +83,13 @@ if IsServer() then
     if target == nil or not self.arrow_hit_count[pid] or self.arrow_hit_count[pid] < 0 then
       self.arrow_start_position[pid] = nil
       self.arrow_hit_count[pid] = nil
+      self.last_stun_duration[pid] = nil
       return true -- End the arrow
     end
+
+    local stun_decay = self:GetSpecialValueFor("arrow_pierce_stun_decay_per_unit")
+    local max_pierce_count = self:GetSpecialValueFor("arrow_pierce_count")
+    local total_stun_decrease = math.abs(self.arrow_hit_count[pid] - max_pierce_count) * stun_decay * 0.01
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
     local stunned_modifier = target:FindModifierByNameAndCaster("modifier_mirana_arrow_stun_oaa", caster)
@@ -97,8 +106,16 @@ if IsServer() then
         -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
         local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
 
-        -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
-        local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+        local stun_duration
+        if not self.last_stun_duration[pid] then
+          -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
+          stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+        else
+          stun_duration = self.last_stun_duration[pid] * (1 - total_stun_decrease)
+        end
+
+        -- Store stun duration for the piercing arrows
+        self.last_stun_duration[pid] = stun_duration
 
         -- Status resistance fix
         stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
@@ -110,7 +127,8 @@ if IsServer() then
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
 
         -- Increase Innate Counter
-        if dist_mult == 1 and target:IsRealHero() and not target:IsOAABoss() and not target:IsClone() then
+        local diff = 1 - dist_mult
+        if diff <= 0.01 and target:IsRealHero() and not target:IsOAABoss() and not target:IsClone() then
           local innate_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
           if innate_mod then
             innate_mod:IncrementStackCount()
@@ -173,7 +191,8 @@ if IsServer() then
     if self.arrow_hit_count[pid] < 0 then
       self.arrow_start_position[pid] = nil
       self.arrow_hit_count[pid] = nil
-      return true -- End arrow
+      self.last_stun_duration[pid] = nil
+      return true -- End the arrow
     else
       return false -- Do not end
     end
@@ -373,13 +392,25 @@ end
 --------------------------------------------------------------------------------
 
 function mirana_arrow_oaa:GetCastRange(location, target)
+  local kv_cast_range = self.BaseClass.GetCastRange(self, location, target)
+  local caster = self:GetCaster()
+
+  local bonus_range = 0
+  if caster:HasModifier("modifier_mirana_custom_effects_oaa") then
+    local innate_ability = caster:FindAbilityByName("mirana_innates_oaa")
+    local innate_mod_stacks = caster:GetModifierStackCount("modifier_mirana_custom_effects_oaa", caster)
+    if innate_ability then
+      bonus_range = innate_ability:GetSpecialValueFor("bonus_range_per_stack") * innate_mod_stacks
+    end
+  end
+
   -- Talent that gives global range
-  local talent = self:GetCaster():FindAbilityByName("special_bonus_mirana_arrow_global")
+  local talent = caster:FindAbilityByName("special_bonus_mirana_arrow_global")
   if talent and talent:GetLevel() > 0 then
     return talent:GetSpecialValueFor("cast_range")
   end
 
-  return self.BaseClass.GetCastRange( self, location, target )
+  return kv_cast_range + bonus_range
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -459,4 +490,27 @@ end
 
 function modifier_mirana_custom_effects_oaa:RemoveOnDeath()
   return false
+end
+
+function modifier_mirana_custom_effects_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP2,
+  }
+end
+
+function modifier_mirana_custom_effects_oaa:OnTooltip()
+  local innate_ability = self:GetAbility()
+  if innate_ability then
+    return innate_ability:GetSpecialValueFor("bonus_damage_per_stack") * self:GetStackCount()
+  end
+  return 0
+end
+
+function modifier_mirana_custom_effects_oaa:OnTooltip2()
+  local innate_ability = self:GetAbility()
+  if innate_ability then
+    return innate_ability:GetSpecialValueFor("bonus_range_per_stack") * self:GetStackCount()
+  end
+  return 0
 end

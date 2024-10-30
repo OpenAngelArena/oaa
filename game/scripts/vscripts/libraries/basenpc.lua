@@ -46,9 +46,9 @@ if IsServer() then
     local undispellable_ability_debuffs = {
       "modifier_axe_berserkers_call",
       "modifier_bloodseeker_rupture",
-      "modifier_bristleback_quill_spray",       -- Quill Spray stacks
-      "modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+      --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
+      "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
       "modifier_grimstroke_soul_chain",
@@ -57,6 +57,7 @@ if IsServer() then
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_obsidian_destroyer_equilibrium_debuff_counter",
       "modifier_queenofpain_sonic_wave_damage",
       "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
@@ -64,7 +65,7 @@ if IsServer() then
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
       "modifier_shadow_demon_disruption",
       "modifier_shadow_demon_purge_slow",
-      "modifier_shadow_demon_shadow_poison",
+      "modifier_shadow_demon_shadow_poison",    -- Shadow Poison stacks
       "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
       "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
@@ -79,6 +80,13 @@ if IsServer() then
       "modifier_winter_wyvern_winters_curse_aura",
     }
 
+    local debuffs_with_multiple_instances = {
+      "modifier_bristleback_quill_spray",                -- Quill Spray stacks
+      "modifier_dazzle_innate_weave_armor",              -- same modifier used as a buff and debuff
+      "modifier_huskar_burning_spear_counter",           -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+      "modifier_obsidian_destroyer_equilibrium_debuff",  -- these stacks reduce mana
+    }
+
     local function RemoveTableOfModifiersFromUnit(unit, t)
       for i = 1, #t do
         unit:RemoveModifierByName(t[i])
@@ -87,6 +95,10 @@ if IsServer() then
 
     RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
+
+    for i = 1, #debuffs_with_multiple_instances do
+      self:RemoveAllModifiersOfName(debuffs_with_multiple_instances[i])
+    end
   end
 
   function CDOTA_BaseNPC:DispelWeirdDebuffs()
@@ -150,6 +162,7 @@ if IsServer() then
       "modifier_centaur_stampede",
       "modifier_clinkz_wind_walk",
       "modifier_dark_willow_shadow_realm_buff",
+      "modifier_dazzle_innate_weave_armor_counter",
       "modifier_dazzle_shallow_grave",
       "modifier_doom_bringer_scorched_earth_effect",
       "modifier_doom_bringer_scorched_earth_effect_aura",
@@ -162,10 +175,14 @@ if IsServer() then
       "modifier_life_stealer_rage",
       "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
+      "modifier_luna_lucent_beam_damage_buff_counter",    -- Luna Moonstorm stacks
+      "modifier_luna_moon_glaive_shield",                 -- Luna Lunar Orbit
       "modifier_medusa_stone_gaze",
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_obsidian_destroyer_equilibrium_barrier",   -- OD scepter shield
+      "modifier_obsidian_destroyer_equilibrium_buff_counter",
       "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
@@ -175,6 +192,7 @@ if IsServer() then
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
       "modifier_skywrath_mage_shard_bonus_counter",
+      "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
@@ -190,7 +208,9 @@ if IsServer() then
     }
 
     local buffs_with_multiple_instances = {
+      "modifier_dazzle_innate_weave_armor",
       "modifier_leshrac_diabolic_edict",
+      "modifier_obsidian_destroyer_equilibrium_buff",
       "modifier_razor_eye_of_the_storm",
       "modifier_skywrath_mage_shard_bonus",
     }
@@ -317,6 +337,105 @@ if IsServer() then
     --self:AbsolutePurge()
     self:AddNewModifier(self, nil, "modifier_generic_dead_tracker_oaa", {duration = MANUAL_GARBAGE_CLEANING_TIME})
     self:ForceKill(param)
+  end
+
+  function CDOTA_BaseNPC:ResetHeroOAA(resetAbilities)
+    local hero = self
+
+    -- Reset the hero, respawn if the hero is dead
+    if not hero:ResetUnitOAA(resetAbilities) then
+      hero:RespawnHero(false, false)
+      hero:ResetUnitOAA(resetAbilities)
+    end
+
+    -- Remove offside penalties
+    if hero:HasModifier("modifier_offside") then
+      hero:RemoveModifierByName("modifier_offside")
+    end
+    if hero:HasModifier("modifier_is_in_offside") then
+      hero:RemoveModifierByName("modifier_is_in_offside")
+    end
+  end
+
+  function CDOTA_BaseNPC:ResetUnitOAA(resetAbilities)
+    local unit = self
+
+    if not unit:IsAlive() then
+      -- ResetUnitOAA called on a dead unit, respawning it is not a good idea
+      return false
+    end
+
+    -- Disjoint disjointable projectiles
+    ProjectileManager:ProjectileDodge(unit)
+
+    -- Reset health before purge to avoid some weird interactions
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+    unit:AbsolutePurge()
+
+    if not unit or unit:IsNull() then
+      -- Unit got deleted so fast from the memory after purge, nothing we can do
+      return false
+    end
+
+    if not unit:IsAlive() then
+      -- Unit died after purge but still exists in memory, respawning it is not a good idea
+      return false
+    end
+
+    -- Reset health again just in case purge damaged the unit
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Reset mana
+    unit:SetMana(unit:GetMaxMana())
+
+    -- Do not continue if resetAbilities bool is false
+    if not resetAbilities then
+      return true
+    end
+
+    if unit.GetAbilityCount ~= nil then
+      -- Reset cooldown for abilities
+      for abilityIndex = 0, unit:GetAbilityCount() - 1 do
+        local ability = unit:GetAbilityByIndex(abilityIndex)
+        if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
+          ability:EndCooldown()
+          ability:RefreshCharges()
+        end
+      end
+    end
+
+    if unit.GetItemInSlot ~= nil and unit:HasInventory() then
+      -- Reset cooldown for items that are not in backpack and not in stash
+      for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = unit:GetItemInSlot(i)
+        if item then
+          item:EndCooldown()
+        end
+      end
+
+      -- Reset neutral item cooldown
+      local neutral_item = unit:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+      if neutral_item then
+        neutral_item:EndCooldown()
+      end
+    end
+
+    -- Special thing for Ward Stack - set counts to at least 1 ward
+    if unit.sentryCount then
+      if unit.sentryCount == 0 then
+        unit.sentryCount = 1
+      end
+    end
+
+    if unit.observerCount then
+      if unit.observerCount == 0 then
+        unit.observerCount = 1
+      end
+    end
+
+    return true
   end
 end
 

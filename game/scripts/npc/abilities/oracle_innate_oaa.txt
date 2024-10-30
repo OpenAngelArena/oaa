@@ -24,7 +24,7 @@
       "attack_speed_bonus"                                "10 15 20 25 30 35 40"
       "move_speed_slow"                                   "15 18 21 24 27 30 33"
       "attack_speed_slow"                                 "15 20 25 30 35 40 45"
-      "duration"                                          "0.5" // linger duration, buff/debuff duration is based on heal durations
+      "duration"                                          "1" // linger duration, buff/debuff duration is based on heal durations
     }
   }
 }

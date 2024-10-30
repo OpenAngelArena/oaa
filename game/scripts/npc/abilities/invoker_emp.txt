@@ -36,17 +36,17 @@
       }
       "mana_burned"
       {
-        "value"                                           "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
+        "value"                                           "100 175 250 325 400 475 550 625 775 925 1075 1225 1375 1525 1825"
         "levelkey"                                        "wexlevel"
       }
-      "damage_per_mana_pct"
+      "damage_per_mana_pct" //OAA
       {
-        "value"                                           "60"
+        "value"                                           "65"
         "special_bonus_shard"                             "+50%"
       }
       "shard_drag_speed" //OAA
       {
-        "value"                                           "125"
+        "value"                                           "150"
         "RequiresShard"                                   "1"
       }
       "self_mana_restore_pct"                             "25"

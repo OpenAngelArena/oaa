@@ -30,17 +30,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed" //OAA
+      "bonus_attack_speed"
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_5"                  "+45"
+        "special_bonus_unique_invoker_5"                  "+30"
       }
-      "bonus_damage" //OAA
+      "bonus_damage"
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_5"                  "+45"
+        "special_bonus_unique_invoker_5"                  "+30"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "duration"                                          "9"
