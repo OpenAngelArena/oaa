@@ -677,7 +677,9 @@ function HeroSelection:ChooseBans ()
           end
         end
 
-        if not banned then
+        local kez = hero_name == "npc_dota_hero_kez"
+
+        if not banned and not kez then
           table.insert(rankedpickorder.bans, hero_name)
           i = i + 1
         end
