@@ -225,6 +225,7 @@ if IsServer() then
       enigma_midnight_pulse = true,           -- when it starts working against ancients
       huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
+      kez_kazurai_katana = true,
       life_stealer_feast = false,             -- physical dmg does not need to be reduced and it also does not work
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
