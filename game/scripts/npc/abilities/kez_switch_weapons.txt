@@ -20,17 +20,14 @@
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
-    {
-      "duration"                  
-      {
-        "katana_attack_range"                             "225"
-        "katana_base_attack_time"                         "2.0"
-        "katana_bonus_damage"                             "20"
-        "sai_attack_range"                                "150"
-        "sai_base_attack_time"                            "1.5"
-        "cooldown_reduction_per_level"                    "0.1" //OAA
-        "scepter_cooldown_timer"                          "3"
-      }
+    {            
+      "katana_attack_range"                               "225"
+      "katana_base_attack_time"                           "2.0"
+      "katana_bonus_damage"                               "20"
+      "sai_attack_range"                                  "150"
+      "sai_base_attack_time"                              "1.5"
+      "cooldown_reduction_per_level"                      "0.1" //OAA
+      "scepter_cooldown_timer"                            "3"
     }
   }
 }
