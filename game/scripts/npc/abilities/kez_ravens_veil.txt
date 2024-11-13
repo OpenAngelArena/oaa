@@ -33,21 +33,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "32 28 24 23 22"
-        "special_bonus_unique_kez_ultimate_cooldown"        "-4"
+        "value"                                           "40 35 30 25 20"
+        "special_bonus_unique_kez_ultimate_cooldown"      "-4"
       }
-      "blast_radius"                                          
+      "blast_radius"
       {
         "value"                                           "1500"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "blast_speed"                                       "1500"
       "buff_duration"                                     "7 8 9 10 11"
       "blind_duration"                                    "4.0"
       "bonus_ms"                                          "15 25 35 45 55"
-      "basic_dispel"                                      "1"                                     
+      "basic_dispel"                                      "1"
       "fade_delay"                                        "0.0"
       "apply_parry_bonus"                                 "1"
     }

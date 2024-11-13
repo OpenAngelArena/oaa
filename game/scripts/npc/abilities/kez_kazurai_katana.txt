@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" 
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -31,32 +31,32 @@
       "katana_base_attack_time"                           "2.0"
       "katana_bonus_damage"                               "20"
       "katana_bleed_duration"                             "5.0 6.0 7.0 8.0 8.5 9.0"
-      "katana_bleed_attack_damage_pct"                        
+      "katana_bleed_attack_damage_pct"
       {
-        "value"                                           "7 8 9 10 11 12"
-        "DamageTypeTooltip"                                             "DAMAGE_TYPE_PHYSICAL"  
-        "special_bonus_unique_kez_kazura_katana_bleed_damage"           "+5.0"
-      }   
+        "value"                                           "6 7 8 9 10 11"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+5.0"
+      }
       "heal_reduction_pct"                                "20 25 30 35 40 45"
 
       // Shard
-      "AbilityCooldown"               
+      "AbilityCooldown"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "5"
       }
-      "AbilityManaCost"               
+      "AbilityManaCost"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "50"
       }
-      "stun_duration"                 
+      "stun_duration"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "0.6"
         "RequiresShard"                                   "1"
       }
-      "bleed_as_rupture_pct"          
+      "bleed_as_rupture_pct"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "100"
