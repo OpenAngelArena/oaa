@@ -21,7 +21,7 @@
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastRange"                                    "800"
 
-    // Time     
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 18 16 14 13 12"
 
@@ -33,35 +33,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_echo_damage"                
+      "katana_echo_damage"
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "value"                                           "70 80 90 100 110 120"
       }
-      "echo_hero_damage"              
+      "echo_hero_damage"
       {
         "value"                                           "30 45 60 75 150 300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "katana_strikes"            
+      "katana_strikes"
       {
-        "value"                                                 "2"
-        "special_bonus_unique_kez_echo_slash_strike_count"      "+1"
+        "value"                                           "2"
+        "special_bonus_unique_kez_echo_slash_strike_count"  "+1"
       }
-      "strike_interval"           
-      {       
+      "strike_interval"
+      {
         "value"                                           "1.2"
-        "special_bonus_unique_kez_echo_slash_strike_count"      "-0.6"
+        "special_bonus_unique_kez_echo_slash_strike_count"  "-0.6"
       }
-      "katana_radius"             
+      "katana_radius"
       {
         "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"     
+        "affected_by_aoe_increase"                        "1"
       }
-      "katana_distance"           
+      "katana_distance"
       {
         "value"                                           "800"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "travel_distance"                                   "250"
       "tag_slow"                                          "100"

@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
 
-    // Time     
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 18 16 14 14 14"
 
@@ -32,30 +32,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                  
+      "duration"
       {
-        "value"                                           "7.0"
-        "special_bonus_unique_kez_falcon_rush_duration"         "+2.0"
+        "value"                                           "3.0 4.0 5.0 6.0 6.5 7.0"
+        "special_bonus_unique_kez_falcon_rush_duration"   "+2.0"
       }
-      "rush_range"            
-      {   
+      "rush_range"
+      {
         "value"                                           "650"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
-      
-      "buff_evasion_pct"          
+      "buff_evasion_pct"
       {
         "value"                                           "0"
-        "special_bonus_unique_kez_falcon_rush_evasion"          "+50"
+        "special_bonus_unique_kez_falcon_rush_evasion"    "+50"
       }
       "rush_speed"                                        "1000"
-      "base_attack_rate"                                  "1.3 1.25 1.2 1.15 1.1 1.05" //OAA
-      "attack_speed_factor"                               "6 7 8 9"
+      "base_attack_rate_katana"                           "1.4 1.35 1.3 1.25 1.2 1.15" //OAA
+      "base_attack_rate_sai"                              "1.2 1.15 1.10 1.05 1.0 0.95" //OAA
+      "attack_speed_factor"                               "6 7 8 9 10 11"
       "current_attack_rate_tooltip"
       {
         "dynamic_value"                                   "true"
       }
-      "echo_damage"               
+      "echo_damage"
       {
         "value"                                           "100"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"

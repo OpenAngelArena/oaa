@@ -8,9 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" 
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
@@ -22,8 +22,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
 
-    // Stats        
-    //------------------------------------------------------------------------------------------------------------- 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "1.0"
 
     // Cost
@@ -34,25 +34,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "32 28 24 23 22"
-        "special_bonus_unique_kez_ultimate_cooldown"        "-4"
+        "value"                                           "40 35 30 25 20"
+        "special_bonus_unique_kez_ultimate_cooldown"      "-4"
       }
       "strike_interval"                                   "0.25"
       "strikes"                                           "2 3 4 5 6"
-      "radius"                        
+      "radius"
       {
         "value"                                           "450"
-        "affected_by_aoe_increase"                        "1" 
-        "special_bonus_unique_kez_raptor_dance_radius"      "+50"
-      }   
-      "base_damage"               
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_kez_raptor_dance_radius"    "+50"
+      }
+      "base_damage"
       {
         "value"                                           "75"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "max_health_damage_pct"     
+      "max_health_damage_pct"
       {
         "value"                                           "4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
