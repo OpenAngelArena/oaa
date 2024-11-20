@@ -33,14 +33,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_echo_damage"
+      "katana_echo_damage" // percentage of Kez's attack damage
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "value"                                           "70 80 90 100 110 120"
       }
       "echo_hero_damage"
       {
-        "value"                                           "30 45 60 75 150 300"
+        "value"                                           "25 45 65 85 170 340"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "katana_strikes"
