@@ -39,14 +39,14 @@
       "beam_damage"
       {
         "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_luna_1"                     "+80"
+        "special_bonus_unique_luna_1"                     "+110"
       }
-      "glaives_fired"
+      "glaives_fired" // unused
       {
         "value"                                           "0"
         "special_bonus_unique_luna_8"                     "+2"
       }
-      "glaives_attack_radius"
+      "glaives_attack_radius" // unused
       {
         "value"                                           "0"
         "special_bonus_unique_luna_8"                     "+500"
@@ -67,7 +67,7 @@
       "damage_buff_per_beam"
       {
         "value"                                           "0"
-        "special_bonus_facet_luna_moonstorm"              "+4 7 10 13 19 31"
+        "special_bonus_facet_luna_moonstorm"              "+4 7 10 13 19 25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }

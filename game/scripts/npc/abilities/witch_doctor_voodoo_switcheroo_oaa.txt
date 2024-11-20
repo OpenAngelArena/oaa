@@ -69,18 +69,13 @@
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
       }
-      "scepter_lifesteal"
-      {
-        "value"                                           "10"
-        "RequiresScepter"                                 "1"
-      }
       "initial_target_count"
       {
         "value"                                           "1"
         "special_bonus_facet_witch_doctor_cleft_death"    "+1"
       }
-      "duration"                                          "3"
-      "ward_attack_speed_penalty"                         "-40"
+      "duration"                                          "2.5"
+      "ward_attack_speed_penalty"                         "-45"
     }
   }
 }
