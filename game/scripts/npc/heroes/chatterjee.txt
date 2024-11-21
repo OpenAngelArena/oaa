@@ -18,7 +18,7 @@
     "Ability1"                                            "electrician_static_grip"
     "Ability2"                                            "electrician_electric_shield"
     "Ability3"                                            "electrician_energy_absorption"
-    "Ability4"                                            "electrician_battery_powered"
+    "Ability4"                                            "electrician_innate_oaa"
     "Ability5"                                            "generic_hidden"
     "Ability6"                                            "electrician_cleansing_shock"
 
@@ -34,17 +34,23 @@
     "Ability16"                                           "special_bonus_unique_electrician_static_grip_attacks"
     "Ability17"                                           "special_bonus_unique_electrician_9_oaa"
 
-    "Facets"
+    "Facets" // Icons: nuke, barrier, mana, damage
     {
-      "electrician_kinetic_grip"
+      "electrician_direct_current"
       {
-        "Icon"                                            "speed"
+        "Icon"                                            "nuke"
         "Color"                                           "Blue"
         "GradientID"                                      "1"
       }
       "electrician_alternating_current"
       {
         "Icon"                                            "barrier"
+        "Color"                                           "Red"
+        "GradientID"                                      "0"
+      }
+      "electrician_no_current"
+      {
+        "Icon"                                            "damage"
         "Color"                                           "Gray"
         "GradientID"                                      "3"
       }
@@ -63,7 +69,7 @@
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
-    "ArmorPhysical"                                       "1"
+    "ArmorPhysical"                                       "0"
     "MagicalResistance"                                   "25"
 
     // Attack
@@ -82,9 +88,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_ALL"
     "AttributeBaseStrength"                               "23"
-    "AttributeStrengthGain"                               "2.6"
+    "AttributeStrengthGain"                               "2.4"
     "AttributeBaseAgility"                                "13"
-    "AttributeAgilityGain"                                "1.5"
+    "AttributeAgilityGain"                                "2.0"
     "AttributeBaseIntelligence"                           "25"
     "AttributeIntelligenceGain"                           "1.8"
 
