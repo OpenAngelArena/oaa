@@ -19,7 +19,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_mana_per_str"                                "10"
+      "mana_per_str"                                      "8"
+      "mana_per_int"                                      "8" // tooltip only: 12 - mana_penalty_per_int
+      "mana_penalty_per_int"                              "4" // not in tooltip, used in code
     }
   }
 }

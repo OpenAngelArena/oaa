@@ -39,7 +39,7 @@ function electrician_cleansing_shock:OnSpellStart()
 	end
 
 	-- do the visual effect for the initial target
-	self:ApplyLaser( caster, "attach_attack1", target, "attach_hitloc" )
+	self:ApplyLaser( caster, "attach_hitloc", target, "attach_hitloc" )
 
 	-- cast sound
 	caster:EmitSound( "Hero_Tinker.Laser" )
@@ -144,10 +144,13 @@ end
 
 -- helper for laser effect
 function electrician_cleansing_shock:ApplyLaser( source, sourceLoc, target, targetLoc )
-	local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_tinker/tinker_laser.vpcf", PATTACH_POINT_FOLLOW, target )
-	ParticleManager:SetParticleControlEnt( part, 9, source, PATTACH_POINT_FOLLOW, sourceLoc, source:GetAbsOrigin(), true )
-	ParticleManager:SetParticleControlEnt( part, 1, target, PATTACH_POINT_FOLLOW, targetLoc, target:GetAbsOrigin(), true )
-	ParticleManager:ReleaseParticleIndex( part )
+  if target == self:GetCaster() then
+    targetLoc = "attach_origin"
+  end
+  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_tinker/tinker_laser.vpcf", PATTACH_POINT_FOLLOW, target )
+  ParticleManager:SetParticleControlEnt( part, 9, source, PATTACH_POINT_FOLLOW, sourceLoc, source:GetAbsOrigin(), true )
+  ParticleManager:SetParticleControlEnt( part, 1, target, PATTACH_POINT_FOLLOW, targetLoc, target:GetAbsOrigin(), true )
+  ParticleManager:ReleaseParticleIndex( part )
 end
 
 --------------------------------------------------------------------------------

@@ -6,8 +6,8 @@ function electrician_innate_oaa:GetIntrinsicModifierName()
   return "modifier_electrician_innate_oaa"
 end
 
-
 ---------------------------------------------------------------------------------------------------
+
 modifier_electrician_innate_oaa = class(ModifierBaseClass)
 
 function modifier_electrician_innate_oaa:IsHidden()
@@ -29,9 +29,11 @@ end
 function modifier_electrician_innate_oaa:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.mana_per_str = ability:GetSpecialValueFor("bonus_mana_per_str")
+    self.mana_per_str = ability:GetSpecialValueFor("mana_per_str")
+    self.penalty_per_int = ability:GetSpecialValueFor("mana_penalty_per_int")
   else
-    self.mana_per_str = 10
+    self.mana_per_str = 8
+    self.penalty_per_int = 4
   end
 end
 
@@ -49,5 +51,6 @@ function modifier_electrician_innate_oaa:GetModifierManaBonus()
     return 0
   end
   local strength = parent:GetStrength()
-  return self.mana_per_str * strength
+  local intelligence = parent:GetIntellect(false)
+  return self.mana_per_str * strength - self.penalty_per_int * intelligence
 end
