@@ -7,10 +7,8 @@ LinkLuaModifier( "modifier_electrician_static_grip_debuff_tracker", "abilities/e
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-  -- facet that makes Static Grip non-channel (pseudo-channel)
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
-
-  if isPsuedochannel then
+  local isPseudoChannel = self:GetSpecialValueFor("pseudochannel") == 1
+  if isPseudoChannel then
     return 0
   end
 
@@ -18,13 +16,13 @@ function electrician_static_grip:GetChannelTime()
     return self.modGrip:GetDuration()
   end
 
-  return 0
+  -- this point is reached when Static Grip is blocked with Linkens
+  return 0 -- self:GetSpecialValueFor("max_stun_duration")
 end
 
 function electrician_static_grip:GetBehavior()
-  -- facet that makes Static Grip non-channel (pseudo-channel)
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
-  if isPsuedochannel then
+  local isPseudoChannel = self:GetSpecialValueFor("pseudochannel") == 1
+  if isPseudoChannel then
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
 
@@ -42,15 +40,15 @@ function electrician_static_grip:OnSpellStart()
     return
   end
 
-  local durationMax = self:GetSpecialValueFor( "channel_time" )
+  local durationMax = self:GetSpecialValueFor( "max_stun_duration" )
   durationMax = target:GetValueChangedByStatusResistance( durationMax )
 
-  -- create the stun modifier on target
+  -- Apply the stun modifier on target
   target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
 
-  -- create the movement modifier on caster if he doesn't have the facet
-  local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
-  if isPsuedochannel then
+  -- Apply the motion controller on caster if channeling or stun/silence tracker if pseudochanneling
+  local isPseudoChannel = self:GetSpecialValueFor("pseudochannel") == 1
+  if isPseudoChannel then
     caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_debuff_tracker", {duration = durationMax})
   else
     caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_movement", {target = target:entindex(), duration = durationMax})
@@ -143,7 +141,7 @@ function modifier_electrician_static_grip:OnCreated( event )
 
     -- create the particle
     self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( self.part, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true )
+    ParticleManager:SetParticleControlEnt( self.part, 0, caster, PATTACH_POINT_FOLLOW, "attach_sword", caster:GetAbsOrigin(), true )
     ParticleManager:SetParticleControlEnt( self.part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true )
 
     -- play sound

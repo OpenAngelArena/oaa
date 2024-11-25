@@ -5,6 +5,12 @@ LinkLuaModifier( "modifier_electrician_cleansing_shock_enemy", "abilities/electr
 
 --------------------------------------------------------------------------------
 
+function electrician_cleansing_shock:OnAbilityUpgrade(ability)
+  if not IsServer() then return end
+  self.BaseClass.OnAbilityUpgrade(self, ability)
+  self:EnableAbilityChargesOnTalentUpgrade(ability, "special_bonus_unique_electrician_8_oaa")
+end
+
 -- CastFilterResultTarget is not called on a Server at all?
 function electrician_cleansing_shock:CastFilterResultTarget(target)
   local default_result = self.BaseClass.CastFilterResultTarget(self, target)
@@ -33,7 +39,7 @@ function electrician_cleansing_shock:OnSpellStart()
 	end
 
 	-- do the visual effect for the initial target
-	self:ApplyLaser( caster, "attach_attack1", target, "attach_hitloc" )
+	self:ApplyLaser( caster, "attach_hitloc", target, "attach_hitloc" )
 
 	-- cast sound
 	caster:EmitSound( "Hero_Tinker.Laser" )
@@ -43,11 +49,6 @@ function electrician_cleansing_shock:OnSpellStart()
 		-- set up abilityspecial
 		local targets = self:GetSpecialValueFor( "bounces" ) + 1
 		local bounceRange = self:GetSpecialValueFor( "bounce_range" )
-
-		-- if caster has scepter, check number of bounces
-		if caster:HasScepter() then
-			targets = self:GetSpecialValueFor( "bounces_scepter" ) + 1
-		end
 
 		-- until we run out of bounces ...
 		while targets > 0 do
@@ -103,40 +104,21 @@ function electrician_cleansing_shock:ApplyEffect( target )
     -- Slow debuff
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
 
-    -- Check for mini-stun talent
-    local talent = caster:FindAbilityByName("special_bonus_unique_electrician_2_oaa")
-    if talent and talent:GetLevel() > 0 then
-      local stun_duration = target:GetValueChangedByStatusResistance(talent:GetSpecialValueFor("value"))
-      target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
-    end
-
-    -- Check for current hp damage talent
-    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_9_oaa")
-    if talent2 and talent2:GetLevel() > 0 then
-      local damage_table = {
-        attacker = caster,
-        victim = target,
-        damage_type = DAMAGE_TYPE_PURE,
-        ability = self,
-        damage = talent2:GetSpecialValueFor("base_dmg") + target:GetHealth() * talent2:GetSpecialValueFor("value") * 0.01
-      }
-
-      ApplyDamage(damage_table)
-    end
+    -- Do damage
+    local damage_table = {
+      attacker = caster,
+      victim = target,
+      damage_type = DAMAGE_TYPE_PURE,
+      ability = self,
+      damage = self:GetSpecialValueFor("damage"),
+    }
 
     -- Deal extra damage to summons, illusions and dominated units if caster has aghanim scepter
     if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsStrongIllusionOAA() then
-      local summon_damage = self:GetSpecialValueFor("summon_illusion_damage_scepter")
-      local damage_table = {
-        attacker = caster,
-        victim = target,
-        damage_type = DAMAGE_TYPE_PURE,
-        ability = self,
-        damage = summon_damage
-      }
-
-      ApplyDamage(damage_table)
+      damage_table.damage = self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("summon_illusion_damage_scepter")
     end
+
+    ApplyDamage(damage_table)
   else
     -- Basic Dispel (for allies)
     target:Purge( false, true, false, false, false )
@@ -162,10 +144,13 @@ end
 
 -- helper for laser effect
 function electrician_cleansing_shock:ApplyLaser( source, sourceLoc, target, targetLoc )
-	local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_tinker/tinker_laser.vpcf", PATTACH_POINT_FOLLOW, target )
-	ParticleManager:SetParticleControlEnt( part, 9, source, PATTACH_POINT_FOLLOW, sourceLoc, source:GetAbsOrigin(), true )
-	ParticleManager:SetParticleControlEnt( part, 1, target, PATTACH_POINT_FOLLOW, targetLoc, target:GetAbsOrigin(), true )
-	ParticleManager:ReleaseParticleIndex( part )
+  if target == self:GetCaster() then
+    targetLoc = "attach_origin"
+  end
+  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_tinker/tinker_laser.vpcf", PATTACH_POINT_FOLLOW, target )
+  ParticleManager:SetParticleControlEnt( part, 9, source, PATTACH_POINT_FOLLOW, sourceLoc, source:GetAbsOrigin(), true )
+  ParticleManager:SetParticleControlEnt( part, 1, target, PATTACH_POINT_FOLLOW, targetLoc, target:GetAbsOrigin(), true )
+  ParticleManager:ReleaseParticleIndex( part )
 end
 
 --------------------------------------------------------------------------------
