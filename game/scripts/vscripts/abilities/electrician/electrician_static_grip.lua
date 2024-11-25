@@ -16,7 +16,8 @@ function electrician_static_grip:GetChannelTime()
     return self.modGrip:GetDuration()
   end
 
-  return self:GetSpecialValueFor("max_stun_duration")
+  -- this point is reached when Static Grip is blocked with Linkens
+  return 0 -- self:GetSpecialValueFor("max_stun_duration")
 end
 
 function electrician_static_grip:GetBehavior()
