@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +35,12 @@
       "gods_strength_damage"
       {
         "value"                                           "110 150 190 270 350"
-        "special_bonus_unique_sven_2"                     "+50" 
+        "special_bonus_unique_sven_2"                     "+50"
       }
       "bonus_slow_resistance"
       {
-        "value"                                           "30"  
-        "special_bonus_unique_sven_gods_strength_slow_resist"  "+20" 
+        "value"                                           "30"
+        "special_bonus_unique_sven_gods_strength_slow_resist"  "+20"
       }
     }
   }
