@@ -379,7 +379,7 @@ function modifier_electrician_electric_shield_ac:OnIntervalThink()
     attacker = parent,
     damage = self.dmg_per_interval,
     damage_type = dmg_type,
-    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = ability,
   }
 

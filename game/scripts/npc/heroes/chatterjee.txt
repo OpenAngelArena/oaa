@@ -23,16 +23,16 @@
     "Ability6"                                            "electrician_cleansing_shock"
 
     "Ability10"                                           "special_bonus_unique_electrician_6_oaa"
-    "Ability11"                                           "special_bonus_mp_regen_150"
+    "Ability11"                                           "special_bonus_movement_speed_20"
 
-    "Ability12"                                           "special_bonus_unique_electrician_static_grip_damage"
-    "Ability13"                                           "special_bonus_unique_electrician_8_oaa"
+    "Ability12"                                           "special_bonus_unique_electrician_2_oaa"
+    "Ability13"                                           "special_bonus_unique_electrician_4_oaa"
 
-    "Ability14"                                           "special_bonus_unique_electrician_electric_shield_damage"
-    "Ability15"                                           "special_bonus_unique_electrician_2_oaa"
+    "Ability14"                                           "special_bonus_unique_electrician_5_oaa"
+    "Ability15"                                           "special_bonus_unique_electrician_1_oaa"
 
-    "Ability16"                                           "special_bonus_unique_electrician_static_grip_attacks"
-    "Ability17"                                           "special_bonus_unique_electrician_9_oaa"
+    "Ability16"                                           "special_bonus_unique_electrician_7_oaa"
+    "Ability17"                                           "special_bonus_unique_electrician_8_oaa"
 
     "Facets" // Icons: nuke, barrier, mana, damage
     {
@@ -56,16 +56,25 @@
       }
     }
 
-    // special_bonus_unique_electrician_1_oaa - Energy Absorption bonus mana absorbed - unused
-    // special_bonus_unique_electrician_2_oaa - Cleansing Shock Mini-Stuns
-    // special_bonus_unique_electrician_3_oaa - Cleansing Shock Pierces Spell Immunity - unused
-    // 4 - special_bonus_unique_electrician_static_grip_damage - Static Grip bonus damage
-    // 5 - special_bonus_unique_electrician_electric_shield_damage - Electric Shield bonus damage
+    // special_bonus_unique_electrician_1_oaa - Static Grip Stun Duration
+    // special_bonus_unique_electrician_2_oaa - Electric Shield bonus radius / bonus dmg block
+    // special_bonus_unique_electrician_3_oaa - Cleansing Shock Pierces Spell Immunity                  - unused
+    // special_bonus_unique_electrician_4_oaa - Static Grip % bonus damage
+    // special_bonus_unique_electrician_5_oaa - Electric Shield bonus damage
     // special_bonus_unique_electrician_6_oaa - Energy Absorption bonus radius
-    // special_bonus_unique_electrician_7_oaa - Static Grip Pseudo Channel - unused
-    // special_bonus_unique_electrician_8_oaa - Energy Absorption bonus damage
-    // special_bonus_unique_electrician_9_oaa - Cleansing Shock Deals Damage
-    // 10 - special_bonus_unique_electrician_static_grip_attacks - Static Grip attacks
+    // special_bonus_unique_electrician_7_oaa - Energy Absorption bonus damage
+    // special_bonus_unique_electrician_8_oaa - Cleansing Shock Charges
+
+    // special_bonus_mp_regen_150
+    // Rejected ideas:
+    // Energy Absorption Mana
+    // Cleansing Shock Mini-Stuns
+    // Static Grip Pseudo Channel - shard
+    // Static Grip Attacks
+    // Static Grip Steals Damage - duration is too low
+    // Static Grip Steals Spell Amp
+    // Cleansing Shock Damage - 3 bonus damage talents are enough
+    // Energy Absorption Attack Speed
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------

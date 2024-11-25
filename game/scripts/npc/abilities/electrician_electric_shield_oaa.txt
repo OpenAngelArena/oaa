@@ -79,15 +79,15 @@
       }
       "aura_radius" // both Direct Current & Alternating Current
       {
-        "value"                                           "350"
-        "special_bonus_unique_electrician_electric_shield_radius"  "+150"
+        "value"                                           "375"
+        "special_bonus_unique_electrician_2_oaa"          "+125"
         "special_bonus_facet_electrician_no_current"      "=0"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_damage" // both Direct Current & Alternating Current
       {
         "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_electrician_electric_shield_damage"  "+100"
+        "special_bonus_unique_electrician_5_oaa"          "+100"
         "special_bonus_facet_electrician_no_current"      "=0"
       }
       "aura_interval" // both Direct Current & Alternating Current (not shown in tooltip)
@@ -98,7 +98,7 @@
       {
         "value"                                           "0"
         "special_bonus_facet_electrician_no_current"      "=50"
-        "special_bonus_unique_electrician_electric_shield_radius"  "+50"
+        "special_bonus_unique_electrician_2_oaa"          "+50"
         "CalculateSpellDamageTooltip"                     "0"
         "RequiresFacet"                                   "electrician_no_current"
       }
@@ -106,7 +106,7 @@
       {
         "value"                                           "0"
         "special_bonus_facet_electrician_no_current"      "=25 =35 =45 =55 =110 =165"
-        "special_bonus_unique_electrician_electric_shield_damage"  "+100"
+        "special_bonus_unique_electrician_5_oaa"          "+100"
         "CalculateSpellDamageTooltip"                     "0"
         "RequiresFacet"                                   "electrician_no_current"
       }
