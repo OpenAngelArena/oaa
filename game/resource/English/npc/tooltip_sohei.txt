@@ -19,8 +19,6 @@
 "DOTA_Tooltip_Ability_sohei_dash_Facet_sohei_warrior"                           "Dash no longer has charges but it has increased max range and Sohei will attack all enemies he dashed through. These attacks can't miss."
 //"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash."
 //"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Increases Dash range and heals allies. Dash provides invulnerability and disjoints projectiles."
-//"DOTA_Tooltip_Ability_sohei_dash_damage_to_heal_ratio"                          "DAMAGE/HEAL RATIO:"
-//"DOTA_Tooltip_Ability_sohei_dash_hp_as_heal"                                    "%SOHEI'S MAX HP AS HEAL:"
 
 //"DOTA_Tooltip_Ability_sohei_guard"                                              "Guard"
 //"DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all projectiles that would hit you for the next %guard_duration% seconds. Can be used while stunned but consumes %charges_required% charges of Dash if used while stunned.\n\nDISPEL TYPE: Strong Dispel"
@@ -52,7 +50,7 @@
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_damage_taken_as_heal"             "%HEAL PER DAMAGE TAKEN:"
 
 "DOTA_Tooltip_Ability_sohei_momentum"                                           "Momentum"
-"DOTA_Tooltip_Ability_sohei_momentum_description"                               "After moving %trigger_distance% units, Sohei's next attack will be a critical strike."
+"DOTA_Tooltip_Ability_sohei_momentum_description"                               "After moving %trigger_distance% distance, Sohei's next attack will be a critical strike."
 "DOTA_Tooltip_Ability_sohei_momentum_Lore"                                      "Takuan uses gained momentum to vanquish his foes."
 "DOTA_Tooltip_Ability_sohei_momentum_crit_damage"                               "%CRIT DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_momentum_spell_crit_chance"                         "%SPELL CRIT CHANCE:"
@@ -106,6 +104,11 @@
 "DOTA_Tooltip_Ability_sohei_ki_attraction_pull_length"                          "PULL DISTANCE:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_Facet_sohei_monk"                     "Heal is equal to half of the damage it would do if the target was an enemy."
 
+// innate
+"DOTA_Tooltip_ability_sohei_innate_oaa"                                         "Impulse"
+"DOTA_Tooltip_ability_sohei_innate_oaa_Description"                             "Sohei gains bonus base attack damage based on his current movement speed."
+"DOTA_Tooltip_ability_sohei_innate_oaa_base_attack_dmg_per_ms"                  "BASE ATTACK DAMAGE PER MOVE SPEED:"
+
 // modifiers
 //"DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"
 "DOTA_Tooltip_modifier_sohei_dash_slow"                                         "Dash Slow"
@@ -115,7 +118,7 @@
 //"DOTA_Tooltip_modifier_sohei_guard_reflect_description"                         "Reflects incoming projectiles"
 
 "DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff"                            "Wholeness of Body"
-"DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff_Description"                "Debuff Immunity and magic resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Applies heal when it expires or when purged."
+"DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff_Description"                "Debuff Immunity and magic resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Heals when it expires or when purged."
 
 // "DOTA_Tooltip_modifier_sohei_momentum_strike_slow"                             "Ki Strike Slow"
 // "DOTA_Tooltip_modifier_sohei_momentum_strike_slow_Description"                 "Movement Speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
@@ -123,10 +126,10 @@
 // "DOTA_Tooltip_modifier_sohei_momentum_strike_stun"                             "Ki Strike Stun"
 // "DOTA_Tooltip_modifier_sohei_momentum_strike_stun_Description"                 "Stunned."
 
-"DOTA_Tooltip_modifier_sohei_polarizing_palm_stun"                              "Repulsive Palm"
+"DOTA_Tooltip_modifier_sohei_polarizing_palm_stun"                              "#{DOTA_Tooltip_Ability_sohei_polarizing_palm}"
 "DOTA_Tooltip_modifier_sohei_polarizing_palm_stun_Description"                  "Stunned."
 
-"DOTA_Tooltip_modifier_sohei_polarizing_palm_slow"                              "Repulsive Palm"
+"DOTA_Tooltip_modifier_sohei_polarizing_palm_slow"                              "#{DOTA_Tooltip_Ability_sohei_polarizing_palm}"
 "DOTA_Tooltip_modifier_sohei_polarizing_palm_slow_Description"                  "Move speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "DOTA_Tooltip_modifier_sohei_flurry_self"                                       "Flurry of Blows"
@@ -162,11 +165,6 @@
 "DOTA_Tooltip_facet_sohei_warrior"                                              "Qigong Dash"
 "DOTA_Tooltip_facet_sohei_warrior_Description"                                  "Dash no longer has charges but it has increased max range and Sohei will attack all enemies he dashed through."
 "DOTA_Tooltip_facet_sohei_monk"                                                 "Ki Release"
-"DOTA_Tooltip_facet_sohei_monk_Description"                                     "Sohei's spells will heal allies but not Sohei himself."
+"DOTA_Tooltip_facet_sohei_monk_Description"                                     "Sohei's spells will heal allies."
 "DOTA_Tooltip_facet_sohei_lord"                                                 "Zen Inertia"
 "DOTA_Tooltip_facet_sohei_lord_Description"                                     "Momentum attacks no longer do critical damage but Sohei's spells have a chance to do critical damage."
-
-// innate
-"DOTA_Tooltip_ability_sohei_innate_oaa"                                         "Impulse"
-"DOTA_Tooltip_ability_sohei_innate_oaa_Description"                             "Sohei gains bonus base attack damage based on his current movement speed."
-"DOTA_Tooltip_ability_sohei_innate_oaa_base_attack_dmg_per_ms"                  "BASE ATTACK DAMAGE PER MOVE SPEED:"
