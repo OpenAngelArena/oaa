@@ -57,6 +57,8 @@ function HeroSelection:Init ()
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
       elseif key == "npc_dota_hero_sohei" then
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      elseif key == "npc_dota_hero_aeolus" then
+        data = LoadKeyValues('scripts/npc/heroes/aeolus.txt')
       else
         data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end

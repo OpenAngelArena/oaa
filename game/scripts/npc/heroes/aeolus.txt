@@ -1,0 +1,82 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Aeolus
+  //=================================================================================================================
+  "npc_dota_hero_aeolus"
+  {
+    "BaseClass"                                           "npc_dota_hero_kez"
+    "HeroID"                                              "132"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_a/n_creep_vulture_a.vmdl"
+    "ModelScale"                                          "1.2"
+
+    "BotImplemented"                                      "0"
+
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"                                    "0.9"
+    "MovementSpeed"                                       "305"
+
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "35"
+    "AttackDamageMax"                                     "40"
+    "AttackRange"                                         "150"
+    "AttackRate"                                          "1.7"
+    "BaseAttackSpeed"                                     "100"
+    "AttackAnimationPoint"                                "0.3"
+
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "25"
+
+    "StatusHealthRegen"                                   "1.0"
+    "StatusHealth"                                        "200"
+    "StatusManaRegen"                                     "0.0"
+    "StatusMana"                                          "75"
+
+    "AttributePrimary"                                    "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"                               "17"
+    "AttributeStrengthGain"                               "1.8"
+    "AttributeBaseAgility"                                "18"
+    "AttributeAgilityGain"                                "2.3"
+    "AttributeBaseIntelligence"                           "15"
+    "AttributeIntelligenceGain"                           "2.0"
+
+    "Ability1"                                            "enraged_wildkin_hurricane"
+    "Ability2"                                            "windrunner_windrun"
+    "Ability3"                                            "enraged_wildkin_toughness_aura"
+    "Ability4"                                            "enraged_wildkin_tornado"
+    "Ability5"                                            "windrunner_easy_breezy"
+    "Ability6"                                            "generic_hidden"
+    "Ability7"                                            "generic_hidden"
+    "Ability8"                                            "generic_hidden"
+    "Ability9"                                            "generic_hidden"
+
+    "Ability10"                                           "special_bonus_strength_10"
+    "Ability11"                                           "special_bonus_hp_100"
+
+    "Ability12"                                           "special_bonus_hp_125"
+    "Ability13"                                           "special_bonus_hp_150"
+
+    "Ability14"                                           "special_bonus_hp_175"
+    "Ability15"                                           "special_bonus_hp_200"
+
+    "Ability16"                                           "special_bonus_hp_225"
+    "Ability17"                                           "special_bonus_hp_250"
+
+    "Ability18"                                           "generic_hidden"
+    "Ability19"                                           "generic_hidden"
+
+    "AbilityTalentStart"                                  "10"
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "HasInventory"                                        "1"
+
+    "VisionDaytimeRange"                                  "1800"
+    "VisionNighttimeRange"                                "800"
+
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+
+    "GameSoundsFile"                                      "soundevents/units/game_sounds_aeolus.vsndevts"
+    "SoundSet"                                            "Aeolus"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
+  }
+}

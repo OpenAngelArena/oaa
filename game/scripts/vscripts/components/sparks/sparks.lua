@@ -231,6 +231,7 @@ function Sparks:FindDefaultSparkForHero(hero)
   local default_sparks = {
     npc_dota_hero_abaddon = "midas",
     npc_dota_hero_abyssal_underlord = "power", -- cleave
+    npc_dota_hero_aeolus = "power",
     npc_dota_hero_alchemist = "power", -- cleave
     npc_dota_hero_ancient_apparition = "midas",
     npc_dota_hero_antimage = "cleave", -- cleave or power
@@ -275,6 +276,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_jakiro = "midas",
     npc_dota_hero_juggernaut = "power", -- cleave
     npc_dota_hero_keeper_of_the_light = "midas",
+    npc_dota_hero_kez = "power",
     npc_dota_hero_kunkka = "power",
     npc_dota_hero_legion_commander = "power", -- midas
     npc_dota_hero_leshrac = "cleave",
