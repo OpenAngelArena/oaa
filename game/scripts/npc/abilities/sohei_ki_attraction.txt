@@ -45,6 +45,12 @@
       "duration"                                          "4"
       "pull_length"                                       "400" // same as Repulsive/Polarizing Palm distance
       "pull_speed"                                        "1200"
+      "heal_ratio"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_monk"                  "=0.5"
+        "RequiresFacet"                                   "sohei_monk"
+      }
     }
   }
 }

@@ -12,20 +12,6 @@ local forbidden_modifiers = {
   "modifier_disruptor_kinetic_field",
 }
 
---[[
-function sohei_polarizing_palm:GetCastRange(location, target)
-  local caster = self:GetCaster()
-  local default_range = self.BaseClass.GetCastRange(self, location, target)
-
-  local talent = caster:FindAbilityByName("")
-  if talent and talent:GetLevel() > 0 then
-    return default_range + talent:GetSpecialValueFor("value")
-  end
-
-  return default_range
-end
-]]
-
 function sohei_polarizing_palm:CastFilterResultTarget(target)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
@@ -256,6 +242,7 @@ if IsServer() then
 
     self:ApplySlow(parent, caster, ability)
     self:PolarizingPalmDamage(parent, caster, ability)
+    self:PolarizingPalmHeal(parent, caster, ability)
   end
 
   function modifier_sohei_polarizing_palm_movement:UpdateHorizontalMotion(parent, deltaTime)
@@ -391,7 +378,7 @@ if IsServer() then
 
   function modifier_sohei_polarizing_palm_movement:PolarizingPalmDamage(unit, caster, ability)
     -- Damage only enemies without spell immunity
-    if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
+    if not unit or unit:IsNull() or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
       return
     end
 
@@ -409,6 +396,37 @@ if IsServer() then
     }
 
     ApplyDamage(damage_table)
+  end
+
+  function modifier_sohei_polarizing_palm_movement:PolarizingPalmHeal(unit, caster, ability)
+    -- Heal only allies
+    if not unit or unit:IsNull() or unit:GetTeamNumber() ~= caster:GetTeamNumber() then
+      return
+    end
+
+    local heal_ratio = ability:GetSpecialValueFor("heal_ratio")
+    if heal_ratio <= 0 then
+      return
+    end
+
+    local base_damage = ability:GetSpecialValueFor("damage")
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+
+    local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
+    local total_damage = base_damage + bonus_damage
+
+    local heal_amount = total_damage * heal_ratio
+
+    -- Healing
+    --unit:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+    unit:HealWithParams(heal_amount, ability, false, true, caster, false)
+
+    local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+    ParticleManager:SetParticleControl(part, 0, unit:GetAbsOrigin())
+    ParticleManager:SetParticleControl(part, 1, Vector(unit:GetModelRadius(), 1, 1))
+    ParticleManager:ReleaseParticleIndex(part)
+
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, unit, heal_amount, nil)
   end
 end
 
