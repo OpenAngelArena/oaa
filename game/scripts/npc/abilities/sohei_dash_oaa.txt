@@ -27,12 +27,6 @@
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCastRange"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "2 2 3 4 4 4"
-    "AbilityChargeRestoreTime"                            "20 19 18 17 15 13"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40 45 50 55 60 65"
@@ -44,7 +38,7 @@
       "particle"                                          "particles/hero/sohei/sohei_trail.vpcf"
       "particle"                                          "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
       "particle"                                          "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
-      //"particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
       "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
@@ -52,6 +46,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "0"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "2 2 3 4 4 4"
+        "special_bonus_facet_sohei_warrior"               "=1"
+      }
+      "AbilityChargeRestoreTime"
+      {
+        "value"                                           "20 19 18 17 16 15"
+      }
       "dash_speed"                                        "4000" // max Dash speed
       "move_speed_multiplier"                             "7.5"
       "dash_width"
@@ -62,6 +69,7 @@
       "dash_range" // max Dash range
       {
         "value"                                           "600"
+        "special_bonus_facet_sohei_warrior"               "=625 =650 =675 =700 =725 =750"
         "special_bonus_unique_sohei_3_oaa"                "+75"
       }
       "damage"
@@ -80,18 +88,18 @@
         "special_bonus_unique_sohei_2_oaa"                "+20"
       }
       "slow_duration"                                     "2.0"
-      // "damage_to_heal_ratio"
-      // {
-        // "value"                                           "1"
-        // "RequiresShard"                                   "1"
-        // "CalculateSpellDamageTooltip"                     "0"
-        // "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-      // }
-      // "hp_as_heal"
-      // {
-        // "value"                                           "5"
-        // "RequiresShard"                                   "1"
-      // }
+      "heal_ratio"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_monk"                  "=1"
+        "RequiresFacet"                                   "sohei_monk"
+      }
+      "procs_attacks"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_warrior"               "=1"
+        "RequiresFacet"                                   "sohei_warrior"
+      }
     }
   }
 }
