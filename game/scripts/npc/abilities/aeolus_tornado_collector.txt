@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Aeolus: Tornado Collector (W)
+  //=================================================================================================================
+  "aeolus_tornado_collector"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aeolus/aeolus_tornado_collector.lua"
+    "AbilityTextureName"                                  "custom/aeolus_tornado_collector"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityCooldown"                                     "0.1"
+    "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "special_value_name"                                "9000"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "duration"                                          "2.5"
+    }
+  }
+}

@@ -40,13 +40,13 @@
     "AttributeBaseIntelligence"                           "15"
     "AttributeIntelligenceGain"                           "2.0"
 
-    "Ability1"                                            "enraged_wildkin_hurricane"
-    "Ability2"                                            "windrunner_windrun"
-    "Ability3"                                            "enraged_wildkin_toughness_aura"
-    "Ability4"                                            "enraged_wildkin_tornado"
-    "Ability5"                                            "windrunner_easy_breezy"
-    "Ability6"                                            "generic_hidden"
-    "Ability7"                                            "generic_hidden"
+    "Ability1"                                            "aeolus_hurricane"
+    "Ability2"                                            "aeolus_tornado_collector"
+    "Ability3"                                            "aeolus_wind_shield"
+    "Ability4"                                            "generic_hidden"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "aeolus_typhoon"
+    "Ability7"                                            "aeolus_tempest"
     "Ability8"                                            "generic_hidden"
     "Ability9"                                            "generic_hidden"
 
@@ -77,6 +77,7 @@
 
     "GameSoundsFile"                                      "soundevents/units/game_sounds_aeolus.vsndevts"
     "SoundSet"                                            "Aeolus"
-    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_kez.vsndevts"
+    "HeroSelectSoundEffect"                               "Aeolus.Pick"
   }
 }

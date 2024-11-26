@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Aeolus: Tempest (Innate)
+  //=================================================================================================================
+  "aeolus_tempest"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aeolus/aeolus_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "tornado_move_speed"                                "305"
+      "tornado_linger_time"                               "5"
+      "movespeed_slow"
+      {
+        "value"                                           "-15"
+      }
+      "attackspeed_slow"
+      {
+        "value"                                           "-15"
+      }
+      "tornado_radius"
+      {
+        "value"                                           "175"
+      }
+      "attack_damage_as_tornado_damage_ratio"
+      {
+        "value"                                           "0.5"
+      }
+      "damage_interval"
+      {
+        "value"                                           "0.25"
+      }
+    }
+  }
+}
