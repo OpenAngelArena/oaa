@@ -37,6 +37,10 @@ function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
 end
 ]]
 
+function sohei_flurry_of_blows:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flurry_radius")
+end
+
 function sohei_flurry_of_blows:GetBehavior()
   local caster = self:GetCaster()
   if caster:HasModifier("modifier_sohei_flurry_self") then
@@ -246,6 +250,34 @@ function modifier_sohei_flurry_self:OnIntervalThink()
     -- Animations
     caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
     caster:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_4, 1.15)
+  end
+
+  local heal_per_sec = ability:GetSpecialValueFor("heal_per_second")
+  if heal_per_sec <= 0 then
+    return
+  end
+
+  local heal_amount = heal_per_sec * self.attack_interval
+
+  local allies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    self.center,
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, ally in pairs(allies) do
+    if ally and not ally:IsNull() and ally ~= caster then
+      -- Healing
+      ally:Heal(heal_amount, ability)
+
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+    end
   end
 end
 

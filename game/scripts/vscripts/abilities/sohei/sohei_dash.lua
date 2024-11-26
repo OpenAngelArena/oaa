@@ -39,11 +39,6 @@ function sohei_dash:GetChargeRefreshTime()
   -- Reduce the charge recovery time if the appropriate talent is learned
   local caster = self:GetCaster()
   local refreshTime = self:GetSpecialValueFor( "charge_restore_time" )
-  local talent = caster:FindAbilityByName( "special_bonus_sohei_dash_recharge" )
-
-  if talent and talent:GetLevel() > 0 then
-    refreshTime = math.max( refreshTime - talent:GetSpecialValueFor( "value" ), 1 )
-  end
 
   -- cdr stuff
   local cdr = caster:GetCooldownReduction()
@@ -77,6 +72,24 @@ end
 if IsClient() then
   function sohei_dash:GetCastRange(location, target)
     return self:GetSpecialValueFor("dash_range")
+  end
+end
+
+function sohei_dash:CastFilterResultLocation(location)
+  local caster = self:GetCaster()
+
+  if caster:HasModifier("modifier_item_nullifier_mute") or caster:HasModifier("modifier_shadow_demon_purge_slow") then
+    return UF_FAIL_CUSTOM
+  end
+
+  return UF_SUCCESS
+end
+
+function sohei_dash:GetCustomCastErrorLocation(location)
+  local caster = self:GetCaster()
+
+  if caster:HasModifier("modifier_item_nullifier_mute") or caster:HasModifier("modifier_shadow_demon_purge_slow") then
+    return "#oaa_hud_error_cast_while_nullified"
   end
 end
 
@@ -443,44 +456,57 @@ if IsServer() then
       if enemy and not enemy:IsNull() then
         -- Apply debuff first
         enemy:AddNewModifier(caster, ability, "modifier_sohei_dash_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
-        -- Then damage
+        -- Damage
         damage_table.victim = enemy
         ApplyDamage(damage_table)
       end
     end
 
-    -- Heal allies in a line (requires Shard)
-    -- if condition then
-      -- local do_sound = false
-      -- local allies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
-      -- for _, ally in pairs(allies) do
-        -- if ally and not ally:IsNull() and ally ~= caster then
-          -- do_sound = true
+    -- Heal allies in a line
+    local heal_amount = damage * ability:GetSpecialValueFor("heal_ratio")
+    if heal_amount > 0 then
+      local do_sound = false
+      local allies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+      for _, ally in pairs(allies) do
+        if ally and not ally:IsNull() and ally ~= caster then
+          do_sound = true
 
-          -- -- Healing
-          -- local base_heal_amount = damage * ability:GetSpecialValueFor("damage_to_heal_ratio")
-          -- local hp_as_heal = ability:GetSpecialValueFor("hp_as_heal")
-          -- local heal_amount_based_on_hp = caster:GetMaxHealth() * hp_as_heal * 0.01
-          -- local total_heal = base_heal_amount + heal_amount_based_on_hp
+          -- Healing
+          ally:Heal(heal_amount, ability)
 
-          -- ally:Heal(total_heal, ability)
+          local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
+          ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())
+          ParticleManager:SetParticleControl(part, 1, Vector(ally:GetModelRadius(), 1, 1))
+          ParticleManager:ReleaseParticleIndex(part)
 
-          -- local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-          -- ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())
-          -- ParticleManager:SetParticleControl(part, 1, Vector(ally:GetModelRadius(), 1, 1 ))
-          -- ParticleManager:ReleaseParticleIndex(part)
-
-          -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, total_heal, nil)
-        -- end
-      -- end
-      -- if do_sound then
-        -- if parent and not parent:IsNull() then
-          -- parent:EmitSound("Sohei.PalmOfLife.Heal")
-        -- else
-          -- caster:EmitSound("Sohei.PalmOfLife.Heal")
-        -- end
-      -- end
-    -- end
+          SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+        end
+      end
+      if do_sound then
+        if parent and not parent:IsNull() then
+          parent:EmitSound("Sohei.PalmOfLife.Heal")
+        else
+          caster:EmitSound("Sohei.PalmOfLife.Heal")
+        end
+      end
+    end
+    local proc_attacks = ability:GetSpecialValueFor("procs_attacks")
+    if proc_attacks > 0 then
+      -- Check if its a stolen spell (by Rubick) so we use actual projectile
+      local bUseProjectile = false
+      if ability and ability:IsStolen() then
+        bUseProjectile = true
+      end
+      -- Attack remaining enemies
+      for _, enemy in pairs(enemies) do
+        if enemy and not enemy:IsNull() then
+          if enemy:IsAlive() then
+            -- Instant attack
+            caster:PerformAttack(enemy, true, true, true, false, bUseProjectile, false, true)
+          end
+        end
+      end
+    end
   end
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
