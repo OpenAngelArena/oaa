@@ -274,7 +274,8 @@ function modifier_sohei_flurry_self:OnIntervalThink()
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() and ally ~= caster then
       -- Healing
-      ally:Heal(heal_amount, ability)
+      --ally:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+      ally:HealWithParams(heal_amount, ability, false, true, caster, false)
 
       SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
     end

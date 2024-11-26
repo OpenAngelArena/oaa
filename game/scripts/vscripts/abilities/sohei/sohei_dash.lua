@@ -472,7 +472,8 @@ if IsServer() then
           do_sound = true
 
           -- Healing
-          ally:Heal(heal_amount, ability)
+          --ally:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+          ally:HealWithParams(heal_amount, ability, false, true, caster, false)
 
           local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
           ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())

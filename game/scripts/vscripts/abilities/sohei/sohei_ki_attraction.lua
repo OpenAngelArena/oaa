@@ -407,7 +407,8 @@ if IsServer() then
     local heal_amount = total_damage * heal_ratio
 
     -- Healing
-    unit:Heal(heal_amount, ability)
+    --unit:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+    unit:HealWithParams(heal_amount, ability, false, true, caster, false)
 
     local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
     ParticleManager:SetParticleControl(part, 0, unit:GetAbsOrigin())
