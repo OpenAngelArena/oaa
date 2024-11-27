@@ -44,7 +44,7 @@
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
 				m_flRandomMin = 0.058823
-				m_flRandomMax = 0.3
+				m_flRandomMax = 0.4
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -162,7 +162,7 @@
 		{
 			_class = "C_INIT_RandomColor"
 			m_ColorMin = [ 146, 146, 146, 255 ]
-			m_ColorMax = [ 89, 89, 89, 255 ]
+			m_ColorMax = [ 17, 22, 31 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"

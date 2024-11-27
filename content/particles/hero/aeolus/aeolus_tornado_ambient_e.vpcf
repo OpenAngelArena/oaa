@@ -94,7 +94,7 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 0.1
+				m_flRandomMin = 0.05
 				m_flRandomMax = 0.2
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
@@ -214,8 +214,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 89, 89, 89, 255 ]
-			m_ColorMin = [ 157, 157, 157, 255 ]
+			m_ColorMax = [ 56, 57, 82 ]
+			m_ColorMin = [ 110, 121, 127 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"

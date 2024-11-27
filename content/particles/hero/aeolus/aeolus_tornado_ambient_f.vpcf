@@ -155,7 +155,7 @@
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
 				m_flRandomMin = 0.2
-				m_flRandomMax = 0.6
+				m_flRandomMax = 0.9
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -263,7 +263,7 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 125, 115, 112 ]
+			m_ColorMax = [ 172, 161, 240 ]
 			m_ColorMin = [ 211, 216, 199 ]
 		},
 		{
