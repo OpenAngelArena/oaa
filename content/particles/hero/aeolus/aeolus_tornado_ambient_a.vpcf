@@ -95,8 +95,8 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 0.01
-				m_flRandomMax = 0.2
+				m_flRandomMin = 0.3
+				m_flRandomMax = 0.7
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -264,8 +264,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 0, 0, 0 ]
-			m_ColorMin = [ 84, 95, 102 ]
+			m_ColorMax = [ 0, 1, 20 ]
+			m_ColorMin = [ 129, 130, 127 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"
@@ -293,7 +293,7 @@
 			m_vecOutputMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 40.0, 40.0, 380.0 ]
+				m_vLiteralValue = [ 60.0, 60.0, 400.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -542,7 +542,7 @@
 			m_vecOutputMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ -40.0, -40.0, 380.0 ]
+				m_vLiteralValue = [ -60.0, -60.0, 400.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -880,8 +880,8 @@
 			_class = "C_OP_FadeOut"
 			m_flFadeBias = 0.1
 			m_bEaseInAndOut = false
-			m_flFadeOutTimeMax = 0.75
-			m_flFadeOutTimeMin = 0.75
+			m_flFadeOutTimeMax = 1.0
+			m_flFadeOutTimeMin = 0.1
 			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
 		},
 		{

@@ -26,7 +26,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 7.0
+				m_flLiteralValue = 10.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -94,8 +94,8 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 0.1
-				m_flRandomMax = 0.4
+				m_flRandomMin = 0.3
+				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -154,8 +154,8 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = 0.2
-				m_flRandomMax = 0.9
+				m_flRandomMin = 0.7
+				m_flRandomMax = 1.8
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
@@ -263,7 +263,7 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 172, 161, 240 ]
+			m_ColorMax = [ 114, 108, 166 ]
 			m_ColorMin = [ 211, 216, 199 ]
 		},
 		{
@@ -291,7 +291,7 @@
 			m_vecOutputMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 40.0, 40.0, 222.0 ]
+				m_vLiteralValue = [ 40.0, 40.0, 333.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -540,7 +540,7 @@
 			m_vecOutputMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ -40.0, -40.0, 222.0 ]
+				m_vLiteralValue = [ -40.0, -40.0, 333.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -826,7 +826,7 @@
 			_class = "C_OP_InterpolateRadius"
 			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
 			m_flStartScale = 0.4
-			m_flEndScale = 0.7
+			m_flEndScale = 1.4
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
