@@ -8,29 +8,40 @@ function aeolus_tornado_collector:GetIntrinsicModifierName()
   return "modifier_aeolus_tornado_collector_passive"
 end
 
+function aeolus_tornado_collector:CastFilterResult()
+  local caster = self:GetCaster()
+  local tornados = caster:GetModifierStackCount("modifier_aeolus_tornado_collector_passive", caster)
+  if tornados <= 0 then
+    return UF_FAIL_CUSTOM
+  end
+
+  return UF_SUCCESS
+end
+
+function aeolus_tornado_collector:GetCustomCastError()
+  return "No Tornados To Consume"
+end
+
 function aeolus_tornado_collector:OnSpellStart()
   local caster = self:GetCaster()
   local summon_mod = caster:FindModifierByName("modifier_aeolus_tornado_collector_passive")
 
   local tornados = summon_mod.tornados
   if #tornados <= 0 then
-    print("No Tornados")
     return
   end
 
   local first_tornado = tornados[1]
   if not first_tornado or first_tornado:IsNull() then
-    print("Error - No first tornado")
     return
   end
 
-  local ai_mod = first_tornado:FindModifierByName("modifier_aeolus_tornado_passive")
-  if not ai_mod then
-    print("Error - First Tornado no passive")
+  local tornado_passive = first_tornado:FindModifierByName("modifier_aeolus_tornado_passive")
+  if not tornado_passive then
     return
   end
 
-  ai_mod:Destroy()
+  tornado_passive:Destroy()
 end
 
 function aeolus_tornado_collector:TornadoHeal()
@@ -101,12 +112,18 @@ function modifier_aeolus_tornado_collector_passive:OnRefresh()
   end
 
   self.interval = ability:GetSpecialValueFor("spawn_interval")
-  self:StartIntervalThink(-1)
-  self:StartIntervalThink(self.interval)
+
+  if IsServer() then
+    self:StartIntervalThink(self.interval)
+  end
 end
 
 function modifier_aeolus_tornado_collector_passive:OnIntervalThink()
   self:SpawnTornado()
+
+  if self:GetParent():HasShardOAA() then
+    self:OnRefresh()
+  end
 end
 
 function modifier_aeolus_tornado_collector_passive:SpawnTornado()
@@ -435,7 +452,7 @@ function modifier_aeolus_tornado_passive:OnDestroy()
 end
 
 function modifier_aeolus_tornado_passive:GetEffectName()
-  return "particles/neutral_fx/tornado_ambient.vpcf"
+  return "particles/hero/aeolus/aeolus_tornado_ambient.vpcf" --"particles/neutral_fx/tornado_ambient.vpcf"
 end
 
 function modifier_aeolus_tornado_passive:GetEffectAttachType()
