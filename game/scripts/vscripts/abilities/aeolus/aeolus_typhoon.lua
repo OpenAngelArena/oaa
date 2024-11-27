@@ -1,0 +1,2 @@
+
+aeolus_typhoon = class({})

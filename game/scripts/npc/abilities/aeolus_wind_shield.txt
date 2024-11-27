@@ -28,13 +28,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "special_value_name"                                "9000"
-      "radius"
+      "evasion"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "20 30 40 50 60 70"
       }
-      "duration"                                          "2.5"
+      "evasion_range_check"
+      {
+        "value"                                           "250"
+      }
     }
   }
 }

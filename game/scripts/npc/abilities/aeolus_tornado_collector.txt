@@ -21,9 +21,11 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasShardUpgrade"                                     "1"
+
     "AbilityCastPoint"                                    "0.0"
 
-    "AbilityCooldown"                                     "0.1"
+    "AbilityCooldown"                                     "0.25"
     "AbilityManaCost"                                     "0"
     "AbilityProcsMagicStick"                              "0"
 
@@ -31,13 +33,45 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "special_value_name"                                "9000"
-      "radius"
+      "tornado_dps"
       {
-        "value"                                           "1200"
+        "value"                                           "10 10 10 10 20 25"
+      }
+      "max_tornados"
+      {
+        "value"                                           "3 5 7 9 10 11"
+      }
+      "heal_per_tornado"
+      {
+        "value"                                           "20 20 20 20 40 80"
+      }
+      "tornado_damage_radius"
+      {
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "2.5"
+      "spawn_interval"
+      {
+        "value"                                           "20"
+        "special_bonus_shard"                             "=4"
+      }
+      "tornado_duration"
+      {
+        "value"                                           "40"
+      }
+      "wander_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "leash_range"                                       "2000"
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/neutral_fx/tornado_ambient.vpcf"
+      //"particle"                                          "particles/hero/aeolus/tornado_ambient.vpcf"
+      //"model"                                             "models/items/windrunner/windrunner_arcana/windranger_arcana_fx_model_tornado_sml.vmdl"
     }
   }
 }
