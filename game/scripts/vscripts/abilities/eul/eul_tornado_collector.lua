@@ -228,6 +228,8 @@ end
 -- Called when tornado expires, heals the owner and hides it
 function modifier_eul_tornado_collector_passive:PoolTornado(tornado)
   local ability = self:GetAbility()
+  local found = false -- Heal should work only if expired tornado was an active tornado
+
   for i = 1, #self.tornados do
     if self.tornados[i] == tornado then
 
@@ -237,13 +239,17 @@ function modifier_eul_tornado_collector_passive:PoolTornado(tornado)
 
       table.insert(self.pool, tornado)
 
+      found = true
+
       break
     end
   end
 
   self:SetStackCount(#self.tornados)
 
-  ability:TornadoHeal()
+  if found then
+    ability:TornadoHeal()
+  end
 end
 
 -- This should not happen in most situations
