@@ -1,32 +1,32 @@
-LinkLuaModifier("modifier_aeolus_innate_oaa", "abilities/aeolus/aeolus_innate.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_aeolus_hurricane_oaa", "abilities/aeolus/aeolus_innate.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_innate_oaa", "abilities/eul/eul_innate.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_hurricane_oaa", "abilities/eul/eul_innate.lua", LUA_MODIFIER_MOTION_NONE)
 
-aeolus_tempest = class(AbilityBaseClass)
+eul_innate_oaa = class(AbilityBaseClass)
 
-function aeolus_tempest:GetIntrinsicModifierName()
-  return "modifier_aeolus_innate_oaa"
+function eul_innate_oaa:GetIntrinsicModifierName()
+  return "modifier_eul_innate_oaa"
 end
 
 ---------------------------------------------------------------------------------------------------
-modifier_aeolus_innate_oaa = class(ModifierBaseClass)
+modifier_eul_innate_oaa = class(ModifierBaseClass)
 
-function modifier_aeolus_innate_oaa:IsHidden()
+function modifier_eul_innate_oaa:IsHidden()
   return true
 end
 
-function modifier_aeolus_innate_oaa:IsDebuff()
+function modifier_eul_innate_oaa:IsDebuff()
   return false
 end
 
-function modifier_aeolus_innate_oaa:IsPurgable()
+function modifier_eul_innate_oaa:IsPurgable()
   return false
 end
 
-function modifier_aeolus_innate_oaa:RemoveOnDeath()
+function modifier_eul_innate_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_aeolus_innate_oaa:OnCreated()
+function modifier_eul_innate_oaa:OnCreated()
   -- local ability = self:GetAbility()
   -- if ability and not ability:IsNull() then
     -- self.dmg = ability:GetSpecialValueFor("")
@@ -35,16 +35,16 @@ function modifier_aeolus_innate_oaa:OnCreated()
   -- end
 end
 
-modifier_aeolus_innate_oaa.OnRefresh = modifier_aeolus_innate_oaa.OnCreated
+modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
 
-function modifier_aeolus_innate_oaa:DeclareFunctions()
+function modifier_eul_innate_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
 
 if IsServer() then
-  function modifier_aeolus_innate_oaa:OnAbilityExecuted(event)
+  function modifier_eul_innate_oaa:OnAbilityExecuted(event)
     local parent = self:GetParent()
     local cast_ability = event.ability
     local target = event.target
@@ -58,7 +58,7 @@ if IsServer() then
       return
     end
 
-    local hurricane = parent:FindAbilityByName("aeolus_hurricane")
+    local hurricane = parent:FindAbilityByName("eul_hurricane_oaa")
     if not hurricane then
       return
     end
@@ -74,37 +74,37 @@ if IsServer() then
     end
 
     -- Applying the debuff tracker
-    target:AddNewModifier(parent, hurricane, "modifier_aeolus_hurricane_oaa", {})
+    target:AddNewModifier(parent, hurricane, "modifier_eul_hurricane_oaa", {})
   end
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_aeolus_hurricane_oaa = class(ModifierBaseClass)
+modifier_eul_hurricane_oaa = class(ModifierBaseClass)
 
-function modifier_aeolus_hurricane_oaa:IsHidden()
+function modifier_eul_hurricane_oaa:IsHidden()
   return true
 end
 
-function modifier_aeolus_hurricane_oaa:IsDebuff()
+function modifier_eul_hurricane_oaa:IsDebuff()
   return false
 end
 
-function modifier_aeolus_hurricane_oaa:IsPurgable()
+function modifier_eul_hurricane_oaa:IsPurgable()
   return false
 end
 
-function modifier_aeolus_hurricane_oaa:RemoveOnDeath()
+function modifier_eul_hurricane_oaa:RemoveOnDeath()
   return true
 end
 
-function modifier_aeolus_hurricane_oaa:OnCreated()
+function modifier_eul_hurricane_oaa:OnCreated()
   if IsServer() then
     self:StartIntervalThink(0)
   end
 end
 
-function modifier_aeolus_hurricane_oaa:OnIntervalThink()
+function modifier_eul_hurricane_oaa:OnIntervalThink()
   if not IsServer() then
     return
   end
@@ -132,7 +132,7 @@ function modifier_aeolus_hurricane_oaa:OnIntervalThink()
   end
 end
 
-function modifier_aeolus_hurricane_oaa:OnDestroy()
+function modifier_eul_hurricane_oaa:OnDestroy()
   if not IsServer() then
     return
   end

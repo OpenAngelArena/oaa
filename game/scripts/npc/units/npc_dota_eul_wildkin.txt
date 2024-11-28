@@ -1,15 +1,14 @@
 "DOTAUnits"
 {
-  "npc_dota_aeolus_tornado"
+  "npc_dota_eul_wildkin"
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_base_additive"  // Class of entity of link to.
-    //"Model"                                               "models/items/windrunner/windrunner_arcana/windranger_arcana_fx_model_tornado_sml.vmdl"
-    "Model"                                               "models/development/invisiblebox.vmdl"
+    "BaseClass"                                           "npc_dota_shadowshaman_serpentward"  // Class of entity of link to.
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
     "SoundSet"                                            "Creep_Good_Melee"
     "Level"                                               "50"
-    "ModelScale"                                          "0.5"
+    "ModelScale"                                          "0.8"
     "IsAncient"                                           "1"
     "CanBeDominated"                                      "0"
     "IgnoreAddSummonedToSelection"                        "1"
@@ -41,12 +40,12 @@
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
-    "HealthBarOffset"                                     "140"
+    "HealthBarOffset"                                     "230"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "522"      // Speed.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"      // Speed.
 
     // Status
     //----------------------------------------------------------------
@@ -68,8 +67,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "300"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "300"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "400"    // Range of vision at night time.
 
     "ImmuneToOmnislash"                                   "1"
     "UntargetableByExorcismSpirits"                       "1"

@@ -1,43 +1,43 @@
-LinkLuaModifier("modifier_aeolus_wind_shield_passive", "abilities/aeolus/aeolus_wind_shield.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_wind_shield_passive", "abilities/eul/eul_wind_shield.lua", LUA_MODIFIER_MOTION_NONE)
 
-aeolus_wind_shield = class({})
+eul_wind_shield_oaa = class(AbilityBaseClass)
 
-function aeolus_wind_shield:GetAOERadius()
+function eul_wind_shield_oaa:GetAOERadius()
   return self:GetSpecialValueFor("evasion_range_check")
 end
 
-function aeolus_wind_shield:GetIntrinsicModifierName()
-	return "modifier_aeolus_wind_shield_passive"
+function eul_wind_shield_oaa:GetIntrinsicModifierName()
+	return "modifier_eul_wind_shield_passive"
 end
 
-function aeolus_wind_shield:OnSpellStart()
+function eul_wind_shield_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_aeolus_wind_shield_passive = class({})
+modifier_eul_wind_shield_passive = class(ModifierBaseClass)
 
-function modifier_aeolus_wind_shield_passive:IsHidden()
+function modifier_eul_wind_shield_passive:IsHidden()
   return true
 end
 
-function modifier_aeolus_wind_shield_passive:IsDebuff()
+function modifier_eul_wind_shield_passive:IsDebuff()
   return false
 end
 
-function modifier_aeolus_wind_shield_passive:IsPurgable()
+function modifier_eul_wind_shield_passive:IsPurgable()
   return false
 end
 
-function modifier_aeolus_wind_shield_passive:DeclareFunctions()
-    return {
-      MODIFIER_PROPERTY_EVASION_CONSTANT,
-    }
+function modifier_eul_wind_shield_passive:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_EVASION_CONSTANT,
+  }
 end
 
-function modifier_aeolus_wind_shield_passive:GetModifierEvasion_Constant(params)
+function modifier_eul_wind_shield_passive:GetModifierEvasion_Constant(params)
   if not IsServer() then
     return
   end

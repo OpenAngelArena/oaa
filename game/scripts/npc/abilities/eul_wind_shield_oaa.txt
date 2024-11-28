@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Aeolus: Wind Shield (E)
+  // Eul: Wind Shield (E)
   //=================================================================================================================
-  "aeolus_wind_shield"
+  "eul_wind_shield_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/aeolus/aeolus_wind_shield.lua"
-    "AbilityTextureName"                                  "custom/aeolus_wind_shield"
+    "ScriptFile"                                          "abilities/eul/eul_wind_shield.lua"
+    "AbilityTextureName"                                  "custom/eul_wind_shield"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "IsBreakable"                                         "1"
@@ -35,6 +35,24 @@
       "evasion_range_check"
       {
         "value"                                           "250"
+      }
+      "all_damage_block"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_tornado_barrier"         "=110 =180 =250 =320 =640 =960"
+        "RequiresFacet"                                   "eul_tornado_barrier"
+      }
+      "attack_projectile_deflect"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=1"
+        "RequiresFacet"                                   "eul_ventus"
+      }
+      "attack_projectile_deflect_aura_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=250"
+        "RequiresFacet"                                   "eul_ventus"
       }
     }
   }

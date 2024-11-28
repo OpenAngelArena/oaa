@@ -1,9 +1,9 @@
 "DOTAUnits" //or DOTAHeroes
 {
   //=================================================================================================================
-  // HERO: Aeolus
+  // HERO: Eul
   //=================================================================================================================
-  "npc_dota_hero_aeolus"
+  "npc_dota_hero_eul"
   {
     "BaseClass"                                           "npc_dota_hero_kez"
     "HeroID"                                              "132"
@@ -40,13 +40,13 @@
     "AttributeBaseIntelligence"                           "15"
     "AttributeIntelligenceGain"                           "2.0"
 
-    "Ability1"                                            "aeolus_hurricane"
-    "Ability2"                                            "aeolus_tornado_collector"
-    "Ability3"                                            "aeolus_wind_shield"
+    "Ability1"                                            "eul_hurricane_oaa"
+    "Ability2"                                            "eul_tornado_collector_oaa"
+    "Ability3"                                            "eul_wind_shield_oaa"
     "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "aeolus_typhoon"
-    "Ability7"                                            "aeolus_tempest"
+    "Ability6"                                            "eul_typhoon_oaa"
+    "Ability7"                                            "eul_innate_oaa"
     "Ability8"                                            "generic_hidden"
     "Ability9"                                            "generic_hidden"
 
@@ -65,6 +65,28 @@
     "Ability18"                                           "generic_hidden"
     "Ability19"                                           "generic_hidden"
 
+    "Facets" // Icons: nuke, barrier, mana, damage
+    {
+      "eul_tornado_barrier"
+      {
+        "Icon"                                            "barrier"
+        "Color"                                           ""
+        "GradientID"                                      ""
+      }
+      "eul_ventus"
+      {
+        "Icon"                                            ""
+        "Color"                                           ""
+        "GradientID"                                      ""
+      }
+      "eul_displacement"
+      {
+        "Icon"                                            ""
+        "Color"                                           ""
+        "GradientID"                                      ""
+      }
+    }
+
     "AbilityTalentStart"                                  "10"
 
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
@@ -75,9 +97,9 @@
 
     "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
 
-    "GameSoundsFile"                                      "soundevents/units/game_sounds_aeolus.vsndevts"
-    "SoundSet"                                            "Aeolus"
+    "GameSoundsFile"                                      "soundevents/units/game_sounds_eul.vsndevts"
+    "SoundSet"                                            "Eul"
     "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_kez.vsndevts"
-    "HeroSelectSoundEffect"                               "Aeolus.Pick"
+    "HeroSelectSoundEffect"                               "Eul.Pick"
   }
 }

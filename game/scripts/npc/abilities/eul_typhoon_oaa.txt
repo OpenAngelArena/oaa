@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Aeolus: Typhoon (R)
+  // Eul: Typhoon (R)
   //=================================================================================================================
-  "aeolus_typhoon"
+  "eul_typhoon_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/aeolus/aeolus_typhoon.lua"
-    "AbilityTextureName"                                  "custom/aeolus_typhoon"
+    "ScriptFile"                                          "abilities/eul/eul_typhoon.lua"
+    "AbilityTextureName"                                  "custom/eul_typhoon"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

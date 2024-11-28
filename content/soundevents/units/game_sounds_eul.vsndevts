@@ -1,6 +1,6 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-  Aeolus.PreAttack = {
+  Eul.PreAttack = {
     type = "dota_src1_3d"
     volume = 1.000000
     pitch_rand_min = -0.050000
@@ -23,7 +23,7 @@
     vsnd_duration = 0.443447
   }
 
-  Aeolus.Attack = {
+  Eul.Attack = {
     type = "dota_update_default"
     volume = 1.000000
     pitch_rand_min = -0.050000
@@ -33,7 +33,7 @@
     mixgroup = "BaseAttacks"
     spread_radius = 150.000000
     distance_max = 2500.000000
-    soundevent_layer2 = "Aeolus.Attack.Impact"
+    soundevent_layer2 = "Eul.Attack.Impact"
     soundevent_layer2_on = 1.000000
     soundevent_layer3 = "Damage_Melee.Gore"
     soundevent_layer3_on = 1.000000
@@ -45,7 +45,7 @@
     ]
   }
 
-  Aeolus.Attack.Impact = {
+  Eul.Attack.Impact = {
     type = "dota_update_default"
     volume = 0.500000
     pitch_rand_min = -0.050000
@@ -63,7 +63,7 @@
     ]
   }
 
-  Aeolus.Footsteps =
+  Eul.Footsteps =
   {
     type = "dota_src1_3d_footsteps"
     volume_rand_min = -0.099976
@@ -88,7 +88,7 @@
     vsnd_duration = 0.453787
   }
 
-  Aeolus.Pick =
+  Eul.Pick =
   {
     type = "dota_update_default"
     volume = 0.599609
@@ -108,7 +108,7 @@
     ]
   }
 
-  Aeolus.SummonTornado =
+  Eul.SummonTornado =
   {
     type = "dota_src1_3d"
     volume = 1.000000
@@ -120,7 +120,7 @@
     vsnd_duration = 2.534240
   }
 
-  Aeolus.Tornado =
+  Eul.Tornado =
   {
     type = "dota_update_default"
     volume = 0.250000

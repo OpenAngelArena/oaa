@@ -861,7 +861,7 @@ function ChangeHeroImage (container, hero) {
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix
   const shortHeroName = container.heroname;
-  if (shortHeroName === 'sohei' || shortHeroName === 'electrician' || shortHeroName === 'aeolus') {
+  if (shortHeroName === 'sohei' || shortHeroName === 'electrician' || shortHeroName === 'eul') {
     // re-add prefix
     container.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + shortHeroName + '.png")';
     container.style.backgroundSize = '100% 100%';

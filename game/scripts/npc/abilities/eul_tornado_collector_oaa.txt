@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Aeolus: Tornado Collector (W)
+  // Eul: Tornado Collector (W)
   //=================================================================================================================
-  "aeolus_tornado_collector"
+  "eul_tornado_collector_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/aeolus/aeolus_tornado_collector.lua"
-    "AbilityTextureName"                                  "custom/aeolus_tornado_collector"
+    "ScriptFile"                                          "abilities/eul/eul_tornado_collector.lua"
+    "AbilityTextureName"                                  "custom/eul_tornado_collector"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -25,7 +25,6 @@
 
     "AbilityCastPoint"                                    "0.0"
 
-    "AbilityCooldown"                                     "0.25"
     "AbilityManaCost"                                     "0"
     "AbilityProcsMagicStick"                              "0"
 
@@ -33,6 +32,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "displacement"
+      {
+        "AbilityCooldown"                                 "0.25"
+        "special_bonus_facet_eul_displacement"            "=12 =11 =10 =9 =7 =5"
+      }
       "tornado_dps"
       {
         "value"                                           "10 10 10 10 20 25"
@@ -65,13 +69,30 @@
         "affected_by_aoe_increase"                        "1"
       }
       "leash_range"                                       "2000"
+      "displacement"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=1"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+      "displacement_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =840"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+      "displacement_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=300"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "eul_displacement"
+      }
     }
 
     "precache"
     {
-      //"particle"                                          "particles/neutral_fx/tornado_ambient.vpcf"
-      "particle"                                          "particles/hero/aeolus/aeolus_tornado_ambient.vpcf"
-      //"model"                                             "models/items/windrunner/windrunner_arcana/windranger_arcana_fx_model_tornado_sml.vmdl"
+      "particle"                                          "particles/hero/eul/eul_tornado_ambient.vpcf"
     }
   }
 }

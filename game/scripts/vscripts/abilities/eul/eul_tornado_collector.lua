@@ -1,16 +1,16 @@
-LinkLuaModifier("modifier_aeolus_tornado_collector_passive", "abilities/aeolus/aeolus_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_aeolus_tornado_passive", "abilities/aeolus/aeolus_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_aeolus_tornado_hidden", "abilities/aeolus/aeolus_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_tornado_collector_passive", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_tornado_passive", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_tornado_hidden", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
 
-aeolus_tornado_collector = class({})
+eul_tornado_collector_oaa = class(AbilityBaseClass)
 
-function aeolus_tornado_collector:GetIntrinsicModifierName()
-  return "modifier_aeolus_tornado_collector_passive"
+function eul_tornado_collector_oaa:GetIntrinsicModifierName()
+  return "modifier_eul_tornado_collector_passive"
 end
 
-function aeolus_tornado_collector:CastFilterResult()
+function eul_tornado_collector_oaa:CastFilterResult()
   local caster = self:GetCaster()
-  local tornados = caster:GetModifierStackCount("modifier_aeolus_tornado_collector_passive", caster)
+  local tornados = caster:GetModifierStackCount("modifier_eul_tornado_collector_passive", caster)
   if tornados <= 0 then
     return UF_FAIL_CUSTOM
   end
@@ -18,13 +18,13 @@ function aeolus_tornado_collector:CastFilterResult()
   return UF_SUCCESS
 end
 
-function aeolus_tornado_collector:GetCustomCastError()
+function eul_tornado_collector_oaa:GetCustomCastError()
   return "No Tornados To Consume"
 end
 
-function aeolus_tornado_collector:OnSpellStart()
+function eul_tornado_collector_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local summon_mod = caster:FindModifierByName("modifier_aeolus_tornado_collector_passive")
+  local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
 
   local tornados = summon_mod.tornados
   if #tornados <= 0 then
@@ -36,7 +36,7 @@ function aeolus_tornado_collector:OnSpellStart()
     return
   end
 
-  local tornado_passive = first_tornado:FindModifierByName("modifier_aeolus_tornado_passive")
+  local tornado_passive = first_tornado:FindModifierByName("modifier_eul_tornado_passive")
   if not tornado_passive then
     return
   end
@@ -44,7 +44,7 @@ function aeolus_tornado_collector:OnSpellStart()
   tornado_passive:Destroy()
 end
 
-function aeolus_tornado_collector:TornadoHeal()
+function eul_tornado_collector_oaa:TornadoHeal()
   if not IsServer() then
     return
   end
@@ -70,25 +70,25 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_aeolus_tornado_collector_passive = class({})
+modifier_eul_tornado_collector_passive = class(ModifierBaseClass)
 
-function modifier_aeolus_tornado_collector_passive:IsHidden()
+function modifier_eul_tornado_collector_passive:IsHidden()
   return false
 end
 
-function modifier_aeolus_tornado_collector_passive:IsDebuff()
+function modifier_eul_tornado_collector_passive:IsDebuff()
   return false
 end
 
-function modifier_aeolus_tornado_collector_passive:IsPurgable()
+function modifier_eul_tornado_collector_passive:IsPurgable()
   return false
 end
 
-function modifier_aeolus_tornado_collector_passive:RemoveOnDeath()
+function modifier_eul_tornado_collector_passive:RemoveOnDeath()
   return false
 end
 
-function modifier_aeolus_tornado_collector_passive:OnCreated()
+function modifier_eul_tornado_collector_passive:OnCreated()
   self.tornados = {}
   self.pool = {}
 
@@ -105,7 +105,7 @@ function modifier_aeolus_tornado_collector_passive:OnCreated()
   end
 end
 
-function modifier_aeolus_tornado_collector_passive:OnRefresh()
+function modifier_eul_tornado_collector_passive:OnRefresh()
   local ability = self:GetAbility()
   if not ability or ability:IsNull() then
     return
@@ -118,7 +118,7 @@ function modifier_aeolus_tornado_collector_passive:OnRefresh()
   end
 end
 
-function modifier_aeolus_tornado_collector_passive:OnIntervalThink()
+function modifier_eul_tornado_collector_passive:OnIntervalThink()
   self:SpawnTornado()
 
   if self:GetParent():HasShardOAA() then
@@ -126,7 +126,7 @@ function modifier_aeolus_tornado_collector_passive:OnIntervalThink()
   end
 end
 
-function modifier_aeolus_tornado_collector_passive:SpawnTornado()
+function modifier_eul_tornado_collector_passive:SpawnTornado()
   local parent = self:GetParent()
 
   -- Stop thinking while dead
@@ -151,19 +151,19 @@ function modifier_aeolus_tornado_collector_passive:SpawnTornado()
     ability:TornadoHeal()
     -- Find the first tornado and refresh its duration
     tornado = self.tornados[1]
-    tornado:AddNewModifier(parent, ability, "modifier_aeolus_tornado_passive", {duration = tornado_duration})
+    tornado:AddNewModifier(parent, ability, "modifier_eul_tornado_passive", {duration = tornado_duration})
   else
     -- if less than the max
     -- check if there is one in the pool
     if #self.pool <= 0 then
       -- if there is none create
-      tornado = CreateUnitByName("npc_dota_aeolus_tornado", position, true, parent, parent:GetOwner(), parent:GetTeam())
+      tornado = CreateUnitByName("npc_dota_eul_tornado", position, true, parent, parent:GetOwner(), parent:GetTeam())
       FindClearSpaceForUnit(tornado, position, true)
       tornado:SetOwner(parent)
     else
       -- if there is one use that
       tornado  = table.remove(self.pool, 1)
-      local pool_mod = tornado:FindModifierByName("modifier_aeolus_tornado_hidden")
+      local pool_mod = tornado:FindModifierByName("modifier_eul_tornado_hidden")
       if pool_mod then
         pool_mod:Destroy()
       end
@@ -172,7 +172,7 @@ function modifier_aeolus_tornado_collector_passive:SpawnTornado()
       FindClearSpaceForUnit(tornado, position, true)
     end
 
-    tornado:AddNewModifier(parent, ability, "modifier_aeolus_tornado_passive", {duration = tornado_duration})
+    tornado:AddNewModifier(parent, ability, "modifier_eul_tornado_passive", {duration = tornado_duration})
 
     table.insert(self.tornados, tornado)
   end
@@ -180,7 +180,7 @@ function modifier_aeolus_tornado_collector_passive:SpawnTornado()
   self:SetStackCount(#self.tornados)
 end
 
-function modifier_aeolus_tornado_collector_passive:DeclareFunctions()
+function modifier_eul_tornado_collector_passive:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_EVENT_ON_RESPAWN
@@ -188,7 +188,7 @@ function modifier_aeolus_tornado_collector_passive:DeclareFunctions()
 end
 
 if IsServer() then
-  function modifier_aeolus_tornado_collector_passive:OnDeath(event)
+  function modifier_eul_tornado_collector_passive:OnDeath(event)
     local parent = self:GetParent()
     local killer = event.attacker
     local dead = event.unit
@@ -209,7 +209,7 @@ if IsServer() then
     if dead == parent then
       for i = 1, #self.tornados do
         local tornado = self.tornados[i]
-        tornado:AddNewModifier(parent, self:GetAbility(), "modifier_aeolus_tornado_hidden", {})
+        tornado:AddNewModifier(parent, self:GetAbility(), "modifier_eul_tornado_hidden", {})
         table.insert(self.pool, tornado)
       end
       self.tornados = {}
@@ -217,7 +217,7 @@ if IsServer() then
     end
   end
 
-  function modifier_aeolus_tornado_collector_passive:OnRespawn(event)
+  function modifier_eul_tornado_collector_passive:OnRespawn(event)
     if event.unit ~= self:GetParent() then return end
 
     -- Start thinking again
@@ -226,14 +226,14 @@ if IsServer() then
 end
 
 -- Called when tornado expires, heals the owner and hides it
-function modifier_aeolus_tornado_collector_passive:PoolTornado(tornado)
+function modifier_eul_tornado_collector_passive:PoolTornado(tornado)
   local ability = self:GetAbility()
   for i = 1, #self.tornados do
     if self.tornados[i] == tornado then
 
       table.remove(self.tornados, i)
 
-      tornado:AddNewModifier(self:GetCaster(), ability, "modifier_aeolus_tornado_hidden", {})
+      tornado:AddNewModifier(self:GetCaster(), ability, "modifier_eul_tornado_hidden", {})
 
       table.insert(self.pool, tornado)
 
@@ -247,35 +247,36 @@ function modifier_aeolus_tornado_collector_passive:PoolTornado(tornado)
 end
 
 -- This should not happen in most situations
-function modifier_aeolus_tornado_collector_passive:OnDestroy()
+function modifier_eul_tornado_collector_passive:OnDestroy()
   if not IsServer() then
     return
   end
 
+  -- Destroy the hidden pooled tornados
   for _, tornado in pairs(self.pool) do
     if tornado and not tornado:IsNull() then
-      tornado:ForceKillOAA(tornado)
+      tornado:ForceKillOAA(false)
     end
   end
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_aeolus_tornado_hidden = class({})
+modifier_eul_tornado_hidden = class(ModifierBaseClass)
 
-function modifier_aeolus_tornado_hidden:IsHidden()
+function modifier_eul_tornado_hidden:IsHidden()
   return true
 end
 
-function modifier_aeolus_tornado_hidden:IsDebuff()
+function modifier_eul_tornado_hidden:IsDebuff()
   return false
 end
 
-function modifier_aeolus_tornado_hidden:IsPurgable()
+function modifier_eul_tornado_hidden:IsPurgable()
   return false
 end
 
-function modifier_aeolus_tornado_hidden:CheckState()
+function modifier_eul_tornado_hidden:CheckState()
   return {
     [MODIFIER_STATE_DISARMED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
@@ -295,14 +296,14 @@ function modifier_aeolus_tornado_hidden:CheckState()
   }
 end
 
-function modifier_aeolus_tornado_hidden:OnCreated()
+function modifier_eul_tornado_hidden:OnCreated()
   if not IsServer() then
     return
   end
   self:GetParent():AddNoDraw()
 end
 
-function modifier_aeolus_tornado_hidden:OnDestroy()
+function modifier_eul_tornado_hidden:OnDestroy()
   if not IsServer() then
     return
   end
@@ -311,32 +312,33 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_aeolus_tornado_passive = class({})
+modifier_eul_tornado_passive = class(ModifierBaseClass)
 
-function modifier_aeolus_tornado_passive:IsHidden()
+function modifier_eul_tornado_passive:IsHidden()
   return true
 end
 
-function modifier_aeolus_tornado_passive:IsDebuff()
+function modifier_eul_tornado_passive:IsDebuff()
   return false
 end
 
-function modifier_aeolus_tornado_passive:IsPurgable()
+function modifier_eul_tornado_passive:IsPurgable()
   return false
 end
 
-function modifier_aeolus_tornado_passive:OnCreated()
+function modifier_eul_tornado_passive:OnCreated()
   if not IsServer() then return end
 
   self:RandomizeBehavior()
 
   self.damage_counter = 0
   self.think_interval = 0.2
+  self.damage_interval = 1
 
   self:StartIntervalThink(self.think_interval)
 end
 
-function modifier_aeolus_tornado_passive:CheckState()
+function modifier_eul_tornado_passive:CheckState()
   return {
     [MODIFIER_STATE_DISARMED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
@@ -355,7 +357,7 @@ function modifier_aeolus_tornado_passive:CheckState()
   }
 end
 
-function modifier_aeolus_tornado_passive:RandomizeBehavior()
+function modifier_eul_tornado_passive:RandomizeBehavior()
   local origin = Vector(0, 0, 0)
   local random_angle = QAngle(0, RandomInt(0, 360), 0)
   local length = self:GetAbility():GetSpecialValueFor("wander_radius")
@@ -364,7 +366,7 @@ function modifier_aeolus_tornado_passive:RandomizeBehavior()
   self.wander_counter = 0
 end
 
-function modifier_aeolus_tornado_passive:OnIntervalThink()
+function modifier_eul_tornado_passive:OnIntervalThink()
   local caster = self:GetCaster()
   local tornado = self:GetParent()
   local ability = self:GetAbility()
@@ -390,12 +392,12 @@ function modifier_aeolus_tornado_passive:OnIntervalThink()
   local diff = caster:GetAbsOrigin() - tornado:GetAbsOrigin()
   local length = diff:Length2D()
 
-  -- Leash the tornados if caster wanders too far (e.g. blinks)
+  -- Leash the tornados to the caster if caster wanders too far (e.g. blinks)
   if length >= leash then
     FindClearSpaceForUnit(tornado, caster:GetAbsOrigin(), true)
   end
 
-  if self.damage_counter >= 1 / self.think_interval then
+  if self.damage_counter >= self.damage_interval / self.think_interval then
     local radius = ability:GetSpecialValueFor("tornado_damage_radius")
     local dps = ability:GetSpecialValueFor("tornado_dps")
 
@@ -435,26 +437,35 @@ function modifier_aeolus_tornado_passive:OnIntervalThink()
   self.damage_counter = self.damage_counter + 1
 end
 
-function modifier_aeolus_tornado_passive:OnDestroy()
+function modifier_eul_tornado_passive:OnDestroy()
   if not IsServer() then
     return
   end
 
-  if self.part then
-    ParticleManager:DestroyParticle(self.part, false)
-    ParticleManager:ReleaseParticleIndex(self.part)
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    -- This happens when owner of the tornados does not exist anymore
+    -- For example when you change heroes with -switchhero command owning hero gets removed/deleted from the game
+    local parent = self:GetParent()
+    if not parent or parent:IsNull() then
+      return
+    end
+    -- PoolTornado cannot be called without caster so we hide the tornado manually and destroy it after a delay
+    parent:AddNewModifier(parent, self:GetAbility(), "modifier_eul_tornado_hidden", {})
+    parent:ForceKillOAA(false)
+    return
   end
 
-  local summon_mod = self:GetCaster():FindModifierByName("modifier_aeolus_tornado_collector_passive")
+  local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
   if summon_mod then
     summon_mod:PoolTornado(self:GetParent())
   end
 end
 
-function modifier_aeolus_tornado_passive:GetEffectName()
-  return "particles/hero/aeolus/aeolus_tornado_ambient.vpcf" --"particles/neutral_fx/tornado_ambient.vpcf"
+function modifier_eul_tornado_passive:GetEffectName()
+  return "particles/hero/eul/eul_tornado_ambient.vpcf" --"particles/neutral_fx/tornado_ambient.vpcf"
 end
 
-function modifier_aeolus_tornado_passive:GetEffectAttachType()
+function modifier_eul_tornado_passive:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
