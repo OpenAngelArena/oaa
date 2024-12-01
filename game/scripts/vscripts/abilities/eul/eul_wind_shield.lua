@@ -31,9 +31,19 @@ function modifier_eul_wind_shield_passive:IsPurgable()
   return false
 end
 
+function modifier_eul_wind_shield_passive:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.move_speed = ability:GetSpecialValueFor("bonus_move_speed")
+  end
+end
+
+modifier_eul_wind_shield_passive.OnRefresh = modifier_eul_wind_shield_passive.OnCreated
+
 function modifier_eul_wind_shield_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_EVASION_CONSTANT,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
 end
 
@@ -68,3 +78,9 @@ function modifier_eul_wind_shield_passive:GetModifierEvasion_Constant(params)
 
   return 0
 end
+
+function modifier_eul_wind_shield_passive:GetModifierMoveSpeedBonus_Percentage()
+  return self.move_speed or 4
+end
+
+---------------------------------------------------------------------------------------------------

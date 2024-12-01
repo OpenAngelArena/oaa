@@ -33,9 +33,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "displacement"
+      "AbilityCooldown"
       {
-        "AbilityCooldown"                                 "0.25"
+        "value"                                           "0.25"
         "special_bonus_facet_eul_displacement"            "=12 =11 =10 =9 =7 =5"
       }
       "tornado_dps"
@@ -44,7 +44,7 @@
       }
       "max_tornados"
       {
-        "value"                                           "3 5 7 9 10 11"
+        "value"                                           "2 4 6 8 10 12"
       }
       "heal_per_tornado"
       {
@@ -82,7 +82,7 @@
         "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =840"
         "RequiresFacet"                                   "eul_displacement"
       }
-      "displacement_radius"
+      "displacement_range"
       {
         "value"                                           "0"
         "special_bonus_facet_eul_displacement"            "=300"

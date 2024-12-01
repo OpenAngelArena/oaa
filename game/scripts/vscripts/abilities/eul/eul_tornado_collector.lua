@@ -42,6 +42,50 @@ function eul_tornado_collector_oaa:OnSpellStart()
   end
 
   tornado_passive:Destroy()
+
+  -- Displacement
+  local displacement = self:GetSpecialValueFor("displacement") == 1
+  if displacement then
+    local displacement_range = self:GetSpecialValueFor("displacement_range")
+    local displacement_dmg = self:GetSpecialValueFor("displacement_damage")
+
+    local origin = caster:GetAbsOrigin()
+    local destination = origin + RandomVector(displacement_range)
+
+    -- Blink
+    FindClearSpaceForUnit(caster, destination, true)
+
+    -- Disjoint disjointable/dodgeable projectiles
+    ProjectileManager:ProjectileDodge(caster)
+
+    local enemies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      destination,
+      nil,
+      displacement_range,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local damage_table = {
+      attacker = caster,
+      damage = displacement_dmg,
+      damage_type = self:GetAbilityDamageType(),
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self,
+    }
+
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        -- Apply damage
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+      end
+    end
+  end
 end
 
 function eul_tornado_collector_oaa:TornadoHeal()
@@ -92,17 +136,7 @@ function modifier_eul_tornado_collector_passive:OnCreated()
   self.tornados = {}
   self.pool = {}
 
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return
-  end
-
-  self.interval = ability:GetSpecialValueFor("spawn_interval")
-
-  if IsServer() then
-    --self:OnIntervalThink() -- uncomment if you want a tornado to spawn immediately
-    self:StartIntervalThink(self.interval)
-  end
+  self:OnRefresh()
 end
 
 function modifier_eul_tornado_collector_passive:OnRefresh()
@@ -114,6 +148,7 @@ function modifier_eul_tornado_collector_passive:OnRefresh()
   self.interval = ability:GetSpecialValueFor("spawn_interval")
 
   if IsServer() then
+    --self:OnIntervalThink() -- uncomment if you want a tornado to spawn immediately
     self:StartIntervalThink(self.interval)
   end
 end
@@ -149,31 +184,35 @@ function modifier_eul_tornado_collector_passive:SpawnTornado()
   if #self.tornados >= max_tornados then
     -- Heal
     ability:TornadoHeal()
-    -- Find the first tornado and refresh its duration
-    tornado = self.tornados[1]
-    tornado:AddNewModifier(parent, ability, "modifier_eul_tornado_passive", {duration = tornado_duration})
+    -- Remove the first tornado temporarily, it will be readded at the end of the table
+    tornado = table.remove(self.tornados, 1) -- self.tornados[1]
   else
     -- if less than the max
     -- check if there is one in the pool
     if #self.pool <= 0 then
-      -- if there is none create
+      -- if there is none then create a completely new one
       tornado = CreateUnitByName("npc_dota_eul_tornado", position, true, parent, parent:GetOwner(), parent:GetTeam())
-      FindClearSpaceForUnit(tornado, position, true)
       tornado:SetOwner(parent)
     else
-      -- if there is one use that
-      tornado  = table.remove(self.pool, 1)
+      -- if there is one in the pool then use that one
+      tornado = table.remove(self.pool, 1)
+      -- Find the pool modifier and remove it -> this reveals the tornado
       local pool_mod = tornado:FindModifierByName("modifier_eul_tornado_hidden")
       if pool_mod then
         pool_mod:Destroy()
       end
-
-      -- "Spawn" on top of parent
-      FindClearSpaceForUnit(tornado, position, true)
     end
 
+    -- Spawn/Move on top of parent
+    FindClearSpaceForUnit(tornado, position, true)
+  end
+
+  if tornado then
+    -- if we are at max, it will refresh the first tornado duration
+    -- otherwise it's setting the duration of the tornado
     tornado:AddNewModifier(parent, ability, "modifier_eul_tornado_passive", {duration = tornado_duration})
 
+    -- Store the tornado into a table
     table.insert(self.tornados, tornado)
   end
 
