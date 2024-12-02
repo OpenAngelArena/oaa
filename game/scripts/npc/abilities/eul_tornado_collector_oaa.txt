@@ -2,7 +2,6 @@
 {
   //=================================================================================================================
   // Eul: Tornado Collector (W)
-  // TODO: Fix Rubick Spell Steal interaction and tornados healing on respawn
   //=================================================================================================================
   "eul_tornado_collector_oaa"
   {
@@ -17,6 +16,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

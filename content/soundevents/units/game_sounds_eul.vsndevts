@@ -135,4 +135,22 @@
     vsnd_files = "sounds/weapons/creep/neutral/wildkin_tornado_loop.vsnd"
     vsnd_duration = 4.864172
   }
+
+  Eul.WindControl =
+  {
+    type = "dota_update_default"
+    volume = 0.699707
+    pitch_rand_min = -0.050000
+    pitch_rand_max = 0.050000
+    pitch = 1.000000
+    soundlevel = 81.000000
+    mixgroup = "Weapons"
+    volume_fade_out = 0.750000
+    spread_radius = 150.000000
+    vsnd_files =
+    [
+      "sounds/weapons/hero/windrunner/windrun.vsnd",
+    ]
+    vsnd_duration = 7.000567
+  }
 }

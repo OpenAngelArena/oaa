@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Eul: Wind Shield (E)
+  // Eul: Wind Control (E)
   //=================================================================================================================
   "eul_wind_shield_oaa"
   {
@@ -11,6 +11,7 @@
     "ScriptFile"                                          "abilities/eul/eul_wind_shield.lua"
     "AbilityTextureName"                                  "custom/eul_wind_shield"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "IsBreakable"                                         "1"
 
@@ -21,13 +22,14 @@
     "AbilityCastPoint"                                    "0.0"
 
     "AbilityCooldown"                                     "15"
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      // Passive
       "evasion"
       {
         "value"                                           "20 30 40 50 60 70"
@@ -36,9 +38,18 @@
       {
         "value"                                           "250"
       }
-      "bonus_move_speed"
+      "passive_move_speed"
       {
         "value"                                           "4 8 12 16 20 24"
+      }
+      // Active
+      "active_move_speed"
+      {
+        "value"                                           "20 30 40 50 60"
+      }
+      "active_attack_speed"
+      {
+        "value"                                           "20 30 40 50 60"
       }
       "all_damage_block"
       {
@@ -52,12 +63,30 @@
         "special_bonus_facet_eul_ventus"                  "=1"
         "RequiresFacet"                                   "eul_ventus"
       }
-      "attack_projectile_deflect_aura_radius"
+      "deflect_aura_radius"
       {
         "value"                                           "0"
         "special_bonus_facet_eul_ventus"                  "=250"
+        "affected_by_aoe_increase"                        "1"
         "RequiresFacet"                                   "eul_ventus"
       }
+      "deflect_buffer_range"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "deflected_projectile_speed_pct"                    "50"
+      "deflected_projectile_vision"                       "250"
+      "active_duration"
+      {
+        "value"                                           "7"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+      "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun_slow.vpcf"
     }
   }
 }

@@ -112,6 +112,11 @@ function eul_tornado_collector_oaa:TornadoHeal()
   caster:EmitSound("n_creep_ForestTrollHighPriest.Heal")
 end
 
+function eul_tornado_collector_oaa:OnUnStolen()
+  local caster = self:GetCaster()
+  caster:RemoveModifierByName(self:GetIntrinsicModifierName())
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_eul_tornado_collector_passive = class(ModifierBaseClass)
@@ -167,6 +172,11 @@ function modifier_eul_tornado_collector_passive:SpawnTornado()
   -- Stop thinking while dead
   if not parent:IsAlive() then
     self:StartIntervalThink(-1)
+    return
+  end
+
+  -- Check if affected by break
+  if parent:PassivesDisabled() then
     return
   end
 
@@ -239,7 +249,8 @@ if IsServer() then
 
     -- Spawn a tornado from kills
     if killer == parent then
-      if parent:IsAlive() then
+      -- Spawn only if killer is alive and not affected by break
+      if parent:IsAlive() and not parent:PassivesDisabled() then
         self:SpawnTornado()
       end
     end

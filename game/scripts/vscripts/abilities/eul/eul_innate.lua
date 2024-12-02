@@ -27,12 +27,7 @@ function modifier_eul_innate_oaa:RemoveOnDeath()
 end
 
 function modifier_eul_innate_oaa:OnCreated()
-  -- local ability = self:GetAbility()
-  -- if ability and not ability:IsNull() then
-    -- self.dmg = ability:GetSpecialValueFor("")
-  -- else
-    -- self.dmg = 0
-  -- end
+
 end
 
 modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
@@ -45,7 +40,6 @@ end
 
 if IsServer() then
   function modifier_eul_innate_oaa:OnAbilityExecuted(event)
-    local parent = self:GetParent()
     local cast_ability = event.ability
     local target = event.target
     local caster = event.unit
@@ -54,11 +48,8 @@ if IsServer() then
       return
     end
 
-    if parent ~= caster then
-      return
-    end
-
-    local hurricane = parent:FindAbilityByName("eul_hurricane_oaa")
+    -- Find Hurricane ability (it can be on the Rubick or Morphling too and they don't have this innate)
+    local hurricane = caster:FindAbilityByName("eul_hurricane_oaa")
     if not hurricane then
       return
     end
@@ -69,12 +60,12 @@ if IsServer() then
     end
 
     -- Check if target is on the enemy team
-    if target:GetTeamNumber() == parent:GetTeamNumber() then
+    if target:GetTeamNumber() == caster:GetTeamNumber() then
       return
     end
 
     -- Applying the debuff tracker
-    target:AddNewModifier(parent, hurricane, "modifier_eul_hurricane_oaa", {})
+    target:AddNewModifier(caster, hurricane, "modifier_eul_hurricane_oaa", {})
   end
 end
 
@@ -110,9 +101,8 @@ function modifier_eul_hurricane_oaa:OnIntervalThink()
   end
 
   local parent = self:GetParent()
-  local ability = self:GetAbility()
   local caster = self:GetCaster()
-  if not parent or parent:IsNull() or not ability or ability:IsNull() or not caster or caster:IsNull() then
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
@@ -140,13 +130,20 @@ function modifier_eul_hurricane_oaa:OnDestroy()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   local caster = self:GetCaster()
-  if not parent or parent:IsNull() or not ability or ability:IsNull() or not caster or caster:IsNull() then
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
     return
   end
 
   -- Check if parent is dead
   if not parent:IsAlive() then
     return
+  end
+
+  if not ability or ability:IsNull() then
+    ability = caster:FindAbilityByName("eul_hurricane_oaa")
+    if not ability then
+      return -- sorry Rubick and Morphling
+    end
   end
 
   local damage = ability:GetSpecialValueFor("damage")
@@ -162,8 +159,11 @@ function modifier_eul_hurricane_oaa:OnDestroy()
   ApplyDamage(damage_table)
 
   -- Try to stop sound loops
-  caster:StopSound("n_creep_Wildkin.Tornado")
+  local sound_name = "n_creep_Wildkin.Tornado"
+  caster:StopSound(sound_name)
+  StopSoundOn(sound_name, caster)
   if parent and not parent:IsNull() then
-    parent:StopSound("n_creep_Wildkin.Tornado")
+    parent:StopSound(sound_name)
+    StopSoundOn(sound_name, parent)
   end
 end
