@@ -14,7 +14,7 @@
 
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementTurnRate"                                    "0.9"
-    "MovementSpeed"                                       "300"
+    "MovementSpeed"                                       "285"
 
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "35"
@@ -65,25 +65,25 @@
     "Ability18"                                           "generic_hidden"
     "Ability19"                                           "generic_hidden"
 
-    "Facets" // Icons: nuke, barrier, mana, damage
+    "Facets" // Icons: barrier, agility, teleport, spinning, ricochet
     {
       "eul_tornado_barrier"
       {
         "Icon"                                            "barrier"
-        "Color"                                           ""
-        "GradientID"                                      ""
+        "Color"                                           "Gray"
+        "GradientID"                                      "0"
       }
       "eul_ventus"
       {
-        "Icon"                                            ""
-        "Color"                                           ""
-        "GradientID"                                      ""
+        "Icon"                                            "ricochet"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
       }
       "eul_displacement"
       {
-        "Icon"                                            ""
-        "Color"                                           ""
-        "GradientID"                                      ""
+        "Icon"                                            "teleport"
+        "Color"                                           "Yellow"
+        "GradientID"                                      "0"
       }
     }
 

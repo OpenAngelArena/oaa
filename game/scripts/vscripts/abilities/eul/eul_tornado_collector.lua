@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_eul_tornado_collector_passive", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eul_tornado_collector_passive", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE) -- needs tooltip
 LinkLuaModifier("modifier_eul_tornado_passive", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eul_tornado_hidden", "abilities/eul/eul_tornado_collector.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -10,38 +10,44 @@ end
 
 function eul_tornado_collector_oaa:CastFilterResult()
   local caster = self:GetCaster()
+  -- Check for tornados
   local tornados = caster:GetModifierStackCount("modifier_eul_tornado_collector_passive", caster)
   if tornados <= 0 then
-    return UF_FAIL_CUSTOM
+    -- Check for Displacement
+    local displacement = self:GetSpecialValueFor("displacement") == 1
+    if not displacement then
+      return UF_FAIL_CUSTOM
+    end
   end
 
   return UF_SUCCESS
 end
 
 function eul_tornado_collector_oaa:GetCustomCastError()
-  return "No Tornados To Consume"
+  return "#oaa_hud_error_eul_no_tornados" -- No Tornados To Consume
+end
+
+function eul_tornado_collector_oaa:GetBehavior()
+  -- Check for Displacement
+  local displacement = self:GetSpecialValueFor("displacement") == 1
+  if displacement then
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+  end
+
+  return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+end
+
+function eul_tornado_collector_oaa:GetCooldown(level)
+  local cd = self.BaseClass.GetCooldown(self, level)
+  -- Check for Displacement
+  local displacement = self:GetSpecialValueFor("displacement") == 1
+  if displacement then
+    return self:GetSpecialValueFor("displacement_cooldown")
+  end
 end
 
 function eul_tornado_collector_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
-
-  local tornados = summon_mod.tornados
-  if #tornados <= 0 then
-    return
-  end
-
-  local first_tornado = tornados[1]
-  if not first_tornado or first_tornado:IsNull() then
-    return
-  end
-
-  local tornado_passive = first_tornado:FindModifierByName("modifier_eul_tornado_passive")
-  if not tornado_passive then
-    return
-  end
-
-  tornado_passive:Destroy()
 
   -- Displacement
   local displacement = self:GetSpecialValueFor("displacement") == 1
@@ -86,6 +92,25 @@ function eul_tornado_collector_oaa:OnSpellStart()
       end
     end
   end
+
+  local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
+
+  local tornados = summon_mod.tornados
+  if #tornados <= 0 then
+    return
+  end
+
+  local first_tornado = tornados[1]
+  if not first_tornado or first_tornado:IsNull() then
+    return
+  end
+
+  local tornado_passive = first_tornado:FindModifierByName("modifier_eul_tornado_passive")
+  if not tornado_passive then
+    return
+  end
+
+  tornado_passive:Destroy()
 end
 
 function eul_tornado_collector_oaa:TornadoHeal()

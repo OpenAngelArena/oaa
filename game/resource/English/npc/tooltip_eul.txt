@@ -1,0 +1,74 @@
+"npc_dota_hero_eul"                                                             "Eul"
+"npc_dota_hero_eul_hype"                                                        "The Aeolus"
+
+//"DOTA_Tooltip_ability_enraged_wildkin_hurricane"                                "Hurricane"
+"DOTA_Tooltip_Ability_eul_hurricane_oaa"                                        "#{DOTA_Tooltip_ability_enraged_wildkin_hurricane}"
+"DOTA_Tooltip_Ability_eul_hurricane_oaa_Description"                            "Creates a hurricane that can push any unit in the direction of Eul's choice. Deals damages if it's an enemy unit."
+"DOTA_Tooltip_Ability_eul_hurricane_oaa_Lore"                                   "Wildwing Rippers think Eul is only a spirit of the wind."
+//"DOTA_Tooltip_ability_enraged_wildkin_hurricane_distance"                       "DISTANCE PUSHED:"
+"DOTA_Tooltip_Ability_eul_hurricane_oaa_distance"                               "#{DOTA_Tooltip_ability_enraged_wildkin_hurricane_distance}"
+"DOTA_Tooltip_Ability_eul_hurricane_oaa_damage"                                 "DAMAGE:"
+
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa"                                "Tornado Collector"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Description"                    "Eul spawns a small tornado every time he kills something and every %spawn_interval% seconds. Spawned tornados automatically patrol around Eul and damage enemies they touch. Eul can activate this ability to consume a tornado to heal himself. Tornados are auto-consumed when they expire or when maximum number of tornados is reached."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Facet_eul_displacement"         "Blinks Eul into a random direction while damaging nearby enemies."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Lore"                           "Fine additions to Eul's immense collection."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_tornado_dps"                    "SINGLE TORNADO DPS:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_max_tornados"                   "MAX TORNADOS:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_heal_per_tornado"               "HEAL PER TORNADO:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_tornado_damage_radius"          "SINGLE TORNADO RADIUS:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_spawn_interval"                 "SPAWN INTERVAL:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_tornado_duration"               "SINGLE TORNADO DURATION:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_wander_radius"                  "TORNADO FOLLOW RANGE:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_displacement_damage"            "DISPLACE DAMAGE:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_displacement_range"             "DISPLACE RANGE:"
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_displacement_cooldown"          "DISPLACE COOLDOWN:"
+
+"oaa_hud_error_eul_no_tornados"                                                 "No Tornados To Consume"
+
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa"                                      "Wind Control"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Description"                          "Grants bonus move speed and attack speed for the duration. Passively grants evasion against ranged attackers that are not within %evasion_range_check% radius of Eul."
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_tornado_barrier"            "Grants an all damage barrier."
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_ventus"                     "Re-directs all attack projectiles aimed at Eul and his allies towards the closest enemy. Redirected attack projectiles are slowed. Redirected target search range is determined by attacker's attack range."
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Lore"                                 "Quick as the wind!"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_evasion"                              "%EVASION"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_passive_move_speed"                   "%PASSIVE MOVE SPEED:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_move_speed"                    "%ACTIVE MOVE SPEED:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_attack_speed"                  "ACTIVE ATTACK SPEED:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_all_damage_block"                     "BARRIER HEALTH"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_aura_radius"                  "ACTIVE REDIRECT RANGE:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflected_projectile_speed_pct"       "%REDIRECTED PROJECTILE SPEED:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_duration"                      "ACTIVE DURATION:"
+
+"DOTA_Tooltip_Ability_eul_typhoon_oaa"                                          "Typhoon"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_Description"                              ""
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_Lore"                                     "Boreas, Zephyrus, Eurus and Notus serve Eul the Aeolus, the God of all winds."
+
+// innate
+"DOTA_Tooltip_ability_eul_innate_oaa"                                           "Tempest"
+"DOTA_Tooltip_ability_eul_innate_oaa_Description"                               "Eul will stay on the battlefield even after death as a Tornado that slows and deals damage based on his attack damage."
+"DOTA_Tooltip_ability_eul_innate_oaa_Lore"                                      "The Tornado's overpowering winds slow, fling debris and inflict damage. Enemies closer to the center of the Tornado take more damage."
+
+// modifiers
+//"DOTA_Tooltip_modifier_enraged_wildkin_hurricane"                               "Hurricaned"
+//"DOTA_Tooltip_modifier_enraged_wildkin_hurricane_Description"                   "Being pushed by a hurricane."
+
+"DOTA_Tooltip_modifier_eul_tornado_collector_passive"                           "#{DOTA_Tooltip_Ability_eul_tornado_collector_oaa}"
+"DOTA_Tooltip_modifier_eul_tornado_collector_passive_Description"               "Number of active Tornados."
+
+"DOTA_Tooltip_modifier_eul_wind_shield_active"                                  "#{DOTA_Tooltip_Ability_eul_wind_shield_oaa}"
+"DOTA_Tooltip_modifier_eul_wind_shield_active_Description"                      "Bonus move speed and attack speed."
+
+"DOTA_Tooltip_modifier_eul_wind_shield_ventus_ally"                             "Ventus"
+"DOTA_Tooltip_modifier_eul_wind_shield_ventus_ally_Description"                 "Eul is redirecting incoming attack projectiles towards enemies."
+
+// talents
+
+
+// facets
+"DOTA_Tooltip_facet_eul_tornado_barrier"                                        "Tornado Barrier"
+"DOTA_Tooltip_facet_eul_tornado_barrier_Description"                            "Wind Control active creates an all damage barrier."
+"DOTA_Tooltip_facet_eul_ventus"                                                 "Ventus"
+"DOTA_Tooltip_facet_eul_ventus_Description"                                     "Wind Control active re-directs all attack projectiles aimed at Eul and his allies towards the closest enemy. Redirected attack projectiles are slowed."
+"DOTA_Tooltip_facet_eul_displacement"                                           "Displacement"
+"DOTA_Tooltip_facet_eul_displacement_Description"                               "Tornado Collector causes Eul to vanish and reappear at another nearby location, damaging all nearby enemies."
