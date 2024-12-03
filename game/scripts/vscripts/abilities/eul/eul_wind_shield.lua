@@ -208,7 +208,7 @@ function modifier_eul_wind_shield_active:GetEffectName()
 end
 
 function modifier_eul_wind_shield_active:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_CENTER_FOLLOW --PATTACH_ABSORIGIN_FOLLOW
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -327,6 +327,7 @@ function modifier_eul_wind_shield_ventus:OnCreated()
   end
 
   if IsServer() then
+    -- Start thinking
     self:StartIntervalThink(0)
   end
 end
@@ -404,7 +405,7 @@ end
 -- So attack deflection is anti-synergystic with Evasion and Miss chance but it counters True Strike and Accuracy
 if IsServer() then
   function modifier_eul_wind_shield_ventus:OnAttackLanded(event)
-		local parent = self:GetParent()
+    local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
@@ -503,7 +504,10 @@ if IsServer() then
 
     -- Deflect the attack projectile to nearest enemy
     ProjectileManager:CreateTrackingProjectile(info)
-	end
+
+    -- Deflect sound
+    target:EmitSound("Eul.VentusProjectile")
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -522,6 +526,22 @@ function modifier_eul_wind_shield_ventus_ally:IsPurgable() -- it's an aura buff 
   return true
 end
 
+function modifier_eul_wind_shield_ventus_ally:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+     -- Particle
+    self.part = ParticleManager:CreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_shackleshot_bolo_tornado_swirl.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.part, 4, parent, PATTACH_ROOTBONE_FOLLOW, "attach_origin", Vector(0, 0, 0), false)
+  end
+end
+
+function modifier_eul_wind_shield_ventus_ally:OnDestroy()
+  if self.part then
+    ParticleManager:DestroyParticle(self.part, true)
+    ParticleManager:ReleaseParticleIndex(self.part)
+  end
+end
+
 function modifier_eul_wind_shield_ventus_ally:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_AVOID_DAMAGE,
@@ -534,12 +554,4 @@ function modifier_eul_wind_shield_ventus_ally:GetModifierAvoidDamage(event)
   end
 
   return 0
-end
-
-function modifier_eul_wind_shield_ventus_ally:GetEffectName()
-  return "particles/units/heroes/hero_windrunner/windrunner_windrun_slow.vpcf"
-end
-
-function modifier_eul_wind_shield_ventus_ally:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
 end

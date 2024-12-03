@@ -153,4 +153,22 @@
     ]
     vsnd_duration = 7.000567
   }
+
+  Eul.VentusProjectile =
+  {
+    type = "dota_update_default"
+    volume = 1.000000
+    pitch = 1.000000
+    pitch_rand_min = -0.100000
+    pitch_rand_max = 0.100000
+    soundlevel = 75.000000
+    use_entity_position = 0.000000
+    mixgroup = "Physics"
+    delay = 0.150000
+    vsnd_files =
+    [
+      "sounds/misc/hot_potato/hot_pot_projectile.vsnd",
+    ]
+    vsnd_duration = 0.247500
+  }
 }
