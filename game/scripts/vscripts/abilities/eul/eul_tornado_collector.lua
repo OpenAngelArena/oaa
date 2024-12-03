@@ -56,7 +56,41 @@ function eul_tornado_collector_oaa:OnSpellStart()
     local displacement_dmg = self:GetSpecialValueFor("displacement_damage")
 
     local origin = caster:GetAbsOrigin()
+    local team = caster:GetTeamNumber()
     local destination = origin + RandomVector(displacement_range)
+
+    -- Parts of damage table that are the same
+    local damage_table = {
+      attacker = caster,
+      damage = displacement_dmg,
+      damage_type = self:GetAbilityDamageType(),
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self,
+    }
+
+    -- Enemies around current caster location
+    local enemies1 = FindUnitsInRadius(
+      team,
+      origin,
+      nil,
+      displacement_range,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local damaged_already = {}
+    for _, enemy in pairs(enemies1) do
+      if enemy and not enemy:IsNull() then
+        -- Mark the enemy as damaged (before actual damage in case enemy dies from the damage)
+        damaged_already[enemy:GetEntityIndex()] = true
+        -- Apply damage
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+      end
+    end
 
     -- Blink
     FindClearSpaceForUnit(caster, destination, true)
@@ -64,8 +98,9 @@ function eul_tornado_collector_oaa:OnSpellStart()
     -- Disjoint disjointable/dodgeable projectiles
     ProjectileManager:ProjectileDodge(caster)
 
-    local enemies = FindUnitsInRadius(
-      caster:GetTeamNumber(),
+    -- Enemies around blink destination
+    local enemies2 = FindUnitsInRadius(
+      team,
       destination,
       nil,
       displacement_range,
@@ -76,19 +111,13 @@ function eul_tornado_collector_oaa:OnSpellStart()
       false
     )
 
-    local damage_table = {
-      attacker = caster,
-      damage = displacement_dmg,
-      damage_type = self:GetAbilityDamageType(),
-      damage_flags = DOTA_DAMAGE_FLAG_NONE,
-      ability = self,
-    }
-
-    for _, enemy in pairs(enemies) do
+    for _, enemy in pairs(enemies2) do
       if enemy and not enemy:IsNull() then
-        -- Apply damage
-        damage_table.victim = enemy
-        ApplyDamage(damage_table)
+        if not damaged_already[enemy:GetEntityIndex()] then
+          -- Apply damage only if not damaged earlier
+          damage_table.victim = enemy
+          ApplyDamage(damage_table)
+        end
       end
     end
   end

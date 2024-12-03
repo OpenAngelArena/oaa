@@ -1,5 +1,7 @@
 "npc_dota_hero_eul"                                                             "Eul"
 "npc_dota_hero_eul_hype"                                                        "The Aeolus"
+"npc_dota_eul_tornado"                                                          "Tornado Dummy"
+"npc_dota_eul_wildkin"                                                          "Minor Wind God"
 
 //"DOTA_Tooltip_ability_enraged_wildkin_hurricane"                                "Hurricane"
 "DOTA_Tooltip_Ability_eul_hurricane_oaa"                                        "#{DOTA_Tooltip_ability_enraged_wildkin_hurricane}"
@@ -10,9 +12,11 @@
 "DOTA_Tooltip_Ability_eul_hurricane_oaa_damage"                                 "DAMAGE:"
 
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa"                                "Tornado Collector"
-"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Description"                    "Eul spawns a small tornado every time he kills something and every %spawn_interval% seconds. Spawned tornados automatically patrol around Eul and damage enemies they touch. Eul can activate this ability to consume a tornado to heal himself. Tornados are auto-consumed when they expire or when maximum number of tornados is reached."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Description"                    "Eul spawns a small tornado every %spawn_interval% seconds and every time he kills something. Spawned tornados automatically patrol around Eul and damage enemies they touch. Eul can activate this ability to consume a tornado to heal himself. Tornados are auto-consumed when they expire or when maximum number of tornados is reached."
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Facet_eul_displacement"         "Blinks Eul into a random direction while damaging nearby enemies."
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Lore"                           "Fine additions to Eul's immense collection."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Note0"                          "Break disables the spawning of new tornados."
+"DOTA_Tooltip_Ability_eul_tornado_collector_oaa_Note1"                          "Break does not remove the existing tornados and does not prevent the heal from consumed tornados."
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa_tornado_dps"                    "SINGLE TORNADO DPS:"
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa_max_tornados"                   "MAX TORNADOS:"
 "DOTA_Tooltip_Ability_eul_tornado_collector_oaa_heal_per_tornado"               "HEAL PER TORNADO:"

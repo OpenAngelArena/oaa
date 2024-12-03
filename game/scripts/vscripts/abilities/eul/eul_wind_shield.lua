@@ -548,6 +548,7 @@ function modifier_eul_wind_shield_ventus_ally:DeclareFunctions()
   }
 end
 
+-- Bug: Attack modifiers (debuffs on attack) are still applied
 function modifier_eul_wind_shield_ventus_ally:GetModifierAvoidDamage(event)
   if event.ranged_attack == true and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
     return 1

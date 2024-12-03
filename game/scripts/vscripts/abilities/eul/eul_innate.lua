@@ -3,8 +3,55 @@ LinkLuaModifier("modifier_eul_hurricane_oaa", "abilities/eul/eul_innate.lua", LU
 
 eul_innate_oaa = class(AbilityBaseClass)
 
+function eul_innate_oaa:Spawn()
+  if IsServer() then
+    if FilterManager then
+      FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterOrders"))
+    end
+  end
+end
+
 function eul_innate_oaa:GetIntrinsicModifierName()
   return "modifier_eul_innate_oaa"
+end
+
+function eul_innate_oaa:FilterOrders(keys)
+  local order = keys.order_type
+  local units = keys.units
+  local playerID = keys.issuer_player_id_const
+
+  local unit_with_order
+  if units and units["0"] then
+    unit_with_order = EntIndexToHScript(units["0"])
+  end
+  local ability_index = keys.entindex_ability
+  local ability
+  if ability_index then
+    ability = EntIndexToHScript(ability_index)
+  end
+  local target_index = keys.entindex_target
+  local target
+  if target_index then
+    target = EntIndexToHScript(target_index)
+  end
+
+  if order == DOTA_UNIT_ORDER_CAST_TARGET then
+    -- Check if needed variables exist
+    if unit_with_order and ability and target then
+      -- Get ability name
+      local ability_name = ability:GetAbilityName()
+      -- Prevent targetting if certain conditions are fulfilled
+      if target:GetTeamNumber() ~= unit_with_order:GetTeamNumber() and ability_name == "eul_hurricane_oaa" then
+        -- Simulate Spell Block (and Spell Reflection)
+        if target:TriggerSpellAbsorb(ability) then
+          ability:UseResources(true, false, false, true)
+          return false
+        end
+      end
+    end
+  end
+
+  return true
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -158,7 +205,7 @@ function modifier_eul_hurricane_oaa:OnDestroy()
 
   ApplyDamage(damage_table)
 
-  -- Try to stop sound loops
+  -- Try to stop sound loops (does not work, it stops sounds only if the spell is reflected)
   local sound_name = "n_creep_Wildkin.Tornado"
   caster:StopSound(sound_name)
   StopSoundOn(sound_name, caster)
