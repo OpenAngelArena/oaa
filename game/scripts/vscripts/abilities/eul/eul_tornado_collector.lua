@@ -246,6 +246,13 @@ function modifier_eul_tornado_collector_passive:SpawnTornado()
     return
   end
 
+  -- Ignore illusions
+  if parent:IsIllusion() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
   -- Check if affected by break
   if parent:PassivesDisabled() then
     return
@@ -587,6 +594,15 @@ function modifier_eul_tornado_passive:OnDestroy()
   local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
   if summon_mod then
     summon_mod:PoolTornado(self:GetParent())
+  else
+    -- Rubick and Morphling interactions
+    local parent = self:GetParent()
+    if not parent or parent:IsNull() then
+      return
+    end
+    -- PoolTornado cannot be called because the caster doesn't have the summon_mod
+    parent:AddNewModifier(parent, nil, "modifier_eul_tornado_hidden", {})
+    parent:ForceKillOAA(false)
   end
 end
 
