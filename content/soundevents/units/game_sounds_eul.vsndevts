@@ -88,6 +88,25 @@
     vsnd_duration = 0.453787
   }
 
+  Eul.Death =
+  {
+    type = "dota_src1_3d"
+    volume = 0.399902
+    pitch = 1.000000
+    pitch_rand_min = -0.050000
+    pitch_rand_max = 0.050000
+    soundlevel = 75.000000
+    distance_max = 2000.000000
+    event_type = 4.000000
+    vsnd_files =
+    [
+      "sounds/misc/creep_deaths/death_wildkin_01.vsnd",
+      "sounds/misc/creep_deaths/death_wildkin_02.vsnd",
+      "sounds/misc/creep_deaths/death_wildkin_03.vsnd",
+    ]
+    vsnd_duration = 0.706667
+  }
+
   Eul.Pick =
   {
     type = "dota_update_default"
@@ -170,5 +189,22 @@
       "sounds/misc/hot_potato/hot_pot_projectile.vsnd",
     ]
     vsnd_duration = 0.247500
+  }
+
+  Eul.TyphoonCast =
+  {
+    type = "dota_update_default"
+    volume = 1.000000
+    pitch_rand_min = -0.050000
+    pitch_rand_max = 0.050000
+    pitch = 1.000000
+    soundlevel = 81.000000
+    mixgroup = "Weapons"
+    spread_radius = 900.000000
+    vsnd_files =
+    [
+      "sounds/weapons/hero/windrunner/enc/gale_force.vsnd",
+    ]
+    vsnd_duration = 6.689932
   }
 }

@@ -525,7 +525,7 @@ function modifier_eul_tornado_passive:OnIntervalThink()
 
     local damage_table = {
       attacker = caster,
-      damage = dps,
+      damage = dps * self.damage_interval,
       damage_type = ability:GetAbilityDamageType(),
       damage_flags = DOTA_DAMAGE_FLAG_NONE,
       ability = ability,
@@ -539,6 +539,7 @@ function modifier_eul_tornado_passive:OnIntervalThink()
       end
     end
 
+    -- Reset the damage counter
     self.damage_counter = 0
   end
 

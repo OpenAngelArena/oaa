@@ -10,6 +10,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/eul/eul_typhoon.lua"
     "AbilityTextureName"                                  "custom/eul_typhoon"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -20,6 +21,8 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
@@ -53,7 +56,11 @@
       }
       "max_dps"
       {
-        "value"                                           "100 200 300 600 900"
+        "value"                                           "100 150 200 350 500"
+      }
+      "min_dps"
+      {
+        "value"                                           "60 80 100 160 220"
       }
       "max_effect_radius"
       {
@@ -64,6 +71,9 @@
     "precache"
     {
       "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun_slow.vpcf"
+      "particle"                                          "particles/hero/eul/eul_typhoon.vpcf"
+      "particle"                                          "particles/items_fx/cyclone_b.vpcf"
+      "model"                                             "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"
     }
   }
 }

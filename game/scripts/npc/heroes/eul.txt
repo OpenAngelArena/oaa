@@ -50,10 +50,10 @@
     "Ability8"                                            "generic_hidden"
     "Ability9"                                            "generic_hidden"
 
-    "Ability10"                                           "special_bonus_strength_10"
-    "Ability11"                                           "special_bonus_hp_100"
+    "Ability10"                                           "special_bonus_attack_damage_30"
+    "Ability11"                                           "special_bonus_armor_5"
 
-    "Ability12"                                           "special_bonus_hp_125"
+    "Ability12"                                           "special_bonus_hp_300"
     "Ability13"                                           "special_bonus_hp_150"
 
     "Ability14"                                           "special_bonus_hp_175"
@@ -101,5 +101,7 @@
     "SoundSet"                                            "Eul"
     "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_kez.vsndevts"
     "HeroSelectSoundEffect"                               "Eul.Pick"
+    "LoadoutScale"                                        "1.10"
+    "HeroGlowColor"                                       "154 97 133"
   }
 }

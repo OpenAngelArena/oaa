@@ -4,10 +4,10 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_shadowshaman_serpentward"  // Class of entity of link to.
     "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
-    "SoundSet"                                            "Creep_Good_Melee"
-    "Level"                                               "50"
+    "BaseClass"                                           "npc_dota_creature"  // Class of entity of link to.
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "1"
     "ModelScale"                                          "0.8"
     "IsAncient"                                           "1"
     "CanBeDominated"                                      "0"
@@ -27,7 +27,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "0"      // Damage range min.
     "AttackDamageMax"                                     "0"      // Damage range max.
     "AttackRate"                                          "1.0"    // Speed of attack.
@@ -40,12 +40,12 @@
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
-    "HealthBarOffset"                                     "230"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
     "MovementSpeed"                                       "0"      // Speed.
+    "MovementTurnRate"                                    "1"
 
     // Status
     //----------------------------------------------------------------
@@ -63,7 +63,7 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------

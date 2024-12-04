@@ -45,8 +45,15 @@
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_duration"                      "ACTIVE DURATION:"
 
 "DOTA_Tooltip_Ability_eul_typhoon_oaa"                                          "Typhoon"
-"DOTA_Tooltip_Ability_eul_typhoon_oaa_Description"                              ""
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_Description"                              "Summons a Typhoon that damages and slows enemies. The closer an enemy is to the center of the Typhoon, the higher the damage and slow becomes. Enemies who are within %max_effect_radius% range of the center are affected by the maximum slow and take maximum damage per second."
 "DOTA_Tooltip_Ability_eul_typhoon_oaa_Lore"                                     "Boreas, Zephyrus, Eurus and Notus serve Eul the Aeolus, the God of all winds."
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_radius"                                   "TYPHOON RADIUS:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_duration"                                 "TYPHOON DURATION:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_max_move_slow"                            "%MAX MOVE SLOW:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_min_move_slow"                            "%MIN MOVE SLOW:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_max_dps"                                  "MAX DPS:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_min_dps"                                  "MIN DPS:"
+"DOTA_Tooltip_Ability_eul_typhoon_oaa_max_effect_radius"                        "MAX EFFECT RADIUS:"
 
 // innate
 "DOTA_Tooltip_ability_eul_innate_oaa"                                           "Tempest"
@@ -66,12 +73,15 @@
 "DOTA_Tooltip_modifier_eul_wind_shield_ventus_ally"                             "Ventus"
 "DOTA_Tooltip_modifier_eul_wind_shield_ventus_ally_Description"                 "Eul is redirecting incoming attack projectiles towards enemies."
 
+"DOTA_Tooltip_modifier_eul_typhoon_oaa_debuff"                                  "#{DOTA_Tooltip_Ability_eul_typhoon_oaa}"
+"DOTA_Tooltip_modifier_eul_typhoon_oaa_debuff_Description"                      "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and taking damage per second."
+
 // talents
 
 
 // facets
 "DOTA_Tooltip_facet_eul_tornado_barrier"                                        "Tornado Barrier"
-"DOTA_Tooltip_facet_eul_tornado_barrier_Description"                            "Wind Control active creates an all damage barrier."
+"DOTA_Tooltip_facet_eul_tornado_barrier_Description"                            "Wind Control active grants an all damage barrier."
 "DOTA_Tooltip_facet_eul_ventus"                                                 "Ventus"
 "DOTA_Tooltip_facet_eul_ventus_Description"                                     "Wind Control active re-directs all attack projectiles aimed at Eul and his allies towards the closest enemy. Redirected attack projectiles are slowed."
 "DOTA_Tooltip_facet_eul_displacement"                                           "Displacement"

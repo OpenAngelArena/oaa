@@ -45,6 +45,7 @@ g_ItemPrecache = {
 g_UnitPrecache = {
   "dota_fountain",
   "npc_dota_demon_stone_demon",
+  "npc_dota_eul_wildkin",
   "npc_dota_monkey_clone_oaa",
   "npc_dota_tinkerer_keen_node",
   --"npc_dota_visage_familiar", -- should be precached together with Visage
