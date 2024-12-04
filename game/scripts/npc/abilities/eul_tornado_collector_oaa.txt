@@ -41,6 +41,7 @@
       "max_tornados"
       {
         "value"                                           "2 4 6 8 10 12"
+        "special_bonus_shard"                             "+2"
       }
       "heal_per_tornado"
       {
@@ -96,6 +97,7 @@
     "precache"
     {
       "particle"                                          "particles/hero/eul/eul_tornado_ambient.vpcf"
+      "particle"                                          "particles/neutral_fx/wildkin_ripper_hurricane_cast.vpcf"
     }
   }
 }

@@ -21,7 +21,6 @@
 
     "AbilityCastPoint"                                    "0.0"
 
-    "AbilityCooldown"                                     "15"
     "AbilityManaCost"                                     "80"
     "AbilityProcsMagicStick"                              "1"
 
@@ -29,6 +28,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "15"
+        "special_bonus_unique_eul_3_oaa"                  "-4"
+      }
       // Passive
       "evasion"
       {
@@ -54,7 +58,7 @@
       "all_damage_block"
       {
         "value"                                           "0"
-        "special_bonus_facet_eul_tornado_barrier"         "=110 =180 =250 =320 =640 =960"
+        "special_bonus_facet_eul_tornado_barrier"         "=100 =170 =240 =310 =620 =930"
         "RequiresFacet"                                   "eul_tornado_barrier"
       }
       "attack_projectile_deflect"

@@ -444,12 +444,17 @@ if IsServer() then
     end
 
     local target_location = target:GetAbsOrigin()
-    local parent_location = parent:GetAbsOrigin()
-    local aura_radius = self.aura_radius
-    local distance = (target_location - parent_location):Length2D()
+    --local parent_location = parent:GetAbsOrigin()
+    --local aura_radius = self.aura_radius
+    --local distance = (target_location - parent_location):Length2D()
 
     -- Check distance to the parent
-    if distance > aura_radius then
+    --if distance > aura_radius then
+      --return
+    --end
+
+    -- Check if attacked target has the aura buff that parent provides
+    if not target:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", parent) then
       return
     end
 

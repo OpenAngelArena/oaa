@@ -43,7 +43,7 @@ function eul_typhoon_oaa:OnSpellStart()
   -- Destroy trees
   GridNav:DestroyTreesAroundPoint(cursor, effect_radius, true)
 
-  -- Create wind gods
+  -- Create wind gods (used mostly for visual purposes and a little bit of vision)
   for _, pos in pairs(positions) do
     local wg = CreateUnitByName("npc_dota_eul_wildkin", pos, false, caster, owner, team) -- use npc_dota_neutral_wildkin if it becomes buggy again
     wg:AddNewModifier(caster, self, "modifier_eul_typhoon_oaa_wind_god", {duration = effect_duration})
@@ -56,6 +56,61 @@ function eul_typhoon_oaa:OnSpellStart()
 
   -- Cast Sound
   thinker:EmitSound("Eul.TyphoonCast")
+
+  -- Check for 'Apply Wind Control To Allies'
+  local apply_wind_control = self:GetSpecialValueFor("apply_wind_control") == 1
+  if not apply_wind_control then
+    return
+  end
+
+  local wind_control = caster:FindAbilityByName("eul_wind_shield_oaa")
+  if not wind_control then
+    return -- sorry Rubick
+  end
+
+  -- Check if it's learned
+  if wind_control:GetLevel() <= 0 then
+    return
+  end
+
+  local allies = FindUnitsInRadius(
+    team,
+    cursor,
+    nil,
+    effect_radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  -- Get Wind Control duration
+  local wind_control_duration = wind_control:GetSpecialValueFor("active_duration")
+
+  -- Check for Tornado Barrier
+  local shield = wind_control:GetSpecialValueFor("all_damage_block") > 0
+
+  -- Check for Ventus Deflect
+  local deflect = wind_control:GetSpecialValueFor("attack_projectile_deflect") == 1
+
+  -- Apply the Ventus primary buff to the caster because he is actually deflecting
+  -- Applying this buff to every ally is overkill
+  if deflect then
+    caster:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_ventus", {duration = wind_control_duration})
+  end
+
+  for _, ally in pairs(allies) do
+    if ally and not ally:IsNull() then
+      ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_active", {duration = wind_control_duration})
+      if shield then
+        ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_tornado_barrier", {duration = wind_control_duration})
+      end
+      if deflect then
+        ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_ventus_ally", {duration = wind_control_duration})
+      end
+    end
+  end
 end
 
 ---------------------------------------------------------------------------------------------------

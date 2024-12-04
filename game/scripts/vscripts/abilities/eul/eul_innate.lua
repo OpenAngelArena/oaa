@@ -106,9 +106,21 @@ if IsServer() then
       return
     end
 
+    -- Check for dispel
+    local dispel = hurricane:GetSpecialValueFor("dispel") == 1
+
     -- Check if target is on the enemy team
     if target:GetTeamNumber() == caster:GetTeamNumber() then
+      -- Dispel allies
+      if dispel then
+        target:Purge(false, true, false, false, false)
+      end
       return
+    else
+      -- Purge enemies before the damage
+      if dispel then
+        target:Purge(true, false, false, false, false)
+      end
     end
 
     -- Applying the debuff tracker

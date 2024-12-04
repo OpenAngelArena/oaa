@@ -59,6 +59,16 @@ function eul_tornado_collector_oaa:OnSpellStart()
     local team = caster:GetTeamNumber()
     local destination = origin + RandomVector(displacement_range)
 
+    -- Sound
+    caster:EmitSound("Eul.SummonTornado")
+
+    -- Blink Out Particle
+    local part1 = ParticleManager:CreateParticle("particles/neutral_fx/wildkin_ripper_hurricane_cast.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(part1, 0, origin)
+    ParticleManager:SetParticleControl(part1, 15, Vector(255, 255, 255))
+    ParticleManager:SetParticleControl(part1, 16, Vector(0, 0, 0))
+    ParticleManager:ReleaseParticleIndex(part1)
+
     -- Parts of damage table that are the same
     local damage_table = {
       attacker = caster,
@@ -91,6 +101,13 @@ function eul_tornado_collector_oaa:OnSpellStart()
         ApplyDamage(damage_table)
       end
     end
+
+    -- Blink In Particle
+    local part2 = ParticleManager:CreateParticle("particles/neutral_fx/wildkin_ripper_hurricane_cast.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(part2, 0, destination)
+    ParticleManager:SetParticleControl(part2, 15, Vector(0, 0, 0))
+    ParticleManager:SetParticleControl(part2, 16, Vector(1000, 0, 0))
+    ParticleManager:ReleaseParticleIndex(part2)
 
     -- Blink
     FindClearSpaceForUnit(caster, destination, true)

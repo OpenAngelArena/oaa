@@ -39,6 +39,12 @@
       "damage" //OAA
       {
         "value"                                           "90 160 230 300 600 900"
+        "special_bonus_unique_eul_1_oaa"                  "+200"
+      }
+      "dispel" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_unique_eul_2_oaa"                  "=1"
       }
     }
 
