@@ -364,7 +364,6 @@ end
 function modifier_eul_typhoon_oaa_debuff:OnIntervalThink()
   local caster = self:GetAuraOwner() -- this is the thinker (nil on client?)
   local parent = self:GetParent() -- this is the affected enemy
-  local ability = self:GetAbility()
 
   if not parent or parent:IsNull() or not caster or caster:IsNull() then
     return

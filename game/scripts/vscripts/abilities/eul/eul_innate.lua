@@ -20,7 +20,7 @@ end
 function eul_innate_oaa:FilterOrders(keys)
   local order = keys.order_type
   local units = keys.units
-  local playerID = keys.issuer_player_id_const
+
 
   local unit_with_order
   if units and units["0"] then
@@ -327,14 +327,11 @@ function modifier_eul_innate_oaa_dead_tornado:CheckState()
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR_FOR_ENEMIES] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
     [MODIFIER_STATE_UNTARGETABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_FISSURE] = true,
   }
 end
 

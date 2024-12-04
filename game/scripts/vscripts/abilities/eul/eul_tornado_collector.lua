@@ -44,6 +44,8 @@ function eul_tornado_collector_oaa:GetCooldown(level)
   if displacement then
     return self:GetSpecialValueFor("displacement_cooldown")
   end
+
+  return cd
 end
 
 function eul_tornado_collector_oaa:OnSpellStart()
@@ -418,14 +420,11 @@ function modifier_eul_tornado_hidden:CheckState()
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR_FOR_ENEMIES] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
     [MODIFIER_STATE_UNTARGETABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_FISSURE] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
   }
 end
@@ -480,14 +479,11 @@ function modifier_eul_tornado_passive:CheckState()
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR_FOR_ENEMIES] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
     [MODIFIER_STATE_UNTARGETABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_FISSURE] = true,
   }
 end
 
