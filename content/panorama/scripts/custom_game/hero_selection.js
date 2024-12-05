@@ -1319,6 +1319,19 @@ function CreateHeroPanel (parent, hero) {
       pitchmin: '-10',
       pitchmax: '10'
     });
+  } else if (hero === 'npc_dota_hero_eul') {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      map: 'prefabs\\heroes\\eul',
+      particleonly: 'false',
+      renderdeferred: 'false',
+      camera: 'camera1',
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
   } else {
     scene = $.CreatePanel('DOTAScenePanel', parent, id, {
       style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
