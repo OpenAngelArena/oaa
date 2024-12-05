@@ -6,6 +6,70 @@ LinkLuaModifier("modifier_eul_wind_shield_ventus_ally", "abilities/eul/eul_wind_
 
 eul_wind_shield_oaa = class(AbilityBaseClass)
 
+function eul_wind_shield_oaa:Spawn()
+  if IsServer() then
+    if FilterManager and not self:IsStolen() then
+      FilterManager:AddFilter(FilterManager.TrackingProjectile, self, Dynamic_Wrap(self, "ProjectileFilter"))
+    end
+  end
+end
+
+-- Some notes:
+-- MODIFIER_PROPERTY_AVOID_DAMAGE blocks dmg but it doesnt block modifiers
+-- MODIFIER_PROPERTY_DODGE_PROJECTILE works for all projectiles (includes spells and items) and you can't filter stuff out
+-- MODIFIER_EVENT_ON_PROJECTILE_DODGE triggers when you dodge/disjoint with the property above, stil can't filter stuff out
+function eul_wind_shield_oaa:ProjectileFilter(keys)
+  local source_index = keys.entindex_source_const
+  local target_index = keys.entindex_target_const
+  local is_an_attack_projectile = keys.is_attack == 1    -- values: 1 for yes or 0 for no
+
+  local attacker
+  if source_index then
+    attacker = EntIndexToHScript(source_index)
+  end
+  local victim
+  if target_index then
+    victim = EntIndexToHScript(target_index)
+  end
+
+  if attacker and not attacker:IsNull() and victim and not victim:IsNull() then
+    if victim:HasModifier("modifier_eul_wind_shield_ventus_ally") and is_an_attack_projectile then
+      local caster = self:GetCaster()
+      if victim:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", caster) then
+        local ability = caster:FindAbilityByName("eul_wind_shield_oaa") -- we use FindAbilityByName on purpose instead of self because of Rubick
+        -- Create a fake attack
+        local info = {
+          EffectName = attacker:GetRangedProjectileName(),
+          Ability = ability,
+          Source = attacker,
+          vSourceLoc = attacker:GetAbsOrigin(),
+          Target = victim,
+          iMoveSpeed = keys.move_speed,
+          bDodgeable = true,
+          bProvidesVision = false,
+          --bIsAttack = false, -- if uncommented it will create an infinite loop and cause a crash
+          --bReplaceExisting = false,
+          --bIgnoreObstructions = false,
+          bDrawsOnMinimap = false,
+          bVisibleToEnemies = true,
+          ExtraData = {
+            attacker = source_index,
+            fake_attack = 1,
+          }
+        }
+
+        -- Imitates the attack we block with the filter
+        ProjectileManager:CreateTrackingProjectile(info)
+
+        -- Block the projectile before it started
+        return false
+      end
+    end
+  end
+
+  return true
+end
+
 function eul_wind_shield_oaa:GetAOERadius()
   return self:GetSpecialValueFor("evasion_range_check")
 end
@@ -43,6 +107,17 @@ function eul_wind_shield_oaa:OnProjectileHit_ExtraData(target, location, extra_d
     return
   end
 
+  -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+  -- items don't have that method -> nil; if the target is an item, don't continue
+  if target.GetUnitName == nil then
+    return
+  end
+
+  -- No need to do anything if the target is invulnerable, banished or dead
+  if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
+    return
+  end
+
   local caster = self:GetCaster()
   local attacker_index = extra_data.attacker
   local original_attacker
@@ -51,31 +126,71 @@ function eul_wind_shield_oaa:OnProjectileHit_ExtraData(target, location, extra_d
   end
 
   if not original_attacker or original_attacker:IsNull() then
-    -- Imitate an attack because original attacker doesn't exist anymore
-    local original_damage = extra_data.damage
-
-    if not original_damage then
-      return
-    end
-
-    -- Hit Sound
-    target:EmitSound("Eul.Attack.Impact")
-
-    local damage_table = {
-      attacker = caster,
-      victim = target,
-      damage = original_damage,
-      damage_type = DAMAGE_TYPE_PHYSICAL,
-      damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
-      ability = self,
-    }
-
-    ApplyDamage(damage_table)
-
     return true
   end
 
-  -- Original attacker attacks the target (it will proc everything original attacker has, attack sound etc.)
+  -- Check if attacked target has the aura buff that caster provides
+  if extra_data.fake_attack and target:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", caster) then
+    local speed_pct = self:GetSpecialValueFor("deflected_projectile_speed_pct")
+    local vision_radius = self:GetSpecialValueFor("deflected_projectile_vision")
+    local buffer_range = self:GetSpecialValueFor("deflect_buffer_range")
+
+    local search_radius = original_attacker:GetAttackRange() + buffer_range
+    local team = target:GetTeamNumber()
+    local target_location = target:GetAbsOrigin()
+
+    -- Find closest enemy
+    local enemies = FindUnitsInRadius(
+      team,
+      target_location,
+      nil,
+      search_radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+      FIND_CLOSEST,
+      false
+    )
+
+    local closest = enemies[1]
+
+    -- If not found, don't redirect/deflect
+    if closest then
+      local info = {
+        EffectName = original_attacker:GetRangedProjectileName(),
+        Ability = self,
+        Source = target,
+        vSourceLoc = target_location,
+        Target = closest,
+        iMoveSpeed = original_attacker:GetProjectileSpeed() * speed_pct * 0.01,
+        bDodgeable = true,
+        bProvidesVision = true,
+        iVisionRadius = vision_radius,
+        iVisionTeamNumber = team,
+        --bIsAttack = true,
+        --bReplaceExisting = false,
+        --bIgnoreObstructions = false,
+        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+        bDrawsOnMinimap = false,
+        bVisibleToEnemies = true,
+        ExtraData = {
+          attacker = attacker_index,
+        }
+      }
+
+      -- Deflect the attack projectile to nearest enemy
+      ProjectileManager:CreateTrackingProjectile(info)
+
+      -- Deflect sound
+      target:EmitSound("Eul.VentusProjectile")
+    end
+
+    -- End the fake attack
+    return true
+  end
+
+  -- Original attacker attacks the target without the projectile (it will proc everything original attacker has, attack sound etc.)
+  -- Bug: Mana cost is spent if attack uses an attack modifier that needs mana
   original_attacker:PerformAttack(target, true, true, true, false, false, false, false)
 
   return true
@@ -361,7 +476,7 @@ function modifier_eul_wind_shield_ventus:OnIntervalThink()
   -- Check if parent still has the primary buff
   if not parent:HasModifier("modifier_eul_wind_shield_active") then
     self:StartIntervalThink(-1)
-    self:Destroy() -- manual purge
+    self:Destroy() -- manual purge because IsPurgable does nothing for auras
   end
 end
 
@@ -385,136 +500,6 @@ function modifier_eul_wind_shield_ventus:GetAuraRadius()
   return self.aura_radius
 end
 
-function modifier_eul_wind_shield_ventus:DeclareFunctions()
-  return {
-    --MODIFIER_PROPERTY_AVOID_DAMAGE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-  }
-end
-
--- 'modifier_eul_wind_shield_ventus_ally' does this and aura always applies to caster unless specified otherwise
--- function modifier_eul_wind_shield_ventus:GetModifierAvoidDamage(event)
-  -- if event.ranged_attack == true and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
-    -- return 1
-  -- end
-
-  -- return 0
--- end
-
--- Attack deflection is basically 'damage avoid' + deflect attack projectile if it landed (evasion/miss didn't do its thing)
--- So attack deflection is anti-synergystic with Evasion and Miss chance but it counters True Strike and Accuracy
-if IsServer() then
-  function modifier_eul_wind_shield_ventus:OnAttackLanded(event)
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
-    local attacker = event.attacker
-    local target = event.target
-
-    -- Check if attacker exists
-    if not attacker or attacker:IsNull() then
-      return
-    end
-
-    -- Check if attacked entity exists
-    if not target or target:IsNull() then
-      return
-    end
-
-    -- Check if it's ranged attack, melee attacks should go through
-    if not event.ranged_attack then
-      return
-    end
-
-    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
-    -- items don't have that method -> nil; if the target is an item, don't continue
-    if target.GetUnitName == nil then
-      return
-    end
-
-    -- No need to proc if target is invulnerable, banished or dead
-    if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
-      return
-    end
-
-    local team = target:GetTeamNumber()
-
-    -- Check attacked entity team
-    if team ~= parent:GetTeamNumber() then
-      return
-    end
-
-    local target_location = target:GetAbsOrigin()
-    --local parent_location = parent:GetAbsOrigin()
-    --local aura_radius = self.aura_radius
-    --local distance = (target_location - parent_location):Length2D()
-
-    -- Check distance to the parent
-    --if distance > aura_radius then
-      --return
-    --end
-
-    -- Check if attacked target has the aura buff that parent provides
-    if not target:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", parent) then
-      return
-    end
-
-    local speed_pct = ability:GetSpecialValueFor("deflected_projectile_speed_pct")
-    local vision_radius = ability:GetSpecialValueFor("deflected_projectile_vision")
-    local buffer_range = ability:GetSpecialValueFor("deflect_buffer_range")
-
-    local search_radius = attacker:GetAttackRange() + buffer_range
-
-    -- Find closest enemy
-    local enemies = FindUnitsInRadius(
-      team,
-      target_location,
-      nil,
-      search_radius,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-      DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
-      FIND_CLOSEST,
-      false
-    )
-
-    local closest = enemies[1]
-
-    -- If not found, don't continue
-    if not closest then
-      return
-    end
-
-    local info = {
-      EffectName = attacker:GetRangedProjectileName(),
-      Ability = ability,
-      Source = target,
-      vSourceLoc = target_location,
-      Target = closest,
-      iMoveSpeed = attacker:GetProjectileSpeed() * speed_pct * 0.01,
-      bDodgeable = true,
-      bProvidesVision = true,
-      iVisionRadius = vision_radius,
-      iVisionTeamNumber = team,
-      --bIsAttack = true,
-      --bReplaceExisting = false,
-      --bIgnoreObstructions = false,
-      iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1, -- DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
-      bDrawsOnMinimap = false,
-      bVisibleToEnemies = true,
-      ExtraData = {
-        attacker = attacker:GetEntityIndex(),
-        damage = event.original_damage,
-      }
-    }
-
-    -- Deflect the attack projectile to nearest enemy
-    ProjectileManager:CreateTrackingProjectile(info)
-
-    -- Deflect sound
-    target:EmitSound("Eul.VentusProjectile")
-  end
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_eul_wind_shield_ventus_ally = class(ModifierBaseClass)
@@ -527,7 +512,7 @@ function modifier_eul_wind_shield_ventus_ally:IsDebuff()
   return false
 end
 
-function modifier_eul_wind_shield_ventus_ally:IsPurgable() -- it's an aura buff so doesn't really work
+function modifier_eul_wind_shield_ventus_ally:IsPurgable() -- it's an aura buff so doesn't really work because it gets reapplied
   return true
 end
 
@@ -545,19 +530,4 @@ function modifier_eul_wind_shield_ventus_ally:OnDestroy()
     ParticleManager:DestroyParticle(self.part, true)
     ParticleManager:ReleaseParticleIndex(self.part)
   end
-end
-
-function modifier_eul_wind_shield_ventus_ally:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_AVOID_DAMAGE,
-  }
-end
-
--- Bug: Attack modifiers (debuffs on attack) are still applied
-function modifier_eul_wind_shield_ventus_ally:GetModifierAvoidDamage(event)
-  if event.ranged_attack == true and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
-    return 1
-  end
-
-  return 0
 end

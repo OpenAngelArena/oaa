@@ -136,7 +136,7 @@ if IsServer() then
 
     local dead_loc = parent:GetAbsOrigin()
     local dead_dmg = parent:GetAverageTrueAttackDamage(parent)
-    local dead_ms = parent:GetIdealSpeed()
+    local dead_ms = parent:GetIdealSpeedNoSlows()
     local dead_id = parent:GetPlayerOwnerID() or parent:GetPlayerID()
     local ability = self:GetAbility()
     local tornado_duration = ability:GetSpecialValueFor("tornado_linger_time")

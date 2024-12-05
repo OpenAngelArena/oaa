@@ -5,7 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_eul"
   {
-    "BaseClass"                                           "npc_dota_hero_kez"
+    "BaseClass"                                           "npc_dota_hero_phoenix"
     "HeroID"                                              "132"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_a/n_creep_vulture_a.vmdl"
     "ModelScale"                                          "1.2"
@@ -99,7 +99,7 @@
 
     "GameSoundsFile"                                      "soundevents/units/game_sounds_eul.vsndevts"
     "SoundSet"                                            "Eul"
-    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_kez.vsndevts"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
     "HeroSelectSoundEffect"                               "Eul.Pick"
     "LoadoutScale"                                        "1.10"
     "HeroGlowColor"                                       "154 97 133"

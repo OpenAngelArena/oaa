@@ -16,7 +16,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -56,7 +56,7 @@
       }
       "max_dps"
       {
-        "value"                                           "100 150 200 350 500"
+        "value"                                           "100 175 250 400 550"
       }
       "min_dps"
       {
