@@ -5,55 +5,8 @@ LinkLuaModifier("modifier_eul_innate_oaa_dead_tornado_debuff", "abilities/eul/eu
 
 eul_innate_oaa = class(AbilityBaseClass)
 
-function eul_innate_oaa:Spawn()
-  if IsServer() then
-    if FilterManager then
-      FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterOrders"))
-    end
-  end
-end
-
 function eul_innate_oaa:GetIntrinsicModifierName()
   return "modifier_eul_innate_oaa"
-end
-
-function eul_innate_oaa:FilterOrders(keys)
-  local order = keys.order_type
-  local units = keys.units
-
-
-  local unit_with_order
-  if units and units["0"] then
-    unit_with_order = EntIndexToHScript(units["0"])
-  end
-  local ability_index = keys.entindex_ability
-  local ability
-  if ability_index then
-    ability = EntIndexToHScript(ability_index)
-  end
-  local target_index = keys.entindex_target
-  local target
-  if target_index then
-    target = EntIndexToHScript(target_index)
-  end
-
-  if order == DOTA_UNIT_ORDER_CAST_TARGET then
-    -- Check if needed variables exist
-    if unit_with_order and ability and target then
-      -- Get ability name
-      local ability_name = ability:GetAbilityName()
-      -- Prevent targetting if certain conditions are fulfilled
-      if target:GetTeamNumber() ~= unit_with_order:GetTeamNumber() and ability_name == "eul_hurricane_oaa" then
-        -- Simulate Spell Block (and Spell Reflection)
-        if target:TriggerSpellAbsorb(ability) then
-          ability:UseResources(true, false, false, true)
-          return false
-        end
-      end
-    end
-  end
-
-  return true
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -83,12 +36,52 @@ modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
 
 function modifier_eul_innate_oaa:DeclareFunctions()
   return {
+    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
     MODIFIER_EVENT_ON_DEATH,
   }
 end
 
 if IsServer() then
+  function modifier_eul_innate_oaa:OnAbilityFullyCast(event)
+    local cast_ability = event.ability
+    local target = event.target
+    local caster = event.unit
+
+    if not cast_ability or cast_ability:IsNull() or not target or target:IsNull() or not caster or caster:IsNull() then
+      return
+    end
+
+    -- Find Hurricane ability (it can be on the Rubick or Morphling too and they don't have this innate)
+    local hurricane = caster:FindAbilityByName("eul_hurricane_oaa")
+    if not hurricane then
+      return
+    end
+
+    -- Check if cast ability is Hurricane
+    if cast_ability:GetAbilityName() ~= hurricane:GetAbilityName() then
+      return
+    end
+
+    -- Check for dispel
+    local dispel = cast_ability:GetSpecialValueFor("dispel") == 1
+
+    -- Check if target is on the enemy team
+    if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+      if not target:TriggerSpellAbsorb(cast_ability) then
+        -- Purge enemies before the damage
+        if dispel then
+          target:Purge(true, false, false, false, false)
+        end
+        -- Applying the debuff tracker
+        target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
+      else
+        -- Remove the vanilla modifier because vanilla ability isn't blocked - thanks Valve for your consistency
+        target:RemoveModifierByNameAndCaster("modifier_enraged_wildkin_hurricane", caster)
+      end
+    end
+  end
+
   function modifier_eul_innate_oaa:OnAbilityExecuted(event)
     local cast_ability = event.ability
     local target = event.target
@@ -110,7 +103,7 @@ if IsServer() then
     end
 
     -- Check for dispel
-    local dispel = hurricane:GetSpecialValueFor("dispel") == 1
+    local dispel = cast_ability:GetSpecialValueFor("dispel") == 1
 
     -- Check if target is on the enemy team
     if target:GetTeamNumber() == caster:GetTeamNumber() then
@@ -118,16 +111,7 @@ if IsServer() then
       if dispel then
         target:Purge(false, true, false, false, false)
       end
-      return
-    else
-      -- Purge enemies before the damage
-      if dispel then
-        target:Purge(true, false, false, false, false)
-      end
     end
-
-    -- Applying the debuff tracker
-    target:AddNewModifier(caster, hurricane, "modifier_eul_hurricane_oaa", {})
   end
 
   function modifier_eul_innate_oaa:OnDeath(event)

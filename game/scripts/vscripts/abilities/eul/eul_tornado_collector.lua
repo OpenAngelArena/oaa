@@ -27,6 +27,15 @@ function eul_tornado_collector_oaa:GetCustomCastError()
   return "#oaa_hud_error_eul_no_tornados" -- No Tornados To Consume
 end
 
+function eul_tornado_collector_oaa:GetAOERadius()
+  -- Check for Displacement
+  local displacement = self:GetSpecialValueFor("displacement") == 1
+  if displacement then
+    return self:GetSpecialValueFor("displacement_range")
+  end
+  return self:GetSpecialValueFor("wander_radius") -- + self:GetSpecialValueFor("tornado_damage_radius")
+end
+
 function eul_tornado_collector_oaa:GetBehavior()
   -- Check for Displacement
   local displacement = self:GetSpecialValueFor("displacement") == 1

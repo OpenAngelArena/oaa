@@ -170,6 +170,19 @@ function modifier_eul_typhoon_oaa_thinker:OnCreated()
     local caster = self:GetCaster()
     local parent_loc = self:GetParent():GetAbsOrigin()
 
+    -- Check for 'Generate Tornados'
+    if ability then
+      local gen_tornado_interval = ability:GetSpecialValueFor("tornado_generate_interval")
+      local tornado_collector = caster:FindAbilityByName("eul_tornado_collector_oaa")
+      -- Check if interval is a positive non-zero number and if the caster has Tornado Collector ability
+      if gen_tornado_interval > 0 and tornado_collector then
+        -- Check if it's learned
+        if tornado_collector:GetLevel() >= 1 then
+          self.spawn_interval = gen_tornado_interval
+        end
+      end
+    end
+
     -- Particles
     self.part = ParticleManager:CreateParticle("particles/hero/eul/eul_typhoon.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(self.part, 0, parent_loc)
@@ -239,6 +252,7 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
     end
   end
 
+  -- Center particle (cyclone) stuff
   if self.counter == 0 or self.counter % (self.particle_interval / self.think_interval) == 0 then
     -- Release the previous cyclone particle index if it exists
     if self.part4 then
@@ -248,6 +262,23 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
     -- Create the new cyclone
     self.part4 = ParticleManager:CreateParticle("particles/items_fx/cyclone_b.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(self.part4, 0, parent_loc)
+  end
+
+  -- Check for 'Generate Tornados'
+  if self.spawn_interval then
+    local tornado_collector = caster:FindAbilityByName("eul_tornado_collector_oaa")
+      -- Check if the caster has Tornado Collector ability
+      if tornado_collector then
+        -- Check if it's learned
+        if tornado_collector:GetLevel() >= 1 then
+          if self.counter % (self.spawn_interval / self.think_interval) == 0 then
+            local summon_mod = caster:FindModifierByName("modifier_eul_tornado_collector_passive")
+            if summon_mod then
+              summon_mod:SpawnTornado()
+            end
+          end
+        end
+      end
   end
 
   self.counter = self.counter + 1

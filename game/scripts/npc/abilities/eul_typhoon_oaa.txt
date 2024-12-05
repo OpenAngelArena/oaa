@@ -65,11 +65,18 @@
       "max_effect_radius"
       {
         "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
       }
       "apply_wind_control"
       {
         "value"                                           "0"
         "special_bonus_unique_eul_4_oaa"                  "=1"
+      }
+      "tornado_generate_interval"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+        "RequiresScepter"                                 "1"
       }
     }
 
