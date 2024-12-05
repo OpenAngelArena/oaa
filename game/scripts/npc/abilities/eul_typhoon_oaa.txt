@@ -56,7 +56,7 @@
       }
       "max_dps"
       {
-        "value"                                           "100 175 250 400 550"
+        "value"                                           "100 150 200 350 500"
       }
       "min_dps"
       {
@@ -64,8 +64,7 @@
       }
       "max_effect_radius"
       {
-        "value"                                           "100"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "150"
       }
       "apply_wind_control"
       {
