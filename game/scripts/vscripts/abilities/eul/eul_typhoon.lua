@@ -306,7 +306,6 @@ function modifier_eul_typhoon_oaa_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    --parent:ForceKillOAA(false)
     parent:AddNoDraw()
   end
 end

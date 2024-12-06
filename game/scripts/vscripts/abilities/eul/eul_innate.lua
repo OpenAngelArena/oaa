@@ -28,17 +28,12 @@ function modifier_eul_innate_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_eul_innate_oaa:OnCreated()
-
-end
-
-modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
-
 function modifier_eul_innate_oaa:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-    MODIFIER_EVENT_ON_ABILITY_EXECUTED,
-    MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, spell block and spell reflect
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- needed for dispel talent
+    MODIFIER_EVENT_ON_DEATH, -- needed for Tornado spawn on death
+    MODIFIER_EVENT_ON_RESPAWN, -- needed for reselecting the main hero when it respawns
   }
 end
 
@@ -153,6 +148,32 @@ if IsServer() then
     tornado:AddNewModifier(parent, ability, "modifier_eul_innate_oaa_dead_tornado", {duration = tornado_duration, dps = tornado_dmg})
     tornado:AddNewModifier(parent, ability, "modifier_kill", {duration = tornado_duration})
     tornado:AddNewModifier(parent, ability, "modifier_generic_dead_tracker_oaa", {duration = tornado_duration + MANUAL_GARBAGE_CLEANING_TIME})
+
+    Timers:CreateTimer(1/30, function()
+      local player = PlayerResource:GetPlayer(dead_id)
+      if player then
+        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = tornado:GetEntityIndex(), entity_to_remove = parent:GetEntityIndex()})
+      end
+    end)
+  end
+
+  function modifier_eul_innate_oaa:OnRespawn(event)
+    local parent = self:GetParent()
+
+    -- Stuff that shoudln't happen if this ability is put on other heroes
+    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      return
+    end
+
+    if event.unit ~= parent then
+      return
+    end
+
+    local playerID = parent:GetPlayerOwnerID()
+    local player = PlayerResource:GetPlayer(playerID)
+    if player then
+      CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex()})
+    end
   end
 end
 
@@ -233,19 +254,17 @@ function modifier_eul_hurricane_oaa:OnDestroy()
     end
   end
 
-  local damage = ability:GetSpecialValueFor("damage")
-
   local damage_table = {
     attacker = caster,
     victim = parent,
-    damage = damage,
+    damage = ability:GetSpecialValueFor("damage"),
     damage_type = ability:GetAbilityDamageType(),
     ability = ability,
   }
 
   ApplyDamage(damage_table)
 
-  -- Try to stop sound loops (does not work, it stops sounds only if the spell is reflected)
+  -- Try to stop sound loops (does not work)
   local sound_name = "n_creep_Wildkin.Tornado"
   caster:StopSound(sound_name)
   StopSoundOn(sound_name, caster)
@@ -304,21 +323,6 @@ function modifier_eul_innate_oaa_dead_tornado:OnCreated(event)
   self:StartIntervalThink(self.damage_interval)
 end
 
-function modifier_eul_innate_oaa_dead_tornado:CheckState()
-  return {
-    [MODIFIER_STATE_DISARMED] = true,
-    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
-    [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    [MODIFIER_STATE_UNTARGETABLE] = true,
-    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-  }
-end
-
 function modifier_eul_innate_oaa_dead_tornado:OnIntervalThink()
   local tornado = self:GetParent()
   local ability = self:GetAbility()
@@ -354,6 +358,36 @@ function modifier_eul_innate_oaa_dead_tornado:OnIntervalThink()
       ApplyDamage(damage_table)
     end
   end
+end
+
+function modifier_eul_innate_oaa_dead_tornado:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_BONUS_DAY_VISION,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+  }
+end
+
+function modifier_eul_innate_oaa_dead_tornado:GetBonusDayVision()
+  return 300 -- total vision: 600
+end
+
+function modifier_eul_innate_oaa_dead_tornado:GetBonusNightVision()
+  return 300 -- total vision: 600
+end
+
+function modifier_eul_innate_oaa_dead_tornado:CheckState()
+  return {
+    [MODIFIER_STATE_DISARMED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+    [MODIFIER_STATE_UNTARGETABLE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
 end
 
 function modifier_eul_innate_oaa_dead_tornado:GetEffectName()

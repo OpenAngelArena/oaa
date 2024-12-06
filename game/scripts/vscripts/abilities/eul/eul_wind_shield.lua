@@ -17,7 +17,7 @@ end
 -- Some notes:
 -- MODIFIER_PROPERTY_AVOID_DAMAGE blocks dmg but it doesnt block modifiers
 -- MODIFIER_PROPERTY_DODGE_PROJECTILE works for all projectiles (includes spells and items) and you can't filter stuff out
--- MODIFIER_EVENT_ON_PROJECTILE_DODGE triggers when you dodge/disjoint with the property above, stil can't filter stuff out
+-- MODIFIER_EVENT_ON_PROJECTILE_DODGE triggers when you dodge/disjoint with the property above, still can't filter stuff out
 function eul_wind_shield_oaa:ProjectileFilter(keys)
   local source_index = keys.entindex_source_const
   local target_index = keys.entindex_target_const
@@ -39,7 +39,7 @@ function eul_wind_shield_oaa:ProjectileFilter(keys)
         local ability = caster:FindAbilityByName("eul_wind_shield_oaa") -- we use FindAbilityByName on purpose instead of self because of Rubick
         -- Create a fake attack
         local info = {
-          EffectName = attacker:GetRangedProjectileName(),
+          EffectName = attacker:GetRangedProjectileName(), -- some visual effects that are applied with attack modifiers won't show
           Ability = ability,
           Source = attacker,
           vSourceLoc = attacker:GetAbsOrigin(),
@@ -58,10 +58,10 @@ function eul_wind_shield_oaa:ProjectileFilter(keys)
           }
         }
 
-        -- Imitates the attack we block with the filter
+        -- Imitates the attack that we block with the filter
         ProjectileManager:CreateTrackingProjectile(info)
 
-        -- Block the projectile before it started
+        -- Block the projectile before it starts
         return false
       end
     end
@@ -102,6 +102,7 @@ function eul_wind_shield_oaa:OnSpellStart()
   end
 end
 
+-- Ventus fake attacks
 function eul_wind_shield_oaa:OnProjectileHit_ExtraData(target, location, extra_data)
   if not target or not location or not extra_data then
     return
@@ -244,22 +245,17 @@ function modifier_eul_wind_shield_passive:GetModifierEvasion_Constant(params)
   local attacker = params.attacker
   --local attacked_unit = params.unit
 
-  if not attacker:IsRangedAttacker() then
-    return 0
-  end
-
-  if parent:PassivesDisabled() then
+  -- Evasion works only against ranged attackers and if not affected by break
+  if not attacker:IsRangedAttacker() or parent:PassivesDisabled() then
     return 0
   end
 
   -- if parent ~= attacked_unit then
-    -- print("Attacked unit:")
-    -- print(attacked_unit)
+
   -- end
 
   -- if parent ~= attacker:GetAttackTarget() then
-    -- print("GetAttackTarget")
-    -- print(attacker:GetAttackTarget())
+
   -- end
 
   local distance = (parent:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D()
@@ -300,8 +296,11 @@ function modifier_eul_wind_shield_active:IsPurgable()
 end
 
 function modifier_eul_wind_shield_active:OnCreated()
+  self.move_speed = 0
+  self.attack_speed = 0
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.move_speed = ability:GetSpecialValueFor("active_move_speed")
     self.attack_speed = ability:GetSpecialValueFor("active_attack_speed")
   end
 end
@@ -310,12 +309,24 @@ modifier_eul_wind_shield_active.OnRefresh = modifier_eul_wind_shield_active.OnCr
 
 function modifier_eul_wind_shield_active:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
+function modifier_eul_wind_shield_active:GetModifierMoveSpeedBonus_Percentage()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  -- We apply the bonus ms in 'modifier_eul_wind_shield_passive' if the parent is the caster
+  -- Don't apply to the caster's illusions because they have the passive
+  if parent ~= caster and not parent:HasModifier("modifier_eul_wind_shield_passive") then
+    return self.move_speed
+  end
+  return 0
+end
+
 function modifier_eul_wind_shield_active:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_speed or 20
+  return self.attack_speed
 end
 
 function modifier_eul_wind_shield_active:GetEffectName()
@@ -391,6 +402,8 @@ function modifier_eul_wind_shield_tornado_barrier:GetModifierIncomingDamageConst
     end
 
     local damage = event.damage
+
+    -- Don't react to negative or 0 damage
     if damage < 0 then
       return 0
     end
@@ -512,7 +525,7 @@ function modifier_eul_wind_shield_ventus_ally:IsDebuff()
   return false
 end
 
-function modifier_eul_wind_shield_ventus_ally:IsPurgable() -- it's an aura buff so doesn't really work because it gets reapplied
+function modifier_eul_wind_shield_ventus_ally:IsPurgable() -- it's an aura buff so doesn't really work because it gets reapplied; important for 'Typhoon Applies Wind Control"
   return true
 end
 

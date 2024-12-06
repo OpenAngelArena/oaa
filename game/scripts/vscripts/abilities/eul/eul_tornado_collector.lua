@@ -199,6 +199,15 @@ function eul_tornado_collector_oaa:OnUnStolen()
   caster:RemoveModifierByName(self:GetIntrinsicModifierName())
 end
 
+function eul_tornado_collector_oaa:ProcsMagicStick()
+  -- Check for Displacement
+  local displacement = self:GetSpecialValueFor("displacement") == 1
+  if displacement then
+    return true
+  end
+  return false
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_eul_tornado_collector_passive = class(ModifierBaseClass)
@@ -290,7 +299,7 @@ function modifier_eul_tornado_collector_passive:SpawnTornado()
     -- check if there is one in the pool
     if #self.pool <= 0 then
       -- if there is none then create a completely new one
-      tornado = CreateUnitByName("npc_dota_eul_tornado", position, true, parent, parent:GetOwner(), parent:GetTeam())
+      tornado = CreateUnitByName("npc_dota_eul_tornado", position, true, parent, parent:GetOwner(), parent:GetTeamNumber())
       tornado:SetOwner(parent)
     else
       -- if there is one in the pool then use that one
@@ -351,6 +360,7 @@ if IsServer() then
         tornado:AddNewModifier(parent, self:GetAbility(), "modifier_eul_tornado_hidden", {})
         table.insert(self.pool, tornado)
       end
+      -- Reset the table of active tornados
       self.tornados = {}
       self:SetStackCount(0)
     end
@@ -476,24 +486,9 @@ function modifier_eul_tornado_passive:OnCreated()
   self.damage_counter = 0
   self.think_interval = 0.2
   self.damage_interval = 1
+  self.wander_interval = 0.4
 
   self:StartIntervalThink(self.think_interval)
-end
-
-function modifier_eul_tornado_passive:CheckState()
-  return {
-    [MODIFIER_STATE_DISARMED] = true,
-    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
-    [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_UNSELECTABLE] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    [MODIFIER_STATE_UNTARGETABLE] = true,
-    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-  }
 end
 
 function modifier_eul_tornado_passive:RandomizeBehavior()
@@ -519,7 +514,7 @@ function modifier_eul_tornado_passive:OnIntervalThink()
     return
   end
 
-  if self.wander_counter >= 2 then
+  if self.wander_counter >= self.wander_interval / self.think_interval then
     self:RandomizeBehavior()
   end
 
@@ -528,11 +523,10 @@ function modifier_eul_tornado_passive:OnIntervalThink()
   tornado:MoveToPosition(caster_pos + self.local_move_to)
 
   local leash = ability:GetSpecialValueFor("leash_range")
-  local diff = caster:GetAbsOrigin() - tornado:GetAbsOrigin()
-  local length = diff:Length2D()
+  local distance = (caster:GetAbsOrigin() - tornado:GetAbsOrigin()):Length2D()
 
-  -- Leash the tornados to the caster if caster wanders too far (e.g. blinks)
-  if length >= leash then
+  -- Leash the tornado to the caster if the caster goes too far from the tornado (e.g. blinks)
+  if distance >= leash then
     FindClearSpaceForUnit(tornado, caster:GetAbsOrigin(), true)
   end
 
@@ -606,13 +600,30 @@ function modifier_eul_tornado_passive:OnDestroy()
       return
     end
     -- PoolTornado cannot be called because the caster doesn't have the summon_mod
+    -- so we hide the tornado manually and destroy it after a delay
     parent:AddNewModifier(parent, nil, "modifier_eul_tornado_hidden", {})
     parent:ForceKillOAA(false)
   end
 end
 
+function modifier_eul_tornado_passive:CheckState()
+  return {
+    [MODIFIER_STATE_DISARMED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+    [MODIFIER_STATE_UNTARGETABLE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
+end
+
 function modifier_eul_tornado_passive:GetEffectName()
-  return "particles/hero/eul/eul_tornado_ambient.vpcf" --"particles/neutral_fx/tornado_ambient.vpcf"
+  return "particles/hero/eul/eul_tornado_ambient.vpcf" -- credits to WarpDragon for the tornado particle
 end
 
 function modifier_eul_tornado_passive:GetEffectAttachType()
