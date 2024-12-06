@@ -1409,6 +1409,7 @@ read_globals = { -- these globals can only be accessed.
 "MODIFIER_STATE_TRUESIGHT_IMMUNE",
 "MODIFIER_STATE_UNSELECTABLE",
 "MODIFIER_STATE_UNSLOWABLE",
+"MODIFIER_STATE_UNTARGETABLE",
 "MakeStringToken",
 "Merge",
 "MinimapEvent",

@@ -265,6 +265,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_ember_spirit = "power",
     npc_dota_hero_enchantress = "midas",
     npc_dota_hero_enigma = "power",
+    npc_dota_hero_eul = "power",
     npc_dota_hero_faceless_void = "cleave", -- cleave or power
     npc_dota_hero_furion = "power", -- cleave
     npc_dota_hero_grimstroke = "midas",
@@ -275,6 +276,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_jakiro = "midas",
     npc_dota_hero_juggernaut = "power", -- cleave
     npc_dota_hero_keeper_of_the_light = "midas",
+    npc_dota_hero_kez = "power",
     npc_dota_hero_kunkka = "power",
     npc_dota_hero_legion_commander = "power", -- midas
     npc_dota_hero_leshrac = "cleave",

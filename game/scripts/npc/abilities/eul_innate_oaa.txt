@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Tempest (Innate)
+  //=================================================================================================================
+  "eul_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/eul/eul_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "tornado_linger_time"                               "20"
+      "movespeed_slow"
+      {
+        "value"                                           "-15"
+      }
+      "attackspeed_slow"
+      {
+        "value"                                           "-15"
+      }
+      "tornado_radius"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_damage_as_tornado_damage_pct"
+      {
+        "value"                                           "50"
+      }
+      "damage_interval"
+      {
+        "value"                                           "0.25"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun_slow.vpcf"
+      "particle"                                          "particles/neutral_fx/tornado_ambient.vpcf"
+    }
+  }
+}
