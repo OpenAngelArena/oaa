@@ -55,6 +55,7 @@
       {
         "value"                                           "0.75 0.95 1.15 1.35 1.55 1.75"
         "special_bonus_facet_electrician_alternating_current"  "=0"
+        "special_bonus_facet_electrician_no_current"      "+0.25"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "magical_shield_damage_block" // Direct Current
@@ -97,8 +98,8 @@
       "physical_shield_damage_block" // No Current
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_no_current"      "=50"
-        "special_bonus_unique_electrician_2_oaa"          "+50"
+        "special_bonus_facet_electrician_no_current"      "=70"
+        "special_bonus_unique_electrician_2_oaa"          "+30"
         "CalculateSpellDamageTooltip"                     "0"
         "RequiresFacet"                                   "electrician_no_current"
       }

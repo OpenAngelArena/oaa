@@ -259,6 +259,7 @@ modifier_sohei_momentum_spell_crit.OnRefresh = modifier_sohei_momentum_spell_cri
 
 function modifier_sohei_momentum_spell_crit:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
@@ -316,7 +317,7 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Max Power)
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Spell Crit)
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
       return
     end
@@ -366,6 +367,49 @@ if IsServer() then
       ApplyDamage(damage_table)
 
       SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, damaged_unit, damage + damage_table.damage, nil)
+    else
+      -- Increment number of failures
+      self:SetStackCount(prngMult)
+    end
+  end
+
+  function modifier_sohei_momentum_spell_crit:GetModifierPreAttack_CriticalStrike(event)
+    local parent = self:GetParent()
+    local damaged_unit = event.target
+
+    -- Check if parent is affected by break
+    if parent:PassivesDisabled() then
+      return 0
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return 0
+    end
+
+    -- Check if entity is an item, rune or something weird
+    if damaged_unit.GetUnitName == nil then
+      return 0
+    end
+
+    -- Don't affect buildings, wards, invulnerable and dead units.
+    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() or not damaged_unit:IsAlive() then
+      return 0
+    end
+
+    -- Check if parent is using Flurry of Blows
+    if not parent:HasModifier("modifier_sohei_flurry_self") then
+      return 0
+    end
+
+    -- Get number of failures
+    local prngMult = self:GetStackCount() + 1
+
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(self.spell_crit_chance) * prngMult) then
+      -- Reset failure count
+      self:SetStackCount(0)
+
+      return self.crit_multiplier * 100
     else
       -- Increment number of failures
       self:SetStackCount(prngMult)

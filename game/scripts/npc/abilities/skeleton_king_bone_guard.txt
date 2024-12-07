@@ -38,7 +38,7 @@
       }
       "talent_skeleton_damage"                            "0 5 10 15"
       "skeleton_building_damage_reduction"                "35"
-      "skeleton_bonus_hero_damage"                        "25" // percentage increase
+      "skeleton_bonus_hero_damage"                        "25 25 25 25 30 40" // percentage increase
       "skeleton_attack_damage_per_level" //OAA, tooltip only
       {
         "value"                                           "2"
