@@ -43,5 +43,5 @@ function modifier_winter_wyvern_innate_oaa:GetModifierSpellAmplify_Percentage()
   if parent:PassivesDisabled() then
     return 0
   end
-  return self.bonus_spell_amp_per_mana * parent:GetMaxMana()
+  return self.bonus_spell_amp_per_mana * parent:GetMana()
 end
