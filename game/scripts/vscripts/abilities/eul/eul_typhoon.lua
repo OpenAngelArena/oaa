@@ -165,7 +165,6 @@ function modifier_eul_typhoon_oaa_thinker:OnCreated()
   if IsServer() then
     self.counter = 0
     self.think_interval = 0.1
-    self.particle_interval = 1.5
 
     local caster = self:GetCaster()
     local parent_loc = self:GetParent():GetAbsOrigin()
@@ -189,13 +188,13 @@ function modifier_eul_typhoon_oaa_thinker:OnCreated()
     ParticleManager:SetParticleControl(self.part, 1, Vector(0, self.min_effect_radius, 0))
     ParticleManager:SetParticleControl(self.part, 3, Vector(0, 90, 0))
 
-    self.part2 = ParticleManager:CreateParticle("particles/hero/eul/eul_typhoon_wind.vpcf", PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(self.part2, 0, parent_loc)
-    ParticleManager:SetParticleControl(self.part2, 1, Vector(0, 2*self.max_effect_radius, 0))
+    -- self.part2 = ParticleManager:CreateParticle("particles/hero/eul/eul_typhoon_wind.vpcf", PATTACH_WORLDORIGIN, caster)
+    -- ParticleManager:SetParticleControl(self.part2, 0, parent_loc)
+    -- ParticleManager:SetParticleControl(self.part2, 1, Vector(0, 2*self.max_effect_radius, 0))
 
-    self.part3 = ParticleManager:CreateParticle("particles/hero/eul/eul_typhoon_ring_smoke.vpcf", PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(self.part3, 0, parent_loc)
-    ParticleManager:SetParticleControl(self.part3, 1, Vector(0, self.max_effect_radius, 0))
+    -- self.part3 = ParticleManager:CreateParticle("particles/hero/eul/eul_typhoon_ring_smoke.vpcf", PATTACH_WORLDORIGIN, caster)
+    -- ParticleManager:SetParticleControl(self.part3, 0, parent_loc)
+    -- ParticleManager:SetParticleControl(self.part3, 1, Vector(0, self.max_effect_radius, 0))
 
     self:OnIntervalThink()
     self:StartIntervalThink(self.think_interval)
@@ -252,18 +251,6 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
     end
   end
 
-  -- Center particle (cyclone) stuff
-  if self.counter == 0 or self.counter % (self.particle_interval / self.think_interval) == 0 then
-    -- Release the previous cyclone particle index if it exists
-    if self.part4 then
-      ParticleManager:ReleaseParticleIndex(self.part4)
-      self.part4 = nil
-    end
-    -- Create the new cyclone
-    self.part4 = ParticleManager:CreateParticle("particles/items_fx/cyclone_b.vpcf", PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(self.part4, 0, parent_loc)
-  end
-
   -- Check for 'Generate Tornados'
   if self.spawn_interval then
     local tornado_collector = caster:FindAbilityByName("eul_tornado_collector_oaa")
@@ -299,10 +286,6 @@ function modifier_eul_typhoon_oaa_thinker:OnDestroy()
   if self.part3 then
     ParticleManager:DestroyParticle(self.part3, false)
     ParticleManager:ReleaseParticleIndex(self.part3)
-  end
-  if self.part4 then
-    ParticleManager:DestroyParticle(self.part4, true)
-    ParticleManager:ReleaseParticleIndex(self.part4)
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
