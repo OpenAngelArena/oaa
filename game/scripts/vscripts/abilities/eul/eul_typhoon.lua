@@ -165,7 +165,6 @@ function modifier_eul_typhoon_oaa_thinker:OnCreated()
   if IsServer() then
     self.counter = 0
     self.think_interval = 0.1
-    self.particle_interval = 1.5
 
     local caster = self:GetCaster()
     local parent_loc = self:GetParent():GetAbsOrigin()
@@ -252,18 +251,6 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
     end
   end
 
-  -- Center particle (cyclone) stuff
-  if self.counter == 0 or self.counter % (self.particle_interval / self.think_interval) == 0 then
-    -- Release the previous cyclone particle index if it exists
-    if self.part4 then
-      ParticleManager:ReleaseParticleIndex(self.part4)
-      self.part4 = nil
-    end
-    -- Create the new cyclone
-    self.part4 = ParticleManager:CreateParticle("particles/items_fx/cyclone_b.vpcf", PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(self.part4, 0, parent_loc)
-  end
-
   -- Check for 'Generate Tornados'
   if self.spawn_interval then
     local tornado_collector = caster:FindAbilityByName("eul_tornado_collector_oaa")
@@ -299,10 +286,6 @@ function modifier_eul_typhoon_oaa_thinker:OnDestroy()
   if self.part3 then
     ParticleManager:DestroyParticle(self.part3, false)
     ParticleManager:ReleaseParticleIndex(self.part3)
-  end
-  if self.part4 then
-    ParticleManager:DestroyParticle(self.part4, true)
-    ParticleManager:ReleaseParticleIndex(self.part4)
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
