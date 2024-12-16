@@ -33,36 +33,38 @@ function eul_wind_shield_oaa:ProjectileFilter(keys)
   end
 
   if attacker and not attacker:IsNull() and victim and not victim:IsNull() then
-    if victim:HasModifier("modifier_eul_wind_shield_ventus_ally") and is_an_attack_projectile then
-      local caster = self:GetCaster()
-      if victim:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", caster) then
-        local ability = caster:FindAbilityByName("eul_wind_shield_oaa") -- we use FindAbilityByName on purpose instead of self because of Rubick
-        -- Create a fake attack
-        local info = {
-          EffectName = attacker:GetRangedProjectileName(), -- some visual effects that are applied with attack modifiers won't show
-          Ability = ability,
-          Source = attacker,
-          vSourceLoc = attacker:GetAbsOrigin(),
-          Target = victim,
-          iMoveSpeed = keys.move_speed,
-          bDodgeable = true,
-          bProvidesVision = false,
-          --bIsAttack = false, -- if uncommented it will create an infinite loop and cause a crash
-          --bReplaceExisting = false,
-          --bIgnoreObstructions = false,
-          bDrawsOnMinimap = false,
-          bVisibleToEnemies = true,
-          ExtraData = {
-            attacker = source_index,
-            fake_attack = 1,
+    if victim.HasModifier ~= nil and is_an_attack_projectile then
+      if victim:HasModifier("modifier_eul_wind_shield_ventus_ally") then
+        local caster = self:GetCaster()
+        if victim:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", caster) then
+          local ability = caster:FindAbilityByName("eul_wind_shield_oaa") -- we use FindAbilityByName on purpose instead of self because of Rubick
+          -- Create a fake attack
+          local info = {
+            EffectName = attacker:GetRangedProjectileName(), -- some visual effects that are applied with attack modifiers won't show
+            Ability = ability,
+            Source = attacker,
+            vSourceLoc = attacker:GetAbsOrigin(),
+            Target = victim,
+            iMoveSpeed = keys.move_speed,
+            bDodgeable = true,
+            bProvidesVision = false,
+            --bIsAttack = false, -- if uncommented it will create an infinite loop and cause a crash
+            --bReplaceExisting = false,
+            --bIgnoreObstructions = false,
+            bDrawsOnMinimap = false,
+            bVisibleToEnemies = true,
+            ExtraData = {
+              attacker = source_index,
+              fake_attack = 1,
+            }
           }
-        }
 
-        -- Imitates the attack that we block with the filter
-        ProjectileManager:CreateTrackingProjectile(info)
+          -- Imitates the attack that we block with the filter
+          ProjectileManager:CreateTrackingProjectile(info)
 
-        -- Block the projectile before it starts
-        return false
+          -- Block the projectile before it starts
+          return false
+        end
       end
     end
   end
@@ -456,7 +458,7 @@ function modifier_eul_wind_shield_ventus:OnCreated()
 
   if IsServer() then
     -- Start thinking
-    self:StartIntervalThink(0)
+    self:StartIntervalThink(0.1)
   end
 end
 
@@ -506,7 +508,7 @@ function modifier_eul_wind_shield_ventus:GetAuraSearchType()
 end
 
 function modifier_eul_wind_shield_ventus:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+  return DOTA_UNIT_TARGET_FLAG_NONE
 end
 
 function modifier_eul_wind_shield_ventus:GetAuraRadius()
