@@ -183,7 +183,8 @@ function eul_tornado_collector_oaa:TornadoHeal()
 
   local heal_amount = self:GetSpecialValueFor("heal_per_tornado")
 
-  caster:Heal(heal_amount, self)
+  --caster:Heal(heal_amount, self)
+  caster:HealWithParams(heal_amount, self, true, true, caster, false)
 
   SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, caster, heal_amount, nil)
 
