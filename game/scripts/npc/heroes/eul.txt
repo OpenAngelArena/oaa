@@ -33,10 +33,10 @@
     "StatusMana"                                          "75"
 
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"                               "17"
-    "AttributeStrengthGain"                               "1.8"
-    "AttributeBaseAgility"                                "18"
-    "AttributeAgilityGain"                                "2.3"
+    "AttributeBaseStrength"                               "19" // 17
+    "AttributeStrengthGain"                               "2.0" // 1.8
+    "AttributeBaseAgility"                                "25" // 18
+    "AttributeAgilityGain"                                "3.0" // 2.3
     "AttributeBaseIntelligence"                           "15"
     "AttributeIntelligenceGain"                           "2.0"
 
@@ -53,13 +53,13 @@
     "Ability10"                                           "special_bonus_attack_damage_30"
     "Ability11"                                           "special_bonus_armor_5"
 
-    "Ability12"                                           "special_bonus_hp_300"
+    "Ability12"                                           "special_bonus_hp_350"
     "Ability13"                                           "special_bonus_unique_eul_3_oaa"
 
     "Ability14"                                           "special_bonus_unique_eul_1_oaa"
-    "Ability15"                                           "special_bonus_spell_aoe_25"
+    "Ability15"                                           "special_bonus_unique_eul_2_oaa"
 
-    "Ability16"                                           "special_bonus_unique_eul_2_oaa"
+    "Ability16"                                           "special_bonus_unique_eul_5_oaa"
     "Ability17"                                           "special_bonus_unique_eul_4_oaa"
 
     "Ability18"                                           "generic_hidden"

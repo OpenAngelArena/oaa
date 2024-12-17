@@ -30,11 +30,20 @@ end
 
 function modifier_eul_innate_oaa:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
     MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, spell block and spell reflect
     MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- needed for dispel talent
     MODIFIER_EVENT_ON_DEATH, -- needed for Tornado spawn on death
     MODIFIER_EVENT_ON_RESPAWN, -- needed for reselecting the main hero when it respawns
   }
+end
+
+function modifier_eul_innate_oaa:GetModifierBaseAttack_BonusDamage()
+  local int_grants_dmg = self:GetAbility():GetSpecialValueFor("attack_dmg_per_int") == 1
+  if int_grants_dmg then
+    return self:GetParent():GetIntellect(false)
+  end
+  return 0
 end
 
 if IsServer() then
