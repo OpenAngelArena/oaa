@@ -17,8 +17,8 @@
     "MovementSpeed"                                       "285"
 
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "41"
-    "AttackDamageMax"                                     "47"
+    "AttackDamageMin"                                     "35"
+    "AttackDamageMax"                                     "40"
     "AttackRange"                                         "150"
     "AttackRate"                                          "1.7"
     "BaseAttackSpeed"                                     "100"
@@ -35,7 +35,7 @@
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_AGILITY"
     "AttributeBaseStrength"                               "19" // 17
     "AttributeStrengthGain"                               "2.0" // 1.8
-    "AttributeBaseAgility"                                "18"
+    "AttributeBaseAgility"                                "25"
     "AttributeAgilityGain"                                "3.0" // 2.3
     "AttributeBaseIntelligence"                           "15"
     "AttributeIntelligenceGain"                           "2.0"
