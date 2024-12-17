@@ -182,17 +182,20 @@ function eul_tornado_collector_oaa:TornadoHeal()
   end
 
   local heal_amount = self:GetSpecialValueFor("heal_per_tornado")
+  local max_hp_heal = self:GetSpecialValueFor("max_hp_heal_per_tornado")
+  if max_hp_heal > 0 then
+    local max_hp_heal_amount = (max_hp_heal / 100) * caster:GetMaxHealth()
+    heal_amount = heal_amount + max_hp_heal_amount
+  end
 
-  --caster:Heal(heal_amount, self)
-  caster:HealWithParams(heal_amount, self, true, true, caster, false)
+  if heal_amount > 0 then
+    --caster:Heal(heal_amount, self)
+    caster:HealWithParams(heal_amount, self, true, true, caster, false)
 
-  SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, caster, heal_amount, nil)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, caster, heal_amount, nil)
 
-  --local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
-  --ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "origin_follow", Vector(0,0,0), false)
-  --ParticleManager:ReleaseParticleIndex(particle)
-
-  caster:EmitSound("n_creep_ForestTrollHighPriest.Heal")
+    caster:EmitSound("n_creep_ForestTrollHighPriest.Heal")
+  end
 end
 
 function eul_tornado_collector_oaa:OnUnStolen()
