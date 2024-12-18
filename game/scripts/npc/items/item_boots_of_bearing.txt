@@ -19,8 +19,8 @@
     "ItemCost"                                            "4275"
     "ItemShopTags"                                        "str;int;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "marching boots"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemAliases"                                         "boots of bearing;marching boots;bearing"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
