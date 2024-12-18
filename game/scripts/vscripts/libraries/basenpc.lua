@@ -37,7 +37,7 @@ if IsServer() then
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
       -- custom:
-      "modifier_greater_tranquils_tranquilize_debuff", -- Greater Tranquil Boots debuff
+      "modifier_item_shade_staff_trees_debuff",        -- Shade Staff debuff
       "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
       "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
       "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff

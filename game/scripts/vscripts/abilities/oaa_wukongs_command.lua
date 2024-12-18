@@ -74,10 +74,6 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
     "item_greater_guardian_greaves_4",
     -- prevent other fools gold boots causing lag
     "item_tranquil_origin",
-    "item_greater_tranquil_boots",
-    "item_greater_tranquil_boots_2",
-    "item_greater_tranquil_boots_3",
-    "item_greater_tranquil_boots_4",
     "item_travel_origin",
     "item_greater_travel_boots",
     "item_greater_travel_boots_2",
