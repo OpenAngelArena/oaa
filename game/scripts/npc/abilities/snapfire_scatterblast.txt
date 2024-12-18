@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +37,12 @@
       "AbilityCastRange"
       {
         "value"                                           "800"
-        "special_bonus_facet_snapfire_full_bore"          "=1400"
+        "special_bonus_facet_snapfire_full_bore"          "=1300"
       }
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "100 160 220 280 560 1120"
-        "special_bonus_unique_snapfire_7"                 "+70"
+        "special_bonus_unique_snapfire_7"                 "+140"
       }
       "blast_speed"                                       "3000"
       "blast_width_initial"

@@ -172,6 +172,11 @@ function handleOAASettingsChange (n, key, settings) {
     return;
   }
 
+  if (!settings) {
+    $.Msg('Failed to lock and load settings, they are undefined');
+    return;
+  }
+
   const lines = [];
 
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
@@ -856,7 +861,7 @@ function ChangeHeroImage (container, hero) {
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix
   const shortHeroName = container.heroname;
-  if (shortHeroName === 'sohei' || shortHeroName === 'electrician') {
+  if (shortHeroName === 'sohei' || shortHeroName === 'electrician' || shortHeroName === 'eul') {
     // re-add prefix
     container.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + shortHeroName + '.png")';
     container.style.backgroundSize = '100% 100%';
@@ -1305,6 +1310,19 @@ function CreateHeroPanel (parent, hero) {
     scene = $.CreatePanel('DOTAScenePanel', parent, id, {
       style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
       map: 'prefabs\\heroes\\electrician',
+      particleonly: 'false',
+      renderdeferred: 'false',
+      camera: 'camera1',
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
+  } else if (hero === 'npc_dota_hero_eul') {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      map: 'prefabs\\heroes\\eul',
       particleonly: 'false',
       renderdeferred: 'false',
       camera: 'camera1',

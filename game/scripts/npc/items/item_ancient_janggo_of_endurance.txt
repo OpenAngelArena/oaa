@@ -1,23 +1,6 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Drums Endurance
-  //=================================================================================================================
-  "item_recipe_ancient_janggo"
-  {
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "500"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo"
-    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
-    {
-      "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
-    }
-  }
-
-  //=================================================================================================================
   // Drums of Endurance
   //=================================================================================================================
   "item_ancient_janggo"
@@ -43,7 +26,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1650"
-    "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
+    "ItemShopTags"                                        "str;int;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"
     "ItemInitialCharges"                                  "8"

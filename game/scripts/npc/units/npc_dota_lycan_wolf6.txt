@@ -21,8 +21,8 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackDamageMin"                                     "280" // Damage range min.
-    "AttackDamageMax"                                     "280" // Damage range max.
+    "AttackDamageMin"                                     "240" // Damage range min.
+    "AttackDamageMax"                                     "240" // Damage range max.
     "AttackRate"                                          "0.7" // BAT
 
     // Bounty
@@ -37,6 +37,6 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2625" // Base health.
+    "StatusHealth"                                        "1875" // Base health.
   }
 }

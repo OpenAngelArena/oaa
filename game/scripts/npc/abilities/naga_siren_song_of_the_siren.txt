@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,8 +41,8 @@
       "animation_rate"                                    "0.55"
       "heal_pct"
       {
-        "value"                                           "2 4 6 6 6"
-        "special_bonus_shard"                             "+4"
+        "value"                                           "2 3 4 5 6"
+        "special_bonus_shard"                             "+3"
       }
       "mana_pct"
       {

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_lycan"
   "Title"         "Recommended items for Lycan"
 
@@ -10,11 +10,17 @@
     {
       "item"      "item_quelling_blade"
       "item"      "item_flask"
-      "item"      "item_mango"
+      "item"      "item_gloves"
+    }
+
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_maelstrom"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
+      "item"      "item_harpoon"
       "item"      "item_disperser"
       "item"      "item_gungir"
       "item"      "item_black_king_bar_1"
@@ -25,10 +31,18 @@
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_helm_of_the_overlord"
       "item"      "item_vladmirs_grimoire_1"
       "item"      "item_assault"
       "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
+      "item"      "item_lucience"
+    }
+
+    "#DOTA_Item_Build_Summons_Core"
+    {
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_vladmirs_grimoire_1"
+      "item"      "item_assault"
       "item"      "item_bloodthorn"
       "item"      "item_lucience"
       "item"      "item_azazel_summon_fighter"
@@ -41,7 +55,6 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_harpoon"
       "item"      "item_manta"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"

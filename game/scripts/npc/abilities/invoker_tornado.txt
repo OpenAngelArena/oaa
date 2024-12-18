@@ -24,9 +24,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "27"
+        "value"                                           "24"
         "special_bonus_unique_invoker_3"                  "-4"
       }
       "travel_distance"
@@ -61,9 +61,9 @@
         "value"                                           "0"
         "levelkey"                                        "quaslevel"
       }
-      "wex_damage"
+      "wex_damage" //OAA
       {
-        "value"                                           "45 90 135 180 225 270 315 360 630 756 882 1008 1134 1260 1386"
+        "value"                                           "50 100 150 200 250 300 350 400 500 600 700 800 900 1000 1200"
         "levelkey"                                        "wexlevel"
       }
     }

@@ -5,7 +5,10 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Reapers Scythe) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "necrolyte_reapers_scythe"
 
     "AbilityValues"
     {

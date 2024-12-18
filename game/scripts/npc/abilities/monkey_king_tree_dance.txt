@@ -12,6 +12,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +61,7 @@
       "range"                                             "800"
       "no_cooldown_hp_threshold"
       {
-        "special_bonus_facet_monkey_king_simian_stride"   "90"
+        "special_bonus_facet_monkey_king_simian_stride"   "95"
       }
     }
   }

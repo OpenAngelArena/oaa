@@ -19,11 +19,10 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityDuration"                                     "20 25 30 35 35 35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28 26 24 22 21 20" //OAA
+    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -35,17 +34,21 @@
     "AbilityValues"
     {
       "damage_tick_rate"                                  "0.2"
-      "sand_storm_radius" //OAA
+      "AbilityDuration"
       {
-        "value"                                           "475 500 525 550 575 600"
+        "value"                                           "16 20 24 28 30 32"
+      }
+      "sand_storm_radius"
+      {
+        "value"                                           "350 400 450 500 550 600"
         "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
         "affected_by_aoe_increase"                        "1"
       }
       "sand_storm_damage" //OAA
       {
-        "value"                                           "25 50 75 100 200 300"
-        "special_bonus_facet_sand_king_dust_devil"        "=20 =35 =50 =65 =130 =260"
-        "special_bonus_unique_sand_king_2"                "+25"
+        "value"                                           "30 50 70 90 180 270"
+        "special_bonus_facet_sand_king_dust_devil"        "=20 =35 =50 =65 =130 =195"
+        "special_bonus_unique_sand_king_2"                "+20"
       }
       "fade_delay" //OAA
       {

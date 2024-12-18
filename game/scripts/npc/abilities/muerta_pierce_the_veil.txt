@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "AbilityCastPoint"                                    "0"
 
@@ -28,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6.0 6.5 7.0 7.5 8.0" //OAA
+      "duration"                                          "8"
       "transform_duration"                                "0.35"
       "base_damage_pct"                                   "100" // this kv does nothing atm
       "modelscale"                                        "30"
@@ -49,8 +51,8 @@
         "RequiresShard"                                   "1"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_penalty"                                    "50" //OAA
-      "damage_penalty_bosses"                             "40" //OAA
+      "damage_penalty"                                    "50 45 40 35 30" //OAA
+      "damage_penalty_bosses"                             "50" //OAA
     }
   }
 }

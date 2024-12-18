@@ -13,12 +13,14 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
-    "AbilityManaCost"                                     "45 50 55 60 65 70"
-    "AbilityCooldown"                                     "10 9 8 7 6.5 6"
+    "AbilityManaCost"                                     "80"
+    "AbilityCooldown"                                     "10 9 8 7 7 7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,11 +38,11 @@
       }
       "duration"
       {
-        "value"                                           "4"
+        "value"                                           "3.5"
       }
-      "status_resistance"
+      "status_resistance" //OAA
       {
-        "value"                                           "-35"
+        "value"                                           "-25"
       }
       "max_movement_speed"
       {

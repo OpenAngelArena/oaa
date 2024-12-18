@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,7 @@
       "move_slow"                                         "-50"
       "dagger_speed"                                      "1200"
       "duration"                                          "2.2 2.8 3.4 4 4 4"
-      "base_damage"                                       "65 70 75 80 90 110"
+      "base_damage"                                       "65 70 75 80 160 240"
       "attack_factor"
       {
         "value"                                           "-70 -55 -40 -25 -15 -5"

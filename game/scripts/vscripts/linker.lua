@@ -50,6 +50,9 @@ LinkLuaModifier("modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LU
 -- Passive Gold
 LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Global stat tracker
+LinkLuaModifier("modifier_stat_tracker_oaa", "components/statprovider/tracker.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Additional ability effects: TODO: Refactor this to be linked somewhere else
 -- Requiem Fear duration manipulation and Requiem Fear immunity:
 LinkLuaModifier("modifier_oaa_requiem_allowed", "modifiers/modifyabilitiesfilter/requiem_fear_manager.lua", LUA_MODIFIER_MOTION_NONE)
@@ -79,6 +82,8 @@ LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabili
 LinkLuaModifier("modifier_wisp_relocate_shield_oaa", "modifiers/modifyabilitiesfilter/wisp_relocate_shield.lua", LUA_MODIFIER_MOTION_NONE)
 -- Bristleback Seeing Red facet fix
 LinkLuaModifier("modifier_bristleback_seeing_red_oaa", "modifiers/modifyabilitiesfilter/bristleback_seeing_red_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+-- Slark Shadow Dance % bonus regen
+LinkLuaModifier("modifier_slark_shadow_dance_oaa", "modifiers/modifyabilitiesfilter/slark_shadow_dance_addition.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

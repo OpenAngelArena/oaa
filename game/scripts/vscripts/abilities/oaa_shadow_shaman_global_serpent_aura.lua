@@ -85,7 +85,7 @@ function modifier_serpent_ward_global_aura_effect:IsPurgable()
 end
 
 function modifier_serpent_ward_global_aura_effect:OnCreated()
-  self.bonus_dmg_bosses = 0.5
+  self.bonus_dmg_bosses = 0.4
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_dmg_bosses = ability:GetSpecialValueFor("damage_multiplier_against_bosses")

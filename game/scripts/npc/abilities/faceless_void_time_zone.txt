@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -63,9 +65,9 @@
       {
         "value"                                           "40 50 60 70 80"
       }
-      "bonus_projectile_speed"
+      "bonus_projectile_speed" //OAA
       {
-        "value"                                           "30 40 50 60 70"
+        "value"                                           "30 35 40 45 50"
       }
       "yaw"                                               "45"
     }

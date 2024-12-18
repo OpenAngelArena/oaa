@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 5
+  // Boss tier 5 - Big Bird
   //=================================================================================
   "npc_dota_boss_tier_5"
   {
@@ -11,7 +11,7 @@
     "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "n_creep_Melee"                                   // Name of sound set.
-    "Level"                                               "60"
+    "Level"                                               "50"
     "ModelScale"                                          "3.0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"

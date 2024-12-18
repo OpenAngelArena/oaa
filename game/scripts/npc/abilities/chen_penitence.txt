@@ -34,14 +34,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "9" //OAA
+      "duration"                                          "8" //OAA
       "speed"                                             "1400"
       "bonus_movement_speed" //OAA
       {
         "value"                                           "-15 -20 -25 -30 -35 -40"
         "special_bonus_unique_chen_8"                     "-15"
       }
-      "bonus_attack_speed"                                "20 40 60 80 120 180"
+      "bonus_attack_speed"                                "20 40 60 80 100 120"
       "damage"
       {
         "value"                                           "0"

@@ -13,6 +13,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,19 +32,19 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "90 85 80 75 70"
-        "special_bonus_unique_mirana_4"                   "-20"
+        "special_bonus_unique_mirana_4"                   "-20" // special_bonus_unique_mirana_4 is not used
       }
       "smoothness"                                        "0.015"
-      "increase_rate"                                     "10 15 20 30 40"
-      "max_total_increase"                                "80 120 160 240 320" // 8 x increase_rate
-      "day_vision_multiplier"                             "3"
+      "increase_rate"                                     "10 14 18 22 26" //OAA
+      "max_total_increase"                                "70 100 130 160 190" //OAA
+      "day_vision_multiplier"                             "0"
       "ally_pct"                                          "50"
-      "duration"                                          "18"
+      "duration"                                          "16"
       "max_damage_time"                                   "6"
-      "evasion" //OAA
+      "evasion"
       {
         "value"                                           "0"
-        "special_bonus_unique_mirana_5"                   "+25"
+        "special_bonus_unique_mirana_5"                   "+20"
       }
     }
   }

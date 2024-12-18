@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,7 @@
       "health_lost"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_demon_promulgate"     "=14 =16 =18 =20 =20 =20"
+        "special_bonus_facet_shadow_demon_promulgate"     "=9 =11 =13 =15 =17 =19"
       }
       "damage_reflection_pct" //OAA
       {

@@ -25,8 +25,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "2.4 3.0 3.6 4.2 4.3 4.4"
-    "AbilityCooldown"                                     "13 12 11 10 10 10"
+    "AbilityChannelTime"                                  "2.2 2.6 3.0 3.4 3.8 4.2" //OAA
+    "AbilityCooldown"                                     "10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,13 +39,13 @@
       "tick_interval"                                     "0.1"
       "total_damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "80 160 240 320 640 1280"
         "special_bonus_unique_shadow_shaman_6"            "+150"
       }
-      "channel_time"
+      "channel_time" //OAA
       {
-        "value"                                           "2.4 3.0 3.6 4.2 4.3 4.4"
-        "special_bonus_unique_shadow_shaman_2"            "+1.5"
+        "value"                                           "2.2 2.6 3.0 3.4 3.8 4.2"
+        "special_bonus_unique_shadow_shaman_2"            "+0.6"
       }
       "shard_bonus_cast_range"
       {

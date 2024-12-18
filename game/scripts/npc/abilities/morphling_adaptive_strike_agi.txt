@@ -14,6 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "10 9 8 7 6 5"
+        "value"                                           "13 12 11 10 9 8"
       }
       "damage_base" //OAA
       {

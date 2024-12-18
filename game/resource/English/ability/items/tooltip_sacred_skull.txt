@@ -7,7 +7,7 @@
 //<h1>Active: Sacred Flame</h1>Deals damage to enemies and heals allies in a %effect_radius% radius around the caster. Damage and heal is based on the percentage difference between max and current HP. Damage per missing HP is %damage_per_missing_hp%. Heal per missing HP is %heal_per_missing_hp%. <br><br>Health Cost: %health_cost%%% of current HP.
 "DOTA_Tooltip_Ability_item_sacred_skull_Lore"                                   "The Skull from the Nothl Realm thirsts for Blood."
 "DOTA_Tooltip_Ability_item_sacred_skull_Note0"                                  "Doesn't stack with Octarine Core's cooldown reduction."
-"DOTA_Tooltip_Ability_item_sacred_skull_bonus_health"                           "+$health"
+//"DOTA_Tooltip_Ability_item_sacred_skull_bonus_health"                           "+$health"
 "DOTA_Tooltip_Ability_item_sacred_skull_bonus_armor"                            "+$armor"
 "DOTA_Tooltip_Ability_item_sacred_skull_cooldown_reduction"                     "%+$cooldown_reduction"
 
@@ -15,7 +15,7 @@
 "DOTA_Tooltip_Ability_item_recipe_sacred_skull_2"                               "#{DOTA_Tooltip_Ability_item_recipe_sacred_skull}"
 "DOTA_Tooltip_Ability_item_sacred_skull_2_Description"                          "#{DOTA_Tooltip_Ability_item_sacred_skull_Description}"
 "DOTA_Tooltip_Ability_item_sacred_skull_2_Lore"                                 "#{DOTA_Tooltip_Ability_item_sacred_skull_Lore}"
-"DOTA_Tooltip_Ability_item_sacred_skull_2_bonus_health"                         "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_health}"
+//"DOTA_Tooltip_Ability_item_sacred_skull_2_bonus_health"                         "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_health}"
 "DOTA_Tooltip_Ability_item_sacred_skull_2_bonus_armor"                          "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_armor}"
 "DOTA_Tooltip_Ability_item_sacred_skull_2_cooldown_reduction"                   "#{DOTA_Tooltip_Ability_item_sacred_skull_cooldown_reduction}"
 
@@ -23,7 +23,7 @@
 "DOTA_Tooltip_Ability_item_recipe_sacred_skull_3"                               "#{DOTA_Tooltip_Ability_item_recipe_sacred_skull}"
 "DOTA_Tooltip_Ability_item_sacred_skull_3_Description"                          "#{DOTA_Tooltip_Ability_item_sacred_skull_Description}"
 "DOTA_Tooltip_Ability_item_sacred_skull_3_Lore"                                 "#{DOTA_Tooltip_Ability_item_sacred_skull_Lore}"
-"DOTA_Tooltip_Ability_item_sacred_skull_3_bonus_health"                         "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_health}"
+//"DOTA_Tooltip_Ability_item_sacred_skull_3_bonus_health"                         "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_health}"
 "DOTA_Tooltip_Ability_item_sacred_skull_3_bonus_armor"                          "#{DOTA_Tooltip_Ability_item_sacred_skull_bonus_armor}"
 "DOTA_Tooltip_Ability_item_sacred_skull_3_cooldown_reduction"                   "#{DOTA_Tooltip_Ability_item_sacred_skull_cooldown_reduction}"
 

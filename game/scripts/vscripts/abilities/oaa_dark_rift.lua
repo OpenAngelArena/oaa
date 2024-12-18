@@ -1,7 +1,7 @@
 abyssal_underlord_dark_rift_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_underlord_dark_rift_oaa_stun", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_underlord_dark_rift_oaa_scepter_buff", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_underlord_dark_rift_oaa_caster_buff", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -185,10 +185,8 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   ParticleManager:SetParticleControl( part3, 2, originParent )
   ParticleManager:SetParticleControl( part3, 5, originParent )
 
-  -- Scepter buff
-  if caster:HasScepter() then
-    caster:AddNewModifier(caster, self, "modifier_underlord_dark_rift_oaa_scepter_buff", {duration = self:GetSpecialValueFor("buff_duration")})
-  end
+  -- Apply a buff to the caster
+  caster:AddNewModifier(caster, self, "modifier_underlord_dark_rift_oaa_caster_buff", {duration = self:GetSpecialValueFor("buff_duration")})
 
   local damageTable = {
     attacker = caster,
@@ -299,36 +297,36 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_underlord_dark_rift_oaa_scepter_buff = class(ModifierBaseClass)
+modifier_underlord_dark_rift_oaa_caster_buff = class(ModifierBaseClass)
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:IsHidden()
+function modifier_underlord_dark_rift_oaa_caster_buff:IsHidden()
   return false
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:IsDebuff()
+function modifier_underlord_dark_rift_oaa_caster_buff:IsDebuff()
   return false
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:IsPurgable()
+function modifier_underlord_dark_rift_oaa_caster_buff:IsPurgable()
   return true
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:OnCreated()
+function modifier_underlord_dark_rift_oaa_caster_buff:OnCreated()
   local ability = self:GetAbility()
   if ability then
     self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
     self.move_speed = ability:GetSpecialValueFor("bonus_ms")
   else
-    self.dmg_reduction = 10
-    self.move_speed = 10
+    self.dmg_reduction = 4
+    self.move_speed = 5
   end
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:OnRefresh()
+function modifier_underlord_dark_rift_oaa_caster_buff:OnRefresh()
   self:OnCreated()
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:DeclareFunctions()
+function modifier_underlord_dark_rift_oaa_caster_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -336,11 +334,11 @@ function modifier_underlord_dark_rift_oaa_scepter_buff:DeclareFunctions()
 end
 
 if IsServer() then
-  function modifier_underlord_dark_rift_oaa_scepter_buff:GetModifierIncomingDamage_Percentage()
+  function modifier_underlord_dark_rift_oaa_caster_buff:GetModifierIncomingDamage_Percentage()
     return 0 - math.abs(self.dmg_reduction)
   end
 end
 
-function modifier_underlord_dark_rift_oaa_scepter_buff:GetModifierMoveSpeedBonus_Percentage()
+function modifier_underlord_dark_rift_oaa_caster_buff:GetModifierMoveSpeedBonus_Percentage()
   return self.move_speed
 end

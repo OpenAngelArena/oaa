@@ -152,7 +152,9 @@ function modifier_sohei_wholeness_of_body_buff:OnDestroy()
     local ability = self:GetAbility()
     local total_heal = self.post_heal_base + self.post_heal_from_dmg_taken
 
-    parent:Heal(total_heal, ability)
+    --parent:Heal(total_heal, ability) -- not affected by heal amp for some reason
+    parent:HealWithParams(total_heal, ability, false, true, self:GetCaster(), false)
+
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, total_heal, nil)
   end
 end

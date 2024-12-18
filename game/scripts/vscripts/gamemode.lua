@@ -147,6 +147,7 @@ function GameMode:OnPreGame()
   InitModule(PlayerConnection)
   InitModule(ProtectionAura)
   InitModule(CustomRuneSystem)
+  InitModule(StatTracker)
 
   CheckCheatMode()
 end

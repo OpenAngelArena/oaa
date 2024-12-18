@@ -41,6 +41,7 @@ function modifier_wanderer_team_buff:DeclareFunctions()
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
@@ -60,6 +61,13 @@ function modifier_wanderer_team_buff:GetModifierBaseDamageOutgoing_Percentage ()
 end
 
 function modifier_wanderer_team_buff:GetModifierMoveSpeedBonus_Percentage ()
+  if self:GetStackCount() > 1000 then
+    return 0
+  end
+  return 20
+end
+
+function modifier_wanderer_team_buff:GetModifierSpellAmplify_Percentage()
   if self:GetStackCount() > 1000 then
     return 0
   end

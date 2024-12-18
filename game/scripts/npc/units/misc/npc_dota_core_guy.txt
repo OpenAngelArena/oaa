@@ -13,18 +13,19 @@
     "VisionDaytimeRange"                                  "0"
     "VisionNighttimeRange"                                "0"
 
-    "Ability1"                                            "core_guy_consume"
-    "Ability2"                                            "core_guy_score_limit"
+    "Ability1"                                            "core_guy_score_limit"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "322"     // Base health
     "StatusHealthRegen"                                   "322"        // Health regeneration rate.
-    "StatusMana"                                          "500"     // Base mana.
+    "StatusMana"                                          "0"     // Base mana.
     "StatusManaRegen"                                     "0"     // Mana regeneration rate.
 
     "HasInventory"                                        "0"
 
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
   }
 
   "npc_dota_core_guy_2"
@@ -40,17 +41,18 @@
     "VisionDaytimeRange"                                  "0"
     "VisionNighttimeRange"                                "0"
 
-    "Ability1"                                            "core_guy_consume"
-    "Ability2"                                            "core_guy_points"
+    "Ability1"                                            "core_guy_points"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "322"     // Base health
     "StatusHealthRegen"                                   "322"        // Health regeneration rate.
-    "StatusMana"                                          "500"     // Base mana.
+    "StatusMana"                                          "0"     // Base mana.
     "StatusManaRegen"                                     "0"     // Mana regeneration rate.
 
     "HasInventory"                                        "0"
 
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
   }
 }

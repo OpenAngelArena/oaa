@@ -12,7 +12,7 @@
     "vscripts"                                            "units/ai_grendel.lua"
     "SoundSet"                                            "Greevil"          // Name of sound set.
     "ModelScale"                                          "3.0"
-    "Level"                                               "30"
+    "Level"                                               "35"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -20,8 +20,9 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "grendel_passives"
-    "Ability2"                                            "boss_basic_properties_oaa"
-    "Ability3"                                            "boss_regen"
+    "Ability2"                                            "wanderer_point_aversion"
+    "Ability3"                                            "boss_basic_properties_oaa"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -31,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "1000"   // Damage range min.
-    "AttackDamageMax"                                     "1000"   // Damage range max.
+    "AttackDamageMin"                                     "900"   // Damage range min.
+    "AttackDamageMax"                                     "900"   // Damage range max.
     "AttackRate"                                          "1.0"    // BAT
     "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.

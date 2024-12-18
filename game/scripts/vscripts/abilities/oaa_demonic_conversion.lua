@@ -105,7 +105,7 @@ function enigma_demonic_conversion_oaa:OnStolen(hSourceAbility)
     if not vanilla_ability then
       print("MORPHLING MORPH: vanilla Demonic Conversion not found")
       Timers:CreateTimer(FrameTime(), function()
-        vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
+        vanilla_ability = caster:FindAbilityByName("enigma_demonic_conversion")
         if not vanilla_ability then
           print("MORPHLING MORPH: vanilla Demonic Conversion not found")
           return FrameTime() -- repeat until found

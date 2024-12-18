@@ -292,12 +292,14 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
     return
   end
 
+  local range = math.max(parent:GetAttackRange(), 175)
+
   -- find all enemies in range
   local units = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
     nil,
-    150,
+    range,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,

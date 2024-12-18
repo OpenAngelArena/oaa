@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Inner Beast (Innate)
+  // Beastmaster: Inner Beast
   //=================================================================================================================
   "beastmaster_inner_beast"
   {
@@ -13,6 +13,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityValues"
     {
@@ -53,7 +54,7 @@
       }
       "magic_resist"
       {
-        "special_bonus_unique_beastmaster_3"              "5"
+        "special_bonus_unique_beastmaster_3"              "8"
       }
       "bonus_damage" //OAA
       {

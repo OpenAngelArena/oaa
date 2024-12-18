@@ -1,0 +1,107 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Eul
+  //=================================================================================================================
+  "npc_dota_hero_eul"
+  {
+    "BaseClass"                                           "npc_dota_hero_phoenix"
+    "HeroID"                                              "132"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_a/n_creep_vulture_a.vmdl"
+    "ModelScale"                                          "1.2"
+
+    "BotImplemented"                                      "0"
+
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"                                    "0.9"
+    "MovementSpeed"                                       "285"
+
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "35"
+    "AttackDamageMax"                                     "40"
+    "AttackRange"                                         "150"
+    "AttackRate"                                          "1.7"
+    "BaseAttackSpeed"                                     "100"
+    "AttackAnimationPoint"                                "0.3"
+
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "25"
+
+    "StatusHealthRegen"                                   "1.0"
+    "StatusHealth"                                        "200"
+    "StatusManaRegen"                                     "0.0"
+    "StatusMana"                                          "75"
+
+    "AttributePrimary"                                    "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"                               "19" // 17
+    "AttributeStrengthGain"                               "2.0" // 1.8
+    "AttributeBaseAgility"                                "25" // 18
+    "AttributeAgilityGain"                                "3.0" // 2.3
+    "AttributeBaseIntelligence"                           "15"
+    "AttributeIntelligenceGain"                           "2.0"
+
+    "Ability1"                                            "eul_hurricane_oaa"
+    "Ability2"                                            "eul_tornado_collector_oaa"
+    "Ability3"                                            "eul_wind_shield_oaa"
+    "Ability4"                                            "generic_hidden"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "eul_typhoon_oaa"
+    "Ability7"                                            "eul_innate_oaa"
+    "Ability8"                                            "generic_hidden"
+    "Ability9"                                            "generic_hidden"
+
+    "Ability10"                                           "special_bonus_attack_damage_30"
+    "Ability11"                                           "special_bonus_armor_5"
+
+    "Ability12"                                           "special_bonus_hp_350"
+    "Ability13"                                           "special_bonus_unique_eul_3_oaa"
+
+    "Ability14"                                           "special_bonus_unique_eul_1_oaa"
+    "Ability15"                                           "special_bonus_unique_eul_2_oaa"
+
+    "Ability16"                                           "special_bonus_unique_eul_5_oaa"
+    "Ability17"                                           "special_bonus_unique_eul_4_oaa"
+
+    "Ability18"                                           "generic_hidden"
+    "Ability19"                                           "generic_hidden"
+
+    "Facets" // Icons: barrier, agility, teleport, spinning, ricochet
+    {
+      "eul_tornado_barrier"
+      {
+        "Icon"                                            "barrier"
+        "Color"                                           "Gray"
+        "GradientID"                                      "0"
+      }
+      "eul_ventus"
+      {
+        "Icon"                                            "ricochet"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
+      }
+      "eul_displacement"
+      {
+        "Icon"                                            "teleport"
+        "Color"                                           "Yellow"
+        "GradientID"                                      "0"
+      }
+    }
+
+    "AbilityTalentStart"                                  "10"
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "HasInventory"                                        "1"
+
+    "VisionDaytimeRange"                                  "1800"
+    "VisionNighttimeRange"                                "800"
+
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+
+    "GameSoundsFile"                                      "soundevents/units/game_sounds_eul.vsndevts"
+    "SoundSet"                                            "Eul"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
+    "HeroSelectSoundEffect"                               "Eul.Pick"
+    "LoadoutScale"                                        "1.10"
+    "HeroGlowColor"                                       "154 97 133"
+  }
+}

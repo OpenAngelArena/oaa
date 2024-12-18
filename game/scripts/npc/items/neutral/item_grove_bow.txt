@@ -7,26 +7,26 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Model"                                             "models/props_gameplay/neutral_box.vmdl"
-        
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+    
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                          "0"
-    "ItemIsNeutralDrop"                                 "1"
-    "DisplayOverheadAlertOnReceived"                    "0"
-    "ItemPurchasable"                                   "0"
-    "ItemSellable"                                      "0"
+    "ItemCost"                                            "0"
+    "ItemIsNeutralDrop"                                   "1"
+    "DisplayOverheadAlertOnReceived"                      "0"
+    "ItemPurchasable"                                     "0"
+    "ItemSellable"                                        "0"
     
 
     // Special  
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_range_bonus"                              "25" //OAA
-      "attack_speed_bonus"                              "20"
-      "magic_resistance_reduction"                      "15"
-      "debuff_duration"                                 "6"
+      "attack_range_bonus"                                "25" //OAA
+      "attack_speed_bonus"                                "20"
+      "magic_resistance_reduction"                        "15"
+      "debuff_duration"                                   "6"
     }
   }
 }

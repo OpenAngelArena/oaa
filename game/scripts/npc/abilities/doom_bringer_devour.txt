@@ -55,12 +55,17 @@
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "50"
+        "value"                                           "0"
+        "special_bonus_facet_doom_bringer_gluttony"       "=45"
       }
       "AbilityCooldown" //OAA
       {
         "value"                                           "30"
         "special_bonus_facet_doom_bringer_gluttony"       "=0.0"
+      }
+      "can_target_ancient"
+      {
+        "special_bonus_unique_doom_2"                     "=1"
       }
     }
   }

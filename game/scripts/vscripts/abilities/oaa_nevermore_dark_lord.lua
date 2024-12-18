@@ -63,23 +63,41 @@ if IsServer() then
     local dead = event.unit
     local ability = self:GetAbility()
 
-    -- Don't continue for illusions
-    if not parent or parent:IsNull() or not parent:IsRealHero() then
+    -- Don't continue if the parent does not exist
+    if not parent or parent:IsNull() then
       return
     end
 
-    if parent ~= dead then
-      -- Dead unit is not on parent's team
-      if parent:GetTeamNumber() ~= dead:GetTeamNumber() then
-        -- Dead unit is an actually dead real enemy hero unit or a boss
-        if (dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsReincarnating() and not dead:IsClone()) or dead:IsOAABoss() then
-          local parentToDeadVector = dead:GetAbsOrigin() - parent:GetAbsOrigin()
-          local isDeadInRange = parentToDeadVector:Length2D() <= ability:GetSpecialValueFor("aura_radius")
+    -- Don't continue if the parent is an illusion
+    if not parent:IsRealHero() then
+      return
+    end
 
-          -- Stack gain - only if parent is near the dead unit
-          if isDeadInRange then
-            parent:AddNewModifier(parent, ability, "modifier_nevermore_dark_lord_oaa_kill_stack", {duration = ability:GetSpecialValueFor("kill_buff_duration")})
-          end
+    -- Don't continue if the parent is dead
+    if not parent:IsAlive() or parent == dead then
+      return
+    end
+
+    -- Don't continue if the parent is affected by break
+    if parent:PassivesDisabled() then
+      return
+    end
+
+    -- Don't continue if ability does not exist
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    -- Dead unit is not on parent's team
+    if parent:GetTeamNumber() ~= dead:GetTeamNumber() then
+      -- Dead unit is an actually dead real enemy hero unit or a boss
+      if (dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsReincarnating() and not dead:IsClone()) or dead:IsOAABoss() then
+        local parentToDeadVector = dead:GetAbsOrigin() - parent:GetAbsOrigin()
+        local isDeadInRange = parentToDeadVector:Length2D() <= ability:GetSpecialValueFor("aura_radius")
+
+        -- Stack gain - only if parent is near the dead unit
+        if isDeadInRange then
+          parent:AddNewModifier(parent, ability, "modifier_nevermore_dark_lord_oaa_kill_stack", {duration = ability:GetSpecialValueFor("kill_buff_duration")})
         end
       end
     end

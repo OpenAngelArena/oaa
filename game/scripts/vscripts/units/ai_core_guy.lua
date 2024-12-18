@@ -28,8 +28,14 @@ function CoreGuyThink ()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
     thisEntity.ability = thisEntity:FindAbilityByName("core_guy_score_limit") or thisEntity:FindAbilityByName("core_guy_points")
-    thisEntity.ability:StartCooldown(thisEntity.ability:GetCooldownTime())
-    thisEntity.corePoints = 0
+    if PointsManager.timesUsedShrine > 0 then
+      -- important when loading state
+      thisEntity.ability:StartCooldown(PointsManager.timesUsedShrine * LIMIT_INCREASE_STARTING_COOLDOWN)
+    else
+      -- Shrine starts on cooldown at the start of the game
+      thisEntity.ability:StartCooldown(LIMIT_INCREASE_STARTING_COOLDOWN)
+    end
+    --thisEntity.corePoints = 0
   end
 
   if thisEntity:GetAbsOrigin() ~= thisEntity.vInitialSpawnPos then
@@ -66,19 +72,19 @@ function CoreGuyThink ()
     thisEntity:DropItemAtPositionImmediate(neutral_item, thisEntity:GetAbsOrigin())
   end
 
-  local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
-  if cooldown > 0 and thisEntity.corePoints > 0 then
-    --print("cooldown before putting core: " .. cooldown)
-    cooldown = cooldown - (thisEntity.corePoints * 20)
-    --print("cooldown after putting core: " .. cooldown)
-    thisEntity.ability:EndCooldown()
-    if cooldown > 0 then
-      thisEntity.ability:StartCooldown(cooldown)
-      thisEntity.corePoints = 0
-    else
-      thisEntity.corePoints = math.ceil(0 - cooldown) / 20
-    end
-  end
+  -- local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
+  -- if cooldown > 0 and thisEntity.corePoints > 0 then
+    -- print("cooldown before putting core: " .. cooldown)
+    -- cooldown = cooldown - (thisEntity.corePoints * 20)
+    -- print("cooldown after putting core: " .. cooldown)
+    -- thisEntity.ability:EndCooldown()
+    -- if cooldown > 0 then
+      -- thisEntity.ability:StartCooldown(cooldown)
+      -- thisEntity.corePoints = 0
+    -- else
+      -- thisEntity.corePoints = math.ceil(0 - cooldown) / 20
+    -- end
+  -- end
 
   return 1
 end

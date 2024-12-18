@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kez: Falcon Rush
+  //=================================================================================================================
+  "kez_switch_weapons"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "5.0" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "katana_attack_range"                               "225"
+      "katana_base_attack_time"                           "2.0"
+      "katana_bonus_damage"                               "20"
+      "sai_attack_range"                                  "150"
+      "sai_base_attack_time"                              "1.5"
+      "cooldown_reduction_per_level"                      "0.1" //OAA
+      "scepter_cooldown_timer"                            "3"
+    }
+  }
+}

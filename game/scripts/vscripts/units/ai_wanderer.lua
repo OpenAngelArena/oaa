@@ -40,6 +40,10 @@ function WandererThink ()
   end
 
   if not thisEntity.hasSpawned then
+    local stickyAbility = thisEntity:FindAbilityByName("wanderer_sticky_blood")
+    local lvl = math.min(thisEntity.BossTier - 2, 3)
+    stickyAbility:SetLevel(lvl)
+    thisEntity.cleanseAbility:SetLevel(lvl)
     thisEntity.hasSpawned = true
     StartWandering()
     return 1
@@ -136,7 +140,7 @@ function WandererThink ()
     Wanderer:DisableOffside("Enable")
   else
     -- If the score difference isn't too big, disable offside if Wanderer is aggroed on it
-    if math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)) < 25 then
+    if math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)) < 20 then
       if IsLocationInRadiantOffside(thisEntity:GetAbsOrigin()) then
         Wanderer:DisableOffside("Radiant")
       elseif IsLocationInDireOffside(thisEntity:GetAbsOrigin()) then
@@ -368,8 +372,8 @@ end
 function IsNearRadiantFountain (pos)
   local radiant_fountain = Entities:FindByName(nil, "fountain_good_trigger")
   if not radiant_fountain then
-    print("Radiant fountain trigger not found or referenced name is wrong.")
-    return DistanceFromFountainOAA(pos, DOTA_TEAM_GOODGUYS) <= DistanceFromFountainOAA(PointsManager.radiant_shrine, DOTA_TEAM_GOODGUYS)
+    print("Radiant fountain trigger not found or referenced name is wrong. Searching radiant fountain entity instead.")
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_GOODGUYS) <= DistanceFromFountainOAA(PointsManager.radiant_shrine_location, DOTA_TEAM_GOODGUYS)
   end
   local origin = radiant_fountain:GetAbsOrigin()
   local bounds = radiant_fountain:GetBounds()
@@ -392,8 +396,8 @@ end
 function IsNearDireFountain (pos)
   local bad_fountain = Entities:FindByName(nil, "fountain_bad_trigger")
   if not bad_fountain then
-    print("Dire fountain trigger not found or referenced name is wrong.")
-    return DistanceFromFountainOAA(pos, DOTA_TEAM_BADGUYS) <= DistanceFromFountainOAA(PointsManager.dire_shrine, DOTA_TEAM_BADGUYS)
+    print("Dire fountain trigger not found or referenced name is wrong. Searching dire fountain entity instead.")
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_BADGUYS) <= DistanceFromFountainOAA(PointsManager.dire_shrine_location, DOTA_TEAM_BADGUYS)
   end
   local origin = bad_fountain:GetAbsOrigin()
   local bounds = bad_fountain:GetBounds()

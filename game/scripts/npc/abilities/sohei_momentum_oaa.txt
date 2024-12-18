@@ -18,6 +18,8 @@
     "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -30,10 +32,29 @@
       "crit_damage"
       {
         "value"                                           "120 140 160 180 200 220"
+        "special_bonus_facet_sohei_lord"                  "=0"
         "special_bonus_unique_sohei_5_oaa"                "+120"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "trigger_distance"                                  "300"
+      "trigger_distance"
+      {
+        "value"                                           "300"
+        "special_bonus_facet_sohei_lord"                  "=0"
+      }
+      "spell_crit_chance"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_lord"                  "=20"
+        "RequiresFacet"                                   "sohei_lord"
+      }
+      "spell_crit_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_lord"                  "=120 =130 =140 =150 =160 =170"
+        "special_bonus_unique_sohei_5_oaa"                "+60"
+        "CalculateSpellDamageTooltip"                     "0"
+        "RequiresFacet"                                   "sohei_lord"
+      }
     }
   }
 }

@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +33,7 @@
       }
       "movement_speed"
       {
-        "value"                                           "10 15 20 25 30 35"
+        "value"                                           "16 19 22 25 28 31"
         "special_bonus_unique_necrophos_3"                "+20"
       }
       "movement_transfer"

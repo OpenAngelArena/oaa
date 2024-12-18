@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "6" // same as Dependent ability (Shadow Dance) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "slark_shadow_dance"

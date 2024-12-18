@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -38,7 +38,7 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "quill_stacks"                                      "2" //OAA
+      "quill_stacks"                                      "1"
       "goo_stacks"                                        "2"
     }
   }

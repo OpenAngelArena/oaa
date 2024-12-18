@@ -12,9 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "9.0 7.0 5.0 3.0 2.5 2"
 
@@ -35,7 +35,7 @@
       }
       "bonus_damage"
       {
-        "value"                                           "20 35 50 65 130 260"
+        "value"                                           "20 35 50 65 130 195"
         "special_bonus_unique_weaver_2"                   "+70"
       }
       "shard_beetle_search_range"

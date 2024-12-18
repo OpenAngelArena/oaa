@@ -17,6 +17,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -88,7 +90,7 @@
       "life_break_heal_radius"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_nothl_transfusion"    "=400"
+        "special_bonus_facet_huskar_nothl_transfusion"    "=550"
         "affected_by_aoe_increase"                        "1"
       }
       "life_break_heal_pct"

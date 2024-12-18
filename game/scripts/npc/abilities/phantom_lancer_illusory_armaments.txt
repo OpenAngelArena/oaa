@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  "phantom_lancer_illusory_armaments"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "bonus_to_base" //OAA
+      {
+        "value"                                           "50"
+        "special_bonus_unique_phantom_lancer_illusory_armaments_dmg"  "+20"
+      }
+      "bonus_to_base_illusions" //OAA
+      {
+        "value"                                           "50"
+        "special_bonus_unique_phantom_lancer_illusory_armaments_dmg"  "+20"
+      }
+    }
+  }
+}

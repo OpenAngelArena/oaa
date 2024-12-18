@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kunkka: Tidebringer (Innate)
+  // Kunkka: Tidebringer
   //=================================================================================================================
   "kunkka_tidebringer"
   {
@@ -12,9 +12,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
       }
       "damage_bonus"
       {
-        "value"                                           "30 60 90 120 360 600"
+        "value"                                           "30 60 90 120 240 480"
         "special_bonus_unique_kunkka_2"                   "+60"
       }
       "cleave_damage" //OAA
