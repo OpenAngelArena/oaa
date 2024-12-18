@@ -71,14 +71,14 @@
       "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
       "spell_lifesteal"                                   "0"
       // Satanic/Blood Core KVs
-      "primary_attribute_bonus"                           "20 25 30 35 40"
+      "primary_attribute_bonus"                           "15 20 25 30 35"
       "bonus_status_resist"                               "0"
       "hp_regen_amp"                                      "0"
-      "hero_spell_lifesteal"                              "22 24 26 28 30"
-      "creep_spell_lifesteal"                             "4.4 4.8 5.2 5.6 6" // (hero_spell_lifesteal / 5) is the minimum
+      "hero_spell_lifesteal"                              "20 22 24 26 28"
+      "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6" // (hero_spell_lifesteal / 5) is the minimum
       // Satanic/Blood Core active stuff
-      "unholy_hero_spell_lifesteal"                       "180"
-      "unholy_creep_spell_lifesteal"                      "36" // (unholy_hero_spell_lifesteal / 5) is the minimum
+      "unholy_hero_spell_lifesteal"                       "170"
+      "unholy_creep_spell_lifesteal"                      "34" // (unholy_hero_spell_lifesteal / 5) is the minimum
       "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
     }

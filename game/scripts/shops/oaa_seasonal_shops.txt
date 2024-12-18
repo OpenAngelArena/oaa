@@ -201,7 +201,7 @@
     "item"                                                "item_rapier"
   }
 
-  "artifacts" //15
+  "artifacts" //16
   {
     "item"                                                "item_hurricane_pike"
     "item"                                                "item_siege_mode" // Splash Cannon
@@ -217,6 +217,7 @@
     "item"                                                "item_sange_and_yasha"
     "item"                                                "item_kaya_and_sange"
     "item"                                                "item_yasha_and_kaya"
+    "item"                                                "item_shade_staff_1"
     "item"                                                "item_sacred_skull"
   }
 
@@ -233,7 +234,7 @@
     "item"                                                "item_flask"
   }
 
-  // Strategy Screen
+  // Strategy Screen, changing this does nothing, thanks Valve
   "pregame"
   {
     "item"                                                "item_clarity"
@@ -242,8 +243,6 @@
     "item"                                                "item_tango"
     "item"                                                "item_flask"
     "item"                                                "item_blood_grenade"
-    "item"                                                "item_infused_raindrop"
-    "item"                                                "item_dust"
     "item"                                                "item_branches"
     "item"                                                "item_gauntlets"
     "item"                                                "item_slippers"
@@ -270,5 +269,7 @@
     "item"                                                "item_buckler"
     "item"                                                "item_headdress"
     "item"                                                "item_ward_stack"
+    "item"                                                "item_ring_of_health"
+    "item"                                                "item_void_stone"
   }
 }

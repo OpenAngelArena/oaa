@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Tranquil Boots
   //=================================================================================================================
-  "item_recipe_greater_tranquil_boots"
+  "item_recipe_greater_boots_of_bearing_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_tranquil_boots"
+    "ItemResult"                                          "item_greater_boots_of_bearing_1"
     "ItemRequirements"
     {
       "01"                                                "item_boots_of_bearing;item_upgrade_core"
@@ -30,28 +30,25 @@
   //=================================================================================================================
   // Tranquil Boots
   //=================================================================================================================
-  "item_greater_tranquil_boots"
+  "item_greater_boots_of_bearing_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/greater_tranquil_boots.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityTextureName"                                  "custom/greater_tranquils"
+    "ScriptFile"                                          "items/greater_boots_of_bearing.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/greater_boots_of_bearing_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17"
+    "AbilityCooldown"                                     "25"
     "AbilityManaCost"                                     "0"
-    "AbilitySharedCooldown"                               "greater_tranquils"
-    "AbilityCastRange"                                    "900"
+    "AbilitySharedCooldown"                               "drums"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "4376"
-    "ItemShopTags"                                        "move_speed;regen_health"
+    "ItemShopTags"                                        "move_speed;regen_health;str;int;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots;tranquil boots;tranquils"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -59,24 +56,24 @@
 
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_greater_tranquil_boots_1;item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
+    "UpgradesItems"                                       "item_greater_boots_of_bearing_1;item_greater_boots_of_bearing_2;item_greater_boots_of_bearing_3;item_greater_boots_of_bearing_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement_speed"                              "65 70 75 80"
-      "bonus_health_regen"                                "15 18 21 24"
+      "bonus_movement_speed"                              "70 75 80 85"
+      "bonus_health_regen"                                "18 21 24 27"
       "bonus_str"                                         "13 23 38 58"
       "bonus_int"                                         "13 23 38 58"
-      "aura_movement_speed"                               "20 25 30 35"
+      "aura_movement_speed"                               "25 30 35 40"
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "bearing_attack_speed"                              "50 55 60 65"
-      "bearing_movement_speed_pct"                        "15 16 17 18"
+      "bearing_attack_speed"                              "55 60 65 70"
+      "bearing_movement_speed_pct"                        "16 17 18 19"
       "bearing_duration"                                  "6"
       "bearing_radius"
       {
@@ -84,29 +81,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "bearing_unslowable_duration"                       "1.5"
-      "tranquilize_attack_speed_slow"                     "-700"
-      "tranquilize_slow_duration"                         "2.5 3.0 3.5 4.0"
-      "sprout_duration"                                   "4.5 5.0 5.5 6.0"
-      "projectile_speed"                                  "900 1100 1300 1500"
-      "tree_damage_reduction"                             "10 12 14 16"
-      "tree_radius"                                       "175"
-      "tree_protection_duration"                          "4.5 5.0 5.5 6.0"
-      "sprout_vision_range" // when cast on enemies
-      {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "cooldown_tooltip"                                  "20 19 18 17"
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
-      "particle"                                          "particles/units/heroes/hero_furion/furion_sprout.vpcf"
-      "particle"                                          "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
     }
   }
 }
