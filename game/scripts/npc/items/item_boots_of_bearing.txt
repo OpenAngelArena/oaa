@@ -1,55 +1,45 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Drums of Endurance
+  // Boots of Bearing
   //=================================================================================================================
-  "item_ancient_janggo"
+  "item_boots_of_bearing"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    //"AbilityTextureName"                                  "custom/drums_1"
-
-    "ItemPermanent"                                       "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
     "AbilitySharedCooldown"                               "drums"
 
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    //"MaxUpgradeLevel"                                     "5"
-    //"ItemBaseLevel"                                       "1"
-    //"UpgradesItems"                                       "item_ancient_janggo;item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1650"
+    "ItemCost"                                            "4275"
     "ItemShopTags"                                        "str;int;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "drum of endurance;drums"
-    "ItemInitialCharges"                                  "8"
-    "ItemDisplayCharges"                                  "1"
-    //"ItemRequiresCharges"                                 "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemAliases"                                         "marching boots"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "aura_movement_speed"                               "20"
-      "bonus_str"                                         "7"
-      "bonus_int"                                         "7"
-      "bonus_attack_speed_pct"                            "45"
-      "bonus_movement_speed_pct"                          "15" //OAA
+      "bonus_str"                                         "8"
+      "bonus_int"                                         "8"
+      "bonus_attack_speed_pct"                            "50"
+      "bonus_movement_speed_pct"                          "15"
       "duration"                                          "6"
       "radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "charges_tooltip"                                   "8"
+      "bonus_movement_speed"                              "65"
+      "bonus_health_regen"                                "15"
+      "bonus_ms_duration"                                 "1.5"
     }
   }
 }
