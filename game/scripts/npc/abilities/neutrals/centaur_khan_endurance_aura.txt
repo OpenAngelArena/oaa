@@ -13,8 +13,9 @@
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1" // Valve, wtf this if creeps can level up their abilities?
+    "MaxLevel"                                            "4" // Valve, wtf this if creeps can level up their abilities?
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
