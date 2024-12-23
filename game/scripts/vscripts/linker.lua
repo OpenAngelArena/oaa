@@ -122,6 +122,8 @@ LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_
 LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 -- Aura upgrader
 LinkLuaModifier("modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE)
+-- Cleave Suppress
+LinkLuaModifier("modifier_suppress_cleave_oaa", "modifiers/modifier_suppress_cleave_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Minimap icons (for creeps, capture points and bosses)
 LinkLuaModifier("modifier_minimap", "modifiers/modifier_minimap", LUA_MODIFIER_MOTION_NONE)
