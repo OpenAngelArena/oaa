@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Pine Cone: Seed Shot - slows and damages the target
+  // TODO: maybe add % max hp dmg and % attack speed slow
+  //=================================================================================================================
+  "warpine_raider_seed_shot"
+  {
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_warpine_raider_seed_shot.lua"
+    //"AbilityTextureName"                                  "warpine_raider_seed_shot"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING" //OAA, Valve has extra space
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "4"
+
+    "AbilityCastRange"                                    "575"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "15 14 13 12" //OAA
+
+    "AbilityManaCost"                                     "100"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage"                                            "100 120 140 160" //OAA
+      "bounces"                                           "4 6 8 12"
+      "bounce_range"                                      "500"
+      "duration"                                          "1"
+      "slow"                                              "100"
+      "bounce_delay"                                      "0.3"
+    }
+  }
+}

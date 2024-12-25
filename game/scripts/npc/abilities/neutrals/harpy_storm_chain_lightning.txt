@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Harpy Stormcrafter: Vanilla Chain Lightning
+  // TODO: maybe add % max or current hp dmg
   //=================================================================================================================
   "harpy_storm_chain_lightning"
   {
@@ -14,7 +15,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "4" // Valve, wtf this if creeps can level up their abilities?
+    "MaxLevel"                                            "4"
 
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.3"
@@ -31,7 +32,7 @@
     {
       "initial_damage"//OAA
       {
-        "value"                                           "100 150 300 600"
+        "value"                                           "75 150 300 600"
       }
       "jump_range"
       {

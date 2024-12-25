@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Centaur Khan (Big Centaur): Vanilla Endurance Aura
+  // TODO: maybe add % attack speed bonus
   //=================================================================================================================
   "centaur_khan_endurance_aura"
   {
@@ -15,7 +16,7 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "4" // Valve, wtf this if creeps can level up their abilities?
+    "MaxLevel"                                            "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

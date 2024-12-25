@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Kobold Foreman: Warcry - Buffs all allies in an AOE with attack speed and flat damage.
+  // TODO: maybe add % dmg bonus
   //=================================================================================================================
   "kobold_foreman_warcry_oaa"
   {
@@ -31,7 +32,7 @@
     "AbilityValues"
     {
       "bonus_attack_speed"                                "30 40 50 60"
-      "bonus_attack_damage"                               "20 30 60 120"
+      "bonus_attack_damage"                               "15 30 60 120"
       "radius"
       {
         "value"                                           "1200"

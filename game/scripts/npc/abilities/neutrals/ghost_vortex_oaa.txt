@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ghost: Vortex - slows attack speed in its range (AoE) - unused
+  // Vortex - slows attack speed of enemies in an AoE
   //=================================================================================================================
   "ghost_vortex_oaa"
   {
@@ -16,12 +16,12 @@
 
     "MaxLevel"                                            "4"
 
-    "AbilityCastRange"                                    "1500"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.2"
 
     "AbilityCooldown"                                     "10.0"
     "AbilityManaCost"                                     "110"
-    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick?
+    "AbilityProcsMagicStick"                              "1"
 
     "precache"
     {

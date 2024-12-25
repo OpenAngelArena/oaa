@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Black Dragon: Fireball
+  // TODO: maybe add % max or current hp dmg
   //=================================================================================================================
   "black_dragon_fireball"
   {
@@ -14,7 +15,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "4" // Valve, wtf is this if creeps can level up their abilities?
+    "MaxLevel"                                            "4"
 
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
@@ -33,7 +34,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "85 90 180 360" //OAA
+      "damage"                                            "45 90 180 360" //OAA
       "duration"                                          "8.0 9 10 12"
       "burn_interval"                                     "0.5"
     }

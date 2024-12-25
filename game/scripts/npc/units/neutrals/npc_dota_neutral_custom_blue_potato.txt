@@ -19,14 +19,14 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "big_thunder_lizard_wardrums_aura"
-    "Ability2"                                            "" // furbolg_enrage_damage
-    "Ability3"                                            "" // kobold_disarm
-    "Ability4"                                            "" // Ability 4
+    "Ability2"                                            "neutral_mana_break_oaa"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "3"     // Physical protection.
-    "MagicalResistance"                                   "0"     // Magical protection.
+    "MagicalResistance"                                   "25"     // Magical protection.
 
     // Attack
     //----------------------------------------------------------------

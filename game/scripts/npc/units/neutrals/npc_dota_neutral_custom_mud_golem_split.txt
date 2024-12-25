@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mud_golem_hurl_boulder" // TODO: rework: add % max hp dmg
+    "Ability1"                                            "mud_golem_hurl_boulder"
     "Ability2"                                            ""                            // Ability 2
     "Ability3"                                            ""                            // Ability 3
     "Ability4"                                            ""                            // Ability 4
@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"     // Physical protection.
-    "MagicalResistance"                                   "0"     // Magical protection.
+    "MagicalResistance"                                   "25"     // Magical protection.
 
     // Attack
     //----------------------------------------------------------------

@@ -18,15 +18,15 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "centaur_khan_war_stomp"        // TODO: rework: add % max hp dmg
-    "Ability2"                                            "centaur_khan_endurance_aura"   // TODO: rework: make flat + % attack speed bonus
-    "Ability3"                                            ""                              // Ability 3
-    "Ability4"                                            ""                              // Ability 4
+    "Ability1"                                            "centaur_khan_war_stomp"
+    "Ability2"                                            "centaur_khan_endurance_aura"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "4"     // Physical protection.
-    "MagicalResistance"                                   "5"    // Magical protection.
+    "MagicalResistance"                                   "25"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
