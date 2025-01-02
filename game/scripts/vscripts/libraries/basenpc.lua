@@ -48,6 +48,7 @@ if IsServer() then
       "modifier_bloodseeker_rupture",
       --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
+      "modifier_doom_bringer_doom_enemy",
       "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
@@ -164,6 +165,7 @@ if IsServer() then
       "modifier_dark_willow_shadow_realm_buff",
       "modifier_dazzle_innate_weave_armor_counter",
       "modifier_dazzle_shallow_grave",
+      "modifier_doom_bringer_doom_aura_self",
       "modifier_doom_bringer_scorched_earth_effect",
       "modifier_doom_bringer_scorched_earth_effect_aura",
       "modifier_enchantress_natures_attendants",
