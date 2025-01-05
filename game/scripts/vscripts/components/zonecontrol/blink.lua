@@ -69,7 +69,7 @@ function BlinkBlock:CheckBlink(startLoc, endLoc)
 
   DebugPrint('Found ' .. #blocks)
 
-  for _,block in pairs(blocks) do
+  for _, block in pairs(blocks) do
     local blockOrigin = block:GetAbsOrigin()
     local minBounds = block:GetBoundingMins()
     local maxBounds = block:GetBoundingMaxs()

@@ -21,16 +21,12 @@ function StartingItems.GiveStartingItems (hero)
   if #StartingItems.itemList <= 0 then
     return
   end
-
-  -- We have a timer here so that the other stuff (e.g. courier) doesn't interfere
-  Timers:CreateTimer(1.54, function ()
-    if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
-      return
-    end
-    -- Add starting items
-    --for _, itemName in pairs(StartingItems.itemList) do
-      --local item = hero:AddItemByName(itemName)
-	    -- item:SetSellable(false) -- this removes the right-click menu so use with care
-    --end
-  end)
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
+    return
+  end
+  -- Add starting items
+  --for _, itemName in pairs(StartingItems.itemList) do
+    --local item = hero:AddItemByName(itemName)
+    -- item:SetSellable(false) -- this removes the right-click menu so use with care
+  --end
 end
