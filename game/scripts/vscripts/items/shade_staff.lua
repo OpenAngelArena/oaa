@@ -128,6 +128,9 @@ function modifier_item_shade_staff_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_str = ability:GetSpecialValueFor("bonus_str")
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    --self.slow_resist = ability:GetSpecialValueFor("slow_resistance")
+    self.status_resist = ability:GetSpecialValueFor("status_resistance")
     -- Stuff active only near trees:
     self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
     self.tree_radius = ability:GetSpecialValueFor("tree_radius")
@@ -176,12 +179,53 @@ end
 function modifier_item_shade_staff_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING, -- GetModifierSlowResistance_Stacking
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- GetModifierIncomingDamage_Percentage
   }
 end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Strength()
   return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_str")
+end
+
+function modifier_item_shade_staff_passive:GetModifierHPRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  -- Prevent stacking with Sange items
+  if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+    return 0
+  end
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+function modifier_item_shade_staff_passive:GetModifierLifestealRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  -- Prevent stacking with Sange items
+  if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+    return 0
+  end
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_item_shade_staff_passive:GetModifierSlowResistance_Stacking()
+  -- local parent = self:GetParent()
+  -- -- Prevent stacking with Sange items
+  -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+    -- return 0
+  -- end
+  -- return self.slow_resist or self:GetAbility():GetSpecialValueFor("slow_resistance")
+-- end
+
+function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
+  local parent = self:GetParent()
+  -- Prevent stacking with Sange & Yasha
+  if parent:HasModifier("modifier_item_sange_and_yasha") then
+    return 0
+  end
+  return self.status_resist or self:GetAbility():GetSpecialValueFor("status_resistance")
 end
 
 function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage() -- Tree Damage Reduction
@@ -272,6 +316,7 @@ end
 function modifier_item_shade_staff_trees_buff:CheckState()
   return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true, -- Tree-Walking
   }
 end
 
