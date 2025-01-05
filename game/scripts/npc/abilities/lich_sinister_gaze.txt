@@ -35,12 +35,12 @@
     {
       "AbilityChannelTime" //OAA, I thought having 2 different kvs that do the same thing is a thing of the past, I was wrong
       {
-        "value"                                           "1.4 1.7 2.0 2.3 2.6 2.9"
+        "value"                                           "1.4 1.7 2.0 2.3 2.4 2.5"
         "special_bonus_unique_lich_2"                     "+0.3"
       }
       "channel_duration" //OAA, Valve is dumb, having 2 different kvs that do the same thing
       {
-        "value"                                           "1.4 1.7 2.0 2.3 2.6 2.9"
+        "value"                                           "1.4 1.7 2.0 2.3 2.4 2.5"
         "special_bonus_unique_lich_2"                     "+0.3"
       }
       "destination"                                       "32 38 44 50 56 62"
@@ -50,8 +50,8 @@
         "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
-      "creep_duration_multiplier"                         "2"
-      "creep_damage"                                      "250"
+      "creep_duration_multiplier"                         "1" //OAA, to avoid duration bugs
+      "creep_damage"                                      "400 420 430 440 460 520" //OAA
     }
   }
 }

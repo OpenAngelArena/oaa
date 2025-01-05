@@ -15,7 +15,7 @@
 // "DOTA_Tooltip_ability_mirana_arrow_arrow_bonus_damage"                         "MAXIMUM BONUS DAMAGE:"
 
 "DOTA_Tooltip_ability_mirana_arrow_oaa"                                         "#{DOTA_Tooltip_ability_mirana_arrow}"
-"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "#{DOTA_Tooltip_ability_mirana_arrow_Description}\n<font color='#FFA500'>Arrow can pierce and stun multiple units.</font>"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "#{DOTA_Tooltip_ability_mirana_arrow_Description}\n<font color='#FFA500'>Arrow can pierce and stun multiple units. Stun duration gets reduced by %arrow_pierce_stun_decay_per_unit%%% every time it pierces.</font>"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Lore"                                    "#{DOTA_Tooltip_ability_mirana_arrow_Lore}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note0"                                   "Pierce count represents how many units a single arrow can pierce, not how many units it can stun."
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note1"                                   "#{DOTA_Tooltip_ability_mirana_arrow_Note1}"

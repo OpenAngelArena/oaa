@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,13 +30,13 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "90 180 270 360 720 1080"
+      "damage"                                            "90 180 270 360 720 1080" // Valve forgot special_bonus_unique_oracle_8
       "heal_per_second"                                   "15 25 35 45 90 135"
       "total_heal_tooltip"                                "150 250 350 450 900 1350"
       "duration"                                          "10"

@@ -1,0 +1,69 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kez: Echo Slash
+  //=================================================================================================================
+  "kez_echo_slash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 18 16 14 13 12"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "85 100 115 130 145 160"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "katana_echo_damage" // percentage of Kez's attack damage
+      {
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "70 80 90 100 110 120"
+      }
+      "echo_hero_damage"
+      {
+        "value"                                           "25 45 65 85 170 340"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "katana_strikes"
+      {
+        "value"                                           "2"
+        "special_bonus_unique_kez_echo_slash_strike_count"  "+1"
+      }
+      "strike_interval"
+      {
+        "value"                                           "1.2"
+        "special_bonus_unique_kez_echo_slash_strike_count"  "-0.6"
+      }
+      "katana_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "katana_distance"
+      {
+        "value"                                           "800"
+      }
+      "travel_distance"                                   "250"
+      "tag_slow"                                          "100"
+      "tag_slow_duration"                                 "0.25"
+    }
+  }
+}

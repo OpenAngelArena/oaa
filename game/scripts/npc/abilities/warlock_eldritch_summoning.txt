@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Warlock: Innate Eldritch Summoning
+  // Warlock: Eldritch Summoning (Innate)
   //=================================================================================================================
   "warlock_eldritch_summoning"
   {
@@ -9,8 +9,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6" // 7 with Aghanim Shard
 
+    "MaxLevel"                                            "6" // 7 with Aghanim Shard
     "Innate"                                              "1"
     "DependentOnAbility"                                  "warlock_rain_of_chaos"
 

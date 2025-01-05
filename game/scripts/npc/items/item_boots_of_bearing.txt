@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Boots of Bearing
+  //=================================================================================================================
+  "item_boots_of_bearing"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0"
+    "AbilitySharedCooldown"                               "drums"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4275"
+    "ItemShopTags"                                        "str;int;move_speed;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "boots of bearing;marching boots;bearing"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "aura_movement_speed"                               "20"
+      "bonus_str"                                         "8"
+      "bonus_int"                                         "8"
+      "bonus_attack_speed_pct"                            "50"
+      "bonus_movement_speed_pct"                          "15"
+      "duration"                                          "6"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bonus_movement_speed"                              "65"
+      "bonus_health_regen"                                "15"
+      "bonus_ms_duration"                                 "1.5"
+    }
+  }
+}

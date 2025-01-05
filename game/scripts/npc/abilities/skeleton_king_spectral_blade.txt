@@ -8,6 +8,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -16,7 +18,7 @@
       "cursed_damage_pct"                                 "50"
       "cursed_damage"
       {
-        "value"                                           "10 25 40 55 70 85"
+        "value"                                           "10 25 40 55 85 115"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "curse_cooldown"                                    "18 16 14 12 11 10"

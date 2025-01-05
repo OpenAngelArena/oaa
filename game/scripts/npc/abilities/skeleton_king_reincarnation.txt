@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "AbilityValues"
     {
@@ -41,8 +43,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "140 130 120 110 100"
-        "special_bonus_scepter"                           "-15"
+        "value"                                           "100 80 60 55 50"
+        "special_bonus_scepter"                           "-10"
       }
     }
   }

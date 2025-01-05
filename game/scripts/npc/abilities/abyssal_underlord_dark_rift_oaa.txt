@@ -48,13 +48,13 @@
       }
       "radius"
       {
-        "value"                                           "430"
+        "value"                                           "400"
         "special_bonus_facet_abyssal_underlord_summons"   "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"
       {
-        "value"                                           "2.5 2.75 3.0 3.25 3.5"
+        "value"                                           "2.25 2.5 2.75 3.0 3.25"
         "special_bonus_facet_abyssal_underlord_summons"   "=0.01"
       }
       "damage"
@@ -65,18 +65,17 @@
       "minimum_range"                                     "0"
       "damage_reduction"
       {
-        "value"                                           "35"
-        "RequiresScepter"                                 "1"
+        "value"                                           "4 6 8 10 12"
+        "special_bonus_scepter"                           "=35"
       }
       "bonus_ms"
       {
-        "value"                                           "10 20 30 40 50"
-        "RequiresScepter"                                 "1"
+        "value"                                           "5 10 15 20 25"
+        "special_bonus_scepter"                           "+15"
       }
       "buff_duration"
       {
-        "value"                                           "5 5.5 6 6.5 7"
-        "RequiresScepter"                                 "1"
+        "value"                                           "5"
       }
     }
 

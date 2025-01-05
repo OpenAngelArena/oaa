@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
         "value"                                           "18 16 14 12 12 12"
       }

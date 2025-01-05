@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Darkness
+  // Night Stalker: Dark Ascension
   //=================================================================================================================
   "night_stalker_darkness"
   {
@@ -25,15 +25,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration" //OAA
+      "duration"
       {
         "value"                                           "30.0"
         "special_bonus_unique_night_stalker_7"            "+6"
       }
       "bonus_damage" //OAA
       {
-        "value"                                           "50 125 200 350 650"
-        "special_bonus_unique_night_stalker_3"            "+50"
+        "value"                                           "50 125 200 350 500"
+        "special_bonus_unique_night_stalker_3"            "+25"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

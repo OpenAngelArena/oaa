@@ -448,7 +448,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     guy.duelNumber = duelNumber
     Duels.zones[arenaIndex].addPlayer(guy.id)
 
-    SafeTeleportAll(hero, spawn, 350)
+    SafeTeleportAll(hero, spawn, 350, true)
     MoveCameraToPlayer(hero)
     hero:Stop()
     --hero:SetRespawnsDisabled(true) -- not working properly thanks to Aghs Lab 2

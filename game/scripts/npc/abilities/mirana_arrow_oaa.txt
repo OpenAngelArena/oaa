@@ -18,6 +18,8 @@
     "AbilityTextureName"                                  "mirana_arrow"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "1"
 
@@ -85,6 +87,7 @@
         "value"                                           "0 1 1 2 2 3"
         "special_bonus_unique_mirana_arrow_pierce"        "+1"
       }
+      "arrow_pierce_stun_decay_per_unit"                  "20" // percent
     }
   }
 }

@@ -64,10 +64,9 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   boar:SetBaseMoveSpeed(boar_speed)
 
   -- Level the boar's poison ability to match abilityLevel
-  local boarPoisonAbility = boar:FindAbilityByName("beastmaster_boar_poison")
+  local boarPoisonAbility = boar:FindAbilityByName("beastmaster_boar_poison_oaa")
   if boarPoisonAbility then
     boarPoisonAbility:SetLevel(abilityLevel)
-    boar:AddNewModifier(caster, self, "modifier_beastmaster_boar_poison", {})
   end
 
   -- Create particle effects

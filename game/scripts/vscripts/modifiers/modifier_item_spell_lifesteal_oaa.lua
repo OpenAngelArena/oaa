@@ -108,6 +108,15 @@ if IsServer() then
       nCreepHeal = self.unholy_creep_spell_lifesteal
     end
 
+    -- Most optimal fix for spell lifesteal stacking from sources that are effectively the same
+    local n = self:NumberOfSameItemInstances()
+    if n == 0 then
+      -- Prevent division by 0
+      return 0
+    end
+    nHeroHeal = nHeroHeal / n
+    nCreepHeal = nCreepHeal / n
+
     -- Check for spell lifesteal amplification (sort from worst to best)
     -- local kaya_modifiers = {
       -- "modifier_item_kaya",
@@ -176,4 +185,37 @@ if IsServer() then
       ParticleManager:ReleaseParticleIndex(particle)
     end
   end
+end
+
+function modifier_item_spell_lifesteal_oaa:NumberOfSameItemInstances()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  if parent:IsNull() or ability:IsNull() then
+    return 0
+  end
+
+  if not IsServer() then
+    print("NumberOfSameItemInstances will not return the correct result on the client!")
+    return 0
+  end
+
+  local ability_name = ability:GetAbilityName()
+  local same_items = 0 -- not the same as parent:FindAllModifiersByName(self:GetName())
+  local max_slot = DOTA_ITEM_SLOT_6
+  if parent:HasModifier("modifier_techies_spoons_stash") then
+    max_slot = DOTA_ITEM_SLOT_9
+  end
+  for item_slot = DOTA_ITEM_SLOT_1, max_slot do
+    local item = parent:GetItemInSlot(item_slot)
+    if item then
+      local item_name = item:GetAbilityName()
+      if string.sub(item_name, 0, string.len(item_name)-2) == string.sub(ability_name, 0, string.len(ability_name)-2) then
+        same_items = same_items + 1
+      end
+    end
+  end
+
+  -- Returns the number of Blood Cores in the inventory, number of Dagons in the inventory etc.
+  return same_items
 end

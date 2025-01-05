@@ -10,12 +10,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
     "AbilityManaCost"                                     "100" //OAA
-    "AbilityCooldown"                                     "50 45 40 35 30 30" //OAA
+    "AbilityCooldown"                                     "40 38 36 34 32 30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,7 @@
       }
       "talent_skeleton_damage"                            "0 5 10 15"
       "skeleton_building_damage_reduction"                "35"
-      "skeleton_bonus_hero_damage"                        "25" // percentage increase
+      "skeleton_bonus_hero_damage"                        "25 25 25 25 30 40" // percentage increase
       "skeleton_attack_damage_per_level" //OAA, tooltip only
       {
         "value"                                           "2"

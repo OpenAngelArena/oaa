@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +45,8 @@
       }
       "duration" //OAA
       {
-        "value"                                           "20"
+        "value"                                           "25"
+        "special_bonus_facet_lone_druid_unbearable"       "+15"
       }
       "transformation_time"                               "1.933"
       "AbilityCooldown"

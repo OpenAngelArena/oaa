@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild Hawk (OAA rework)
+  // Beastmaster: Call of the Wild Hawk (OAA rework) - unused
   //=================================================================================================================
   "beastmaster_call_of_the_wild_hawk_oaa"
   {
@@ -13,8 +13,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     "HasShardUpgrade"                                     "1"
 

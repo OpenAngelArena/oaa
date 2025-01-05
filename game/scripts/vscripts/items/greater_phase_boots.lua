@@ -318,7 +318,9 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
       table.insert( self.hitTargets, unit )
 
       -- do an instant attack with no projectile that applies procs
+      local debuff = parent:AddNewModifier(parent, nil, "modifier_suppress_cleave_oaa", {})
       parent:PerformAttack(unit, true, true, true, false, false, false, true)
+      debuff:Destroy()
 
       -- play the particle
       local part = ParticleManager:CreateParticle("particles/items/phase_divehit.vpcf", PATTACH_ABSORIGIN, unit)

@@ -203,17 +203,17 @@
 }
 
 .es-legend-kdalevel.level {
-  width: 28px;
+/*  width: 28px;*/
 }
 .es-legend-kdalevel {
-	width: 24px;
+	width: 35px;
 }
 
 .es-player-kdalevel.level {
-  width: 28px;
+/*  width: 28px;*/
 }
 .es-player-kdalevel {
-	width: 24px;
+	width: 35px;
 	vertical-align: center;
 	text-align: center;
 	color: #eee;
@@ -231,22 +231,22 @@
 /* } */
 
 .es-legend-gpm {
-  width: 40px;
+  width: 50px;
 }
 
 #es-player-gpm {
-	width: 40px;
+	width: 50px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
 }
 
 .es-legend-xpm {
-  width: 40px;
+  width: 50px;
 }
 
 #es-player-xpm {
-	width: 40px;
+	width: 50px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
@@ -254,6 +254,10 @@
 
 .es-legend-dmg-done-to-heroes {
   width: 70px;
+}
+
+.es-player-boss-dmg, .es-player-hero-dmg {
+  flow-children: down;
 }
 
 #es-player-dmg-done-to-heroes {

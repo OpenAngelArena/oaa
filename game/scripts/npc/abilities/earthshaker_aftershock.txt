@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Earthshaker Aftershock (Innate)
+  // Ability: Earthshaker Aftershock
   //=================================================================================================================
   "earthshaker_aftershock"
   {
@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

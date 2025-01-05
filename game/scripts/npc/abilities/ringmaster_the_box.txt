@@ -14,14 +14,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,10 +42,6 @@
       "model_scale_time"                                  "0.2"
       "leash_radius"                                      "500"
       "heal_ally"                                         "0"
-      "launch_daggers"
-      {
-        "value"                                           "0"
-      }
       "leap_distance"                                     "250"
       "leap_speed"                                        "1300.0"
       "leap_acceleration"                                 "20000.0"
@@ -64,6 +58,41 @@
       {
         "value"                                           "0"
         "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"  "+1"
+      }
+      "max_charges"
+      {
+        "value"                                           "2"
+        "RequiresScepter"                                 "1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "23 22 21 20 19 18"
+        "special_bonus_scepter"                           "-100%"
+      }
+      "AbilityChargeRestoreTime" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=23 =22 =21 =20 =19 =18"
+      }
+      "launch_daggers_count"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=8"
+      }
+      "launch_daggers_range"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1200"
+      }
+      "explosion_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=225"
+      }
+      "explosion_damage" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=75 =150 =225 =300 =600 =900"
       }
     }
   }

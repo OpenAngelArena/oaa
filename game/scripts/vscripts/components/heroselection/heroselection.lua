@@ -57,6 +57,8 @@ function HeroSelection:Init ()
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
       elseif key == "npc_dota_hero_sohei" then
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      elseif key == "npc_dota_hero_eul" then
+        data = LoadKeyValues('scripts/npc/heroes/eul.txt')
       else
         data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end
@@ -677,7 +679,9 @@ function HeroSelection:ChooseBans ()
           end
         end
 
-        if not banned then
+        local kez = hero_name == "npc_dota_hero_kez"
+
+        if not banned and not kez then
           table.insert(rankedpickorder.bans, hero_name)
           i = i + 1
         end
@@ -1066,17 +1070,25 @@ function HeroSelection:SingleDraftForceRandom(playerId)
   return self:ForceRandomHero(playerId)
 end
 
-function HeroSelection:SingleDraftRandom(playerId)
+function HeroSelection:SingleDraftRandom(playerId, dontPickThisHeroPlease)
   local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
   local myChoices = singleDraftChoices[tostring(playerId)]
   if not myChoices then
     return self:RandomHero(playerId)
   end
 
-  -- random the hero!
-  local randomIndex = RandomInt(1, 4)
-  local index = 1
+  local validHeroChoices = {};
+
   for attr, heroName in pairs(myChoices) do
+    if heroName ~= dontPickThisHeroPlease then
+      table.insert(validHeroChoices, heroName)
+    end
+  end
+  -- random the hero!
+  local randomIndex = RandomInt(1, #validHeroChoices)
+  local index = 1
+
+  for attr, heroName in pairs(validHeroChoices) do
     if index == randomIndex then
       return heroName
     end
@@ -1352,7 +1364,7 @@ function HeroSelection:HeroRerandom(event)
   -- Re-random new hero
   local new_hero
   if OAAOptions.settings.GAME_MODE == "SD" then
-    new_hero = HeroSelection:SingleDraftRandom(playerId)
+    new_hero = HeroSelection:SingleDraftRandom(playerId, locked_hero)
   else
     new_hero = HeroSelection:RandomHero(playerId)
   end

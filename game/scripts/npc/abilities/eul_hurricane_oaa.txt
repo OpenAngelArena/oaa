@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Hurricane (Q)
+  //=================================================================================================================
+  "eul_hurricane_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "enraged_wildkin_hurricane"
+    "AbilityTextureName"                                  "custom/eul_hurricane"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700" //OAA
+    "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "18 16 14 12 10 8" //OAA
+    "AbilityManaCost"                                     "120" //OAA
+    "AbilityProcsMagicStick"                              "1"
+
+    "AbilityValues"
+    {
+      "distance" //OAA
+      {
+        "value"                                           "400 475 550 625 650 675"
+      }
+      "damage" //OAA
+      {
+        "value"                                           "100 175 250 325 650 975"
+        "special_bonus_unique_eul_1_oaa"                  "+200"
+      }
+      "dispel" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_unique_eul_2_oaa"                  "=1"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/neutral_fx/wildkin_ripper_hurricane_ambient.vpcf"
+      "particle"                                          "particles/neutral_fx/wildkin_ripper_hurricane_cast.vpcf"
+    }
+  }
+}

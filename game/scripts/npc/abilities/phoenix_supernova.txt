@@ -17,6 +17,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +43,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_sec"                                    "60 120 180 360 660" //OAA
+      "damage_per_sec"                                    "60 120 180 360 540" //OAA
       "tick_interval"                                     "0.2"
       "stun_duration"
       {

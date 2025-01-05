@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Tranquil Boots
+  //=================================================================================================================
+  "item_recipe_greater_boots_of_bearing_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "100"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_greater_boots_of_bearing_1"
+    "ItemRequirements"
+    {
+      "01"                                                "item_boots_of_bearing;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Tranquil Boots
+  //=================================================================================================================
+  "item_greater_boots_of_bearing_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/greater_boots_of_bearing.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/greater_boots_of_bearing_2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "drums"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4376"
+    "ItemShopTags"                                        "move_speed;regen_health;str;int;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "greater tranquil boots;tranquil boots;tranquils"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_greater_boots_of_bearing_1;item_greater_boots_of_bearing_2;item_greater_boots_of_bearing_3;item_greater_boots_of_bearing_4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_movement_speed"                              "70 75 80 85"
+      "bonus_health_regen"                                "18 21 24 27"
+      "bonus_str"                                         "13 23 38 58"
+      "bonus_int"                                         "13 23 38 58"
+      "aura_movement_speed"                               "25 30 35 40"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bearing_attack_speed"                              "55 60 65 70"
+      "bearing_movement_speed_pct"                        "16 17 18 19"
+      "bearing_duration"                                  "6"
+      "bearing_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bearing_unslowable_duration"                       "1.5"
+    }
+  }
+}

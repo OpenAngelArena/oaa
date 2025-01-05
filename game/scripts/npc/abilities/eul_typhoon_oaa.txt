@@ -1,0 +1,91 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Typhoon (R)
+  //=================================================================================================================
+  "eul_typhoon_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/eul/eul_typhoon.lua"
+    "AbilityTextureName"                                  "custom/eul_typhoon"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "100 90 80 70 60"
+    "AbilityManaCost"                                     "100 150 200 250 300"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius" // also cast range
+      {
+        "value"                                           "550"
+        "special_bonus_scepter"                           "=825"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "duration"
+      {
+        "value"                                           "6 8 10 12 14"
+        "special_bonus_scepter"                           "+2"
+      }
+      "max_move_slow"
+      {
+        "value"                                           "100"
+      }
+      "min_move_slow"
+      {
+        "value"                                           "20 25 30 35 40"
+      }
+      "max_dps"
+      {
+        "value"                                           "100 175 250 475 700"
+      }
+      "min_dps"
+      {
+        "value"                                           "60 80 100 160 220"
+      }
+      "max_effect_radius"
+      {
+        "value"                                           "150"
+      }
+      "apply_wind_control"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_eul_4_oaa"                  "=1"
+      }
+      "tornado_generate_interval"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+        "RequiresScepter"                                 "1"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun_slow.vpcf"
+      "particle"                                          "particles/hero/eul/eul_typhoon.vpcf"
+      "model"                                             "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"
+    }
+  }
+}

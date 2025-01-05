@@ -1,9 +1,9 @@
 "DOTA_Tooltip_ability_lycan_feral_movement_oaa"                                 "Feral Movement"
-"DOTA_Tooltip_ability_lycan_feral_movement_oaa_Description"                     "Allies near Lycan gain phased movement (no unit collision), 50 bonus attack speed and 15%% evasion."
+"DOTA_Tooltip_ability_lycan_feral_movement_oaa_Description"                     "Allies near Lycan gain phased movement (no unit collision), %attack_speed_pct%%% bonus attack speed and bonus %evasion%%% evasion."
 "DOTA_Tooltip_ability_lycan_feral_movement_oaa_Lore"                            "Woof"
 "DOTA_Tooltip_ability_lycan_feral_movement_oaa_radius"                          "RADIUS:"
 
 "DOTA_Tooltip_modifier_lycan_feral_movement_effect_oaa"                         "Feral Movement"
-"DOTA_Tooltip_modifier_lycan_feral_movement_effect_oaa_Description"             "Phased, attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% and %dMODIFIER_PROPERTY_EVASION_CONSTANT%%% bonus evasion."
+"DOTA_Tooltip_modifier_lycan_feral_movement_effect_oaa_Description"             "Phased, attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%% and %dMODIFIER_PROPERTY_EVASION_CONSTANT%%% bonus evasion."
 
 "DOTA_Tooltip_ability_lycan_summon_wolves_shard_description"                    "<font color='#FFA500'>Grants #{DOTA_Tooltip_ability_lycan_feral_movement_oaa} aura:\n #{DOTA_Tooltip_ability_lycan_feral_movement_oaa_Description}</font>"

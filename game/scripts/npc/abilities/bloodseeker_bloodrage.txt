@@ -54,7 +54,7 @@
         "value"                                           "1.4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "shard_max_health_dmg" //OAA
+      "shard_max_health_dmg" //OAA, it's not max health, it's flat dmg
       {
         "value"                                           "20 25 30 35 70 105"
         "RequiresShard"                                   "1"

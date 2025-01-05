@@ -20,7 +20,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "2"
 
@@ -30,9 +30,9 @@
 
     "AbilityValues"
     {
-      "AbilityChargeRestoreTime"
+      "AbilityChargeRestoreTime" //OAA, special_bonus_unique_disruptor_2 is not used
       {
-        "value"                                           "20 18 16 14 12 10"
+        "value"                                           "14 13 12 11 10 9"
         "special_bonus_unique_disruptor_2"                "-3"
       }
       "radius"                                            "350"

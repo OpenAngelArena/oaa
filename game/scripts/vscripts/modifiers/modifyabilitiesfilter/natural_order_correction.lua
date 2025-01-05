@@ -45,6 +45,13 @@ function modifier_elder_titan_natural_order_correction_oaa:OnIntervalThink()
   end
 
   local magic_resist_reduction = ability:GetLevelSpecialValueFor("magic_resistance_pct", ability_level - 1)
+  -- Natural Order works correctly if reduction is 100% or below
+  if magic_resist_reduction <= 100 then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
   local magic_resist = math.ceil(math.abs(base_magic_resist * (1 - math.abs(magic_resist_reduction) / 100)))
   -- Something is seriously wrong with stacking negative magic resistance and I don't know what
   -- The UI sometimes doesn't show the correct values, let's hope that the damage amplification is correct

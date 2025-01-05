@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +44,7 @@
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_hoodwink_bushwhack_damage"  "+180"
+        "special_bonus_unique_hoodwink_bushwhack_damage"  "+100"
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"

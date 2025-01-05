@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LinaL Fiery Soul (Innate)
+  // LinaL Fiery Soul
   //=================================================================================================================
   "lina_fiery_soul"
   {
@@ -11,6 +11,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +37,7 @@
       "bonus_spell_damage" //OAA
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+5 10 15 20 30 40"
+        "special_bonus_shard"                             "+10 15 20 25 35 45"
       }
       "target_crit_multiplier"
       {

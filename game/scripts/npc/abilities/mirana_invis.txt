@@ -10,8 +10,11 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,15 +32,15 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "120 110 100 95 90"
-        "special_bonus_unique_mirana_4"                   "-20"
+        "special_bonus_unique_mirana_4"                   "-20" // special_bonus_unique_mirana_4 is not used
       }
       "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
       "duration"                                          "11" //OAA
       "bonus_movement_speed"                              "9 12 15 18 21"
-      "evasion" //OAA
+      "evasion"
       {
         "value"                                           "0"
-        "special_bonus_unique_mirana_5"                   "+25"
+        "special_bonus_unique_mirana_5"                   "+20"
       }
     }
   }
