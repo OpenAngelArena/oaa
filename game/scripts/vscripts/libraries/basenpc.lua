@@ -430,9 +430,9 @@ if IsServer() then
 
       -- Reset cooldown for items that are in backpack
       for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
-        local item = unit:GetItemInSlot(j)
-        if item and not exempt_item_table[item:GetAbilityName()] then
-          item:EndCooldown()
+        local backpack_item = unit:GetItemInSlot(j)
+        if backpack_item and not exempt_item_table[backpack_item:GetAbilityName()] then
+          backpack_item:EndCooldown()
         end
       end
 
