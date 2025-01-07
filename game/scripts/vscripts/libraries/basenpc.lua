@@ -409,17 +409,36 @@ if IsServer() then
     end
 
     if unit.GetItemInSlot ~= nil and unit:HasInventory() then
+      local exempt_item_table = {
+        item_ex_machina = true,
+        item_hand_of_midas_1 = true,
+        item_refresher = true,
+        item_refresher_2 = true,
+        item_refresher_3 = true,
+        item_refresher_4 = true,
+        item_refresher_5 = true,
+        item_refresher_shard = true,
+      }
+
       -- Reset cooldown for items that are not in backpack and not in stash
       for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
         local item = unit:GetItemInSlot(i)
-        if item then
+        if item and not exempt_item_table[item:GetAbilityName()] then
           item:EndCooldown()
+        end
+      end
+
+      -- Reset cooldown for items that are in backpack
+      for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local backpack_item = unit:GetItemInSlot(j)
+        if backpack_item and not exempt_item_table[backpack_item:GetAbilityName()] then
+          backpack_item:EndCooldown()
         end
       end
 
       -- Reset neutral item cooldown
       local neutral_item = unit:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-      if neutral_item then
+      if neutral_item and not exempt_item_table[neutral_item:GetAbilityName()] then
         neutral_item:EndCooldown()
       end
     end
