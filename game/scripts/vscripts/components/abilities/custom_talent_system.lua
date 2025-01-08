@@ -73,6 +73,9 @@ local abilities_with_custom_talents = {
   keeper_of_the_light_illuminate = {
     speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
   },
+  lich_chain_frost = {
+    jumps = {"special_bonus_unique_lich_1_oaa", "+"},
+  },
   life_stealer_open_wounds = {
     AbilityCooldown = {"special_bonus_unique_lifestealer_1_oaa", "+"},
   },

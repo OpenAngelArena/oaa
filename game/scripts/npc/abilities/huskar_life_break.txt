@@ -80,17 +80,17 @@
         "value"                                           "250"
         "RequiresScepter"                                 "1"
       }
-      "splash_radius"
+      "splash_radius" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_bloodbath"            "=500"
+        "special_bonus_facet_huskar_bloodbath"            "=700"
         "affected_by_aoe_increase"                        "1"
         "RequiresFacet"                                   "huskar_bloodbath"
       }
-      "life_break_heal_radius"
+      "life_break_heal_radius" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_nothl_transfusion"    "=550"
+        "special_bonus_facet_huskar_nothl_transfusion"    "=1200"
         "affected_by_aoe_increase"                        "1"
       }
       "life_break_heal_pct"

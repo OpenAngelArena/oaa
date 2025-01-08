@@ -38,7 +38,7 @@
     {
       "damage" //OAA
       {
-        "value"                                           "250 500 750 1500 2250"
+        "value"                                           "250 500 750 1250 1750"
       }
       "bonus_jump_damage"
       {
@@ -79,10 +79,10 @@
         "value"                                           "0"
         "special_bonus_facet_lich_growing_cold"           "+1"
       }
-      "frostbound_duration"
+      "frostbound_duration" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_frostbound"             "=2 =2.75 =3.5 =4.25 =5"
+        "special_bonus_facet_lich_frostbound"             "=3"
       }
     }
   }
