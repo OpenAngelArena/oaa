@@ -1,16 +1,16 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: Hard Camp - Ghost
+  // Neutral: Hard Camp - Small Ghost (Fell Spirit)
   //=================================================================================
-  "npc_dota_neutral_custom_ghost"
+  "npc_dota_neutral_custom_small_ghost"
   {
     // General
     //----------------------------------------------------------------
     "BaseClass"                                           "npc_dota_creature"
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl"  // Model.
-    "SoundSet"                                            "n_creep_Ranged"
-    "Level"                                               "3"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"  // Model.
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "2"
     "ModelScale"                                          "0.90"
     "IsNeutralUnitType"                                   "1"
     "CanBeDominated"                                      "1"     // Helm of Dominator interaction
@@ -18,9 +18,9 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "ghost_curse_oaa"
-    "Ability2"                                            "ghost_frostburn_oaa"
-    "Ability3"                                            "creep_piercing"
+    "Ability1"                                            "fel_beast_haunt"
+    "Ability2"                                            "ghost_vortex_oaa"
+    "Ability3"                                            ""
     "Ability4"                                            ""
 
     // Armor
@@ -31,38 +31,38 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "45"    // Damage range min.
-    "AttackDamageMax"                                     "50"    // Damage range max.
+    "AttackDamageMin"                                     "14"    // Damage range min.
+    "AttackDamageMax"                                     "15"    // Damage range max.
     "AttackRate"                                          "2.0"   // Speed of attack.
-    "BaseAttackSpeed"                                     "150"
-    "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
+    "BaseAttackSpeed"                                     "135"
+    "AttackAnimationPoint"                                "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "300"   // Range within a target can be acquired.
-    "AttackRange"                                         "300"   // Range within a target can be attacked.
-    "ProjectileModel"                                     "particles/neutral_fx/ghost_base_attack.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                                     "900"   // Speed of projectile.
+    "AttackRange"                                         "100"   // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"                                          "45"
-    "HealthBarOffset"                                     "190"
+    "RingRadius"                                          "35"
+    "HealthBarOffset"                                     "175"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "50"    // Experience earn.
-    "BountyGoldMin"                                       "28"    // Gold earned min.
-    "BountyGoldMax"                                       "34"    // Gold earned max.
+    "BountyXP"                                            "26"    // Experience earn.
+    "BountyGoldMin"                                       "16"    // Gold earned min.
+    "BountyGoldMax"                                       "18"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "320"   // Speed.
+    "MovementSpeed"                                       "350"   // Speed.
     "MovementTurnRate"                                    "0.9"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "500"   // Base health.
+    "StatusHealth"                                        "400"   // Base health.
     "StatusHealthRegen"                                   "0.5"   // Health regeneration rate.
-    "StatusMana"                                          "300"   // Base mana.
+    "StatusMana"                                          "200"   // Base mana.
     "StatusManaRegen"                                     "1.0"   // Mana regeneration rate.
 
     // Vision

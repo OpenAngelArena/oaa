@@ -18,8 +18,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""
-    "Ability2"                                            ""
+    "Ability1"                                            "kobold_dig_oaa"
+    "Ability2"                                            "neutral_evasion_oaa"
     "Ability3"                                            ""
     "Ability4"                                            ""
 
@@ -56,13 +56,14 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "550"   // Speed.
+    "MovementTurnRate"                                    "1.0"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "240"   // Base health.
     "StatusHealthRegen"                                   "0.5"   // Health regeneration rate.
-    "StatusMana"                                          "0"     // Base mana.
-    "StatusManaRegen"                                     "0.0"   // Mana regeneration rate.
+    "StatusMana"                                          "200"     // Base mana.
+    "StatusManaRegen"                                     "1.0"   // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------

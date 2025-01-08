@@ -56,12 +56,13 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "330"   // Speed.
+    "MovementTurnRate"                                    "0.9"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "400"   // Base health.
     "StatusHealthRegen"                                   "0.5"   // Health regeneration rate.
-    "StatusMana"                                          "150"   // Base mana.
+    "StatusMana"                                          "300"   // Base mana.
     "StatusManaRegen"                                     "1.0"   // Mana regeneration rate.
 
     // Vision
