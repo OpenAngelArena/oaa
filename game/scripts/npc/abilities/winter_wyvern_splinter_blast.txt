@@ -35,11 +35,11 @@
     {
       "projectile_speed"                                  "1200"
       "projectile_max_time"                               "1.0"
-      "split_radius"
+      "split_radius" //OAA
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_winter_wyvern_2"            "+400"
+        "special_bonus_unique_winter_wyvern_2"            "+200"
       }
       "bonus_movespeed"                                   "-28 -32 -36 -40 -44 -48"
       "movespeed_slow_tooltip"                            "28 32 36 40 44 48"
@@ -50,10 +50,10 @@
         "value"                                           "80 160 240 320 640 960"
         "special_bonus_unique_winter_wyvern_7"            "+240"
       }
-      "stun_duration"
+      "stun_duration" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_winter_wyvern_4"            "+1.5"
+        "special_bonus_unique_winter_wyvern_4"            "+1.25"
       }
     }
   }
