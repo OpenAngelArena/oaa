@@ -1,4 +1,3 @@
-
 -- special bottles, these shouldn't be given out freely:
 -- 1: contributor bottle
 -- 2: tournament winner bottle
@@ -10,6 +9,34 @@
 -- 43: zapp bottle, ghost ship in a bottle
 -- 5: universe
 -- 56: dota 1 bottle
+
+BOTTLEPASS_LEVEL_REWARDS = {
+  -- Format: [level] = bottle_id
+  -- Available special bottles:
+  -- 60: frostkitten bottle (swirly blue)
+  -- 4: better rainbow bottle
+  -- 43: zapp bottle (ghost ship)
+  -- 5: universe bottle
+  -- 56: dota 1 bottle
+
+  [10] = 60,  -- Level 10: Frostkitten bottle
+  [20] = 4,   -- Level 20: Rainbow bottle
+  [50] = 43,  -- Level 50: Ghost ship bottle
+  [75] = 5,  -- Level 75: Universe bottle
+  [100] = 56, -- Level 100: Dota 1 bottle
+}
+
+BOTTLEPASS_ARCANA_REWARDS = {
+  -- Format: [level] = arcana_id
+  -- Available arcanas:
+  -- DBZSohei: Dragon Ball Z themed Sohei
+  -- RockElectrician: Rock-themed Electrician
+  -- PepsiSohei: Pepsi-themed Sohei
+
+  [15] = 'DBZSohei',     -- Level 15: DBZ Sohei
+  [30] = 'RockElectrician', -- Level 30: Rock Electrician
+  [50] = 'PepsiSohei',   -- Level 50: Pepsi Sohei
+}
 
 SPECIAL_BOTTLES = {
   --comments with names indicate a person having access to that icon but another one being currently active
