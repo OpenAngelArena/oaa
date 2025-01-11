@@ -368,7 +368,7 @@ function HeroSelection:BuildBottlePass()
         if SPECIAL_BOTTLES[steamid] then
           playerBottles = SPECIAL_BOTTLES[steamid]
         end
-        
+
         for level, bottleId in pairs(BOTTLEPASS_LEVEL_REWARDS) do
           if bottlepassLevel >= level then
             local hasBottle = false
@@ -378,13 +378,13 @@ function HeroSelection:BuildBottlePass()
                 break
               end
             end
-            
+
             if not hasBottle then
               table.insert(playerBottles, bottleId)
             end
           end
         end
-        
+
         if #playerBottles > 0 then
           special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = playerBottles }
           HeroSelection.SelectedBottle[playerID] = playerBottles[#playerBottles]
@@ -405,7 +405,7 @@ function HeroSelection:BuildBottlePass()
                 break
               end
             end
-            
+
             if not hasArcana then
               table.insert(playerArcanas, arcanaId)
             end
