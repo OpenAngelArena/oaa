@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kobold Foreman: Vanilla Speed Aura - Provides all allies in a radius with bonus % movement speed.
+  // Cloak Aura - magic resistance aura
   //=================================================================================================================
-  "kobold_taskmaster_speed_aura"
+  "mudgolem_cloak_aura"
   {
     //"BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
-    //"AbilityTextureName"                                  "kobold_taskmaster_speed_aura"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_cloak_aura.lua"
+    //"AbilityTextureName"                                  "mudgolem_cloak_aura"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,9 +21,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement_speed" //OAA
+      "bonus_magical_armor"
       {
-        "value"                                           "12 14 16 18"
+        "value"                                           "10 12 14 16"
+      }
+      "bonus_magical_armor_creeps"
+      {
+        "value"                                           "20 24 28 32"
       }
       "radius"
       {

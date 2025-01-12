@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kobold Foreman: Vanilla Speed Aura - Provides all allies in a radius with bonus % movement speed.
+  // Death Throe: Rush - bonus attack speed to allies after Death
   //=================================================================================================================
-  "kobold_taskmaster_speed_aura"
+  "furbolg_enrage_attack_speed"
   {
     //"BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
-    //"AbilityTextureName"                                  "kobold_taskmaster_speed_aura"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_neutral_enrage_attack_speed.lua"
+    //"AbilityTextureName"                                  "furbolg_enrage_attack_speed"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "IsBreakable"                                         "1"
 
     "MaxLevel"                                            "4"
@@ -21,13 +21,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement_speed" //OAA
+      "bonus_aspd" //OAA
       {
-        "value"                                           "12 14 16 18"
+        "value"                                           "120 130 140 150"
+      }
+      "duration"
+      {
+        "value"                                           "5"
       }
       "radius"
       {
-        "value"                                           "1200"
+        "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
     }

@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Mana Break - burns mana on attacks, doesn't do bonus dmg based on burned mana
+  //=================================================================================================================
+  "neutral_mana_break_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_neutral_mana_break.lua"
+    "AbilityTextureName"                                  "necronomicon_warrior_mana_burn"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // just for the tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // just for the tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "mana_per_hit"                                      "5 10 15 20"
+      "mana_per_hit_pct"                                  "1"
+    }
+  }
+}

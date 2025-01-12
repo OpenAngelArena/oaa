@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ghost: Curse - causes target to have % chance to miss on an attack
+  //=================================================================================================================
+  "ghost_curse_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_ghost_curse.lua"
+    "AbilityTextureName"                                  "ancient_apparition_chilling_touch"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "4"
+
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "21 18 15 12"
+
+    "AbilityManaCost"                                     "75"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "miss_chance"                                       "20 25 30 35"
+      "duration"                                          "6"
+    }
+  }
+}

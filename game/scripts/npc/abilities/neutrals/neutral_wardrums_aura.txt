@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kobold Foreman: Vanilla Speed Aura - Provides all allies in a radius with bonus % movement speed.
+  // Wardrums Aura - attack speed and accuracy aura
+  // TODO: Edit the Description
   //=================================================================================================================
-  "kobold_taskmaster_speed_aura"
+  "big_thunder_lizard_wardrums_aura"
   {
     //"BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
-    //"AbilityTextureName"                                  "kobold_taskmaster_speed_aura"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_wardrums_aura.lua"
+    //"AbilityTextureName"                                  "big_thunder_lizard_wardrums_aura"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,9 +22,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement_speed" //OAA
+      "speed_bonus" //OAA
       {
-        "value"                                           "12 14 16 18"
+        "value"                                           "10 15 20 25"
+      }
+      "accuracy"
+      {
+        "value"                                           "40 43 46 51"
       }
       "radius"
       {
