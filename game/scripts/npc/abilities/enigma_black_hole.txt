@@ -54,9 +54,9 @@
       }
       "pull_rotate_speed"                                 "0.25"
       "animation_rate"                                    "0.2"
-      "scepter_pct_damage"
+      "scepter_pct_damage" //OAA
       {
-        "value"                                           "4"
+        "value"                                           "2.0 2.5 3.0 3.5 4.0"
         "RequiresScepter"                                 "1"
       }
       "scepter_radius"

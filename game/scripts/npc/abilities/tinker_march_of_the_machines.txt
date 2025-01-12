@@ -50,7 +50,7 @@
         "special_bonus_unique_tinkerer_5"                 "+1.0"
       }
       "speed"                                             "400"
-      "machines_per_sec"                                  "24 27 30 33 36 36" // OAA
+      "machines_per_sec"                                  "24 26 28 30 32 34" // OAA
       "distance"                                          "1800"
       "damage" // OAA
       {
@@ -62,10 +62,10 @@
         "value"                                           "0"
         "special_bonus_facet_tinker_repair_bots"          "+14 +21 +28 +35 +70 +105"
       }
-      "heal_duration" //OAA
+      "heal_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_tinker_repair_bots"          "+6"
+        "special_bonus_facet_tinker_repair_bots"          "+4"
       }
     }
   }
