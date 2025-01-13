@@ -4,34 +4,47 @@
 
 // this happens for every core points change
 function OnCorePointsChanged (args) {
+  // Add validation for args
+  if (!args || typeof args.cp === 'undefined') {
+    ShowCorePointsOnSelected();
+    return;
+  }
+
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
   // If currently selected unit is not the player's hero then don't continue
   if (currentlySelectedUnit !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
+
   const cpLabel = $('#CorePointsText');
   const corePoints = args.cp;
-  if (typeof corePoints === 'number' || typeof corePoints === 'string') {
-    cpLabel.text = corePoints;
-  } else {
-    // Received argument is invalid, do stuff below
-    ShowCorePointsOnSelected();
-  }
+
+  // Convert to string to ensure consistent display
+  cpLabel.text = String(corePoints);
 }
 
 // this happens when a player selects any unit
 function ShowCorePointsOnSelected () {
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
-  // If currently selected unit is invalid then don't continue
-  if (!Entities.IsValidEntity(currentlySelectedUnit)) return;
+  $.Msg('Selected Unit:', currentlySelectedUnit);
+
+  if (!Entities.IsValidEntity(currentlySelectedUnit)) {
+    $.Msg('Invalid entity');
+    return;
+  }
+
   const modifier = 'modifier_core_points_counter_oaa';
-  const cpLabel = $('#CorePointsText');
-  // Show core points only if currently selected unit has the modifier and if it is on the player's team
-  if (HasModifier(currentlySelectedUnit, modifier) && Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(Players.GetLocalPlayer())) {
-    $.Schedule(0.03, function () {
-      const corePoints = GetStackCount(currentlySelectedUnit, modifier);
-      cpLabel.text = corePoints;
-    });
+  $.Msg('Has modifier:', HasModifier(currentlySelectedUnit, modifier));
+  $.Msg('Team check:', Entities.GetTeamNumber(currentlySelectedUnit), Players.GetTeam(Players.GetLocalPlayer()));
+
+  if (HasModifier(currentlySelectedUnit, modifier) &&
+      Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(Players.GetLocalPlayer())) {
+    const corePoints = GetStackCount(currentlySelectedUnit, modifier);
+    $.Msg('Core Points:', corePoints);
+    // Only update if we got a valid number
+    if (!isNaN(corePoints)) {
+      $('#CorePointsText').text = String(corePoints);
+    }
   } else {
-    cpLabel.text = 0;
+    $('#CorePointsText').text = '0';
   }
 }
 
