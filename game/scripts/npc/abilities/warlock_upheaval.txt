@@ -36,7 +36,7 @@
     {
       "aoe"
       {
-        "value"                                           "575 600 625 650 675 700"
+        "value"                                           "575 600 625 650 650 650"
         "special_bonus_unique_warlock_upheaval_aoe"       "+50"
         "affected_by_aoe_increase"                        "1"
       }
@@ -44,14 +44,14 @@
       "duration"                                          "3.0" // linger duration
       "max_slow"                                          "70 80 90 100 100 100" //OAA
       "aspd_per_second"                                   "10" // special_bonus_unique_warlock_10
-      "base_damage"           
+      "base_damage"
       {
         "special_bonus_unique_warlock_3"                  "=40"
       }
       "damage_per_second"                                 "10" // min dps
-      "max_damage"
-      {   
-        "value"                                           "35 60 85 110 220 440"
+      "max_damage" // max dps
+      {
+        "value"                                           "35 60 85 110 220 330"
         "special_bonus_unique_warlock_3"                  "+40"
       }
       "damage_tick_interval"
