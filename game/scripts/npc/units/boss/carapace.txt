@@ -12,7 +12,7 @@
     "vscripts"                                            "units/ai_carapace.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "2.0"
-    "Level"                                               "30"
+    "Level"                                               "35"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -34,7 +34,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "1500"    // Damage range min.
     "AttackDamageMax"                                     "1500"    // Damage range max.
-    "AttackRate"                                          "1.45"      // Speed of attack.
+    "AttackRate"                                          "1.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.4"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -109,7 +109,9 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
+    "MinimapIconSize"                                     "250"
   }
 }

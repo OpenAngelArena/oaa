@@ -167,7 +167,7 @@
     "item"                                                "item_witch_blade"
     "item"                                                "item_cyclone"
     "item"                                                "item_rod_of_atos"
-    "item"                                                "item_dagon_oaa"
+    "item"                                                "item_dagon_oaa_1"
     "item"                                                "item_dagon_oaa_6"
     "item"                                                "item_orchid"
     "item"                                                "item_solar_crest"
@@ -198,7 +198,7 @@
     "item"                                                "item_assault"
     "item"                                                "item_bloodstone"
     "item"                                                "item_eternal_shroud"
-    "item"                                                "item_satanic_core" // Blood Core
+    "item"                                                "item_satanic_core_1" // Blood Core
     "item"                                                "item_spiked_mail_1"
     "item"                                                "item_reflection_shard_1"
     "item"                                                "item_dispel_orb_1"
@@ -242,7 +242,7 @@
 
   "artifacts" //22
   {
-    "item"                                                "item_dragon_lance"
+    //"item"                                                "item_dragon_lance"
     "item"                                                "item_sange"
     "item"                                                "item_yasha"
     "item"                                                "item_kaya"
@@ -263,6 +263,7 @@
     "item"                                                "item_arcane_blink"
     "item"                                                "item_harpoon"
     "item"                                                "item_spell_breaker_1"
+    "item"                                                "item_shade_staff_1"
     "item"                                                "item_vampire"
   }
 
@@ -288,8 +289,6 @@
     "item"                                                "item_tango"
     "item"                                                "item_flask"
     "item"                                                "item_blood_grenade"
-    "item"                                                "item_infused_raindrop"
-    "item"                                                "item_dust"
     "item"                                                "item_branches"
     "item"                                                "item_gauntlets"
     "item"                                                "item_slippers"
@@ -316,5 +315,7 @@
     "item"                                                "item_buckler"
     "item"                                                "item_headdress"
     "item"                                                "item_ward_stack"
+    "item"                                                "item_ring_of_health"
+    "item"                                                "item_void_stone"
   }
 }

@@ -78,7 +78,7 @@ if IsServer() then
 			-- but really, that still procs magic wand and stuff
 		end
 
-		-- Hard Dispel
+		-- Strong Dispel (for the target)
 		target:Purge( false, true, false, true, true )
 
 		-- Start an animation

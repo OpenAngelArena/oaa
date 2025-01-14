@@ -15,10 +15,12 @@
     "AbilityCastPoint"                                    "0"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65"
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@
       "bonus_hero_damage" //OAA
       {
         "value"                                           "45 85 125 165 330 660"
-        "special_bonus_unique_ember_spirit_6"             "+110"
+        "special_bonus_unique_ember_spirit_6"             "+100"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_interval"                                   "0.25"
@@ -48,12 +50,12 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "12 10 8 6 6 6"
+        "value"                                           "13 11 9 7 6 5"
         "special_bonus_unique_ember_spirit_4"             "=0"
       }
       "AbilityChargeRestoreTime"
       {
-        "value"                                           "12 10 8 6 6 6"
+        "value"                                           "13 11 9 7 6 5"
       }
       "min_enemies_for_double_sleight"
       {

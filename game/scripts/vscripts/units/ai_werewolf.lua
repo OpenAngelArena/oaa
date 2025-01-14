@@ -1,19 +1,19 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
-
-	thisEntity.HowlAbility = thisEntity:FindAbilityByName("werewolf_howl")
-	thisEntity:SetContextThink( "WerewolfThink", WerewolfThink, 1 )
+  thisEntity.HowlAbility = thisEntity:FindAbilityByName("werewolf_howl")
+  thisEntity:SetContextThink( "WerewolfThink", WerewolfThink, 1 )
 end
 
 function WerewolfThink()
-  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() or thisEntity:IsDominated() then
-		return -1
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if thisEntity:IsDominated() or thisEntity:IsIllusion() then
+    return -1
   end
 
 	if GameRules:IsGamePaused() then
@@ -58,20 +58,32 @@ end
 
 
 function Howl()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.HowlAbility:entindex(),
-	})
-	return 1
+  local ability = thisEntity.HowlAbility
+  local cast_point = ability:GetCastPoint()
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = ability:entindex(),
+    Queue = false,
+  })
+
+  return cast_point + 0.5
 end
 
 function RetreatHome()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
   })
-  return 2
-end
 
+  local speed = thisEntity:GetIdealSpeedNoSlows()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
+end

@@ -1,18 +1,18 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Twin Boss (ranged) Tier 5 Version
+  // Boss tier 5 - Twin Boss (ranged)
   //=================================================================================
   "npc_dota_boss_twin_dumb_tier5"
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models\creeps\item_creeps\i_creep_necro_archer\necro_archer.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
     "vscripts"                                            "units/ai_simple.lua"
-    "SoundSet"                                            "Meepo"          // Name of sound set.
+    "SoundSet"                                            "Creep_Good_Range"
     "ModelScale"                                          "1"
-    "Level"                                               "30"
+    "Level"                                               "50"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -25,67 +25,68 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "43"      // Physical protection.
-    "MagicalResistance"                                   "-25"     // Magical protection (percentage).
+    "ArmorPhysical"                                       "43"
+    "MagicalResistance"                                   "-25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "4500"    // Damage range min.
-    "AttackDamageMax"                                     "4500"    // Damage range max.
-    "AttackRate"                                          "0.75"      // Speed of attack.
-    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "600"    // Range within a target can be attacked.
+    "AttackDamageMin"                                     "4500"
+    "AttackDamageMax"                                     "4500"
+    "AttackRate"                                          "0.75"
+    "AttackAnimationPoint"                                "0.7"
+    "AttackAcquisitionRange"                              "600"
+    "AttackRange"                                         "600"
     "ProjectileModel"                                     "particles/items2_fx/necronomicon_archer_projectile.vpcf"
-    "ProjectileSpeed"                                     "1000"
+    "ProjectileSpeed"                                     "900"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "5000" // Experience earn.
-    "BountyGoldMin"                                       "0"    // Gold earned min.
-    "BountyGoldMax"                                       "0"    // Gold earned max.
+    "BountyXP"                                            "2500" // Total with the other twin: 5000
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
     "RingRadius"                                          "110"
     "HealthBarOffset"                                     "400"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "420"    // Speed
-    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "420"
+    "MovementTurnRate"                                    "0.8"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "16000"    // Base health
-    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
-    "StatusMana"                                          "10000"    // Base mana.
-    "StatusManaRegen"                                     "5000"    // Mana regeneration rate.
+    "StatusHealth"                                        "16000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Creature data
     "Creature"
     {
-      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "80.0"
     }
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
 
     // Inventory
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

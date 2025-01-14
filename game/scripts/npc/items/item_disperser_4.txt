@@ -45,7 +45,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "15.0"
+    "AbilityCooldown"                                     "17.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "diffusal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -80,6 +80,7 @@
       "ally_effect_duration"                              "5.0"
       "phase_movement_speed"                              "100"
       "movement_speed_buff_rate"                          "5"
+      "slow_resist"                                       "40 45 50 55 60"
     }
   }
 }

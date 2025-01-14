@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 110 130 150 170 190" //OAA
+    "AbilityManaCost"                                     "90 110 130 150 170 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,10 +50,9 @@
         "value"                                           "1"
         "special_bonus_facet_leshrac_misanthropy"         "=0"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "10 18 26 34 50 82"
-        "special_bonus_facet_leshrac_misanthropy"         "+20%"
+        "value"                                           "10 18 26 34 50 66"
       }
       "targets"
       {

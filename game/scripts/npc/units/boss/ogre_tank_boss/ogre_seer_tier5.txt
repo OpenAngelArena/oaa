@@ -2,7 +2,6 @@
 {
   //=================================================================================
   // Creature: Ogre Seer
-  // Zones: darkforest_rescue
   //=================================================================================
   "npc_dota_creature_ogre_seer_tier5"
   {
@@ -38,9 +37,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "600"
-    "AttackDamageMax"                                     "600"
-    "AttackRate"                                          "1.35"
+    "AttackDamageMin"                                     "2000"
+    "AttackDamageMax"                                     "2000"
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1200"
     "AttackRange"                                         "160"
@@ -78,8 +77,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "precache"

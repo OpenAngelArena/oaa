@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Shade Staff
+  //=================================================================================================================
+  "item_recipe_shade_staff_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shade_staff_1"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heavens_halberd;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Shade Staff
+  //=================================================================================================================
+  "item_shade_staff_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/shade_staff.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/shade_staff_2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17 16 15 14"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "halberd"
+    "AbilityCastRange"                                    "900"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4901"
+    "ItemShopTags"                                        "str"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "shade staff;shade branch"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_shade_staff_1;item_shade_staff_2;item_shade_staff_3;item_shade_staff_4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_str"                                         "25 35 50 70"
+      "hp_regen_amp"                                      "27 29 31 33" // doesn't stack with Sange items
+      "status_resistance"                                 "18 20 22 24" // doesn't stack with Sange & Yasha
+      // Active
+      "attack_speed_slow"                                 "400"
+      "slow_duration"                                     "4.5 5.0 5.5 6.0"
+      "sprout_duration"                                   "4.5 5.0 5.5 6.0"
+      "projectile_speed"                                  "900 1100 1300 1500"
+      // Tree Protection
+      "tree_damage_reduction"                             "10 12 14 16"
+      "tree_radius"                                       "175"
+      "tree_protection_duration"                          "4.5 5.0 5.5 6.0"
+      "cooldown_tooltip"                                  "17 16 15 14"
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
+      "particle"                                          "particles/units/heroes/hero_furion/furion_sprout.vpcf"
+      "particle"                                          "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
+    }
+  }
+}

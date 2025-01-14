@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_cost"
+      "health_cost" // current HP, not max
       {
         "value"                                           "4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
@@ -47,27 +49,19 @@
       }
       "burn_damage" //OAA
       {
-        "value"                                           "5 10 15 20 40 80"
+        "value"                                           "5 10 15 20 40 60"
         "special_bonus_unique_huskar_2"                   "+5"
       }
-      "burn_damage_max_pct"                   
+      "burn_damage_max_pct" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_nothl_conflagration"  "+1.0"
+        "special_bonus_facet_huskar_nothl_conflagration"  "=0.25 =0.35 =0.45 =0.55 =0.65 =0.75"
       }
-      "duration"
+      "duration" //OAA
       {
         "value"                                           "9"
-        "special_bonus_facet_huskar_nothl_conflagration"  "=0"
-        "special_bonus_unique_huskar_5"                   "+6"
-      }
-      // having a separate value here instead of doing +67% burning spears duration for level 25 talent
-      "duration_for_nothl_conflagration"
-      {
-        "value"                                           "0"
         "special_bonus_facet_huskar_nothl_conflagration"  "=6"
         "special_bonus_unique_huskar_5"                   "+4"
-        "RequiresFacet"                                   "huskar_nothl_conflagration"
       }
     }
   }

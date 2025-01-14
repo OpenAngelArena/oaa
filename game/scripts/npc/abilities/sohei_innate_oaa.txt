@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Impulse (Innate)
+  //=================================================================================================================
+  "sohei_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/sohei/sohei_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "sohei_flurry_of_blows"
+    "MaxLevel"                                            "6" // same as Dependent ability + 1
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "base_attack_dmg_per_ms"                            "0.08 0.1 0.12 0.14 0.18 0.22"
+    }
+  }
+}

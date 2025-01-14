@@ -6,7 +6,7 @@ boss_spooky_ghost_ethereal = class(AbilityBaseClass)
 function boss_spooky_ghost_ethereal:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Basic Dispel
+  -- Basic Dispel (for the boss)
   caster:Purge(false, true, false, false, false)
 
   -- Apply buff
@@ -68,6 +68,14 @@ if IsServer() then
     -- Ignore physical damage and attacks
     if event.damage_type == DAMAGE_TYPE_PHYSICAL or event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
       return
+    end
+
+    -- Ignore items
+    local inflictor = event.inflictor
+    if inflictor and not inflictor:IsNull() then
+      if inflictor:IsItem() then
+        return
+      end
     end
 
     -- If unit is dead, spell immune, invulnerable, banished, a ward, tower or in a duel don't do anything

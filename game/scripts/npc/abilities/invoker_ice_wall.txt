@@ -35,9 +35,9 @@
         "levelkey"                                        "quaslevel"
       }
       "slow_duration"                                     "2.0"
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
-        "value"                                           "6 12 18 24 30 36 42 48 84 100.8 117.6 134.4 161.2 168 184.8"
+        "value"                                           "18 24 30 36 42 48 54 60 72 84 96 108 120 132 156"
         "levelkey"                                        "exortlevel"
         "special_bonus_unique_invoker_ice_wall_dps"       "+50"
       }

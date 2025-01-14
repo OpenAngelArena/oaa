@@ -1,44 +1,55 @@
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
+  thisEntity.IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite_tier5" )
+  thisEntity.BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust_tier5" )
 
-	thisEntity.IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite_tier5" )
-	thisEntity.BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust_tier5" )
-
-	thisEntity:SetContextThink( "OgreSeerThink", OgreSeerThink, 1 )
+  thisEntity:SetContextThink( "OgreSeerThink", OgreSeerThink, 1 )
 end
 
 --------------------------------------------------------------------------------
 
 function FindOgreBoss()
-  local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
+  local friendlies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_ALL,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+    FIND_ANY_ORDER,
+    false
+  )
   for _, friendly in pairs ( friendlies ) do
-    if friendly then
+    if friendly and not friendly:IsNull() then
       if friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss_tier5" then
         return friendly
       end
     end
   end
+  return nil
 end
 
 --------------------------------------------------------------------------------
 
 function OgreSeerThink()
-	if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() or thisEntity:IsDominated() then
-		return -1
-	end
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if thisEntity:IsDominated() or thisEntity:IsIllusion() then
+    return -1
+  end
 
 	if GameRules:IsGamePaused() then
 		return 1
   end
 
   if not thisEntity.bInitialized then
-    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.vInitialSpawnPos = thisEntity:GetAbsOrigin()
     thisEntity.bHasAgro = false
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
@@ -124,41 +135,59 @@ end
 --------------------------------------------------------------------------------
 
 function Approach( hUnit )
-  DebugPrint("Approach")
 	local vToUnit = hUnit:GetOrigin() - thisEntity:GetOrigin()
 	vToUnit = vToUnit:Normalized()
+  local speed = thisEntity:GetIdealSpeed()
+  local think_time = 1
+  local distance = speed * think_time
 
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity:GetOrigin() + vToUnit * thisEntity:GetIdealSpeed()
+		Position = thisEntity:GetOrigin() + vToUnit * distance,
+    Queue = false,
 	})
 
-	return 1
+	return think_time + 0.1
 end
 
 --------------------------------------------------------------------------------
 
 function Bloodlust( hUnit )
-  thisEntity:CastAbilityOnTarget( hUnit, thisEntity.BloodlustAbility, thisEntity:entindex() )
-	return 1
+  local ability = thisEntity.BloodlustAbility
+  local cast_point = ability:GetCastPoint()
+
+  thisEntity:CastAbilityOnTarget( hUnit, ability, thisEntity:entindex() ) -- maybe wrong third argument, replace with ExecuteOrderFromTable?
+
+  return cast_point + 0.1
 end
 
 --------------------------------------------------------------------------------
 
 function IgniteArea( hEnemy )
-  thisEntity:CastAbilityOnPosition( hEnemy:GetOrigin(), thisEntity.IgniteAbility, thisEntity:entindex() )
-	return 1
+  local ability = thisEntity.IgniteAbility
+  local cast_point = ability:GetCastPoint()
+
+  thisEntity:CastAbilityOnPosition( hEnemy:GetOrigin(), ability, thisEntity:entindex() ) -- maybe wrong third argument, replace with ExecuteOrderFromTable?
+
+  return cast_point + 0.1
 end
 
 --------------------------------------------------------------------------------
 
 function RetreatHome()
-  DebugPrint("RetreatHome Ogre Seer")
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos
+  -- Leash
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = false,
   })
-  return 6
+
+  local speed = thisEntity:GetIdealSpeedNoSlows()
+  local location = thisEntity:GetAbsOrigin()
+  local distance = (location - thisEntity.vInitialSpawnPos):Length2D()
+  local retreat_time = distance / speed
+
+  return retreat_time + 0.1
 end

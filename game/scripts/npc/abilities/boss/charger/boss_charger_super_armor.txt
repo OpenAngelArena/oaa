@@ -12,7 +12,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "percent_damage_reduce"                             "85" // Extra damage reduction before hitting pillar
+      "bonus_armor"                                       "100" // Extra armor before hitting a pillar
+      "bonus_magic_resistance"                            "75" // Extra magic resist before hitting a pillar
     }
   }
 }

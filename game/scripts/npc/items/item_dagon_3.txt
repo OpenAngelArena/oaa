@@ -24,7 +24,7 @@
     "ItemResult"                                          "item_dagon_oaa_3"
     "ItemRequirements"
     {
-      "01"                                                "item_dagon_oaa_2;item_recipe_dagon_oaa"
+      "01"                                                "item_dagon_oaa_2;item_recipe_dagon_oaa_1"
     }
   }
 
@@ -73,10 +73,10 @@
       "bonus_str"                                         "7 9 11 13 15 20 25 30 35"
       "bonus_agi"                                         "7 9 11 13 15 20 25 30 35"
       "spell_amp"                                         "0"
-      "damage"                                            "400 500 600 700 800 950 1150 1400 1700"
+      "damage"                                            "400 500 600 700 800 900 1050 1250 1500"
       "current_hp_dmg"                                    "0 0 0 0 0 6 10 14 18"
-      "hero_spell_lifesteal"                              "12 13 14 15 16 18 20 22 24"
-      "creep_spell_lifesteal"                             "2.4 2.6 2.8 3.0 3.2 3.6 4.0 4.4 4.8"
+      "hero_spell_lifesteal"                              "15 16 17 18 19 21 23 25 27"
+      "creep_spell_lifesteal"                             "3.0 3.2 3.4 3.6 3.8 4.2 4.6 5.0 5.4"
       "burst_heal_percent"                                "75"
       "damage_delay"                                      "0"
       "blind_pct"                                         "100"

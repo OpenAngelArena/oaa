@@ -112,6 +112,10 @@ end
 
 modifier_boss_killer_tomato_clap_debuff = class(ModifierBaseClass)
 
+function modifier_boss_killer_tomato_clap_debuff:IsHidden()
+  return false
+end
+
 function modifier_boss_killer_tomato_clap_debuff:IsDebuff()
   return true
 end

@@ -1,5 +1,17 @@
 modifier_werewolf_howl_aura = class(ModifierBaseClass)
 
+function modifier_werewolf_howl_aura:IsHidden()
+  return false
+end
+
+function modifier_werewolf_howl_aura:IsDebuff()
+  return false
+end
+
+function modifier_werewolf_howl_aura:IsPurgable()
+  return false
+end
+
 ----------------------------------------
 
 function modifier_werewolf_howl_aura:IsAura()

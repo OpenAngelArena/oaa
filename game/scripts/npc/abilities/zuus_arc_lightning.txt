@@ -11,6 +11,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,10 +31,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "arc_damage"
+      "arc_damage" //OAA
       {
         "value"                                           "90 120 150 180 360 540"
-        "special_bonus_unique_zeus_2"                     "+60"
+        "special_bonus_unique_zeus_2"                     "+30"
       }
       "radius"
       {

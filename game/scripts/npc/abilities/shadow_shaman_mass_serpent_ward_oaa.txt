@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "90 85 80 75 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,9 +54,9 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "bonus_damage_against_bosses" // percent of ward damage as magic damage
+      "bonus_damage_against_bosses" // percent of ward damage as magic damage (tooltip only); real value is in shadow_shaman_global_serpent_aura_oaa
       {
-        "value"                                           "50"
+        "value"                                           "40"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80"
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
     "AbilityDuration"                                     "5.5"
 
     // Cost
@@ -38,7 +38,7 @@
       "projectile_count"
       {
         "value"                                           "8"
-        "special_bonus_unique_snapfire_1"                 "+6"
+        "special_bonus_unique_snapfire_1"                 "+8"
       }
       "projectile_speed"                                  "1300"
       "projectile_width"
@@ -53,8 +53,8 @@
       }
       "damage_per_impact" //OAA
       {
-        "value"                                           "180 360 540 1080 1620"
-        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+180"
+        "value"                                           "180 360 540 900 1620"
+        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+120"
       }
       "duration_tooltip"                                  "5.5"
       "projectile_vision"
@@ -66,13 +66,13 @@
       "burn_interval"                                     "0.5"
       "burn_damage" //OAA
       {
-        "value"                                           "60 100 140 260 380"
-        "special_bonus_unique_snapfire_5"                 "+20"
+        "value"                                           "60 100 140 220 380"
+        "special_bonus_unique_snapfire_5"                 "+25"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "move_slow_pct"
+      "move_slow_pct" //OAA
       {
-        "value"                                           "15 20 25 30 35"
+        "value"                                           "25 35 45 55 65"
       }
       "burn_ground_duration"                              "3.0"
       "dist_change_speed"                                 "75"

@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 3 - Alchemist boss
+  // Boss tier 4 - Alchemist boss
   //=================================================================================
   "npc_dota_boss_spiders"
   {
@@ -12,7 +12,7 @@
     "vscripts"                                            "units/ai_alchemist.lua"
     "SoundSet"                                            "Hero_Alchemist"
     "ModelScale"                                          "1"
-    "Level"                                               "30"
+    "Level"                                               "45"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
 
@@ -26,8 +26,8 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "37"            // Physical protection.
-    "MagicalResistance"                                   "-25"           // Magical protection (percentage).
+    "ArmorPhysical"                                       "37"         // Base armor
+    "MagicalResistance"                                   "-25"        // Base magic resistance.
 
     // Attack
     //----------------------------------------------------------------
@@ -124,6 +124,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

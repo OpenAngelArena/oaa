@@ -9,6 +9,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +66,7 @@
       }
       "ward_damage_tooltip"
       {
-        "value"                                           "14 22 30 38 138 238"
+        "value"                                           "14 22 30 38 46 54"
         "special_bonus_unique_venomancer"                 "x2.5"
       }
       "threshold"
@@ -73,9 +75,9 @@
         "special_bonus_unique_venomancer"                 "x2.5"
         "RequiresFacet"                                   "venomancer_plague_carrier"
       }
-      "threshold_max_hp_pct"                          
+      "threshold_max_hp_pct"
       {
-        "value"                                           "1 1.5 2 2.5 3 3.5"
+        "value"                                           "1.5 2 2.5 3 3.5 4"
         "special_bonus_unique_venomancer"                 "x2.5"
         "RequiresFacet"                                   "venomancer_plague_carrier"
       }

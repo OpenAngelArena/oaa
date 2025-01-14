@@ -58,6 +58,21 @@
           }
         }
       }
+      "bristleback_seeing_red"
+      {
+        "Icon"                                            "no_vision"
+        "Color"                                           "Red"
+        "GradientID"                                      "0"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "bristleback_scepter_oaa"
+            "AbilityIndex"                                "4"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
     }
   }
 }

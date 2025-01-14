@@ -3,7 +3,7 @@ Grendel = Components:Register('Grendel', COMPONENT_STRATEGY)
 
 function Grendel:Init()
   self.moduleName = "Grendel Spawner"
-  local spawn_time = 12 * 60
+  local spawn_time = 16 * 60
   HudTimer:At(spawn_time, partial(Grendel.SpawnGrendel, Grendel))
   ChatCommand:LinkDevCommand("-spawngrendel", Dynamic_Wrap(self, 'SpawnGrendel'), self)
   self.level = 0
@@ -55,7 +55,7 @@ function Grendel:SpawnGrendel()
 
   self.level = self.level + 1
 
-  if self.level > 4 then
+  if self.level > 5 then
     return
   end
 
@@ -116,6 +116,9 @@ function Grendel:SpawnGrendel()
         end
       end
 
+      -- Grant the same reward as tier 1 boss
+      BossAI:RewardBossKill(1, allied_team)
+
       local allied_player_ids = PlayerResource:GetPlayerIDsForTeam(allied_team)
 
       -- Give xp to every hero on the killing team
@@ -127,10 +130,20 @@ function Grendel:SpawnGrendel()
           SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_XP, hero, xp_reward, nil)
         end
       end)
-    end
 
-    -- Increase the score limit
-    PointsManager:IncreaseLimit("grendel")
+      local opposite_team
+      if allied_team == DOTA_TEAM_GOODGUYS then
+        opposite_team = DOTA_TEAM_BADGUYS
+      elseif allied_team == DOTA_TEAM_BADGUYS then
+        opposite_team = DOTA_TEAM_GOODGUYS
+      end
+
+      local difference = PointsManager:GetPoints(allied_team) - PointsManager:GetPoints(opposite_team)
+      if difference < 0 then
+        -- Increase the score limit only if the team that killed Grendel is losing
+        PointsManager:IncreaseLimit("grendel")
+      end
+    end
 
     -- Remove Grendel calls
     Grendel:GoNearTeam(nil)
@@ -152,13 +165,14 @@ function Grendel:FindWhereToSpawn()
 end
 
 function Grendel:GoNearTeam(team)
-  if team == DOTA_TEAM_GOODGUYS then
+  local difference = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if team == DOTA_TEAM_GOODGUYS and difference <= 0 then
     self.was_called = true
-    self.to_location = PointsManager.radiant_shrine + 200 * Vector(0, 1, 0)
-  elseif team == DOTA_TEAM_BADGUYS then
+    self.to_location = PointsManager.radiant_shrine_location + 200 * Vector(0, 1, 0)
+  elseif team == DOTA_TEAM_BADGUYS and difference >= 0 then
     self.was_called = true
-    self.to_location = PointsManager.dire_shrine + 200 * Vector(0, 1, 0)
-  else
+    self.to_location = PointsManager.dire_shrine_location + 200 * Vector(0, 1, 0)
+  elseif team == nil then
     self.was_called = false
     self.to_location = nil
   end

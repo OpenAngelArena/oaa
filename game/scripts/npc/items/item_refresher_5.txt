@@ -43,7 +43,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "120"
     "AbilitySharedCooldown"                               "refresher_oaa"
-    "AbilityManaCost"                                     "350"
+    "AbilityManaCost"                                     "500"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
@@ -63,8 +63,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "500 850 1300 1850 2500"
-      "bonus_mana"                                        "500 600 750 950 1200"
+      "bonus_health"                                      "175 425 675 925 1175"
+      "bonus_mana"                                        "425 525 675 875 1125"
       "bonus_health_regen"                                "0"
       "bonus_mana_regen"                                  "6 6.25 6.75 7.5 8.5"
       "bonus_damage"                                      "0"

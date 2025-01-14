@@ -15,6 +15,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +33,7 @@
     {
       "damage" //OAA
       {
-        "value"                                           "500 900 1300 2500 3700"
+        "value"                                           "500 900 1300 2100 2900"
         "LinkedSpecialBonus"                              "lina_slow_burn"
         "LinkedSpecialBonusField"                         "impact_damage_pct"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
@@ -39,7 +41,7 @@
       "burn_damage_tooltip" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lina_dot"                    "=500 =900 =1300 =2500 =3700"
+        "special_bonus_facet_lina_dot"                    "=500 =900 =1300 =2100 =2900"
         "LinkedSpecialBonus"                              "lina_slow_burn"
         "LinkedSpecialBonusField"                         "burn_percent_tooltip"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
@@ -67,10 +69,10 @@
         "special_bonus_facet_lina_supercharge"            "+5"
         "RequiresFacet"                                   "lina_supercharge"
       }
-      "supercharge_stacks"
+      "supercharge_stacks" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lina_supercharge"            "+12"
+        "special_bonus_facet_lina_supercharge"            "=8 =9 =10 =11 =12"
       }
       "barrier_pct"
       {

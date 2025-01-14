@@ -12,10 +12,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "Innate"                                              "1"
+    "Innate"                                              "1" //OAA
 
-    "MaxLevel"                                            "7"
-    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "7" //OAA
+    "RequiredLevel"                                       "-1" //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -32,8 +32,8 @@
       }
       "damage" //OAA
       {
-        "value"                                           "15 25 30 35 40 50 80"
-        "special_bonus_unique_spirit_breaker_3"           "+35"
+        "value"                                           "15 25 35 45 55 75 95"
+        "special_bonus_unique_spirit_breaker_3"           "+30"
       }
       "duration"                                          "0.7 0.9 1.1 1.3 1.5 1.5 1.5" //OAA
       "knockback_duration"                                "0.5"

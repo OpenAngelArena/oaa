@@ -10,6 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6" // same as Dependent ability (Ice Blast) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "ancient_apparition_ice_blast"
@@ -18,12 +19,12 @@
     {
       "damage"
       {
-        "value"                                           "10"
+        "value"                                           "10 10 10 10 20 30"
         "special_bonus_unique_ancient_apparition_6"       "+50%"
       }
       "slow"
       {
-        "value"                                           "1.5"
+        "value"                                           "2"
         "special_bonus_unique_ancient_apparition_6"       "+50%"
       }
       "cast_slow"

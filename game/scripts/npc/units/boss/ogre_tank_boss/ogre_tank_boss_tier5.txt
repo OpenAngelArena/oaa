@@ -1,8 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Creature: Ogre Tank Boss
-  // Zones: darkforest_rescue
+  // Boss tier 5 - Ogre Tank Boss
   //=================================================================================
   "npc_dota_creature_ogre_tank_boss_tier5"
   {
@@ -15,7 +14,7 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "Hero_Ogre"
     "GameSoundsFile"                                      "soundevents/game_sounds_creeps.vsndevts"
-    "Level"                                               "1"
+    "Level"                                               "50"
     "ModelScale"                                          "2.8"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -36,9 +35,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "8687"      // Damage range min.
-    "AttackDamageMax"                                     "8687"      // Damage range max.
-    "AttackRate"                                          "2.0"
+    "AttackDamageMin"                                     "7000" // Melee Smash Damage
+    "AttackDamageMax"                                     "7000" // Melee Smash Damage
+    "AttackRate"                                          "2.0" // Melee Smash Cooldown
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1200"
     "AttackRange"                                         "1"
@@ -65,42 +64,35 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "16000"        // Base health.
-    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
-    "StatusMana"                                          "10000"
-    "StatusManaRegen"                                     "5000"
+    "StatusHealth"                                        "16000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
     {
-      //Basic AI State
-      //------------------------------------------------------------
-      "DefaultState"                                      "Invade"
-      "States"
-      {
-        "Invade"
-        {
-          "Name"                                          "Invade"
-          "Aggression"                                    "100.0"
-          "Avoidance"                                     "0.0"
-          "Support"                                       "0.0"
-        }
-      }
-
       "DisableResistance"                                 "80.0"
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
   }
 }

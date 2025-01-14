@@ -69,13 +69,13 @@ function item_shield_staff:GetCooldown(level)
     local target = self:GetCursorTarget()
     for _, modifier in pairs(forbidden_modifiers) do
       if target:HasModifier(modifier) then
-        return cooldown / 2
+        return 0.1 -- cooldown / 2
       end
     end
 
     -- If target is leashed, reduce cd
     if target:IsLeashedOAA() then
-      return cooldown / 2
+      return 0.1 -- cooldown / 2
     end
   end
 
@@ -96,7 +96,7 @@ function item_shield_staff:OnSpellStart()
     return
   end
 
-  -- Interrupt and damage enemies, apply barrier/shield to allies
+  -- Interrupt and damage enemies
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
     -- Don't do anything if target has Linken's effect or it's spell-immune
     if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
@@ -117,12 +117,6 @@ function item_shield_staff:OnSpellStart()
     }
 
     ApplyDamage(damage_table)
-  else
-    -- Apply barrier buff to the target
-    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {
-      duration = self:GetSpecialValueFor("barrier_duration"),
-      barrierHP = self:GetSpecialValueFor("barrier_block"),
-    })
   end
 
   -- If target has any of these debuffs, don't continue
@@ -135,6 +129,11 @@ function item_shield_staff:OnSpellStart()
   -- If target is leashed, don't continue
   if target:IsLeashedOAA() then
     return
+  end
+
+  -- Apply buff to allies
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = self:GetSpecialValueFor("active_duration")})
   end
 
   -- Remove particles of the previous shield staff instance in case of refresher
@@ -321,9 +320,9 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_Const
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
-    return 0
-  end
+  -- if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+    -- return 0
+  -- end
 
   local chance = ability:GetSpecialValueFor("passive_attack_damage_block_chance") / 100
 
@@ -382,7 +381,7 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+  if parent:HasModifier("modifier_shield_staff_barrier_buff") and event.damage >= ability:GetSpecialValueFor("active_min_dmg") then
     return 0
   end
 
@@ -432,14 +431,10 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
   local parent = self:GetParent()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.max_shield_hp = ability:GetSpecialValueFor("barrier_block")
+    self.min_dmg = ability:GetSpecialValueFor("active_min_dmg")
   end
 
   if IsServer() then
-    if event.barrierHP then
-      self:SetStackCount(0 - event.barrierHP)
-    end
-
     -- Sound
     parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
   end
@@ -455,15 +450,10 @@ end
 
 function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(event)
   if IsClient() then
-    if event.report_max then
-      return self.max_shield_hp
-    else
-      return math.abs(self:GetStackCount()) -- current shield hp
-    end
+    return self.min_dmg
   else
     local parent = self:GetParent()
     local damage = event.damage
-    local barrier_hp = math.abs(self:GetStackCount())
 
     -- Don't react to damage with HP removal flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
@@ -475,28 +465,14 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
       return 0
     end
 
-    -- Don't block more than remaining hp
-    local block_amount = math.min(damage, barrier_hp)
-
-    -- Reduce barrier hp (using negative stacks to not show them on the buff)
-    self:SetStackCount(block_amount - barrier_hp)
-
-    if block_amount > 0 then
-      -- Visual effect
-      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
-      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
-        alert_type = OVERHEAD_ALERT_BLOCK
-      end
-
-      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
-    end
-
-    -- Remove the barrier if hp is reduced to nothing
-    if self:GetStackCount() >= 0 then
+    if damage >= self.min_dmg then
       self:Destroy()
+      -- Sound
+      parent:EmitSound("DOTA_Item.InfusedRaindrop")
+      return -damage
     end
 
-    return -block_amount
+    return 0
   end
 end
 

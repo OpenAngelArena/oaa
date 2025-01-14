@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@
       "damage" //OAA
       {
         "value"                                           "90 160 230 300 600 1200"
-        "special_bonus_unique_puck_orb_damage"            "+50"
+        "special_bonus_unique_puck_orb_damage"            "+75"
       }
       "AbilityCooldown"
       {

@@ -143,6 +143,10 @@ end
 
 modifier_boss_slime_jump_slow = class(ModifierBaseClass)
 
+function modifier_boss_slime_jump_slow:IsHidden()
+  return false
+end
+
 function modifier_boss_slime_jump_slow:IsDebuff()
   return true
 end
@@ -151,13 +155,31 @@ function modifier_boss_slime_jump_slow:IsPurgable()
   return true
 end
 
+function modifier_boss_slime_jump_slow:OnCreated()
+  local ability = self:GetAbility()
+  local movement_slow = ability:GetSpecialValueFor("slow")
+  local attack_slow = ability:GetSpecialValueFor("attack_slow")
+
+  self.attack_speed = attack_slow
+  -- Move Speed Slow is reduced with Slow Resistance
+  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
+end
+
+function modifier_boss_slime_jump_slow:OnRefresh()
+  self:OnCreated()
+end
+
 function modifier_boss_slime_jump_slow:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
 function modifier_boss_slime_jump_slow:GetModifierMoveSpeedBonus_Percentage()
-  if not self:GetAbility() then return end
-  return self:GetAbility():GetSpecialValueFor("slow")
+  return 0 - math.abs(self.slow)
+end
+
+function modifier_boss_slime_jump_slow:GetModifierAttackSpeedBonus_Constant()
+  return 0 - math.abs(self.attack_speed)
 end

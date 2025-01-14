@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_spirit_breaker"
   "Title"         "Recommended items for Spirit Breaker"
 
@@ -20,8 +20,8 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
+      "item"      "item_ancient_janggo"
       "item"      "item_octarine_core"
-      "item"      "item_ultimate_scepter"
       "item"      "item_yasha_and_kaya"
       "item"      "item_silver_edge"
       "item"      "item_lucience"
@@ -41,7 +41,8 @@
       "item"      "item_solar_crest"
       "item"      "item_sphere"
       "item"      "item_wind_waker"
-      "item"      "item_greater_tranquil_boots"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_boots_of_bearing"
       "item"      "item_greater_travel_boots"
     }
   }

@@ -13,15 +13,17 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_attack_speed" //OAA
+      "slow_attack_speed"
       {
-        "value"                                           "-100 -150 -200 -300 -450"
-        "special_bonus_unique_enchantress_3"              "-80"
+        "value"                                           "-100 -150 -200 -250 -300"
+        "special_bonus_unique_enchantress_3"              "-65"
       }
       "slow_duration"
       {

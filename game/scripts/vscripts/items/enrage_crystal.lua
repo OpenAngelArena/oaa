@@ -10,8 +10,8 @@ end
 function item_enrage_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Strong Dispel
-  caster:Purge(false, true, false, true, false)
+  -- Strong Dispel (for the caster)
+  caster:Purge(false, true, false, true, true)
 
   -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
   caster:RemoveModifierByName("modifier_slark_pounce_leash")

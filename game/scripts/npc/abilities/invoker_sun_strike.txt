@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "23"
+    "AbilityCooldown"                                     "20" //OAA
     "AbilityManaCost"                                     "175"
 
     // Special
@@ -30,9 +30,9 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" // special_bonus_unique_invoker_2_oaa
       {
-        "value"                                           "150 225 300 375 450 525 600 675 825 975 1125 1275 1425 1575 1725"
+        "value"                                           "200 250 300 350 400 450 500 550 650 750 850 950 1050 1150 1250"
         "levelkey"                                        "exortlevel"
       }
       "vision_distance"
@@ -49,7 +49,7 @@
       }
       "cataclysm_cooldown" //OAA
       {
-        "value"                                           "70"
+        "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
       "cataclysm_min_range"

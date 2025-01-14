@@ -24,7 +24,7 @@
     {
       "spirit_damage"
       {
-        "value"                                           "22 32 42 52 62 72 82 92 102 120 138 170 190 220 250"
+        "value"                                           "22 32 42 52 62 72 82 92 112 132 152 172 192 212 252"
         "levelkey"                                        "exortlevel"
       }
       "spirit_mana"
@@ -39,12 +39,12 @@
       }
       "spirit_attack_range"
       {
-        "value"                                           "300 365 430 495 560 625 690 755 765 775 785 795 805 825 850"
+        "value"                                           "300 365 430 495 560 625 690 755 765 775 785 795 805 815 825"
         "levelkey"                                        "quaslevel"
       }
       "spirit_hp" //OAA
       {
-        "value"                                           "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500"
+        "value"                                           "400 600 800 1000 1200 1400 1600 1800 2200 2600 3000 3400 3800 4200 4600"
         "levelkey"                                        "quaslevel"
       }
       "spirit_duration"
@@ -60,10 +60,11 @@
       "spirit_count"
       {
         "value"                                           "1"
+        "special_bonus_unique_invoker_11"                 "+1" // special_bonus_unique_invoker_11 is not used
       }
       "spirit_attack_speed"
       {
-        "special_bonus_unique_invoker_11"                 "+50"
+
       }
       "extra_spirit_count_quas"                           "0 0 0 1 1 1 1 1 2 2 2 2 2 2 3"
       "extra_spirit_count_exort"                          "0 0 0 1 1 1 1 1 2 2 2 2 2 2 3"

@@ -39,8 +39,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"                                  "custom/radiance_3"
 
-    "AbilityCastRange"                                    "700 750 800 850 900"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -61,7 +59,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "55 75 115 175 255"
-      "aura_damage"                                       "60 90 150 240 360"
+      "aura_damage"                                       "60 95 165 270 410"
       "aura_damage_illusions"                             "35 52 87 140 210"
       "upgrade_day_vision"                                "250"
       "evasion"                                           "20 21 22 23 24"
@@ -71,7 +69,7 @@
         "value"                                           "650 700 750 800 850"
         "affected_by_aoe_increase"                        "1"
       }
-      "illusion_multiplier_pct"                           "100"
+      "illusion_multiplier_pct"                           "120"
     }
   }
 }

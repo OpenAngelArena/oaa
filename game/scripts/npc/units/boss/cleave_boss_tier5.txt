@@ -12,7 +12,7 @@
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "2.5"
-    "Level"                                               "30"
+    "Level"                                               "50"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -28,7 +28,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "43"      // Physical protection.
-    "MagicalResistance"                                   "-25"                  // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"     // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -86,6 +86,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

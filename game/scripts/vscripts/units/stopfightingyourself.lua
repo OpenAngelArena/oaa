@@ -7,14 +7,22 @@ local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
 local function IllusionsCast(caster)
   local ability = caster.ABILITY_dupe_heroes
-  if ability and ability:IsFullyCastable() then
+  if caster and not caster:IsNull() and ability and ability:IsFullyCastable() then
+    caster:DispelWeirdDebuffs()
+
+    local cast_point = ability:GetCastPoint()
+
     ExecuteOrderFromTable({
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
       AbilityIndex = ability:entindex(),
-      Queue = false
+      Queue = false,
     })
+
+    return cast_point + 0.1
   end
+
+  return 0.5
 end
 
 local function UseAbility(ability, caster, target, maxRange)
@@ -47,7 +55,7 @@ local function UseAbility(ability, caster, target, maxRange)
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = false
+      Queue = false,
     })
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
     -- point
@@ -57,7 +65,7 @@ local function UseAbility(ability, caster, target, maxRange)
         OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
         AbilityIndex = ability:entindex(),
         Position = target:GetAbsOrigin(),
-        Queue = true
+        Queue = false,
       })
     elseif randomPosition then
       ExecuteOrderFromTable({
@@ -74,7 +82,7 @@ local function UseAbility(ability, caster, target, maxRange)
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = false
+      Queue = false,
     })
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
     -- target
@@ -84,7 +92,7 @@ local function UseAbility(ability, caster, target, maxRange)
         OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
         TargetIndex = target:entindex(), --Optional.  Only used when targeting units
         AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Queue = false
+        Queue = false,
       })
     end
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 and not ability:IsActivated() then
@@ -93,7 +101,7 @@ local function UseAbility(ability, caster, target, maxRange)
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = false
+      Queue = false,
     })
   end
 end
@@ -143,7 +151,7 @@ function StopFightingYourselfThink()
     thisEntity.spawn_position = thisEntity:GetAbsOrigin()
     thisEntity.state = SIMPLE_AI_STATE_IDLE
     thisEntity.aggro_target = nil
-    thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.BossTier = thisEntity.BossTier or 4
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.initialized = true
@@ -204,6 +212,9 @@ function StopFightingYourselfThink()
   local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
   local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
+    -- Remove debuff protection
+    thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
@@ -285,26 +296,28 @@ function StopFightingYourselfThink()
           UseRandomItem()
         end
         if dice_for_illusions <= 0.15 then
-          IllusionsCast(thisEntity)
+          return IllusionsCast(thisEntity)
         end
       elseif current_hp_pct >= 50/100 then -- phase 2
         if dice_for_items <= 0.66 then
           UseRandomItem()
         end
         if dice_for_illusions <= 0.3 then
-          IllusionsCast(thisEntity)
+          return IllusionsCast(thisEntity)
         end
       elseif current_hp_pct >= 25/100 then -- phase 3
         UseRandomItem()
         if dice_for_illusions <= 0.5 or thisEntity:GetUnitName() == "npc_dota_boss_stopfightingyourself_tier5" then
-          IllusionsCast(thisEntity)
+          return IllusionsCast(thisEntity)
         end
       else -- phase 4
         UseRandomItem()
-        IllusionsCast(thisEntity)
+        return IllusionsCast(thisEntity)
       end
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
+    -- Add Debuff Protection when leashing
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
     thisEntity:MoveToPosition(thisEntity.spawn_position)
     -- Check if boss reached the spawn_position
@@ -327,6 +340,6 @@ function Spawn(entityKeyValues) --luacheck: ignore Spawn
 
   thisEntity.ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
 
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  --print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
   thisEntity:SetContextThink('StopFightingYourselfThink', StopFightingYourselfThink, 1)
 end

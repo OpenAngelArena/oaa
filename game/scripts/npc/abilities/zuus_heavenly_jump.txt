@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +47,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "20 18 16 14 14 14"
+        "value"                                           "20 18 16 14 13 12"
         "special_bonus_unique_zeus_jump_cooldown"         "-4"
       }
       "postjump_movespeed_duration"

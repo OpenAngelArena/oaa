@@ -1,0 +1,14 @@
+
+"DOTA_Tooltip_ability_oracle_innate_oaa"                                        "Field Medic"
+"DOTA_Tooltip_ability_oracle_innate_oaa_Description"                            "Oracle buffs healed allies with bonus move speed and attack speed and slows healed enemies."
+"DOTA_Tooltip_ability_oracle_innate_oaa_move_speed_bonus"                       "%BONUS MOVE SPEED:"
+"DOTA_Tooltip_ability_oracle_innate_oaa_attack_speed_bonus"                     "BONUS ATTACK SPEED:"
+"DOTA_Tooltip_ability_oracle_innate_oaa_move_speed_slow"                        "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_ability_oracle_innate_oaa_attack_speed_slow"                      "ATTACK SPEED SLOW:"
+"DOTA_Tooltip_ability_oracle_innate_oaa_duration"                               "LINGER DURATION:"
+
+"DOTA_Tooltip_modifier_oracle_innate_oaa_buff"                                  "#{DOTA_Tooltip_ability_oracle_innate_oaa}"
+"DOTA_Tooltip_modifier_oracle_innate_oaa_buff_Description"                      "Move speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+"DOTA_Tooltip_modifier_oracle_innate_oaa_debuff"                                "#{DOTA_Tooltip_ability_oracle_innate_oaa}"
+"DOTA_Tooltip_modifier_oracle_innate_oaa_debuff_Description"                    "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

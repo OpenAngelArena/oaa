@@ -109,10 +109,18 @@ function DireTowerBossThink()
       -- Check HP of the boss
       if current_hp_pct > aggro_hp_pct then
         thisEntity.aggro_target = nil
-        thisEntity.minion_target = nil
       end
-      -- Check if boss is stuck or idle because actual aggro target doesn't exist.
-      if not thisEntity:GetAggroTarget() or thisEntity:IsIdle() then
+
+      -- Check if actual aggro target exists
+      local actual_aggro_target = thisEntity:GetAggroTarget()
+      if not actual_aggro_target or actual_aggro_target:IsNull() then
+        thisEntity.aggro_target = nil
+      elseif not actual_aggro_target:IsAlive() then
+        thisEntity.aggro_target = nil
+      end
+
+      -- Check if boss is idle
+      if thisEntity:IsIdle() then
         thisEntity.aggro_target = nil
       end
     else
@@ -151,18 +159,20 @@ function DireTowerBossThink()
     end
 
     -- Sound
-    local sound_source
-    if not thisEntity.aggro_target:IsNull() then
-      sound_source = thisEntity.aggro_target
-    elseif not thisEntity:GetAggroTarget():IsNull() then
-      sound_source = thisEntity:GetAggroTarget()
-    elseif not thisEntity.minion_target:IsNull() then
-      sound_source = thisEntity.minion_target
-    else
-      sound_source = thisEntity
-    end
-    if not thisEntity.emitedsound and sound_source then
-      sound_source:EmitSound("Dire_Tower_Boss.Aggro")
+    if not thisEntity.emitedsound then
+      local sound_source
+      if thisEntity.aggro_target and not thisEntity.aggro_target:IsNull() then
+        sound_source = thisEntity.aggro_target
+      elseif thisEntity:GetAggroTarget() and not thisEntity:GetAggroTarget():IsNull() then
+        sound_source = thisEntity:GetAggroTarget()
+      elseif thisEntity.minion_target and not thisEntity.minion_target:IsNull() then
+        sound_source = thisEntity.minion_target
+      else
+        sound_source = thisEntity
+      end
+      if sound_source and not sound_source:IsNull() then
+        sound_source:EmitSound("Dire_Tower_Boss.Aggro")
+      end
       thisEntity.emitedsound = true
     end
 
@@ -214,6 +224,7 @@ function DireTowerBossThink()
     -- Check HP of the boss
     if current_hp_pct > aggro_hp_pct then
       thisEntity.minion_target = nil
+      thisEntity.emitedsound = false
     end
   end
 
@@ -221,21 +232,29 @@ function DireTowerBossThink()
 end
 
 function CastSummonWave()
+  thisEntity:DispelWeirdDebuffs()
+
+  local ability = thisEntity.hSummonWaveAbility
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-    AbilityIndex = thisEntity.hSummonWaveAbility:entindex(),
+    AbilityIndex = ability:entindex(),
     Queue = false,
   })
-  return 0.6
+  return ability:GetCastPoint() + 0.1
 end
 
 function CastGlyph()
+  -- Dispel all debuffs (99.99% at least)
+  thisEntity:Purge(false, true, false, true, true)
+  thisEntity:DispelUndispellableDebuffs()
+
+  local ability = thisEntity.hGlyphAbility
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-    AbilityIndex = thisEntity.hGlyphAbility:entindex(),
+    AbilityIndex = ability:entindex(),
     Queue = false,
   })
-  return 0.7
+  return ability:GetCastPoint() + 0.1
 end

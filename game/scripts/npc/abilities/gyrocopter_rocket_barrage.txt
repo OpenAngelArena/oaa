@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100"
+    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,8 +39,8 @@
       "barrage_duration"                                  "3"
       "rocket_damage" //OAA
       {
-        "value"                                           "8 14 20 26 52 104"
-        "special_bonus_unique_gyrocopter_3"               "+28"
+        "value"                                           "8 14 20 26 52 78"
+        "special_bonus_unique_gyrocopter_3"               "+26"
       }
       "bonus_movespeed_duration"
       {

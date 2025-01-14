@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 3
+  // Boss tier 3 - unused
   //=================================================================================
   "npc_dota_boss_tier_3"
   {
@@ -11,9 +11,10 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "ModelScale"                                          "3.0"
-    "Level"                                               "75"
+    "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -36,16 +37,6 @@
     "AttackRange"                                         "120"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"         // Speed of projectile.
-
-    // Attributes
-    //----------------------------------------------------------------
-    "AttributePrimary"                                    "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"                               "0"         // Base strength
-    "AttributeStrengthGain"                               "0"         // Strength bonus per level.
-    "AttributeBaseIntelligence"                           "0"         // Base intelligence
-    "AttributeIntelligenceGain"                           "0"         // Intelligence bonus per level.
-    "AttributeBaseAgility"                                "0"         // Base agility
-    "AttributeAgilityGain"                                "0"         // Agility bonus per level.
 
     // Bounty
     //----------------------------------------------------------------
@@ -82,8 +73,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
@@ -94,5 +83,10 @@
     // Inventory
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
   }
 }

@@ -36,10 +36,11 @@
     {
       "bolt_speed"                                        "500"
       "bolt_vision"                                       "325"
-      "bolt_damage"                                       "75 95 115 135 270 405"
-      "int_multiplier" //OAA
+      "bolt_damage"                                       "75 95 115 135 270 405" // special_bonus_unique_skywrath_1_oaa
+      "int_multiplier"
       {
-        "value"                                           "1.4"
+        "value"                                           "1.5"
+        "special_bonus_unique_skywrath_2"                 "+0.5"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "vision_duration"                                   "3.34"

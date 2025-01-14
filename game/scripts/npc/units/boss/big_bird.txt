@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 5
+  // Boss tier 5 - Big Bird
   //=================================================================================
   "npc_dota_boss_tier_5"
   {
@@ -11,7 +11,7 @@
     "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "n_creep_Melee"                                   // Name of sound set.
-    "Level"                                               "60"
+    "Level"                                               "50"
     "ModelScale"                                          "3.0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -33,7 +33,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "7500"      // Damage range min.
     "AttackDamageMax"                                     "7500"      // Damage range max.
-    "AttackRate"                                          "0.625"     // Speed of attack.
+    "AttackRate"                                          "0.5"     // Speed of attack.
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"       // Range within a target can be acquired.
     "AttackRange"                                         "128"       // Range within a target can be attacked.
@@ -59,8 +59,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "25000"        // Base health.
     "StatusHealthRegen"                                   "0"     // Health regeneration rate.
-    "StatusMana"                                          "10000"         // Base mana.
-    "StatusManaRegen"                                     "5000"         // Mana regeneration rate.
+    "StatusMana"                                          "12500"         // Base mana.
+    "StatusManaRegen"                                     "6250"         // Mana regeneration rate.
 
     // Creature data
     "Creature"
@@ -82,6 +82,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

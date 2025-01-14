@@ -1,0 +1,32 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Scroll UV ----
+	F_SCROLL_UV 2 // Scroll All Textures
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/ground/lava_color.png"
+
+	//---- Scroll UV ----
+	g_flScrollUvSpeed "0.400"
+	g_vScrollUvDirection "[0.000 1.000]"
+	TextureScrollSpeed "materials/default/default.tga"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/ground/lava_selfillum.png"
+
+	//---- Specular ----
+	g_flSpecularBloom "3.000"
+	g_flSpecularIntensity "1.000"
+	TextureBloom "materials/ground/lava_bloom.png"
+	TextureReflectance "materials/ground/lava_refl.png"
+}

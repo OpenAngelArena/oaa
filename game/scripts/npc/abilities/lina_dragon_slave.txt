@@ -14,6 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +36,7 @@
     {
       "dragon_slave_damage"
       {
-        "value"                                           "85 165 245 325 650 1300"
+        "value"                                           "85 165 245 325 650 975"
         "LinkedSpecialBonus"                              "lina_slow_burn"
         "LinkedSpecialBonusField"                         "impact_damage_pct"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
@@ -42,7 +44,7 @@
       "dragon_slave_burn_damage_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_facet_lina_dot"                    "=85 =165 =245 =325 =650 =1300"
+        "special_bonus_facet_lina_dot"                    "=85 =165 =245 =325 =650 =975"
         "LinkedSpecialBonus"                              "lina_slow_burn"
         "LinkedSpecialBonusField"                         "burn_percent_tooltip"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
@@ -68,7 +70,7 @@
       "dragon_slave_distance"                             "1075"
       "AbilityCooldown"
       {
-        "value"                                           "11 10 9 8 7.5 7"
+        "value"                                           "11 10 9 8 8 8"
         "special_bonus_unique_lina_1"                     "-3.5"
       }
     }

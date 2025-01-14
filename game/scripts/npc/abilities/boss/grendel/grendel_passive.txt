@@ -1,11 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Grendel: Passives description stuff
+  // Grendel: Passives - taking less damage from the winning team and description stuff
   //=================================================================================================================
   "grendel_passives"
   {
-    "BaseClass"                                           "ability_datadriven"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/grendel/grendel_passives.lua"
     "AbilityTextureName"                                  "custom/core_guy_score_limit"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 

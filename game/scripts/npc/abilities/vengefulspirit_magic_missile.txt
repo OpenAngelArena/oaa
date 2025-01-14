@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Vengefulspirit Magic Missle
+  // Ability: Vengefulspirit Magic Missile
   //=================================================================================================================
   "vengefulspirit_magic_missile"
   {
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
+    "AbilityCooldown"                                     "16 14 12 10 10 10" // it has cd reduction talent
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,11 +38,11 @@
       "magic_missile_stun"
       {
         "value"                                           "1.1 1.3 1.5 1.7 1.8 1.9"
-        "special_bonus_unique_vengeful_spirit_1"          "+0.3"              
+        "special_bonus_unique_vengeful_spirit_1"          "+0.3"
       }
       "magic_missile_damage"
       {
-        "value"                                           "85 170 255 340 680 1360"
+        "value"                                           "85 170 255 340 680 1020"
       }
       "AbilityCastRange"
       {

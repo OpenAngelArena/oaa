@@ -61,8 +61,8 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
 
     local position2 = caster_loc + (caster:GetForwardVector() * range)
-    local position1 = RotatePosition(caster_loc, QAngle(0, 45, 0), position2)
-    local position3 = RotatePosition(caster_loc, QAngle(0, -45, 0), position2)
+    local position1 = RotatePosition(caster_loc, QAngle(0, 30, 0), position2)
+    local position3 = RotatePosition(caster_loc, QAngle(0, -30, 0), position2)
     local forward1 = (position1 - caster_loc):Normalized()
     local forward3 = (position3 - caster_loc):Normalized()
     local width = (position2 - position1):Length2D() / 2

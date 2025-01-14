@@ -2,7 +2,6 @@
 {
   //=================================================================================
   // Creature: Dire Hound Boss
-  // Zones: forest, forest_holdout
   //=================================================================================
   "npc_dota_creature_dire_hound_boss_tier5"
   {
@@ -36,12 +35,12 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "0"
-    "AttackDamageMax"                                     "0"
+    "AttackDamageMin"                                     "1600" // Ranged Quill Attack Damage (visual purpose only)
+    "AttackDamageMax"                                     "1600" // Ranged Quill Attack Damage (visual purpose only)
     "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.33"
     "AttackAcquisitionRange"                              "600"
-    "AttackRange"                                         "800"
+    "AttackRange"                                         "800" // Ranged Quill Attack Cast Range (visual purpose only)
     "ProjectileModel"                                     ""
     "ProjectileSpeed"                                     "0"
 

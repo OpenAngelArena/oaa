@@ -219,6 +219,10 @@ end
 
 modifier_boss_charger_glanced = class(ModifierBaseClass)
 
+function modifier_boss_charger_glanced:IsHidden()
+  return false
+end
+
 function modifier_boss_charger_glanced:IsDebuff()
   return true
 end

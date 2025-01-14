@@ -16,6 +16,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,7 @@
     {
       "damage" //OAA
       {
-        "value"                                           "250 550 850 1750 2650"
+        "value"                                           "250 500 750 1250 1750"
       }
       "bonus_jump_damage"
       {
@@ -77,10 +79,10 @@
         "value"                                           "0"
         "special_bonus_facet_lich_growing_cold"           "+1"
       }
-      "frostbound_duration"
+      "frostbound_duration" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_frostbound"             "=2 =3 =4 =4.5 =5"
+        "special_bonus_facet_lich_frostbound"             "=3"
       }
     }
   }

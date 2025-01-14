@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +36,7 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "24 21 18 18 18"
+        "value"                                           "24 21 18 17 16"
         "special_bonus_unique_clinkz_10"                  "-4"
       }
       "skeleton_offset"                                   "250"

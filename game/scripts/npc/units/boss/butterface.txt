@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 2
+  // Boss tier 2 - unused
   //=================================================================================
   "npc_dota_boss_tier_2"
   {
@@ -11,9 +11,10 @@
     "Model"                                               "models/courier/greevil/greevil.vmdl"   // Model.
     "SoundSet"                                            "Greevil"                   // Name of sound set.
     "ModelScale"                                          "4.0"
-    "Level"                                               "50"
+    "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -72,13 +73,20 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
     "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
   }
 }

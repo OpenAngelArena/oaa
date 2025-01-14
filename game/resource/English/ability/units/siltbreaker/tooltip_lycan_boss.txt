@@ -13,7 +13,7 @@
 "DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_ss_werewolf_spawn"           "WEREWOLVES DURING SHAPESHIFT SPAWNED:"
 
 "DOTA_Tooltip_Ability_lycan_boss_shapeshift"                                    "Shapeshift"
-"DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description"                        "LongClaw is consumed by his rage, letting his inner beast take control over his physical shape and mind. Giving him bonus night vision, increased movement speed and modifies his Ability-Kit"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description"                        "LongClaw is consumed by his rage, letting his inner beast take control over his physical shape and mind. He gains bonus night vision, bonus move speed and his abilities are improved."
 "DOTA_Tooltip_Ability_lycan_boss_shapeshift_bonus_night_vision"                 "BONUS NIGHT VISION:"
 "DOTA_Tooltip_Ability_lycan_boss_shapeshift_speed"                              "MOVEMENT SPEED:"
 "DOTA_Tooltip_Ability_lycan_boss_shapeshift_transformation_time"                "TRANSFORMATION TIME:"
@@ -42,10 +42,17 @@
 
 "DOTA_Tooltip_Ability_werewolf_howl"                                            "Werewolf Howl"
 "DOTA_Tooltip_Ability_werewolf_howl_Description"                                "The werewolf howls, buffing nearby wolfs."
+"DOTA_Tooltip_Ability_werewolf_howl_Lore"                                       "Longclaw Skinchanger's howling annoys even Lucius LongClaw himself."
 "DOTA_Tooltip_Ability_werewolf_howl_bonus_damage"                               "BONUS DAMAGE:"
 "DOTA_Tooltip_Ability_werewolf_howl_bonus_move_speed"                           "BONUS MOVEMENT SPEED:"
 "DOTA_Tooltip_Ability_werewolf_howl_radius"                                     "RADIUS:"
 "DOTA_Tooltip_Ability_werewolf_howl_duration"                                   "DURATION:"
+
+"DOTA_Tooltip_modifier_werewolf_howl_aura"                                      "#{DOTA_Tooltip_Ability_werewolf_howl}"
+"DOTA_Tooltip_modifier_werewolf_howl_aura_Description"                          "This unit grants bonus damage and move speed to nearby allies."
+
+"DOTA_Tooltip_modifier_werewolf_howl_aura_effect"                               "#{DOTA_Tooltip_Ability_werewolf_howl}"
+"DOTA_Tooltip_modifier_werewolf_howl_aura_effect_Description"                   "This unit is near a howling werewolf. Move speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%, attack damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 
 //------------------------------Tier 5---------------------------------------
 
@@ -78,3 +85,5 @@
 "DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_wolf_duration"             "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_wolf_duration}"
 "DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_num_hound_spawn"           "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_spawn}"
 "DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_num_hound_boss_spawn"      "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_boss_spawn}"
+
+"DOTA_Tooltip_modifier_lycan_boss_shapeshift"                                   "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift}"

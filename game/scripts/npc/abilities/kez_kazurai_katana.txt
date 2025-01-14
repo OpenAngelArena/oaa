@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kez: Kazurai Katana
+  //=================================================================================================================
+  "kez_kazurai_katana"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "150"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "katana_attack_range"                               "225"
+      "katana_base_attack_time"                           "2.0"
+      "katana_bonus_damage"                               "20"
+      "katana_bleed_duration"                             "5.0 6.0 7.0 8.0 8.5 9.0"
+      "katana_bleed_attack_damage_pct" //OAA
+      {
+        "value"                                           "6 7 8 9 9.5 10"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4.0"
+      }
+      "heal_reduction_pct"                                "20 24 28 32 36 40" //OAA
+
+      // Shard
+      "AbilityCooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "5"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "50"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "0.6"
+        "RequiresShard"                                   "1"
+      }
+      "bleed_as_rupture_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "100"
+        "RequiresShard"                                   "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+    }
+  }
+}

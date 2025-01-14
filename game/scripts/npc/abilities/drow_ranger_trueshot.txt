@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Drow Ranger: Precision Aura (Innate)
+  // Drow Ranger: Precision Aura (Innate) - unused
   //=================================================================================================================
   "drow_ranger_trueshot"
   {
@@ -15,7 +15,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trueshot_agi_bonus_self"                           "1" //OAA
+      "trueshot_agi_bonus_self"                           "2"
       "trueshot_agi_bonus_allies"                         "1"
       "trueshot_aspd_bonus_creeps"
       {

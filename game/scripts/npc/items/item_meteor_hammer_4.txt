@@ -54,8 +54,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilitySharedCooldown"                               "meteor"
-    "AbilityCooldown"                                     "24 22 20 18 16"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "25 23 21 19 17"
+    "AbilityManaCost"                                     "125"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -74,21 +74,21 @@
       "bonus_agility"                                     "12 17 22 27 32"
       "spell_amp"                                         "12 16 20 24 28"
       "mana_regen_multiplier"                             "50 60 70 80 90"
-      "spell_lifesteal_amp"                               "20 22 24 26 28"
+      "spell_lifesteal_amp"                               "12 14 16 18 20"
 
       "burn_dps_boss"                                     "150 300 450 600 750"
-      "burn_dps"                                          "60 160 260 360 460"
+      "burn_dps"                                          "60 150 240 330 420"
       "burn_duration"                                     "6"
       "stun_duration"                                     "1.5"
       "burn_interval"                                     "1.0"
       "land_time"                                         "0.5"
       "impact_radius"
       {
-        "value"                                           "400"
+        "value"                                           "380"
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "130 300 570 940 1410"
+      "impact_damage"                                     "130 260 455 715 1040"
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }

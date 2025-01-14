@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_storm_spirit"
   "Title"         "Recommended items for Storm Spirit"
 
@@ -16,10 +16,10 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_kaya"
-      "item"      "item_cyclone"
       "item"      "item_orchid"
-      "item"      "item_devastator"
+      "item"      "item_kaya"
+      "item"      "item_witch_blade"
+      "item"      "item_cyclone"
       "item"      "item_sheepstick_4"
     }
 
@@ -28,7 +28,7 @@
       "item"      "item_meteor_hammer_1"
       "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
-      "item"      "item_satanic_core"
+      "item"      "item_satanic_core_1"
       "item"      "item_refresher_4"
     }
 

@@ -1,0 +1,14 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Intelligence Grants Attack Damage
+  //=================================================================================================================
+  "special_bonus_unique_eul_6_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_base"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  }
+}

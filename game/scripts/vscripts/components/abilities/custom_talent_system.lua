@@ -129,6 +129,9 @@ local abilities_with_custom_talents = {
   keeper_of_the_light_illuminate = {
     speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
   },
+  lich_chain_frost = {
+    jumps = {"special_bonus_unique_lich_1_oaa", "+"},
+  },
   life_stealer_open_wounds = {
     AbilityCooldown = {"special_bonus_unique_lifestealer_1_oaa", "+"},
   },
@@ -145,7 +148,6 @@ local abilities_with_custom_talents = {
     AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
   },
   queenofpain_shadow_strike = {
-    duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
   sandking_epicenter = {

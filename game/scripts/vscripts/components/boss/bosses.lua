@@ -43,8 +43,9 @@ Bosses = {
       "npc_dota_boss_simple_2", -- Bear Boss (Fury Swipes)
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
-      "npc_dota_boss_swiper",
+      --"npc_dota_boss_swiper",
       "npc_dota_boss_carapace",
+      "npc_dota_creature_tormentor_boss",
     },
     {
       "npc_dota_creature_ogre_tank_boss",
@@ -87,8 +88,9 @@ Bosses = {
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
-      "npc_dota_boss_swiper",
+      --"npc_dota_boss_swiper",
       "npc_dota_boss_carapace",
+      "npc_dota_creature_tormentor_boss",
     },
     {
       "npc_dota_creature_ogre_tank_boss",
@@ -126,8 +128,9 @@ Bosses = {
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
-      "npc_dota_boss_swiper",
+      --"npc_dota_boss_swiper",
       "npc_dota_boss_carapace",
+      "npc_dota_creature_tormentor_boss",
     },
     {
       "npc_dota_creature_ogre_tank_boss",

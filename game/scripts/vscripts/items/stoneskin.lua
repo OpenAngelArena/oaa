@@ -1,7 +1,6 @@
 item_stoneskin = class(ItemBaseClass)
 
 LinkLuaModifier("modifier_item_stoneskin_passives", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_item_stoneskin_aura_effect", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stoneskin_stone_armor", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_stoneskin:GetIntrinsicModifierName()
@@ -145,86 +144,7 @@ function modifier_item_stoneskin_passives:GetModifierStatusResistanceStacking()
   end
 end
 
--- function modifier_item_stoneskin_passives:IsAura()
-  -- return true
--- end
-
--- function modifier_item_stoneskin_passives:GetModifierAura()
-  -- return "modifier_item_stoneskin_aura_effect"
--- end
-
--- function modifier_item_stoneskin_passives:GetAuraRadius()
-  -- return self:GetAbility():GetSpecialValueFor("aura_radius")
--- end
-
--- function modifier_item_stoneskin_passives:GetAuraSearchTeam()
-  -- return DOTA_UNIT_TARGET_TEAM_FRIENDLY
--- end
-
--- function modifier_item_stoneskin_passives:GetAuraSearchType()
-  -- return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
--- end
-
 ---------------------------------------------------------------------------------------------------
-
--- modifier_item_stoneskin_aura_effect = class(ModifierBaseClass)
-
--- function modifier_item_stoneskin_aura_effect:IsHidden() -- needs tooltip
-  -- return false
--- end
-
--- function modifier_item_stoneskin_aura_effect:IsDebuff()
-  -- return false
--- end
-
--- function modifier_item_stoneskin_aura_effect:IsPurgable()
-  -- return false
--- end
-
--- function modifier_item_stoneskin_aura_effect:OnCreated()
-  -- local ability = self:GetAbility()
-  -- if ability and not ability:IsNull() then
-    -- self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
-    -- self.lifesteal_amp = ability:GetSpecialValueFor("lifesteal_amp")
-    -- self.heal_amp = ability:GetSpecialValueFor("heal_amp")
-    -- self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
-  -- end
--- end
-
--- function modifier_item_stoneskin_aura_effect:OnRefresh()
-  -- self:OnCreated()
--- end
-
--- function modifier_item_stoneskin_aura_effect:DeclareFunctions()
-  -- return {
-    -- MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    -- MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    -- MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    -- MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
-  -- }
--- end
-
--- function modifier_item_stoneskin_aura_effect:GetModifierHPRegenAmplify_Percentage()
-  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
--- end
-
--- function modifier_item_stoneskin_aura_effect:GetModifierHealAmplify_PercentageTarget()
-  -- return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
--- end
-
--- function modifier_item_stoneskin_aura_effect:GetModifierLifestealRegenAmplify_Percentage()
-  -- return self.lifesteal_amp or self:GetAbility():GetSpecialValueFor("lifesteal_amp")
--- end
-
--- function modifier_item_stoneskin_aura_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
-  -- return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
--- end
-
--- function modifier_item_stoneskin_aura_effect:GetTexture()
-  -- return "custom/stoneskin_2"
--- end
-
-------------------------------------------------------------------------
 
 modifier_item_stoneskin_stone_armor = class(ModifierBaseClass)
 

@@ -1,0 +1,88 @@
+"DOTAUnits"
+{
+  "npc_dota_neutral_custom_rune_protector"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl"
+    "vscripts"                                            "units/ai_rune_protector.lua"
+    "SoundSet"                                            "n_creep_Melee"
+    "ModelScale"                                          "1"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+    "IsNeutralUnitType"                                   "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"     // If you want to use a custom behavior (AI), set to 0
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "satyr_trickster_purge"
+    "Ability2"                                            "boss_regen"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "25"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "65"    // Damage range min.
+    "AttackDamageMax"                                     "65"    // Damage range max.
+    "AttackRate"                                          "1.7"     // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "280"    // Range within a target can be acquired.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "750"    // Experience earn.
+    "BountyGoldMin"                                       "150"    // Gold earned min.
+    "BountyGoldMax"                                       "400"    // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "100"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "300"    // Speed
+    "MovementTurnRate"                                    "1.0"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1500"    // Base health.
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
+    "StatusMana"                                          "500"    // Base mana.
+    "StatusManaRegen"                                     "250"    // Mana regeneration rate.
+
+    // Creature data
+    "Creature"
+    {
+      "DisableResistance"                                 "50"
+    }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "0"
+  }
+}

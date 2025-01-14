@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "5.0 6.0 7.0 8.0 9.0 10.0"
+      "duration"                                          "5.0 5.5 6.0 6.5 6.75 7.0" //OAA, revert if no spell immunity in cogs
       "damage"
       {
         "value"                                           "50 125 200 275 550 1100"
@@ -79,8 +79,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15"
-        "special_bonus_unique_clockwerk_9"                "-2"
+        "value"                                           "18 17 16 15 14 13"
       }
       "projectile_distance"                               "1000"
       "projectile_speed"                                  "1000"

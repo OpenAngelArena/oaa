@@ -9,7 +9,7 @@ AUTH_KEY = GetDedicatedServerKeyV2('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://10.0.10.197:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.0.111:6969/'
 end
 
 function Bottlepass:Init ()
@@ -126,6 +126,60 @@ function Bottlepass:SendWinner (winner)
   end
 end
 
+function Bottlepass:SendBans (data)
+  DebugPrint('Sending pick screen ban data')
+  local banChoices = {}
+  local didBan = false
+
+  for playerID, choice in pairs(data.banChoices) do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        steamid = tostring(steamid)
+        didBan = true
+        banChoices[steamid] = choice
+      end
+    end
+  end
+  if didBan then
+    self:Request('match/send_bans', {
+      banChoices = banChoices,
+      bans = data.bans
+    }, function (err, response)
+      DebugPrintTable(response)
+    end)
+  end
+end
+
+function Bottlepass:SendHeroPicks (data)
+  Debug:EnableDebugging()
+  DebugPrint('Sending pick screen ban data')
+  local heroPicks = {}
+  local didPick = false
+
+  for playerID, choiceTable in pairs(data) do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        steamid = tostring(steamid)
+        didPick = true
+        heroPicks[steamid] = {
+          hero = choiceTable.selectedhero,
+          random = choiceTable.didRandom == "true" or choiceTable.didRandom == "rerandomed",
+          rerandom = choiceTable.didRandom == "rerandomed"
+        }
+      end
+    end
+  end
+  if didPick then
+    self:Request('match/send_heroes', {
+      picks = heroPicks
+    }, function (err, response)
+      DebugPrintTable(response)
+    end)
+  end
+end
+
 function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
@@ -146,8 +200,25 @@ function Bottlepass:SendTeams ()
   self:Request('match/send_teams', {
     dire = dire,
     radiant = radiant
-  }, function (err, data)
-    DebugPrintTable(data)
+  }, function (err, response)
+    DebugPrintTable(response)
+  end)
+end
+
+function Bottlepass:GetUnpopularHeroes (callback)
+  DebugPrint('Fetching unpopular hero pick list')
+
+  local heroList = HeroSelection:GetHeroList()
+  local heroes = {}
+  for key,_ in pairs(heroList) do
+    table.insert(heroes, key)
+  end
+
+  self:Request('match/unpopular_heroes', {
+    heroes = heroes
+  }, function (err, response)
+    DebugPrintTable(response)
+    callback(response)
   end)
 end
 

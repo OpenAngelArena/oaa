@@ -42,7 +42,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
     "AbilityManaCost"                                     "75"
     "AbilityCooldown"                                     "23"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
@@ -75,7 +74,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "magic_dmg_amp"                                     "30 35"
+      "magic_dmg_amp"                                     "28"
       "heal_reduction_duration"                           "3"
       "heal_reduction_percent"                            "45 50"
       "duration"                                          "8.0"

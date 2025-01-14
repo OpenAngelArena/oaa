@@ -14,10 +14,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550 575 600 625 650 675"
+    "AbilityCastRange"                                    "525 550 575 600 625 650" //OAA
     "AbilityCastPoint"                                    "0"
 
     // Cost
@@ -30,8 +32,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 11"
-        "special_bonus_unique_lion_5"                     "-2"
+        "value"                                           "17 16 15 14 13 12"
+        "special_bonus_unique_lion_5"                     "-2.5"
       }
       "duration"                                          "2 2.4 2.8 3.2 3.3 3.4"
       "movespeed"                                         "120"

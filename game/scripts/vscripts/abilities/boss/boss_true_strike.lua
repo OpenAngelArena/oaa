@@ -11,7 +11,7 @@ end
 modifier_boss_true_strike_oaa = class(ModifierBaseClass)
 
 function modifier_boss_true_strike_oaa:IsHidden()
-  return false
+  return true
 end
 
 function modifier_boss_true_strike_oaa:IsDebuff()

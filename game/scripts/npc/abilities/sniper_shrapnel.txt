@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityChargeRestoreTime"      
+      "AbilityChargeRestoreTime"
       {
         "value"                                           "35"
         "special_bonus_unique_sniper_2"                   "-30"
@@ -41,7 +41,7 @@
       "slow_movement_speed"
       {
         "value"                                           "-12 -18 -24 -30 -36 -42"
-        "special_bonus_facet_sniper_scattershot"          "=-30 =-45 =-60 =-75 =-90 =-105"
+        "special_bonus_facet_sniper_scattershot"          "=-30 =-45 =-60 =-75 =-80 =-85"
         "special_bonus_unique_sniper_5"                   "-10"
       }
       "radius"
@@ -52,7 +52,7 @@
       "shrapnel_damage"
       {
         "value"                                           "30 45 60 75 150 300"
-        "special_bonus_facet_sniper_scattershot"          "x4"
+        "special_bonus_facet_sniper_scattershot"          "=90 =160 =230 =300 =600 =900"
         "special_bonus_unique_sniper_shrapnel_damage"     "+30%"
       }
       "duration"
@@ -64,7 +64,7 @@
       {
         "value"                                           "1.2"
         "special_bonus_facet_sniper_scattershot"          "=0.8"
-      } 
+      }
       "slow_duration"
       {
         "value"                                           "2"
@@ -73,6 +73,10 @@
       "AbilityCharges"
       {
         "value"                                           "3"
+      }
+      "fast_tick"
+      {
+        "special_bonus_facet_sniper_scattershot"          "=1"
       }
     }
   }

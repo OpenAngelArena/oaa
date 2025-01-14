@@ -44,9 +44,8 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "14"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "ethereal"
-    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -70,7 +69,7 @@
       "bonus_health"                                      "0"
       "bonus_mana"                                        "0"
       "bonus_all_stats"                                   "15 20 25 30 35"
-      "heal_amp"                                          "32 34 36 38 40"
+      "heal_amp"                                          "27 29 31 33 35"
       "aura_health_regen"                                 "3 6 9 12 15"
       "aura_radius"
       {
@@ -92,9 +91,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "charge_gain_timer"                                 "10"
-      "buff_magic_resistance"                             "15 17 19 21 23"
-      "buff_status_resistance"                            "15 17 19 21 23"
-      "buff_move_speed"                                   "15 17 19 21 23"
+      "buff_magic_resistance"                             "0"
+      "buff_status_resistance"                            "18 20 22 24 26"
+      "buff_move_speed"                                   "18 20 22 24 26"
       "buff_duration"                                     "3.0"
     }
   }

@@ -170,6 +170,8 @@ if IsServer() then
     local dead = event.unit
     local killer = event.attacker
     local item = self:GetAbility()
+    local current_charges = item:GetCurrentCharges() or 0
+    local charges_per_kill = item:GetSpecialValueFor("kill_charges")
 
     if not caster:IsRealHero() then
       return
@@ -186,8 +188,6 @@ if IsServer() then
 
           -- Charge gain - only if caster is near the dead unit or if caster is the killer
           if isDeadInChargeRange or killer == caster then
-            local current_charges = item:GetCurrentCharges() or 0
-            local charges_per_kill = item:GetSpecialValueFor("kill_charges")
             if current_charges >= 1 then
               item:SetCurrentCharges(current_charges + charges_per_kill)
             else
@@ -198,12 +198,8 @@ if IsServer() then
         end
       end
     -- caster died
-    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() and not caster:IsSpiritBearOAA() then
-      local current_charges = item:GetCurrentCharges() or 0
-      -- caster has no charges? add 1 on death
-      if current_charges == 0 then
-        item:SetCurrentCharges(1)
-      end
+    elseif not caster:IsTempestDouble() and not caster:IsClone() and not caster:IsSpiritBearOAA() then -- and not caster:IsReincarnating()
+      item:SetCurrentCharges(current_charges + charges_per_kill)
       caster.spiritVesselChargesOAA = item:GetCurrentCharges()
     end
   end
@@ -464,6 +460,7 @@ function modifier_urn_of_shadows_oaa_debuff:OnCreated()
   if not IsServer() then
     return
   end
+
   self:OnRefresh()
   self:OnIntervalThink()
   self:StartIntervalThink(1)
@@ -473,9 +470,12 @@ function modifier_urn_of_shadows_oaa_debuff:OnRefresh()
   if not IsServer() then
     return
   end
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
+  else
+    self.damage_per_second = 20
   end
 end
 
@@ -485,13 +485,22 @@ function modifier_urn_of_shadows_oaa_debuff:OnIntervalThink()
   end
 
   local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
 
   local damageTable = {
     victim = parent,
-    attacker = self:GetCaster(),
+    attacker = caster,
     damage = self.damage_per_second,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    ability = self:GetAbility()
+    ability = ability
   }
 
   ApplyDamage(damageTable)
@@ -529,6 +538,7 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnCreated()
   if not IsServer() then
     return
   end
+
   self:OnRefresh()
   self:OnIntervalThink()
   self:StartIntervalThink(1)
@@ -538,11 +548,21 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnRefresh()
   if not IsServer() then
     return
   end
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
     self.current_hp_dmg = ability:GetSpecialValueFor("current_hp_as_dmg")
     self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_with_charge")
+  else
+    self.damage_per_second = 25
+    self.current_hp_dmg = 4
+    self.heal_reduction = 50
+  end
+
+  -- Do reduced damage to bosses
+  if self:GetParent():IsOAABoss() then
+    self.current_hp_dmg = self.current_hp_dmg * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
 end
 
@@ -552,13 +572,22 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnIntervalThink()
   end
 
   local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
 
   local damageTable = {
     victim = parent,
-    attacker = self:GetCaster(),
+    attacker = caster,
     damage = self.damage_per_second + (parent:GetHealth() * self.current_hp_dmg / 100),
     damage_type = DAMAGE_TYPE_MAGICAL,
-    ability = self:GetAbility()
+    ability = ability
   }
 
   ApplyDamage(damageTable)

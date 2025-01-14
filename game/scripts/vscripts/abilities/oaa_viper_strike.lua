@@ -77,7 +77,7 @@ function viper_viper_strike_oaa:OnProjectileHit_ExtraData( target, loc, data )
     -- Check for 'Viper Strike Purges & Silences' talent
     local talent = caster:FindAbilityByName("special_bonus_unique_viper_3_oaa")
     if talent and talent:GetLevel() > 0 then
-      -- Basic Dispel for enemies
+      -- Basic Dispel (for enemies)
       local RemovePositiveBuffs = true
       local RemoveDebuffs = false
       local BuffsCreatedThisFrameOnly = false

@@ -1,0 +1,77 @@
+"DOTAUnits"
+{
+  "npc_dota_eul_wildkin"
+  {
+    // General
+    //
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creature"  // Class of entity of link to.
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "1"
+    "ModelScale"                                          "0.8"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
+    "IgnoreAddSummonedToSelection"                        "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""      // Ability 1
+    "Ability2"                                            ""      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"      // Physical protection.
+    "MagicalResistance"                                   "100"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "0"      // Damage range min.
+    "AttackDamageMax"                                     "0"      // Damage range max.
+    "AttackRate"                                          "1.0"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.0"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "0"      // Range within a target can be acquired.
+    "AttackRange"                                         "0"      // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"      // Speed.
+    "MovementTurnRate"                                    "1"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "60"    // Base health.
+    "StatusHealthRegen"                                   "0"      // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"      // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1"    // Range of vision at night time.
+
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
+  }
+
+}

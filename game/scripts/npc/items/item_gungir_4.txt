@@ -57,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18453"
+    "ItemCost"                                            "18753"
     "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir 4;gliepnir 4;glaypnir 4"
@@ -68,23 +68,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "30 40 60 90 130"
-      "bonus_attack_speed"                                "30 35 40 45 50"
+      "bonus_damage"                                      "25 35 55 85 125"
+      "bonus_attack_speed"                                "25 30 35 40 45"
       "chain_chance"                                      "25"
-      "chain_damage"                                      "160 210 310 460 660"
+      "chain_damage"                                      "140 180 260 380 560"
       "chain_strikes"                                     "4"
       "chain_radius"                                      "650 750 850 950 1050"
       "chain_delay"                                       "0.25"
       "chain_cooldown"                                    "0.2"
       "bonus_intellect"                                   "24 29 39 54 74"
-      "bonus_hp"                                          "350 600 1100 1850 2850"
-      "duration"                                          "2.0 2.5 3.0 3.5 4.0"
+      "bonus_hp"                                          "275 525 775 1025 1275"
+      "duration"                                          "2.0 2.25 2.5 2.75 3.0"
       "radius"
       {
-        "value"                                           "375"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "active_damage"                                     "180 330 530 780 1080"
+      "active_damage"                                     "165 315 515 765 1065"
       "illusion_multiplier_pct"                           "100"
     }
   }

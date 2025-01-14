@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 28 26"
+    "AbilityCooldown"                                     "46 44 38 34 30" //OAA, it has cd reduction talent
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,9 +47,9 @@
         "value"                                           "10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "150 350 550 1150 1750"
+        "value"                                           "150 300 450 900 1350"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+150"
       }
     }

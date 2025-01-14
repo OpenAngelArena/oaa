@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Persecutor
+  // Anti-Mage: Persecutor (Innate)
   //=================================================================================================================
   "antimage_persectur"
   {
@@ -10,8 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Mana Void) + 1
     "Innate"                                              "1"
+    "DependentOnAbility"                                  "antimage_mana_void"
 
     "AbilityValues"
     {
@@ -23,7 +24,7 @@
       "move_slow_max"
       {
         "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_antimage_5"                 "+10"
+        "special_bonus_unique_antimage_5"                 "+15"
       }
       "mana_threshold"                                    "50"
       "slow_duration"                                     "0.75"

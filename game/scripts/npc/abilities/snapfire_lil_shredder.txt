@@ -11,6 +11,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "20 35 50 65 130 195"
+      "damage"                                            "20 35 50 65 95 125"
       "buffed_attacks"
       {
         "value"                                           "5"
@@ -41,7 +43,7 @@
         "value"                                           "30"
         "special_bonus_unique_snapfire_6"                 "+60"
       }
-      "attack_speed_bonus"                                "0" //OAA
+      "attack_speed_bonus"                                "300"
       "attack_range_bonus"                                "160 240 320 400 410 420"
       "buff_duration_tooltip"                             "6"
       "base_attack_time"                                  "1.0"

@@ -40,17 +40,17 @@
       "damage"
       {
         "value"                                           "4 8 12 16 24 32"
-        "special_bonus_unique_viper_7"                    "+20%"
+        "special_bonus_unique_viper_7"                    "+15%"
       }
       "movement_speed"
       {
         "value"                                           "3 6 9 12 14 16"
-        "special_bonus_unique_viper_7"                    "+20%"
+        "special_bonus_unique_viper_7"                    "+15%"
       }
-      "magic_resistance"
+      "magic_resistance" //OAA
       {
         "value"                                           "4 6 8 10 11 12"
-        "special_bonus_unique_viper_4"                    "+4"
+        "special_bonus_unique_viper_4"                    "+2"
       }
       "max_stacks"                                        "6"
       "bonus_range"                                       "25"
@@ -69,12 +69,12 @@
         "special_bonus_shard"                             "2"
         "RequiresShard"                                   "1"
       }
-      "expiration_damage_radius"  
+      "expiration_damage_radius"
       {
         "special_bonus_facet_viper_poison_burst"          "=300"
         "affected_by_aoe_increase"                        "1"
-      }           
-      "accumulated_damage_explosion_pct"      
+      }
+      "accumulated_damage_explosion_pct"
       {
         "special_bonus_facet_viper_poison_burst"          "=100"
       }

@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,19 +49,20 @@
       }
       "treant_damage_min" //OAA
       {
-        "value"                                           "23 32 41 50 150 250"
-        "special_bonus_facet_furion_ironwood_treant"      "+100%"
+        "value"                                           "20 30 40 50 150 250"
+        "special_bonus_facet_furion_ironwood_treant"      "=26 =44 =62 =80 =180 =280"
         "special_bonus_unique_furion"                     "x3"
       }
       "treant_damage_max" //OAA
       {
-        "value"                                           "23 32 41 50 150 250"
-        "special_bonus_facet_furion_ironwood_treant"      "+100%"
+        "value"                                           "20 30 40 50 150 250"
+        "special_bonus_facet_furion_ironwood_treant"      "=26 =44 =62 =80 =180 =280"
         "special_bonus_unique_furion"                     "x3"
       }
-      "treant_movespeed" //OAA
+      "treant_movespeed"
       {
-        "value"                                           "300 320 340 360 380 400"
+        "value"                                           "300"
+        "special_bonus_facet_furion_ironwood_treant"      "=335 =340 =345 =350 =355 =360"
         "special_bonus_unique_furion_2"                   "+50"
       }
       "treant_vision_day"
@@ -80,6 +83,21 @@
       "treewalking"
       {
         "value"                                           "0"
+      }
+      "treant_gold_bounty_min"
+      {
+        "value"                                           "18"
+        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
+      }
+      "treant_gold_bounty_max"
+      {
+        "value"                                           "24"
+        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
+      }
+      "treant_xp_bounty"
+      {
+        "value"                                           "30"
+        "special_bonus_facet_furion_ironwood_treant"      "=30 =40 =50 =60 =120 =240"
       }
     }
   }

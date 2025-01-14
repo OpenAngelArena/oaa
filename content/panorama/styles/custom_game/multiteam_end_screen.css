@@ -146,7 +146,7 @@
 .es-legend {
 	height: 40px;
 	flow-children: right;
-	padding-left: 255px;
+	padding-left: 200px;
 }
 
 .es-legend Label {
@@ -154,17 +154,6 @@
 	text-align: center;
 	vertical-align: center;
 	font-size: 16px;
-}
-
-.es-legend-gold { width: 70px; }
-.es-legend-dmg-done { width: 70px; }
-.es-legend-dmg-received { width: 70px; }
-.es-legend-healing { width: 70px; }
-
-.es-legend-xp { width: 190px; }
-
-.hideXP .es-legend-xp {
-  visibility: collapse;
 }
 
 .es-player-root {
@@ -180,7 +169,7 @@
 
 .es-player-name-and-desc {
 	flow-children: down;
-	width: 150px;
+	width: 100px;
 }
 
 #es-player-name {
@@ -209,56 +198,136 @@
 #es-player-hero {
 	border: 1px solid #999;
 	height: 30px;
-	width: 53px;
+	width: 50px;
 	margin-right: 5px;
 }
+
+.es-legend-kdalevel.level {
+/*  width: 28px;*/
+}
 .es-legend-kdalevel {
-	width: 30px;
+	width: 35px;
 }
 
+.es-player-kdalevel.level {
+/*  width: 28px;*/
+}
 .es-player-kdalevel {
-	width: 30px;
+	width: 35px;
 	vertical-align: center;
 	text-align: center;
 	color: #eee;
 }
 
-#es-player-gold {
+/* .es-legend-gold { */
+  /* width: 70px; */
+/* } */
+
+/* #es-player-gold { */
+	/* width: 70px; */
+	/* vertical-align: center; */
+	/* text-align: center; */
+	/* color: #ee7; */
+/* } */
+
+.es-legend-gpm {
+  width: 50px;
+}
+
+#es-player-gpm {
+	width: 50px;
+	vertical-align: center;
+	text-align: center;
+	color: #ee7;
+}
+
+.es-legend-xpm {
+  width: 50px;
+}
+
+#es-player-xpm {
+	width: 50px;
+	vertical-align: center;
+	text-align: center;
+	color: #ee7;
+}
+
+.es-legend-dmg-done-to-heroes {
+  width: 70px;
+}
+
+.es-player-boss-dmg, .es-player-hero-dmg {
+  flow-children: down;
+}
+
+#es-player-dmg-done-to-heroes {
 	width: 70px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
 }
 
-#es-player-dmg-done {
+.es-legend-dmg-done-to-bosses {
+  width: 75px;
+}
+
+#es-player-dmg-done-to-bosses {
+	width: 75px;
+	vertical-align: center;
+	text-align: center;
+	color: #ee7;
+}
+
+.es-legend-dmg-taken-from-players {
+  width: 70px;
+}
+
+#es-player-dmg-taken-from-players {
 	width: 70px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
 }
 
-#es-player-dmg-received {
-	width: 70px;
+.es-legend-dmg-taken-from-bosses {
+  width: 75px;
+}
+
+#es-player-dmg-taken-from-bosses {
+	width: 75px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
+}
+
+.es-legend-healing {
+  width: 45px;
 }
 
 #es-player-healing {
-	width: 70px;
+	width: 45px;
 	vertical-align: center;
 	text-align: center;
 	color: #ee7;
 }
 
 .es-legend-imr {
-	width: 85px;
+	width: 80px;
 }
 
 #es-player-imr {
-	width: 85px;
+	width: 80px;
 	vertical-align: center;
 	text-align: center;
+  white-space: nowrap;
+}
+
+.es-legend-xp {
+  width: 100px;
+}
+
+.hideXP .es-legend-xp {
+  visibility: collapse;
 }
 
 .es-player-xp {

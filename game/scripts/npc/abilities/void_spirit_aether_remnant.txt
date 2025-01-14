@@ -63,10 +63,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "activation_delay"                                  "0.4"
-      "impact_damage"
+      "impact_damage" //OAA
       {
-        "value"                                           "70 120 170 220 440 880"
-        "special_bonus_unique_void_spirit_2"              "+50"
+        "value"                                           "70 140 210 280 560 1120"
+        "special_bonus_unique_void_spirit_2"              "+70"
       }
       "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
       "pull_destination"                                  "44 50 56 62 68 74"
@@ -100,7 +100,7 @@
       "artifice_pct_effectiveness"
       {
         "value"                                           "0"
-        "special_bonus_facet_void_spirit_aether_artifice"  "+60.0"     // artifice_pct_effectiveness_tooltip
+        "special_bonus_facet_void_spirit_aether_artifice"  "+70.0"     // artifice_pct_effectiveness_tooltip
       }
     }
   }

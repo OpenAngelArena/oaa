@@ -1,11 +1,7 @@
 local Baneling = class({})
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  if not IsServer() then
-    return
-  end
-
-  if thisEntity == nil then
+  if not thisEntity or not IsServer() then
     return
   end
 
@@ -26,6 +22,10 @@ end
 
 function Baneling:Think()
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or self.entity:IsNull() or not IsValidEntity(self.entity) or not self.entity:IsAlive() then
+    return
+  end
+
+  if self.entity:IsDominated() or self.entity:IsIllusion() then
     return
   end
 

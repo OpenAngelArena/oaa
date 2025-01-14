@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -54,10 +56,10 @@
         "special_bonus_facet_kunkka_grog"                 "+3"
       }
       "movespeed_bonus"                                   "15"
-      "ghostship_absorb"
+      "ghostship_absorb" //OAA
       {
-        "value"                                           "35"
-        "special_bonus_unique_kunkka_rum"                 "+15"
+        "value"                                           "30"
+        "special_bonus_unique_kunkka_rum"                 "+10"
       }
     }
   }

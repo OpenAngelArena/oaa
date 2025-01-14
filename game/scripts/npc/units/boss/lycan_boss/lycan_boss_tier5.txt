@@ -1,29 +1,23 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Creature: Lycan Boss
-  // Zones: forest, forest_holdout
+  // Boss tier 5 - Lycan Boss
   //=================================================================================
   "npc_dota_creature_lycan_boss_tier5"
   {
     // Script
-    "vscripts"                                            "units/ai_lycan_boss_tier5.lua"
+    "vscripts"                                            "units/ai_lycan_boss.lua"
 
     // General
     //----------------------------------------------------------------
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/heroes/lycan/lycan.vmdl"
     "SoundSet"                                            "Hero_Lycan"
-    "Level"                                               "1"
+    "Level"                                               "50"
     "ModelScale"                                          "1.6"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
-
-    // Minimap
-    //----------------------------------------------------------------
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "250"
 
     // Abilities
     //----------------------------------------------------------------
@@ -43,9 +37,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "7000" // damage of Claw Attack tier 5
-    "AttackDamageMax"                                     "7000"
-    "AttackRate"                                          "1.45"
+    "AttackDamageMin"                                     "7000" // Claw Attack Damage (visual purpose only)
+    "AttackDamageMax"                                     "7000" // Claw Attack Damage (visual purpose only)
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.55"
     "AttackAcquisitionRange"                              "600"
     "AttackRange"                                         "200"
@@ -66,20 +60,24 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "500"
+    "MovementSpeed"                                       "520"
     "MovementTurnRate"                                    "0.5"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "16000"
     "StatusHealthRegen"                                   "0"
-    "StatusMana"                                          "10000"
-    "StatusManaRegen"                                     "5000"
+    "StatusMana"                                          "8000"
+    "StatusManaRegen"                                     "4000"
 
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
 
     // Team
     //----------------------------------------------------------------
@@ -133,5 +131,10 @@
         }
       }
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
   }
 }

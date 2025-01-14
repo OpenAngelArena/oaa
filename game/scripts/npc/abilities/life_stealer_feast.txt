@@ -12,7 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "DependentOnAbility"                                  "life_stealer_infest"
-
+    "Innate"                                              "1"
     "MaxLevel"                                            "6" // same as Dependent ability (Infest) + 1
 
     // Special
@@ -21,12 +21,12 @@
     {
       "hp_leech_percent" //OAA
       {
-        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
+        "value"                                           "1.25 1.6 1.95 2.3 2.65 3"
         "special_bonus_unique_lifestealer_3"              "+1.0"
       }
       "hp_damage_percent" //OAA
       {
-        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
+        "value"                                           "1.25 1.6 1.95 2.3 2.65 3"
         "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
       }

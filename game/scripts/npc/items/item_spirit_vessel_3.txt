@@ -44,7 +44,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastRange"                                    "750 850 950 1050 1150"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "10"
     "AbilitySharedCooldown"                               "urn"
 
     // Spicy Parameters
@@ -55,6 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "7782"
+    "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "sv 3;spirit vessel 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,9 +65,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 750 1000 1250"
+      "bonus_health"                                      "375 475 625 825 1075"
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "7 12 17 22 27"
+      "bonus_all_stats"                                   "0"
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"
       {
@@ -75,10 +76,10 @@
       }
       "kill_charges"                                      "1"
       "soul_heal_amount"                                  "45 60 85 120 165"
-      "soul_damage_amount"                                "30 40 60 90 130"
+      "soul_damage_amount"                                "25 35 55 85 125"
       "duration"                                          "8.0"
-      "heal_reduction_with_charge"                        "45 50 55 60 65"
-      "heal_reduction_no_charge"                          "20 25 30 35 40"
+      "heal_reduction_with_charge"                        "50 54 58 62 66"
+      "heal_reduction_no_charge"                          "24 28 32 36 40"
       "current_hp_as_dmg"                                 "4 4.5 5 5.5 6"
     }
   }

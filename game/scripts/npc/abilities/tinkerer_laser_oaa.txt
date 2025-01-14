@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinkerer: Laser - shard ability
+  // Tinkerer: Laser - custom shard ability
   //=================================================================================================================
   "tinkerer_laser_oaa"
   {
@@ -37,7 +37,7 @@
       "miss_rate"                                         "100"
       "duration_hero"                                     "4.5"
       "duration_creep"                                    "6.0"
-      "base_damage"                                       "380"
+      "base_damage"                                       "280"
       "current_hp_damage_pct"                             "10"
       "radius"
       {

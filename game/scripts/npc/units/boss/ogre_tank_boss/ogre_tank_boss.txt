@@ -1,8 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Creature: Ogre Tank Boss
-  // Zones: darkforest_rescue
+  // Boss Tier 3 - Ogre Tank Boss
   //=================================================================================
   "npc_dota_creature_ogre_tank_boss"
   {
@@ -15,7 +14,7 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "Hero_Ogre"
     "GameSoundsFile"                                      "soundevents/game_sounds_creeps.vsndevts"
-    "Level"                                               "1"
+    "Level"                                               "40"
     "ModelScale"                                          "2.1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -31,14 +30,14 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "32"
-    "MagicalResistance"                                   "-25"            // Magical protection.
+    "MagicalResistance"                                   "-25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "4000"      // Damage range min.
-    "AttackDamageMax"                                     "4000"      // Damage range max.
-    "AttackRate"                                          "2.8"
+    "AttackDamageMin"                                     "3500" // Melee Smash Damage
+    "AttackDamageMax"                                     "3500" // Melee Smash Damage
+    "AttackRate"                                          "2.0" // Melee Smash Cooldown
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1200"
     "AttackRange"                                         "1"
@@ -65,8 +64,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"        // Base health.
-    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
+    "StatusHealth"                                        "10000"
+    "StatusHealthRegen"                                   "0"
     "StatusMana"                                          "5000"
     "StatusManaRegen"                                     "10"
 
@@ -75,32 +74,25 @@
     "VisionDaytimeRange"                                  "1400"
     "VisionNighttimeRange"                                "1400"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
     {
-      //Basic AI State
-      //------------------------------------------------------------
-      "DefaultState"                                      "Invade"
-      "States"
-      {
-        "Invade"
-        {
-          "Name"                                          "Invade"
-          "Aggression"                                    "100.0"
-          "Avoidance"                                     "0.0"
-          "Support"                                       "0.0"
-        }
-      }
-
       "DisableResistance"                                 "50.0"
     }
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
   }
 }

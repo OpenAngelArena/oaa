@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // RINGMASTER: Impalement Arts
+  //=================================================================================================================
+  "ringmaster_impalement"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "2400"
+    "AbilityCharges"                                      "1 2 3 4 4 4"
+    "AbilityChargeRestoreTime"                            "17"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1"
+    "AbilityManaCost"                                     "80"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_impact"                                     "75 75 75 75 150 300"
+      "bleed_health_pct"                                  "3.5 4 4.5 5.0 5.5 6.0"
+      "bleed_creep_dps"                                   "100 100 100 100 200 400"
+      "bleed_duration"
+      {
+        "value"                                           "4"
+        "special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"  "+1"
+      }
+      "slow_percent"                                      "100"
+      "slow_duration"
+      {
+        "value"                                           "0.8"
+        "special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"  "+1"
+      }
+      "dagger_speed"                                      "1350"
+      "dagger_width"                                      "130"
+      "dagger_vision"                                     "200"
+      "tick_interval"                                     "1.0"
+      "dagger_pass_through"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ringmaster_dagger_penetrates"  "+1"
+      }
+    }
+  }
+}

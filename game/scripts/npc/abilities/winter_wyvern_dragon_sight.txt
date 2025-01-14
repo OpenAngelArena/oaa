@@ -8,10 +8,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"
     "DependentOnAbility"                                  "winter_wyvern_winters_curse"
+
     "AbilityValues"
     {
-      "attack_range_per_damage"                           "40 30 20 10 8 5"
-      "damage_per_ten_attack_range_tooltip"               "0.25 0.33 0.5 1.0 1.25 2.0"
+      "attack_range_per_damage"                           "40 30 20 10 5 2"
+      "damage_per_ten_attack_range_tooltip"               "0.25 0.33 0.5 1.0 2.0 5.0"
       "attack_range_min"                                  "400"
     }
   }

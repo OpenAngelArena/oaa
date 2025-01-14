@@ -30,15 +30,15 @@
     {
       "duration"                                          "1.0" // in vanilla: min stun time is second_attack_delay + vanilla duration (0.5) + 0.1 =  1.0;
       "duration_creep"                                    "1.0"
-      "chance_pct"                                        "12 16 20 24 25 26"
+      "chance_pct"                                        "18 20 22 24 26 28"
       "min_damage" // it should be vanilla value x 2
       {
-        "value"                                           "20 30 40 50 100 150"
+        "value"                                           "24 36 48 60 120 180"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
       }
       "max_damage" // it should be at least: vanilla value x 4
       {
-        "value"                                           "40 60 80 100 200 300"
+        "value"                                           "48 72 96 120 240 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
         "LinkedSpecialBonusField"                         "value2"
       }

@@ -68,12 +68,12 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
   )
 
   local illu_table = {
-    outgoing_damage = 100 - illu_out_dmg,
-    incoming_damage = illu_inc_dmg - 100,
+    outgoing_damage = illu_out_dmg,
+    incoming_damage = illu_inc_dmg,
     bounty_base = 0,
     bounty_growth = 0,
-    outgoing_damage_structure = 0,
-    outgoing_damage_roshan = 0,
+    outgoing_damage_structure = illu_out_dmg,
+    outgoing_damage_roshan = illu_out_dmg,
     duration = illu_duration,
   }
 

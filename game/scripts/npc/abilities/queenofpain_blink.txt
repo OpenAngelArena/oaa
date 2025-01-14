@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@
       "shard_damage" //OAA, it's applied twice if blinked within shard_aoe
       {
         "RequiresShard"                                   "1"
-        "value"                                           "75 100 125 150 300 600"
+        "value"                                           "50 75 100 125 250 500"
       }
       "shard_duration"
       {

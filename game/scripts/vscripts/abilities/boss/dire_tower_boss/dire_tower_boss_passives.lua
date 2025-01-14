@@ -59,7 +59,7 @@ end
 -- end
 
 function modifier_dire_tower_boss_passives:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000 -- it needs to be higher priority than boss properties and anti-stun
 end
 
 function modifier_dire_tower_boss_passives:CheckState()

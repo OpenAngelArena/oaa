@@ -13,6 +13,10 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -30,9 +34,9 @@
     "AbilityValues"
     {
       "max_targets"                                       "16"
-      "damage" //OAA
+      "damage" //OAA, special_bonus_unique_furion_5 is not used
       {
-        "value"                                           "150 185 220 325 500"
+        "value"                                           "130 170 210 330 450"
         "special_bonus_unique_furion_5"                   "+30"
       }
       "damage_percent_add"

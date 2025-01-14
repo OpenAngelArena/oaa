@@ -11,6 +11,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +40,7 @@
       }
       "damage_share_percentage"
       {
-        "value"                                           "12 16 20 24 26 28"
+        "value"                                           "15 18 21 24 26 28"
         "special_bonus_unique_warlock_5"                  "+4"
       }
       "duration"                                          "18"

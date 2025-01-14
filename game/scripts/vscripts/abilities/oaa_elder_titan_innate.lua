@@ -1,4 +1,4 @@
--- Titan's Foot
+-- Astral Worldsmith
 
 LinkLuaModifier("modifier_elder_titan_innate_oaa", "abilities/oaa_elder_titan_innate.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -30,69 +30,84 @@ end
 
 function modifier_elder_titan_innate_oaa:OnCreated()
   local ability = self:GetAbility()
-  self.multiplier = ability:GetSpecialValueFor("dmg_per_strength")
-  self.radius = ability:GetSpecialValueFor("radius")
-  self.interval = ability:GetSpecialValueFor("dmg_interval")
-
-  if IsServer() then
-    self:StartIntervalThink(self.interval)
-  end
+  self.dmg_per_strength = ability:GetSpecialValueFor("dmg_per_strength")
+  self.base_dmg_penalty_per_strength = ability:GetSpecialValueFor("base_dmg_penalty_per_strength") / 100
 end
 
-function IsSleeping(unit)
-  return unit:HasModifier("modifier_bane_nightmare") or unit:HasModifier("modifier_elder_titan_echo_stomp") or unit:HasModifier("modifier_naga_siren_song_of_the_siren")
-end
-
-function modifier_elder_titan_innate_oaa:OnIntervalThink()
-  local parent = self:GetParent()
-
-  -- Don't do anything if broken or if an illusion
-  if parent:PassivesDisabled() or parent:IsIllusion() then
-    return
-  end
-
-  -- Don't do anything while dead (don't do damage on the corpse)
-  if not parent:IsAlive() then
-    return
-  end
-
-  local multiplier = self.multiplier
-  local radius = self.radius
-  local strength = parent:GetStrength()
-  local dmg_per_interval = strength * multiplier * self.interval
-
-  local damage_table = {
-    attacker = parent,
-    damage = dmg_per_interval,
-    damage_type = DAMAGE_TYPE_MAGICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_NONE,
-    ability = self:GetAbility(),
-  }
-
-  local enemies = FindUnitsInRadius(
-    parent:GetTeamNumber(),
-    parent:GetAbsOrigin(),
-    nil,
-    radius,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
-
-  for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      if not IsSleeping(enemy) then
-        damage_table.victim = enemy
-        ApplyDamage(damage_table)
-      end
-    end
-  end
-end
-
-function modifier_elder_titan_innate_oaa:CheckState()
+function modifier_elder_titan_innate_oaa:DeclareFunctions()
   return {
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
+
+function modifier_elder_titan_innate_oaa:GetModifierBaseAttack_BonusDamage()
+  local parent = self:GetParent()
+  local dmg_penalty = self.base_dmg_penalty_per_strength * parent:GetStrength()
+  return 0 - math.abs(dmg_penalty)
+end
+
+if IsServer() then
+  function modifier_elder_titan_innate_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if attacker is dead or silenced
+    if not parent:IsAlive() then
+      return
+    end
+
+    -- Don't do anything if broken or if an illusion
+    if parent:PassivesDisabled() or parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- No need to proc if target is invulnerable, spell immune or dead
+    if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() or target:IsMagicImmune() then
+      return
+    end
+
+    local dmg_per_strength = self.dmg_per_strength
+    local strength = parent:GetStrength()
+    local bonus_dmg_on_attack = strength * dmg_per_strength
+
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      damage = bonus_dmg_on_attack,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self:GetAbility(),
+    }
+
+    ApplyDamage(damage_table)
+  end
+end
+
+-- function modifier_elder_titan_innate_oaa:CheckState()
+  -- return {
+    -- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+  -- }
+-- end

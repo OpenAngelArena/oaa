@@ -95,6 +95,9 @@ function MagmaBossThink()
   local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
   local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
+    -- Remove debuff protection
+    thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
@@ -222,6 +225,8 @@ function MagmaBossThink()
       end
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
+    -- Add Debuff Protection when leashing
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
     thisEntity:MoveToPosition(thisEntity.spawn_position)
     -- Check if boss reached the spawn_position
@@ -237,6 +242,8 @@ function MagmaBossThink()
 end
 
 function CastOnPoint(ability, target)
+  thisEntity:DispelWeirdDebuffs()
+
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,

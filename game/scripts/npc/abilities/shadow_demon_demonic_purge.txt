@@ -23,7 +23,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "6.0"
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "70 65 60 60 60"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -50,12 +50,12 @@
       }
       "charge_restore_time"
       {
-        "value"                                           "60"
+        "value"                                           "70 65 60 60 60"
         "RequiresScepter"                                 "1"
       }
       "charge_restore_time_tooltip_scepter"
       {
-        "value"                                           "60"
+        "value"                                           "70 65 60 60 60"
         "RequiresScepter"                                 "1"
       }
       "max_slow" //OAA

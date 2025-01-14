@@ -320,8 +320,12 @@ function handleOAASettingsChange (t, key, kv) {
 }
 
 function loadAverageMMRValues (values) {
-  $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant;
-  $('#DireAverageMMR').text = 'Average MMR: ' + values.dire;
+  if (values) {
+    $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant;
+    $('#DireAverageMMR').text = 'Average MMR: ' + values.dire;
+  } else {
+    $.Msg('Failed to set average MMR on Team Select screen');
+  }
 }
 
 function MMRShuffle () {

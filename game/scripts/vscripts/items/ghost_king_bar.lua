@@ -12,9 +12,6 @@ end
 function item_ghost_king_bar_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Basic Dispel
-  caster:Purge(false, true, false, false, false)
-
   -- Apply Ghost King Bar buff to caster (but only if they dont have spell immunity)
   if not caster:IsMagicImmune() then
     caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
@@ -58,12 +55,16 @@ function item_ghost_king_bar_1:OnSpellStart()
     end
   end
 
-  -- Trigger cd on all Holy Lockets and Magic Wands
+  -- Trigger cd and spend charges on all Holy Lockets and Magic Wands
+  local kv_cooldown = self:GetAbilityKeyValues().AbilityCooldown or 20
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = caster:GetItemInSlot(i)
-    if item and (item:GetName() == "item_holy_locket" or item:GetName() == "item_magic_wand") then
-      local kv_cooldown = self:GetAbilityKeyValues().AbilityCooldown or 13
-      item:StartCooldown(kv_cooldown*caster:GetCooldownReduction())
+    if item then
+      local name = item:GetName()
+      if name == "item_holy_locket" or name == "item_magic_wand" or name == "item_magic_stick" then
+        item:StartCooldown(kv_cooldown*caster:GetCooldownReduction())
+        item:SetCurrentCharges(0)
+      end
     end
   end
 

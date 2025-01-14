@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Earthshaker: Slugger
+  //=================================================================================================================
+  "earthshaker_slugger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "earthshaker_echo_slam"
+
+    "AbilityValues"
+    {
+      "projectile_body_on_kill"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1"
+      }
+      "projectile_body_initial_impact_radius"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=225"
+      }
+      "projectile_body_speed"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1600"
+      }
+      "projectile_body_distance"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1200"
+      }
+      "projectile_body_width_creep"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_width_hero"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_vision"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_damage_creep"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=50 =80 =110 =140 =280 =560"
+      }
+      "projectile_body_damage_hero"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=150 =250 =350 =450 =650 =850"
+      }
+      "projectile_body_damage_additional_percent_health"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=7"
+      }
+    }
+  }
+}

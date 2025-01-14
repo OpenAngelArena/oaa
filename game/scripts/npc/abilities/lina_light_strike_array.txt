@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.45"
@@ -35,7 +37,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "light_strike_array_delay_time"                     "0.5"
-      "light_strike_array_stun_duration"                  "1.3 1.6 1.9 2.2 2.5 2.8"
+      "light_strike_array_stun_duration"                  "1.0 1.4 1.8 2.2 2.4 2.6"
       "light_strike_array_damage"
       {
         "value"                                           "110 160 210 260 520 1040"

@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 60 70 80 90 100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -58,7 +60,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "23 22 21 20 19 18"
-        "special_bonus_unique_lone_druid_4"               "-7"
+        "special_bonus_unique_lone_druid_4"               "-4"
       }
     }
   }

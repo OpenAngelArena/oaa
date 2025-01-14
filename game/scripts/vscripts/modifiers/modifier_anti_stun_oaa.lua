@@ -4,6 +4,10 @@ function modifier_anti_stun_oaa:IsHidden()
   return true
 end
 
+function modifier_anti_stun_oaa:IsDebuff()
+  return false
+end
+
 function modifier_anti_stun_oaa:IsPurgable()
   return false
 end
@@ -20,7 +24,7 @@ function modifier_anti_stun_oaa:CheckState()
     [MODIFIER_STATE_STUNNED] = false,
     [MODIFIER_STATE_FROZEN] = false,
     [MODIFIER_STATE_FEARED] = false,
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true, -- does not work for some forced movement spells (e.g. CK Reality Rift)
     [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
   }
 end

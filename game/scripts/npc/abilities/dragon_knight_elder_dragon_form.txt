@@ -12,10 +12,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80" //OAA
+    "AbilityCooldown"                                     "75" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@
       "bonus_movement_speed"                              "30 35 40 45 50 55"
       "bonus_attack_range"
       {
-        "value"                                           "350"
+        "value"                                           "350 350 350 350 350 450"
         "special_bonus_unique_dragon_knight_7"            "+150"
       }
       "bonus_attack_damage"                               "20 60 100 140 180 220"

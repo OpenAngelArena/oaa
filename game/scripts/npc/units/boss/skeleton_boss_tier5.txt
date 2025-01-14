@@ -12,7 +12,7 @@
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "2.5"
-    "Level"                                               "60"
+    "Level"                                               "50"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
     "UseNeutralCreepBehavior"                             "0"
@@ -32,9 +32,10 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "8000"    // Damage range min.
-    "AttackDamageMax"                                     "8000"    // Damage range max.
-    "AttackRate"                                          "1.0"    // BAT
+    "AttackDamageMin"                                     "6500"    // Damage range min.
+    "AttackDamageMax"                                     "6500"    // Damage range max.
+    "AttackRate"                                          "0.5"    // BAT
+    "BaseAttackSpeed"                                     "200"    // Attack Speed
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -84,6 +85,8 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    // Minimap
+    //----------------------------------------------------------------
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }

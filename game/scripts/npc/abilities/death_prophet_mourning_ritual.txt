@@ -9,14 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Exorcism) + 1
     "DependentOnAbility"                                  "death_prophet_exorcism"
     "Innate"                                              "1"
-    "IsBreakable"                                         "1"
 
     "AbilityValues"
     {
-      "delay_pct"                                         "15 20 25 30 35 40" //OAA
+      "delay_pct"                                         "15 17 19 21 23 25" //OAA
       "delay_time"                                        "5"
       "damage_interval"                                   "1"
     }

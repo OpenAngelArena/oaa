@@ -14,6 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
@@ -45,7 +47,7 @@
         "value"                                           "525"
         "affected_by_aoe_increase"                        "1"
       }
-      "debuff_duration"                                   "0.35"
+      "debuff_duration"                                   "0.3"
       "slow"                                              "100"
       "bounce_delay"                                      "0.1"
       "projectile_speed"                                  "2200"

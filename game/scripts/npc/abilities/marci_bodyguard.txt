@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Marci Bodyguard
+  // Marci: Bodyguard
   //=================================================================================================================
   "marci_bodyguard"
   {
@@ -45,10 +45,10 @@
         "value"                                           "12 18 24 30 33 36"
         "special_bonus_unique_marci_guardian_lifesteal"   "+10"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA
       {
         "value"                                           "12 18 24 30 36 42"
-        "special_bonus_unique_marci_guardian_damage"      "+20"
+        "special_bonus_unique_marci_guardian_damage"      "+15"
       }
       "creep_lifesteal_reduction_pct"                     "40"
       "bodyguard_attack_range_buffer"

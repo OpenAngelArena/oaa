@@ -4,7 +4,7 @@ local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 local export = {}
 
 local function RefreshAbilityFilter(ability)
-  return ability:GetAbilityType() ~= 1
+  return ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE
 end
 
 local function PurgeDuelHighgroundBuffs(hero)
@@ -20,62 +20,7 @@ local function PurgeDuelHighgroundBuffs(hero)
 end
 
 local function ResetState(hero)
-  if hero:HasModifier("modifier_offside") then
-    hero:RemoveModifierByName("modifier_offside")
-  end
-  if hero:HasModifier("modifier_is_in_offside") then
-    hero:RemoveModifierByName("modifier_is_in_offside")
-  end
-
-  -- Disjoint disjointable projectiles
-  ProjectileManager:ProjectileDodge(hero)
-
-  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-  hero:AbsolutePurge()
-
-  -- Respawn if the hero is dead after removing some modifiers
-  if not hero:IsAlive() then
-    hero:RespawnHero(false, false)
-  end
-
-  hero:SetHealth(hero:GetMaxHealth())
-  hero:SetMana(hero:GetMaxMana())
-
-  -- Reset cooldown for abilities
-  for abilityIndex = 0, hero:GetAbilityCount() - 1 do
-    local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability ~= nil and RefreshAbilityFilter(ability) then
-      ability:EndCooldown()
-      ability:RefreshCharges()
-    end
-  end
-
-  -- Reset cooldown for items that are not in backpack
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = hero:GetItemInSlot(i)
-    if item then
-      item:EndCooldown()
-    end
-  end
-
-  -- Reset neutral item cooldown
-  local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item then
-    neutral_item:EndCooldown()
-  end
-
-  -- Special thing for Ward Stack - set counts to at least 1 ward
-  if hero.sentryCount then
-    if hero.sentryCount == 0 then
-      hero.sentryCount = 1
-    end
-  end
-
-  if hero.observerCount then
-    if hero.observerCount == 0 then
-      hero.observerCount = 1
-    end
-  end
+  hero:ResetHeroOAA(true)
 end
 
 local function SaveState(hero)
@@ -139,18 +84,11 @@ local function SaveState(hero)
 end
 
 local function RestoreState(hero, state)
-  -- Disjoint disjointable projectiles
-  ProjectileManager:ProjectileDodge(hero)
+  -- Reset the hero (without cooldowns)
+  hero:ResetHeroOAA(false)
 
-  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-  hero:AbsolutePurge()
-
-  -- Respawn if the hero is dead after removing some modifiers
-  if not hero:IsAlive() then
-    hero:RespawnHero(false, false)
-  end
-
-  SafeTeleportAll(hero, state.location, 150)
+  -- Teleport the player's hero and + reset units (without cooldowns)
+  SafeTeleportAll(hero, state.location, 150, false)
 
   local hp = state.hpPercent * hero:GetMaxHealth()
   if hp <= 0 then
@@ -167,9 +105,15 @@ local function RestoreState(hero, state)
     local ability = hero:FindAbilityByName(name)
     if ability then
       ability:EndCooldown()
-      ability:StartCooldown(abilityState.cooldown)
-      if ability:GetMaxAbilityCharges(ability:GetLevel()) > 1 then
-        ability:SetCurrentAbilityCharges(abilityState.charges)
+      if abilityState.cooldown then
+        if abilityState.cooldown > 0 then
+          ability:StartCooldown(abilityState.cooldown)
+        end
+      end
+      if ability:GetMaxAbilityCharges(ability:GetLevel()) > 1 and abilityState.charges then
+        if abilityState.charges > 0 then
+          ability:SetCurrentAbilityCharges(abilityState.charges)
+        end
       end
     end
   end

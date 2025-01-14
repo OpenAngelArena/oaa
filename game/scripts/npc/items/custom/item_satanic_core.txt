@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Blood Core 1
   //=================================================================================================================
-  "item_recipe_satanic_core"
+  "item_recipe_satanic_core_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,17 +20,17 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_satanic_core"
+    "ItemResult"                                          "item_satanic_core_1"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone;item_reaver"
+      "01"                                                "item_bloodstone;item_ultimate_orb"
     }
   }
 
   //=================================================================================================================
   // Blood Core 1
   //=================================================================================================================
-  "item_satanic_core"
+  "item_satanic_core_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -66,19 +66,19 @@
     {
       // Bloodstone KVs
       "bonus_aoe"                                         "50 60 70 80 90"
-      "bonus_health"                                      "450 550 700 900 1150"
-      "bonus_mana"                                        "450 550 700 900 1150"
+      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_mana"                                        "425 525 675 875 1125"
       "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
       "spell_lifesteal"                                   "0"
       // Satanic/Blood Core KVs
-      "bonus_strength"                                    "25 30 40 55 75"
+      "primary_attribute_bonus"                           "15 20 25 30 35"
       "bonus_status_resist"                               "0"
       "hp_regen_amp"                                      "0"
-      "hero_spell_lifesteal"                              "30 32 34 36 38"
-      "creep_spell_lifesteal"                             "6 6.5 7 7.5 8" // (hero_spell_lifesteal / 5) is the minimum
+      "hero_spell_lifesteal"                              "20 22 24 26 28"
+      "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6" // (hero_spell_lifesteal / 5) is the minimum
       // Satanic/Blood Core active stuff
-      "unholy_hero_spell_lifesteal"                       "200"
-      "unholy_creep_spell_lifesteal"                      "40" // (unholy_hero_spell_lifesteal / 5) is the minimum
+      "unholy_hero_spell_lifesteal"                       "120" // bloodstone is 90%
+      "unholy_creep_spell_lifesteal"                      "34" // (unholy_hero_spell_lifesteal / 5) is the minimum
       "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
     }

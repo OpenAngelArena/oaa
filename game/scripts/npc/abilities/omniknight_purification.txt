@@ -15,6 +15,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 95 110 125 140 155"
+    "AbilityManaCost"                                     "90 105 120 135 150 165"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +36,7 @@
         "value"                                           "90 160 230 300 600 900"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_omniknight_1"               "+300"
+        "special_bonus_unique_omniknight_1"               "+240"
       }
       "AbilityCooldown" //OAA
       {
@@ -55,7 +57,7 @@
       "recast_effectiveness_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+75"       // No tooltip value for this yet because it's set to 100%
+        "special_bonus_shard"                             "+65"       // No tooltip value for this yet because it's set to 100%
       }
     }
   }

@@ -11,15 +11,17 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_stacks"                                        "4 6 8 10 10 10"
+      "max_stacks"                                        "4 6 8 10 11 12"
       "debuff_duration"                                   "4.0"
       "slow_per_stack"                                    "4 5 6 7 8 9"
-      "attack_damage_per_stack"                           "3 4 5 6 7 9" // base damage reduction
+      "attack_damage_per_stack"                           "4" //OAA, base damage reduction
     }
   }
 }

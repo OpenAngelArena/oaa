@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,11 +31,10 @@
       {
         "value"                                           "8 10 12 14 16"
       }
-      "bonus_hp" //OAA
+      "bonus_hp"
       {
-        "value"                                           "500 1500 2500 5500 8500"
+        "value"                                           "500 1000 1500 3000 4500"
         "special_bonus_facet_lone_druid_unbearable"       "-100%"
-        "RequiresFacet"                                   "lone_druid_bear_with_me"
         //"special_bonus_unique_lone_druid_7"               "+1000"
       }
       "attack_speed_pct"
@@ -42,9 +43,10 @@
         "special_bonus_facet_lone_druid_unbearable"       "+15"
         "RequiresFacet"                                   "lone_druid_unbearable"
       }
-      "duration"
+      "duration" //OAA
       {
-        "value"                                           "40"
+        "value"                                           "25"
+        "special_bonus_facet_lone_druid_unbearable"       "+15"
       }
       "transformation_time"                               "1.933"
       "AbilityCooldown"

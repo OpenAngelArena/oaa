@@ -38,6 +38,7 @@
     "ScriptFile"                                          "items/bubble_orb.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityTextureName"                                  "custom/bubble_orb_1"
 
     "MaxUpgradeLevel"                                     "2"
@@ -46,7 +47,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastRange"                                    "300"
 
@@ -67,8 +68,8 @@
       "bonus_health_regen"                                "16 19"
       "bonus_mana_regen"                                  "5.5 6.5"
       "bonus_mana"                                        "700 950"
-      "duration"                                          "6"
-      "radius"                                            "250"
+      "duration"                                          "5"
+      "radius"                                            "225"
       "aura_stickiness"                                   "0.1" // The time that the buff effect lingers after exiting the bubble
     }
 

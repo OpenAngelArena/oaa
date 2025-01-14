@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Axe: One Man Army (Facet)
+  //=================================================================================================================
+  "axe_one_man_army"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "armor_pct_as_strength"                             "60" //OAA
+      "radius"                                            "700"
+      "bonus_linger_duration"                             "3"
+    }
+  }
+}

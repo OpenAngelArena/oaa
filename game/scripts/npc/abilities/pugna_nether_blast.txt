@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +33,7 @@
         "value"                                           "5"
         "special_bonus_unique_pugna_4"                    "-2"
       }
-      "structure_damage_mod"                              "165" //OAA, percentage bonus damage against bosses
+      "structure_damage_mod"                              "150" //OAA, percentage bonus damage against bosses
       "delay"                                             "0.8"
       "radius"
       {

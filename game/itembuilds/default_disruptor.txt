@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.37x + Frost"
   "hero"          "npc_dota_hero_disruptor"
   "Title"         "Recommended items for Disruptor"
 
@@ -9,26 +9,42 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_boots"
-      "item"      "item_clarity"
+      "item"      "item_wind_lace"
       "item"      "item_flask"
       "item"      "item_mango"
-      "item"      "item_mango"
+    }
+
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_hand_of_midas_1"
+      "item"      "item_meteor_hammer_1"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_far_sight"
+      "item"      "item_aether_lens"
       "item"      "item_ultimate_scepter"
       "item"      "item_octarine_core"
-      "item"      "item_satanic_core"
+      "item"      "item_satanic_core_1"
       "item"      "item_refresher_4"
     }
-    
+
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_ward_stack"
+      "item"      "item_solar_crest"
       "item"      "item_shield_staff"
       "item"      "item_glimmer_cape"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_bubble_orb_1"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_gungir"
+      "item"      "item_devastator"
+      "item"      "item_hurricane_pike"
+      "item"      "item_angels_demise"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -38,17 +54,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_black_king_bar_1"
       "item"      "item_blink"
-      "item"      "item_boots_of_bearing"
-      "item"      "item_cyclone"
+      "item"      "item_bloodthorn"
       "item"      "item_guardian_greaves"
-      "item"      "item_meteor_hammer_1"
+      "item"      "item_kaya_and_sange"
       "item"      "item_pipe"
-      "item"      "item_rod_of_atos"
-      "item"      "item_sheepstick_4"
       "item"      "item_shivas_guard"
-      "item"      "item_solar_crest"
-      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_wind_waker"
+      "item"      "item_aeon_disk_oaa_2"
+      "item"      "item_sheepstick_4"
+      "item"      "item_silver_staff"
     }
   }
 }

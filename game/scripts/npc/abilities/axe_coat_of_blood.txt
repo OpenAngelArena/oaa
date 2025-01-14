@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
     "MaxLevel"                                            "6" // same as Dependent ability (Culling Blade) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "axe_culling_blade"

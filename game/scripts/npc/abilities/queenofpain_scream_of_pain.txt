@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +40,7 @@
       "projectile_speed"                                  "900"
       "damage" //OAA
       {
-        "value"                                           "90 160 230 300 600 1200"
+        "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_queen_of_pain_2"            "+150"
       }
     }

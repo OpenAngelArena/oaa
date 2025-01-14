@@ -53,7 +53,7 @@ function item_vladmirs_grimoire_1:OnSpellStart()
 
       -- Dispel all debuffs (99.99% at least)
       unit:DispelUndispellableDebuffs()
-      unit:Purge(false, true, false, true, false)
+      unit:Purge(false, true, false, true, true)
 
       -- Hide it
       unit:AddNoDraw()
@@ -292,7 +292,6 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
     local damage = event.damage
-    local inflictor = event.inflictor
 
     if not ability or ability:IsNull() then
       return
@@ -334,7 +333,7 @@ if IsServer() then
     end
 
     -- Normal lifesteal should not work for spells and magic damage attacks
-    if inflictor or event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+    if event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
 
