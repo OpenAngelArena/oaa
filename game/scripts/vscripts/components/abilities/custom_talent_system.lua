@@ -37,7 +37,7 @@ function CustomTalentSystem:LearnTalent(event)
     end
 
     -- Verify ability is actually a talent
-    if not IsTalentCustom(talent) or not talent:IsAttributeBonus() then
+    if not IsTalentCustom(talent) then
       print('Ability '..name..' is not a talent!')
       return
     end
@@ -191,7 +191,9 @@ local abilities_with_custom_talents = {
 }
 
 -- Avoid talent upgrades for stand-alone Facets, unit abilities and sub-abilities without kvs
--- Focus more on upgrades for scepter and shard abilities; upgrades for shard abilities should at >= 20
+-- Focus more on upgrades for scepter and shard abilities;
+-- Upgrades for shard abilities should be at >= 20;
+-- Upgrades for scepter abilities can be at >= 15;
 -- Format:
 -- ability_name = {
   -- kv_name_1 = {"modifier_aghanim_talent_oaa_x", "type", number},

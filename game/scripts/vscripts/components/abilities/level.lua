@@ -72,6 +72,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
     local leveled_up_ability = hero:FindAbilityByName(leveled_up_ability_name)
     -- Check if ability exists, if it is a talent and if hero level is where issues start
     if leveled_up_ability and IsTalentCustom(leveled_up_ability_name) and level >= 26 then
+      -- Learned ability is a talent
       local talent = leveled_up_ability
       -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
       if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then

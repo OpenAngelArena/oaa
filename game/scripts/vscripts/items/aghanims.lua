@@ -52,7 +52,7 @@ function item_aghanims_scepter_6:OnSpellStart()
 
     -- Add vanilla Aghanim Blessing buff
     if not caster:HasModifier("modifier_item_ultimate_scepter_consumed") then
-    caster:AddNewModifier(caster, nil, "modifier_item_ultimate_scepter_consumed", {})
+      caster:AddNewModifier(caster, nil, "modifier_item_ultimate_scepter_consumed", {})
     end
 
     -- Add aghanim talents
@@ -85,28 +85,32 @@ function modifier_item_aghanims_talents:RemoveOnDeath()
   return false
 end
 
+function modifier_item_aghanims_talents:GetAghsPower()
+  local parent = self:GetParent()
+  local aghsPower = 0
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    local item = parent:GetItemInSlot(i)
+    if item then
+      if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
+        local level = tonumber(string.sub(item:GetName(), 23))
+        if level > aghsPower then
+          aghsPower = level
+        end
+      end
+    end
+  end
+
+  return aghsPower
+end
+
 function modifier_item_aghanims_talents:OnCreated()
   if IsServer () then
     local parent = self:GetParent()
     local noDropHeroes = {}
     self.isRunning = true
 
-    self.aghsPower = 0
-
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = parent:GetItemInSlot(i)
-      if item then
-        if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
-          local level = tonumber(string.sub(item:GetName(), 23))
-          if level > self.aghsPower then
-            self.aghsPower = level
-          end
-        end
-      end
-    end
-
     -- Make Talent Agh's undroppable for certain heroes
-    if noDropHeroes[parent:GetName()] and self.aghsPower > 1 then
+    if noDropHeroes[parent:GetName()] and self:GetAghsPower() > 1 then
       local aghanim_scepter = self:GetAbility()
       aghanim_scepter:SetDroppable(false)
       aghanim_scepter:SetSellable(false)
@@ -120,6 +124,11 @@ modifier_item_aghanims_talents.OnRefresh = modifier_item_aghanims_talents.OnCrea
 function modifier_item_aghanims_talents:OnIntervalThink()
   local parent = self:GetParent()
   local aghanim_scepter = self:GetAbility()
+
+  -- Check if needed stuff exists
+  if not parent or parent:IsNull() or not aghanim_scepter or aghanim_scepter:IsNull() then
+    return
+  end
 
   -- Check if parent has custom Aghanim Blessing that provides all aghanim talents
   if parent:HasModifier("modifier_item_aghanims_scepter_oaa_consumed") then
@@ -138,27 +147,34 @@ function modifier_item_aghanims_talents:OnIntervalThink()
     return
   end
 
-  if self.aghsPower > 1 and not parent:HasModifier("modifier_aghanim_talent_oaa_10") then
+  -- AddNewModifier doesn't work for dead units
+  if not parent:IsAlive() then
+    return
+  end
+
+  local aghsPower = self:GetAghsPower()
+
+  if aghsPower > 1 and not parent:HasModifier("modifier_aghanim_talent_oaa_10") then
     parent:AddNewModifier(parent, aghanim_scepter, "modifier_aghanim_talent_oaa_10", {})
   end
 
-  if self.aghsPower > 2 and not parent:HasModifier("modifier_aghanim_talent_oaa_15") then
+  if aghsPower > 2 and not parent:HasModifier("modifier_aghanim_talent_oaa_15") then
     parent:AddNewModifier(parent, aghanim_scepter, "modifier_aghanim_talent_oaa_15", {})
   end
 
-  if self.aghsPower > 3 and not parent:HasModifier("modifier_aghanim_talent_oaa_20") then
+  if aghsPower > 3 and not parent:HasModifier("modifier_aghanim_talent_oaa_20") then
     parent:AddNewModifier(parent, aghanim_scepter, "modifier_aghanim_talent_oaa_20", {})
   end
 
-  if self.aghsPower > 4 and not parent:HasModifier("modifier_aghanim_talent_oaa_25") then
+  if aghsPower > 4 and not parent:HasModifier("modifier_aghanim_talent_oaa_25") then
     parent:AddNewModifier(parent, aghanim_scepter, "modifier_aghanim_talent_oaa_25", {})
   end
 
   -- self:SetTalents({
-    -- [10] = self.aghsPower > 1,
-    -- [15] = self.aghsPower > 2,
-    -- [20] = self.aghsPower > 3,
-    -- [25] = self.aghsPower > 4,
+    -- [10] = aghsPower > 1,
+    -- [15] = aghsPower > 2,
+    -- [20] = aghsPower > 3,
+    -- [25] = aghsPower > 4,
   -- })
 end
 
