@@ -1,0 +1,166 @@
+.OAA_Talent_Window {
+	background-color: #000000da;
+	background-image: url("s2r://panorama/images/hud/reborn/ability_bg_psd.vtex");
+	background-repeat: no-repeat;
+	background-size: cover;
+	flow-children: down;
+	height: 500px;
+	horizontal-align: middle;
+	margin-bottom: 75px;
+	transform: translateY(100%);
+	transition-duration: 0.2s;
+	transition-property: transform;
+	vertical-align: middle;
+	width: 900px;
+}
+
+.OAA_Talent_Window.Talent_Window_open {
+	transform: translateY(150px);
+}
+
+#TalentsHeader {
+	color: #d9b284;
+	font-family: titlefont;
+	font-size: 20px;
+	font-weight: bold;
+	horizontal-align: middle;
+	letter-spacing: 2px;
+	margin-left: 70px;
+	margin-top: 10px;
+	text-align: center;
+	text-shadow: 0px 0px 8px #906127;
+	text-transform: uppercase;
+}
+
+.talentRow {
+	width: 100%;
+	height: 75px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	flow-children: right;
+}
+
+.talentLevels {
+	horizontal-align: left;
+	width: 75px;
+	height: 75px;
+	margin-left: 10px;
+}
+
+.talentLevelContainer {
+	width: 55px;
+	height: 55px;
+	horizontal-align: center;
+	vertical-align: center;
+	border: 5px solid #906127;
+	border-radius: 50px;
+}
+
+.talentLevel {
+	color: #d9b284;
+	font-family: "RadianceM";
+	font-size: 30px;
+	height: 100%;
+	width: 100%;
+	horizontal-align: center;
+	margin-right: 2px;
+	margin-top: 6px;
+	text-align: center;
+	text-shadow: 0px 0px 8px #906127;
+	vertical-align: center;
+}
+
+.leftTalent {
+	width: 26%;
+	height: 100%;
+	margin-left: 20px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.rightTalent {
+	width: 26%;
+	height: 100%;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.aghsTalent {
+	width: 26%;
+	height: 100%;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.leftTalentSuper {
+	width: 33%;
+	height: 100%;
+	margin-left: 75px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.rightTalentSuper {
+	width: 33%;
+	height: 100%;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.talentImage {
+	border-bottom: 1px solid #00000088;
+	border-left: 1px solid #bbbbbb44;
+	border-radius: 5px;
+	border-right: 1px solid #00000088;
+	border-top: 1px solid #bbbbbb44;
+	color: rgba(255,255,255,.7333333333); /*#E7D291; /*#ff9900*/
+	font-family: "Radiance", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	height: 100%;
+	width: 100%;
+	text-align: center; /* this aligns only horizontally */
+	text-overflow: noclip;
+	text-shadow: 1px 1px 2px 2 #000000;
+	padding-top: 33%;
+}
+
+.talentImage:hover:not(.talentImageUnlearnable) {
+	box-shadow: fill gold 0px 0px 6px 0px;
+}
+
+.talentImageLearned {
+	box-shadow: fill gold 0px 0px 10px 0px;
+}
+
+.talentImageUnlearnable {
+	saturation: 0;
+}
+
+.talentLearnableGlow {
+	animation-name: glow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes 'glow' {
+	0% {
+		box-shadow: 0 0 5px gold;
+	}
+	25% {
+		box-shadow: 0 0 10px gold;
+	}
+	50% {
+		box-shadow: 0 0 25px gold;
+	}
+	75% {
+		box-shadow: 0 0 10px gold;
+	}
+	100% {
+		box-shadow: 0 0 5px gold;
+	}
+}

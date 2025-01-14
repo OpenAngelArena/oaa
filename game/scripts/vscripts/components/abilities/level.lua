@@ -64,27 +64,27 @@ function AbilityLevels:CheckAbilityLevels (keys)
     canLevelUp = canLevelUp
   })
 
+  --[[
   self:SetTalents(hero)
 
-  local leveled_up_ability = keys.abilityname
-  if leveled_up_ability then
-    local talent = hero:FindAbilityByName(leveled_up_ability)
-    if IsTalentCustom(leveled_up_ability) then
-      -- Ability is a talent
-
-      -- Check for hero level
-      if level >= 26 then
-        -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
-        if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then
-          -- Talent wasn't learned or was granted by Aghanim Scepter
-          -- dota_player_learned_ability event doesn't happen for abilities that are lvled with Lua: ability:SetLevel(level)
-          hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
-        end
+  local leveled_up_ability_name = keys.abilityname
+  if leveled_up_ability_name then
+    local leveled_up_ability = hero:FindAbilityByName(leveled_up_ability_name)
+    -- Check if ability exists, if it is a talent and if hero level is where issues start
+    if leveled_up_ability and IsTalentCustom(leveled_up_ability_name) and level >= 26 then
+      -- Learned ability is a talent
+      local talent = leveled_up_ability
+      -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
+      if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then
+        -- Talent wasn't learned despite clicking on it or the talent was granted by Aghanim Scepter
+        -- dota_player_learned_ability event doesn't happen for abilities that are lvled with: ability:SetLevel(level)
+        hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
       end
     end
   end
+  ]]
 end
-
+--[[
 function AbilityLevels:SetTalents(hero)
   local aghsPower = 0
 
@@ -254,7 +254,7 @@ function AbilityLevels:GetTalentModifier(name)
 
   return "modifier_" .. chopBonusName
 end
-
+]]
 function AbilityLevels:GetRequiredLevel (hero, abilityName)
   -- Ability hero level requirements
   local basicReqs = {0, 0, 0, 0, 28, 40}

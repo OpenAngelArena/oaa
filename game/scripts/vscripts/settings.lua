@@ -219,7 +219,7 @@ SHOW_KILLS_ON_TOPBAR = true             -- Should we display kills only on the t
 ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection for our towers?
 DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when players get gold?
 
-MAX_LEVEL = 50                          -- What level should we let heroes get to?
+MAX_LEVEL = 55                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
