@@ -39,12 +39,12 @@
       }
       "wolf_bat" //OAA
       {
-        "value"                                           "1.2 1.1 1.0 0.9 0.8 0.7 0.6 0.5"
+        "value"                                           "1.2 1.1 1.0 0.9 0.85 0.8 0.75 0.7"
         "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0 =0 =0"
       }
       "wolf_damage" //OAA
       {
-        "value"                                           "20 40 60 80 160 240 320 400"
+        "value"                                           "20 40 60 80 120 180 260 360"
         "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0"
         "special_bonus_unique_lycan_3"                    "+10"
       }
@@ -106,10 +106,10 @@
         "special_bonus_unique_lycan_7"                    "+250"
         "RequiresFacet"                                   "lycan_spirit_wolves"
       }
-      "damage_per_wolf"
+      "damage_per_wolf" //OAA
       {
-        "value"                                           "6 12 18 24 30 36"
-        "special_bonus_unique_lycan_3"                    "+6"
+        "value"                                           "6 11 16 21 26 31"
+        "special_bonus_unique_lycan_3"                    "+5"
         "RequiresFacet"                                   "lycan_spirit_wolves"
       }
       "death_fx_time"

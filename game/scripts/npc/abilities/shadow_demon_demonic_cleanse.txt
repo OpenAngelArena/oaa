@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -20,7 +20,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "6.0"
-    "AbilityCooldown"                                     "70 65 60 60 60"
+    "AbilityCooldown"                                     "70" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -45,14 +45,14 @@
         "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "charge_restore_time"
+      "charge_restore_time" //OAA
       {
-        "value"                                           "70 65 60 60 60"
+        "value"                                           "70"
         "RequiresScepter"                                 "1"
       }
-      "charge_restore_time_tooltip_scepter"
+      "charge_restore_time_tooltip_scepter" //OAA
       {
-        "value"                                           "70 65 60 60 60"
+        "value"                                           "70"
         "RequiresScepter"                                 "1"
       }
     }
