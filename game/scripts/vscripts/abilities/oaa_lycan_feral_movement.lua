@@ -92,7 +92,7 @@ function modifier_lycan_feral_movement_effect_oaa:OnCreated()
     self.evasion = ability:GetSpecialValueFor("evasion")
   else
     self.attack_speed_flat = 0
-    self.attack_speed_pct = 15
+    self.attack_speed_pct = 0
     self.evasion = 15
   end
 end

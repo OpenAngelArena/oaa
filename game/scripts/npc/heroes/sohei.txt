@@ -70,17 +70,17 @@
 
     "Facets"
     {
-      "sohei_warrior"
-      {
-        "Icon"                                            "damage"
-        "Color"                                           "Yellow"
-        "GradientID"                                      "0"
-      }
       "sohei_monk"
       {
         "Icon"                                            "healing"
         "Color"                                           "Red"
         "GradientID"                                      "2"
+      }
+      "sohei_warrior"
+      {
+        "Icon"                                            "damage"
+        "Color"                                           "Yellow"
+        "GradientID"                                      "0"
       }
       "sohei_lord"
       {

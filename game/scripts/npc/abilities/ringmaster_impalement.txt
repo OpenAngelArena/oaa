@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "2400"
-    "AbilityCharges"                                      "1 2 3 4 4 4"
+    "AbilityCharges"                                      "1 2 3 4 5 5"
     "AbilityChargeRestoreTime"                            "17"
 
     // Stats
@@ -32,7 +32,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_impact"                                     "75 75 75 75 150 300"
+      "damage_impact"                                     "75 85 95 105 210 315" //OAA
       "bleed_health_pct"                                  "3.5 4 4.5 5.0 5.5 6.0"
       "bleed_creep_dps"                                   "100 100 100 100 200 400"
       "bleed_duration"

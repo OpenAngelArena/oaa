@@ -228,6 +228,7 @@ if IsServer() then
       kez_kazurai_katana = true,
       life_stealer_feast = false,             -- physical dmg does not need to be reduced and it also does not work
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
+      nyx_assassin_jolt = true,
       phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
       ringmaster_impalement = true,
       shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg

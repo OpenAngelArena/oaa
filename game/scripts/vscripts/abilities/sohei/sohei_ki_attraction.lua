@@ -293,42 +293,42 @@ if IsServer() then
       local ability = self:GetAbility()
 
       -- Check for phantom (thinkers) blockers (Fissure, Ice Shards etc.)
-      local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
-      for _, thinker in pairs(thinkers) do
-        if thinker and thinker:IsPhantomBlocker() then
-          -- Collision Impact Sound
-          parent:EmitSound("Sohei.Momentum.Collision")
-          self:Destroy()
-          return
-        end
-      end
+      -- local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
+      -- for _, thinker in pairs(thinkers) do
+        -- if thinker and thinker:IsPhantomBlocker() then
+          -- -- Collision Impact Sound
+          -- parent:EmitSound("Sohei.Momentum.Collision")
+          -- self:Destroy()
+          -- return
+        -- end
+      -- end
 
       -- Check for high ground
-      local previous_loc = GetGroundPosition(parentOrigin, parent)
-      local new_loc = GetGroundPosition(tickOrigin, parent)
-      if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
-      end
+      -- local previous_loc = GetGroundPosition(parentOrigin, parent)
+      -- local new_loc = GetGroundPosition(tickOrigin, parent)
+      -- if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
+      -- end
 
       -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
       if GridNav:IsNearbyTree(tickOrigin, 120, false) then
         GridNav:DestroyTreesAroundPoint(tickOrigin, 120, false)
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
       end
 
       -- Check for buildings (requires buildings lua library, otherwise it will return an error)
-      if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
-      end
+      -- if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
+      -- end
 
       -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs and damage to both heroes
       if parent:IsHero() then

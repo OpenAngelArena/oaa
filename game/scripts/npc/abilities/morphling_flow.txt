@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Morphling: Flow (Facet)
+  //=================================================================================================================
+  "morphling_flow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "agi_pct_at_max_cooldown_speed"                     "175"
+      "agi_pct_at_min_cooldown_speed"                     "50"
+      "min_cooldown_speed_pct"                            "0"
+      "max_cooldown_speed_pct"                            "50" //OAA
+      "cooldown_reduction_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

@@ -45,11 +45,12 @@
       "heal_per_tornado"
       {
         "value"                                           "20 20 20 20 40 60"
+        "special_bonus_facet_eul_displacement"            "+20"
       }
       "max_hp_heal_per_tornado"
       {
         "value"                                           "0"
-        "special_bonus_unique_eul_5_oaa"                  "+1"
+        "special_bonus_unique_eul_5_oaa"                  "+1.5"
       }
       "tornado_damage_radius"
       {
@@ -80,7 +81,7 @@
       "displacement_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =840"
+        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =1120"
         "RequiresFacet"                                   "eul_displacement"
       }
       "displacement_range"
