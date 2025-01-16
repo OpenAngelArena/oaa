@@ -63,7 +63,7 @@ function modifier_item_enrage_crystal_passive:OnRefresh()
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
-    self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
+    --self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.dmg_reduction = ability:GetSpecialValueFor("dmg_reduction_while_stunned")
   end
 
@@ -156,6 +156,23 @@ end
 
 function modifier_item_enrage_crystal_active:IsPurgable()
   return false
+end
+
+function modifier_item_enrage_crystal_active:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_status_resist = ability:GetSpecialValueFor("active_status_resist")
+  end
+end
+
+function modifier_item_enrage_crystal_active:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+  }
+end
+
+function modifier_item_enrage_crystal_active:GetModifierStatusResistanceStacking()
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("active_status_resist")
 end
 
 function modifier_item_enrage_crystal_active:CheckState()
