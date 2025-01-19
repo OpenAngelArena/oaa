@@ -99,6 +99,7 @@ const ignoreValuesFor = [
   'item_cornucopia',
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
+  'item_smoke_of_deceit',
   'centaur_stampede'
   // 'shredder_chakram',
   // 'shredder_chakram_2',
