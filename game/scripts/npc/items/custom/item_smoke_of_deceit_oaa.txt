@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  "item_smoke_of_deceit_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/smoke_of_deceit.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "item_smoke_of_deceit"
+    "Model"                                               "models/props_gameplay/smoke.vmdl"
+    "Effect"                                              "particles/generic_gameplay/dropped_smoke.vpcf"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "smoke_of_deceit"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityCastRange"                                    "1200"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "50"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "smoke of deceit"
+    "ItemStackable"                                       "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
+    "ItemStockInitial"                                    "2"
+    "ItemStockMax"                                        "3"
+    "ItemStockTime"                                       "300" // vanilla: 420
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemSupport"                                         "1"
+    "ItemAlertable"                                       "1"
+    "IsTempestDoubleClonable"                             "0"
+
+    "SideShop"                                            "1"
+    "SpeciallyBannedFromNeutralSlot"                      "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "application_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "visibility_radius"                                 "1025"
+      "bonus_movement_speed"                              "15"
+      "duration"                                          "45.0"
+      "second_cast_cooldown"                              "2.0"
+      "secondary_application_radius"                      "300"
+    }
+  }
+}

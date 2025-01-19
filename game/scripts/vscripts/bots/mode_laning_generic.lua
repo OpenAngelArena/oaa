@@ -704,7 +704,7 @@ function Think()
 			local hItem2 = hUnit:GetItemInSlot( 7 )
 
 			if hItem ~= nil then
-				if hItem:GetName() == "item_smoke_of_deceit" then
+				if hItem:GetName() == "item_smoke_of_deceit_oaa" then
 					bAttackMove = true
 					halfWayLocation = AllowedGetLocation(hUnit, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
@@ -712,7 +712,7 @@ function Think()
 				end
 			end
 			if hItem2 ~= nil then
-				if hItem2:GetName() == "item_smoke_of_deceit" then
+				if hItem2:GetName() == "item_smoke_of_deceit_oaa" then
 					bMoveToLocation = true
 					halfWayLocation = AllowedGetLocation(hUnit, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
