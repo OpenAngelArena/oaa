@@ -1,0 +1,13 @@
+//===============================================================================================
+// Smoke of Deceit
+//===============================================================================================
+//"DOTA_Tooltip_Ability_item_smoke_of_deceit"                                     "Smoke of Deceit"
+//"DOTA_Tooltip_ability_item_smoke_of_deceit_Description"                         "<h1>Use: Disguise</h1> Turns the caster and all allied player-controlled units in a %application_radius% radius invisible, and grants %bonus_movement_speed%%% bonus movement speed for %duration% seconds. <br><br> While the caster is still disguised, any allies that come within %secondary_application_radius% range of them will also get the buff applied to them. Each smoke can only be applied once to allies. <br><br>Attacking or moving within %visibility_radius% range of an enemy hero or tower, will break the invisibility. <br><br>Disguise grants invisibility that is immune to True Sight."
+//"DOTA_Tooltip_ability_item_smoke_of_deceit_Lore"                                "The charlatan wizard Myrddin's only true contribution to the arcane arts."
+
+//"DOTA_Tooltip_modifier_smoke_of_deceit"                                         "Smoke of Deceit"
+//"DOTA_Tooltip_modifier_smoke_of_deceit_Description"                             "Invisible, moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster, and hidden from the minimap. Attacking or moving within %dMODIFIER_PROPERTY_TOOLTIP% range of an enemy hero or tower will break the invisibility."
+
+"DOTA_Tooltip_Ability_item_smoke_of_deceit_oaa"                                 "#{DOTA_Tooltip_Ability_item_smoke_of_deceit}"
+"DOTA_Tooltip_Ability_item_smoke_of_deceit_oaa_Description"                     "#{DOTA_Tooltip_ability_item_smoke_of_deceit_Description}"
+"DOTA_Tooltip_Ability_item_smoke_of_deceit_oaa_Lore"                            "#{DOTA_Tooltip_ability_item_smoke_of_deceit_Lore}"

@@ -72,18 +72,12 @@
 
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "0"
-      "bonus_armor"                                       "16 20"
-      "bonus_health_regen"                                "14 17"
+      "bonus_armor"                                       "18 22"
+      "bonus_health_regen"                                "15 18"
       "bonus_status_resist"                               "20 22"
       // Active stuff
       "stone_armor"                                       "100"
       "stone_deflect_chance"                              "25"
-      "stone_deflect_radius"
-      {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-      }
       //"stone_move_speed"                                  "100"
       "duration"                                          "5.5"
     }

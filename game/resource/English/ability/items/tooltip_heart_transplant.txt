@@ -22,6 +22,6 @@
 "DOTA_Tooltip_modifier_item_heart_transplant_debuff"                            "Organ Donor"
 "DOTA_Tooltip_modifier_item_heart_transplant_debuff_Description"                "Part of your Heart are being given to another unit."
 "DOTA_Tooltip_modifier_item_heart_transplant_buff"                              "Donated Heart"
-"DOTA_Tooltip_modifier_item_heart_transplant_buff_Description"                  "Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, Health increased by %dMODIFIER_PROPERTY_HEALTH_BONUS%, and healing %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP per second"
+"DOTA_Tooltip_modifier_item_heart_transplant_buff_Description"                  "Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, Health increased by %dMODIFIER_PROPERTY_HEALTH_BONUS%, and healing %fMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP per second"
 
 "oaa_hud_error_only_one_transplant"                                             "Can't cast multiple Heart Transplants simultaneously"
