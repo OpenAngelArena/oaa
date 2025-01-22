@@ -23,22 +23,26 @@ function OnCorePointsChanged (args) {
 
 // this happens when a player selects any unit
 function ShowCorePointsOnSelected () {
-  const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
-  $.Msg('Selected Unit:', currentlySelectedUnit);
+  const player = Players.GetLocalPlayer();
+  let currentlySelectedUnit = Players.GetQueryUnit(player);
+  if (currentlySelectedUnit === -1) {
+    currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
+  }
+  // $.Msg('Selected Unit:', currentlySelectedUnit);
 
   if (!Entities.IsValidEntity(currentlySelectedUnit)) {
-    $.Msg('Invalid entity');
+    $.Msg('Invalid entity was selected');
     return;
   }
 
   const modifier = 'modifier_core_points_counter_oaa';
-  $.Msg('Has modifier:', HasModifier(currentlySelectedUnit, modifier));
-  $.Msg('Team check:', Entities.GetTeamNumber(currentlySelectedUnit), Players.GetTeam(Players.GetLocalPlayer()));
+  // $.Msg('Has modifier:', HasModifier(currentlySelectedUnit, modifier));
+  // $.Msg('Team check:', Entities.GetTeamNumber(currentlySelectedUnit), Players.GetTeam(player));
 
-  if (HasModifier(currentlySelectedUnit, modifier) &&
-      Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(Players.GetLocalPlayer())) {
+  // Show core points only if currently selected unit has the modifier and if it is on the player's team
+  if (HasModifier(currentlySelectedUnit, modifier) && Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(player)) {
     const corePoints = GetStackCount(currentlySelectedUnit, modifier);
-    $.Msg('Core Points:', corePoints);
+    // $.Msg('Core Points:', corePoints);
     // Only update if we got a valid number
     if (!isNaN(corePoints)) {
       $('#CorePointsText').text = String(corePoints);
