@@ -1,3 +1,8 @@
 //"DOTA_Tooltip_ability_kobold_disarm"                                            "Steal Weapon"
 //"DOTA_Tooltip_ability_kobold_disarm_Description"                                "Every third attack this creature will disarm its target temporarily. Attack counter doesn't increase while ability is on cooldown."
 //"DOTA_Tooltip_ability_kobold_disarm_duration"                                   "DURATION:"
+
+"DOTA_Tooltip_ability_kobold_disarm_oaa"                                        "#{DOTA_Tooltip_ability_kobold_disarm}"
+"DOTA_Tooltip_ability_kobold_disarm_oaa_Description"                            "Disarms the target temporarily."
+"DOTA_Tooltip_ability_kobold_disarm_oaa_Lore"                                   ""
+"DOTA_Tooltip_ability_kobold_disarm_oaa_duration"                               "#{DOTA_Tooltip_ability_kobold_disarm_duration}"

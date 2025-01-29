@@ -26,7 +26,7 @@ end
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-modifier_vortex_oaa_thinker = class(ModifierBaseClass)
+modifier_vortex_oaa_thinker = class({})
 
 function modifier_vortex_oaa_thinker:IsHidden()
   return true
@@ -101,7 +101,7 @@ end
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-modifier_vortex_oaa_debuff = class(ModifierBaseClass)
+modifier_vortex_oaa_debuff = class({})
 
 function modifier_vortex_oaa_debuff:IsHidden()
   return false
@@ -115,17 +115,30 @@ function modifier_vortex_oaa_debuff:IsPurgable()
   return false
 end
 
+function modifier_vortex_oaa_debuff:OnCreated()
+  local ability = self:GetAbility()
+  if ability then
+    self.ms_slow = ability:GetSpecialValueFor("ms_slow") --parent:GetValueChangedBySlowResistance(ms_slow)
+    self.as_slow = ability:GetSpecialValueFor("as_slow")
+  else
+    self.ms_slow = -20
+    self.as_slow = -40
+  end
+end
+
 function modifier_vortex_oaa_debuff:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
+function modifier_vortex_oaa_debuff:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.ms_slow)
+end
+
 function modifier_vortex_oaa_debuff:GetModifierAttackSpeedBonus_Constant()
-  local ability = self:GetAbility()
-  if ability then
-    return ability:GetSpecialValueFor("attack_speed")
-  end
+  return 0 - math.abs(self.as_slow)
 end
 
 function modifier_vortex_oaa_debuff:GetEffectName()
