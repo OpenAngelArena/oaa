@@ -13,7 +13,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_mini_rosh_root_applier = class(ModifierBaseClass)
+modifier_mini_rosh_root_applier = class({})
 
 function modifier_mini_rosh_root_applier:IsHidden()
   return true
@@ -44,12 +44,12 @@ modifier_mini_rosh_root_applier.OnRefresh = modifier_mini_rosh_root_applier.OnCr
 
 function modifier_mini_rosh_root_applier:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
   }
 end
 
 if IsServer() then
-  function modifier_mini_rosh_root_applier:OnAttackLanded(event)
+  function modifier_mini_rosh_root_applier:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = event.attacker
@@ -137,7 +137,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_mini_rosh_root_effect = class(ModifierBaseClass)
+modifier_mini_rosh_root_effect = class({})
 
 function modifier_mini_rosh_root_effect:IsHidden()
   return false

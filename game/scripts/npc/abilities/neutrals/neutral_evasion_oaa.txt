@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Evasion - passive chance to dodge attacks
+  //=================================================================================================================
+  "neutral_evasion_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_neutral_evasion.lua"
+    "AbilityTextureName"                                  ""
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "chance"                                            "15 20 25 30"
+    }
+  }
+}

@@ -18,15 +18,15 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "" // TODO: kobold_disarm rework: passive when neutral, active when dominated
-    "Ability2"                                            ""      // Ability 2
-    "Ability3"                                            ""      // Ability 3
-    "Ability4"                                            ""      // Ability 4
+    "Ability1"                                            "neutral_mana_burn_oaa"
+    "Ability2"                                            "big_thunder_lizard_wardrums_aura"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "3"     // Physical protection.
-    "MagicalResistance"                                   "0"     // Magical protection.
+    "MagicalResistance"                                   "25"     // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -34,7 +34,7 @@
     "AttackDamageMin"                                     "39"    // Damage range min.
     "AttackDamageMax"                                     "44"    // Damage range max.
     "AttackRate"                                          "2.0"   // Speed of attack.
-    "BaseAttackSpeed"                                     "200"
+    "BaseAttackSpeed"                                     "190"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.
@@ -56,6 +56,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "320"   // Speed.
+    "MovementTurnRate"                                    "0.9"
 
     // Status
     //----------------------------------------------------------------

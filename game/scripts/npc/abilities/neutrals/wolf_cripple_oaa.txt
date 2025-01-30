@@ -1,0 +1,30 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Cripple - chance to slow on attack
+  //=================================================================================================================
+  "giant_wolf_cripple_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_giant_wolf_cripple.lua"
+    "AbilityTextureName"                                  "lycan_summon_wolves_critical_strike"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // just for the tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // just for the tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "chance"                                            "25"
+      "ms_slow"                                           "15 20 25 30"
+      "as_slow"                                           "30 40 50 60"
+      "duration"                                          "4"
+    }
+  }
+}
