@@ -159,27 +159,6 @@ function DireTowerBossThink()
       end
     end
 
-    -- Sound
-    if not thisEntity.emitedsound then
-      local sound_source
-      if thisEntity.aggro_target and not thisEntity.aggro_target:IsNull() then
-        sound_source = thisEntity.aggro_target
-      elseif thisEntity:GetAggroTarget() and not thisEntity:GetAggroTarget():IsNull() then
-        sound_source = thisEntity:GetAggroTarget()
-      elseif thisEntity.minion_target and not thisEntity.minion_target:IsNull() then
-        sound_source = thisEntity.minion_target
-      else
-        sound_source = thisEntity
-      end
-      if sound_source and not sound_source:IsNull() then
-        local playerID = UnitVarToPlayerID(sound_source)
-        if PlayerResource:IsValidPlayerID(playerID) then
-          EmitSoundOnClient("Dire_Tower_Boss.Aggro", PlayerResource:GetPlayer(playerID))
-        end
-      end
-      thisEntity.emitedsound = true
-    end
-
     -- Phases
     if current_hp_pct <= 1/3 then
       thisEntity.nCAST_SUMMON_WAVE_ROUND = 3
@@ -224,11 +203,9 @@ function DireTowerBossThink()
     thisEntity:Stop()
     thisEntity:Hold()
     thisEntity.state = SIMPLE_AI_STATE_IDLE
-    thisEntity.emitedsound = false
     -- Check HP of the boss
     if current_hp_pct > aggro_hp_pct then
       thisEntity.minion_target = nil
-      thisEntity.emitedsound = false
     end
   end
 
