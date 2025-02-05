@@ -41,7 +41,7 @@ function modifier_wanderer_sticky_blood_passive:OnCreated()
     self.threshold = ability:GetSpecialValueFor("damage_threshold")
   else
     self.duration = 8
-    self.threshold = 50
+    self.threshold = 150
   end
 end
 
@@ -58,7 +58,7 @@ if IsServer() then
     local caster = self:GetParent() or self:GetCaster()
     local ability = self:GetAbility()
     local attacker = event.attacker
-    local damage = event.damage
+    local damage = event.original_damage --event.damage
     local damaged_unit = event.unit
 
     -- Don't continue if attacker doesn't exist or it is about to be deleted
@@ -110,6 +110,7 @@ if IsServer() then
     if attacker:IsHero() then
       self:ProcStickyBlood(caster, ability, attacker)
     elseif attacker.GetPlayerOwner then
+      -- Find the main hero and apply sticky blood to it
       local player = attacker:GetPlayerOwner()
       local hero_owner
       if player then
@@ -121,7 +122,14 @@ if IsServer() then
       if hero_owner then
         self:ProcStickyBlood(caster, ability, hero_owner)
       end
+      -- Apply sticky blood to the attacker if it's not ward type unit
+      if not attacker:IsOther() then
+        self:ProcStickyBlood(caster, ability, attacker)
+      end
     end
+
+    -- Start cooldown
+    ability:UseResources(false, false, false, true)
   end
 end
 
@@ -146,9 +154,6 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
 
   -- Apply debuff
   unit:AddNewModifier(caster, ability, "modifier_wanderer_sticky_blood_debuff", {duration = self.duration})
-
-  -- Start cooldown
-  ability:UseResources(false, false, false, true)
 end
 
 function modifier_wanderer_sticky_blood_passive:CheckState()

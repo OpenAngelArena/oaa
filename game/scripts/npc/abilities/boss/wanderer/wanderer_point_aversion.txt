@@ -1,8 +1,8 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wanderer: Point Aversion - Applies bonus damage to the team with more points
-  // Notes: Doesn't pierce spell/debuff immunity; Doesn't work on creeps and wards
+  // Wanderer: Point Aversion - Applies bonus damage to the team with more points and taking less damage from the team with more points
+  // Notes: Doesn't pierce spell/debuff immunity; Doesn't work against wards
   //=================================================================================================================
   "wanderer_point_aversion"
   {

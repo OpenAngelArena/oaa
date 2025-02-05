@@ -151,6 +151,7 @@ function Grendel:SpawnGrendel()
 end
 
 function Grendel:FindWhereToSpawn()
+  local center = GetMapCenterOAA()
   local XBounds = GetMainAreaBoundsX()
   local YBounds = GetMainAreaBoundsY()
 
@@ -158,6 +159,52 @@ function Grendel:FindWhereToSpawn()
   local maxX = math.ceil(XBounds.maxX)
   local minY = math.floor(YBounds.minY)
   local minX = math.floor(XBounds.minX)
+
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_BADGUYS)
+
+  local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
+  local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+
+  -- The following code assumes that:
+  -- 1) real center (0.0) is between the fountains somewhere
+  -- 2) radiant fountain x coordinate is < 0
+  -- 3) dire fountain x coordinate is > 0
+  -- 4) fountains don't share the same y coordinate
+  if isGoodLead then
+    if scoreDiff >= 20 then
+      minX = math.floor(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x + DireFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x + DireFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
+  else
+    if scoreDiff >= 20 then
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 3 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 1 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
+  end
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
 

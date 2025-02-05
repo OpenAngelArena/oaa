@@ -17,6 +17,7 @@ function Spawn( entityKeyValues )
   end
 
   thisEntity.hasSpawned = false
+  thisEntity.stickyAbility = thisEntity:FindAbilityByName("wanderer_sticky_blood")
   thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
   thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
   thisEntity.BossTier = thisEntity.BossTier or 3
@@ -40,9 +41,8 @@ function WandererThink ()
   end
 
   if not thisEntity.hasSpawned then
-    local stickyAbility = thisEntity:FindAbilityByName("wanderer_sticky_blood")
     local lvl = math.min(thisEntity.BossTier - 2, 3)
-    stickyAbility:SetLevel(lvl)
+    thisEntity.stickyAbility:SetLevel(lvl)
     thisEntity.cleanseAbility:SetLevel(lvl)
     thisEntity.hasSpawned = true
     StartWandering()
@@ -101,15 +101,11 @@ function WandererThink ()
 
   -- Visual effect
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_batrider_firefly") then
-    thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {
-      duration = 99
-    })
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {duration = 99})
   end
   -- Wanderer's buff with absolute movement speed etc.
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_wanderer_boss_buff") then
-    thisEntity:AddNewModifier(thisEntity, nil, "modifier_wanderer_boss_buff", {
-      duration = 99
-    })
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_wanderer_boss_buff", {duration = 99})
   end
 
   -- Leashing
