@@ -99,6 +99,7 @@ g_ModelPrecache = {
   "models/items/upgrade_4.vmdl",
   "models/items/wards/knightstatue_ward/knightstatue_ward.vmdl",
   "models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_a.vmdl",
+  "models/prefab_base/pedestal/pedestal.vmdl",
 }
 
 g_ParticlePrecache = {

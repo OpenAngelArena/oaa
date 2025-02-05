@@ -41,7 +41,7 @@ function modifier_wanderer_sticky_blood_passive:OnCreated()
     self.threshold = ability:GetSpecialValueFor("damage_threshold")
   else
     self.duration = 8
-    self.threshold = 150
+    self.threshold = 300
   end
 end
 
