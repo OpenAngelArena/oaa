@@ -100,11 +100,12 @@ function DireTowerBossThink()
       -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
-      end
-      -- Check if state of aggro_target changed (died, became attack immune (ethereal), became invulnerable or banished)
-      local aggro_target = thisEntity.aggro_target
-      if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
-        thisEntity.aggro_target = nil
+      else
+        -- Check if state of aggro_target changed (died, became attack immune (ethereal), became invulnerable or banished)
+        local aggro_target = thisEntity.aggro_target
+        if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
+          thisEntity.aggro_target = nil
+        end
       end
       -- Check HP of the boss
       if current_hp_pct > aggro_hp_pct then
@@ -171,7 +172,10 @@ function DireTowerBossThink()
         sound_source = thisEntity
       end
       if sound_source and not sound_source:IsNull() then
-        sound_source:EmitSound("Dire_Tower_Boss.Aggro")
+        local playerID = UnitVarToPlayerID(sound_source)
+        if PlayerResource:IsValidPlayerID(playerID) then
+          EmitSoundOnClient("Dire_Tower_Boss.Aggro", PlayerResource:GetPlayer(playerID))
+        end
       end
       thisEntity.emitedsound = true
     end
