@@ -14,7 +14,28 @@ function dire_tower_boss_glyph:OnSpellStart()
   caster:AddNewModifier( caster, self, "modifier_dire_tower_boss_glyph", { duration = self:GetSpecialValueFor( "glyph_duration" ) } )
 
   -- Sound
-  caster:EmitSound("Dire_Tower_Boss.Glyph.Cast")
+  local enemies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
+    nil,
+    1800,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  local playerids = {}
+  for _, enemy in ipairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      local playerID = UnitVarToPlayerID(enemy)
+      if PlayerResource:IsValidPlayerID(playerID) and not playerids[playerID] then
+        EmitSoundOnClient("Dire_Tower_Boss.Glyph.Cast", PlayerResource:GetPlayer(playerID))
+        playerids[playerID] = true
+      end
+    end
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -37,9 +58,9 @@ function modifier_dire_tower_boss_glyph:OnCreated()
   local ability = self:GetAbility()
   if IsServer() then
     self.count = ability:GetSpecialValueFor("splitshot_units")
-    self.bonus_range = ability:GetSpecialValueFor("splitshot_bonus_range")
   end
   self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+  self.bonus_range = ability:GetSpecialValueFor("bonus_attack_range")
 
   if IsServer() then
     local parent = self:GetParent()
@@ -52,19 +73,34 @@ end
 
 function modifier_dire_tower_boss_glyph:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
-function modifier_dire_tower_boss_glyph:GetModifierIncomingDamage_Percentage()
-  return -200
+function modifier_dire_tower_boss_glyph:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_dire_tower_boss_glyph:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_dire_tower_boss_glyph:GetAbsoluteNoDamagePure()
+  return 1
 end
 
 function modifier_dire_tower_boss_glyph:GetModifierAttackSpeedBonus_Constant()
   return self.attack_speed
+end
+
+function modifier_dire_tower_boss_glyph:GetModifierAttackRangeBonus()
+  return self.bonus_range
 end
 
 if IsServer() then
@@ -92,7 +128,7 @@ if IsServer() then
 
   function modifier_dire_tower_boss_glyph:SplitShot(target)
     local parent = self:GetParent()
-    local radius = parent:GetAttackRange() + self.bonus_range
+    local radius = parent:GetAttackRange()
     local enemies = FindUnitsInRadius(
       parent:GetTeamNumber(),
       parent:GetOrigin(),

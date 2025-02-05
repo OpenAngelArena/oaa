@@ -29,14 +29,61 @@ function modifier_wanderer_point_aversion_passive:OnCreated()
   else
     self.damage = 100
   end
+  local parent = self:GetParent()
+  self.thresholds = {}
+  if parent:GetUnitName() == "npc_dota_boss_grendel" then
+    self.thresholds = {0.25, 0.5, 0.75, 0.9}
+  else
+    self.thresholds = {0.2, 0.4, 0.6, 0.8}
+  end
 end
 
 modifier_wanderer_point_aversion_passive.OnRefresh = modifier_wanderer_point_aversion_passive.OnCreated
 
 function modifier_wanderer_point_aversion_passive:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
+end
+
+function modifier_wanderer_point_aversion_passive:GetModifierTotal_ConstantBlock(keys)
+  local parent = self:GetParent()
+  local attacker = keys.attacker
+  local damage = keys.damage
+
+  if attacker == parent then -- boss degen
+    return 0
+  end
+
+  local attacker_team = attacker:GetTeamNumber()
+  local opposite_team
+  if attacker_team == DOTA_TEAM_GOODGUYS then
+    opposite_team = DOTA_TEAM_BADGUYS
+  elseif attacker_team == DOTA_TEAM_BADGUYS then
+    opposite_team = DOTA_TEAM_GOODGUYS
+  else
+    return 0
+  end
+
+  local difference = PointsManager:GetPoints(attacker_team) - PointsManager:GetPoints(opposite_team)
+
+  -- If the score difference is negative or 0, it means attacker's team is losing or even, don't block damage
+  if difference <= 0 then
+    return 0
+  end
+
+  if math.abs(difference) > 20 then
+    return damage * self.thresholds[4]
+  elseif math.abs(difference) > 15 then
+    return damage * self.thresholds[3]
+  elseif math.abs(difference) > 10 then
+    return damage * self.thresholds[2]
+  elseif math.abs(difference) > 5 then
+    return damage * self.thresholds[1]
+  end
+
+  return 0
 end
 
 if IsServer() then
@@ -65,8 +112,8 @@ if IsServer() then
       return
     end
 
-    -- If target is not a hero (real hero, illusion, clone, tempest double), don't continue
-    if not target:IsHero() then
+    -- If target is a ward type unit, don't continue
+    if target:IsOther() then
       return
     end
 
@@ -77,7 +124,7 @@ if IsServer() then
     elseif target_team == DOTA_TEAM_BADGUYS then
       opposite_team = DOTA_TEAM_GOODGUYS
     else
-      print("Wanderer attacked a hero with an invalid team.")
+      print("Wanderer attacked a unit with an invalid team.")
       return
     end
 
