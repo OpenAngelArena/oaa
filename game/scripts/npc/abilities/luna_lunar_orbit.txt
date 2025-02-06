@@ -39,7 +39,7 @@
       }
       "rotating_glaives_collision_damage"
       {
-        "value"                                           "20 25 30 35 70 105"
+        "value"                                           "20 25 30 35 40 45" // this is a % of luna's damage
         "special_bonus_shard"                             "+15"
       }
       "unclamp_max_radius"
