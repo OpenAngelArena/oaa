@@ -304,6 +304,11 @@ if IsServer() then
         item_mjollnir_3 = true,
         item_mjollnir_4 = true,
         item_mjollnir_5 = true,
+        item_overwhelming_blink = true,
+        item_overwhelming_blink_2 = true,
+        item_overwhelming_blink_3 = true,
+        item_overwhelming_blink_4 = true,
+        item_overwhelming_blink_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
@@ -327,7 +332,7 @@ if IsServer() then
       local name = ability:GetAbilityName()
       local hp = self:GetHealth()
       local max_hp = self:GetMaxHealth()
-      if damagingByAccident[name] and hp/max_hp > 96/100 then
+      if damagingByAccident[name] and hp/max_hp > 0.95 then
         return true
       end
     end
