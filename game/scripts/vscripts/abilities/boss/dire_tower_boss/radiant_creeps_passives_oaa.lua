@@ -39,6 +39,8 @@ end
 function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
   local parent = self:GetParent()
   if not self.tower or self.tower:IsNull() then
+    self.ordered = false
+
     local origin = parent:GetAbsOrigin()
     local enemies = FindUnitsInRadius(
       parent:GetTeamNumber(),
@@ -57,17 +59,14 @@ function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
     for _, enemy in ipairs(enemies) do
       if enemy and not enemy:IsNull() then
         local enemy_name = enemy:GetUnitName()
-        if enemy:IsOAABoss() and enemy_name ~= "npc_dota_boss_grendel" then
-          if enemy_name == "npc_dota_creature_dire_tower_boss" then
-            closest_tower = enemy
-            break
-          end
+        if enemy:IsOAABoss() and enemy_name == "npc_dota_creature_dire_tower_boss" then
+          closest_tower = enemy
+          break
         end
       end
     end
 
     self.tower = closest_tower
-    self.ordered = false
 
     if not self.tower or self.tower:IsNull() then
       -- Find the closest boss since there are no towers
@@ -75,7 +74,7 @@ function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
       for _, enemy in ipairs(enemies) do
         if enemy and not enemy:IsNull() then
           local enemy_name = enemy:GetUnitName()
-          if enemy:IsOAABoss() and enemy_name ~= "npc_dota_boss_grendel" then
+          if enemy:IsOAABoss() and enemy_name ~= "npc_dota_boss_grendel" and enemy_name ~= "npc_dota_boss_wanderer_1" and enemy_name ~= "npc_dota_boss_wanderer_2" and enemy_name ~= "npc_dota_boss_wanderer_3" then
             closest_boss = enemy
             break
           end

@@ -27,7 +27,7 @@ function dire_tower_boss_glyph:OnSpellStart()
   )
 
   local playerids = {}
-  for _, enemy in ipairs(enemies) do
+  for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       local playerID = UnitVarToPlayerID(enemy)
       if PlayerResource:IsValidPlayerID(playerID) and not playerids[playerID] then
@@ -56,13 +56,17 @@ end
 
 function modifier_dire_tower_boss_glyph:OnCreated()
   local ability = self:GetAbility()
-  if IsServer() then
-    self.count = ability:GetSpecialValueFor("splitshot_units")
+  if not ability or ability:IsNull() then
+    return
   end
+
+  -- Stuff that needs to be visible on the client too
   self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
   self.bonus_range = ability:GetSpecialValueFor("bonus_attack_range")
 
   if IsServer() then
+    self.count = ability:GetSpecialValueFor("splitshot_units")
+
     local parent = self:GetParent()
     local particle = ParticleManager:CreateParticle("particles/items_fx/glyph.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
@@ -167,6 +171,7 @@ if IsServer() then
     local victim = event.unit
     local inflictor = event.inflictor
 
+    -- Check if attacker and victim exist
     if not attacker or attacker:IsNull() or not victim or victim:IsNull() then
       return
     end
