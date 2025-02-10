@@ -594,15 +594,16 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:InstantAttackCanProcCleave()
+    -- If it's on this list and uncommented then it can proc Giant Form
     local list = {
       "modifier_ember_spirit_sleight_of_fist_caster",
       "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
       "modifier_ember_spirit_sleight_of_fist_in_progress",
-      "modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
       "modifier_juggernaut_omnislash",
       "modifier_juggernaut_omnislash_invulnerability",
       --"modifier_mars_gods_rebuke_crit",                         -- Mars W
-      "modifier_monkey_king_boundless_strike_crit",               -- MK Q
+      --"modifier_monkey_king_boundless_strike_crit",               -- MK Q
       "modifier_wukongs_command_oaa_buff",                        -- MK R
       "modifier_pangolier_swashbuckle",
       "modifier_pangolier_swashbuckle_attack",
@@ -612,7 +613,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
       "modifier_tiny_tree_channel",
-      "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do
       if self:HasModifier(v) then
