@@ -92,13 +92,13 @@
       }
       "giant_attack_damage"                               "100"
       "giant_primary_attribute_bonus"                     "55 75"
-      "giant_attack_speed_reduction"                      "40" // percentage attack speed reduction
+      "giant_attack_speed_reduction"                      "35" // percentage attack speed reduction
       "giant_splash_radius"
       {
         "value"                                           "650"
         "affected_by_aoe_increase"                        "1"
       }
-      "giant_splash_damage"                               "60 85" // splash percent, doesn't work on ranged heroes
+      "giant_splash_damage"                               "250" // splash percent, doesn't work on ranged heroes
       "giant_scale"                                       "50"
       "duration"                                          "8.0"
     }

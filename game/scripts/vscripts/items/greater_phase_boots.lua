@@ -288,7 +288,7 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  if parent:IsStunned() or parent:IsHexed() or parent:IsOutOfGame() then
+  if parent:IsStunned() or parent:IsHexed() or parent:IsOutOfGame() or parent:IsInvulnerable() then
     return
   end
 

@@ -259,7 +259,7 @@ function modifier_item_shade_staff_trees_buff:IsDebuff()
 end
 
 function modifier_item_shade_staff_trees_buff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_shade_staff_trees_buff:OnCreated()
