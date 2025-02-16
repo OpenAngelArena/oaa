@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.35e (Darkonius)"
   "hero"          "npc_dota_hero_faceless_void"
   "Title"         "Recommended items for Faceless Void"
 
@@ -34,14 +34,14 @@
       "item"      "item_ultimate_scepter"
       "item"      "item_spell_breaker_1"
       "item"      "item_shivas_guard"
-      "item"      "item_giant_form"
+      "item"      "item_devastator"
     }
 
-    "#DOTA_Item_Build_Support_Core"
+    "#DOTA_Item_Build_Support_Core" // Slahsers Way
     {
-      "item"      "item_ward_stack"
       "item"      "item_spirit_vessel_oaa"
-      "item"      "item_blink"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_guardian_greaves"
       "item"      "item_octarine_core"
       "item"      "item_refresher_4"
     }
@@ -56,7 +56,6 @@
       "item"      "item_bloodthorn"
       "item"      "item_bfury"
       "item"      "item_butterfly_oaa"
-      "item"      "item_devastator"
       "item"      "item_disperser"
       "item"      "item_manta"
       "item"      "item_satanic"
