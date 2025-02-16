@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37e"
   "hero"          "npc_dota_hero_ember_spirit"
   "Title"         "Recommended items for Ember Spirit"
 
@@ -13,12 +13,17 @@
       "item"      "item_flask"
     }
 
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_small_cleaver_oaa"
+      "item"      "item_maelstrom"
+    }
+
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_desolator"
       "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
-      "item"      "item_greater_phase_boots"
       "item"      "item_giant_form"
       "item"      "item_rapier"
     }
@@ -29,7 +34,6 @@
       "item"      "item_gungir"
       "item"      "item_radiance"
       "item"      "item_shivas_guard"
-      "item"      "item_kaya_and_sange"
       "item"      "item_ultimate_scepter"
     }
 

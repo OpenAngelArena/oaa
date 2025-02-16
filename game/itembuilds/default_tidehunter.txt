@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.35e"
   "hero"          "npc_dota_hero_tidehunter"
   "Title"         "Recommended items for Tidehunter"
 
@@ -13,21 +13,23 @@
       "item"      "item_blight_stone"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
-    {
-      "item"      "item_greater_crit"
-      "item"      "item_devastator_oaa_2"
-      "item"      "item_greater_phase_boots"
-      "item"      "item_sacred_skull"
-      "item"      "item_giant_form"
-    }
-
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_blink"
       "item"      "item_meteor_hammer_1"
       "item"      "item_ultimate_scepter"
+      "item"      "item_spell_breaker_1"
       "item"      "item_refresher_4"
+    }
+    
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_angels_demise"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_assault"
+      "item"      "item_satanic"
+      "item"      "item_devastator_oaa_2"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -47,6 +49,7 @@
       "item"      "item_shivas_guard"
       "item"      "item_skadi"
       "item"      "item_abyssal_blade_2"
+      "item"      "item_sacred_skull"
       "item"      "item_revenants_brooch_4"
       "item"      "item_rapier"
     }
