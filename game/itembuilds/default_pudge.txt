@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37e"
   "hero"          "npc_dota_hero_pudge"
   "Title"         "Recommended items for Pudge"
 
@@ -11,6 +11,11 @@
       "item"      "item_boots"
       "item"      "item_flask"
       "item"      "item_enchanted_mango"
+    }
+
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_vanguard"
     }
 
     "#DOTA_Item_Build_Magical_Core"
