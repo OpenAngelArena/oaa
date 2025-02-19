@@ -21,7 +21,7 @@ end
 function modifier_hero_anti_stun_oaa:CheckState()
   local parent = self:GetParent()
   local current_ability = parent:GetCurrentActiveAbility()
-  if (current_ability and current_ability:IsInAbilityPhase()) or parent:IsChanneling() then
+  if (current_ability and (current_ability:IsInAbilityPhase() or current_ability:IsChanneling())) or parent:IsChanneling() then
     return {
       [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
     }

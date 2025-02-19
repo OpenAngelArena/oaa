@@ -201,3 +201,7 @@ LinkLuaModifier("modifier_bottle_collector_oaa", "modifiers/funmodifiers/modifie
 LinkLuaModifier("modifier_crimson_magic_oaa", "modifiers/funmodifiers/modifier_crimson_magic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ludo_oaa", "modifiers/funmodifiers/modifier_ludo_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_battlemage_oaa", "modifiers/funmodifiers/modifier_battlemage_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bad_design_1_oaa", "modifiers/funmodifiers/modifier_bad_design_1_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bad_design_2_oaa", "modifiers/funmodifiers/modifier_bad_design_2_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_outworld_attack_oaa", "modifiers/funmodifiers/modifier_outworld_attack_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_puny_oaa", "modifiers/funmodifiers/modifier_puny_oaa.lua", LUA_MODIFIER_MOTION_NONE)

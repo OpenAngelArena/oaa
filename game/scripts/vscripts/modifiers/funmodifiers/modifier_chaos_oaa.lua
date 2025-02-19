@@ -56,6 +56,7 @@ function modifier_chaos_oaa:OnCreated()
     --"modifier_duelist_oaa",
     --"modifier_echo_strike_oaa",
     --"modifier_explosive_death_oaa",
+    "modifier_glass_cannon_oaa",
     --"modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
     "modifier_hp_mana_switch_oaa",
@@ -106,6 +107,7 @@ function modifier_chaos_oaa:OnCreated()
     --"modifier_no_cast_points_oaa",
     "modifier_octarine_soul_oaa",
     "modifier_pro_active_oaa",
+    "modifier_puny_oaa",
     "modifier_range_increase_oaa",
     "modifier_rend_oaa",
     "modifier_roshan_power_oaa",
@@ -126,6 +128,8 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
+    "modifier_bad_design_1_oaa",
+    "modifier_bad_design_2_oaa",
     "modifier_battlemage_oaa",
     --"modifier_blood_magic_oaa",
     "modifier_boss_killer_oaa",
@@ -150,6 +154,7 @@ function modifier_chaos_oaa:OnCreated()
     --"modifier_no_brain_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_octarine_soul_oaa",
+    "modifier_outworld_attack_oaa",
     --"modifier_pro_active_oaa",
     "modifier_range_increase_oaa",
     "modifier_rend_oaa",
@@ -169,6 +174,8 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
+    "modifier_bad_design_1_oaa",
+    "modifier_bad_design_2_oaa",
     "modifier_battlemage_oaa",
     "modifier_bottle_collector_oaa",
     "modifier_brute_oaa",
@@ -181,6 +188,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_nimble_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_octarine_soul_oaa",
+    "modifier_outworld_attack_oaa",
     "modifier_range_increase_oaa",
     "modifier_sorcerer_oaa",
     "modifier_speedster_oaa",
@@ -249,7 +257,7 @@ function modifier_chaos_oaa:OnCreated()
   end
 
   -- Remove Cursed Attack modifier from AGI heroes, No Brain modifier from INT heroes and
-  -- Glass Cannon from STR heroes
+  -- Puny from STR heroes
   if parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
     remove_mod_from_table(self.initial_modifiers, "modifier_cursed_attack_oaa")
     remove_mod_from_table(self.mid_game_modifiers, "modifier_cursed_attack_oaa")
@@ -259,9 +267,9 @@ function modifier_chaos_oaa:OnCreated()
     remove_mod_from_table(self.mid_game_modifiers, "modifier_no_brain_oaa")
     remove_mod_from_table(self.late_game_modifiers, "modifier_no_brain_oaa")
   elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
-    remove_mod_from_table(self.initial_modifiers, "modifier_glass_cannon_oaa")
-    remove_mod_from_table(self.mid_game_modifiers, "modifier_glass_cannon_oaa")
-    remove_mod_from_table(self.late_game_modifiers, "modifier_glass_cannon_oaa")
+    remove_mod_from_table(self.initial_modifiers, "modifier_puny_oaa")
+    remove_mod_from_table(self.mid_game_modifiers, "modifier_puny_oaa")
+    remove_mod_from_table(self.late_game_modifiers, "modifier_puny_oaa")
   end
 
   -- Add an actual random modifier after a delay
