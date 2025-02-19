@@ -5,6 +5,7 @@
 
 DOTA_TEAM_SPECTATOR = 1
 MANUAL_GARBAGE_CLEANING_TIME = 6
+DOTA_ITEM_NEUTRAL_SLOT = DOTA_ITEM_NEUTRAL_ACTIVE_SLOT or 16
 
 -----------------------------------------------------------------------------------
 -- OAA specific settings
