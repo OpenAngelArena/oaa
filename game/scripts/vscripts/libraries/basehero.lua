@@ -20,14 +20,11 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = hero:GetItemInSlot(i)
     if item then
-      -- Don't do it for neutral items
-      if not item:IsNeutralDrop() then
-        local name = item:GetName()
-        local purchaser = item:GetPurchaser()
-        -- Don't do it for bottles and items that don't belong to the hero
-        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
-          networth = networth + item:GetCost()
-        end
+      local name = item:GetName()
+      local purchaser = item:GetPurchaser()
+      -- Don't do it for bottles and items that don't belong to the hero
+      if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+        networth = networth + item:GetCost()
       end
     end
   end
@@ -36,13 +33,11 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
     local item = hero:GetItemInSlot(i)
     if item then
       -- Don't do it for neutral items
-      if not item:IsNeutralDrop() then
-        local name = item:GetName()
-        local purchaser = item:GetPurchaser()
-        -- Don't do it for bottles and items that don't belong to the hero
-        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
-          networth = networth + item:GetCost()
-        end
+      local name = item:GetName()
+      local purchaser = item:GetPurchaser()
+      -- Don't do it for bottles and items that don't belong to the hero
+      if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+        networth = networth + item:GetCost()
       end
     end
   end

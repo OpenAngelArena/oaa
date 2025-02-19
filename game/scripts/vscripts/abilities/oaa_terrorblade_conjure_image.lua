@@ -77,7 +77,7 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
   local origin = position or target:GetAbsOrigin() + RandomVector(150)
   local illusion_damage_dealt = damage_dealt or 0
   local illusion_damage_taken = damage_taken or 0
-  local unit_ability_count = math.max(target:GetAbilityCount(), DOTA_MAX_ABILITIES)
+  local unit_ability_count = target:GetAbilityCount()
 
   if controllable == nil then
     controllable = true
@@ -114,7 +114,6 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
     "abyssal_underlord_portal_warp",
     "twin_gate_portal_warp",
     "ability_lamp_use",
-    "ability_pluck_famango",
   }
 
   local illusion

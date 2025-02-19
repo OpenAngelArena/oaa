@@ -60,7 +60,7 @@ function item_refresher_2:OnSpellStart()
 
   -- Reset neutral item cooldown
   local neutral_item = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() and not exempt_item_table[neutral_item:GetAbilityName()] then
+  if neutral_item and neutral_item:IsActiveNeutral() and not exempt_item_table[neutral_item:GetAbilityName()] then
     neutral_item:EndCooldown()
   end
 end

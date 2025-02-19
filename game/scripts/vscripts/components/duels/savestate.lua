@@ -74,7 +74,7 @@ local function SaveState(hero)
 
   -- Store neutral item cooldown
   local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() then
+  if neutral_item and neutral_item:IsActiveNeutral() then
     state.items[neutral_item] = {
       cooldown = neutral_item:GetCooldownTimeRemaining()
     }

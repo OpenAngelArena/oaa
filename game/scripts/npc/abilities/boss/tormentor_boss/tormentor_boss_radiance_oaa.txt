@@ -6,7 +6,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/tormentor_boss/tormentor_radiance.lua"
-    "AbilityTextureName"                                  "dawnbreaker_luminosity" //"miniboss_radiance"
+    "AbilityTextureName"                                  "miniboss_radiance" // dawnbreaker_luminosity
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "1"

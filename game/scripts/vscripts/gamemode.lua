@@ -106,18 +106,7 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  --DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
-  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-  -- local item = CreateItem("item_example_item", hero, hero)
-  -- hero:AddItem(item)
-
-  --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
-    --with the "example_ability" ability
-
-  local abil = hero:GetAbilityByIndex(1)
-  hero:RemoveAbility(abil:GetAbilityName())
-  hero:AddAbility("example_ability")]]
 end
 
 function GameMode:OnPreGame()
