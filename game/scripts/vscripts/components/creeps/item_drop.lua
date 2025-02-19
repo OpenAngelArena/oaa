@@ -62,15 +62,17 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)), nil)
 
   -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
-  Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
-    -- check if safe to destroy
-    if newItem and not newItem:IsNull() then
-      local container = newItem:GetContainer() -- CDOTA_Item_Physical
-      if container and not container:IsNull() then
-        UTIL_Remove(container) -- Remove item container (CDOTA_Item_Physical)
+  if itemname ~= "item_infinite_bottle" then
+    Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
+      -- check if safe to destroy
+      if newItem and not newItem:IsNull() then
+        local container = newItem:GetContainer() -- CDOTA_Item_Physical
+        if container and not container:IsNull() then
+          UTIL_Remove(container) -- Remove item container (CDOTA_Item_Physical)
+        end
       end
-    end
-  end)
+    end)
+  end
 end
 
 -- Function that removes bottles from the floor (code based on Dota 2 Offical Winter 2022 custom game and ModDota Dota 2 Tutorial)
