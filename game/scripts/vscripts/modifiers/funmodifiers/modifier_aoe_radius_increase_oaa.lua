@@ -130,11 +130,11 @@ function modifier_aoe_radius_increase_oaa:ReEquipAllItems()
     tp_scroll:OnEquip()
   end
 
-  local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() then
-    neutral_item:OnUnequip()
-    neutral_item:OnEquip()
-  end
+  -- local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  -- if neutral_item then
+  --   neutral_item:OnUnequip()
+  --   neutral_item:OnEquip()
+  -- end
 end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)
