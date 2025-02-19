@@ -30,6 +30,7 @@ local RARITY_ENUM = 4
 ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
   { "item_infinite_bottle",      3,      -1,      1},
+  { "item_madstone_bundle",      1,      -1,      2},
 }
 
 function CreepItemDrop:Init ()
@@ -153,6 +154,6 @@ function CreepItemDrop:RandomDropItemName(campLocationString)
     end
   end
 
-  --in case some configuration was done wrong, return empty, itherwise this point should not be reached normally.
+  --in case some configuration was done wrong, return empty, otherwise this point should not be reached normally.
   return ""
 end
