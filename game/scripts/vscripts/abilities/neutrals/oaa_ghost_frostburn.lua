@@ -9,7 +9,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_frostburn_oaa_applier = class(ModifierBaseClass)
+modifier_frostburn_oaa_applier = class({})
 
 function modifier_frostburn_oaa_applier:IsHidden()
   return true
@@ -36,12 +36,12 @@ modifier_frostburn_oaa_applier.OnRefresh = modifier_frostburn_oaa_applier.OnCrea
 
 function modifier_frostburn_oaa_applier:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
   }
 end
 
 if IsServer() then
-  function modifier_frostburn_oaa_applier:OnAttackLanded(event)
+  function modifier_frostburn_oaa_applier:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
@@ -75,7 +75,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_frostburn_oaa_effect = class(ModifierBaseClass)
+modifier_frostburn_oaa_effect = class({})
 
 function modifier_frostburn_oaa_effect:IsHidden()
   return false
@@ -102,17 +102,6 @@ function modifier_frostburn_oaa_effect:OnCreated()
   --self.health_fraction = 0
 end
 
-function modifier_frostburn_oaa_effect:OnRefresh()
-  local ability = self:GetAbility()
-  if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-    self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
-  else
-    self.heal_prevent_percent = -25
-    self.attack_slow = -25
-  end
-end
-
 function modifier_frostburn_oaa_effect:GetEffectName()
   return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
 end
@@ -129,23 +118,23 @@ function modifier_frostburn_oaa_effect:DeclareFunctions()
 end
 
 function modifier_frostburn_oaa_effect:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_prevent_percent
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_frostburn_oaa_effect:GetModifierHPRegenAmplify_Percentage()
-  return self.heal_prevent_percent
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_frostburn_oaa_effect:GetModifierLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_frostburn_oaa_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_frostburn_oaa_effect:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_slow
+  return 0 - math.abs(self.attack_slow)
 end
 
 --[[

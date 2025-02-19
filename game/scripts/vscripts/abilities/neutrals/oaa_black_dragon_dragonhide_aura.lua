@@ -9,7 +9,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_dragonhide_aura_oaa_applier = class(ModifierBaseClass)
+modifier_dragonhide_aura_oaa_applier = class({})
 
 function modifier_dragonhide_aura_oaa_applier:IsHidden()
   return true
@@ -62,7 +62,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_dragonhide_aura_oaa_effect = class(ModifierBaseClass)
+modifier_dragonhide_aura_oaa_effect = class({})
 
 function modifier_dragonhide_aura_oaa_effect:IsHidden()
   return false

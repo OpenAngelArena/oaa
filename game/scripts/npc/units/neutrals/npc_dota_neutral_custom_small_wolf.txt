@@ -19,7 +19,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "giant_wolf_intimidate"
-    "Ability2"                                            ""
+    "Ability2"                                            "giant_wolf_cripple_oaa"
     "Ability3"                                            ""
     "Ability4"                                            ""
 
@@ -56,6 +56,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "350"     // Speed.
+    "MovementTurnRate"                                    "0.9"
 
     // Status
     //----------------------------------------------------------------

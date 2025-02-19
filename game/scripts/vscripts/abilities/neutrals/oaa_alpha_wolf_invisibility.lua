@@ -13,7 +13,7 @@ function alpha_wolf_invisibility_oaa:OnSpellStart()
 end
 --------------------------------------------------------------------------------
 
-modifier_alpha_invisibility_oaa_buff = class(ModifierBaseClass)
+modifier_alpha_invisibility_oaa_buff = class({})
 
 function modifier_alpha_invisibility_oaa_buff:IsHidden()
   return false

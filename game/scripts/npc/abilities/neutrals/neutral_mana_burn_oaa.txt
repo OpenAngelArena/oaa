@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Mana Burn - burns mana of enemies around the caster
+  //=================================================================================================================
+  "neutral_mana_burn_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_neutral_mana_burn.lua"
+    "AbilityTextureName"                                  "necronomicon_archer_mana_burn"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // just for the tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // just for the tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCooldown"                                     "7"
+    "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "mana_base"                                         "75 125 175 225"
+      "mana_pct"                                          "1"
+      "radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}
