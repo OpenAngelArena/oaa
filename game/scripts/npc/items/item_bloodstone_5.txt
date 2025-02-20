@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +33,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_bloodstone"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityTextureName"                                  "custom/bloodstone_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
@@ -62,14 +63,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_aoe"                                         "0"
       "bonus_health"                                      "425 525 675 875 1125"
       "bonus_mana"                                        "425 525 675 875 1125"
       "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
-      "spell_lifesteal"                                   "20 22 24 26 28"
+      "hero_spell_lifesteal"                              "20 22 24 26 28"
+      "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6"
       "buff_duration"                                     "5"
       "lifesteal_multiplier"                              "6"
-      "hp_cost"                                           "0"
     }
   }
 }

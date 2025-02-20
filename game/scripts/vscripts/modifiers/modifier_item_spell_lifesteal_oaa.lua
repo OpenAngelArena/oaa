@@ -25,6 +25,7 @@ function modifier_item_spell_lifesteal_oaa:OnCreated(kv)
     self.creep_spell_lifesteal = ability:GetSpecialValueFor("creep_spell_lifesteal")
     self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal") or 0
     self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal") or 0
+    self.multiplier = ability:GetSpecialValueFor("lifesteal_multiplier") or 0
   end
 end
 
@@ -124,8 +125,26 @@ if IsServer() then
 
     -- Check for Satanic Core active spell lifesteal
     if self.unholy_hero_spell_lifesteal > 0 and self.unholy_creep_spell_lifesteal > 0 and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
-      nHeroHeal = self.unholy_hero_spell_lifesteal
-      nCreepHeal = self.unholy_creep_spell_lifesteal
+      local mod = attacker:FindModifierByName("modifier_satanic_core_unholy")
+      local ab = self:GetAbility()
+      if ab and mod then
+        if ab == mod:GetAbility() then
+          nHeroHeal = self.unholy_hero_spell_lifesteal
+          nCreepHeal = self.unholy_creep_spell_lifesteal
+        end
+      end
+    end
+
+    -- Check for Bloodstone active
+    if self.multiplier > 0 and attacker:HasModifier("modifier_item_bloodstone_active") and attacker:HasModifier("modifier_item_bloodstone") then
+      local mod = attacker:FindModifierByName("modifier_item_bloodstone_active")
+      local ab = self:GetAbility()
+      if ab and mod then
+        if ab == mod:GetAbility() then
+          nHeroHeal = self.hero_spell_lifesteal * self.multiplier
+          nCreepHeal = self.creep_spell_lifesteal * self.multiplier
+        end
+      end
     end
 
     -- Most optimal fix for spell lifesteal stacking from sources that are effectively the same
