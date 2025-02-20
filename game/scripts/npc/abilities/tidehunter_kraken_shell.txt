@@ -7,16 +7,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "45"
+    
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "30"
+      }
       "damage_reduction"
       {
         "value"                                           "15 35 55 75 150 225"
@@ -26,6 +40,10 @@
         "value"                                           "0"
         "special_bonus_facet_tidehunter_kraken_swell"     "1 2 3 4 5 6"
       }
+      "creep_reduction_penalty_pct"                       "50.0"
+      "active_pct_effectiveness"                          "200.0"     // "double" is in the loc file. if changing this amount, update the ability description
+      "active_move_speed_penalty_pct"                     "40"
+      "active_duration"                                   "4.0"
     }
   }
 }

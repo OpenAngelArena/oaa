@@ -43,7 +43,7 @@
       "attack_speed_share_percent"
       {
         "value"                                           "0"
-        "special_bonus_facet_troll_warlord_bad_influence"  "+40"
+        "special_bonus_facet_troll_warlord_bad_influence"  "+50" // based off attack_speed
       }
       "movement_speed"
       {
@@ -53,6 +53,16 @@
       {
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
+      }
+      "stack_limit_tooltip" //OAA
+      {
+        "value"                                             "0"
+        "special_bonus_facet_troll_warlord_bad_influence"   "+12"       // TOOLTIP ONLY: Update stack_limit_during_battle_trance for behavior change
+      }
+      "ignore_attack_speed_limit"
+      {
+        "value"                                             "0"
+        "special_bonus_facet_troll_warlord_bad_influence"   "+1"
       }
     }
   }
