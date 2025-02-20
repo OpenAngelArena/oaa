@@ -11,8 +11,8 @@
 
     "AbilityValues"
     {
-      "bonus_damage_per_str"                              "0.5" //OAA
-      "base_damage_reduction"                             "20"
+      "bonus_damage_per_str"                              "0.0 0.3 0.35 0.40 0.45 0.5" //OAA
+      "base_damage_reduction"                             "0"
     }
   }
 }

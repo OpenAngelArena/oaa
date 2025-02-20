@@ -27,12 +27,19 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "overload_move_slow"                                "-80"
-      "overload_attack_slow"                              "-80"
+      "overload_move_slow"
+      {
+        "value"                                           "-80"
+        "special_bonus_unique_storm_spirit_overload_aspd"       "-20.0"             
+      }
+      "overload_attack_slow"
+      {
+        "value"                                           "-80"
+        "special_bonus_unique_storm_spirit_overload_aspd"       "-20.0"             
+      }
       "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
       {
         "value"                                           "40 60 80 100 200 300"
-        "special_bonus_unique_storm_spirit_overload_aspd"  "+20.0"
       }
       "shard_activation_radius"
       {

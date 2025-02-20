@@ -28,7 +28,7 @@
       "duration"
       {
         "value"                                           "3"
-        "special_bonus_unique_sniper_4"                   "+1"
+        "special_bonus_unique_sniper_4"                   "+2"
       }
       "slow"
       {
@@ -38,11 +38,11 @@
       "active_attack_range_bonus"
       {
         "value"                                           "200" // special_bonus_unique_sniper_6_oaa
+        "special_bonus_unique_sniper_5"                   "+55"
       }
       "bonus_armor"
       {
         "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_sniper_take_aim_armor"      "+15"
       }
       "does_root"
       {
@@ -55,6 +55,11 @@
       "no_reveal"
       {
         "special_bonus_facet_sniper_ghillie_suit"         "1"
+      }
+      "attack_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_sniper_6"                   "+45"
       }
     }
   }

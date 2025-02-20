@@ -19,16 +19,29 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "2.3" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "2.3"
+        "special_bonus_unique_spirit_breaker_1"           "-0.3"
+      }
       "chance_pct"
       {
         "value"                                           "17"
-        "special_bonus_unique_spirit_breaker_1"           "+17"
+      }
+      "bonus_chance_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_spirit_breaker_bulls_hit"    "+17"
+      }
+      "bonus_chance_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_spirit_breaker_bulls_hit"    "10.0"
       }
       "damage" //OAA
       {
