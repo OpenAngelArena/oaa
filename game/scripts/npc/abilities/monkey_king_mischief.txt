@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  "monkey_king_mischief"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "6"
+
+    // Time     
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "24 20 16 12 11 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    "AbilityValues"
+    {
+      "movespeed"                                         "6 9 12 15 18 21"
+      "reveal_radius"                                     "200"
+      "invul_duration"            
+      {
+          "value"                                         "0.1"
+      }
+    }
+  }
+}

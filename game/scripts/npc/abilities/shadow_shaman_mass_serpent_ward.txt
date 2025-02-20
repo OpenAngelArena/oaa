@@ -37,10 +37,7 @@
       {
         "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
       }
-      "bonus_damage"
-      {
-        "special_bonus_unique_shadow_shaman_4"            "+20"
-      }
+      "bonus_damage"                                      "0"
       "bonus_attack_range"
       {
         "special_bonus_unique_shadow_shaman_8"            "+160"
@@ -57,6 +54,10 @@
       {
         "value"                                           "4"
         "special_bonus_unique_shadow_shaman_1"            "+2"
+      }
+      "bonus_attack_targets"
+      {
+        "special_bonus_unique_shadow_shaman_4"            "+1"
       }
       "is_mega_ward"
       {

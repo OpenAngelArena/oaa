@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0"
     "AbilityDuration"                                     "10.0"
 
     // Cost
@@ -32,6 +31,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "12.0"
+        "special_bonus_unique_mirana_3"                   "-2"
+      }
+      "damage"
+      {
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_unique_mirana_7"                   "+250"
+      }
+      "secondary_starfall_damage_percent"
+      {
+        "value"                                           "60"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_facet_mirana_starstruck"           "+40"
+      }
       "starfall_radius"
       {
         "value"                                           "675"
@@ -42,11 +57,15 @@
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
       }
-      "secondary_starfall_damage_percent"                 "80"
-      "damage"
+      "starstruck_blind_pct"
       {
-        "value"                                           "75 150 225 300 600 900"
-        "special_bonus_unique_mirana_7"                   "+250"
+        "value"                                           "0"
+        "special_bonus_facet_mirana_starstruck"           "+60.0"
+      }
+      "starstruck_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_mirana_starstruck"           "=3.5 =4.0 =4.5 =5.0 =5.0 =5.0"
       }
     }
   }

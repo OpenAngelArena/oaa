@@ -48,7 +48,7 @@
       "bonus_damage_pct"                                  "0"
       "toss_damage" // reminder: this gets increased with Grow
       {
-        "value"                                           "80 160 240 320 640 1280"
+        "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCharges"
@@ -69,7 +69,7 @@
       "bonus_land_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_tiny_crash_landing"          "20 25 30 35 40 45"
+        "special_bonus_facet_tiny_crash_landing"          "20"
       }
       "land_debuff_duration"
       {

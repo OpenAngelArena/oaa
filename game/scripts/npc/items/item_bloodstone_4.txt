@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Bloodstone 4
+  //=================================================================================================================
+  "item_recipe_bloodstone_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_bloodstone_4"
+    "ItemRequirements"
+    {
+      "01"                                                "item_bloodstone_3;item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Bloodstone 4
+  //=================================================================================================================
+  "item_bloodstone_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/satanic_core.lua"
+    "AbilityTextureName"                                  "custom/bloodstone_4"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "satanic_core"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "17403"
+    "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bs 4;bloodstone 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "AllowedInBackpack"                                   "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_mana"                                        "425 525 675 875 1125"
+      "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
+      "hero_spell_lifesteal"                              "20 22 24 26 28"
+      "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6"
+      "buff_duration"                                     "5"
+      "lifesteal_multiplier"                              "6"
+    }
+  }
+}

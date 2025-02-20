@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9102"
+    "ItemCost"                                            "9002"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf 3;battle fury 3;cleaver 3"
@@ -58,10 +58,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "65 85 125 185 265"
+      "bonus_damage"                                      "60 80 120 180 260"
       "bonus_health_regen"                                "7.5 11 14 17 20"
       "bonus_mana_regen"                                  "2.75 3.0 3.5 4.25 5.25"
-      "cleave_damage_percent"                             "70 75 80 85 90"
+      "cleave_damage_percent"                             "60 65 70 75 80"
       "cleave_damage_percent_creep"                       "40 45 50 55 60"
       "quelling_bonus"                                    "10"
       "quelling_bonus_ranged"                             "10"

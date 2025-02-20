@@ -37,11 +37,14 @@
       "bonus_damage"
       {
         "value"                                           "25 50 75 100 150 200"
-        "special_bonus_unique_tusk_3"                     "+25"
       }
       "movement_slow"                                     "75"
       "slow_duration"                                     "0.5"
-      "debuff_duration"                                   "6"
+      "debuff_duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_tusk_3"                     "+2"
+      }
       "radius"
       {
         "value"                                           "350"

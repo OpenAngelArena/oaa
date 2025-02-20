@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1300"
+    "ItemCost"                                            "1050"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_skadi"
     "ItemRequirements"
     {
-      "01"                                                "item_ultimate_orb;item_point_booster"
+      "01"                                                "item_ultimate_orb;item_point_booster;item_orb_of_frost"
     }
   }
 

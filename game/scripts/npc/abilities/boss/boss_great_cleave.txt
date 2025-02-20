@@ -23,12 +23,12 @@
         "value"                                           "150"
         // intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
       }
-      "cleave_ending_width"
+      "cleave_ending_width" //OAA
       {
         "value"                                           "360"
         "affected_by_aoe_increase"                        "1"
       }
-      "cleave_distance"
+      "cleave_distance" //OAA
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"

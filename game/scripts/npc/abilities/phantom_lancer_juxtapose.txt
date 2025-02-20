@@ -35,26 +35,26 @@
       "illusion_duration"                                 "8"
       "illusion_damage_out_pct" //OAA
       {
-        "value"                                           "-65 -55 -45 -35 -25"
+        "value"                                           "-65 -55 -45 -40 -35"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+2"
         "special_bonus_unique_phantom_lancer_6"           "+6"
       }
       "tooltip_illusion_damage" //OAA
       {
-        "value"                                           "35 45 55 65 75"
+        "value"                                           "35 45 55 60 65"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+2"
         "special_bonus_unique_phantom_lancer_6"           "+6"
       }
       "illusion_damage_in_pct" //OAA
       {
-        "value"                                           "400 375 350 300 200"
+        "value"                                           "400 375 350 300 250"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "tooltip_total_illusion_damage_in_pct" //OAA
       {
-        "value"                                           "500 475 450 400 300"
+        "value"                                           "500 475 450 400 350"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "illusion_from_illusion_duration"                   "4"

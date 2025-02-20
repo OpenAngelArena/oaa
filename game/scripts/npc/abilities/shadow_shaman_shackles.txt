@@ -20,7 +20,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -36,6 +35,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "450"
+        "special_bonus_scepter"                           "+150"
+      }
       "tick_interval"                                     "0.1"
       "total_damage" //OAA
       {
@@ -47,25 +51,10 @@
         "value"                                           "2.2 2.6 3.0 3.4 3.8 4.2"
         "special_bonus_unique_shadow_shaman_2"            "+0.6"
       }
-      "shard_bonus_cast_range"
-      {
-        "value"                                           "75"
-        "RequiresShard"                                   "1"
-      }
-      "shard_ward_count"
-      {
-        "value"                                           "4"
-        "RequiresShard"                                   "1"
-      }
-      "shard_ward_spawn_distance"
-      {
-        "value"                                           "100"
-        "RequiresShard"                                   "1"
-      }
       "ward_linger_duration"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=2.5"
+        "special_bonus_scepter"                           "=2.5"
       }
       "bonus_targets"
       {
@@ -82,6 +71,30 @@
       "heal_percentage"
       {
         "value"                                           "100"
+      }
+      "scepter_shock_pct"
+      {
+        "special_bonus_scepter"                           "100"
+      }
+
+      "scepter_shock_radius"
+      {
+        "special_bonus_scepter"                           "600"
+      }
+
+      "scepter_shock_interval"
+      {
+        "special_bonus_scepter"                           "0.9"
+      }
+
+      "alt_cast_on_allies"
+      {
+        "special_bonus_scepter"                           "1"
+      }
+
+      "ally_break_range"
+      {
+        "special_bonus_scepter"                           "2000"
       }
     }
   }

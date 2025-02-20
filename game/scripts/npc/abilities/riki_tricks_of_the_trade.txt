@@ -33,7 +33,6 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 14 13 12 11 10"
-        "special_bonus_unique_riki_6"                     "-3"
       }
       "radius"
       {
@@ -71,6 +70,11 @@
       {
         "value"                                           "1"
         "special_bonus_facet_riki_exterminator"           "=4.5"
+      }
+      "cooldown_reduction_per_creep_kill"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_riki_exterminator"           "=0.75"
       }
     }
   }

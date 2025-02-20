@@ -37,12 +37,13 @@
       "AbilityCastRange"
       {
         "value"                                           "1000"
-        "special_bonus_unique_muerta_dead_shot_range"     "+350"
+        "special_bonus_unique_muerta_dead_shot_range"     "+300"
       }
       "damage"
       {
         "value"                                           "100 175 250 325 650 1300"
-        "special_bonus_unique_muerta_dead_shot_damage"    "+80"
+        //"special_bonus_unique_muerta_dead_shot_damage"    "+80"
+        "special_bonus_scepter"                           "+125"
       }
       "speed"                                             "2000"
       "radius"
@@ -52,10 +53,18 @@
       }
       "ricochet_radius_start"                             "115"
       "ricochet_radius_end"                               "115"
+      "ricochet_radius_expansion_per_second"
+      {
+        "special_bonus_scepter"                           "+300"
+      }
       "ricochet_distance_multiplier"                      "1.5"
       "ricochet_fear_duration"                            "0.8 0.95 1.1 1.25 1.4 1.55"
       "impact_slow_percent"                               "-100"
       "impact_slow_duration"                              "1" // special_bonus_unique_muerta_1_oaa
+      "scepter_pierces"
+      {
+        "special_bonus_scepter"                           "+1"
+      }
     }
   }
 }

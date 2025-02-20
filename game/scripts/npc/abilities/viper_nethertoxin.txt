@@ -48,6 +48,16 @@
       "attack_slow"                                       "30 40 50 60 70 80"
       "duration"                                          "6.5 7 7.5 8 8.5 9"
       "projectile_speed"                                  "2400"
+      "radius_increase"           
+      {
+        "value"                                           "0"
+        "special_bonus_unique_viper_nethertoxin_radius"   "+25"
+      }       
+      "expand_interval"           
+      {
+        "value"                                           "0"
+        "special_bonus_unique_viper_nethertoxin_radius"   "+0.5"
+      }
     }
   }
 }

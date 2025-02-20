@@ -35,11 +35,7 @@
         "value"                                           "50"
         "RequiresScepter"                                 "1"
       }
-      "break_on_attack"
-      {
-        "value"                                           "1"
-        "special_bonus_facet_phantom_assassin_veiled_one"  "=0"
-      }
+      "break_on_attack"                                   "0"
       "manacost_reduction_during_blur_pct"
       {
         "value"                                           "0"

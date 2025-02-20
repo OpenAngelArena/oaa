@@ -1,6 +1,19 @@
 //=============================================================================
 // Abyssal Blade
 //=============================================================================
+// "DOTA_Tooltip_Ability_item_abyssal_blade"                                      "Abyssal Blade"
+// "DOTA_Tooltip_Ability_item_recipe_abyssal_blade"                               "Abyssal Blade Recipe"
+// "DOTA_Tooltip_ability_item_abyssal_blade_Description"                          "<h1>Active: Overwhelm</h1> Stuns a target enemy unit for %stun_duration% seconds. <br><br>Pierces Debuff Immunity.\n\n<h1>Passive: Bash</h1> Grants melee heroes a %bash_chance_melee%%% chance on hit to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus physical damage.  Bash chance for ranged heroes is %bash_chance_ranged%%%."
+// "DOTA_Tooltip_ability_item_abyssal_blade_Lore"                                 "The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul."
+// "DOTA_Tooltip_ability_item_abyssal_blade_Note0"                                "The stun is melee range."
+// "DOTA_Tooltip_ability_item_abyssal_blade_Note1"                                "Does not stack with other bashes, and does not grant bash to Clones and Tempest Doubles."
+// "DOTA_Tooltip_ability_item_abyssal_blade_Note2"                                "Multiple sources of damage block do not stack."
+// "DOTA_Tooltip_ability_item_abyssal_blade_Note3"                                "The following heroes cannot trigger Bash on this item: Spirit Breaker, Faceless Void, Slardar, and Kez while in Sai mode."
+// "DOTA_Tooltip_ability_item_abyssal_blade_bonus_damage"                         "+$damage"
+// "DOTA_Tooltip_ability_item_abyssal_blade_slow_resistance"                      "%+Slow Resistance"
+// "DOTA_Tooltip_ability_item_abyssal_blade_hp_regen_amp"                         "%+Health Regen and Lifesteal Amp"
+// "DOTA_Tooltip_ability_item_abyssal_blade_bonus_strength"                       "+$str"
+
 "DOTA_Tooltip_Ability_item_abyssal_blade_2"                                     "#{DOTA_Tooltip_Ability_item_abyssal_blade}"
 "DOTA_Tooltip_Ability_item_recipe_abyssal_blade_2"                              "#{DOTA_Tooltip_Ability_item_recipe_abyssal_blade}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_2_Description"                         "#{DOTA_Tooltip_ability_item_abyssal_blade_Description}"
@@ -8,8 +21,8 @@
 "DOTA_Tooltip_Ability_item_abyssal_blade_2_Note0"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note1}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_2_Note1"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note2}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_2_bonus_damage"                        "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_damage}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_2_bonus_health"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_2_bonus_health_regen"                  "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_2_slow_resistance"                     "#{DOTA_Tooltip_Ability_item_abyssal_blade_slow_resistance}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_2_hp_regen_amp"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_hp_regen_amp}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_2_bonus_strength"                      "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_strength}"
 
 "DOTA_Tooltip_Ability_item_abyssal_blade_3"                                     "#{DOTA_Tooltip_Ability_item_abyssal_blade}"
@@ -19,8 +32,8 @@
 "DOTA_Tooltip_Ability_item_abyssal_blade_3_Note0"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note1}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_3_Note1"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note2}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_3_bonus_damage"                        "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_damage}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_3_bonus_health"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_3_bonus_health_regen"                  "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_3_slow_resistance"                     "#{DOTA_Tooltip_Ability_item_abyssal_blade_slow_resistance}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_3_hp_regen_amp"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_hp_regen_amp}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_3_bonus_strength"                      "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_strength}"
 
 "DOTA_Tooltip_Ability_item_abyssal_blade_4"                                     "#{DOTA_Tooltip_Ability_item_abyssal_blade}"
@@ -30,8 +43,8 @@
 "DOTA_Tooltip_Ability_item_abyssal_blade_4_Note0"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note1}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_4_Note1"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note2}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_4_bonus_damage"                        "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_damage}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_4_bonus_health"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_4_bonus_health_regen"                  "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_4_slow_resistance"                     "#{DOTA_Tooltip_Ability_item_abyssal_blade_slow_resistance}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_4_hp_regen_amp"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_hp_regen_amp}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_4_bonus_strength"                      "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_strength}"
 
 "DOTA_Tooltip_Ability_item_abyssal_blade_5"                                     "#{DOTA_Tooltip_Ability_item_abyssal_blade}"
@@ -41,6 +54,6 @@
 "DOTA_Tooltip_Ability_item_abyssal_blade_5_Note0"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note1}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_5_Note1"                               "#{DOTA_Tooltip_ability_item_abyssal_blade_Note2}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_5_bonus_damage"                        "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_damage}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_5_bonus_health"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health}"
-"DOTA_Tooltip_Ability_item_abyssal_blade_5_bonus_health_regen"                  "#{DOTA_Tooltip_Ability_item_abyssal_blade_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_5_slow_resistance"                     "#{DOTA_Tooltip_Ability_item_abyssal_blade_slow_resistance}"
+"DOTA_Tooltip_Ability_item_abyssal_blade_5_hp_regen_amp"                        "#{DOTA_Tooltip_Ability_item_abyssal_blade_hp_regen_amp}"
 "DOTA_Tooltip_Ability_item_abyssal_blade_5_bonus_strength"                      "#{DOTA_Tooltip_ability_item_abyssal_blade_bonus_strength}"

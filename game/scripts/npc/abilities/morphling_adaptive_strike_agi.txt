@@ -33,6 +33,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "13 12 11 10 9 8"
+        "special_bonus_unique_morphling_7"                "-3"
       }
       "damage_base" //OAA
       {
@@ -49,8 +50,33 @@
         "value"                                           "1.0 1.5 2.0 2.5 3.5 5.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "stun_min"                      
+      {
+        "value"                                           "0"
+        "special_bonus_facet_morphling_str"               "0.5"
+      }
+      "stun_max"                      
+      {
+        "value"                                           "0"
+        "special_bonus_facet_morphling_str"               "2.4"
+      }
+      "knockback_min"                 
+      {
+        "value"                                           "50"
+      }
+      "knockback_max"                 
+      {
+        "value"                                           "350"
+      }
+      "knockback_duration"
+      {
+        "value"                                           "0.5"
+      }
       "projectile_speed"                                  "1150"
-      "shared_cooldown"                                   "1" //OAA
+      "extra_targets"
+      {
+        "value"                                           "0"                 
+      }
     }
   }
 }
