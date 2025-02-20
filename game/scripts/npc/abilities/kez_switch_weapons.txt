@@ -23,9 +23,24 @@
     {
       "katana_attack_range"                               "225"
       "katana_base_attack_time"                           "2.0"
-      "katana_bonus_damage"                               "20"
+      "katana_bonus_damage"                               "12"
+      "katana_swap_bonus_damage"
+      {
+        "RequiresFacet"                                   "kez_flutter"
+        "value"                                           "12"
+      }
       "sai_attack_range"                                  "150"
       "sai_base_attack_time"                              "1.5"
+      "sai_swap_bonus_movement_speed"     
+      {
+        "RequiresFacet"                                   "kez_flutter"
+        "value"                                           "12"
+      }
+      "sai_swap_duration"
+      {
+        "RequiresFacet"                                   "kez_flutter"
+        "value"                                           "2"
+      }
       "cooldown_reduction_per_level"                      "0.1" //OAA
       "scepter_cooldown_timer"                            "3"
     }

@@ -82,6 +82,32 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+50"
       }
+      "creep_max_hp_drain_pct_per_second"
+      {
+        "value"                                           "2.0 1.0 0.0 0.0 0.0"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "can_target_ancients"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_life_stealer_gorestorm"      "+1"
+      }
+      "dot_damage_as_pct_of_damage_dealt"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_life_stealer_gorestorm"      "+25.0"
+      }
+      "dot_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_life_stealer_gorestorm"      "+3.0"
+      }
+      "dot_tick_interval"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_life_stealer_gorestorm"      "+1.0"      // if changing this, update DOTA_Tooltip_modifier_life_stealer_infest_dot_Description
+      }
     }
   }
 }

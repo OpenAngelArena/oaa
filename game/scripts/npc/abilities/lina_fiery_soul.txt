@@ -25,19 +25,18 @@
       }
       "fiery_soul_move_speed_bonus"
       {
-        "value"                                           "1.5 2 2.5 3.0 3.5 4.0"
+        "value"                                           "1.0 1.5 2 2.5 3.0 3.5"
         "special_bonus_unique_lina_2"                     "+1"
       }
-      "fiery_soul_magic_resist"
+      "fiery_soul_magic_resist" //OAA
       {
-        "special_bonus_unique_lina_4"                     "+5"
+        "special_bonus_unique_lina_4"                     "+2"
       }
       "fiery_soul_max_stacks"                             "7"
       "fiery_soul_stack_duration"                         "18"
       "bonus_spell_damage" //OAA
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+10 15 20 25 35 45"
       }
       "target_crit_multiplier"
       {
