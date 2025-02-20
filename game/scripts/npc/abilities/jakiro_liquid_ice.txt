@@ -45,7 +45,7 @@
       "pct_health_damage"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+2.5"
+        "special_bonus_unique_jakiro_3"                   "+2.5"
       }
       "duration"                                          "4.0"
       "radius"
@@ -54,11 +54,16 @@
         "affected_by_aoe_increase"                        "1"
       }
       "tick_rate"                                         "0.5"
-      "double_head"
+      //"double_head"
+      //{
+      //  "special_bonus_unique_jakiro_3"                   "+1"
+      //}
+      //"building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
+      "shares_cooldown"                   
       {
-        "special_bonus_unique_jakiro_3"                   "+1"
+        "value"                                           "1"
+        "special_bonus_shard"                             "=0"
       }
-      "building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
     }
   }
 }
