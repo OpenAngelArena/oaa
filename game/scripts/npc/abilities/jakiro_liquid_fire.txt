@@ -50,12 +50,9 @@
         "special_bonus_unique_jakiro_3"                   "+2.5"
       }
       "tick_rate"                                         "0.5"
-      "building_dmg_pct"                                  "85" // OAA, percentage bonus damage against bosses
-      //"double_head"
-      //{
-      //  "special_bonus_unique_jakiro_3"                   "+1"
-      //}
-      "shares_cooldown"                   
+      "building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
+
+      "shares_cooldown"
       {
         "value"                                           "1"
         "special_bonus_shard"                             "=0"

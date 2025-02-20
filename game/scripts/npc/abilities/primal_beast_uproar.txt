@@ -22,7 +22,7 @@
     {
       "bonus_damage_per_stack" //OAA
       {
-        "value"                                           "10 15 20 25 50 100"
+        "value"                                           "10 16 22 28 56 112"
       }
       "stack_limit"
       {
@@ -31,7 +31,7 @@
       "stack_count_increase_on_disable"
       {
         "value"                                           "0"
-        "special_bonus_facet_primal_beast_provoke_the_beast"    "2"
+        "special_bonus_facet_primal_beast_provoke_the_beast"  "2"
       }
       "damage_limit"                                      "50"
       "stack_duration"                                    "20"

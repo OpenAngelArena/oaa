@@ -54,26 +54,26 @@
       "max_level" //OAA
       {
         "value"                                           "6"
-        "special_bonus_facet_magnataur_diminishing_return" "+1"
+        "special_bonus_facet_magnataur_diminishing_return"  "+1"
       }
       "max_level_tooltip" //OAA
       {
-        "special_bonus_facet_magnataur_diminishing_return" "=7"
+        "special_bonus_facet_magnataur_diminishing_return"  "=7"
       }
       "basic_slow_duration" //OAA
       {
         "value"                                           "0.7 0.8 0.9 1.0 1.1 1.2"
-        "special_bonus_facet_magnataur_diminishing_return" "=0.7 =0.8 =0.9 =1.0 =1.1 =1.2 =1.3"
+        "special_bonus_facet_magnataur_diminishing_return"  "=0.7 =0.8 =0.9 =1.0 =1.1 =1.2 =1.3"
       }
       "return_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_magnataur_diminishing_return"      "=0 =0 =0 =0 =50 =50 =50"
+        "special_bonus_facet_magnataur_diminishing_return"  "=0 =0 =0 =0 =50 =50 =50"
       }
       "return_damage_pct_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_facet_magnataur_diminishing_return"      "=50"
+        "special_bonus_facet_magnataur_diminishing_return"  "=50"
       }
       "AbilityCastRange"
       {
@@ -81,7 +81,7 @@
       }
       "return_shockwave_bonus_distance"
       {
-        "special_bonus_facet_magnataur_diminishing_return"      "+200"
+        "special_bonus_facet_magnataur_diminishing_return"  "+200"
       }
     }
   }

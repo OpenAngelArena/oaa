@@ -49,12 +49,12 @@
       "projectile_speed"                                  "1200"
       "avalanche_damage" //OAA
       {
-        "value"                                           "80 160 240 320 640 960"
-        "special_bonus_unique_tiny"                       "+150"
+        "value"                                           "100 200 300 400 800 1200"
+        "special_bonus_unique_tiny"                       "+100"
       }
       "toss_damage_bonus_pct" //OAA
       {
-        "value"                                           "100"
+        "value"                                           "50"
       }
     }
   }

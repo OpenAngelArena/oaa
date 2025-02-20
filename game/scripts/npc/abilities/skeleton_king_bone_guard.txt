@@ -16,7 +16,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityManaCost"                                     "100" //OAA
+    "AbilityManaCost"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "40 38 36 34 32 30"
+        "value"                                           "40"
         "special_bonus_unique_wraith_king_facet_1"        "-25%"
       }
       "max_skeleton_charges"                              "6" //OAA, because of lag

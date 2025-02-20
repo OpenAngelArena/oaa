@@ -40,7 +40,6 @@
       "bonus_instance_damage_from_other_abilities"
       {
         "value"                                           "12 18 24 30 42 66"
-        "special_bonus_unique_jakiro_4"                   "+10"
       }
       "pct_health_damage"
       {
@@ -54,16 +53,13 @@
         "affected_by_aoe_increase"                        "1"
       }
       "tick_rate"                                         "0.5"
-      //"double_head"
-      //{
-      //  "special_bonus_unique_jakiro_3"                   "+1"
-      //}
-      //"building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
-      "shares_cooldown"                   
+
+      "shares_cooldown"
       {
         "value"                                           "1"
         "special_bonus_shard"                             "=0"
       }
+      "building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
     }
   }
 }

@@ -44,9 +44,9 @@
       }
       "mana_burn_pct" //OAA
       {
-          "value"                                         "0"                             
-          "special_bonus_facet_nyx_assassin_burn_mana"    "=16" // max mana
-          "RequiresFacet"                                 "nyx_assassin_burn_mana"
+        "value"                                           "0"                             
+        "special_bonus_facet_nyx_assassin_burn_mana"      "=16" // max mana
+        "RequiresFacet"                                   "nyx_assassin_burn_mana"
       }
       "aoe"
       {
