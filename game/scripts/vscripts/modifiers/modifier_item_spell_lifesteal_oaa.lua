@@ -72,19 +72,39 @@ if IsServer() then
       return
     end
 
+    local succubus = attacker:FindAbilityByName("queenofpain_succubus")
+    local isSuccubus = succubus and succubus:GetLevel() > 0
+    local spellLifestealReflected = false
+    if isSuccubus then
+      spellLifestealReflected = succubus:GetSpecialValueFor("lifesteal_reflected") == 1
+    end
+
+    -- Ignore pure damage
+    if params.damage_type == DAMAGE_TYPE_PURE then
+      if not isSuccubus then
+        return
+      end
+    end
+
     -- Ignore damage that has the no-reflect flag
     if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      return
+      if not spellLifestealReflected then
+        return
+      end
     end
 
     -- Ignore damage that has the no-spell-lifesteal flag
     if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
-      return
+      if not spellLifestealReflected then
+        return
+      end
     end
 
     -- Ignore damage that has the no-spell-amplification flag
     if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-      return
+      if not spellLifestealReflected then
+        return
+      end
     end
 
     -- Don't heal while dead
