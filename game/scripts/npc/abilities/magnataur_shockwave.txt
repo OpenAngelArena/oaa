@@ -13,7 +13,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -37,7 +36,6 @@
       "shock_speed"
       {
         "value"                                           "1200"
-        "special_bonus_shard"                             "+400"
       }
       "shock_width"
       {
@@ -53,20 +51,37 @@
       "slow_duration"                                     "2"
       "pull_duration"                                     "0.2"
       "pull_distance"                                     "150"
-      "basic_slow_duration"
+      "max_level" //OAA
+      {
+        "value"                                           "6"
+        "special_bonus_facet_magnataur_diminishing_return" "+1"
+      }
+      "max_level_tooltip" //OAA
+      {
+        "special_bonus_facet_magnataur_diminishing_return" "=7"
+      }
+      "basic_slow_duration" //OAA
       {
         "value"                                           "0.7 0.8 0.9 1.0 1.1 1.2"
-        "special_bonus_unique_magnus_6"                   "+0.75"
+        "special_bonus_facet_magnataur_diminishing_return" "=0.7 =0.8 =0.9 =1.0 =1.1 =1.2 =1.3"
       }
       "return_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+75"
+        "special_bonus_facet_magnataur_diminishing_return"      "=0 =0 =0 =0 =50 =50 =50"
+      }
+      "return_damage_pct_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_magnataur_diminishing_return"      "=50"
       }
       "AbilityCastRange"
       {
         "value"                                           "1200"
-        "special_bonus_shard"                             "+400"
+      }
+      "return_shockwave_bonus_distance"
+      {
+        "special_bonus_facet_magnataur_diminishing_return"      "+200"
       }
     }
   }

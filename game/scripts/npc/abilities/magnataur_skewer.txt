@@ -38,7 +38,7 @@
       "range"
       {
         "value"                                           "900 975 1050 1125 1200 1275"
-        "special_bonus_unique_magnus_3"                   "+275"
+        "special_bonus_shard"                             "+275"
       }
       "slow_pct"
       {
@@ -49,20 +49,32 @@
         "value"                                           "145"
         "affected_by_aoe_increase"                        "1"
       }
-      "slow_duration"                                     "3.25"
+      "slow_duration"
+      {
+        "value"                                           "3.25"
+        "special_bonus_unique_magnus_6"                   "+1.25"
+      }
       "skewer_damage"                                     "80 160 240 320 640 960"
+      "damage_distance_pct"           
+      {
+        "value"                                           "6 9 12 15 30 60"
+        "special_bonus_unique_magnus_skewer_damage_distance"        "+15"
+      }
       "tree_radius"
       {
-        "value"                                           "200"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+200"
         "affected_by_aoe_increase"                        "1"
       }
       "tree_hit_damage"
       {
-        "value"                                           "15 20 25 30 40 60"
+        "value"                                           "0"
+        "special_bonus_shard"                             "30"
       }
       "cliff_hit_damage"
       {
-        "value"                                           "50 75 100 125 250 375"
+        "value"                                           "0"
+        "special_bonus_shard"                             "125"
       }
       "terrain_hit_cooldown"
       {

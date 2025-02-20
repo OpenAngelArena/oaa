@@ -72,6 +72,11 @@
         "value"                                           "0"
         "special_bonus_facet_phoenix_hotspot"             "1200"
       }
+      "focal_point_blind_stack_multiplier"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phoenix_hotspot"             "+2"        // int only for now, doesn't make sense to have a float number of stacks
+      }
     }
   }
 }

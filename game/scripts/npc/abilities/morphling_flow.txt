@@ -12,11 +12,9 @@
 
     "AbilityValues"
     {
-      "agi_pct_at_max_cooldown_speed"                     "175"
-      "agi_pct_at_min_cooldown_speed"                     "50"
-      "min_cooldown_speed_pct"                            "0"
-      "max_cooldown_speed_pct"                            "50" //OAA
-      "cooldown_reduction_tooltip"
+      "agi_per_one_spell_amp"                             "4"
+      "one_percent_tooltip"                               "1"
+      "spell_amp_tooltip"
       {
         "dynamic_value"                                   "true"
       }

@@ -53,8 +53,11 @@
       }
       "pct_damage"
       {
-        "value"                                           "50"
+        "value"                                           "0"
+        "special_bonus_facet_morphling_agi"               "+50"
         "special_bonus_unique_morphling_4"                "+75"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "process_procs"
       {
