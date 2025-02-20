@@ -58,12 +58,16 @@
       }
       "distance_to_damage"
       {
-        "special_bonus_facet_pudge_flayers_hook"          "12 18 24 30 36 42"              
+        "special_bonus_shard"                             "20"              
       }
 
       "min_distance_damage"
       {
-        "special_bonus_facet_pudge_flayers_hook"          "10"
+        "special_bonus_shard"                             "10"
+      }
+      "cooldown_reduction_pct_allied_hook"
+      {
+        "special_bonus_shard"                             "50"
       }
       "self_stun_duration_percent"
       {
