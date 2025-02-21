@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dawnbreaker: Break of Dawn (Innate)
+  //=================================================================================================================
+  "dawnbreaker_break_of_dawn"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "dawnbreaker_solar_guardian"
+    "AbilityValues"
+    {
+      "reveal_duration"                                   "4"
+      "think_interval"                                    "0.1"
+      "reveal_linger"                                     "1"
+      "reveal_radius"                                     "20000"
+      "conceal_duration"                                  "1"
+    }
+  }
+}

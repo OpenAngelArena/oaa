@@ -8,7 +8,9 @@
 
     "MaxLevel"                                            "6"
 
-    // Time     
+    "DependentOnAbility"                                  "monkey_king_wukongs_command_oaa"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "24 20 16 12 11 10"
 
@@ -20,7 +22,7 @@
     {
       "movespeed"                                         "6 9 12 15 18 21"
       "reveal_radius"                                     "200"
-      "invul_duration"            
+      "invul_duration"
       {
         "value"                                           "0.1"
       }
