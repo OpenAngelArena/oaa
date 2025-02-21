@@ -16,6 +16,7 @@
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_hand_of_midas_1"
+      "item"      "item_maelstrom"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -29,11 +30,11 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_devastator"
+      "item"      "item_kaya"
       "item"      "item_ultimate_scepter"
+      "item"      "item_devastator"
       "item"      "item_hurricane_pike"
-      "item"      "item_spell_breaker_1"
-      "item"      "item_siege_mode"
+      "item"      "item_monkey_king_bar"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -45,7 +46,6 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_dagon_oaa_1" // because of Ice Blast
-      "item"      "item_kaya"
       "item"      "item_solar_crest"
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_greater_power_treads"
