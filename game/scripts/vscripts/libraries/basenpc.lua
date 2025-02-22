@@ -403,7 +403,9 @@ if IsServer() then
         local ability = unit:GetAbilityByIndex(abilityIndex)
         if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
           ability:EndCooldown()
-          ability:RefreshCharges()
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
         end
       end
     end
