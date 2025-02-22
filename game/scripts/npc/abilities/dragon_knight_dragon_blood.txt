@@ -44,27 +44,14 @@
         "value"                                           "0"
         "special_bonus_facet_dragon_knight_fire_dragon"   "+1"
       }
-      "cleave_starting_width"
+      "magic_damage"
       {
-        "value"                                           "150"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "cleave_ending_width" //OAA, Valve has double affected_by_aoe_increase
-      {
-        "value"                                           "260"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "10 20 30 40 80 160"
         "RequiresFacet"                                   "dragon_knight_fire_dragon"
       }
-      "cleave_distance" //OAA, Valve has double affected_by_aoe_increase
+      "bonus_aoe"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
-      }
-      "cleave_damage"
-      {
-        "value"                                           "30 40 50 60 70 80"
+        "value"                                           "25 50 75 100 125 150"
         "RequiresFacet"                                   "dragon_knight_fire_dragon"
       }
       // BLUE DRAGON

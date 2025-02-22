@@ -22,7 +22,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "2"
     "AbilityChargeRestoreTime"                            "15 14 13 12 11 10" //OAA
 
     // Cost
@@ -59,7 +58,7 @@
       "cast_range"
       {
         "value"                                           "0"
-        "special_bonus_facet_hoodwink_hunter"             "100 150 200 250 300 350"
+        "special_bonus_facet_hoodwink_hunter"             "75 150 225 300 350 400"
       }
       "attack_range"
       {
@@ -72,6 +71,7 @@
       }
       "heal_amount"                                       "0"
       "heal_movement"                                     "0"
+      "evasion_multiplier"                                "2.0"
     }
   }
 }
