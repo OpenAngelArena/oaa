@@ -32,27 +32,42 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "enemy_slow"
+      "enemy_slow" //OAA
       {
-        "value"                                           "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"
+        "value"                                           "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69 -71 -73"
         "levelkey"                                        "quaslevel"
       }
       "self_slow"
       {
-        "value"                                           "-15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55"
+        "value"                                           "-20 -15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55 60"
         "levelkey"                                        "wexlevel"
       }
       "aura_fade_time"                                    "2.0"
       "health_regen"
       {
-        "value"                                           "3 6 9 12 15 18 21 24 27 30 33 36 39 42 45"
+        "value"                                           "2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34"
         "levelkey"                                        "quaslevel"
       }
       "mana_regen"
       {
-        "value"                                           "2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
+        "value"                                           "2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34"
         "levelkey"                                        "wexlevel"
       }
+      "ally_cast_area_of_effect"
+      {
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_invoker_quas_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "+600"
+        }
+      }
+      "ally_duration"
+      {
+          "value"                                         "20"
+      }
+      "ally_fadetime"                                     "0.5"
       "disable_time"                                      "3"
     }
   }

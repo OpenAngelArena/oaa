@@ -17,7 +17,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "20" //OAA
     "AbilityManaCost"                                     "175"
 
     // Special
@@ -30,9 +29,14 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" // special_bonus_unique_invoker_2_oaa
+      "AbilityCooldown"
       {
-        "value"                                           "200 250 300 350 400 450 500 550 650 750 850 950 1050 1150 1250"
+        "value"                                           "23"
+        "special_bonus_unique_invoker_11"                 "-4"
+      }
+      "damage" //OAA, special_bonus_unique_invoker_2_oaa
+      {
+        "value"                                           "200 250 300 350 400 450 500 550 650 750 850 950 1050 1150 1250 1350 1450"
         "levelkey"                                        "exortlevel"
       }
       "vision_distance"
@@ -44,8 +48,12 @@
       "cataclysm_count"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+2"
-        "RequiresScepter"                                 "1"
+        //"special_bonus_unique_invoker_cataclysm"          "+2"
+        "special_bonus_facet_invoker_exort_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "+2"
+        }
       }
       "cataclysm_cooldown" //OAA
       {
@@ -54,15 +62,24 @@
       }
       "cataclysm_min_range"
       {
-        "value"                                           "160"
-        "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "90"
       }
       "cataclysm_max_range"
       {
-        "value"                                           "200"
-        "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "180"
+      }
+      "cataclysm_damage_pct"
+      {
+          "value"                                         "75"
+      }
+      "create_forged_spirit_on_hero_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_invoker_exort_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_shard"                           "+1"
+        }
       }
     }
   }
