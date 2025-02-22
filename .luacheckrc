@@ -786,6 +786,7 @@ read_globals = { -- these globals can only be accessed.
 "DOTA_ITEM_INVENTORY_SIZE",
 "DOTA_ITEM_MAX",
 "DOTA_ITEM_NEUTRAL_SLOT",
+"DOTA_ITEM_NEUTRAL_ACTIVE_SLOT",
 "DOTA_ITEM_SLOT_1",
 "DOTA_ITEM_SLOT_2",
 "DOTA_ITEM_SLOT_3",

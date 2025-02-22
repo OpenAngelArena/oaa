@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,10 +57,10 @@
         "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
       }
       "think_interval"                                    "0.2"
-      "wraith_vision_radius"                      
+      "wraith_vision_radius"
       {
         "value"                                           "300"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "wraith_vision_duration"                            "3.34"
       "maximum_targets"
