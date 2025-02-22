@@ -7,14 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "3"
-
-    "HasScepterUpgrade"                                   "0" // needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "110"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +42,7 @@
       }
       "duration"                                          "45.0"
       "spawn_radius"                                      "150"
-      // damage_tooltip ?
+      // Valve damage_tooltip kv is missing
       "hits_to_destroy_tooltip"
       {
         "value"                                           "2"
