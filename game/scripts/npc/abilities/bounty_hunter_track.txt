@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "target_damage_amp"                                 "6 12 18 24 30"
+      "target_damage_amp"                                 "8 12 16 20 24"
       "bonus_gold_radius"
       {
         "value"                                           "1200"
@@ -42,16 +42,16 @@
       "bonus_gold_self" //OAA
       {
         "value"                                           "320 640 1280 2560 5120"
-        "special_bonus_unique_bounty_hunter_3"            "+45"
+        "special_bonus_unique_bounty_hunter_3"            "+50"
       }
       "bonus_gold" //OAA
       {
         "value"                                           "250 500 750 1500 3000"
-        "special_bonus_unique_bounty_hunter_3"            "+45"
+        "special_bonus_unique_bounty_hunter_3"            "+50"
       }
       "duration"                                          "25"
       "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7" // unused
-      "bonus_move_speed_pct"                              "16 20 24 28 32"
+      "bonus_move_speed_pct"                              "12 16 20 24 28"
     }
   }
 }

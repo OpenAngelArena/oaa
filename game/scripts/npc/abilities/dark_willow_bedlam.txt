@@ -50,7 +50,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "roaming_seconds_per_rotation"                      "1.5"
-      "roaming_duration"                                  "5.5"
+      "roaming_duration"
+      {
+        "value"                                           "5.5"
+        "special_bonus_unique_dark_willow_6"              "+1.0"
+      }
       "target_count"
       {
         "value"                                           "1"

@@ -22,7 +22,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "525" //OAA
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "5"
     "AbilityManaCost"                                     "75 80 85 90 95 100"
@@ -46,11 +45,6 @@
         "value"                                           "0.5"
         "special_bonus_unique_bounty_hunter_5"            "+0.5"
       }
-      "scepter_cast_range"
-      {
-        "value"                                           "600"
-        "RequiresScepter"                                 "1"
-      }
       "scepter_cooldown" //OAA, Valve has it wrong, luckily it's unused
       {
         "value"                                           "5"
@@ -67,6 +61,11 @@
       }
       "cast_range"                                        "525" // OAA, same as AbilityCastRange
       "slow"                                              "100"
+      "AbilityCastRange" //OAA
+      {
+        "value"                                           "525"
+        "special_bonus_scepter"                           "=600"
+      }
     }
   }
 }

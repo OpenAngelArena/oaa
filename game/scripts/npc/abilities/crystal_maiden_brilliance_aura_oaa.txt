@@ -32,8 +32,43 @@
       "proximity_bonus_radius" // for tooltip
       {
         "value"                                           "1200"
-        "special_bonus_facet_crystal_maiden_cold_comfort"  "=1200"
         "affected_by_aoe_increase"                        "1"
+      }
+      "activatable"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "+1"
+      }
+      "activation_spell_amp_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "+35.0"
+      }
+      "activation_mana_cost_increase_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "+50.0"
+      }
+      "mana_battery_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "=1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "mana_battery_mana_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_cold_comfort"  "25"
+      }
+      "activation_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "+10.0"
+      }
+      "activation_cooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"    "+30.0"
       }
       "cd_reduction"                                      "0"
       "mana_cost_reduction_pct"                           "0"

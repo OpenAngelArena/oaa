@@ -20,9 +20,8 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
     "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "2"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -36,6 +35,11 @@
         "special_bonus_unique_disruptor_2"                "-3"
       }
       "radius"                                            "350"
+      "AbilityCharges"                
+      {
+        "value"                                           "2"     
+        "special_bonus_unique_disruptor_5"                "+1"
+      }
       "formation_time"
       {
         "value"                                           "0.4"

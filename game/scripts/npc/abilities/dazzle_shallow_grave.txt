@@ -25,7 +25,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,11 +40,16 @@
       }
       "fx_halo_height" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {
-        "value"                                           "190 240 300 350"
+        "value"                                           "190 240 300 350 375 400"
       }
       "heal_amplify" //OAA, heal amplification per 10% missing health
       {
         "value"                                           "2 3 4 5 6 7"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "23 22 21 20 19 18"
+        "special_bonus_unique_dazzle_shallow_grave_cooldown"     "-4"
       }
     }
   }

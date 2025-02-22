@@ -19,8 +19,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "percent_damage_per_burn"                           "50 50 50 50 60 70"
-      "mana_per_hit"                                      "25 30 35 40 50 70"
+      "percent_damage_per_burn"
+      {
+        "value"                                           "50"
+      }
+      "mana_per_hit"
+      {
+        "value"                                           "25 30 35 40 50 70"
+      }
       "mana_per_hit_pct" //OAA
       {
         "value"                                           "1.5 2.0 2.5 3.0 3.5 4.0"

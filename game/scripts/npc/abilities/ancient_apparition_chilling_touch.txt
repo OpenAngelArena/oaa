@@ -27,10 +27,10 @@
         "value"                                           "30 60 90 120 150 180"
         "special_bonus_unique_ancient_apparition_2"       "+80"
       }
-      "frost_stacks"                                      "1"
-      "duration"                                          "4"
+      "frost_stacks"                                      "2"
+      "duration"                                          "3"
       "slow"                                              "100"
-      "slow_duration"                                     "0.7 0.8 0.9 1.0 1.0 1.0"
+      "slow_duration"                                     "0.7 0.8 0.9 1 1 1"
       "attack_range_bonus" //OAA
       {
         "value"                                           "60 120 180 240 250 260"
@@ -39,7 +39,7 @@
       "AbilityManaCost" //OAA
       {
         "value"                                           "50 60 70 80 90 100"
-        "special_bonus_scepter"                           "-50%"
+        "special_bonus_scepter"                           "-40%"
       }
       "AbilityCooldown"
       {
