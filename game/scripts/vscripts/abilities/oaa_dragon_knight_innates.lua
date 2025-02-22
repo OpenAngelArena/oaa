@@ -244,8 +244,6 @@ function modifier_dragon_knight_custom_shard_effect_oaa:OnRefresh()
   if self:GetParent():IsOAABoss() then
     self.percent_damage = self.percent_damage * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
   end
-  self.dmg_type =
-
 end
 
 function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
