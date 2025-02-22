@@ -33,10 +33,10 @@
       "radius" //OAA, intentional nerf
       {
         "value"                                           "350"
-        "special_bonus_scepter"                           "+75"
+        "special_bonus_scepter"                           "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "pit_duration"                                      "8.5 9 9.5 10 11 12" //OAA, intentional nerf
+      "pit_duration"                                      "8.5 9 9.5 10 10.5 11" //OAA, intentional nerf
       "pit_interval"                                      "3.6"
       "pit_damage"                                        "20 30 40 50 100 200" // special_bonus_unique_underlord_7_oaa
       "ensnare_duration" // the root from multiple pits do not stack - once the root wears off, the unit becomes immune to all pits for: (pit_interval - ensnare_duration) seconds.
