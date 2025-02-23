@@ -278,7 +278,7 @@ function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
     attacker = caster,
     damage = damage_per_second * self.interval,
     damage_type = dmg_type,
-    damage_flags = dmg_flags
+    damage_flags = dmg_flags,
     ability = ability,
   }
 
