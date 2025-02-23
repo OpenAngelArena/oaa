@@ -37,7 +37,7 @@
       }
       "damage_base" //OAA
       {
-        "value"                                           "70 75 80 85 170 340"
+        "value"                                           "70 80 90 100 200 300"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_min"
@@ -50,21 +50,21 @@
         "value"                                           "1.0 1.5 2.0 2.5 3.5 5.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "stun_min"                      
+      "stun_min"
       {
         "value"                                           "0"
         "special_bonus_facet_morphling_str"               "0.5"
       }
-      "stun_max"                      
+      "stun_max"
       {
         "value"                                           "0"
         "special_bonus_facet_morphling_str"               "2.4"
       }
-      "knockback_min"                 
+      "knockback_min"
       {
         "value"                                           "50"
       }
-      "knockback_max"                 
+      "knockback_max"
       {
         "value"                                           "350"
       }
@@ -75,7 +75,7 @@
       "projectile_speed"                                  "1150"
       "extra_targets"
       {
-        "value"                                           "0"                 
+        "value"                                           "0"
       }
     }
   }

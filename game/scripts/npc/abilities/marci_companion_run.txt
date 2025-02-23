@@ -15,7 +15,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -99,15 +98,15 @@
         "value"                                           "0"
         "RequiresFacet"                                   "marci_pickmeup"
         "special_bonus_facet_marci_pickmeup"              "=25"
-      }               
-      "max_level"
+      }
+      "max_level" //OAA
       {
-        "value"                                           "4"
+        "value"                                           "6"
         //"special_bonus_facet_marci_pickmeup"            "+1"
       }
-      "max_level_tooltip"
+      "max_level_tooltip" //OAA
       {
-        "special_bonus_facet_marci_pickmeup"              "=5"
+        "special_bonus_facet_marci_pickmeup"              "=7"
       }
       "postjump_unleash_duration"
       {

@@ -10,15 +10,15 @@
 
     "AbilityValues"
     {
-      "duration"                                          "30" //OAA
+      "duration"                                          "45" //OAA
       "spell_amp"
       {
         "value"                                           "20"
         "special_bonus_unique_lion_11"                    "+15"
       }
-      "debuff_amp"
+      "debuff_amp" //OAA
       {
-        "value"                                           "20"
+        "value"                                           "10"
         "special_bonus_unique_lion_11"                    "+15"
       }
     }
