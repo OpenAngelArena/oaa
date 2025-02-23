@@ -17,10 +17,26 @@
     "AbilityValues"
     {
       "one_tooltip"                                       "1"
-      "bonus_damage_pct"                                  "50" //OAA
-      "bonus_damage_pct_tooltip"                          "0.5" //OAA
-      "magic_resist_pct"                                  "50" //OAA
-      "magic_resist_pct_tooltip"                          "0.5" //OAA
+      "bonus_damage_pct" //OAA
+      {
+        "value"                                           "50"
+        "special_bonus_unique_rubick_2"                   "+25"
+      }
+      "bonus_damage_pct_tooltip" //OAA
+      {
+        "value"                                           "0.5"
+        "special_bonus_unique_rubick_2"                   "+0.25"
+      }
+      "magic_resist_pct" //OAA
+      {
+        "value"                                           "50"
+        "special_bonus_unique_rubick_2"                   "+25"
+      }
+      "magic_resist_pct_tooltip" //OAA
+      {
+        "value"                                           "0.5"
+        "special_bonus_unique_rubick_2"                   "+0.25"
+      }
     }
   }
 

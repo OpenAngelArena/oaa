@@ -30,7 +30,11 @@
         "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_hp_per_hero"                                 "15" // if it still works against hero creeps nerf it to 5
+      "bonus_hp_per_hero"
+      {
+        "value"                                           "15"
+        "special_bonus_facet_life_stealer_fleshfeast"     "=25 =35 =45 =55 =65 =75"
+      }
       "bonus_hp_per_creep"                                "1"
       "creep_deny_percent"                                "75"
       "bonus_hp_total"

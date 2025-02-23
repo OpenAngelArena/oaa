@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,15 +32,18 @@
     {
       "powershot_damage"
       {
-        "value"                                           "170 270 370 470 940 1880"
+        "value"                                           "170 270 370 470 940 1880" // special_bonus_unique_windranger_1_oaa
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow"
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_windranger_powershot_slow"  "+20"
       }
-      "slow_duration"                                     "4"
+      "slow_duration"
+      {
+        "value"                                           "4"
+        "special_bonus_unique_windranger_powershot_slow"  "+1"
+      }
       "damage_reduction"
       {
         "value"                                           "15"
@@ -53,8 +56,11 @@
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
-      "arrow_range"                                       "3000"
-      "arrow_speed"                                       "3000.0"
+      "arrow_range"
+      {
+        "value"                                           "3000"
+      }
+      "arrow_speed"                                       "3000"
       "tree_width"
       {
         "value"                                           "50.0"
@@ -66,6 +72,15 @@
         "affected_by_aoe_increase"                        "1"
       }
       "vision_duration"                                   "3.34"
+      "min_execute_threshold"
+      {
+        "special_bonus_facet_windrunner_killshot"         "5 5 5 5 6 7"
+      }
+
+      "max_execute_threshold"
+      {
+        "special_bonus_facet_windrunner_killshot"         "9 10 11 12 12 12"
+      }
     }
   }
 }

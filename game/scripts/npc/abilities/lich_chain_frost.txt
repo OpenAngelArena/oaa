@@ -43,12 +43,13 @@
       "bonus_jump_damage"
       {
         "value"                                           "15 20 25 40 55"
+        "special_bonus_unique_lich_jump_damage"           "+100"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "jumps"                                             "10" // special_bonus_unique_lich_1_oaa
       "jump_range"
       {
-        "value"                                           "600"
+        "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
       }
       "slow_movement_speed"                               "-65"
@@ -63,7 +64,7 @@
       }
       "has_unlimited_jumps"
       {
-        "special_bonus_unique_lich_5"                     "+1"
+        "value"                                           "0"
       }
       "should_fire_chain_frost_on_death"
       {

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -41,8 +41,8 @@
       "silence_duration"                                  "3 4 5 6 6.5 7"
       "damage"
       {
-        "value"                                           "115 190 265 340 680 1360"
-        "special_bonus_unique_bloodseeker_2"              "+135"
+        "value"                                           "90 145 200 255 510 1020"
+        "special_bonus_unique_bloodseeker_2"              "+100"
       }
       "heal"
       {

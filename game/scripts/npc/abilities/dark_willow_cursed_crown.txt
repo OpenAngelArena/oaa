@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "600 625 650 675 700 725"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA, Calculated with values: 2.8s max stun duration (no talent), shard 3s delay
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "80 90 100 110 120 130"
@@ -38,7 +34,6 @@
       "stun_duration"
       {
         "value"                                           "1.2 1.6 2.0 2.4 2.6 2.8"
-        "special_bonus_unique_dark_willow_6"              "+0.5"
       }
       "stun_radius" //OAA
       {
@@ -48,7 +43,7 @@
       }
       "shard_delay_reduction"
       {
-        "value"                                           "1"
+        "value"                                           "0"
         "RequiresShard"                                   "1"
       }
       "shard_bramble_amount"
@@ -60,6 +55,23 @@
       {
         "value"                                           "175"
         "RequiresShard"                                   "1"
+      }
+      "accumulated_damage_pct"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "dark_willow_shattering_crown"
+        "special_bonus_facet_dark_willow_shattering_crown"  "=35"
+      }
+      "accumulated_damage_pct_ally"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "dark_willow_shattering_crown"
+        "special_bonus_facet_dark_willow_shattering_crown"  "=15"
+      }
+      "AbilityCooldown"  //OAA, Calculated with values: 2.8s max stun duration (no talent), shard 3s delay
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_shard"                             "-1.5"
       }
     }
   }

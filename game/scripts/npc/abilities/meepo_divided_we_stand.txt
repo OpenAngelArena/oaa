@@ -66,6 +66,18 @@
         "value"                                           "100"
         "special_bonus_facet_meepo_more_meepo"            "=85"
       }
+      "support_radius"
+      {
+        "special_bonus_facet_meepo_codependent"           "600"
+      }
+      "support_group_attack_speed_pct"
+      {
+        "special_bonus_facet_meepo_codependent"           "7"
+      }
+      "support_group_armor"
+      {
+        "special_bonus_facet_meepo_codependent"           "2"
+      }
     }
   }
 }

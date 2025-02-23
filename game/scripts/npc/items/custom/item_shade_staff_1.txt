@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4901"
+    "ItemCost"                                            "4101"
     "ItemShopTags"                                        "str"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shade staff;shade branch"
@@ -66,11 +66,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_str"                                         "25 35 50 70"
-      "hp_regen_amp"                                      "27 29 31 33" // doesn't stack with Sange items
-      "status_resistance"                                 "18 20 22 24" // doesn't stack with Sange & Yasha
+      "bonus_health"                                      "375 525 725 975"
+      "bonus_all_stats"                                   "10 15 20 25"
+      "hp_regen_amp"                                      "20 22 24 26"
+      "status_resistance"                                 "16 18 20 22"
       // Active
-      "attack_speed_slow"                                 "400"
+      "attack_speed_slow"                                 "250 300 350 400"
       "slow_duration"                                     "4.5 5.0 5.5 6.0"
       "sprout_duration"                                   "4.5 5.0 5.5 6.0"
       "projectile_speed"                                  "900 1100 1300 1500"

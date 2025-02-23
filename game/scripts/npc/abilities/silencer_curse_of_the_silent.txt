@@ -33,8 +33,8 @@
       "damage"
       {
         "value"                                           "16 24 32 40 80 160"
-        "special_bonus_unique_silencer"                   "+15"
       }
+      "application_damage"                                "20 40 60 80 160 320"
       "AbilityCooldown"
       {
         "value"                                           "22 20 18 16 15 14"
@@ -53,17 +53,27 @@
       {
         "value"                                           "6"
         "special_bonus_unique_silencer_arcane_curse_duration"  "+2"
-      }
-      "silence_duration" //OAA
-      {
-        "value"                                           "1"
-        "special_bonus_unique_silencer_arcane_curse_duration"  "+1"
+        "dynamic_value"                                   "true"
       }
       "movespeed"                                         "-16 -19 -22 -25 -28 -31"
       "undispellable"
       {
         "value"                                           "0"
         "special_bonus_unique_silencer_arcane_curse_undispellable"  "+1"
+      }
+      "penalty_duration"
+      {
+        "value"                                           "2"
+        "special_bonus_unique_silencer_arcane_curse_duration"  "+1"
+      }
+      "penalty_multiplier"
+      {
+        "value"                                           "1.5"
+        "special_bonus_unique_silencer"                   "+0.5"
+      }
+      "duration_percent_per_stolen_int"
+      {
+        "special_bonus_facet_silencer_burden_of_knowledge"  "1"
       }
     }
   }

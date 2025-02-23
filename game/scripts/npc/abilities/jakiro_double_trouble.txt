@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Jakiro: Double Trouble (Innate)
+  //=================================================================================================================
+  "jakiro_double_trouble"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "jakiro_macropyre"
+
+    "AbilityValues"
+    {
+      "second_attack_delay"                               "0.2"
+      "attack_damage_reduction"
+      {
+        "value"                                           "50"
+        "special_bonus_facet_jakiro_twin_terror"          "=40 =35 =30 =25 =15 =5"
+      }
+    }
+  }
+}

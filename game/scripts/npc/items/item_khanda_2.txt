@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.0 5.5 5.0 4.5 4.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "phylactery"
     "AbilityManaCost"                                     "0"
 
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6601"
+    "ItemCost"                                            "7401"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "khanda; kanda"
@@ -61,17 +61,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "50 60 80 110 150"
-      "crit_chance"                                       "30"
-      "spell_crit_multiplier"                             "60"
-      "spell_crit_flat"                                   "150 250 400 600 850"
-      "crit_multiplier"                                   "160 180 200 220 240"
-      "tooltip_crit_damage"                               "60 80 100 120 140"
+      "bonus_mana_regen"                                  "8 8.25 8.75 9.5 10.5"
       "bonus_health"                                      "200 300 450 650 900"
       "bonus_mana"                                        "200 300 450 650 900"
-      "bonus_all_stats"                                   "7 12 17 22 27"
-      "slow"                                              "50 55 60 65 70"
-      "slow_duration"                                     "1.5"
+      "bonus_all_stats"                                   "8 13 18 23 28"
+      "slow"                                              "30 35 40 45 50"
+      "slow_duration"                                     "3"
+      "bonus_spell_damage"                                "250 375 550 775 1050"
     }
   }
 }

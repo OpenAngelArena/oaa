@@ -15,7 +15,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -25,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "75 90 105 120 135 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +33,6 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 14 13 12 11 10"
-        "special_bonus_shard"                             "-3"
       }
       "move_speed"                                        "1900" //OAA
       "min_jump_distance"                                 "0"
@@ -51,11 +49,13 @@
       "landing_radius"
       {
         "value"                                           "275"
+        "special_bonus_unique_marci_rebound_radius"       "+75"
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
+        "special_bonus_shard"                             "+20%"
       }
       "debuff_duration"
       {
@@ -72,7 +72,7 @@
       "ally_buff_duration"                                "4.0"
       "ally_movespeed_pct"
       {
-        "value"                                           "25 30 35 40 45 50"
+        "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_marci_lunge_movespeed"      "+10"
       }
       "impact_position_offset"                            "64"
@@ -86,6 +86,39 @@
       {
         "value"                                           "15"
         "RequiresScepter"                                 "1"
+      }
+      "ally_arc_offset"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "marci_pickmeup"
+        "special_bonus_facet_marci_pickmeup"              "=150"
+      }
+      "ally_impact_damage_pct"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "marci_pickmeup"
+        "special_bonus_facet_marci_pickmeup"              "=25"
+      }
+      "max_level" //OAA
+      {
+        "value"                                           "6"
+        //"special_bonus_facet_marci_pickmeup"            "+1"
+      }
+      "max_level_tooltip" //OAA
+      {
+        "special_bonus_facet_marci_pickmeup"              "=7"
+      }
+      "postjump_unleash_duration"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "marci_fleeting_fury"
+        "special_bonus_facet_marci_fleeting_fury"         "=3"
+      }
+      "postjump_flurry_charges"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "marci_fleeting_fury"
+        "special_bonus_facet_marci_fleeting_fury"         "=3"
       }
     }
   }

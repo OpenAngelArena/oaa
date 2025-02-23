@@ -36,11 +36,13 @@
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "value"                                           "70 80 90 100 110 120"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "echo_hero_damage"
       {
         "value"                                           "25 45 65 85 170 340"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "katana_strikes"
       {

@@ -87,7 +87,6 @@ local ignored_abilities = {
   --monkey_king_wukongs_command_oaa = true,
   --phantom_assassin_blur = true,
   --spectre_desolate = true,
-  item_bloodstone = true,
   item_satanic_core_1 = true,
   item_satanic_core_2 = true,
   item_satanic_core_3 = true,

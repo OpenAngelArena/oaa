@@ -293,11 +293,6 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
-        item_gungir = true, -- because of random bounces
-        item_gungir_2 = true,
-        item_gungir_3 = true,
-        item_gungir_4 = true,
-        item_gungir_5 = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
@@ -408,7 +403,9 @@ if IsServer() then
         local ability = unit:GetAbilityByIndex(abilityIndex)
         if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
           ability:EndCooldown()
-          ability:RefreshCharges()
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
         end
       end
     end

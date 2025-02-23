@@ -16,16 +16,28 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityManaCost"                                     "100" //OAA
-    "AbilityCooldown"                                     "40 38 36 34 32 30" //OAA
+    "AbilityManaCost"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "skeleton_duration"                                 "30" //OAA
+      "skeleton_duration" //OAA
+      {
+        "value"                                           "30"
+        "special_bonus_unique_wraith_king_facet_1"        "+25%"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "40"
+        "special_bonus_unique_wraith_king_facet_1"        "-25%"
+      }
       "max_skeleton_charges"                              "6" //OAA, because of lag
-      "min_skeleton_spawn"                                "0"
+      "min_skeleton_spawn"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_wraith_king_facet_3"        "+5"
+      }
       "spawn_interval"                                    "0.25"
       "reincarnate_time"                                  "3"
       "gold_bounty"                                       "5"
@@ -36,9 +48,14 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "talent_skeleton_damage"                            "0 5 10 15 20 25"
+      "talent_skeleton_damage"
+      {
+        "value"                                           "0 5 10 15 20 25"
+        //"special_bonus_unique_wraith_king_facet_2"        "+23"
+      }
       "skeleton_building_damage_reduction"                "35"
       "skeleton_bonus_hero_damage"                        "25 25 25 25 30 40" // percentage increase
+      "skeleton_charges_per_hero_multiplier"              "4"
       "skeleton_attack_damage_per_level" //OAA, tooltip only
       {
         "value"                                           "2"

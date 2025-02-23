@@ -22,17 +22,18 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 70 60 55 50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "16"
+      "duration"
+      {
+        "value"                                           "16"
+      }
       "charges_per_flurry"                                "5"
       "flurry_bonus_attack_speed"                         "700 975 1325 1325 1325"
       "time_between_flurries"                             "1.5"
@@ -79,6 +80,14 @@
       "extend_duration"
       {
         "special_bonus_unique_marci_unleash_extend_duration"  "6"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "80 70 60 55 50"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "100 125 150 175 200"
       }
     }
   }

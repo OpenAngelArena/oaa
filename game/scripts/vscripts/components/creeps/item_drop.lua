@@ -62,7 +62,7 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)), nil)
 
   -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
-  if itemname ~= "item_infinite_bottle" then
+  if itemName ~= "item_infinite_bottle" then
     Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
       -- check if safe to destroy
       if newItem and not newItem:IsNull() then

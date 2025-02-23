@@ -25,6 +25,7 @@ function modifier_item_spell_lifesteal_oaa:OnCreated(kv)
     self.creep_spell_lifesteal = ability:GetSpecialValueFor("creep_spell_lifesteal")
     self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal") or 0
     self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal") or 0
+    self.multiplier = ability:GetSpecialValueFor("lifesteal_multiplier") or 0
   end
 end
 
@@ -36,6 +37,8 @@ if IsServer() then
     local attacker = params.attacker
     local damaged_unit = params.unit
     local inflictor = params.inflictor
+    local flags = params.damage_flags
+    local dmg_type = params.damage_type
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -72,20 +75,40 @@ if IsServer() then
       return
     end
 
+    local succubus = attacker:FindAbilityByName("queenofpain_succubus")
+    local isSuccubus = succubus and succubus:GetLevel() > 0
+    local spellLifestealReflected = false
+    if isSuccubus then
+      spellLifestealReflected = succubus:GetSpecialValueFor("lifesteal_reflected") == 1
+    end
+
+    -- Ignore pure damage
+    if dmg_type == DAMAGE_TYPE_PURE then
+      if not isSuccubus then
+        return
+      end
+    end
+
     -- Ignore damage that has the no-reflect flag
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      return
+    if bit.band(flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      if not spellLifestealReflected then
+        return
+      end
     end
 
     -- Ignore damage that has the no-spell-lifesteal flag
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
-      return
+    if bit.band(flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+      if not spellLifestealReflected then
+        return
+      end
     end
 
     -- Ignore damage that has the no-spell-amplification flag
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-      return
-    end
+    -- if bit.band(flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+      -- if not spellLifestealReflected then
+        -- return
+      -- end
+    -- end
 
     -- Don't heal while dead
     if not attacker:IsAlive() then
@@ -104,8 +127,26 @@ if IsServer() then
 
     -- Check for Satanic Core active spell lifesteal
     if self.unholy_hero_spell_lifesteal > 0 and self.unholy_creep_spell_lifesteal > 0 and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
-      nHeroHeal = self.unholy_hero_spell_lifesteal
-      nCreepHeal = self.unholy_creep_spell_lifesteal
+      local mod = attacker:FindModifierByName("modifier_satanic_core_unholy")
+      local ab = self:GetAbility()
+      if ab and mod then
+        if ab == mod:GetAbility() then
+          nHeroHeal = self.unholy_hero_spell_lifesteal
+          nCreepHeal = self.unholy_creep_spell_lifesteal
+        end
+      end
+    end
+
+    -- Check for Bloodstone active
+    if self.multiplier > 0 and attacker:HasModifier("modifier_item_bloodstone_active") and attacker:HasModifier("modifier_item_bloodstone") then
+      local mod = attacker:FindModifierByName("modifier_item_bloodstone_active")
+      local ab = self:GetAbility()
+      if ab and mod then
+        if ab == mod:GetAbility() then
+          nHeroHeal = self.hero_spell_lifesteal * self.multiplier
+          nCreepHeal = self.creep_spell_lifesteal * self.multiplier
+        end
+      end
     end
 
     -- Most optimal fix for spell lifesteal stacking from sources that are effectively the same
@@ -116,57 +157,6 @@ if IsServer() then
     end
     nHeroHeal = nHeroHeal / n
     nCreepHeal = nCreepHeal / n
-
-    -- Check for spell lifesteal amplification (sort from worst to best)
-    -- local kaya_modifiers = {
-      -- "modifier_item_kaya",
-      -- "modifier_item_ethereal_blade",
-      -- "modifier_item_kaya_and_sange",
-      -- "modifier_item_yasha_and_kaya",
-    -- }
-
-    -- local custom_modifiers = {
-      -- "modifier_item_stoneskin",
-    -- }
-
-    -- local spell_lifesteal_amp = 0
-
-    -- for _, mod_name in pairs(kaya_modifiers) do
-      -- local modifier = attacker:FindModifierByName(mod_name)
-      -- if modifier then
-        -- local item = modifier:GetAbility()
-        -- if item then
-          -- -- Spell Lifesteal Amp from Kaya upgrades doesn't stack
-          -- spell_lifesteal_amp = item:GetSpecialValueFor("spell_lifesteal_amp")
-        -- end
-      -- end
-    -- end
-
-    -- for _, mod_name in pairs(custom_modifiers) do
-      -- local modifier = attacker:FindModifierByName(mod_name)
-      -- if modifier then
-        -- local ability = modifier:GetAbility()
-        -- if ability then
-          -- -- Spell Lifesteal Amp stacks multiplicatively
-          -- spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-ability:GetSpecialValueFor("spell_lifesteal_amp"))
-        -- end
-      -- end
-    -- end
-
-    -- local paladin_sword_modifier = attacker:FindModifierByName("modifier_item_paladin_sword")
-    -- if paladin_sword_modifier then
-      -- local paladin_sword = paladin_sword_modifier:GetAbility()
-      -- if paladin_sword then
-        -- local bonus = paladin_sword:GetSpecialValueFor("bonus_amp")
-        -- if bonus then
-          -- -- Spell Lifesteal Amp stacks multiplicatively
-          -- spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-bonus)
-        -- end
-      -- end
-    -- end
-
-    -- nHeroHeal = nHeroHeal * (1 + spell_lifesteal_amp/100)
-    -- nCreepHeal = nCreepHeal * (1 + spell_lifesteal_amp/100)
 
     -- Calculate the spell lifesteal (heal) amount
     local heal_amount = 0

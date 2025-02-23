@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "14"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -20,23 +19,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_level" //OAA
+      {
+        "value"                                           "14"
+        "special_bonus_scepter"                           "+1"
+        
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "+1"
+          "special_bonus_scepter"                         "+1"
+        }
+      }
       "move_speed_per_instance"
       {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_elitist"             "0.6 1.2 1.8 2.4 3.0 3.6 4.2 4.8 5.4 6.0 6.6 7.2 7.8 8.4"
+        "value"                                           "0.6 1.2 1.8 2.4 3.0 3.6 4.2 4.8 5.4 6.0 6.6 7.2 7.8 8.4 9.0 9.6 10.2"
         "special_bonus_unique_invoker_13"                 "x2"
-        "RequiresFacet"                                   "invoker_elitist"
       }
-      "intrinsic_attack_speed"
+      "upgrade_at_level"
       {
         "value"                                           "0"
-        "special_bonus_facet_invoker_agnostic"            "5 10 15 20 25 30 35 36 37 38 39 40 41 42"
-        "special_bonus_unique_invoker_13"                 "x2"
-        "RequiresFacet"                                   "invoker_agnostic"
+        "special_bonus_facet_invoker_wex_focus"           "6"
       }
-      "agility_bonus"
+      "agility_bonus"                                     "1"
+      "scepter_bonus_levels"
       {
         "value"                                           "1"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "+1"
+        }
       }
     }
   }
