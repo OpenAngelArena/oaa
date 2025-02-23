@@ -45,9 +45,9 @@
         "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_tinker_defense_matrix_status_resistance"  "+10"
       }
-      "barrier_duration"
+      "barrier_duration" // original: 20
       {
-        "value"                                           "15" // original: 20
+        "value"                                           "15"
         "special_bonus_unique_tinker_3"                   "+10"
       }
       "cooldown_reduction"
