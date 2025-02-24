@@ -28,13 +28,11 @@ if IsServer() then
       if itemToDrop and itemToDrop ~= "" then
         local killer = keys.attacker
         local death_location = parent:GetAbsOrigin()
-        local drop_location = death_location
+        local killer_location
         if killer and not killer:IsNull() then
-          if (killer:GetAbsOrigin() - death_location):Length2D() <= 800 then
-            drop_location = killer:GetAbsOrigin()
-          end
+          killer_location = killer:GetAbsOrigin()
         end
-        CreepItemDrop:CreateDrop(itemToDrop, drop_location)
+        CreepItemDrop:CreateDrop(itemToDrop, death_location, killer_location)
       end
     end
   end

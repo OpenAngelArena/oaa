@@ -66,13 +66,11 @@ function item_hand_of_midas_1:OnSpellStart()
   --target:SetMinimumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems
   --target:SetMaximumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems
 
-  target:Kill(self, caster)
-
   -- Madstone drop
   local madstone = CreateItem("item_madstone_bundle", nil, nil) -- CDOTA_Item
-
   madstone:SetPurchaseTime(0)
+  CreateItemOnPositionSync(target:GetAbsOrigin(), madstone) -- CDOTA_Item_Physical
+  madstone:LaunchLoot(false, 300, 0.25, location, nil)
 
-  CreateItemOnPositionSync(location, madstone) -- CDOTA_Item_Physical
-  madstone:LaunchLoot(false, 300, 0.75, location, nil)
+  target:Kill(self, caster)
 end
