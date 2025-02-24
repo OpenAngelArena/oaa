@@ -42,7 +42,7 @@
         "value"                                           "3"
         "RequiresScepter"                                 "1"
       }
-      "miss_rate"             
+      "miss_rate"
       {
         "value"                                           "0"
         "RequiresScepter"                                 "1"
@@ -52,11 +52,11 @@
         "value"                                           "45 95 145 295 545"
         "special_bonus_scepter"                           "+15 25 35 65 115"
       }
-      "radius"                
+      "radius"
       {
         "value"                                           "500"
         "special_bonus_unique_dawnbreaker_solar_guardian_radius"  "+150"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "base_damage" //OAA
       {
@@ -71,7 +71,7 @@
       }
       "land_stun_duration"                                "1.4 1.6 1.8 2.0 2.2"
       "max_offset_distance"                               "350"
-      "scepter_channel_time"              
+      "scepter_channel_time"
       {
         "value"                                           "1.0"
         "RequiresScepter"                                 "1"

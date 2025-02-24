@@ -37,7 +37,6 @@ function CreepItemDrop:Init ()
   DebugPrint ( '[creeps/item_drop] Initialize' )
   self.moduleName = "CreepItemDrop (Bottle Drop)"
 
-  --ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
   Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)
 end
 
@@ -52,17 +51,15 @@ function CreepItemDrop:ItemDropUpgradeTimer ()
   return 10.0
 end
 
-function CreepItemDrop:CreateDrop (itemName, pos)
+function CreepItemDrop:CreateDrop (itemName, death_location, killer_location)
   local newItem = CreateItem(itemName, nil, nil) -- CDOTA_Item
-
   newItem:SetPurchaseTime(0)
-  newItem.firstPickedUp = false
+  CreateItemOnPositionSync(death_location, newItem) -- CDOTA_Item_Physical
+  if itemName == "item_infinite_bottle" then
+    newItem.firstPickedUp = false
+    newItem:LaunchLoot(false, 300, 0.75, death_location + RandomVector(RandomFloat(50, 350)), nil)
 
-  CreateItemOnPositionSync(pos, newItem) -- CDOTA_Item_Physical
-  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)), nil)
-
-  -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
-  if itemName ~= "item_infinite_bottle" then
+    -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
     Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
       -- check if safe to destroy
       if newItem and not newItem:IsNull() then
@@ -72,6 +69,8 @@ function CreepItemDrop:CreateDrop (itemName, pos)
         end
       end
     end)
+  else
+    newItem:LaunchLoot(false, 300, 0.25, killer_location + RandomVector(RandomFloat(50, 100)), nil)
   end
 end
 
@@ -92,19 +91,6 @@ function CreepItemDrop:ClearBottles()
     end
   end
 end
-
--- function CreepItemDrop:OnEntityKilled (event)
---   local killedEntity = EntIndexToHScript(event.entindex_killed)
-
---   if killedEntity ~= nil then
---     if killedEntity.Is_ItemDropEnabled then
---       local itemToDrop = CreepItemDrop:RandomDropItemName()
---       if itemToDrop ~= "" and itemToDrop ~= nil then
---         CreepItemDrop:CreateDrop(itemToDrop, killedEntity:GetAbsOrigin())
---       end
---     end
---   end
--- end
 
 function CreepItemDrop:RandomDropItemName(campLocationString)
   if not CreepCamps then

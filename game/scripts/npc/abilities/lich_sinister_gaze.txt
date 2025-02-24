@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED" //OAA something is broken in the test
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED" //OAA, Valve has extra space
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -25,14 +25,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityManaCost"               
+      "AbilityManaCost"
       {
         "value"                                           "25"
       }
@@ -56,7 +53,7 @@
       "creep_duration_multiplier"                         "1" //OAA, to avoid duration bugs
       "frost_blast_damage_percent"
       {
-        "value"                                           "0"         
+        "value"                                           "0"
       }
     }
   }

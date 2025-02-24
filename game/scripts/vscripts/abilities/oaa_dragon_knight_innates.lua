@@ -263,9 +263,11 @@ function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
   end
 
   local dmg_type = DAMAGE_TYPE_MAGICAL
+  local dmg_flags = DOTA_DAMAGE_FLAG_NONE
   -- Green Dragon
   if caster:GetHeroFacetID() == 2 then
     dmg_type = DAMAGE_TYPE_PHYSICAL
+    dmg_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
   end
 
   -- Calculate dps
@@ -276,6 +278,7 @@ function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
     attacker = caster,
     damage = damage_per_second * self.interval,
     damage_type = dmg_type,
+    damage_flags = dmg_flags,
     ability = ability,
   }
 
