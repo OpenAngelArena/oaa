@@ -59,7 +59,7 @@ function modifier_item_vampire:OnRefresh()
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resistance")
     --self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.bonus_night_vision = ability:GetSpecialValueFor("bonus_night_vision")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    --self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
   end
 
   if IsServer() then
@@ -80,9 +80,9 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
@@ -104,8 +104,8 @@ function modifier_item_vampire:GetModifierStatusResistanceStacking()
   end
 end
 
--- Doesn't work, Thanks Valve
--- function modifier_item_vampire:GetModifierSlowResistance()
+-- Still doesn't work, Thanks Valve
+-- function modifier_item_vampire:GetModifierSlowResistance_Stacking()
   -- if self:GetStackCount() == 2 then
     -- return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
   -- else
@@ -121,9 +121,9 @@ function modifier_item_vampire:GetBonusNightVision()
   end
 end
 
-function modifier_item_vampire:GetModifierPhysicalArmorBonus()
-  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
+-- function modifier_item_vampire:GetModifierPhysicalArmorBonus()
+  -- return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+-- end
 
 if IsServer() then
   -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
@@ -179,8 +179,9 @@ if IsServer() then
     if not damaged_unit or damaged_unit:IsNull() then
       return
     end
-
-    vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
+    if not parent:HasModifier("modifier_item_vampire_active") then
+      vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
+    end
   end
 end
 
@@ -341,7 +342,7 @@ function modifier_item_vampire_active:GetModifierPreAttack_BonusDamage()
     if ability and not ability:IsNull() then
       return ability:GetSpecialValueFor("night_bonus_damage")
     else
-      return 110
+      return 100
     end
   end
 end
@@ -401,9 +402,7 @@ if IsServer() then
       return
     end
 
-    self.isVampHeal = true
     vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('active_lifesteal_percent'))
-    self.isVampHeal = false
   end
 
   function vampire:lifesteal(event, spell, parent, amount)
@@ -441,8 +440,13 @@ if IsServer() then
       return
     end
 
-    -- Normal lifesteal should not work for spells and magic damage attacks
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+    -- Vampire Fang lifesteal should work for all attacks
+    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+      return
+    end
+
+    -- Vampire Fang lifesteal should not work for pure damage
+    if event.damage_type == DAMAGE_TYPE_PURE then
       return
     end
 
