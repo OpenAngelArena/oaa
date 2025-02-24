@@ -26,7 +26,15 @@ if IsServer() then
     if keys.unit == parent then
       local itemToDrop = CreepItemDrop:RandomDropItemName(self.locationString)
       if itemToDrop and itemToDrop ~= "" then
-        CreepItemDrop:CreateDrop(itemToDrop, parent:GetAbsOrigin())
+        local killer = keys.attacker
+        local death_location = parent:GetAbsOrigin()
+        local drop_location = death_location
+        if killer and not killer:IsNull() then
+          if (killer:GetAbsOrigin() - death_location):Length2D() <= 800 then
+            drop_location = killer:GetAbsOrigin()
+          end
+        end
+        CreepItemDrop:CreateDrop(itemToDrop, drop_location)
       end
     end
   end

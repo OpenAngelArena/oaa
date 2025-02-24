@@ -74,5 +74,5 @@ function item_hand_of_midas_1:OnSpellStart()
   madstone:SetPurchaseTime(0)
 
   CreateItemOnPositionSync(location, madstone) -- CDOTA_Item_Physical
-  madstone:LaunchLoot(false, 300, 0.75, location + RandomVector(RandomFloat(50, 350)), nil)
+  madstone:LaunchLoot(false, 300, 0.75, location, nil)
 end
