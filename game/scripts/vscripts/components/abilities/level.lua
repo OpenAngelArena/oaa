@@ -261,8 +261,8 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local ultimateReqs = {0, 0, 0, 37, 49}
 
   local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 26, 28, 30, 32, 34, 36, 38}
-  local summonWolvesReqs = {0, 0, 0, 0, 28, 34, 40, 46}
-  local extraLevelbasicReqs = {0, 0, 0, 0, 28, 34, 40}
+  local summonWolvesReqs = {0, 0, 0, 0, 0, 0, 30, 42}
+  local extraLevelbasicReqs = {0, 0, 0, 0, 0, 28, 40}
   local basicInnateAbilityReqs = {0, 0, 0, 0, 0, 28, 40}
   local ultimateInnateAbilityReqs = {0, 0, 0, 0, 37, 49}
 
@@ -273,7 +273,6 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
     invoker_exort = invokerAbilityReqs,
     lycan_summon_wolves = summonWolvesReqs,
     magnataur_shockwave = extraLevelbasicReqs,
-    monkey_king_tree_dance = extraLevelbasicReqs,
     night_stalker_hunter_in_the_night = basicInnateAbilityReqs,
     night_stalker_void = extraLevelbasicReqs,
   }

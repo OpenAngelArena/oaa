@@ -29,8 +29,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "1.40 1.2 1.0 0.8 0.8 0.8"
-        "special_bonus_facet_monkey_king_simian_stride"   "=1.40 =1.2 =1.0 =0.8 =0.0 =0.0= =0.0"
+        "value"                                           "1.4 1.2 1.0 0.8 0.8 0.8"
+        "special_bonus_facet_monkey_king_simian_stride"   "=0.0"
       }
       "leap_speed"                                        "700"
       // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
@@ -62,11 +62,10 @@
       "max_level" //OAA
       {
         "value"                                           "6"
-        "special_bonus_facet_monkey_king_simian_stride"   "+1"
       }
       "max_level_tooltip" //OAA
       {
-        "special_bonus_facet_monkey_king_simian_stride"   "=7"
+        "special_bonus_facet_monkey_king_simian_stride"   "=6"
       }
     }
   }

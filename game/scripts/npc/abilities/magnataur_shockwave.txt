@@ -22,12 +22,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 9 8"
+    "AbilityCooldown"                                     "13 12 11 10 9 8 7"
     "AbilityDuration"                                     "0.6875"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 65 70 75 80 85" //OAA
+    "AbilityManaCost"                                     "60 65 70 75 80 85 90" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,7 @@
       "shock_damage" //OAA
       {
         "value"                                           "90 160 230 300 600 900"
+        "special_bonus_facet_magnataur_diminishing_return"  "=90 =160 =230 =300 =400 =600 =900"
         "special_bonus_unique_magnus"                     "+300"
       }
       "movement_slow"                                     "75"
@@ -68,12 +69,12 @@
       "return_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_magnataur_diminishing_return"  "=0 =0 =0 =0 =50 =50 =50"
+        "special_bonus_facet_magnataur_diminishing_return"  "=0 =0 =0 =0 =50 =60 =70"
       }
-      "return_damage_pct_tooltip"
+      "return_damage_pct_tooltip" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_magnataur_diminishing_return"  "=50"
+        "special_bonus_facet_magnataur_diminishing_return"  "=0 =0 =0 =0 =50 =60 =70"
       }
       "AbilityCastRange"
       {
