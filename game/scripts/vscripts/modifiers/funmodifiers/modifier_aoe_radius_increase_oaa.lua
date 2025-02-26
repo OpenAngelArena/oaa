@@ -80,7 +80,6 @@ local ignored_abilities = {
   item_spell_breaker_3 = true,
   item_spell_breaker_4 = true,
   item_spell_breaker_5 = true,
-  
 }
 
 local forbidden_kvs = {
