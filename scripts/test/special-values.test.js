@@ -18,8 +18,6 @@ const allowedIconNames = [
 const ignoredBaseClasses = [
   'special_bonus_undefined',
   'special_bonus_base',
-  'special_bonus_reincarnation_250',
-  'special_bonus_agility_40',
   'item_abyssal_blade',
   'item_armlet',
   'item_assault',
@@ -99,6 +97,7 @@ const ignoreValuesFor = [
   'item_cornucopia',
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
+  'item_smoke_of_deceit',
   'centaur_stampede'
   // 'shredder_chakram',
   // 'shredder_chakram_2',

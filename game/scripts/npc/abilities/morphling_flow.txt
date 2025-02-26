@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Morphling: Flow (Facet)
+  //=================================================================================================================
+  "morphling_flow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "agi_per_one_spell_amp"                             "4"
+      "one_percent_tooltip"                               "1"
+      "spell_amp_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

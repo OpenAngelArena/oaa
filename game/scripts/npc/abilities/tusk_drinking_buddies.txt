@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET| DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" // OAA, Valve is missing some space
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
@@ -24,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
+    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,15 +36,18 @@
     {
       "AbilityCastRange"                                  "900"
       "alt_cast_castrange_pct"                            "50"
-      "buff_duration"                                     "6.0"
+      "buff_duration"
+      {
+        "value"                                           "6.0"
+        "special_bonus_unique_tusk_3"                     "+2"
+      }
       "pull_duration"                                     "0.2"
       "min_distance"                                      "250"
       "max_distance"                                      "1200"
-      "movespeed_bonus"                                   "10 15 20 25 30 35"
+      "movespeed_bonus"                                   "11 14 17 20 23 26"
       "attackdamage_bonus"
       {
         "value"                                           "20 45 70 95 145 195"
-        "special_bonus_unique_tusk_3"                     "+25"
       }
     }
   }

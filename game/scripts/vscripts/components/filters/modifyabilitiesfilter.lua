@@ -49,8 +49,6 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
     victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false
-  elseif modifier_name == "modifier_item_revenants_brooch_active" then
-    victim:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
   elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
     victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then
@@ -83,7 +81,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
   elseif modifier_name == "modifier_bristleback_warpath_active" then
     victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
-  elseif modifier_name == "modifier_slark_shadow_dance" then
+  elseif modifier_name == "modifier_slark_shadow_dance_aura" then
     victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {duration = modifier_duration})
   end
 

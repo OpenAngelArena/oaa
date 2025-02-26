@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.37e + Frost"
   "hero"          "npc_dota_hero_skeleton_king"
   "Title"         "Recommended items for Wraith King"
 
@@ -12,9 +12,15 @@
       "item"      "item_flask"
     }
 
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_maelstrom"
+      "item"      "item_radiance"
+    }
+
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_mjollnir"
+      "item"      "item_armlet"
       "item"      "item_desolator"
       "item"      "item_assault"
       "item"      "item_monkey_king_bar"
@@ -24,10 +30,9 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_radiance"
       "item"      "item_vladmirs_grimoire_1"
       "item"      "item_shivas_guard"
-      "item"      "item_overwhelming_blink"
+      "item"      "item_lucience"
       "item"      "item_martyrs_mail_1"
     }
 
@@ -38,21 +43,21 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_armlet"
+      "item"      "item_boots_of_bearing"
+      "item"      "item_greater_phase_boots"
       "item"      "item_guardian_greaves"
+      "item"      "item_harpoon"
       "item"      "item_heart_oaa_1"
       "item"      "item_nullifier"
       "item"      "item_octarine_core"
+      "item"      "item_overwhelming_blink"
       "item"      "item_pipe"
-      "item"      "item_harpoon"
       "item"      "item_sange_and_yasha"
       "item"      "item_satanic"
       "item"      "item_silver_edge"
       "item"      "item_skadi"
       "item"      "item_spiked_mail_1"
       "item"      "item_abyssal_blade_2"
-      "item"      "item_boots_of_bearing"
-      "item"      "item_lucience"
       "item"      "item_sacred_skull"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"

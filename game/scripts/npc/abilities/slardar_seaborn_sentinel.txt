@@ -16,7 +16,7 @@
       "river_speed"                                       "18"
       "puddle_regen"
       {
-        "value"                                           "2 4 6 8 12 18"
+        "value"                                           "2.5 5.0 7.5 10.0 15 22.5"
         "special_bonus_scepter"                           "+22"
       }
       "puddle_armor"
@@ -29,8 +29,13 @@
         "value"                                           "40"
         "RequiresScepter"                                 "1"
       }
-      "river_speed_tooltip"                               "18"
-      "river_damage"                                      "8 16 24 32 64 128"
+      "river_damage"
+      {
+        "value"                                           "8 16 24 32 64 128"
+        "special_bonus_unique_slardar_6"                  "+12"
+      }
+      "scepter_puddle_radius_tooltip"                     "80"
+      "scepter_puddle_duration_increase_tooltip"          "5"
     }
   }
 }

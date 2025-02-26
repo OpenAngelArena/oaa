@@ -32,15 +32,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_min" //OAA
+      "damage_min"
       {
         "value"                                           "35 40 45 50 100 200"
-        "special_bonus_unique_razor_4"                    "+45"
       }
-      "damage_max" //OAA
+      "damage_max"
       {
         "value"                                           "80 115 150 185 370 740"
-        "special_bonus_unique_razor_4"                    "+45"
       }
       "radius"
       {
@@ -54,7 +52,11 @@
         "value"                                           "25 30 35 40 45 50"
         "special_bonus_unique_razor_plasmafield_max_slow"  "+20"
       }
-      "slow_duration"                                     "1.5"
+      "slow_duration"
+      {
+        "value"                                           "1.5"
+        "special_bonus_unique_razor_4"                    "+0.75"
+      }
       "second_ring_delay"
       {
         "value"                                           "0"

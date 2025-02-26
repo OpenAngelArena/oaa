@@ -25,7 +25,11 @@
       "max_stacks" //OAA
       {
         "value"                                           "9"
-        "special_bonus_shard"                             "+3"
+      }
+      "stack_limit_during_battle_trance" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_facet_troll_warlord_bad_influence"  "+12"       // BEHAVIOR ONLY, DOES NOT UPDATE TOOLTIP: Update stack_limit_tooltip for tooltip change
       }
       "extra_attack_chance_per_stack"
       {
@@ -40,7 +44,7 @@
       "armor_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_facet_troll_warlord_insensitive"   "+1"
+        "special_bonus_facet_troll_warlord_insensitive"   "+1.0"
       }
       "range_buffer"
       {

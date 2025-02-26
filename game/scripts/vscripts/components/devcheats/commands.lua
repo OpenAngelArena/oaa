@@ -67,7 +67,7 @@ function DevCheats:Help(keys)
   GameRules:SendCustomMessage("-corepoints x, -core 1-4, -addpoints, -add_enemy_points, -kill_limit x, -print_modifiers, -getpos", 0, 0)
   GameRules:SendCustomMessage("-spawncamps, -spawnbosses, -spawngrendel, -spawnwanderer, -capture, -end_capture", 0, 0)
   GameRules:SendCustomMessage("-test_state, -test_tp, -fixspawn, -addbots, -state, -enable_lock_in, -enable_lock_out", 0, 0)
-  GameRules:SendCustomMessage("-entity_count, -memory", 0, 0)
+  GameRules:SendCustomMessage("-entity_count, -memory, -print_abilities", 0, 0)
 end
 
 -- Populate game with bots
@@ -216,17 +216,6 @@ function DevCheats:AddAbility(keys)
       end
     end
     hero:AddAbility(splitted[2])
-
-    -- Not sure what this is for. Seems to remove Talents for some reason?
-    -- for i = 0, 23 do
-    --   if hero:GetAbilityByIndex(i) then
-    --     local ability = hero:GetAbilityByIndex(i)
-    --     if ability and string.match(ability:GetName(), "special_bonus_") then
-    --       local abName = ability:GetName()
-    --       hero:RemoveAbility(abName)
-    --     end
-    --   end
-    -- end
   end
 end
 

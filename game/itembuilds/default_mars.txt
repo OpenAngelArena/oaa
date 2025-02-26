@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.35e (Darkonius)"
   "hero"          "npc_dota_hero_mars"
   "Title"         "Recommended items for Mars"
 
@@ -22,13 +22,23 @@
       // "item"      "item_assault"
     // }
 
-    "#DOTA_Item_Build_Physical_Core" // Rightclick
+    "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_radiance"
-      "item"      "item_heart_oaa_1"
+      "item"      "item_meteor_hammer_1" // ethereal blade is self grief
+      "item"      "item_blink"
+      "item"      "item_shivas_guard"
+      "item"      "item_gungir"
+      "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Physical_Core" // Rightclick
+    {
+      "item"      "item_greater_phase_boots"
       "item"      "item_ultimate_scepter"
+      "item"      "item_assault"
+      "item"      "item_satanic"
       "item"      "item_devastator_oaa_2"
-      "item"      "item_giant_form"
       "item"      "item_rapier"
     }
 
@@ -42,16 +52,6 @@
       // "item"      "item_martyrs_mail_1"
     // }
 
-    "#DOTA_Item_Build_Magical_Core"
-    {
-      "item"      "item_meteor_hammer_1" // ethereal blade is self grief
-      "item"      "item_blink"
-      "item"      "item_heart_oaa_1"
-      "item"      "item_shivas_guard"
-      "item"      "item_greater_travel_boots"
-      "item"      "item_dagger_of_moriah_1"
-    }
-
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -60,10 +60,10 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_heart_oaa_1"
       "item"      "item_octarine_core"
-      "item"      "item_satanic"
       "item"      "item_vladmirs_grimoire_1"
-      "item"      "item_refresher_4"
+      "item"      "item_dagger_of_moriah_1"
       "item"      "item_sheepstick_4"
     }
   }

@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ogre Magi: Unrefined Fireblast
+  //=================================================================================================================
+  "ogre_magi_unrefined_fireblast"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "525"
+    "AbilityCastPoint"                                    "0.45"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "400"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_ogre_magi_5"                "-1"
+      }
+      "stun_duration"                                     "1.2"
+      "multicast_delay"                                   "0.6"
+      "scepter_mana"                                      "35"
+      "base_damage" //OAA
+      {
+        "value"                                           "180"
+        "special_bonus_unique_ogre_magi_2"                "+250"
+      }
+      "str_multiplier"                                    "1.5"
+    }
+  }
+}

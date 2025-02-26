@@ -39,18 +39,15 @@
       "knockback_radius"
       {
         "value"                                           "190"
-        "affected_by_aoe_increase"                        "1"
       }
       "max_distance"                                      "2000"
       "knockback_distance"
       {
         "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
       }
       "knockback_damage" //OAA, reminder: this is physical damage
       {
         "value"                                           "90 180 270 360 720 1440"
-        "special_bonus_unique_primal_beast_onslaught_damage"  "+120"
       }
       "knockback_duration"                                "0.2"
       "max_charge_time"                                   "1.7"

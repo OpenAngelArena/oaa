@@ -6,13 +6,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-    "MaxLevel"                                            "1"
-    //"DependentOnAbility"                                  "sven_gods_strength"
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "sven_gods_strength"
 
     "AbilityValues"
     {
-      "bonus_damage_per_str"                              "0.5" //OAA
-      "base_damage_reduction"                             "20"
+      "bonus_damage_per_str"                              "0.0 0.3 0.35 0.4 0.45 0.5" //OAA
+      "base_damage_reduction"                             "0"
     }
   }
 }

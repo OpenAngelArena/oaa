@@ -58,8 +58,10 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "lifesteal_pct"                                     "100"
+      "invuln_period"                                     "0.1"
       "magic_resist"                                      "100"
-      "hard_dispel"                                       "1"
+      "hard_dispel"                                       "0"
+      "basic_dispel"                                      "1"
     }
   }
 }

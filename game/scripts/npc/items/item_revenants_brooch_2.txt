@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_revenants_brooch_2"
     "ItemRequirements"
     {
-      "01"                                                "item_revenants_brooch;item_upgrade_core"
+      "01"                                                "item_greater_crit;item_upgrade_core"
     }
   }
 
@@ -34,13 +34,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_revenants_brooch"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/revenants_brooch.lua"
     "AbilityTextureName"                                  "custom/revenants_brooch_2"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6401"
+    "ItemCost"                                            "6101"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 2;brooch 2;revenants brooch 2;rb 2"
@@ -55,10 +56,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 75 115 175 255"
-      "spell_lifesteal"                                   "12 14 16 18 20"
-      "manacost_per_hit"                                  "175"
-      "negative_spell_amp_while_active"                   "-40 -40 -40 -40 -20"
+      "bonus_damage"                                      "72 92 122 162 212"
+      "spell_lifesteal"                                   "0"
+      "crit_chance"                                       "30"
+      "crit_multiplier"                                   "80 90 100 110 120"
+      "hero_spell_lifesteal"                              "16 18 20 22 24"
+      "creep_spell_lifesteal"                             "3.2 3.6 4.0 4.4 4.8"
     }
   }
 }

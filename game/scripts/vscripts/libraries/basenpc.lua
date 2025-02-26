@@ -48,6 +48,7 @@ if IsServer() then
       "modifier_bloodseeker_rupture",
       --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
+      "modifier_doom_bringer_doom_enemy",
       "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
@@ -164,6 +165,7 @@ if IsServer() then
       "modifier_dark_willow_shadow_realm_buff",
       "modifier_dazzle_innate_weave_armor_counter",
       "modifier_dazzle_shallow_grave",
+      "modifier_doom_bringer_doom_aura_self",
       "modifier_doom_bringer_scorched_earth_effect",
       "modifier_doom_bringer_scorched_earth_effect_aura",
       "modifier_enchantress_natures_attendants",
@@ -291,17 +293,17 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
-        item_gungir = true, -- because of random bounces
-        item_gungir_2 = true,
-        item_gungir_3 = true,
-        item_gungir_4 = true,
-        item_gungir_5 = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
         item_mjollnir_3 = true,
         item_mjollnir_4 = true,
         item_mjollnir_5 = true,
+        item_overwhelming_blink = true,
+        item_overwhelming_blink_2 = true,
+        item_overwhelming_blink_3 = true,
+        item_overwhelming_blink_4 = true,
+        item_overwhelming_blink_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
@@ -325,7 +327,7 @@ if IsServer() then
       local name = ability:GetAbilityName()
       local hp = self:GetHealth()
       local max_hp = self:GetMaxHealth()
-      if damagingByAccident[name] and hp/max_hp > 96/100 then
+      if damagingByAccident[name] and hp/max_hp > 0.95 then
         return true
       end
     end
@@ -401,23 +403,44 @@ if IsServer() then
         local ability = unit:GetAbilityByIndex(abilityIndex)
         if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
           ability:EndCooldown()
-          ability:RefreshCharges()
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
         end
       end
     end
 
     if unit.GetItemInSlot ~= nil and unit:HasInventory() then
+      local exempt_item_table = {
+        item_ex_machina = true,
+        item_hand_of_midas_1 = true,
+        item_refresher = true,
+        item_refresher_2 = true,
+        item_refresher_3 = true,
+        item_refresher_4 = true,
+        item_refresher_5 = true,
+        item_refresher_shard = true,
+      }
+
       -- Reset cooldown for items that are not in backpack and not in stash
       for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
         local item = unit:GetItemInSlot(i)
-        if item then
+        if item and not exempt_item_table[item:GetAbilityName()] then
           item:EndCooldown()
+        end
+      end
+
+      -- Reset cooldown for items that are in backpack
+      for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local backpack_item = unit:GetItemInSlot(j)
+        if backpack_item and not exempt_item_table[backpack_item:GetAbilityName()] then
+          backpack_item:EndCooldown()
         end
       end
 
       -- Reset neutral item cooldown
       local neutral_item = unit:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-      if neutral_item then
+      if neutral_item and not exempt_item_table[neutral_item:GetAbilityName()] then
         neutral_item:EndCooldown()
       end
     end
@@ -573,15 +596,16 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:InstantAttackCanProcCleave()
+    -- If it's on this list and uncommented then it can proc Giant Form
     local list = {
       "modifier_ember_spirit_sleight_of_fist_caster",
       "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
       "modifier_ember_spirit_sleight_of_fist_in_progress",
-      "modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
       "modifier_juggernaut_omnislash",
       "modifier_juggernaut_omnislash_invulnerability",
       --"modifier_mars_gods_rebuke_crit",                         -- Mars W
-      "modifier_monkey_king_boundless_strike_crit",               -- MK Q
+      --"modifier_monkey_king_boundless_strike_crit",               -- MK Q
       "modifier_wukongs_command_oaa_buff",                        -- MK R
       "modifier_pangolier_swashbuckle",
       "modifier_pangolier_swashbuckle_attack",
@@ -591,7 +615,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
       "modifier_tiny_tree_channel",
-      "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do
       if self:HasModifier(v) then

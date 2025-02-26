@@ -22,9 +22,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemSellable"                                        "0"
-    "ItemIsNeutralDrop"                                   "1"
+    "ItemIsNeutralActiveDrop"                             "1"
     "ItemPurchasable"                                     "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
 
@@ -33,7 +32,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "40"
-      "bonus_attack_range_melee"                          "100"
+      "bonus_attack_range_melee"                          "75"
       "active_lifesteal_percent"                          "250"
     }
 

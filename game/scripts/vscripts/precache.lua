@@ -30,7 +30,7 @@ g_ItemPrecache = {
   "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
   --"item_sacred_skull",
-  "item_satanic_core_1",
+  --"item_satanic_core_1",
   "item_shade_staff_1",
   "item_shield_staff",
   "item_siege_mode",
@@ -97,6 +97,9 @@ g_ModelPrecache = {
   "models/items/upgrade_2.vmdl",
   "models/items/upgrade_3.vmdl",
   "models/items/upgrade_4.vmdl",
+  "models/items/wards/knightstatue_ward/knightstatue_ward.vmdl",
+  "models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_a.vmdl",
+  "models/prefab_base/pedestal/pedestal.vmdl",
 }
 
 g_ParticlePrecache = {

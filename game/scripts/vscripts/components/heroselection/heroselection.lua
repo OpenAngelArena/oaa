@@ -264,6 +264,10 @@ function HeroSelection:Init ()
   end)
 end
 
+function HeroSelection:GetHeroList ()
+  return herolist
+end
+
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
@@ -303,13 +307,27 @@ function HeroSelection:StartSelection ()
         end
       end
     elseif OAAOptions.settings.GAME_MODE == "LP" then
-      local herolistFile = 'scripts/npc/herolist_lp.txt'
-      local herolistTable = LoadKeyValues(herolistFile)
-      for key, value in pairs(herolistTable) do
-        if value == 0 then
-          table.insert(rankedpickorder.bans, key)
+      -- local herolistFile = 'scripts/npc/herolist_lp.txt'
+      -- local herolistTable = LoadKeyValues(herolistFile)
+      Bottlepass:GetUnpopularHeroes(function(data)
+        if data and data.ok then
+          for i, value in ipairs(data.bans) do
+            table.insert(rankedpickorder.bans, value)
+          end
         end
-      end
+
+        if HeroSelection.isCM then
+          HeroSelection:CMManager(nil)
+        elseif HeroSelection.isBanning then
+          HeroSelection:RankedManager(nil)
+        else
+          HeroSelection:APTimer(0, "ALL PICK")
+        end
+
+        HeroSelection:BuildBottlePass()
+      end)
+      return
+
     end
     if OAAOptions.settings.HEROES_MODS == "HM03" or OAAOptions.settings.HEROES_MODS_2 == "HM03" then
       local herolistFile = 'scripts/npc/herolist_blood_magic.txt'
@@ -679,9 +697,7 @@ function HeroSelection:ChooseBans ()
           end
         end
 
-        local kez = hero_name == "npc_dota_hero_kez"
-
-        if not banned and not kez then
+        if not banned then
           table.insert(rankedpickorder.bans, hero_name)
           i = i + 1
         end

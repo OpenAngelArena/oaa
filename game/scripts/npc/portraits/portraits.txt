@@ -32846,6 +32846,61 @@
     "PortraitDesaturateHero"                              "1"
     "PortraitVignetteItem"                                "0"
   }
+  "models/props_gameplay/divine_sentinel/divine_sentinel_ornament.vmdl"
+  {
+    "cameras"
+    {
+      "Default"
+      {
+        "PortraitPosition"                                "440.055786 -115.176849 294.549438"
+        "PortraitAngles"                                  "347.083801 165.471115 0.000000"
+        "PortraitFOV"                                     "41.810001"
+        "PortraitFar"                                     "5000.000000"
+      }
+    }
+    "hero_presets"
+    {
+      "Default"
+      {
+        "PortraitHeroRotation"                            "0.000000 0.000000 0.000000"
+      }
+    }
+    "PortraitLightPosition"                               "385.013519 268.871918 756.805420"
+    "PortraitLightAngles"                                 "51.052555 -157.089630 87.788971"
+    "PortraitLightFOV"                                    "60.000000"
+    "PortraitLightDistance"                               "991.070007"
+    "PortraitLightColor"                                  "255 247 240"
+    "PortraitLightScale"                                  "6.000000"
+    "PortraitShadowColor"                                 "20 20 20"
+    "PortraitShadowScale"                                 "1.000000"
+    "PortraitGroundShadowScale"                           "1.500000"
+    "PortraitAmbientDirection"                            "-79.070 -84.150 -25.320"
+    "PortraitAmbientColor"                                "79 108 108"
+    "PortraitAmbientScale"                                "2.000000"
+    "PortraitSpecularColor"                               "251 74 84"
+    "PortraitSpecularDirection"                           "0.000000 0.000000 -1.000000"
+    "PortraitSpecularPower"                               "16.000000"
+    "PortraitBackgroundColor1"                            "0.223529 0.172549 0.313726"
+    "PortraitBackgroundColor2"                            "0.305882 0.321569 0.274510"
+    "PortraitBackgroundColor3"                            "0.368627 0.396078 0.329412"
+    "PortraitBackgroundColor4"                            "0.278431 0.196078 0.321569"
+    "PortraitBackgroundTexture"                           "materials/vgui/hud/heroportraits/portraitbackground_whiteexteriornight.vmat"
+    "PortraitAnimationActivity"                           "ACT_DOTA_CAPTURE"
+    "PortraitAnimationCycle"                              "0.000000"
+    "PortraitAnimationRate"                               "1.000000"
+    "PortraitPlayIdleExpression"                          "0"
+    "PortraitHideHero"                                    "0"
+    "PortraitHideParticles"                               "0"
+    "PortraitHideDropShadow"                              "0"
+    "PortraitDesaturateParticles"                         "0"
+    "PortraitDesaturateHero"                              "1"
+    "PortraitVignetteItem"                                "0"
+    "PortraitParticle"                                    "particles/neutral_fx/miniboss_frostivus_2024_shield.vpcf"
+    "EffectDissolveColor"                                 "1.000000 1.000000 1.000000"
+    "GodraysFXColor"                                      "0.411765 0.678431 0.913725"
+    "GroundfogFXColor"                                    "1.000000 1.000000 1.000000"
+    "PortraitAllowAnimatedPortrait"                       "1"
+  }
   "models/props_gameplay/fountain_of_life/fountain_of_life.vmdl"
   {
     "cameras"

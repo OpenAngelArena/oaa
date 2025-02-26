@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_item_shade_staff_passive", "items/shade_staff.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_shade_staff_trees_buff", "items/shade_staff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_shade_staff_trees_caster_buff", "items/shade_staff.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_shade_staff_trees_debuff", "items/shade_staff.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_shade_staff_1 = class(ItemBaseClass)
@@ -18,6 +19,9 @@ function item_shade_staff_1:OnSpellStart()
     if target ~= caster then
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
       target:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_buff", {duration = tree_buff_duration})
+    else
+      -- Apply Tree-vision or flying vision to the caster to allow the caster to see beyond the trees
+      caster:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_caster_buff", {duration = self:GetSpecialValueFor("sprout_duration")})
     end
 
     -- Create trees around the target
@@ -127,7 +131,13 @@ end
 function modifier_item_shade_staff_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.bonus_str = ability:GetSpecialValueFor("bonus_str")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
+    self.str = ability:GetSpecialValueFor("bonus_all_stats")
+    self.agi = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    --self.slow_resist = ability:GetSpecialValueFor("slow_resistance")
+    self.status_resist = ability:GetSpecialValueFor("status_resistance")
     -- Stuff active only near trees:
     self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
     self.tree_radius = ability:GetSpecialValueFor("tree_radius")
@@ -175,13 +185,49 @@ end
 
 function modifier_item_shade_staff_passive:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS, -- GetModifierBonusStats_Agility
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING, -- GetModifierSlowResistance_Stacking
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- GetModifierIncomingDamage_Percentage
   }
 end
 
+function modifier_item_shade_staff_passive:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Strength()
-  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_str")
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_shade_staff_passive:GetModifierBonusStats_Agility()
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_shade_staff_passive:GetModifierBonusStats_Intellect()
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_shade_staff_passive:GetModifierHPRegenAmplify_Percentage()
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+function modifier_item_shade_staff_passive:GetModifierLifestealRegenAmplify_Percentage()
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_item_shade_staff_passive:GetModifierSlowResistance_Stacking()
+  -- return self.slow_resist or self:GetAbility():GetSpecialValueFor("slow_resistance")
+-- end
+
+function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
+  return self.status_resist or self:GetAbility():GetSpecialValueFor("status_resistance")
 end
 
 function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage() -- Tree Damage Reduction
@@ -189,7 +235,7 @@ function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage(
     return 0
   end
 
-  return self.dmg_reduction or self:GetAbility():GetSpecialValueFor("tree_damage_reduction")
+  return 0 - math.abs(self.dmg_reduction)
 end
 
 function modifier_item_shade_staff_passive:CheckState()
@@ -211,7 +257,7 @@ function modifier_item_shade_staff_trees_buff:IsDebuff()
 end
 
 function modifier_item_shade_staff_trees_buff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_shade_staff_trees_buff:OnCreated()
@@ -265,11 +311,35 @@ function modifier_item_shade_staff_trees_buff:GetModifierIncomingDamage_Percenta
     return 0
   end
 
-  return self.dmg_reduction
+  return 0 - math.abs(self.dmg_reduction)
 end
 
 -- Flying Vision because Tree-vision needs wizardry
 function modifier_item_shade_staff_trees_buff:CheckState()
+  return {
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true, -- Tree-Walking
+  }
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_shade_staff_trees_caster_buff = class(ModifierBaseClass)
+
+function modifier_item_shade_staff_trees_caster_buff:IsHidden()
+  return true
+end
+
+function modifier_item_shade_staff_trees_caster_buff:IsDebuff()
+  return false
+end
+
+function modifier_item_shade_staff_trees_caster_buff:IsPurgable()
+  return false
+end
+
+-- Flying Vision because Tree-vision needs wizardry
+function modifier_item_shade_staff_trees_caster_buff:CheckState()
   return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }

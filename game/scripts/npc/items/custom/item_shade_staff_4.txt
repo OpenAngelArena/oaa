@@ -40,7 +40,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityTextureName"                                  "custom/shade_staff_4"
+    "AbilityTextureName"                                  "custom/shade_staff_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33404"
+    "ItemCost"                                            "32604"
     "ItemShopTags"                                        "str"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shade staff 4;shade branch 4"
@@ -66,14 +66,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_str"                                         "25 35 50 70"
+      "bonus_health"                                      "375 525 725 975"
+      "bonus_all_stats"                                   "10 15 20 25"
+      "hp_regen_amp"                                      "20 22 24 26"
+      "status_resistance"                                 "16 18 20 22"
       // Active
-      "attack_speed_slow"                                 "350"
-      "slow_duration"                                     "3.0 3.5 4.0 4.5"
+      "attack_speed_slow"                                 "250 300 350 400"
+      "slow_duration"                                     "4.5 5.0 5.5 6.0"
       "sprout_duration"                                   "4.5 5.0 5.5 6.0"
       "projectile_speed"                                  "900 1100 1300 1500"
       // Tree Protection
-      "tree_damage_reduction"                             "10 12 14 16"
+      "tree_damage_reduction"                             "12 14 16 18"
       "tree_radius"                                       "175"
       "tree_protection_duration"                          "4.5 5.0 5.5 6.0"
       "cooldown_tooltip"                                  "17 16 15 14"

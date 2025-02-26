@@ -98,7 +98,9 @@ function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
 
     ApplyDamage(damage_table)
 
+    local caster_debuff = caster:AddNewModifier(caster, self, "modifier_suppress_cleave_oaa", {})
     caster:PerformAttack(hTarget, true, true, true, false, false, false, true)
+    caster_debuff:Destroy()
 
     -- Particles
     local vDirection = vLocation - caster:GetOrigin()

@@ -32,7 +32,15 @@ end
 
 function modifier_radiant_creeps_passives_oaa:OnCreated()
   if IsServer() then
-    local parent = self:GetParent()
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
+  local parent = self:GetParent()
+  if not self.tower or self.tower:IsNull() then
+    self.ordered = false
+
     local origin = parent:GetAbsOrigin()
     local enemies = FindUnitsInRadius(
       parent:GetTeamNumber(),
@@ -42,72 +50,68 @@ function modifier_radiant_creeps_passives_oaa:OnCreated()
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
       DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-      FIND_ANY_ORDER,
+      FIND_CLOSEST,
       false
     )
 
-    -- Find the closest tower or boss
-    local closest_boss
+    -- Find the closest tower
     local closest_tower
-    local closest_boss_distance = 20000
-    local closest_tower_distance = 20000
-    for _, enemy in pairs(enemies) do
+    for _, enemy in ipairs(enemies) do
       if enemy and not enemy:IsNull() then
-        if enemy:IsOAABoss() and enemy:GetUnitName() ~= "npc_dota_boss_grendel" then
-          local distance = (origin - enemy:GetAbsOrigin()):Length2D()
-          if distance < closest_boss_distance then
-            closest_boss_distance = distance
-            closest_boss = enemy
-          end
-          if distance < closest_tower_distance and enemy:GetUnitName() == "npc_dota_creature_dire_tower_boss" then
-            closest_tower_distance = distance
-            closest_tower = enemy
-          end
+        local enemy_name = enemy:GetUnitName()
+        if enemy:IsOAABoss() and enemy_name == "npc_dota_creature_dire_tower_boss" then
+          closest_tower = enemy
+          break
         end
       end
     end
 
-    self.tower = closest_tower or closest_boss
+    self.tower = closest_tower
 
-    self:StartIntervalThink(0.1)
+    if not self.tower or self.tower:IsNull() then
+      -- Find the closest boss since there are no towers
+      local closest_boss
+      for _, enemy in ipairs(enemies) do
+        if enemy and not enemy:IsNull() then
+          local enemy_name = enemy:GetUnitName()
+          if enemy:IsOAABoss() and enemy_name ~= "npc_dota_boss_grendel" and enemy_name ~= "npc_dota_boss_wanderer_1" and enemy_name ~= "npc_dota_boss_wanderer_2" and enemy_name ~= "npc_dota_boss_wanderer_3" then
+            closest_boss = enemy
+            break
+          end
+        end
+      end
+
+      self.tower = closest_boss
+
+      if not self.tower or self.tower:IsNull() then
+        return
+      end
+    end
   end
-end
 
-function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
-  local parent = self:GetParent()
-
-  local tower = self.tower
-
-  if not tower or tower:IsNull() then
-    self:StartIntervalThink(-1)
-    self:Destroy()
+  if not self.tower:IsAlive() then
+    self.tower = nil
     return
   end
 
-  if not tower:IsAlive() then
-    self:StartIntervalThink(-1)
-    self:Destroy()
-    return
+  if not self.ordered or parent:IsIdle() then
+    if parent:CanEntityBeSeenByMyTeam(self.tower) then
+      ExecuteOrderFromTable({
+        UnitIndex = parent:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+        TargetIndex = self.tower:entindex(),
+        Queue = false,
+      })
+    else
+      ExecuteOrderFromTable({
+        UnitIndex = parent:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+        Position = self.tower:GetAbsOrigin(),
+        Queue = false,
+      })
+    end
+    self.ordered = true
   end
-
-  if parent:CanEntityBeSeenByMyTeam(tower) then
-    ExecuteOrderFromTable({
-      UnitIndex = parent:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-      TargetIndex = tower:entindex(),
-      Queue = false,
-    })
-  else
-    ExecuteOrderFromTable({
-      UnitIndex = parent:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      Position = tower:GetAbsOrigin(),
-      Queue = false,
-    })
-  end
-
-  -- Stop thinking after issuing an order
-  self:StartIntervalThink(-1)
 end
 
 function modifier_radiant_creeps_passives_oaa:DeclareFunctions()

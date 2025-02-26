@@ -202,11 +202,13 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
     ability = ability,
   }
 
+  local dps = self.min_dmg
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       local enemy_loc = enemy:GetAbsOrigin()
       local distance = (enemy_loc - parent_loc):Length2D()
-      local dps = self.min_dmg
+
       if distance <= self.max_effect_radius then
         -- Max dmg
         dps = self.max_dmg
@@ -249,7 +251,7 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
           nil,
           self.min_effect_radius,
           DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-          bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+          DOTA_UNIT_TARGET_HERO,
           DOTA_UNIT_TARGET_FLAG_NONE,
           FIND_ANY_ORDER,
           false
@@ -408,7 +410,7 @@ function modifier_eul_typhoon_oaa_debuff:OnIntervalThink()
     slow = (self.max_slow - self.min_slow) * (distance - self.min_effect_radius) / (self.max_effect_radius - self.min_effect_radius) + self.min_slow
   end
 
-  self:SetStackCount(0 - slow)
+  self:SetStackCount(0 - math.ceil(slow))
 end
 
 function modifier_eul_typhoon_oaa_debuff:DeclareFunctions()

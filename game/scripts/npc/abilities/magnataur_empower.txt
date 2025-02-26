@@ -47,15 +47,15 @@
         "value"                                           "30 33 36 39 42 45"
         "special_bonus_unique_magnus_4"                   "+10"
       }
-      "bonus_damage_pct" //OAA
+      "bonus_damage_pct"
       {
         "value"                                           "16 24 32 40 48 56"
-        "special_bonus_unique_magnus_2"                   "+30"
+        "special_bonus_unique_magnus_2"                   "+10"
       }
       "cleave_damage_pct" //OAA
       {
         "value"                                           "20 30 40 50 60 70"
-        "special_bonus_unique_magnus_2"                   "+30"
+        "special_bonus_unique_magnus_2"                   "+10"
       }
       "cleave_starting_width"
       {
@@ -77,6 +77,26 @@
         "value"                                           "0"
       }
       "self_multiplier"                                   "50"
+      "always_on"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_magnataur_eternal_empowerment"  "=1"
+      }
+      "self_multiplier_bonus_stack_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_magnataur_eternal_empowerment"  "10"
+      }
+      "self_multiplier_bonus_max_stacks"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_magnataur_eternal_empowerment"  "10 15 20 25 30 35"
+      }
+      "self_multiplier_bonus_per_stack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_magnataur_eternal_empowerment"  "2 3 4 5 6 7"
+      }
     }
   }
 }

@@ -33,7 +33,6 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_visage_8"                   "-3"
       }
       "chill_duration"
       {
@@ -52,13 +51,13 @@
         "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
         "RequiresFacet"                                   "visage_sepulchre"
-        "special_bonus_facet_visage_sepulchre"            "250"
+        "special_bonus_facet_visage_sepulchre"            "300"
       }
       "penalty"
       {
         "value"                                           "0"
         "RequiresFacet"                                   "visage_sepulchre"
-        "special_bonus_facet_visage_sepulchre"            "75"
+        "special_bonus_facet_visage_sepulchre"            "50"
       }
     }
   }

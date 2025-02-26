@@ -52,12 +52,17 @@
       "damage_pct"
       {
         "value"                                           "1.4"
+        "special_bonus_unique_bloodseeker"                "-0.7"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "shard_max_health_dmg" //OAA, it's not max health, it's flat dmg
+      "max_health_dmg_pct"
       {
-        "value"                                           "20 25 30 35 70 105"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+3.0"
+      }
+      "thirst_threshold_bonus"
+      {
+        "value"                                           "0"
       }
     }
   }

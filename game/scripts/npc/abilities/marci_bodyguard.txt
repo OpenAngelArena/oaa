@@ -42,7 +42,7 @@
       }
       "lifesteal_pct"
       {
-        "value"                                           "12 18 24 30 33 36"
+        "value"                                           "12 18 24 30 36 42"
         "special_bonus_unique_marci_guardian_lifesteal"   "+10"
       }
       "bonus_damage" //OAA
@@ -50,13 +50,20 @@
         "value"                                           "12 18 24 30 36 42"
         "special_bonus_unique_marci_guardian_damage"      "+15"
       }
-      "creep_lifesteal_reduction_pct"                     "40"
+      "creep_lifesteal_reduction_pct"                     "40" // Valve, this is not needed :P
       "bodyguard_attack_range_buffer"
       {
         "value"                                           "125"
       }
-      "bonus_armor"                                       "4 8 12 16 18 20"
+      //"bonus_armor"                                       "4 8 12 16 18 20"
+      "max_partner_penalty"                               "75"
       "counter_cooldown"                                  "0.45"
+      "shared_healing_percent"
+      {
+        "value"                                           "0"
+        "RequiresFacet"                                   "marci_buddy_system"
+        "special_bonus_facet_marci_buddy_system"          "=100"
+      }
     }
   }
 }

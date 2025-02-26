@@ -107,8 +107,8 @@ end
 function modifier_zombie_global_aura_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL, -- GetModifierProcAttack_BonusDamage_Physical
+    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL, -- GetModifierProcAttack_BonusDamage_Magical
   }
 end
 
@@ -122,56 +122,48 @@ function modifier_zombie_global_aura_effect:GetModifierPreAttack_BonusDamage()
 end
 
 if IsServer() then
-  function modifier_zombie_global_aura_effect:GetModifierAttackSpeedBonus_Constant()
-    local caster = self:GetCaster()
-    if caster and not caster:IsNull() then
-      local level = caster:GetLevel()
-      return (level - 1) * self.as_per_level
-    end
-    return 0
-  end
-
-  function modifier_zombie_global_aura_effect:OnAttackLanded(event)
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
+  function modifier_zombie_global_aura_effect:GetModifierProcAttack_BonusDamage_Physical(event)
     local target = event.target
-
-    -- Doesn't work on units that dont have this modifier
-    if parent ~= event.attacker then
-      return
-    end
 
     -- To prevent crashes:
     if not target or target:IsNull() then
-      return
+      return 0
     end
 
-    -- If the unit is not actually a unit but its some weird entity
-    if target.HasModifier == nil then
-      return
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return 0
     end
 
-    if not ability or ability:IsNull() then
-      return
+    -- Ignore buildings, wards, heroes, illusions, clones and bosses
+    if target:IsTower() or target:IsBuilding() or target:IsOther() or target:IsHero() or target:IsClone() or target:IsTempestDouble() or target:IsOAABoss() then
+      return 0
     end
 
-    local damage_table = {
-      attacker = parent,
-      victim = target,
-      --ability = ability,
-    }
+    return self.bonus_dmg_creeps
+  end
 
-    if target:IsOAABoss() then
-      damage_table.damage = self.bonus_dmg_bosses or ability:GetSpecialValueFor("zombie_bonus_damage_against_bosses")
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-    elseif target:IsHero() or target:IsClone() or target:IsTempestDouble() then
-      return
-    else
-      damage_table.damage = self.bonus_dmg_creeps or ability:GetSpecialValueFor("zombie_bonus_damage_against_creeps")
-      damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
+  function modifier_zombie_global_aura_effect:GetModifierProcAttack_BonusDamage_Magical(event)
+    local target = event.target
+
+    -- To prevent crashes:
+    if not target or target:IsNull() then
+      return 0
     end
 
-    ApplyDamage(damage_table)
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return 0
+    end
+
+    -- Ignore buildings, wards, heroes, illusions, clones and creeps
+    if target:IsTower() or target:IsBuilding() or target:IsOther() or target:IsClone() or target:IsTempestDouble() or not target:IsOAABoss() then
+      return 0
+    end
+
+    return self.bonus_dmg_bosses
   end
 end
 

@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  "silencer_brain_drain"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityValues"
+    {
+      "permanent_int_steal_range" //OAA
+      {
+        "value"                                           "700"           
+        "affected_by_aoe_increase"                        "1"
+      }
+      "permanent_int_steal_amount" //OAA
+      {
+        "value"                                           "1"
+        "special_bonus_shard"                             "+1"
+      }   
+    }
+  }
+}

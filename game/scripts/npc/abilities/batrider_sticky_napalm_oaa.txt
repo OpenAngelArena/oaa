@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_stack"
+      "damage_per_stack" // application (first) damage and proc damage per stack
       {
         "value"                                           "5 10 15 20 40 60"
         "special_bonus_unique_batrider_4"                 "+15"

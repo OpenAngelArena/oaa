@@ -35,21 +35,22 @@
     {
       "tornado_dps"
       {
-        "value"                                           "10 10 10 10 15 25"
+        "value"                                           "10 10 10 10 20 30"
       }
       "max_tornados"
       {
-        "value"                                           "2 4 6 8 9 10"
+        "value"                                           "2 4 6 8 8 8"
         "special_bonus_shard"                             "+2"
       }
       "heal_per_tornado"
       {
-        "value"                                           "20 20 20 20 40 60"
+        "value"                                           "20 20 20 20 40 80"
+        "special_bonus_facet_eul_displacement"            "+20"
       }
       "max_hp_heal_per_tornado"
       {
         "value"                                           "0"
-        "special_bonus_unique_eul_5_oaa"                  "+1"
+        "special_bonus_unique_eul_5_oaa"                  "+1.5"
       }
       "tornado_damage_radius"
       {
@@ -80,7 +81,7 @@
       "displacement_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =840"
+        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =1120"
         "RequiresFacet"                                   "eul_displacement"
       }
       "displacement_range"
