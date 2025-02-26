@@ -65,6 +65,11 @@ local ignored_abilities = {
   monkey_king_wukongs_command_oaa = true,
   phantom_assassin_blur = true,
   spectre_desolate = true,
+  item_gungir = true,
+  item_gungir_2 = true,
+  item_gungir_3 = true,
+  item_gungir_4 = true,
+  item_gungir_5 = true,
   item_satanic_core_1 = true,
   item_satanic_core_2 = true,
   item_satanic_core_3 = true,
@@ -75,6 +80,7 @@ local ignored_abilities = {
   item_spell_breaker_3 = true,
   item_spell_breaker_4 = true,
   item_spell_breaker_5 = true,
+  
 }
 
 local forbidden_kvs = {
