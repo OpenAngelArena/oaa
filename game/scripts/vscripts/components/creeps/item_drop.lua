@@ -30,7 +30,7 @@ local RARITY_ENUM = 4
 ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
   { "item_infinite_bottle",      3,      -1,      1},
-  { "item_madstone_bundle",      1,      -1,      2},
+  { "item_madstone_bundle",      1,      -1,      1},
 }
 
 function CreepItemDrop:Init ()
