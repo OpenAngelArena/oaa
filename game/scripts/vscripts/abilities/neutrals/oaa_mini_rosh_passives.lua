@@ -13,7 +13,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_mini_rosh_passives = class(ModifierBaseClass)
+modifier_mini_rosh_passives = class({})
 
 function modifier_mini_rosh_passives:IsHidden()
   return true
@@ -116,7 +116,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_mini_rosh_aura_effect = class(ModifierBaseClass)
+modifier_mini_rosh_aura_effect = class({})
 
 function modifier_mini_rosh_aura_effect:IsHidden()
   return false

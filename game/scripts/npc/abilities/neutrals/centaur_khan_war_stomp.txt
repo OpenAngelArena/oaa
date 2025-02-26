@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Centaur Khan (Big Centaur): Vanilla War Stomp
+  // TODO: maybe add % max hp dmg
   //=================================================================================================================
   "centaur_khan_war_stomp"
   {
@@ -15,7 +16,7 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
+    "MaxLevel"                                            "4"
 
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
@@ -37,7 +38,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "non_hero_stun_duration"                            "3.0"
-      "hero_stun_duration"                                "1.6"
+      "hero_stun_duration"                                "1.6 1.7 1.8 1.9" //OAA
     }
   }
 }

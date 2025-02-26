@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Death Throe: Power - bonus % damage to allies after Death
+  //=================================================================================================================
+  "furbolg_enrage_damage"
+  {
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_neutral_enrage_damage.lua"
+    //"AbilityTextureName"                                  "furbolg_enrage_damage"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_dmg_pct" //OAA
+      {
+        "value"                                           "10 25 40 55"
+      }
+      "duration"
+      {
+        "value"                                           "5"
+      }
+      "radius"
+      {
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}
