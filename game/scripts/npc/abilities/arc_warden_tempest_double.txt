@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50" //OAA, Valve forgot that even this spell should have a mana cost
+    "AbilityManaCost"                                     "0" //OAA, change if Tempest Double doesnt spawn with Arc Warden's current health and mana
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,17 +48,17 @@
       "invis_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=1 =1 =1"
+        "special_bonus_facet_arc_warden_runed_replica"    "=1 =1 =1 =1 =1"
       }
       "arcane_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=0 =1 =1"
+        "special_bonus_facet_arc_warden_runed_replica"    "=0 =1 =1 =1 =1"
       }
       "haste_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=0 =0 =1"
+        "special_bonus_facet_arc_warden_runed_replica"    "=0 =0 =1 =1 =1"
       }
     }
   }
