@@ -39,10 +39,10 @@
       "base_damage"                                       "0"
       "damage_per_stack" //OAA, special_bonus_unique_faceless_void_6 is not used
       {
-        "value"                                           "14 16 18 20 40 80"
+        "value"                                           "14 16 18 20 40 60"
         "special_bonus_unique_faceless_void_6"            "+7"
       }
-      "heal_prevent_percent"                              "-30 -35 -40 -45 -50 -55" //OAA
+      "heal_prevent_percent"                              "-25 -30 -35 -40 -45 -50" //OAA, unique to OAA
     }
   }
 }

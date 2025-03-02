@@ -22,9 +22,6 @@
     "AbilityCastRange"                                    "3000"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
@@ -63,6 +60,7 @@
       {
         "value"                                           "600 1200 1800 3600 5400"
         "special_bonus_unique_hoodwink_sharpshooter_damage"  "+400"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "recoil_distance"
       {
