@@ -40,10 +40,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_speed"                                  "1200"
-      "movement_slow" //OAA
+      "movement_slow" // unused
       {
         "value"                                           "0"
-        "special_bonus_facet_death_prophet_suppress"      "30 32 34 36 38 40"
+        "special_bonus_facet_death_prophet_suppress"      "20 24 28 32 35 40"
       }
       "damage_per_second"
       {

@@ -64,9 +64,9 @@
       }
       "rock_bonus_duration"                               "0.3 0.5 0.7 0.9 1.0 1.1"
       "damage_str"                                        "100"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, cooldown starts when current roll ends
       {
-        "value"                                           "11 9 7 5 4 4"
+        "value"                                           "10 8 6 4 4 4"
       }
       "destroy_stone"
       {
