@@ -67,6 +67,17 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
+      "scepter_radius"
+      {
+        "value"                                           "500"
+        "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "scepter_starstorm_target_pct"
+      {
+        "value"                                           "80"
+        "RequiresScepter"                                 "1"
+      }
 
       // OAA configuration values for arrow
       "arrow_vision_duration"                             "3" // Duration of vision after hitting

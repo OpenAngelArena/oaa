@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "10 17 24 31 38" // for the tooltip
+      "bonus_armor"                                       "5 10 15 25 35" // for the tooltip
       "bonus_damage"
       {
         "value"                                           "60 120 180 240 300" // for the tooltip
@@ -38,7 +38,7 @@
       }
       "move_speed"                                        "10 20 30 40 50" // for the tooltip
 
-      "bonus_armor_oaa"                                   "0 0 0 7 14" // bonus_armor - bonus_armor(at lvl 3)
+      "bonus_armor_oaa"                                   "0 0 0 10 20" // bonus_armor - bonus_armor(at lvl 3)
       "bonus_damage_oaa"                                  "0 0 0 60 120" // bonus_damage - bonus_damage(at lvl 3)
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
