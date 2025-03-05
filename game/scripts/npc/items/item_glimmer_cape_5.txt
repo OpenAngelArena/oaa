@@ -46,7 +46,7 @@
     "AbilityCastRange"                                    "600 700 800 900 1000"
     "AbilityCooldown"                                     "14.0"
     "AbilitySharedCooldown"                               "glimmer"
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "125"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
     {
       "initial_fade_delay"                                "0.5"
       "secondary_fade_delay"                              "0.5"
-      "active_movement_speed"                             "40 45 50 55 60"
+      "active_movement_speed"                             "20 30 40 50 60"
       "duration"                                          "6"
       "bonus_magical_armor"                               "25 26 27 28 29"
       "barrier_block"                                     "400 800 1200 1600 2000"
