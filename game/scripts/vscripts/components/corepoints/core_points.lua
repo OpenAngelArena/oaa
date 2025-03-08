@@ -75,6 +75,8 @@ function CorePointsManager:FilterOrders(keys)
   -- DOTA_UNIT_ORDER_SET_ITEM_COMBINE_LOCK = 32
   -- DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN = 37
   -- DOTA_UNIT_ORDER_TAKE_ITEM_FROM_NEUTRAL_ITEM_STASH = 39
+  -- DOTA_UNIT_ORDER_CONSUME_ITEM = 41
+  -- DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL = 42
 
   if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
     -- Check if needed variables exist
@@ -136,6 +138,12 @@ function CorePointsManager:FilterOrders(keys)
       if string.find(target:GetName(), "shop") ~= nil then
         --local purchaser = ability:GetPurchaser()
         self:AddCorePoints(self:GetCorePointsSellValue(ability), unit_with_order, playerID)
+      end
+    end
+  elseif order == DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL then
+    if unit_with_order and ability then
+      if CorePointsManager:GetCorePointsFullValue(ability) > 0 then
+        return false
       end
     end
   end
