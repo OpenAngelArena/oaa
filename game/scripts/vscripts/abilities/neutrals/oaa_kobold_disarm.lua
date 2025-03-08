@@ -14,6 +14,6 @@ function kobold_disarm_oaa:OnSpellStart()
     return
   end
 
-  caster:AddNewModifier(target, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("duration")})
+  target:AddNewModifier(caster, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("duration")})
 end
 

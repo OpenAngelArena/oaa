@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_ghost_curse_oaa_debuff", "abilities/neutrals/oaa_ghost
 
 ghost_curse_oaa = class(AbilityBaseClass)
 
+function ghost_curse_oaa:Precache(context)
+  PrecacheResource("particle", "particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_overhead.vpcf", context)
+end
+
 function ghost_curse_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
@@ -15,7 +19,7 @@ function ghost_curse_oaa:OnSpellStart()
     return
   end
 
-  caster:AddNewModifier(target, self, "modifier_ghost_curse_oaa_debuff", {duration = self:GetSpecialValueFor("duration")})
+  target:AddNewModifier(caster, self, "modifier_ghost_curse_oaa_debuff", {duration = self:GetSpecialValueFor("duration")})
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------

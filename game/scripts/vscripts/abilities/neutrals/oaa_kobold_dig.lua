@@ -2,6 +2,12 @@ LinkLuaModifier("modifier_kobold_dig_oaa_buff", "abilities/neutrals/oaa_kobold_d
 
 kobold_dig_oaa = class(AbilityBaseClass)
 
+function kobold_dig_oaa:Precache(context)
+  PrecacheResource("particle", "particles/econ/events/ti9/shovel_dig.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts", context)
+end
+
 function kobold_dig_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local position = self:GetCursorPosition()
@@ -37,6 +43,7 @@ function kobold_dig_oaa:OnChannelFinish(bInterrupted)
   end
 
   -- Dig In (root, banish, silence, mute, blind, invulnerable etc.)
+  FindClearSpaceForUnit(caster, position, true)
   caster:AddNewModifier(caster, self, "modifier_kobold_dig_oaa_buff", {duration = self:GetSpecialValueFor("duration")})
 
   -- Hide the model
@@ -78,17 +85,19 @@ function modifier_kobold_dig_oaa_buff:CheckState()
   }
 end
 
-function modifier_kobold_dig_oaa_buff:OnDestroy()
-  local parent = self:GetParent()
+if IsServer() then
+  function modifier_kobold_dig_oaa_buff:OnDestroy()
+    local parent = self:GetParent()
 
-  -- Sound
-  parent:EmitSound("Hero_NyxAssassin.Burrow.Out")
+    -- Sound
+    parent:EmitSound("Hero_NyxAssassin.Burrow.Out")
 
-  -- Particle
-  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN, parent)
-  ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
-  ParticleManager:ReleaseParticleIndex(particle)
+    -- Particle
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN, parent)
+    ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
-  -- Unhide the model
-  parent:RemoveNoDraw()
+    -- Unhide the model
+    parent:RemoveNoDraw()
+  end
 end

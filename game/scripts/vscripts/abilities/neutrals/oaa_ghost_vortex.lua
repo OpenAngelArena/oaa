@@ -3,6 +3,11 @@ LinkLuaModifier("modifier_vortex_oaa_debuff", "abilities/neutrals/oaa_ghost_vort
 
 ghost_vortex_oaa = class(AbilityBaseClass)
 
+function ghost_vortex_oaa:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts", context)
+end
+
 function ghost_vortex_oaa:GetAOERadius()
   return self:GetSpecialValueFor("radius")
 end
