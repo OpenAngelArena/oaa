@@ -1,9 +1,9 @@
 LinkLuaModifier("modifier_giant_wolf_cripple_oaa_applier", "abilities/neutrals/oaa_giant_wolf_cripple.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_giant_wolf_cripple_oaa_effect", "abilities/neutrals/oaa_giant_wolf_cripple.lua", LUA_MODIFIER_MOTION_NONE)
 
-ghost_giant_wolf_cripple_oaa = class(AbilityBaseClass)
+giant_wolf_cripple_oaa = class(AbilityBaseClass)
 
-function ghost_giant_wolf_cripple_oaa:GetIntrinsicModifierName()
+function giant_wolf_cripple_oaa:GetIntrinsicModifierName()
   return "modifier_giant_wolf_cripple_oaa_applier"
 end
 

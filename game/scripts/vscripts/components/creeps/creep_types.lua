@@ -18,6 +18,11 @@ CreepTypes = {
       {"npc_dota_neutral_forest_troll_berserker",   350,    0,  35,   0.75,  25,  30}, -- has Piercing
       {"npc_dota_neutral_forest_troll_high_priest", 300,  500,  15,   0.5,   15,  25}  -- has Piercing
     },
+    {
+      {"npc_dota_neutral_froglet",                  480,  300,  30,   1.5,   30,  40},
+      {"npc_dota_neutral_tadpole",                  320,  200,  20,   0.5,   20,  25},
+      {"npc_dota_neutral_tadpole",                  320,  200,  20,   0.5,   20,  25}
+    }
   },
     -- 2 "medium camp" (CreepMax is 8 for all medium camps)
   {
@@ -36,33 +41,47 @@ CreepTypes = {
   },
     -- 3 "hard camp" (CreepMax is 10 for all hard camps)
   {
-    {                                              --HP   MANA  DMG   ARM   GOLD  EXP  -- expected gold is 100 and XP 100
-      {"npc_dota_neutral_custom_ghost",             800,  300,  40,   1.5,   50,  50}, -- has Piercing
-      {"npc_dota_neutral_custom_small_ghost",       400,  200,  30,    1,    25,  25},
-      {"npc_dota_neutral_custom_small_ghost",       400,  200,  30,    1,    25,  25}
+    {                                              --HP   MANA  DMG   ARM   GOLD  EXP  -- expected gold is 80 and XP 100
+      {"npc_dota_neutral_custom_ghost",             800,  300,  40,   1.5,   40,  50}, -- has Piercing
+      {"npc_dota_neutral_custom_small_ghost",       400,  200,  30,    1,    20,  25},
+      {"npc_dota_neutral_custom_small_ghost",       400,  200,  30,    1,    20,  25}
     },
     {
-      {"npc_dota_neutral_custom_centaur_khan",      800,  300,  50,   1.5,   50,  50},
-      {"npc_dota_neutral_custom_small_centaur",     400,    0,  30,    1,    25,  25},
-      {"npc_dota_neutral_custom_small_centaur",     400,    0,  30,    1,    25,  25}
+      {"npc_dota_neutral_custom_centaur_khan",      800,  300,  50,   1.5,   40,  50},
+      {"npc_dota_neutral_custom_small_centaur",     400,    0,  30,    1,    20,  25},
+      {"npc_dota_neutral_custom_small_centaur",     400,    0,  30,    1,    20,  25}
     },
     {
-      {"npc_dota_neutral_satyr_hellcaller",         800,  400,  50,   1.5,   50,  50},
-      {"npc_dota_neutral_satyr_soulstealer",        500,  600,  30,    1,    30,  30},
-      {"npc_dota_neutral_satyr_trickster",          300,  500,  10,    1,    20,  25}
+      {"npc_dota_neutral_grown_frog_mage",          800,  350,  40,   1.5,   40,  50},
+      {"npc_dota_neutral_grown_frog",               400,  350,  30,    1,    20,  25},
+      {"npc_dota_neutral_grown_frog",               400,  350,  30,    1,    20,  25}
+    },
+    {
+      {"npc_dota_neutral_satyr_hellcaller",         800,  400,  50,   1.5,   40,  50},
+      {"npc_dota_neutral_satyr_soulstealer",        500,  600,  30,    1,    25,  30},
+      {"npc_dota_neutral_satyr_trickster",          300,  500,  10,    1,    15,  25}
     }
   },
    -- 4 "ancient camp" (CreepMax is 8 for ancient camps)
   {
-    {                                               --HP  MANA  DMG   ARM   GOLD  EXP  -- expected gold is 120 and XP is 120
-      {"npc_dota_neutral_granite_golem",           1275,    0,  50,    2,   120,  120}
+    {                                               --HP  MANA  DMG   ARM   GOLD  EXP  -- expected gold is 50-90 and XP is 115
+      {"npc_dota_neutral_granite_golem",           1275,    0,  80,    2,   90,  115}
     },
     {
-      {"npc_dota_neutral_rock_golem",              1200,    0,  40,    1,    50,  120}
+      {"npc_dota_neutral_rock_golem",              1200,    0,  40,    1,   50,  115}
     },
     {
-      {"npc_dota_neutral_black_dragon",            1275,  500,  80,    3,   120,  120}
-    }
+      {"npc_dota_neutral_black_dragon",            1275,  500,  70,    3,   90,  115}
+    },
+    {
+      {"npc_dota_neutral_prowler_acolyte",         1200,    0,  40,    3,   50,  115}
+    },
+    {
+      {"npc_dota_neutral_ancient_frog",            1200,  450,  40,    3,   50,  115}
+    },
+    {
+      {"npc_dota_neutral_ancient_frog_mage",       1275,  450,  60,    3,   90,  115}
+    },
   },
    -- 5 "solo ancient corner camp" (CreepMax is 1)
   {
@@ -73,7 +92,7 @@ CreepTypes = {
    -- 6 "solo ancient mid camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_mini_roshan",                     1500,    0,  80,    5,   200, 25}
+      {"npc_dota_mini_roshan",                     1500,    0,  80,     5,   200, 25}
     },
     {
       {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,    10,   200, 25}
@@ -85,7 +104,7 @@ CreepTypes = {
    -- 7 "solo prowler - part of the ancient camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_neutral_prowler_shaman",          1275,  400,  80,    3,   100, 120}
+      {"npc_dota_neutral_prowler_shaman",          1275,  400,  80,     3,   100, 115}
     }
   }
 }
