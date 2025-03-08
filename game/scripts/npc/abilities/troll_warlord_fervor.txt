@@ -24,21 +24,21 @@
       }
       "max_stacks" //OAA
       {
-        "value"                                           "9"
+        "value"                                           "8"
       }
       "stack_limit_during_battle_trance" //OAA
       {
         "value"                                           "0"
         "special_bonus_facet_troll_warlord_bad_influence"  "+12"       // BEHAVIOR ONLY, DOES NOT UPDATE TOOLTIP: Update stack_limit_tooltip for tooltip change
       }
-      "extra_attack_chance_per_stack"
+      "extra_attack_chance_per_stack" //OAA
       {
-        "value"                                           "3"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
-      "base_chance"
+      "base_chance" //OAA
       {
-        "value"                                           "16"
+        "value"                                           "12"
         "RequiresShard"                                   "1"
       }
       "armor_per_stack"

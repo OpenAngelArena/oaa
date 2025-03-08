@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0"
+    "AbilityCooldown"                                     "10.0 9.5 9.0 8.5 8.0"
     "AbilitySharedCooldown"                               "phylactery"
     "AbilityManaCost"                                     "0"
 
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35904"
+    "ItemCost"                                            "35004"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "khanda; kanda"
@@ -66,7 +66,7 @@
       "bonus_mana"                                        "200 300 450 650 900"
       "bonus_all_stats"                                   "8 13 18 23 28"
       "slow"                                              "30 35 40 45 50"
-      "slow_duration"                                     "3"
+      "slow_duration"                                     "4 4.25 4.5 4.75 5"
       "bonus_spell_damage"                                "250 375 550 775 1050"
     }
   }

@@ -311,9 +311,10 @@ function Duels:SplitDuelPlayers(options)
     if PlayerResource:IsValidPlayerID(playerId) then
       local player = PlayerResource:GetPlayer(playerId)
       if player ~= nil and not player:IsNull() then
-        if player:GetAssignedHero() then
+        local hero = player:GetAssignedHero()
+        if hero then
           if player:GetTeam() == DOTA_TEAM_BADGUYS then
-            badPlayers[badPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            badPlayers[badPlayerIndex] = HeroState.SaveState(hero)
             badPlayers[badPlayerIndex].id = playerId
             -- used to generate keynames like badEnd1
             -- not used in dota apis
@@ -321,14 +322,14 @@ function Duels:SplitDuelPlayers(options)
             badPlayerIndex = badPlayerIndex + 1
             validBadPlayerIndex = validBadPlayerIndex + 1
           elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
-            goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            goodPlayers[goodPlayerIndex] = HeroState.SaveState(hero)
             goodPlayers[goodPlayerIndex].id = playerId
             goodPlayers[goodPlayerIndex].team = 'good'
             goodPlayerIndex = goodPlayerIndex + 1
             validGoodPlayerIndex = validGoodPlayerIndex + 1
           end
 
-          HeroState.ResetState(player:GetAssignedHero())
+          HeroState.ResetState(hero)
         end
       else
         local hero = PlayerResource:GetSelectedHeroEntity(playerId)
@@ -464,7 +465,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
 end
 
 function Duels:PreparePlayersToStartDuel(options, playerSplit)
-  for _,player in ipairs(playerSplit.BadPlayers) do
+  for _, player in ipairs(playerSplit.BadPlayers) do
     local hero = PlayerResource:GetSelectedHeroEntity(player.id)
     if player.assigned == nil then
       hero:Stop()
@@ -473,7 +474,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
-  for _,player in ipairs(playerSplit.GoodPlayers) do
+  for _, player in ipairs(playerSplit.GoodPlayers) do
     local hero = PlayerResource:GetSelectedHeroEntity(player.id)
     if player.assigned == nil then
       hero:Stop()
@@ -499,6 +500,18 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   Timers:CreateTimer(2, function()
     GridNav:RegrowAllTrees()
     CreepItemDrop:ClearBottles()
+    if options and options.firstDuel and playerSplit then
+      for _, player in ipairs(playerSplit.BadPlayers) do
+        local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+        hero:AddItemByName("item_madstone_bundle")
+        hero:AddItemByName("item_madstone_bundle")
+      end
+      for _, player in ipairs(playerSplit.GoodPlayers) do
+        local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+        hero:AddItemByName("item_madstone_bundle")
+        hero:AddItemByName("item_madstone_bundle")
+      end
+    end
   end)
 
   DebugPrint("Duel Info")

@@ -514,10 +514,10 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
@@ -674,10 +674,10 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:

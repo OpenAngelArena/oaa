@@ -62,7 +62,9 @@ function item_bloodstone_1:OnSpellStart()
   end
 
   -- Drained
-  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_drained", {duration = 40})
+  local cd = self.BaseClass.GetCooldown(self, self:GetLevel())
+  local drain_duration = cd * caster:GetCooldownReduction()
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_drained", {duration = drain_duration})
 end
 
 item_bloodstone_2 = item_bloodstone_1
