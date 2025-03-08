@@ -65,13 +65,13 @@ CreepTypes = {
    -- 4 "ancient camp" (CreepMax is 8 for ancient camps)
   {
     {                                               --HP  MANA  DMG   ARM   GOLD  EXP  -- expected gold is 50-90 and XP is 115
-      {"npc_dota_neutral_granite_golem",           1275,    0,  80,    2,   90,  115}
+      {"npc_dota_neutral_granite_golem",           1275,    0,  70,    2,   90,  115}
     },
     {
       {"npc_dota_neutral_rock_golem",              1200,    0,  40,    1,   50,  115}
     },
     {
-      {"npc_dota_neutral_black_dragon",            1275,  500,  70,    3,   90,  115}
+      {"npc_dota_neutral_black_dragon",            1275,  500,  60,    3,   90,  115}
     },
     {
       {"npc_dota_neutral_prowler_acolyte",         1200,    0,  40,    3,   50,  115}
@@ -86,25 +86,25 @@ CreepTypes = {
    -- 5 "solo ancient corner camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_neutral_custom_black_dragon",     1500,  300,  80,    3,   100, 150}
+      {"npc_dota_neutral_custom_black_dragon",     1500,  300,  80,    3,  100,  150}
     }
   },
    -- 6 "solo ancient mid camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_mini_roshan",                     1500,    0,  80,     5,   200, 25}
+      {"npc_dota_mini_roshan",                     1500,    0,  80,    5,  200,  25}
     },
     {
-      {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,    10,   200, 25}
+      {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,   10,  200,  25}
     },
     {
-      {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,    10,   200, 25}
+      {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,   10,  200,  25}
     },
   },
    -- 7 "solo prowler - part of the ancient camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_neutral_prowler_shaman",          1275,  400,  80,     3,   100, 115}
+      {"npc_dota_neutral_prowler_shaman",          1275,  400,  70,    3,   90,  115}
     }
   }
 }
