@@ -19,7 +19,7 @@ function kobold_foreman_warcry_oaa:OnSpellStart()
     false
   )
 
-  for _,ally in pairs(allies) do
+  for _, ally in pairs(allies) do
     -- Apply a buff
     if ally then
       ally:AddNewModifier(caster, self, "modifier_kobold_foreman_warcry_oaa_buff", { duration = duration } )
@@ -29,7 +29,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_kobold_foreman_warcry_oaa_buff = class(ModifierBaseClass)
+modifier_kobold_foreman_warcry_oaa_buff = class({})
 
 function modifier_kobold_foreman_warcry_oaa_buff:IsHidden()
   return false

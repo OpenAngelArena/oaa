@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "harpy_storm_chain_lightning" // TODO: rework: add % max hp dmg
+    "Ability1"                                            "harpy_storm_chain_lightning"
     "Ability2"                                            "harpy_storm_null_field_oaa"
     "Ability3"                                            ""
     "Ability4"                                            ""
@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "2"     // Physical protection.
-    "MagicalResistance"                                   "0"    // Magical protection.
+    "MagicalResistance"                                   "25"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -34,7 +34,7 @@
     "AttackDamageMin"                                     "30"    // Damage range min.
     "AttackDamageMax"                                     "37"    // Damage range max.
     "AttackRate"                                          "1.6"   // Speed of attack.
-    "BaseAttackSpeed"                                     "125"
+    "BaseAttackSpeed"                                     "110"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "300"   // Range within a target can be acquired.
     "AttackRange"                                         "250"   // Range within a target can be attacked.
@@ -56,6 +56,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "310"   // Speed.
+    "MovementTurnRate"                                    "0.9"
 
     // Status
     //----------------------------------------------------------------
