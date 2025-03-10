@@ -10,7 +10,7 @@
 "DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health"                          "+$health"
 "DOTA_Tooltip_Ability_item_shade_staff_1_bonus_all_stats"                       "+$all"
 "DOTA_Tooltip_Ability_item_shade_staff_1_hp_regen_amp"                          "%+Health Regen and Lifesteal Amp"
-\\"DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance"                     "%+Status Resistance"
+//"DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance"                     "%+Status Resistance"
 
 "DOTA_Tooltip_Ability_item_shade_staff_2"                                       "#{DOTA_Tooltip_Ability_item_shade_staff_1}"
 "DOTA_Tooltip_Ability_item_recipe_shade_staff_2"                                "#{DOTA_Tooltip_Ability_item_recipe_shade_staff_1}"
@@ -21,7 +21,7 @@
 "DOTA_Tooltip_Ability_item_shade_staff_2_bonus_health"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health}"
 "DOTA_Tooltip_Ability_item_shade_staff_2_bonus_all_stats"                       "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_shade_staff_2_hp_regen_amp"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_hp_regen_amp}"
-\\"DOTA_Tooltip_Ability_item_shade_staff_2_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
+//"DOTA_Tooltip_Ability_item_shade_staff_2_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
 
 "DOTA_Tooltip_Ability_item_shade_staff_3"                                       "#{DOTA_Tooltip_Ability_item_shade_staff_1}"
 "DOTA_Tooltip_Ability_item_recipe_shade_staff_3"                                "#{DOTA_Tooltip_Ability_item_recipe_shade_staff_1}"
@@ -32,7 +32,7 @@
 "DOTA_Tooltip_Ability_item_shade_staff_3_bonus_health"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health}"
 "DOTA_Tooltip_Ability_item_shade_staff_3_bonus_all_stats"                       "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_shade_staff_3_hp_regen_amp"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_hp_regen_amp}"
-\\"DOTA_Tooltip_Ability_item_shade_staff_3_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
+//"DOTA_Tooltip_Ability_item_shade_staff_3_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
 
 "DOTA_Tooltip_Ability_item_shade_staff_4"                                       "#{DOTA_Tooltip_Ability_item_shade_staff_1}"
 "DOTA_Tooltip_Ability_item_recipe_shade_staff_4"                                "#{DOTA_Tooltip_Ability_item_recipe_shade_staff_1}"
@@ -43,7 +43,7 @@
 "DOTA_Tooltip_Ability_item_shade_staff_4_bonus_health"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health}"
 "DOTA_Tooltip_Ability_item_shade_staff_4_bonus_all_stats"                       "#{DOTA_Tooltip_Ability_item_shade_staff_1_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_shade_staff_4_hp_regen_amp"                          "#{DOTA_Tooltip_Ability_item_shade_staff_1_hp_regen_amp}"
-\\"DOTA_Tooltip_Ability_item_shade_staff_4_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
+//"DOTA_Tooltip_Ability_item_shade_staff_4_status_resistance"                     "#{DOTA_Tooltip_Ability_item_shade_staff_1_status_resistance}"
 
 "DOTA_Tooltip_modifier_item_shade_staff_trees_debuff"                           "#{DOTA_Tooltip_Ability_item_shade_staff_1}"
 "DOTA_Tooltip_modifier_item_shade_staff_trees_debuff_Description"               "Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% if near a tree."
