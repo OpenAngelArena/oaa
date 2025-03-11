@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Meepo Fair Share
+  //=================================================================================================================
+  "meepo_megameepo"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35" //OAA
+    "AbilityCastPoint"                                    "0.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"                        
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "duration"                                          "25"
+      "model_scale"                                       "0"
+      "damage_distribution_duration"                      "6" 
+      "end_knockback_duration"                            "0.3"
+      "end_knockback_distance"                            "400"
+      "end_knockback_height"                              "0"     
+      "stats_pct"                                         "40"
+    }
+  }
+}
