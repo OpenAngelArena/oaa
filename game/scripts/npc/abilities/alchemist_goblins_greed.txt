@@ -26,10 +26,10 @@
       {
         "value"                                           "18"
       }
-      "starting_gold_bonus"
+      "starting_gold_bonus" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_alchemist_seed_money"        "=250"
+        "special_bonus_facet_alchemist_dividends"         "=250"
       }
       "scepter_bonus_damage" //OAA
       {
@@ -44,7 +44,7 @@
       "gpm_increase_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_facet_alchemist_seed_money"        "+75"
+        "special_bonus_facet_alchemist_dividends"         "+75"
       }
     }
   }
