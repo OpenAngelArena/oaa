@@ -5,31 +5,6 @@
   //=================================================================================================================
   "npc_dota_hero_alchemist"
   {
-    "Facets"
-    {
-      "alchemist_seed_money"
-      {
-        "Icon"                                            "gold"
-        "Color"                                           "Yellow"
-        "GradientID"                                      "0"
-      }
-
-      "alchemist_mixologist"
-      {
-        "Icon"                                            "cooldown"
-        "Color"                                           "Purple"
-        "GradientID"                                      "2"
-      }
-
-      "alchemist_dividends"
-      {
-        "Icon"                                            "aghs"
-        "Color"                                           "Green"
-        "GradientID"                                      "2"
-        "Deprecated"                                      "true"
-      }
-    }
-
     "Ability6"                                            "alchemist_chemical_rage_oaa" // replaces alchemist_chemical_rage
     "Ability8"                                            "alchemist_chemical_rage" // replaces undefined
 
