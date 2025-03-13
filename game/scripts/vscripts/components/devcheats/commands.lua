@@ -296,11 +296,15 @@ function DevCheats:SwitchHero(keys)
     local herolist = LoadKeyValues('scripts/npc/herolist.txt')
     for hero,_ in pairs(herolist) do
       if string.find(hero, splitted[2]) then
-        PrecacheUnitByNameAsync(hero, function()
-          local old_gold = Gold:GetGold(playerID)
-          PlayerResource:ReplaceHeroWith(playerID, hero, 0, 0)
-          Gold:SetGold(playerID, old_gold) -- because ReplaceHeroWith doesn't work properly ofc
-        end)
+        PrecacheUnitByNameAsync(
+          hero,
+          function()
+            local old_gold = Gold:GetGold(playerID)
+            PlayerResource:ReplaceHeroWith(playerID, hero, 0, 0)
+            Gold:SetGold(playerID, old_gold) -- because ReplaceHeroWith doesn't work properly ofc
+          end,
+          playerID
+        )
       end
     end
   else
