@@ -21,9 +21,9 @@ function modifier_spider_boss_rage:OnCreated( kv )
   local parent = self:GetParent()
   local ability = self:GetAbility()
 
-  self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
   self.bonus_movespeed_pct = ability:GetSpecialValueFor( "bonus_movespeed_pct" )
   self.lifesteal_pct = ability:GetSpecialValueFor( "lifesteal_pct" )
+  self.bat = ability:GetSpecialValueFor( "base_attack_time" )
 
   if IsServer() then
     parent.enraged = true
@@ -51,22 +51,14 @@ end
 
 function modifier_spider_boss_rage:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
+    MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
     MODIFIER_PROPERTY_MODEL_SCALE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
     MODIFIER_PROPERTY_TOOLTIP,
   }
 end
-
---------------------------------------------------------------------------------
-
-function modifier_spider_boss_rage:GetModifierPreAttack_BonusDamage()
-	return self.bonus_damage
-end
-
---------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage()
 	return self.bonus_movespeed_pct
@@ -76,14 +68,16 @@ function modifier_spider_boss_rage:GetModifierAttackSpeedReductionPercentage()
   return 0
 end
 
+function modifier_spider_boss_rage:GetModifierBaseAttackTimeConstant()
+  return self.bat
+end
+
 function modifier_spider_boss_rage:GetModifierModelScale()
   return 25
 end
 
---------------------------------------------------------------------------------
-
 if IsServer() then
-  function modifier_spider_boss_rage:OnAttackLanded(event)
+  function modifier_spider_boss_rage:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
@@ -125,7 +119,7 @@ if IsServer() then
       -- Calculate Lifesteal, max amount is target's current hp)
       local amount = math.min(damage * self.lifesteal_pct / 100, target:GetHealth())
       -- Apply Lifesteal
-      parent:Heal(amount, self:GetAbility())
+      parent:HealWithParams(amount, self:GetAbility(), true, true, parent, false)
       -- Lifesteal particle
       local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:ReleaseParticleIndex(particle)
@@ -133,9 +127,7 @@ if IsServer() then
   end
 end
 
---------------------------------------------------------------------------------
-
-function modifier_spider_boss_rage:Tooltip()
+function modifier_spider_boss_rage:OnTooltip()
 	return self.lifesteal_pct
 end
 
