@@ -174,7 +174,7 @@ HERO_DYING_STREAK_MAX = 5            -- After how many deaths, hero stops giving
 USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?
 -- Bounty Runes
 FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
-BOUNTY_RUNE_SPAWN_INTERVAL = 180     -- How long in seconds should we wait between bounty rune respawns?
+BOUNTY_RUNE_SPAWN_INTERVAL = 240     -- How long in seconds should we wait between bounty rune respawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
 -- Power-up Runes

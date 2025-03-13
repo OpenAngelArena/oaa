@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Unit Name: Root
+  // Mini Rosh: Root - roots and damages the attacked unit
   //=================================================================================================================
   "mini_rosh_root"
   {
@@ -16,7 +16,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     "AbilityCooldown"                                     "2.0"
 
@@ -24,8 +24,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "root_chance"                                       "25"
-      "bonus_damage"                                      "50"
+      "root_chance"                                       "17 20 23 26"
+      "bonus_damage"                                      "30 60 120 240"
       "root_duration"                                     "1.65"
     }
   }

@@ -90,6 +90,7 @@ g_UnitPrecache = {
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
   "npc_dota_boss_grendel",
+  "npc_dota_neutral_custom_small_ghost",
 }
 
 g_ModelPrecache = {
