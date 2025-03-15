@@ -175,7 +175,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
         lockedHeroes[playerid] = new_hero_name
       elseif hero_name then
@@ -221,7 +221,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
       end
     end
@@ -999,7 +999,7 @@ function HeroSelection:SelectHero (playerId, hero)
   if not player then
     PrecacheUnitByNameAsync(hero_name, function()
       loadedHeroes[hero_name] = true
-    end)
+    end, playerId)
   end
 end
 
