@@ -1,31 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Stonework Pendant - custom neutral tier 5 item
+  // Wise - custom enhancement
   //=================================================================================================================
-  "item_stonework_pendant"
+  "item_enhancement_greedy_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/stonework_pendant.lua"
+    "ScriptFile"                                          "items/neutral/demon_stone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/stonework_pendant"
+    "AbilityTextureName"                                  "item_enhancement_wise"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemSellable"                                        "0"
-    "ItemIsNeutralActiveDrop"                             "1"
+    "ItemIsNeutralPassiveDrop"                            "1"
     "ItemPurchasable"                                     "0"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+    "MaxLevel"                                            "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hp_cost_multiplier"                                "3"
+      "bonus_xpm"                                         "720 820"
+      "bonus_mana"                                        "200 250"
+      "bonus_damage"                                      "-60 -90"
+      "bonus_attack_speed"                                "-35"
     }
   }
 }

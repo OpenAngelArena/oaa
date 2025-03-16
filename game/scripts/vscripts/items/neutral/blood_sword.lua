@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_item_blood_sword_passive", "items/neutral/blood_sword.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_blood_sword_lifesteal", "items/neutral/blood_sword.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_blood_sword = class(ItemBaseClass)
@@ -6,10 +5,6 @@ item_blood_sword = class(ItemBaseClass)
 --function item_blood_sword:GetCastRange(location, target)
   --return self:GetCaster():GetAttackRange()
 --end
-
-function item_blood_sword:GetIntrinsicModifierName()
-  return "modifier_item_blood_sword_passive"
-end
 
 function item_blood_sword:OnSpellStart()
   local caster = self:GetCaster()
@@ -28,51 +23,6 @@ function item_blood_sword:OnSpellStart()
 
   -- Sound
   caster:EmitSound("DOTA_Item.IronTalon.Activate")
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_item_blood_sword_passive = class(ModifierBaseClass)
-
-function modifier_item_blood_sword_passive:IsHidden()
-  return true
-end
-
-function modifier_item_blood_sword_passive:IsDebuff()
-  return false
-end
-
-function modifier_item_blood_sword_passive:IsPurgable()
-  return false
-end
-
-function modifier_item_blood_sword_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.dmg = ability:GetSpecialValueFor("bonus_damage")
-    self.attack_range_melee = ability:GetSpecialValueFor("bonus_attack_range_melee")
-  end
-end
-
-modifier_item_blood_sword_passive.OnRefresh = modifier_item_blood_sword_passive.OnCreated
-
-function modifier_item_blood_sword_passive:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-  }
-end
-
-function modifier_item_blood_sword_passive:GetModifierPreAttack_BonusDamage()
-  return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_blood_sword_passive:GetModifierAttackRangeBonus()
-  if not self:GetParent():IsRangedAttacker() then
-    return self.attack_range_melee or self:GetAbility():GetSpecialValueFor("bonus_attack_range_melee")
-  end
-
-  return 0
 end
 
 ---------------------------------------------------------------------------------------------------
