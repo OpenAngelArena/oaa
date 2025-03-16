@@ -2,7 +2,5 @@
 // Stonework Pendant
 //===================================================================
 "DOTA_Tooltip_ability_item_stonework_pendant"                                   "Stonework Pendant"
-"DOTA_Tooltip_ability_item_stonework_pendant_Description"                       "<h1>Passive: Blood Magic</h1>Spells now cost health equal to %hp_cost_multiplier% times their mana cost, and the wearer gains bonus health and health regen equal to the size of their mana pool and mana regen."
+"DOTA_Tooltip_ability_item_stonework_pendant_Description"                       "<h1>Passive: Blood Magic</h1>Spells now cost health equal to %hp_cost_multiplier% times their mana cost, but all your mana gets turned into health and all your mana regen gets turned into health regen."
 "DOTA_Tooltip_ability_item_stonework_pendant_Lore"                              "You CAN get blood from a stone."
-"DOTA_Tooltip_ability_item_stonework_pendant_hero_spell_lifesteal"              "%+$spell_lifesteal_hero"
-"DOTA_Tooltip_ability_item_stonework_pendant_creep_spell_lifesteal"             "%+$spell_lifesteal_creep"

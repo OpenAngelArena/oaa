@@ -20,16 +20,14 @@
     "ItemPurchasable"                                     "0"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "25"
       "cooldown_reduction"                                "12"
-      "bonus_spell_amp"                                   "20"
       "bonus_heal_amp"                                    "15"
-      "debuff_amp"                                        "20"
       "cast_pct_improvement"                              "25"
     }
   }
