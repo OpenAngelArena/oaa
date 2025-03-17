@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ghost: Vortex - slows attack speed in its range (AoE).
+  // Vortex - slows move speed and attack speed of enemies in an AoE
   //=================================================================================================================
   "ghost_vortex_oaa"
   {
@@ -14,20 +14,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
-    "AbilityCastRange"                                    "1500"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.2"
 
     "AbilityCooldown"                                     "10.0"
     "AbilityManaCost"                                     "110"
-    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
-
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
-    }
+    "AbilityProcsMagicStick"                              "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +32,8 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "attack_speed"                                      "-50"
+      "ms_slow"                                           "20 25 30 35"
+      "as_slow"                                           "40 50 60 70"
       "duration"                                          "8.0"
     }
   }

@@ -18,8 +18,6 @@ const allowedIconNames = [
 const ignoredBaseClasses = [
   'special_bonus_undefined',
   'special_bonus_base',
-  'special_bonus_reincarnation_250',
-  'special_bonus_agility_40',
   'item_abyssal_blade',
   'item_armlet',
   'item_assault',

@@ -236,14 +236,6 @@ function HeroProgression:ExperienceFilter(keys)
         hero:AddExperience(experience, DOTA_ModifyXP_BonusExperience, false, true)
       end
 
-      -- Invoker innate
-      local mastermind = hero:FindAbilityByName("invoker_mastermind")
-      if mastermind and keys.reason_const ~= DOTA_ModifyXP_BonusExperience then
-        local xpPercent = mastermind:GetSpecialValueFor("xp_on_deny_percent")
-        local xpToGive = math.floor(experience * xpPercent * 0.01)
-        hero:AddExperience(xpToGive, DOTA_ModifyXP_BonusExperience, false, true)
-      end
-
       return true
     else
       if not self.XPStorage[playerID] then

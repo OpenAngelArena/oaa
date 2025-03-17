@@ -61,14 +61,9 @@
         "special_bonus_unique_dazzle_1"                   "-40"
       }
       "projectile_speed"                                  "1300"
-      "duration"                                          "5 6 7 8 8.5 9"
+      "duration"                                          "3.5 5 6.5 8 8.5 9"
       "bonus_damage"                                      "0"
       "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
-      "hex_duration" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+0.75 1.0 1.25 1.5 1.6 1.7"
-      }
       "attack_range_bonus"
       {
         "value"                                           "0"

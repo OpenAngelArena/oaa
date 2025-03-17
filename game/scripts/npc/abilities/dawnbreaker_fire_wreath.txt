@@ -32,7 +32,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "14 13 12 11 11 11"
-        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-5"
+        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-4"
       }
       "duration"                                          "1.1"
       "swipe_radius"
@@ -43,7 +43,6 @@
       "swipe_damage"
       {
         "value"                                           "25 40 55 70 140 280"
-        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+20"
       }
       "smash_radius"
       {
@@ -53,7 +52,6 @@
       "smash_damage"
       {
         "value"                                           "25 40 55 70 140 280"
-        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+20"
       }
       "movement_speed"                                    "215"
       "total_attacks"                                     "3"
@@ -71,7 +69,27 @@
       "shard_movement_penalty"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+25"
+        "special_bonus_shard"                             "+35"
+      }
+      "movespeed_bonus_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "700"
+      }
+      "movespeed_bonus_self_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+15 +21 +27 +33 +39 +45"
+      }
+      "movespeed_bonus_ally_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+9 +12 +15 +18 +21 +24"
+      }
+      "movespeed_bonus_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+4"
       }
     }
   }

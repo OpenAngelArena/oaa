@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85 80 75 70 65"
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,17 +38,26 @@
         "value"                                           "525"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_reduction"                                  "100 100 100 90 80"
-      "damage_amplification"                              "10" //OAA
+      "damage_reduction"                                  "100"
       "bonus_attack_speed"
       {
         "value"                                           "65"
         "special_bonus_unique_winter_wyvern_3"            "+55"
       }
       "duration"                                          "2"
-      "max_duration"                                      "4.5 5 5.5 6.0 6.5" //OAA
+      "max_duration"                                      "4.5 5 5.5 6 6.5" //OAA
       "bonus_duration_per_hero"                           "2"
       "bonus_duration_per_creep"                          "0.5"
+      "transfer_on_death"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_winter_wyvern_recursive"     "=1"
+      }
+      "transfer_duration_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_winter_wyvern_recursive"     "=50.0"
+      }
     }
   }
 }

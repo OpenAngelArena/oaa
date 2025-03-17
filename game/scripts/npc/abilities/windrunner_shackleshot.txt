@@ -19,10 +19,6 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.15"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 9 8"
-
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "0"
@@ -35,13 +31,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "16 14 12 10 9 8"
+      }
       "fail_stun_duration"
       {
         "value"                                           "0.6"
       }
       "stun_duration"
       {
-        "value"                                           "1.6 2.1 2.6 3.1 3.2 3.3"
+        "value"                                           "1.75 2.25 2.75 3.25 3.3 3.35"
         "special_bonus_unique_windranger_6"               "+0.75"
       }
       "shackle_distance"
@@ -55,10 +55,23 @@
       "shackle_count"
       {
         "value"                                           "1"
+        "special_bonus_facet_windrunner_tangled"          "=0"
       }
       "shackle_angle"
       {
         "value"                                           "23"
+      }
+      "bonus_damage_per_hero"
+      {
+        "special_bonus_facet_windrunner_tangled"          "12 20 28 36 72 144"
+      }
+      "bonus_damage_per_other_pct"
+      {
+        "special_bonus_facet_windrunner_tangled"          "50"
+      }
+      "damage_buff_duration"
+      {
+        "special_bonus_facet_windrunner_tangled"          "6"
       }
     }
   }

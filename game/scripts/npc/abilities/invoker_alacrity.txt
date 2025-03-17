@@ -32,16 +32,22 @@
     {
       "bonus_attack_speed"
       {
-        "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
+        "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 172 178 184"
         "levelkey"                                        "wexlevel"
         "special_bonus_unique_invoker_5"                  "+30"
       }
       "bonus_damage"
       {
-        "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
+        "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 172 178 184"
         "levelkey"                                        "exortlevel"
         "special_bonus_unique_invoker_5"                  "+30"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "bonus_attack_range" //OAA
+      {
+        "value"                                           "0"
+        "levelkey"                                        "wexlevel"
+        "special_bonus_facet_invoker_wex_focus"           "+70 75 80 85 90 95 100 105 110 115 120 125 130 135 140 145 150"
       }
       "duration"                                          "9"
     }

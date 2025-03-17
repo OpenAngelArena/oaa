@@ -24,16 +24,14 @@
         "value"                                           "12"
         "special_bonus_unique_phantom_assassin_2"         "+10"
         "special_bonus_facet_phantom_assassin_methodical"  "=0"
-        "RequiresFacet"                                   "phantom_assassin_veiled_one"
       }
       "dagger_crit_chance" //OAA
       {
         "value"                                           "24"
         "special_bonus_unique_phantom_assassin_2"         "+10"
         "special_bonus_facet_phantom_assassin_methodical"  "=0"
-        "RequiresFacet"                                   "phantom_assassin_veiled_one"
       }
-      "crit_bonus" //OAA
+      "crit_bonus"
       {
         "value"                                           "200 300 400 500 600"
         "special_bonus_facet_phantom_assassin_methodical"  "+100"
@@ -51,6 +49,10 @@
         "RequiresFacet"                                   "phantom_assassin_methodical"
       }
       "duration"                                          "6 8 10 12 14"
+      "two_tooltip"
+      {
+        "special_bonus_facet_phantom_assassin_methodical"  "+2"
+      }
     }
   }
 }

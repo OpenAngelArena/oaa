@@ -17,7 +17,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85 80 75 70 65" //OAA
+    "AbilityCooldown"                                     "85 80 75 70 65"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,14 +29,17 @@
     {
       "duration"
       {
-        "value"                                           "40.0"
-        "special_bonus_unique_keeper_of_the_light_11"     "+15"
+        "value"                                           "40.0 45.0 50.0 55.0 55.0"
       }
-      "movement_speed"                                    "15 20 25 30 35"
-      "cast_range"                                        "125 250 375 425 475"
-      "illuminate_heal" //OAA
+      "movement_speed"
       {
-        "value"                                           "50 65 80 125 170"
+        "value"                                           "10 15 20 25 30"
+        "special_bonus_unique_keeper_of_the_light_11"     "+10"
+      }
+      "cast_range"                                        "125 250 375 425 475"
+      "illuminate_heal"
+      {
+        "value"                                           "70"
         "special_bonus_shard"                             "+30"
       }
     }

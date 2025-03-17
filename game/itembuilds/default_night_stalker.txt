@@ -23,7 +23,7 @@
     {
       "item"      "item_harpoon"
       "item"      "item_black_king_bar_1"
-      "item"      "item_angels_demise"
+      "item"      "item_greater_crit"
       "item"      "item_abyssal_blade_2"
       "item"      "item_devastator_oaa_2"
       "item"      "item_vampire"
@@ -33,10 +33,9 @@
     {
       "item"      "item_kaya"
       "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
-      "item"      "item_satanic_core_1"
+      "item"      "item_bloodstone_1"
+      "item"      "item_gungir"
       "item"      "item_shivas_guard"
-      "item"      "item_dagger_of_moriah_1"
     }
 
     "#DOTA_Item_Build_Utility_Initiation"
@@ -54,11 +53,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_crimson_guard"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
       "item"      "item_spell_breaker_1"
       "item"      "item_spiked_mail_1"
+      "item"      "item_dagger_of_moriah_1"
     }
   }
 }

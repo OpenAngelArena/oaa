@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "14"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -20,30 +19,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lifesteal_per_instance"
+      "max_level" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_elitist"             "2 4 6 8 10 12 14 15 16 17 18 19 20 21"
+        "value"                                           "14"
+        "special_bonus_scepter"                           "+1"
+        "special_bonus_facet_invoker_quas_focus"
+        {
+          "value"                                         "+1"
+          "special_bonus_scepter"                         "+1"
+        }
+      }
+      "hp_regen_per_instance"
+      {
+        "value"                                           "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"
         "special_bonus_unique_invoker_13"                 "x2"
-        "RequiresFacet"                                   "invoker_elitist"
       }
-      "intrinsic_attack_damage_dot_per_second"
+      "upgrade_at_level"
       {
         "value"                                           "0"
-        "special_bonus_facet_invoker_agnostic"            "3 6 9 12 15 18 21 22 23 24 25 26 27 28"
-        "special_bonus_unique_invoker_13"                 "x2"
-        "RequiresFacet"                                   "invoker_agnostic"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_facet_invoker_quas_focus"          "6"
       }
-      "intrinsic_attack_damage_dot_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_agnostic"            "2"
-      }
-      "strength_bonus"
+      "strength_bonus"                                    "1"
+      "scepter_bonus_levels"
       {
         "value"                                           "1"
+        "special_bonus_facet_invoker_quas_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "+1"
+        }
       }
     }
   }

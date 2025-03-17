@@ -18,16 +18,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "625"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 120 110 100 90" // special_bonus_unique_faceless_void_2_oaa
+    "AbilityCooldown"                                     "130 125 120 115 110" // special_bonus_unique_faceless_void_2_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 225 300 375 450"
+    "AbilityManaCost"                                     "125 200 275 350 425"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,41 +35,45 @@
     {
       "radius"
       {
-        "value"                                           "900"
+        "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_faceless_void_2"            "+200"
       }
-      "duration" //OAA
+      "duration"
       {
-        "value"                                           "4.5 5 5.5 5.75 6"
+        "value"                                           "3.75 4.25 4.75 5.25 5.75"
       }
       "vision_radius"
       {
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_attack_speed" //OAA
+      "bonus_attack_speed"
       {
-        "value"                                           "70 100 130 160 190"
+        "value"                                           "0"
         "special_bonus_unique_faceless_void"              "+80"
       }
       "bonus_move_speed"
       {
-        "value"                                           "50 60 70 75 80"
+        "value"                                           "60"
       }
       "bonus_cast_speed"
       {
-        "value"                                           "40 50 60 65 70"
+        "value"                                           "60"
       }
       "bonus_turn_speed"
       {
-        "value"                                           "40 50 60 70 80"
+        "value"                                           "60"
       }
-      "bonus_projectile_speed" //OAA
+      "bonus_projectile_speed"
       {
-        "value"                                           "30 35 40 45 50"
+        "value"                                           "40"
       }
       "yaw"                                               "45"
+      "cooldown_acceleration" //OAA , base is 100% = 1x = normal cooldown progression. 400 = 4x = +300% cooldown acceleration
+      {
+        "value"                                           "200"               // values <= 100 will do nothing currently and progress cooldowns normally
+      }
     }
   }
 }

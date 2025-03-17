@@ -460,16 +460,14 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     local purchaser
     local cooldown
     if item then
-      if not item:IsNeutralDrop() then
-        item_name = item:GetName()
-        purchaser = item:GetPurchaser()
-        if purchaser == old_hero then
-          purchaser = nil
-        end
-        cooldown = item:GetCooldownTimeRemaining()
-        if item:RequiresCharges() then
-          charges = item:GetCurrentCharges()
-        end
+      item_name = item:GetName()
+      purchaser = item:GetPurchaser()
+      if purchaser == old_hero then
+        purchaser = nil
+      end
+      cooldown = item:GetCooldownTimeRemaining()
+      if item:RequiresCharges() then
+        charges = item:GetCurrentCharges()
       end
     end
     items[i] = {item_name, purchaser, cooldown, charges}
@@ -483,16 +481,14 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     local purchaser
     local cooldown
     if item then
-      if not item:IsNeutralDrop() then
-        item_name = item:GetName()
-        purchaser = item:GetPurchaser()
-        if purchaser == old_hero then
-          purchaser = nil
-        end
-        cooldown = item:GetCooldownTimeRemaining()
-        if item:RequiresCharges() then
-          charges = item:GetCurrentCharges()
-        end
+      item_name = item:GetName()
+      purchaser = item:GetPurchaser()
+      if purchaser == old_hero then
+        purchaser = nil
+      end
+      cooldown = item:GetCooldownTimeRemaining()
+      if item:RequiresCharges() then
+        charges = item:GetCurrentCharges()
       end
     end
     items[i] = {item_name, purchaser, cooldown, charges}
@@ -502,7 +498,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   for i = DOTA_ITEM_SLOT_1, 20 do
     local item = old_hero:GetItemInSlot(i)
     if item then
-      if item:IsNeutralDrop() then
+      if i == DOTA_ITEM_NEUTRAL_SLOT then
         -- Return found neutral item to neutral stash (order), this is better than recreating another neutral item
         local order_table = {
           UnitIndex = old_hero:GetEntityIndex(),

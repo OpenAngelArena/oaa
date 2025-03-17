@@ -65,7 +65,11 @@ local ignored_abilities = {
   monkey_king_wukongs_command_oaa = true,
   phantom_assassin_blur = true,
   spectre_desolate = true,
-  item_bloodstone = true,
+  item_gungir = true,
+  item_gungir_2 = true,
+  item_gungir_3 = true,
+  item_gungir_4 = true,
+  item_gungir_5 = true,
   item_satanic_core_1 = true,
   item_satanic_core_2 = true,
   item_satanic_core_3 = true,
@@ -130,11 +134,11 @@ function modifier_aoe_radius_increase_oaa:ReEquipAllItems()
     tp_scroll:OnEquip()
   end
 
-  local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() then
-    neutral_item:OnUnequip()
-    neutral_item:OnEquip()
-  end
+  -- local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  -- if neutral_item then
+  --   neutral_item:OnUnequip()
+  --   neutral_item:OnEquip()
+  -- end
 end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)

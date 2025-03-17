@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Wardrums Aura - attack speed and accuracy aura
+  // TODO: Edit the Description
+  //=================================================================================================================
+  "big_thunder_lizard_wardrums_aura"
+  {
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_wardrums_aura.lua"
+    //"AbilityTextureName"                                  "big_thunder_lizard_wardrums_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "speed_bonus" //OAA
+      {
+        "value"                                           "10 15 20 25"
+      }
+      "accuracy" //OAA
+      {
+        "value"                                           "40 45 50 55"
+      }
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

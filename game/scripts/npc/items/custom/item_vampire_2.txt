@@ -43,8 +43,8 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "16"
-    "AbilitySharedCooldown"                               "vampire"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "satanic"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -65,15 +65,15 @@
     {
       "bonus_strength"                                    "55 75"
       "bonus_damage"                                      "85 125"
-      "bonus_armor"                                       "11 15"
-      "bonus_status_resistance"                           "20 22"
-      //"bonus_slow_resist"                                 "20 22"
+      "bonus_armor"                                       "0"
+      "bonus_status_resistance"                           "16 18"
+      //"bonus_slow_resist"                                 "16 18"
       "bonus_night_vision"                                "400 600"
       "lifesteal_percent"                                 "45 50"
-      "active_lifesteal_percent"                          "190"
+      "active_lifesteal_percent"                          "200"
       "damage_per_second_pct"                             "8" // only during the day
       "ticks_per_second"                                  "4"
-      "night_bonus_damage"                                "100 140"
+      "night_bonus_damage"                                "100"
       "night_thirst_radius"
       {
         "value"                                           "1200"

@@ -297,7 +297,7 @@ function modifier_item_devastator_oaa_slow_movespeed:OnCreated()
   --local parent = self:GetParent()
   local ability = self:GetAbility()
   local move_speed_slow = -10
-  local interval = 3
+  local interval = 2
   local damage_per_interval = 50
 
   if ability then

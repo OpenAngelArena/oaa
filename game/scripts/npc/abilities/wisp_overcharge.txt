@@ -31,7 +31,7 @@
       "bonus_attack_speed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_wisp_kritzkrieg"             "50 70 90 110 130 150"
+        "special_bonus_facet_wisp_kritzkrieg"             "50 65 80 95 110 125"
       }
       "bonus_spell_amp"
       {
@@ -53,16 +53,19 @@
         "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
         "special_bonus_unique_wisp_10"                    "+0.2"
       }
-      "duration"                                          "8"
-      "shard_bonus_slow_resistance"
+      "duration"
+      {
+        "value"                                           "8"
+        "special_bonus_unique_wisp_overcharge_duration"   "+1.5"
+      }
+      "spell_lifesteal"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+30"
       }
-      "shard_bonus_spell_lifesteal"
+      "unslowable"
       {
-        "value"                                           "10"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_unique_wisp_9"                     "+1"
       }
     }
   }

@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kobold Soldier: Dig - point target channel self banish for a few seconds
+  //=================================================================================================================
+  "kobold_dig_oaa"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_kobold_dig.lua"
+    "AbilityTextureName"                                  "kobold_tunneler_prospecting"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "4"
+
+    "AbilityCastRange"                                    "250"
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityChannelTime"                                  "1"
+
+    "AbilityCooldown"                                     "40"
+
+    "AbilityManaCost"                                     "50"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"
+      {
+        "value"                                           "2.0 2.5 3.0 3.5"
+      }
+    }
+  }
+}

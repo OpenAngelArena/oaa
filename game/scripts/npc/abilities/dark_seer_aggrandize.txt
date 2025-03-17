@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  "dark_seer_aggrandize"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "heal_pct_base"                                     "10.0"
+      "heal_pct_per_level"                                "1.0" //OAA
+      "heal_pct_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

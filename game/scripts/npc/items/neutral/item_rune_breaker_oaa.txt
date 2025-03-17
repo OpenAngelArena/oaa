@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rune Breaker - custom neutral tier 4 item
+  // Rune Breaker - custom neutral tier 5 item
   //=================================================================================================================
   "item_rune_breaker_oaa"
   {
@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemSellable"                                        "0"
-    "ItemIsNeutralDrop"                                   "1"
+    "ItemIsNeutralActiveDrop"                             "1"
     "ItemPurchasable"                                     "0"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
@@ -32,8 +32,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"                                "40"
-      "bonus_armor"                                       "5"
       "bonus_damage_during_duels"                         "25" // percentage bonus based on base (white) dmg
       "duration"                                          "4"
     }

@@ -51,7 +51,6 @@
       "AbilityCooldown"
       {
         "value"                                           "19 18 17 16 15 14"
-        "special_bonus_unique_mirana_3"                   "-2"
       }
       "arrow_speed"                                       "900"
       "arrow_width"
@@ -67,6 +66,17 @@
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
+      }
+      "scepter_radius"
+      {
+        "value"                                           "500"
+        "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "scepter_starstorm_target_pct"
+      {
+        "value"                                           "80"
+        "RequiresScepter"                                 "1"
       }
 
       // OAA configuration values for arrow

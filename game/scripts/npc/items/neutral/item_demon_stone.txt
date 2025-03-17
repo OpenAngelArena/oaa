@@ -18,7 +18,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemSellable"                                        "0"
-    "ItemIsNeutralDrop"                                   "1"
+    "ItemIsNeutralActiveDrop"                             "1"
     "ItemPurchasable"                                     "0"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
@@ -27,10 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_xpm"                                         "720"
-      "bonus_mana"                                        "200"
-      "bonus_damage"                                      "-60"
-      "bonus_attack_speed"                                "-35"
       "summon_duration"                                   "40"
       "summon_health"                                     "1100"
       "summon_damage"                                     "100"

@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  "lion_to_hell_and_back"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "duration"                                          "45" //OAA
+      "spell_amp"
+      {
+        "value"                                           "20"
+        "special_bonus_unique_lion_11"                    "+15"
+      }
+      "debuff_amp" //OAA
+      {
+        "value"                                           "10"
+        "special_bonus_unique_lion_11"                    "+15"
+      }
+    }
+  }
+}

@@ -34,26 +34,32 @@
         "value"                                           "18"
         "special_bonus_unique_invoker_9"                  "-5"
       }
-      "duration"
+      "duration" //OAA
       {
-        "value"                                           "3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8 6.0 6.2 6.4 6.6 6.8 7.0 7.4"
+        "value"                                           "3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8 6.0 6.2 6.4 6.6 6.8 7.0 7.2 7.4 7.6"
         "levelkey"                                        "quaslevel"
       }
       "freeze_duration"                                   "0.4"
       "freeze_cooldown"
       {
-        "value"                                           "0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.5 0.5 0.5 0.5 0.5"
+        "value"                                           "0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.5 0.5 0.5 0.5 0.5 0.5 0.5"
         "levelkey"                                        "quaslevel"
       }
-      "freeze_damage"
+      "freeze_damage" //OAA
       {
-        "value"                                           "8 16 24 32 40 48 56 64 80 96 112 128 144 160 192"
+        "value"                                           "8 16 24 32 40 48 56 64 80 96 112 128 144 160 176 192 208"
         "levelkey"                                        "quaslevel"
       }
       "freeze_heal" // OAA, freeze_damage x 2
       {
-        "value"                                           "16 32 48 64 80 96 112 128 160 192 224 256 288 320 384"
+        "value"                                           "0"
         "levelkey"                                        "quaslevel"
+        "special_bonus_facet_invoker_quas_focus"          "16 32 48 64 80 96 112 128 160 192 224 256 288 320 352 384 416"
+      }
+      "freeze_mana"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_invoker_quas_focus"          "+5"
       }
       "damage_trigger"                                    "10.0"
     }

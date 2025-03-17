@@ -91,7 +91,7 @@ const hilariousLoadingPhrases = [
   'If you think you found a bug or a weird interaction, please share it on our discord server. Thank you',
   'Every hero has a Town Portal Scroll and it will not disappear when used',
   'Heroes are purged and invulnerable for 2 seconds at the start of every duel',
-  'Open Angel Arena games can be spectated live with no delay',
+  'Open Angel Arena games can be spectated with small delay',
   'Passive experience gain doesn\'t work in Duels',
   'You have questions about the game? Check out our discord server. We might know a few new tricks for your favorite hero',
   'You gain all talents at level 50',

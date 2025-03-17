@@ -33,8 +33,8 @@
         "special_bonus_unique_slark_3"                    "+1.25"
       }
       "fade_time"                                         "0"
-      // special_bonus_unique_slark_7 ?
-      "health_regen_pct_oaa"                              "1 1.5 2 2.5 3" //OAA
+      // Valve is missing special_bonus_unique_slark_7
+      "health_regen_pct_oaa"                              "1.5 2 2.5 3 3.5" //OAA, unique to OAA
     }
   }
 }

@@ -5,7 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_storm_spirit"
   {
-    "Ability10"                                           "special_bonus_hp_250" // replaces special_bonus_unique_storm_spirit_overload_aspd
+    //"Ability10"                                           "special_bonus_unique_storm_spirit_overload_aspd"
     //"Ability11"                                           "special_bonus_mp_regen_150"
 
     "Ability12"                                           "special_bonus_unique_storm_spirit_2_oaa" // replaces special_bonus_hp_250
@@ -25,8 +25,9 @@
     // special_bonus_unique_storm_spirit_6 - Overload Damage                 - doesnt work
     // special_bonus_unique_storm_spirit_7 - Overload bouncing
     // special_bonus_unique_storm_spirit_8 - Static Remnant cooldown
-    // special_bonus_unique_storm_spirit_overload_aspd - Overload Damage     - Valve lmao
+    // special_bonus_unique_storm_spirit_overload_aspd - Overload Damage
     // special_bonus_unique_storm_spirit_1_oaa - Overload damage             - custom
     // special_bonus_unique_storm_spirit_2_oaa - Electric Vortex Cooldown    - custom
+    // special_bonus_hp_250
   }
 }

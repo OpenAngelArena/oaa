@@ -65,8 +65,6 @@ LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifyabilitiesfilter/tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 -- Windranger Windrun aghs additional effect:
 LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
--- Revenants Brooch active modifier
-LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyabilitiesfilter/revenants_brooch_mod.lua", LUA_MODIFIER_MOTION_NONE)
 -- Muerta Pierce The Veil penalties modifier
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Wraith Form penalty modifier

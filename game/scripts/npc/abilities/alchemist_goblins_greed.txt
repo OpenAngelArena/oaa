@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Goblin's Greed - unused kv file
+  // Alchemist: Greevil's Greed
   //=================================================================================================================
   "alchemist_goblins_greed"
   {
@@ -14,8 +14,8 @@
     "AbilityValues"
     {
       "duration"                                          "40"
-      "bonus_gold"                                        "2"
-      "bonus_bonus_gold"                                  "2"
+      "bonus_gold"                                        "4" //OAA
+      "bonus_bonus_gold"                                  "1" //OAA
       "bounty_multiplier"                                 "2"
       "damage"
       {
@@ -31,9 +31,21 @@
         "value"                                           "0"
         "special_bonus_facet_alchemist_seed_money"        "=250"
       }
-      "armor_reduction_per_hit"                           "0.1 0.2 0.3 0.4 0.6 0.8" //OAA
-      "armor_reduction_duration"                          "5" //OAA
-      "armor_reduction_cap"                               "-25" //OAA
+      "scepter_bonus_damage" //OAA
+      {
+        "value"                                           "20"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_spell_amp"
+      {
+        "value"                                           "0"
+        "RequiresScepter"                                 "1"
+      }
+      "gpm_increase_per_stack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_alchemist_dividends"         "+75"
+      }
     }
   }
 }
