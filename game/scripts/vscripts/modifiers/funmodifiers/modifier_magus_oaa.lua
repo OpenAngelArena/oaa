@@ -175,7 +175,7 @@ function modifier_magus_oaa:OnCreated()
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
     nevermore_frenzy = 1,                                -- self grief in most cases
     obsidian_destroyer_astral_imprisonment = 1,          -- self grief, invulnerability, trolling
-    oracle_fates_edict = 1,                              -- powerful, trolling
+    --oracle_fates_edict = 1,                            -- powerful, trolling
     pangolier_swashbuckle = 1,                           -- looping, powerful
     --phantom_assassin_stifling_dagger = 1,              -- looping
     phantom_lancer_juxtapose = 1,                        -- lag because of shard

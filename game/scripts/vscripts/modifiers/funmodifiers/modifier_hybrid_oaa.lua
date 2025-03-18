@@ -25,13 +25,13 @@ end
 
 function modifier_hybrid_oaa:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
     MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
   }
 end
 
 if IsServer() then
-  function modifier_hybrid_oaa:OnAttackLanded(event)
+  function modifier_hybrid_oaa:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
