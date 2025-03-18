@@ -63,7 +63,7 @@ local function SaveState(hero)
   end
 
   -- Store item cooldowns
-  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = hero:GetItemInSlot(itemIndex)
     if item then
       state.items[item] = {

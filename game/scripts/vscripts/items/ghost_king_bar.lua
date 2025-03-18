@@ -457,7 +457,11 @@ if IsServer() then
         -- Parent doesn't have this ability
         -- Check items:
         local found_item
-        for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local max_slot = DOTA_ITEM_SLOT_6
+        if parent:HasModifier("modifier_spoons_stash_oaa") then
+          max_slot = DOTA_ITEM_SLOT_9
+        end
+        for i = DOTA_ITEM_SLOT_1, max_slot do
           local item = parent:GetItemInSlot(i)
           if item and item:GetName() == name then
             found_item = true

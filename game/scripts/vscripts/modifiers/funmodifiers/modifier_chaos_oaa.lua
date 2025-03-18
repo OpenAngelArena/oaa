@@ -123,6 +123,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_sorcerer_oaa",
     "modifier_speedster_oaa",
     "modifier_spell_block_oaa",
+    "modifier_spoons_stash_oaa",
     "modifier_titan_soul_oaa",
     "modifier_true_sight_strike_oaa",
     "modifier_wisdom_oaa",
