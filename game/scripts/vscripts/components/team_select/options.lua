@@ -148,6 +148,7 @@ function OAAOptions:SaveSettings()
 end
 
 function OAAOptions:SetupGame()
+  local mode = GameRules:GetGameModeEntity()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
     if CustomWardButtons then
@@ -155,8 +156,10 @@ function OAAOptions:SetupGame()
       CustomWardButtons.sentry_cooldown = 30
     end
   end
+  if self.settings.HEROES_MODS == "HM21" or self.settings.HEROES_MODS_2 == "HM21" then
+    mode:SetLoseGoldOnDeath(false)
+  end
   if self.settings.GLOBAL_MODS == "GM12" then
-    local mode = GameRules:GetGameModeEntity()
     mode:SetBuybackEnabled(true)
   end
 end
