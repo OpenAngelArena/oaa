@@ -81,8 +81,8 @@ if IsServer() then
       return
     end
 
-    -- Buildings, wards and invulnerable units can't lifesteal
-    if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() or attacker:IsInvulnerable() then
+    -- Buildings and wards can't lifesteal
+    if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() then
       return
     end
 
@@ -106,14 +106,14 @@ if IsServer() then
     end
 
     -- Ignore damage that has the no-reflect flag
-    if bit.band(flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
       if not spellLifestealReflected then
         return
       end
     end
 
     -- Ignore damage that has the no-spell-lifesteal flag
-    if bit.band(flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
       if not spellLifestealReflected then
         return
       end
