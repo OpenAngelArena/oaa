@@ -120,7 +120,8 @@ if IsServer() then
     local modifier = parent:FindModifierByName("modifier_hybrid_dmg_stack_oaa")
     if modifier then
       if cd < self.duration then
-        modifier:SetDuration(math.min(modifier:GetRemainingTime() + 2, self.duration), true)
+        local remaining = modifier:GetRemainingTime()
+        modifier:SetDuration(math.max(remaining + 0.1, cd + 1), true)
       else
         modifier:SetDuration(self.duration, true)
       end
@@ -135,7 +136,7 @@ if IsServer() then
 end
 
 function modifier_hybrid_oaa:GetTexture()
-  return "custom/elixier_hybrid_2"
+  return "custom/modifiers/hybrid"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -159,7 +160,7 @@ function modifier_hybrid_dmg_stack_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_dmg_stack_oaa:OnCreated()
-  self.dmg_per_cooldow_second = 3
+  self.dmg_per_cd_second = 3
 end
 
 function modifier_hybrid_dmg_stack_oaa:DeclareFunctions()
@@ -169,11 +170,11 @@ function modifier_hybrid_dmg_stack_oaa:DeclareFunctions()
 end
 
 function modifier_hybrid_dmg_stack_oaa:GetModifierPreAttack_BonusDamage()
-  return self:GetStackCount() * self.dmg_per_cooldow_second
+  return self:GetStackCount() * self.dmg_per_cd_second
 end
 
 function modifier_hybrid_dmg_stack_oaa:GetTexture()
-  return "custom/elixier_hybrid_2"
+  return "custom/modifiers/hybrid"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -197,7 +198,7 @@ function modifier_hybrid_spell_amp_stack_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:OnCreated()
-  self.spell_amp_per_stack = 3
+  self.spell_amp_per_stack = 1.5
 
   if IsServer() then
     self:SetStackCount(1)
@@ -205,7 +206,7 @@ function modifier_hybrid_spell_amp_stack_oaa:OnCreated()
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:OnRefresh()
-  self.spell_amp_per_stack = 3
+  self.spell_amp_per_stack = 1.5
 
   if IsServer() then
     self:IncrementStackCount()
@@ -223,5 +224,5 @@ function modifier_hybrid_spell_amp_stack_oaa:GetModifierSpellAmplify_Percentage(
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:GetTexture()
-  return "custom/elixier_hybrid_2"
+  return "custom/modifiers/hybrid"
 end

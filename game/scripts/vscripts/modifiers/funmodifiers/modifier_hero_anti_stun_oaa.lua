@@ -30,5 +30,5 @@ function modifier_hero_anti_stun_oaa:CheckState()
 end
 
 function modifier_hero_anti_stun_oaa:GetTexture()
-  return "templar_assassin_refraction"
+  return "custom/modifiers/white_queen"
 end

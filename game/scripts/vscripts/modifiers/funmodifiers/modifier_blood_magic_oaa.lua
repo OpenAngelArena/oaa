@@ -110,5 +110,5 @@ if IsServer() then
 end
 
 function modifier_blood_magic_oaa:GetTexture()
-  return "custom/blood_magic"
+  return "custom/modifiers/blood_magic"
 end

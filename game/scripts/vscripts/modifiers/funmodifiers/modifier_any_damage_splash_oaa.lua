@@ -31,7 +31,7 @@ end
 
 function modifier_any_damage_splash_oaa:OnCreated()
   self.splash_percent = 75
-  self.splash_radius = 300
+  self.splash_radius = 275
 end
 
 if IsServer() then
@@ -118,9 +118,6 @@ if IsServer() then
       targetTeam = DOTA_UNIT_TARGET_TEAM_BOTH
     end
     if inflictor and not inflictor:IsNull() then
-      targetTeam = inflictor:GetAbilityTargetTeam()
-      targetType = inflictor:GetAbilityTargetType()
-      targetFlags = inflictor:GetAbilityTargetFlags()
       damage_table.ability = inflictor
     end
 
@@ -135,6 +132,12 @@ if IsServer() then
       FIND_ANY_ORDER,
       false
     )
+
+    if damage > 0 and #targets > 1 then
+      local particle = ParticleManager:CreateParticle("particles/items/powertreads_splash.vpcf", PATTACH_POINT, damaged_unit)
+      ParticleManager:SetParticleControl(particle, 5, Vector(1, 0, self.splash_radius))
+      ParticleManager:ReleaseParticleIndex(particle)
+    end
 
     -- Splash on targets that are not the attacker or damaged unit
     for _, unit in pairs(targets) do
