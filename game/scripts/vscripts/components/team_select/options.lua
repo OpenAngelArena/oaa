@@ -157,7 +157,7 @@ function OAAOptions:SetupGame()
       CustomWardButtons.sentry_cooldown = 30
     end
   end
-  if self.settings.HEROES_MODS == "HM21" or self.settings.HEROES_MODS_2 == "HM21" then
+  if self.settings.HEROES_MODS == "HM21" or self.settings.HEROES_MODS_2 == "HM21" or self.settings.HEROES_MODS == "HM39" or self.settings.HEROES_MODS_2 == "HM39" then
     mode:SetLoseGoldOnDeath(false)
   end
   if self.settings.GLOBAL_MODS == "GM12" then
