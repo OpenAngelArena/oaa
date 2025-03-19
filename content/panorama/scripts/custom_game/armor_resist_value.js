@@ -1,4 +1,4 @@
-/* global GameEvents, Entities, FindDotaHudElement, $, Players, Buffs */
+/* global GameEvents, Entities, FindDotaHudElement, $, Players, HasModifier */
 'use strict';
 (function () {
   const statsTooltipRegion = FindDotaHudElement('stats_tooltip_region');
@@ -42,16 +42,4 @@ function UpdateAltDisplayPhysicalResistanceValue () {
       physicalResistLabel.text = physicalResistance + '%';
     }
   }
-}
-
-function FindModifier (unit, modifier) {
-  for (let i = 0; i < Entities.GetNumBuffs(unit); i++) {
-    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifier) {
-      return Entities.GetBuff(unit, i);
-    }
-  }
-}
-
-function HasModifier (unit, modifier) {
-  return !!FindModifier(unit, modifier);
 }

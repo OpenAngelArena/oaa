@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Leshrac: Chronoptic Nourishment
+  // Leshrac: Chronoptic Nourishment (Facet)
   //=================================================================================================================
   "leshrac_chronoptic_nourishment"
   {
@@ -11,11 +11,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6" // same as Dependent ability (Pulse Nova) + 1
     "DependentOnAbility"                                  "leshrac_pulse_nova"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "mana_pct_per_hit"                                  "10 14 18 22 26 30"
+      "mana_pct_per_hit"                                  "14 21 28 35 40 45"
       "creep_penalty_reduction_pct"                       "50"
     }
   }

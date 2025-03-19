@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 13 11 9 8 7" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,11 +35,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "5.0"
+      "duration"
+      {
+        "value"                                           "5.0"
+      }
       "move_speed"
       {
         "value"                                           "10 14 18 22 26 30"
-        "special_bonus_unique_legion_commander_pta_movespeed"  "+10"
+        "special_bonus_unique_legion_commander_pta_movespeed"  "+12"
       }
       "hp_regen" //OAA
       {

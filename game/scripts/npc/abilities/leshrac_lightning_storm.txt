@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +48,6 @@
       }
       "jump_delay"                                        "0.25"
       "movespeed_slow"                                    "75"
-      "attackspeed_slow"                                  "20 30 40 50 70 90"
       "slow_duration"                                     "0.45 0.7 0.95 1.2 1.45 1.7"
       "bounce_twice"
       {

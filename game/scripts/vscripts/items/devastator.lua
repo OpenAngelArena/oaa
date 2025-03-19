@@ -98,7 +98,9 @@ function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
 
     ApplyDamage(damage_table)
 
+    local caster_debuff = caster:AddNewModifier(caster, self, "modifier_suppress_cleave_oaa", {})
     caster:PerformAttack(hTarget, true, true, true, false, false, false, true)
+    caster_debuff:Destroy()
 
     -- Particles
     local vDirection = vLocation - caster:GetOrigin()
@@ -295,7 +297,7 @@ function modifier_item_devastator_oaa_slow_movespeed:OnCreated()
   --local parent = self:GetParent()
   local ability = self:GetAbility()
   local move_speed_slow = -10
-  local interval = 3
+  local interval = 2
   local damage_per_interval = 50
 
   if ability then

@@ -26,13 +26,13 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "6 10 14 22 38"
+    "AbilityDamage"                                       "6 10 14 26 38"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "ball_lightning_initial_mana_percentage"            "9" //OAA
+      "ball_lightning_initial_mana_percentage"            "10" //OAA
       "ball_lightning_initial_mana_base"                  "2" //OAA
       "ball_lightning_move_speed"                         "1400 1850 2300 2750 3200"
       "ball_lightning_aoe"
@@ -41,10 +41,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "ball_lightning_travel_cost_base"                   "2" //OAA
-      "ball_lightning_travel_cost_percent"                "0.75" //OAA
+      "ball_lightning_travel_cost_percent"                "0.8" //OAA
       "ball_lightning_vision_radius"
       {
-        "value"                                           "400"   
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
       "blocker_duration"                                  "5"

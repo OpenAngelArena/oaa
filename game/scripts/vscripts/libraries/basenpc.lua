@@ -37,7 +37,7 @@ if IsServer() then
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
       -- custom:
-      "modifier_greater_tranquils_tranquilize_debuff", -- Greater Tranquil Boots debuff
+      "modifier_item_shade_staff_trees_debuff",        -- Shade Staff debuff
       "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
       "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
       "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
@@ -46,9 +46,10 @@ if IsServer() then
     local undispellable_ability_debuffs = {
       "modifier_axe_berserkers_call",
       "modifier_bloodseeker_rupture",
-      "modifier_bristleback_quill_spray",       -- Quill Spray stacks
-      "modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+      --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
       "modifier_doom_bringer_doom",
+      "modifier_doom_bringer_doom_enemy",
+      "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
       "modifier_forged_spirit_melting_strike_debuff",
       "modifier_grimstroke_soul_chain",
@@ -57,6 +58,7 @@ if IsServer() then
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_obsidian_destroyer_equilibrium_debuff_counter",
       "modifier_queenofpain_sonic_wave_damage",
       "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
@@ -64,7 +66,7 @@ if IsServer() then
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
       "modifier_shadow_demon_disruption",
       "modifier_shadow_demon_purge_slow",
-      "modifier_shadow_demon_shadow_poison",
+      "modifier_shadow_demon_shadow_poison",    -- Shadow Poison stacks
       "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
       "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
@@ -79,6 +81,13 @@ if IsServer() then
       "modifier_winter_wyvern_winters_curse_aura",
     }
 
+    local debuffs_with_multiple_instances = {
+      "modifier_bristleback_quill_spray",                -- Quill Spray stacks
+      "modifier_dazzle_innate_weave_armor",              -- same modifier used as a buff and debuff
+      "modifier_huskar_burning_spear_counter",           -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+      "modifier_obsidian_destroyer_equilibrium_debuff",  -- these stacks reduce mana
+    }
+
     local function RemoveTableOfModifiersFromUnit(unit, t)
       for i = 1, #t do
         unit:RemoveModifierByName(t[i])
@@ -87,6 +96,10 @@ if IsServer() then
 
     RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
+
+    for i = 1, #debuffs_with_multiple_instances do
+      self:RemoveAllModifiersOfName(debuffs_with_multiple_instances[i])
+    end
   end
 
   function CDOTA_BaseNPC:DispelWeirdDebuffs()
@@ -150,7 +163,9 @@ if IsServer() then
       "modifier_centaur_stampede",
       "modifier_clinkz_wind_walk",
       "modifier_dark_willow_shadow_realm_buff",
+      "modifier_dazzle_innate_weave_armor_counter",
       "modifier_dazzle_shallow_grave",
+      "modifier_doom_bringer_doom_aura_self",
       "modifier_doom_bringer_scorched_earth_effect",
       "modifier_doom_bringer_scorched_earth_effect_aura",
       "modifier_enchantress_natures_attendants",
@@ -162,10 +177,14 @@ if IsServer() then
       "modifier_life_stealer_rage",
       "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
+      "modifier_luna_lucent_beam_damage_buff_counter",    -- Luna Moonstorm stacks
+      "modifier_luna_moon_glaive_shield",                 -- Luna Lunar Orbit
       "modifier_medusa_stone_gaze",
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_obsidian_destroyer_equilibrium_barrier",   -- OD scepter shield
+      "modifier_obsidian_destroyer_equilibrium_buff_counter",
       "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
@@ -175,6 +194,7 @@ if IsServer() then
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
       "modifier_skywrath_mage_shard_bonus_counter",
+      "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
@@ -190,7 +210,9 @@ if IsServer() then
     }
 
     local buffs_with_multiple_instances = {
+      "modifier_dazzle_innate_weave_armor",
       "modifier_leshrac_diabolic_edict",
+      "modifier_obsidian_destroyer_equilibrium_buff",
       "modifier_razor_eye_of_the_storm",
       "modifier_skywrath_mage_shard_bonus",
     }
@@ -271,17 +293,17 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
-        item_gungir = true, -- because of random bounces
-        item_gungir_2 = true,
-        item_gungir_3 = true,
-        item_gungir_4 = true,
-        item_gungir_5 = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
         item_mjollnir_3 = true,
         item_mjollnir_4 = true,
         item_mjollnir_5 = true,
+        item_overwhelming_blink = true,
+        item_overwhelming_blink_2 = true,
+        item_overwhelming_blink_3 = true,
+        item_overwhelming_blink_4 = true,
+        item_overwhelming_blink_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
@@ -305,7 +327,7 @@ if IsServer() then
       local name = ability:GetAbilityName()
       local hp = self:GetHealth()
       local max_hp = self:GetMaxHealth()
-      if damagingByAccident[name] and hp/max_hp > 96/100 then
+      if damagingByAccident[name] and hp/max_hp > 0.95 then
         return true
       end
     end
@@ -317,6 +339,126 @@ if IsServer() then
     --self:AbsolutePurge()
     self:AddNewModifier(self, nil, "modifier_generic_dead_tracker_oaa", {duration = MANUAL_GARBAGE_CLEANING_TIME})
     self:ForceKill(param)
+  end
+
+  function CDOTA_BaseNPC:ResetHeroOAA(resetAbilities)
+    local hero = self
+
+    -- Reset the hero, respawn if the hero is dead
+    if not hero:ResetUnitOAA(resetAbilities) then
+      hero:RespawnHero(false, false)
+      hero:ResetUnitOAA(resetAbilities)
+    end
+
+    -- Remove offside penalties
+    if hero:HasModifier("modifier_offside") then
+      hero:RemoveModifierByName("modifier_offside")
+    end
+    if hero:HasModifier("modifier_is_in_offside") then
+      hero:RemoveModifierByName("modifier_is_in_offside")
+    end
+  end
+
+  function CDOTA_BaseNPC:ResetUnitOAA(resetAbilities)
+    local unit = self
+
+    if not unit:IsAlive() then
+      -- ResetUnitOAA called on a dead unit, respawning it is not a good idea
+      return false
+    end
+
+    -- Disjoint disjointable projectiles
+    ProjectileManager:ProjectileDodge(unit)
+
+    -- Reset health before purge to avoid some weird interactions
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+    unit:AbsolutePurge()
+
+    if not unit or unit:IsNull() then
+      -- Unit got deleted so fast from the memory after purge, nothing we can do
+      return false
+    end
+
+    if not unit:IsAlive() then
+      -- Unit died after purge but still exists in memory, respawning it is not a good idea
+      return false
+    end
+
+    -- Reset health again just in case purge damaged the unit
+    unit:SetHealth(unit:GetMaxHealth())
+
+    -- Reset mana
+    unit:SetMana(unit:GetMaxMana())
+
+    -- Do not continue if resetAbilities bool is false
+    if not resetAbilities then
+      return true
+    end
+
+    if unit.GetAbilityCount ~= nil then
+      -- Reset cooldown for abilities
+      for abilityIndex = 0, unit:GetAbilityCount() - 1 do
+        local ability = unit:GetAbilityByIndex(abilityIndex)
+        if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
+          ability:EndCooldown()
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
+        end
+      end
+    end
+
+    if unit.GetItemInSlot ~= nil and unit:HasInventory() then
+      local exempt_item_table = {
+        item_ex_machina = true,
+        item_hand_of_midas_1 = true,
+        item_refresher = true,
+        item_refresher_2 = true,
+        item_refresher_3 = true,
+        item_refresher_4 = true,
+        item_refresher_5 = true,
+        item_refresher_shard = true,
+      }
+
+      -- Reset cooldown for items that are not in backpack and not in stash
+      for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = unit:GetItemInSlot(i)
+        if item and not exempt_item_table[item:GetAbilityName()] then
+          item:EndCooldown()
+        end
+      end
+
+      -- Reset cooldown for items that are in backpack
+      for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local backpack_item = unit:GetItemInSlot(j)
+        if backpack_item and not exempt_item_table[backpack_item:GetAbilityName()] then
+          backpack_item:EndCooldown()
+        end
+      end
+
+      -- Reset neutral item cooldown
+      local neutral_item = unit:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+      if neutral_item and not exempt_item_table[neutral_item:GetAbilityName()] then
+        neutral_item:EndCooldown()
+      end
+    end
+
+    -- Special thing for Ward Stack - set counts to at least 1 ward
+    if unit.sentryCount then
+      if unit.sentryCount == 0 then
+        unit.sentryCount = 1
+      end
+    end
+
+    if unit.observerCount then
+      if unit.observerCount == 0 then
+        unit.observerCount = 1
+      end
+    end
+
+    return true
   end
 end
 
@@ -372,10 +514,10 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
@@ -454,15 +596,16 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:InstantAttackCanProcCleave()
+    -- If it's on this list and uncommented then it can proc Giant Form
     local list = {
       "modifier_ember_spirit_sleight_of_fist_caster",
       "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
       "modifier_ember_spirit_sleight_of_fist_in_progress",
-      "modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
       "modifier_juggernaut_omnislash",
       "modifier_juggernaut_omnislash_invulnerability",
       --"modifier_mars_gods_rebuke_crit",                         -- Mars W
-      "modifier_monkey_king_boundless_strike_crit",               -- MK Q
+      --"modifier_monkey_king_boundless_strike_crit",               -- MK Q
       "modifier_wukongs_command_oaa_buff",                        -- MK R
       "modifier_pangolier_swashbuckle",
       "modifier_pangolier_swashbuckle_attack",
@@ -472,7 +615,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
       "modifier_tiny_tree_channel",
-      "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do
       if self:HasModifier(v) then
@@ -531,10 +674,10 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:

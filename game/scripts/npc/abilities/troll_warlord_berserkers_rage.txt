@@ -12,6 +12,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,14 +28,14 @@
         "value"                                           "2 3 4 5 6 7"
         "special_bonus_unique_troll_warlord"              "+9"
       }
-      "bonus_range"                                       "350"
+      "bonus_range"                                       "350" // this is probably not needed here
       "base_attack_time"                                  "1.4" // this is probably not needed here
       "ensnare_chance"                                    "20"
       "ensnare_duration"                                  "0.8 1.2 1.6 2.0 2.1 2.2"
       "maim_chance"                                       "20"
       "maim_duration"                                     "0.8 1.2 1.6 2.0 2.1 2.2"
-      "maim_slow"                                         "8 16 24 32 36 40"
-      "maim_attack_slow"                                  "8 16 24 32 36 40"    //note:currently unused in code, just tooltips.
+      "maim_slow"                                         "8 16 24 32 36 40" // affects attack speed slow too
+      "maim_attack_slow"                                  "8 16 24 32 36 40" // tooltip only
       "maim_damage"
       {
         "value"                                           "5 10 15 20 40 60"

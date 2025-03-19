@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13"
+    "AbilityCooldown"                                     "16 15 14 13 13 13" // special_bonus_unique_puck_2
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@
       "radius"
       {
         "value"                                           "400"
-        "special_bonus_unique_puck_rift_radius"           "+300"
+        "special_bonus_unique_puck_rift_radius"           "+350"
         "affected_by_aoe_increase"                        "1"
       }
       "silence_duration"
@@ -44,12 +46,12 @@
       "damage" //OAA
       {
         "value"                                           "70 140 210 280 560 1120"
-        "special_bonus_unique_puck_6"                     "+75"
+        "special_bonus_unique_puck_6"                     "+80"
       }
       "max_distance"
       {
         "value"                                           "400"
-        "special_bonus_unique_puck_rift_radius"           "+300"
+        "special_bonus_unique_puck_rift_radius"           "+350"
       }
       "push_pull_enabled"
       {
@@ -69,7 +71,6 @@
         "special_bonus_facet_puck_jostling_rift"          "0.3"
         "RequiresFacet"                                   "puck_jostling_rift"
       }
-      
       "pull_distance"
       {
         "value"                                           "0"

@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastPoint"                                    "0.35"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
       "health_cost"                                       "75 100 125 150 175 200"
       "damage"
       {
-        "value"                                           "120 180 240 300 600 900" // special_bonus_unique_huskar_1_oaa
+        "value"                                           "105 170 235 300 600 900" // special_bonus_unique_huskar_1_oaa
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"

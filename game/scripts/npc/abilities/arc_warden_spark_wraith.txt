@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,51 +33,28 @@
       "radius"
       {
         "value"                                           "375"
+        "special_bonus_shard"                             "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "16"
       "move_speed_slow_pct"                               "100"
       "base_activation_delay"
       {
-        "value"                                           "2.0"
-        "RequiresFacet"                                   "arc_warden_order"
+        "value"                                           "1.5"
+        "special_bonus_unique_arc_warden_7"               "-1.0"
       }
       "spark_damage_base"
       {
-        "value"                                           "100 180 260 340 680 1020"
+        "value"                                           "100 170 240 310 620 930"
         "special_bonus_unique_arc_warden"                 "+40%"
-        "RequiresFacet"                                   "arc_warden_order"
       }
       "wraith_speed_base"
       {
-        "value"                                           "400"
-        "RequiresFacet"                                   "arc_warden_order"
+        "value"                                           "550"
       }
       "ministun_duration"
       {
-        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
-        "RequiresFacet"                                   "arc_warden_order"
-      }
-      "tempest_activation_delay"
-      {
-        "value"                                           "1.0"
-        "RequiresFacet"                                   "arc_warden_disorder"
-      }
-      "spark_damage_tempest"
-      {
-        "value"                                           "75 140 205 270 540 810"
-        "special_bonus_unique_arc_warden"                 "+40%"
-        "RequiresFacet"                                   "arc_warden_disorder"
-      }
-      "ministun_duration_tempest"
-      {
-        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
-        "RequiresFacet"                                   "arc_warden_disorder"
-      }
-      "wraith_speed_tempest"
-      {
-        "value"                                           "725"
-        "RequiresFacet"                                   "arc_warden_disorder"
+        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
       }
       "think_interval"                                    "0.2"
       "wraith_vision_radius"
@@ -86,23 +63,22 @@
         "affected_by_aoe_increase"                        "1"
       }
       "wraith_vision_duration"                            "3.34"
-      "scepter_activation_delay"
+      "maximum_targets"
       {
-        "value"                                           "2.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1"
+        "special_bonus_shard"                             "+1"
       }
-      "scepter_duration"
+      "second_wraith_damage_pct"
       {
-        "value"                                           "15"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=80.0"
       }
-      "scepter_radius"
+      "second_wraith_speed_pct"
       {
-        "value"                                           "225"
-        "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=100.0"
       }
-      "creep_damage_bonus_pct"                            "40"
+      "creep_damage_bonus_pct"                            "0"
     }
   }
 }

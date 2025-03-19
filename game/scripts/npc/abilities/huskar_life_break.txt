@@ -17,6 +17,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -42,13 +44,13 @@
       "health_damage"
       {
         "value"                                           "0.32 0.38 0.44 0.5 0.56"
-        "special_bonus_unique_huskar"                     "+0.2"
+        "special_bonus_unique_huskar"                     "+0.25"
       }
       "charge_speed"                                      "1200"
       "tooltip_health_damage"
       {
         "value"                                           "32 38 44 50 56"
-        "special_bonus_unique_huskar"                     "+20"
+        "special_bonus_unique_huskar"                     "+25"
       }
       "tooltip_health_cost_percent"
       {
@@ -70,13 +72,13 @@
       }
       "taunt_duration"
       {
-        "value"                                           "3.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0.0"
+        "special_bonus_scepter"                           "+3.0"
       }
       "cast_range_bonus"
       {
-        "value"                                           "250"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+250"
       }
       "splash_radius"
       {

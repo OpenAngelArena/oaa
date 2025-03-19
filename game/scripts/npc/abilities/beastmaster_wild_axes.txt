@@ -47,7 +47,10 @@
         "value"                                           "40 70 100 130 260 520"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "duration"                                          "12"
+      "duration"
+      {
+        "value"                                           "12"
+      }
       "damage_amp"
       {
         "value"                                           "6 8 10 12 14 16"

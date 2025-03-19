@@ -122,7 +122,7 @@ function ZoneControl:CreateStateFromHandle (handle, options)
     return 5
   end)
 
-  return state;
+  return state
 end
 
 function ZoneControl:MoveZone (state)
@@ -141,7 +141,7 @@ function ZoneControl:CreateGroupFromHandles (handles, options)
     state.states[i] = ZoneControl:CreateStateFromHandle(handle, options)
   end
 
-  return state;
+  return state
 end
 
 -- API methods
@@ -244,17 +244,17 @@ function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
     local hero = player:GetAssignedHero()
     ZoneControl:EnforceRulesOnEntity(state, playerId, hero)
 
-
     local playerAdditionalUnits = FindUnitsInRadius(
-        hero:GetTeam(),
-        hero:GetAbsOrigin(),
-        nil,
-        FIND_UNITS_EVERYWHERE,
-        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-        DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
-        FIND_ANY_ORDER,
-        false)
+      hero:GetTeam(),
+      hero:GetAbsOrigin(),
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
+      FIND_ANY_ORDER,
+      false
+    )
     playerAdditionalUnits = playerAdditionalUnits or {} -- assign empty table instead of nil so iter can be called without errors
 
     iter(playerAdditionalUnits)
@@ -392,14 +392,14 @@ end
 function ZoneControl:SpreadZoneGroup (group, method)
   ZoneControl:AssertIsState(group)
   if not group.isGroup then
-    return false;
+    return false
   end
 
   for _,state in pairs(group.states) do
     ZoneControl[method](ZoneControl:InheritState(group, state))
   end
 
-  return true;
+  return true
 end
 
 function ZoneControl:InheritState (parent, state)

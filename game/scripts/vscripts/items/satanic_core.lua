@@ -3,13 +3,13 @@ LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-item_satanic_core = class(ItemBaseClass)
+item_satanic_core_1 = class(ItemBaseClass)
 
-function item_satanic_core:GetIntrinsicModifierName()
+function item_satanic_core_1:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_satanic_core:GetIntrinsicModifierNames()
+function item_satanic_core_1:GetIntrinsicModifierNames()
   return {
     "modifier_item_bloodstone",
     "modifier_item_satanic_core",
@@ -17,7 +17,7 @@ function item_satanic_core:GetIntrinsicModifierNames()
   }
 end
 
-function item_satanic_core:OnSpellStart()
+function item_satanic_core_1:OnSpellStart()
   local hCaster = self:GetCaster()
   local unholy_duration = self:GetSpecialValueFor("duration")
 
@@ -25,10 +25,52 @@ function item_satanic_core:OnSpellStart()
   hCaster:AddNewModifier( hCaster, self, "modifier_satanic_core_unholy", { duration = unholy_duration } )
 end
 
-item_satanic_core_2 = item_satanic_core
-item_satanic_core_3 = item_satanic_core
-item_satanic_core_4 = item_satanic_core
-item_satanic_core_5 = item_satanic_core
+item_satanic_core_2 = item_satanic_core_1
+item_satanic_core_3 = item_satanic_core_1
+item_satanic_core_4 = item_satanic_core_1
+item_satanic_core_5 = item_satanic_core_1
+
+---------------------------------------------------------------------------------------------------
+
+item_bloodstone_1 = class(ItemBaseClass)
+
+function item_bloodstone_1:GetIntrinsicModifierName()
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_bloodstone_1:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_bloodstone",
+    "modifier_item_spell_lifesteal_oaa",
+  }
+end
+
+function item_bloodstone_1:OnSpellStart()
+  local caster = self:GetCaster()
+
+  -- Basic Dispel (for the caster)
+  caster:Purge(false, true, false, false, false)
+
+  local duration = self:GetSpecialValueFor("buff_duration")
+
+  -- Sound
+  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
+
+  -- Blood Pact
+  if not caster:HasModifier("modifier_item_bloodstone_drained") then
+    caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
+  end
+
+  -- Drained
+  local cd = self.BaseClass.GetCooldown(self, self:GetLevel())
+  local drain_duration = cd * caster:GetCooldownReduction()
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_drained", {duration = drain_duration})
+end
+
+item_bloodstone_2 = item_bloodstone_1
+item_bloodstone_3 = item_bloodstone_1
+item_bloodstone_4 = item_bloodstone_1
+item_bloodstone_5 = item_bloodstone_1
 
 ---------------------------------------------------------------------------------------------------
 

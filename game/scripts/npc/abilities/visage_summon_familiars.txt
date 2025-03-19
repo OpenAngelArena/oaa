@@ -12,6 +12,8 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "familiar_hp"                                       "500 700 900 1500 2500" //OAA
+      "familiar_hp"                                       "600 800 1000 1600 2600" //OAA
       "familiar_armor"                                    "2 4 6 8 10" //OAA
       "familiar_attack_range"
       {
@@ -44,7 +46,7 @@
       "familiar_bounty"
       {
         "value"                                           "100"
-        "special_bonus_facet_visage_faithful_followers"   "=70"
+        "special_bonus_facet_visage_faithful_followers"   "=50"
       }
       "bonus_movement_speed" // Valve is dumb
       {

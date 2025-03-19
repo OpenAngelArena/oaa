@@ -9,6 +9,7 @@ function lycan_boss_shapeshift:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_portrait.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", context)
   PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
+  PrecacheResource("model", "models/creeps/knoll_1/werewolf_boss.vmdl", context)
   --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 

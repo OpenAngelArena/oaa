@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "45" //OAA
 
@@ -28,16 +30,12 @@
       "duration"                                          "30"
       "radius"                                            "625 550 475 400 375 350"
       "fade_duration"                                     "0.4 0.6 0.8 1.0 1.2 1.4"
-      "scepter_cooldown"
+      "scepter_cooldown" // cooldown reduction
       {
         "value"                                           "50"
         "RequiresScepter"                                 "1"
       }
-      "break_on_attack"
-      {
-        "value"                                           "1"
-        "special_bonus_facet_phantom_assassin_veiled_one"  "=0"
-      }
+      "break_on_attack"                                   "0"
       "manacost_reduction_during_blur_pct"
       {
         "value"                                           "0"

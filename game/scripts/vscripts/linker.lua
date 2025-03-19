@@ -65,8 +65,6 @@ LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifyabilitiesfilter/tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 -- Windranger Windrun aghs additional effect:
 LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
--- Revenants Brooch active modifier
-LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyabilitiesfilter/revenants_brooch_mod.lua", LUA_MODIFIER_MOTION_NONE)
 -- Muerta Pierce The Veil penalties modifier
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Wraith Form penalty modifier
@@ -82,6 +80,8 @@ LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabili
 LinkLuaModifier("modifier_wisp_relocate_shield_oaa", "modifiers/modifyabilitiesfilter/wisp_relocate_shield.lua", LUA_MODIFIER_MOTION_NONE)
 -- Bristleback Seeing Red facet fix
 LinkLuaModifier("modifier_bristleback_seeing_red_oaa", "modifiers/modifyabilitiesfilter/bristleback_seeing_red_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+-- Slark Shadow Dance % bonus regen
+LinkLuaModifier("modifier_slark_shadow_dance_oaa", "modifiers/modifyabilitiesfilter/slark_shadow_dance_addition.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
@@ -120,6 +120,8 @@ LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_
 LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 -- Aura upgrader
 LinkLuaModifier("modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE)
+-- Cleave Suppress
+LinkLuaModifier("modifier_suppress_cleave_oaa", "modifiers/modifier_suppress_cleave_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Minimap icons (for creeps, capture points and bosses)
 LinkLuaModifier("modifier_minimap", "modifiers/modifier_minimap", LUA_MODIFIER_MOTION_NONE)

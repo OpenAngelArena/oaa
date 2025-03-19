@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,10 +33,10 @@
     {
       "duration"
       {
-        "value"                                           "3.75 4.5 5.25 6 6.75"
-        "special_bonus_scepter"                           "+2.25"
+        "value"                                           "4.0 4.5 5.0 5.75 6.5"
+        "special_bonus_scepter"                           "+2.0"
       }
-      "AbilityCastRange"
+      "AbilityCastRange" //OAA
       {
         "value"                                           "200 250 300 350 400"
       }

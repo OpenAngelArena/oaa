@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -81,6 +83,21 @@
       "treewalking"
       {
         "value"                                           "0"
+      }
+      "treant_gold_bounty_min"
+      {
+        "value"                                           "18"
+        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
+      }
+      "treant_gold_bounty_max"
+      {
+        "value"                                           "24"
+        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
+      }
+      "treant_xp_bounty"
+      {
+        "value"                                           "30"
+        "special_bonus_facet_furion_ironwood_treant"      "=30 =40 =50 =60 =120 =240"
       }
     }
   }

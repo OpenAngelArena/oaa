@@ -13,6 +13,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,8 +26,8 @@
         "special_bonus_unique_elder_titan_5"              "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "armor_reduction_pct"                               "40 60 80 100 110 120"
-      "magic_resistance_pct"                              "40 60 80 100 110 120"
+      "armor_reduction_pct"                               "25 40 55 70 85 100" //OAA
+      "magic_resistance_pct"                              "25 40 55 70 85 100" //OAA
       "max_stacks"
       {
         "special_bonus_facet_elder_titan_deconstruction"  "20"

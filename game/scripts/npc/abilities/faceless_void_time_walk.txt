@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 15 11 7 6 6"
+        "value"                                           "16 13 10 7 7 7"
         "special_bonus_unique_faceless_void_5"            "-1"
       }
       "backtrack_duration"

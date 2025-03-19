@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dazzle: Nothl Projection
+  //=================================================================================================================
+  "dazzle_nothl_projection"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70 60 50 45 40"
+    "AbilityManaCost"                                     "100 150 200 250 300"
+    "AbilityCastRange"                                    "600"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "min_duration"                                      "5"
+      "max_duration"                                      "15"
+      "initial_travel_speed"                              "1200"
+      "soul_return_time"                                  "0.75"
+      "soul_return_min_speed"                             "500"
+      "leash_start"                                       "1600"
+      "base_leash_pull"                                   "50"
+      "leash_increase"                                    ".5"
+      "poison_touch_hex"                                  "1.4 1.6 1.8 1.9 2.0"
+      "shallow_grave_heal"                                "225 300 375 450 525"
+      "shadow_wave_cdr"                                   "30 40 50 60 70"
+      "castable_while_disabled"
+      {
+        "special_bonus_shard"                             "1"
+      }
+      "healing_amp"
+      {
+        "special_bonus_shard"                             "20"
+        "RequiresShard"                                   "1"
+      }
+    }
+  }
+}

@@ -205,6 +205,23 @@ function Bottlepass:SendTeams ()
   end)
 end
 
+function Bottlepass:GetUnpopularHeroes (callback)
+  DebugPrint('Fetching unpopular hero pick list')
+
+  local heroList = HeroSelection:GetHeroList()
+  local heroes = {}
+  for key,_ in pairs(heroList) do
+    table.insert(heroes, key)
+  end
+
+  self:Request('match/unpopular_heroes', {
+    heroes = heroes
+  }, function (err, response)
+    DebugPrintTable(response)
+    callback(response)
+  end)
+end
+
 function Bottlepass:Ready ()
   local userList = {}
   local hostId = 0

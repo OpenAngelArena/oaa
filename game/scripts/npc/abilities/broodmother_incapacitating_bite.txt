@@ -30,10 +30,10 @@
         "special_bonus_unique_broodmother_4"              "-25"
       }
       "duration"                                          "2.0"
-      "attack_damage"
+      "attack_damage" //OAA
       {
-        "value"                                           "2 4 6 8 16 32"
-        "special_bonus_unique_broodmother_2"              "+12"
+        "value"                                           "2 4 6 8 16 24"
+        "special_bonus_unique_broodmother_2"              "+10"
       }
     }
   }

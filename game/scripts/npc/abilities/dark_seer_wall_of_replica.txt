@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0"
+    "AbilityCooldown"                                     "100.0" // special_bonus_unique_dark_seer_13
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,20 +32,20 @@
     "AbilityValues"
     {
       "duration"                                          "30.0"
-      "replica_damage_outgoing" //OAA
+      "replica_damage_outgoing" //OAA, also affects Normal Punch illusion
       {
-        "value"                                           "-30 0 30 90 150"
+        "value"                                           "-30 -10 10 50 90"
         "special_bonus_unique_dark_seer_7"                "+20"
       }
-      "tooltip_outgoing" //OAA
+      "tooltip_outgoing" //OAA, also affects Normal Punch illusion
       {
-        "value"                                           "70 100 130 190 250"
+        "value"                                           "70 90 110 150 190"
         "special_bonus_unique_dark_seer_7"                "+20"
       }
-      "replica_damage_incoming"                           "100 100 100 75 25"
-      "tooltip_replica_total_damage_incoming"
+      "replica_damage_incoming"                           "100 90 80 50 20" // OAA, also affects Normal Punch illusion
+      "tooltip_replica_total_damage_incoming" // OAA, also affects Normal Punch illusion
       {
-        "value"                                           "200 200 200 175 125"
+        "value"                                           "200 190 180 150 120"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

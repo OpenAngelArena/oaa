@@ -10,9 +10,9 @@
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
-    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "1.2"
-    "Level"                                               "30"
+    "Level"                                               "40"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
 
@@ -122,9 +122,9 @@
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
-    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "1.3"
-    "Level"                                               "30"
+    "Level"                                               "45"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
 
@@ -234,9 +234,9 @@
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
-    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "1.4"
-    "Level"                                               "30"
+    "Level"                                               "50"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
 

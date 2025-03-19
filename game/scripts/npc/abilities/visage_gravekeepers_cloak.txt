@@ -11,6 +11,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityValues"
     {
@@ -33,10 +34,10 @@
         "value"                                           "40 50 60 70 90 130"
         "special_bonus_unique_visage_oaa_1"               "+70"
       }
-      "radius"
+      "radius" //OAA
       {
         "affected_by_aoe_increase"                        "1"
-        "value"                                           "900"
+        "value"                                           "1200"
       }
       "max_damage_reduction"
       {

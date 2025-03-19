@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -21,11 +23,10 @@
     {
       "points_per_tick"                                   "1"
       "morph_cooldown"                                    "0.2 0.1 0.06 0.05 0.04 0.03" // points_per_tick / morph_rate_tooltip
-      "morph_rate_tooltip"                                "10 15 20 25 30 35"
-      "mana_cost"
+      "morph_rate_tooltip"                                "5 10 15 20 25 30"
+      "mana_cost" //OAA
       {
-        "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_morphling_morph_no_manacost"  "-100%"
+        "value"                                           "10 15 20 25 30 35"
         "special_bonus_shard"                             "-50%"
       }
       "castable_while_stunned"

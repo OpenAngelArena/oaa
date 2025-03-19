@@ -15,14 +15,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "crit_chance"                                       "20"
-      "crit_multiplier"                                   "200"
+      "crit_multiplier"                                   "200 225 250 275"
       "radius"
       {
         "value"                                           "1200"

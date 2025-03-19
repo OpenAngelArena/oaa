@@ -17,7 +17,7 @@
     {
       "01"                                                "item_greater_phase_boots_3;item_upgrade_core_3"
       "02"                                                "item_greater_power_treads_2;item_upgrade_core_3"
-      "03"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "03"                                                "item_greater_boots_of_bearing_2;item_upgrade_core_3"
       "04"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
       "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
     }
@@ -48,6 +48,8 @@
     "ItemAliases"                                         "sonic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "SpeciallyBannedFromNeutralSlot"                      "1"
 
     "AbilityValues"
     {

@@ -25,7 +25,7 @@
       }
       "back_damage_reduction"
       {
-        "value"                                           "16 24 32 40 45 55"
+        "value"                                           "16 24 32 40 45 50"
         "special_bonus_unique_bristleback_6"              "+8"
       }
       "side_angle"                                        "110"
@@ -42,7 +42,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "activation_cooldown"                               "24"
-      "activation_manacost"                               "100"
+      "activation_manacost"                               "125"
       "activation_delay"                                  "0.5"
       "activation_num_quill_sprays"                       "5"
       "activation_spray_interval"                         "0.4"

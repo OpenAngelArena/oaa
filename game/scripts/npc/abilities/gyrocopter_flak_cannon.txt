@@ -13,12 +13,14 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 50 60 70 80 90"
+    "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Duration
     //-------------------------------------------------------------------------------------------------------------
@@ -28,9 +30,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, special_bonus_unique_gyrocopter_1 is not used
       {
-        "value"                                           "21 20 19 18 17 16"
+        "value"                                           "20 19 18 17 16 15"
         "special_bonus_unique_gyrocopter_1"               "-5"
       }
       "radius"
@@ -55,10 +57,10 @@
         "value"                                           "1.3"
         "RequiresScepter"                                 "1"
       }
-      "sidegunner_radius" //OAA
+      "sidegunner_radius"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "800"
+        "special_bonus_scepter"                           "700"
         "RequiresScepter"                                 "1"
       }
       "double_target"

@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +40,11 @@
       }
       "max_mana_as_damage_pct" //OAA
       {
-        "value"                                           "15"
+        "value"                                           "20"
+      }
+      "mana_burn_pct" //OAA
+      {
+        "value"                                           "0"
       }
       "aoe"
       {

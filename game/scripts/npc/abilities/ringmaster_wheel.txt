@@ -15,6 +15,8 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,9 +32,9 @@
     "AbilityValues"
     {
       "min_range"                                         "700"
-      "mesmerize_radius"
+      "mesmerize_radius" //OAA
       {
-        "value"                                           "500"
+        "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_ringmaster_wheel_radius"    "+100"
       }
@@ -46,13 +48,13 @@
       "wheel_stun"                                        "2.5 2.75 3.0 3.25 3.5"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 75 100 175 300"
+      "aura_damage"                                       "50 100 150 250 350" //OAA
       "aura_slow"                                         "-50"
       "explosion_damage"                                  "300 600 900 1800 2700" //OAA
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"
-      "vision_cone"                                       "0.08715"       // 85 degree cone
+      "vision_cone"                                       "0.08715" // 85 degree cone
       "knockback_radius"                                  "100"
       "knockback_duration"                                "0.35"
       "knockback_distance"                                "100"

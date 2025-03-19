@@ -358,24 +358,29 @@ function modifier_oaa_borrowed_time_immolation:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  -- Damage table
+  -- Self damage table
   local damage_table = {
     attacker = parent,
+    victim = parent,
     damage = self.dps * self.interval,
+    damage_type = DAMAGE_TYPE_PURE,
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
     ability = self.ability,
   }
 
   -- Self damage
-  damage_table.victim = parent
-  damage_table.damage_type = DAMAGE_TYPE_PURE
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-
   ApplyDamage(damage_table)
 
-  -- Damage enemies
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+  -- Enemy damage table
+  local damage_table_2 = {
+    attacker = parent,
+    damage = self.dps * self.interval,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self.ability,
+  }
 
+  -- Find enemies
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
@@ -388,11 +393,12 @@ function modifier_oaa_borrowed_time_immolation:OnIntervalThink()
     false
   )
 
+  -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
-      damage_table.victim = enemy
+      damage_table_2.victim = enemy
 
-      ApplyDamage(damage_table)
+      ApplyDamage(damage_table_2)
     end
   end
 end

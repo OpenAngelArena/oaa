@@ -16,13 +16,13 @@
     // "Ability2"                                            "lycan_summon_wolves_critical_strike"
     // "Ability3"                                            "lycan_summon_wolves_hamstring"
 
-    "MagicalResistance"                                   "70" // Magical protection.
+    "MagicalResistance"                                   "50" // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
-    "AttackDamageMin"                                     "180" // Damage range min.
-    "AttackDamageMax"                                     "180" // Damage range max.
-    "AttackRate"                                          "0.8" // BAT
+    "AttackDamageMin"                                     "120" // Damage range min.
+    "AttackDamageMax"                                     "120" // Damage range max.
+    "AttackRate"                                          "0.85" // BAT
 
     // Bounty
     //----------------------------------------------------------------
@@ -36,6 +36,6 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1625" // Base health.
+    "StatusHealth"                                        "1250" // Base health.
   }
 }

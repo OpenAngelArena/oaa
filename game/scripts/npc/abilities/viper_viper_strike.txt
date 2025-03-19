@@ -17,6 +17,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +29,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6"
+      "duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_viper_4"                    "+1"
+      }
       "damage" //OAA
       {
         "value"                                           "70 130 190 370 670"

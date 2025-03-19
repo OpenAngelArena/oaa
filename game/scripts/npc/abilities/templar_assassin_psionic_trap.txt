@@ -56,12 +56,11 @@
         "value"                                           "50"
         "special_bonus_unique_templar_assassin_3"         "+5"
       }
-      "trap_bonus_damage" //OAA
+      "trap_bonus_damage"
       {
-        "value"                                           "225 375 525 975 1425"
-        "special_bonus_unique_templar_assassin_3"         "+100"
+        "value"                                           "225 300 375 600 975"
       }
-      "instant_trap_damage"                               "0"
+      "instant_trap_damage"                               "225 300 375 600 975" //OAA
       "extra_damage"                                      "200"
       "damage_tick_rate"                                  "0.5"
       "trap_max_charge_duration"                          "3.5"

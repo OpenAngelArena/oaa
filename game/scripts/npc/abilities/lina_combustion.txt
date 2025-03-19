@@ -11,9 +11,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Laguna Blade) + 1
     "Innate"                                              "1"
-
     "DependentOnAbility"                                  "lina_laguna_blade"
 
     // Special
@@ -21,8 +20,16 @@
     "AbilityValues"
     {
       "damage_threshold"                                  "200" //OAA
-      "damage"                                            "10 30 50 70 105 140" // patch note says 10/20/30/40 ???
-      "damage_illusions"                                  "10 15 20 25 35 45" // patch note says 10 ???
+      "damage" //OAA
+      {
+        "value"                                           "10 20 30 40 50 60"
+        "special_bonus_unique_lina_7"                     "+60%"
+      }
+      "damage_illusions" //OAA
+      {
+        "value"                                           "5 10 15 20 25 30"
+        "special_bonus_unique_lina_7"                     "+60%"
+      }
       "damage_aoe"
       {
         "value"                                           "400"

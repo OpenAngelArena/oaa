@@ -11,8 +11,6 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityValues"
     {
@@ -28,13 +26,43 @@
       "proximity_bonus_radius"
       {
         "value"                                           "1200"
-        "special_bonus_facet_crystal_maiden_cold_comfort"  "=1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "activatable"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+1"
+      }
+      "activation_spell_amp_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+35.0"
+      }
+      "activation_mana_cost_increase_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+50.0"
+      }
+      "mana_battery_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "=1200"
         "affected_by_aoe_increase"                        "1"
       }
       "mana_battery_mana_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_cold_comfort"  "10 15 20 25 30 35"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "25"
+      }
+      "activation_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+10.0"
+      }
+      "activation_cooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+30.0"
       }
     }
   }

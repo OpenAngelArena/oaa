@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 5 5" //OAA
+    "AbilityCooldown"                                     "9 8 7 6 6 6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -56,16 +58,16 @@
         "value"                                           "2"
         "RequiresShard"                                   "1"
       }
-      "damage_pct" //OAA
+      "damage_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_lion_essence_eater"          "+100"
         "RequiresFacet"                                   "lion_essence_eater"
       }
-      "magic_resist"
+      "magic_resist" //OAA
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+60"
+        "special_bonus_shard"                             "+25"
       }
       "ally_pct"                                          "50"
     }

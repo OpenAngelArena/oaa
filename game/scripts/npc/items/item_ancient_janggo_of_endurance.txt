@@ -1,23 +1,6 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Drums Endurance
-  //=================================================================================================================
-  "item_recipe_ancient_janggo"
-  {
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "500"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo"
-    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
-    {
-      "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
-    }
-  }
-
-  //=================================================================================================================
   // Drums of Endurance
   //=================================================================================================================
   "item_ancient_janggo"
@@ -31,7 +14,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0"
+    "AbilityCooldown"                                     "30.0" //OAA
     "AbilitySharedCooldown"                               "drums"
 
     // Spicy Parameters
@@ -42,23 +25,20 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1650"
-    "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
+    "ItemCost"                                            "1625"
+    "ItemShopTags"                                        "str;int;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"
-    "ItemInitialCharges"                                  "8"
-    "ItemDisplayCharges"                                  "1"
-    //"ItemRequiresCharges"                                 "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aura_movement_speed"                               "20"
+      "aura_movement_speed"                               "15"
       "bonus_str"                                         "7"
       "bonus_int"                                         "7"
-      "bonus_attack_speed_pct"                            "45"
+      "bonus_attack_speed_pct"                            "35"
       "bonus_movement_speed_pct"                          "15" //OAA
       "duration"                                          "6"
       "radius"

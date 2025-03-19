@@ -17,6 +17,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +36,7 @@
     {
       "health_drain" //OAA
       {
-        "value"                                           "150 350 550 950 1350"
+        "value"                                           "150 350 550 850 1150"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
@@ -45,9 +47,9 @@
       }
       "ally_healing" //OAA
       {
-        "value"                                           "150 350 550 950 1350"
+        "value"                                           "150 350 550 850 1150"
       }
-      "health_to_mana_rate"                               "50"
+      "health_to_mana_rate"                               "0"
       "tick_rate"                                         "0.25"
       "drain_buffer"                                      "200"
       "shard_damage_pct_from_ward"

@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
         "value"                                           "18 16 14 12 12 12"
       }
@@ -48,6 +50,7 @@
       "mana_capacity_steal"
       {
         "value"                                           "16 19 22 25 28 31"
+        "special_bonus_unique_outworld_devourer_2"        "+8"
       }
       "mana_capacity_duration"
       {
@@ -68,7 +71,7 @@
       "AbilityCastRange"
       {
         "value"                                           "650"
-        "special_bonus_unique_outworld_devourer_astral_castrange"  "+125"
+        "special_bonus_unique_outworld_devourer_astral_castrange"  "+100"
       }
       "debuff_duration"
       {

@@ -33,13 +33,24 @@
       {
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_invoker_exort_focus"
+        {
+          "value"                                         "+30"
+        }
       }
-      "travel_distance"
+      "travel_distance" //OAA
       {
-        "value"                                           "465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750"
+        "value"                                           "465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750 1775 1800"
         "levelkey"                                        "wexlevel"
+        "special_bonus_facet_invoker_exort_focus"
+        {
+          "value"                                         "+200"
+        }
       }
-      "travel_speed"                                      "300"
+      "travel_speed"
+      {
+        "value"                                           "300"
+      }
       "damage_interval"
       {
         "value"                                           "0.5"
@@ -54,23 +65,25 @@
       "end_vision_duration"                               "3.0"
       "main_damage" //OAA, Valve bad at math (+25 every non-OAA lvl)
       {
-        "value"                                           "55 80 105 130 155 180 205 230 280 330 380 430 480 530 580"
+        "value"                                           "55 80 105 130 155 180 205 230 280 330 380 430 480 530 580 630 680"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_6"                  "+80%"
       }
       "burn_duration"                                     "3.0"
       "burn_dps" //OAA
       {
-        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
+        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136 148 160"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_invoker_6"                  "+80%"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "meteor_count"
       {
         "value"                                           "1"
         "special_bonus_unique_invoker_additional_chaos_meteors"  "+2"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0"
       }
     }
   }

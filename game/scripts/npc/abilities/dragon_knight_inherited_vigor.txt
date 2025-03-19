@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+  "dragon_knight_inherited_vigor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve has extra space
+
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+
+    "AbilityValues"
+    {
+      "base_health_regen"
+      {
+        "value"                                           "2"
+        "special_bonus_unique_dragon_knight"              "+12"
+        "dynamic_value"                                   "true"
+      }
+      "base_armor"
+      {
+        "value"                                           "2"
+        "special_bonus_unique_dragon_knight"              "+12"
+        "dynamic_value"                                   "true"
+      }
+      "level_mult"                                        "0.3" //OAA
+      "regen_and_armor_multiplier_during_dragon_form" //OAA
+      {
+        "value"                                           "1.3"
+      }
+    }
+  }
+}

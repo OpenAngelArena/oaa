@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Dire Safelane Tower boss
+  // Boss tier 3 - Dire Safelane Tower boss
   //=================================================================================
   "npc_dota_creature_dire_tower_boss"
   {
@@ -11,7 +11,7 @@
     "Model"                                               "models/props_structures/dire_tower002.vmdl"
     "vscripts"                                            "units/ai_dire_tower_boss.lua"
     "SoundSet"                                            "Dire_Tower_Boss"
-    "Level"                                               "30"
+    "Level"                                               "40"
     "ModelScale"                                          "1.0"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -41,7 +41,7 @@
     "AttackRate"                                          "0.9"   // Speed of attack.
     "AttackAnimationPoint"                                "0.6"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "700"   // Range within a target can be acquired.
-    "AttackRange"                                         "1200"   // Range within a target can be attacked.
+    "AttackRange"                                         "800"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
     "ProjectileSpeed"                                     "750"   // Speed of projectile.
 

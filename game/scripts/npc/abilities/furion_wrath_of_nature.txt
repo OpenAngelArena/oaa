@@ -34,10 +34,10 @@
     "AbilityValues"
     {
       "max_targets"                                       "16"
-      "damage" //OAA
+      "damage" //OAA, special_bonus_unique_furion_5 is not used
       {
-        "value"                                           "130 170 210 330 450"
-        "special_bonus_unique_furion_5"                   "+30"
+        "value"                                           "125 165 205 325 445"
+        "special_bonus_unique_furion_5"                   "+25"
       }
       "damage_percent_add"
       {
@@ -61,7 +61,7 @@
       "AbilityCooldown"
       {
         "value"                                           "85"
-        "special_bonus_scepter"                           "-25"
+        "special_bonus_unique_furion_7"                   "-15"
       }
       "scepter_min_entangle_duration"
       {

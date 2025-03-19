@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
     "DependentOnAbility"                                  "hoodwink_sharpshooter"
     "Innate"                                              "1"
     "MaxLevel"                                            "6" // same as Dependent ability (Sharpshooter) + 1
@@ -19,7 +20,7 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "redirect_chance"                                   "15 20 25 30 35 40" // if MKB and True Strike works against this, buff it
+      "redirect_chance"                                   "14 21 28 35 40 45" // if MKB and True Strike works against this, buff it
     }
   }
 }

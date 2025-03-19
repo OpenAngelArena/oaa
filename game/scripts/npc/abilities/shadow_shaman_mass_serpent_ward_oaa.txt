@@ -19,8 +19,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
@@ -29,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "90 85 80 75 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,17 +42,20 @@
         "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=1"
       }
+      "bonus_attack_range"
+      {
+        "special_bonus_unique_shadow_shaman_8"            "+160"
+      }
       "duration"                                          "45.0"
       "spawn_radius"                                      "150"
       "damage_tooltip" // not piercing in OAA
       {
         "value"                                           "30 75 120 255 390" // damage values need to be set in unit KVs because of Rubick and Morphling
-        "special_bonus_unique_shadow_shaman_4"            "+20%"
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "900%"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "bonus_damage_against_bosses" // percent of ward damage as magic damage
+      "bonus_damage_against_bosses" // percent of ward damage as magic damage (tooltip only); real value is in shadow_shaman_global_serpent_aura_oaa
       {
         "value"                                           "40"
         "CalculateSpellDamageTooltip"                     "0"
@@ -76,6 +77,10 @@
         "value"                                           "4"
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+36"
         "special_bonus_unique_shadow_shaman_1"            "+50%"
+      }
+      "bonus_attack_targets"
+      {
+        "special_bonus_unique_shadow_shaman_4"            "+1"
       }
       "is_mega_ward"
       {

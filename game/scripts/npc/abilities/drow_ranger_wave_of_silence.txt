@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +22,6 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +46,11 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "16 15 14 13 12 11"
-        "special_bonus_unique_drow_ranger_7"              "-3.5"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "70"
+        "special_bonus_unique_drow_ranger_7"              "=0"
       }
       "miss_chance"
       {

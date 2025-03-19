@@ -256,6 +256,7 @@ if IsServer() then
     ResolveNPCPositions(parent_origin, 128)
 
     self:Damage(parent, caster, ability)
+    self:Heal(parent, caster, ability)
   end
 
   function modifier_sohei_ki_attraction_movement:UpdateHorizontalMotion(parent, deltaTime)
@@ -292,42 +293,42 @@ if IsServer() then
       local ability = self:GetAbility()
 
       -- Check for phantom (thinkers) blockers (Fissure, Ice Shards etc.)
-      local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
-      for _, thinker in pairs(thinkers) do
-        if thinker and thinker:IsPhantomBlocker() then
-          -- Collision Impact Sound
-          parent:EmitSound("Sohei.Momentum.Collision")
-          self:Destroy()
-          return
-        end
-      end
+      -- local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
+      -- for _, thinker in pairs(thinkers) do
+        -- if thinker and thinker:IsPhantomBlocker() then
+          -- -- Collision Impact Sound
+          -- parent:EmitSound("Sohei.Momentum.Collision")
+          -- self:Destroy()
+          -- return
+        -- end
+      -- end
 
       -- Check for high ground
-      local previous_loc = GetGroundPosition(parentOrigin, parent)
-      local new_loc = GetGroundPosition(tickOrigin, parent)
-      if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
-      end
+      -- local previous_loc = GetGroundPosition(parentOrigin, parent)
+      -- local new_loc = GetGroundPosition(tickOrigin, parent)
+      -- if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
+      -- end
 
       -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
       if GridNav:IsNearbyTree(tickOrigin, 120, false) then
         GridNav:DestroyTreesAroundPoint(tickOrigin, 120, false)
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
       end
 
       -- Check for buildings (requires buildings lua library, otherwise it will return an error)
-      if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
-        -- Collision Impact Sound
-        parent:EmitSound("Sohei.Momentum.Collision")
-        self:Destroy()
-        return
-      end
+      -- if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
+        -- -- Collision Impact Sound
+        -- parent:EmitSound("Sohei.Momentum.Collision")
+        -- self:Destroy()
+        -- return
+      -- end
 
       -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs and damage to both heroes
       if parent:IsHero() then
@@ -367,13 +368,13 @@ if IsServer() then
 
   function modifier_sohei_ki_attraction_movement:Damage(unit, caster, ability)
     -- Damage only enemies without spell immunity
-    if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
+    if not unit or unit:IsNull() or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
       return
     end
 
     local base_damage = ability:GetSpecialValueFor("damage")
-    local str_multiplier = ability:GetSpecialValueFor("strength_damage") / 100
-    local bonus_damage = str_multiplier * caster:GetStrength()
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+    local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
 
     local damage_table = {
       attacker = caster,
@@ -384,6 +385,37 @@ if IsServer() then
     }
 
     ApplyDamage(damage_table)
+  end
+
+  function modifier_sohei_ki_attraction_movement:Heal(unit, caster, ability)
+    -- Heal only allies
+    if not unit or unit:IsNull() or unit:GetTeamNumber() ~= caster:GetTeamNumber() then
+      return
+    end
+
+    local heal_ratio = ability:GetSpecialValueFor("heal_ratio")
+    if heal_ratio <= 0 then
+      return
+    end
+
+    local base_damage = ability:GetSpecialValueFor("damage")
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+
+    local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
+    local total_damage = base_damage + bonus_damage
+
+    local heal_amount = total_damage * heal_ratio
+
+    -- Healing
+    --unit:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+    unit:HealWithParams(heal_amount, ability, false, true, caster, false)
+
+    local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+    ParticleManager:SetParticleControl(part, 0, unit:GetAbsOrigin())
+    ParticleManager:SetParticleControl(part, 1, Vector(unit:GetModelRadius(), 1, 1))
+    ParticleManager:ReleaseParticleIndex(part)
+
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, unit, heal_amount, nil)
   end
 end
 

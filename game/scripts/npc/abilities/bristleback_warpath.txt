@@ -12,14 +12,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "55 65 75 85 95"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,10 +27,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityManaCost"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_bristleback_seeing_red"      "55 65 75 85 95"
+      }
       "damage_per_stack" //OAA
       {
         "value"                                           "15 21 27 39 51"
-        "special_bonus_facet_bristleback_berserk"         "=5"
         "special_bonus_unique_bristleback_3"              "+18"
       }
       "aspd_per_stack"
@@ -40,7 +42,7 @@
         "value"                                           "0"
         "special_bonus_facet_bristleback_berserk"         "=10 =15 =20 =25 =30"
       }
-      "move_speed_per_stack"                              "2 3 4 5 6"
+      "move_speed_per_stack"                              "2 2.5 3 3.5 4"
       "stack_duration"                                    "16.0 18.0 20.0 20.0 20.0"
       "max_stacks"                                        "8 10 12 12 12"
       "active_bonus_attack_percent"

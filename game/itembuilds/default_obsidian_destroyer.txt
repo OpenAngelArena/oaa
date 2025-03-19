@@ -1,8 +1,8 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.37e + Frost"
   "hero"          "npc_dota_hero_obsidian_destroyer"
-  "Title"         "Recommended items for Outworld Devourer"
+  "Title"         "Recommended items for Outworld Destroyer"
 
   "Items"
   {
@@ -18,13 +18,22 @@
       "item"      "item_meteor_hammer_1"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_devastator"
       "item"      "item_hurricane_pike"
-      "item"      "item_blink"
+      "item"      "item_greater_power_treads"
+      "item"      "item_dagger_of_moriah_1"
       "item"      "item_sheepstick_4"
-      "item"      "item_revenants_brooch_4"
+    }
+
+    "#DOTA_Item_Build_Utility_Initiation" // mana items mostly
+    {
+      "item"      "item_far_sight"
+      "item"      "item_octarine_core"
+      "item"      "item_bloodstone_1"
+      "item"      "item_arcane_blink"
+      "item"      "item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -34,16 +43,14 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
-      "item"      "item_octarine_core"
-      "item"      "item_satanic_core"
       "item"      "item_shivas_guard"
-      "item"      "item_silver_edge"
       "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_wind_waker"
-      "item"      "item_greater_power_treads"
+      "item"      "item_regen_crystal_1"
       "item"      "item_moon_shard_oaa"
     }
   }

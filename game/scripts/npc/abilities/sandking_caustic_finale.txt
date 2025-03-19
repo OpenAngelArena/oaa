@@ -14,9 +14,7 @@
 
     "Innate"                                              "1"
     "DependentOnAbility"                                  "sandking_epicenter"
-
     "MaxLevel"                                            "6" // same as Dependent ability (Epicenter) + 1
-    "RequiredLevel"                                       "-1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,6 +23,7 @@
       "caustic_finale_radius"
       {
         "value"                                           "400"
+        "special_bonus_unique_sand_king_caustic_finale_radius"  "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "caustic_finale_damage_base"                        "15 35 55 75 150 300"

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.37e + Frost"
   "hero"          "npc_dota_hero_earth_spirit"
   "Title"         "Recommended items for Earth Spirit"
 
@@ -17,9 +17,21 @@
     {
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_octarine_core"
-      "item"      "item_kaya_and_sange"
-      "item"      "item_heart_oaa_1"
       "item"      "item_ultimate_scepter"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_wind_waker"
+      "item"      "item_guardian_greaves"
+      "item"      "item_lotus_orb"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_kaya"
+      "item"      "item_heart_oaa_1"
+      "item"      "item_shivas_guard"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -31,12 +43,12 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_crimson_guard"
-      "item"      "item_cyclone"
       "item"      "item_pipe"
-      "item"      "item_shivas_guard"
       "item"      "item_spiked_mail_1"
       "item"      "item_abyssal_blade_2"
       "item"      "item_greater_travel_boots"
+      "item"      "item_heart_transplant"
+      "item"      "item_sheepstick_4"
     }
   }
 }

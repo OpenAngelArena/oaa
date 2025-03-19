@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,9 +38,9 @@
       "min_stun"                                          "0.25"
       "max_stun"                                          "1.7 2.2 2.7 3.2 3.3 3.4"
       "min_damage"                                        "0"
-      "max_damage" //OAA
+      "max_damage"
       {
-        "value"                                           "160 240 320 400 800 1600"
+        "value"                                           "150 220 290 360 720 1440"
         "special_bonus_unique_alchemist_2"                "+400"
       }
       "radius"
@@ -53,7 +53,7 @@
       "chemical_rage_cooldown_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_alchemist_mixologist"        "=30"
+        "special_bonus_facet_alchemist_mixologist"        "=35"
       }
     }
   }

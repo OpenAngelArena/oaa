@@ -11,6 +11,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -35,17 +37,17 @@
     {
       "true_sight_radius"
       {
-        "value"                                           "750"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "sight_radius_day"
       {
-        "value"                                           "750"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "sight_radius_night"
       {
-        "value"                                           "750"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "sight_duration"                                    "5"

@@ -217,31 +217,30 @@ function modifier_meepo_divided_we_stand_oaa:OnIntervalThink()
     "item_travel_boots_oaa",
 
     "item_greater_guardian_greaves",
-    "item_greater_tranquil_boots",
+    "item_greater_boots_of_bearing_1",
     "item_greater_travel_boots",
     "item_greater_phase_boots",
     "item_greater_power_treads",
 
     "item_greater_guardian_greaves_2",
-    "item_greater_tranquil_boots_2",
+    "item_greater_boots_of_bearing_2",
     "item_greater_travel_boots_2",
     "item_greater_phase_boots_2",
     "item_greater_power_treads_2",
 
     "item_greater_guardian_greaves_3",
-    "item_greater_tranquil_boots_3",
+    "item_greater_boots_of_bearing_3",
     "item_greater_travel_boots_3",
     "item_greater_phase_boots_3",
     "item_greater_power_treads_3",
     "item_sonic",
 
     "item_greater_guardian_greaves_4",
-    "item_greater_tranquil_boots_4",
+    "item_greater_boots_of_bearing_4",
     "item_greater_travel_boots_4",
     "item_greater_phase_boots_4",
     "item_greater_power_treads_4",
     "item_sonic_2",
-    "item_force_boots_1",
   }
 
   local meepo_prime = GetMeepoPrimeOAA(parent)

@@ -9,15 +9,54 @@
     //"Ability11"                                           "special_bonus_unique_techies_3"
 
     //"Ability12"                                           "special_bonus_unique_techies"
-    "Ability13"                                           "special_bonus_attack_damage_65" // replaces special_bonus_mp_regen_3
+    "Ability13"                                           "special_bonus_unique_techies_2" // replaces special_bonus_mp_regen_3
 
-    //"Ability14"                                           "special_bonus_unique_techies_2"
+    "Ability14"                                           "special_bonus_unique_techies_1_oaa" // replaces special_bonus_unique_techies_2
     //"Ability15"                                           "special_bonus_unique_techies_5"
 
-    "Ability16"                                           "special_bonus_unique_techies_1_oaa" // replaces "special_bonus_attack_damage_252"
+    //"Ability16"                                           "special_bonus_attack_damage_252"
     //"Ability17"                                           "special_bonus_unique_techies_4"
 
-    //"AttackDamageMin"                                     "6" // 3
-    //"AttackDamageMax"                                     "8" // 5
+    "Facets"
+    {
+      "techies_atk_range"
+      {
+        "Icon"                                            "range"
+        "Color"                                           "Gray"
+        "GradientID"                                      "0"
+
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "techies_squees_scope"
+          }
+        }
+      }
+
+      "techies_spleens_secret_sauce"
+      {
+        "Icon"                                            "nuke"
+        "Color"                                           "Red"
+        "GradientID"                                      "0"
+      }
+
+      "techies_backpack"
+      {
+        "Icon"                                            "item"
+        "Color"                                           "Blue"
+        "GradientID"                                      "1"
+        "Deprecated"                                      "true"
+
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "techies_spoons_stash"
+            //"AutoLevelAbility"                            "true"
+          }
+        }
+      }
+    }
   }
 }

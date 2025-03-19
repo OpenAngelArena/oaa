@@ -1,0 +1,54 @@
+//================================================================================
+// Greater Boots of Bearing
+//================================================================================
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1"                          "Greater Boots of Bearing"
+"DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_1"                   "Greater Boots of Bearing Recipe"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Description"              "<h1>Active: Great Endurance</h1> Grants +%bearing_attack_speed% attack speed and +%bearing_movement_speed_pct%%% move speed to nearby allies for %bearing_duration% seconds. For the first %bearing_unslowable_duration% seconds allies are immune to slows.<br><br>Radius: %bearing_radius% \n\n<h1>Passive: Swiftness Aura</h1>Grants %aura_movement_speed% move speed to allies.<br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Lore"                     "Great boots of Stonehall legions."
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_movement_speed"     "+$move_speed"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_health_regen"       "+$hp_regen"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_str"                "+$str"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_int"                "+$int"
+//"item_greater_boots_of_bearing_naturalize_Description"                          "<h1>Passive: Naturalize</h1> Generate charges every %distance_per_charge% distance moved. At 100 charges, your next attack on a non-ancient neutral creep will consume them to instantly kill it for %bonus_gold% additional gold."
+
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2"                          "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_2"                   "#{DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_Description"              "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Description}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Lore}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_bonus_movement_speed"     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_bonus_health_regen"       "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_bonus_str"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_str}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_2_bonus_int"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_int}"
+
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3"                          "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_3"                   "#{DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_Description"              "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Description}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Lore}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_bonus_movement_speed"     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_bonus_health_regen"       "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_bonus_str"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_str}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_3_bonus_int"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_int}"
+
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4"                          "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_4"                   "#{DOTA_Tooltip_Ability_item_recipe_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_Description"              "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Description}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_Lore}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_bonus_movement_speed"     "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_bonus_health_regen"       "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_bonus_str"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_str}"
+"DOTA_Tooltip_Ability_item_greater_boots_of_bearing_4_bonus_int"                "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1_bonus_int}"
+
+//"DOTA_Tooltip_Ability_item_tranquil_origin"                                     "Tranquil Spark"
+//"DOTA_Tooltip_Ability_item_recipe_tranquil_origin"                              "Traqnuil Spark Recipe"
+//"DOTA_Tooltip_Ability_item_tranquil_origin_Description"                         "#{item_greater_boots_of_bearing_naturalize_Description}"
+//"DOTA_Tooltip_Ability_item_tranquil_origin_Lore"                                "Those born in nature's embrace often form a greater connection to it, trying them to a destiny as its champion."
+
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_buff"                      "#{DOTA_Tooltip_Ability_item_greater_boots_of_bearing_1}"
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_buff_Description"          "Move speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_unslowable"                "Unslowable Move Speed"
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_unslowable_Description"    "This unit's move speed cannot be reduced."
+
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_endurance_aura_effect"     "#{DOTA_Tooltip_modifier_item_boots_of_bearing_aura}"
+"DOTA_Tooltip_modifier_item_greater_boots_of_bearing_endurance_aura_effect_Description"  "#{DOTA_Tooltip_modifier_item_boots_of_bearing_aura_Description}"
+

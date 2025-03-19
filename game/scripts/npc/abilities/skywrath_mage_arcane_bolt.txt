@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
+    "AbilityManaCost"                                     "85 95 105 115 125 135" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
     {
       "bolt_speed"                                        "500"
       "bolt_vision"                                       "325"
-      "bolt_damage"                                       "75 95 115 135 270 405"
+      "bolt_damage"                                       "60 85 110 135 270 405" // special_bonus_unique_skywrath_1_oaa
       "int_multiplier"
       {
         "value"                                           "1.5"
@@ -46,7 +46,7 @@
       "vision_duration"                                   "3.34"
       "extra_bolt_search_radius"
       {
-        "value"                                           "700"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "total_bolt_count"

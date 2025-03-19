@@ -1,21 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Cleansing Shock applies mini-stun
+  // Electrician: Electric Shield bonus Radius/Block
   //=================================================================================================================
   "special_bonus_unique_electrician_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
-    {
-      "value"                                             "0.1"
-    }
   }
 }

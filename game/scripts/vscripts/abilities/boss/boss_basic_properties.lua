@@ -219,20 +219,23 @@ if IsServer() then
     local percentDamageSpells = {
       abyssal_underlord_firestorm = true,     -- when it starts working against ancients
       anti_mage_mana_void = false,
-      bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
+      bloodseeker_bloodrage = true,           -- pure dmg
       death_prophet_spirit_siphon = inflictor:GetSpecialValueFor("damage_pct") ~= 0, -- talent gives pct dmg
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       enigma_midnight_pulse = true,           -- when it starts working against ancients
       huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
-      life_stealer_feast = false,             -- physical dmg does not need to be reduced and it also does not work
+      item_serrated_shiv = true,              -- physical dmg
+      kez_kazurai_katana = true,              -- physical dmg
+      life_stealer_feast = true,              -- physical dmg; it does not work
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
-      phantom_assassin_fan_of_knives = false, -- physical dmg does not need to be reduced
+      nyx_assassin_jolt = true,
+      phantom_assassin_fan_of_knives = true,  -- physical dmg
       ringmaster_impalement = true,
       shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg
-      venomancer_noxious_plague = false,
+      venomancer_noxious_plague = true,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
-      witch_doctor_maledict = false,
+      witch_doctor_maledict = true,
       zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()

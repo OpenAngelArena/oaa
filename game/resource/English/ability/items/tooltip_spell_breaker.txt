@@ -16,11 +16,11 @@
 
 "DOTA_Tooltip_Ability_item_recipe_spell_breaker_1"                              "Spell Breaker Recipe"
 "DOTA_Tooltip_Ability_item_spell_breaker_1"                                     "Spell Breaker"
-"DOTA_Tooltip_Ability_item_spell_breaker_1_Description"                         "<h1>Active: Spell Interference</h1>Applies Mage Slayer debuff and reduces spell lifesteal by %spell_lifesteal_reduction%%% and AoE of spells by %aoe_decrease_percent%%% for %debuff_duration% seconds. Applies a mini-silence to the enemy when used.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n#{DOTA_Tooltip_ability_item_mage_slayer_Description}"
+"DOTA_Tooltip_Ability_item_spell_breaker_1_Description"                         "<h1>Active: Spell Jammer</h1>Applies Mage Slayer debuff and reduces AoE of spells by %aoe_decrease_percent%%% for %debuff_duration% seconds. Applies a mini-silence to the enemy when used.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n#{DOTA_Tooltip_ability_item_mage_slayer_Description}"
 "DOTA_Tooltip_Ability_item_spell_breaker_1_Lore"                                "Yoskreth's last resort for defeating Sahsk."
 "DOTA_Tooltip_ability_item_spell_breaker_1_bonus_magical_armor"                 "%+$spell_resist"
 "DOTA_Tooltip_ability_item_spell_breaker_1_bonus_attack_speed"                  "+$attack"
-"DOTA_Tooltip_ability_item_spell_breaker_1_bonus_intellect"                     "+$int"
+"DOTA_Tooltip_ability_item_spell_breaker_1_bonus_health_regen"                  "+$hp_regen"
 "DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen"                    "+$mana_regen"
 "DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage"                 "+$damage"
 
@@ -30,7 +30,7 @@
 "DOTA_Tooltip_Ability_item_spell_breaker_2_Lore"                                "#{DOTA_Tooltip_Ability_item_spell_breaker_1_Lore}"
 "DOTA_Tooltip_ability_item_spell_breaker_2_bonus_magical_armor"                 "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_magical_armor}"
 "DOTA_Tooltip_ability_item_spell_breaker_2_bonus_attack_speed"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_attack_speed}"
-"DOTA_Tooltip_ability_item_spell_breaker_2_bonus_intellect"                     "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_intellect}"
+"DOTA_Tooltip_ability_item_spell_breaker_2_bonus_health_regen"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_health_regen}"
 "DOTA_Tooltip_ability_item_spell_breaker_2_bonus_mana_regen"                    "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_spell_breaker_2_bonus_attack_damage"                 "#{DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage}"
 
@@ -40,7 +40,7 @@
 "DOTA_Tooltip_Ability_item_spell_breaker_3_Lore"                                "#{DOTA_Tooltip_Ability_item_spell_breaker_1_Lore}"
 "DOTA_Tooltip_ability_item_spell_breaker_3_bonus_magical_armor"                 "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_magical_armor}"
 "DOTA_Tooltip_ability_item_spell_breaker_3_bonus_attack_speed"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_attack_speed}"
-"DOTA_Tooltip_ability_item_spell_breaker_3_bonus_intellect"                     "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_intellect}"
+"DOTA_Tooltip_ability_item_spell_breaker_3_bonus_health_regen"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_health_regen}"
 "DOTA_Tooltip_ability_item_spell_breaker_3_bonus_mana_regen"                    "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_spell_breaker_3_bonus_attack_damage"                 "#{DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage}"
 
@@ -50,7 +50,7 @@
 "DOTA_Tooltip_Ability_item_spell_breaker_4_Lore"                                "#{DOTA_Tooltip_Ability_item_spell_breaker_1_Lore}"
 "DOTA_Tooltip_ability_item_spell_breaker_4_bonus_magical_armor"                 "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_magical_armor}"
 "DOTA_Tooltip_ability_item_spell_breaker_4_bonus_attack_speed"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_attack_speed}"
-"DOTA_Tooltip_ability_item_spell_breaker_4_bonus_intellect"                     "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_intellect}"
+"DOTA_Tooltip_ability_item_spell_breaker_4_bonus_health_regen"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_health_regen}"
 "DOTA_Tooltip_ability_item_spell_breaker_4_bonus_mana_regen"                    "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_spell_breaker_4_bonus_attack_damage"                 "#{DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage}"
 
@@ -60,7 +60,7 @@
 "DOTA_Tooltip_Ability_item_spell_breaker_5_Lore"                                "#{DOTA_Tooltip_Ability_item_spell_breaker_1_Lore}"
 "DOTA_Tooltip_ability_item_spell_breaker_5_bonus_magical_armor"                 "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_magical_armor}"
 "DOTA_Tooltip_ability_item_spell_breaker_5_bonus_attack_speed"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_attack_speed}"
-"DOTA_Tooltip_ability_item_spell_breaker_5_bonus_intellect"                     "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_intellect}"
+"DOTA_Tooltip_ability_item_spell_breaker_5_bonus_health_regen"                  "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_health_regen}"
 "DOTA_Tooltip_ability_item_spell_breaker_5_bonus_mana_regen"                    "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_spell_breaker_5_bonus_attack_damage"                 "#{DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage}"
 

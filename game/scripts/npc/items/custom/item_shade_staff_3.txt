@@ -1,0 +1,85 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Shade Staff 3
+  //=================================================================================================================
+  "item_recipe_shade_staff_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shade_staff_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_shade_staff_2;item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Shade Staff 3
+  //=================================================================================================================
+  "item_shade_staff_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/shade_staff.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/shade_staff_4"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17 16 15 14"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "halberd"
+    "AbilityCastRange"                                    "900"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "15603"
+    "ItemShopTags"                                        "str"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "shade staff 3;shade branch 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_shade_staff_3;item_shade_staff_4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"                                      "375 525 725 975"
+      "bonus_all_stats"                                   "10 15 20 25"
+      "hp_regen_amp"                                      "20 22 24 26"
+      "status_resistance"                                 "0"
+      // Active
+      "attack_speed_slow"                                 "250 300 350 400"
+      "slow_duration"                                     "4.5 5.0 5.5 6.0"
+      "sprout_duration"                                   "4.5 5.0 5.5 6.0"
+      "projectile_speed"                                  "900 1100 1300 1500"
+      // Tree Protection
+      "tree_damage_reduction"                             "12 14 16 18"
+      "tree_radius"                                       "175"
+      "tree_protection_duration"                          "4.5 5.0 5.5 6.0"
+      "cooldown_tooltip"                                  "17 16 15 14"
+    }
+  }
+}
