@@ -51,6 +51,7 @@ local hero_mods = {
   HM41 = "modifier_crimson_magic_oaa",
   HM42 = "modifier_ludo_oaa",
   HM43 = "modifier_battlemage_oaa",
+  HM44 = "modifier_multicast_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -372,6 +373,7 @@ function OAAOptions:TestHeroModifier(keys)
     magus = "modifier_magus_oaa",
     max_power = "modifier_any_damage_crit_oaa",
     moriah_shield = "modifier_hp_mana_switch_oaa",
+    multicast = "modifier_multicast_oaa",
     nimble = "modifier_nimble_oaa",
     no_brain = "modifier_no_brain_oaa",
     no_hp_bar = "modifier_no_health_bar_oaa",

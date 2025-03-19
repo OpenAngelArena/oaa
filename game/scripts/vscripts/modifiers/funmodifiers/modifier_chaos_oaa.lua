@@ -114,6 +114,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_hero_anti_stun_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
+    "modifier_multicast_oaa",
     "modifier_nimble_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_octarine_soul_oaa",

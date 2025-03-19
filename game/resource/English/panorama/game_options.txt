@@ -64,6 +64,7 @@
 "game_option_crimson_magic"                                                     "Crimson Magic"
 "game_option_ludo"                                                              "Ludo"
 "game_option_battlemage"                                                        "Battle Mage"
+"game_option_multicast"                                                         "Multicast"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -106,7 +107,7 @@
 "game_option_sorcerer_description"                                              "25% chance to refresh the last used spell and 25% chance to refresh all spells on hero kill. Chance for charge-based abilities is reduced to 5%. Chance for items is reduced to 2%."
 "game_option_max_power_description"                                             "25% chance to do 2.5x critical damage on any damage instance (Normal Crit + Spell Crit)."
 "game_option_moriah_shield_description"                                         "Grants a shield that absorbs 50% of incoming damage in exchange for mana. Most spells have health cost instead of mana cost."
-"game_option_magus_description"                                                 "Your attacks have 25% chance to cast one of your spells. Procced spells do not go on cooldown and do not spend mana."
+"game_option_magus_description"                                                 "Your attacks have 25% chance to cast one of your spells. Procced spells do not go on cooldown and do not spend mana. Cannot proc channeling and toggle spells."
 "game_option_brawler_description"                                               "When attacked you gain bonus attack speed, move speed and attack damage."
 "game_option_chaos_description"                                                 "Every hero has a different modifier. Modifier will last between 2 and 5 minutes. 25% chance to change the modifier on hero kill and 25% chance to change the modifier on respawn."
 "game_option_double_multiplier_description"                                     "Doubles ALL damage output. For most spells doubles their aoe/radius and cast range. But it also doubles cooldowns and mana costs for all spells. Items are unaffected."
@@ -124,6 +125,7 @@
 "game_option_crimson_magic_description"                                         "Grants 0.008% spell amplification per point of HP."
 "game_option_ludo_description"                                                  "Every hero has a different modifier. Modifier will change every 2 minutes."
 "game_option_battlemage_description"                                            "Any spell or item damage instance will proc your attack. 1s cooldown."
+"game_option_multicast_description"                                             "Enables you to cast your abilities multiple times with each use. Doesn't work for channeling and toggle spells."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -185,7 +187,7 @@
 "DOTA_Tooltip_modifier_hp_mana_switch_oaa"                                      "#{game_option_moriah_shield}"
 "DOTA_Tooltip_modifier_hp_mana_switch_oaa_Description"                          "Grants a shield that absorbs 50%% of incoming damage in exchange for mana. Most spells have health cost instead of mana cost."
 "DOTA_Tooltip_modifier_magus_oaa"                                               "#{game_option_magus}"
-"DOTA_Tooltip_modifier_magus_oaa_Description"                                   "Your attacks have 25%% chance to cast one of your spells. Procced spells do not go on cooldown and do not spend mana. Doesn't work when silenced."
+"DOTA_Tooltip_modifier_magus_oaa_Description"                                   "Your attacks have 25%% chance to cast one of your spells. Procced spells do not go on cooldown and do not spend mana. Doesn't work when silenced. Can't proc channeling and toggle spells."
 "DOTA_Tooltip_modifier_brawler_oaa"                                             "#{game_option_brawler}"
 "DOTA_Tooltip_modifier_brawler_oaa_Description"                                 "Every time this unit gets attacked, it will gain bonus attack speed, move speed and bonus damage. Bonus damage is based on it's base damage. Buff lasts 5 seconds if not refreshed."
 "DOTA_Tooltip_modifier_brawler_stack_oaa"                                       "#{game_option_brawler} Stack"
@@ -274,6 +276,8 @@
 "DOTA_Tooltip_modifier_puny_oaa_Description"                                    "You have no strength, but you gain phased movement and +%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% evasion, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed, +%dMODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING%%% mana cost reduction."
 "DOTA_Tooltip_modifier_spoons_stash_oaa"                                        "Spoon's Stash"
 "DOTA_Tooltip_modifier_spoons_stash_oaa_Description"                            "You can use items in backpack as if they were in your inventory."
+"DOTA_Tooltip_modifier_multicast_oaa"                                           "#{game_option_multicast}"
+"DOTA_Tooltip_modifier_multicast_oaa_Description"                               "#{game_option_multicast_description}"
 
 "game_option_giant_description"                                                 "#{game_option_titan_soul_description} + #{game_option_brute_description} + #{game_option_aoe_radius_description}"
 "game_option_league_description"                                                "#{game_option_speedster_description} + #{game_option_quick_spells_description} + #{game_option_hyper_active_description}"

@@ -66,6 +66,7 @@ function modifier_ludo_oaa:OnCreated()
     "modifier_hero_anti_stun_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
+    "modifier_multicast_oaa",
     "modifier_nimble_oaa",
     "modifier_no_cast_points_oaa",
     --"modifier_no_health_bar_oaa",

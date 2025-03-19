@@ -204,3 +204,4 @@ LinkLuaModifier("modifier_bad_design_2_oaa", "modifiers/funmodifiers/modifier_ba
 LinkLuaModifier("modifier_outworld_attack_oaa", "modifiers/funmodifiers/modifier_outworld_attack_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_puny_oaa", "modifiers/funmodifiers/modifier_puny_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spoons_stash_oaa", "modifiers/funmodifiers/modifier_spoons_stash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_multicast_oaa", "modifiers/funmodifiers/modifier_multicast_oaa.lua", LUA_MODIFIER_MOTION_NONE)
