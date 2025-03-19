@@ -320,14 +320,12 @@ if IsServer() then
           else
             targets = self:FindRandomEnemies(ability, target, mult)
           end
-
         elseif isPointTargetting then
-          if not real_pos and target then
-            real_pos = target:GetAbsOrigin()
+          if not real_pos then
             local caster_loc = parent:GetAbsOrigin()
-
-            -- This shouldn't happen but it happens sometimes
-            if not real_pos then
+            if target then
+              real_pos = target:GetAbsOrigin()
+            else
               real_pos = caster_loc
             end
 
