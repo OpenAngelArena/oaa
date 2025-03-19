@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // OAA, Valve lmao
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve forgot about this
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentional nerf
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
@@ -67,7 +67,7 @@
       "dagger_grace_period"                               "1.0"
       "applies_desolate"
       {
-        "special_bonus_facet_spectre_forsaken"            "=1"
+        "value"                                           "0"
       }
     }
   }

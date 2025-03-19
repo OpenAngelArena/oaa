@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,22 +33,30 @@
       "AbilityCooldown"
       {
         "value"                                           "6"
-        "special_bonus_unique_phantom_assassin_7"         "-2"
+        "special_bonus_unique_phantom_assassin_7"         "-1.5"
       }
       "move_slow"                                         "-50"
       "dagger_speed"                                      "1200"
-      "duration"                                          "2.2 2.8 3.4 4 4 4"
-      "base_damage"                                       "65 70 75 80 90 110"
+      "duration"                                          "2.1 2.4 2.7 3 3.3 3.6"
+      "base_damage"                                       "65 70 75 80 160 240"
       "attack_factor"
       {
         "value"                                           "-70 -55 -40 -25 -15 -5"
-        "special_bonus_unique_phantom_assassin_5"         "+20"
+        "special_bonus_unique_phantom_assassin_5"         "+15"
       }
       "attack_factor_tooltip"
       {
         "value"                                           "30 45 60 75 85 95"
-        "special_bonus_unique_phantom_assassin_5"         "+20"
+        "special_bonus_unique_phantom_assassin_5"         "+15"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "dagger_recast_time"
+      {
+        "special_bonus_facet_phantom_assassin_sweet_release"  "6"
+      }
+      "dagger_secondary_reduce"
+      {
+        "special_bonus_facet_phantom_assassin_sweet_release"  "50"
       }
     }
   }

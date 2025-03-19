@@ -16,15 +16,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,6 +32,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "16 14 12 10 10 10"
+        "special_bonus_unique_earth_spirit_7"             "-3.0"
+      }
       "radius"
       {
         "value"                                           "180"  // NOTE: This radius must match the radius for geomagnetic grip
@@ -47,7 +50,7 @@
       "rock_damage" //OAA
       {
         "value"                                           "120 180 240 300 600 1200"
-        "special_bonus_unique_earth_spirit_6"             "+200"
+        "special_bonus_unique_earth_spirit_6"             "+120"
       }
       "move_slow"                                         "50"
       "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
@@ -65,7 +68,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "creep_multiplier"                                  "1.4"
+      "creep_multiplier"                                  "1.0"
     }
   }
 }

@@ -100,11 +100,12 @@ function DireTowerBossThink()
       -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
-      end
-      -- Check if state of aggro_target changed (died, became attack immune (ethereal), became invulnerable or banished)
-      local aggro_target = thisEntity.aggro_target
-      if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
-        thisEntity.aggro_target = nil
+      else
+        -- Check if state of aggro_target changed (died, became attack immune (ethereal), became invulnerable or banished)
+        local aggro_target = thisEntity.aggro_target
+        if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
+          thisEntity.aggro_target = nil
+        end
       end
       -- Check HP of the boss
       if current_hp_pct > aggro_hp_pct then
@@ -158,24 +159,6 @@ function DireTowerBossThink()
       end
     end
 
-    -- Sound
-    if not thisEntity.emitedsound then
-      local sound_source
-      if thisEntity.aggro_target and not thisEntity.aggro_target:IsNull() then
-        sound_source = thisEntity.aggro_target
-      elseif thisEntity:GetAggroTarget() and not thisEntity:GetAggroTarget():IsNull() then
-        sound_source = thisEntity:GetAggroTarget()
-      elseif thisEntity.minion_target and not thisEntity.minion_target:IsNull() then
-        sound_source = thisEntity.minion_target
-      else
-        sound_source = thisEntity
-      end
-      if sound_source and not sound_source:IsNull() then
-        sound_source:EmitSound("Dire_Tower_Boss.Aggro")
-      end
-      thisEntity.emitedsound = true
-    end
-
     -- Phases
     if current_hp_pct <= 1/3 then
       thisEntity.nCAST_SUMMON_WAVE_ROUND = 3
@@ -220,11 +203,9 @@ function DireTowerBossThink()
     thisEntity:Stop()
     thisEntity:Hold()
     thisEntity.state = SIMPLE_AI_STATE_IDLE
-    thisEntity.emitedsound = false
     -- Check HP of the boss
     if current_hp_pct > aggro_hp_pct then
       thisEntity.minion_target = nil
-      thisEntity.emitedsound = false
     end
   end
 

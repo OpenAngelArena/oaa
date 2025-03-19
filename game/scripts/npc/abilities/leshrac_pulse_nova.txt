@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -41,15 +43,10 @@
         "value"                                           "90 140 190 340 490"
         "special_bonus_unique_leshrac_3"                  "+50"
       }
-      "damage_resistance"
+      "damage_resistance" // special_bonus_unique_leshrac_4 is not used
       {
         "value"                                           "0"
-        "special_bonus_unique_leshrac_4"                  "+20"
-      }
-      "bonus_movespeed"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_leshrac_7"                  "+10"
+        "special_bonus_unique_leshrac_4"                  "+10"
       }
     }
   }

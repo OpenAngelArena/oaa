@@ -36,7 +36,6 @@
       {
         "value"                                           "325 350 375 400 425 450"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_brewmaster_7"               "+200"
       }
       "damage"                                            "75 150 225 300 600 1200"
       "movement_slow"                                     "15 30 45 60 65 70"
@@ -44,6 +43,7 @@
       "duration"
       {
         "value"                                           "4.0"
+        "special_bonus_unique_brewmaster_7"               "+1.5"
       }
     }
   }

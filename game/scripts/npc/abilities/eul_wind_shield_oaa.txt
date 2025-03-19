@@ -1,0 +1,101 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Wind Control (E)
+  //=================================================================================================================
+  "eul_wind_shield_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/eul/eul_wind_shield.lua"
+    "AbilityTextureName"                                  "custom/eul_wind_shield"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityManaCost"                                     "80"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown"
+      {
+        "value"                                           "15"
+        "special_bonus_unique_eul_3_oaa"                  "-4"
+      }
+      // Passive
+      "evasion"
+      {
+        "value"                                           "20 30 40 50 60 70"
+      }
+      "evasion_range_check"
+      {
+        "value"                                           "300"
+      }
+      "passive_move_speed"
+      {
+        "value"                                           "4 8 12 16 20 24"
+      }
+      // Active
+      "active_move_speed"
+      {
+        "value"                                           "20 30 40 50 55 60"
+      }
+      "active_attack_speed"
+      {
+        "value"                                           "40 60 80 100 120 140"
+      }
+      "all_damage_block"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_tornado_barrier"         "=100 =170 =240 =310 =620 =930"
+        "RequiresFacet"                                   "eul_tornado_barrier"
+      }
+      "attack_projectile_deflect"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=1"
+        "RequiresFacet"                                   "eul_ventus"
+      }
+      "deflect_aura_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=300"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "eul_ventus"
+      }
+      "deflect_buffer_range"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "deflected_projectile_speed_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=50"
+        "RequiresFacet"                                   "eul_ventus"
+      }
+      "deflected_projectile_vision"                       "250"
+      "active_duration"
+      {
+        "value"                                           "7"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+      "particle"                                          "particles/econ/items/windrunner/windranger_arcana/windranger_arcana_shackleshot_bolo_tornado_swirl.vpcf"
+    }
+  }
+}

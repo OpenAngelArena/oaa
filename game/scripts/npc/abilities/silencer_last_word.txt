@@ -7,7 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -17,24 +18,34 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "900"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityManaCost"                                     "100 105 110 115 120 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_silence"
+      "damage"                                            "120 160 200 240 480 720"
+      "int_multiplier"
       {
-        "value"                                           "30 40 50 60 120 180"
-        "special_bonus_unique_silencer_4"                 "+35"
+        "value"                                           "1 1.5 2 2.5 3 3.5"
       }
-      "slow_per_silence"
+      "debuff_duration"
       {
-        "value"                                           "6 9 12 15 18 21"
-        "special_bonus_unique_silencer_4"                 "+5"
+        "value"                                           "4"
       }
+      "duration"                                          "3 4 5 6 6.5 7"
       "radius"
       {
-        "value"                                           "1200"
+        "value"                                           "0"
+        "special_bonus_unique_silencer_4"                 "+250"
         "affected_by_aoe_increase"                        "1"
       }
     }

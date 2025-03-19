@@ -320,9 +320,9 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_Const
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
-    return 0
-  end
+  -- if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+    -- return 0
+  -- end
 
   local chance = ability:GetSpecialValueFor("passive_attack_damage_block_chance") / 100
 
@@ -381,7 +381,7 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
-  if parent:HasModifier("modifier_shield_staff_barrier_buff") then
+  if parent:HasModifier("modifier_shield_staff_barrier_buff") and event.damage >= ability:GetSpecialValueFor("active_min_dmg") then
     return 0
   end
 

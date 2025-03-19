@@ -1,28 +1,28 @@
 LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_dagon_oaa = class(ItemBaseClass)
-item_dagon_oaa_2 = item_dagon_oaa
-item_dagon_oaa_3 = item_dagon_oaa
-item_dagon_oaa_4 = item_dagon_oaa
-item_dagon_oaa_5 = item_dagon_oaa
-item_dagon_oaa_6 = item_dagon_oaa
-item_dagon_oaa_7 = item_dagon_oaa
-item_dagon_oaa_8 = item_dagon_oaa
-item_dagon_oaa_9 = item_dagon_oaa
+item_dagon_oaa_1 = class(ItemBaseClass)
+item_dagon_oaa_2 = item_dagon_oaa_1
+item_dagon_oaa_3 = item_dagon_oaa_1
+item_dagon_oaa_4 = item_dagon_oaa_1
+item_dagon_oaa_5 = item_dagon_oaa_1
+item_dagon_oaa_6 = item_dagon_oaa_1
+item_dagon_oaa_7 = item_dagon_oaa_1
+item_dagon_oaa_8 = item_dagon_oaa_1
+item_dagon_oaa_9 = item_dagon_oaa_1
 
-function item_dagon_oaa:GetIntrinsicModifierName()
+function item_dagon_oaa_1:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_dagon_oaa:GetIntrinsicModifierNames()
+function item_dagon_oaa_1:GetIntrinsicModifierNames()
   return {
     "modifier_item_oaa_dagon_passive",
     "modifier_item_spell_lifesteal_oaa",
   }
 end
 
-function item_dagon_oaa:OnSpellStart()
+function item_dagon_oaa_1:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
   local level = self:GetLevel()

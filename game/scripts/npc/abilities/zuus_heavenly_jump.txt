@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +29,7 @@
         "value"                                           "50 75 100 125 250 500"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hop_distance"                                      "500"
+      "hop_distance"                                      "300 400 500 600 600 600"
       "hop_duration"                                      "0.5"
       "hop_height"                                        "250"
       "range"
@@ -35,7 +37,13 @@
         "value"                                           "700 800 900 1000 1100 1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "1.6"
+      "vision_radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "vision_duration"                                   "3.0"
+      "duration"                                          "1.4"
       "move_slow"                                         "80"
       "aspd_slow"                                         "100"
       "targets"

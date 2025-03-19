@@ -9,9 +9,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "DependentOnAbility"                                  "bounty_hunter_track"
     "MaxLevel"                                            "6" // same as Dependent ability (Track) + 1
-    "Innate"                                              "1" // Valve this is not an innate smh
+
     "AbilityValues"
     {
       "gold_steal"                                        "36 60 84 108 132 156" //OAA

@@ -18,59 +18,73 @@
     "Ability1"                                            "electrician_static_grip"
     "Ability2"                                            "electrician_electric_shield"
     "Ability3"                                            "electrician_energy_absorption"
-    "Ability4"                                            "electrician_battery_powered"
+    "Ability4"                                            "electrician_innate_oaa"
     "Ability5"                                            "generic_hidden"
     "Ability6"                                            "electrician_cleansing_shock"
 
     "Ability10"                                           "special_bonus_unique_electrician_6_oaa"
-    "Ability11"                                           "special_bonus_mp_regen_150"
+    "Ability11"                                           "special_bonus_movement_speed_20"
 
-    "Ability12"                                           "special_bonus_unique_electrician_static_grip_damage"
-    "Ability13"                                           "special_bonus_unique_electrician_8_oaa"
+    "Ability12"                                           "special_bonus_unique_electrician_2_oaa"
+    "Ability13"                                           "special_bonus_unique_electrician_4_oaa"
 
-    "Ability14"                                           "special_bonus_unique_electrician_electric_shield_damage"
-    "Ability15"                                           "special_bonus_unique_electrician_2_oaa"
+    "Ability14"                                           "special_bonus_unique_electrician_5_oaa"
+    "Ability15"                                           "special_bonus_unique_electrician_1_oaa"
 
-    "Ability16"                                           "special_bonus_unique_electrician_static_grip_attacks"
-    "Ability17"                                           "special_bonus_unique_electrician_9_oaa"
+    "Ability16"                                           "special_bonus_unique_electrician_7_oaa"
+    "Ability17"                                           "special_bonus_unique_electrician_8_oaa"
 
-    "Facets"
+    "Facets" // Icons: nuke, barrier, mana, damage
     {
-      "electrician_kinetic_grip"
+      "electrician_direct_current"
       {
-        "Icon"                                            "speed"
+        "Icon"                                            "nuke"
         "Color"                                           "Blue"
         "GradientID"                                      "1"
       }
       "electrician_alternating_current"
       {
         "Icon"                                            "barrier"
+        "Color"                                           "Red"
+        "GradientID"                                      "0"
+      }
+      "electrician_no_current"
+      {
+        "Icon"                                            "damage"
         "Color"                                           "Gray"
         "GradientID"                                      "3"
       }
     }
 
-    // special_bonus_unique_electrician_1_oaa - Energy Absorption bonus mana absorbed - unused
-    // special_bonus_unique_electrician_2_oaa - Cleansing Shock Mini-Stuns
-    // special_bonus_unique_electrician_3_oaa - Cleansing Shock Pierces Spell Immunity - unused
-    // 4 - special_bonus_unique_electrician_static_grip_damage - Static Grip bonus damage
-    // 5 - special_bonus_unique_electrician_electric_shield_damage - Electric Shield bonus damage
+    // special_bonus_unique_electrician_1_oaa - Static Grip Stun Duration
+    // special_bonus_unique_electrician_2_oaa - Electric Shield bonus radius / bonus dmg block
+    // special_bonus_unique_electrician_3_oaa - Cleansing Shock Pierces Spell Immunity
+    // special_bonus_unique_electrician_4_oaa - Static Grip % bonus damage
+    // special_bonus_unique_electrician_5_oaa - Electric Shield bonus damage
     // special_bonus_unique_electrician_6_oaa - Energy Absorption bonus radius
-    // special_bonus_unique_electrician_7_oaa - Static Grip Pseudo Channel - unused
-    // special_bonus_unique_electrician_8_oaa - Energy Absorption bonus damage
-    // special_bonus_unique_electrician_9_oaa - Cleansing Shock Deals Damage
-    // 10 - special_bonus_unique_electrician_static_grip_attacks - Static Grip attacks
+    // special_bonus_unique_electrician_7_oaa - Energy Absorption bonus damage
+    // special_bonus_unique_electrician_8_oaa - Cleansing Shock Charges
+
+    // Rejected ideas:
+    // Energy Absorption Mana
+    // Cleansing Shock Mini-Stuns
+    // Static Grip Pseudo Channel - shard
+    // Static Grip Attacks
+    // Static Grip Steals Damage - duration is too low
+    // Static Grip Steals Spell Amp
+    // Cleansing Shock Damage - 3 bonus damage talents are enough
+    // Energy Absorption Attack Speed
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
-    "ArmorPhysical"                                       "1"
+    "ArmorPhysical"                                       "0"
     "MagicalResistance"                                   "25"
 
     // Attack
     //-------------------------------------------------------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "23"
-    "AttackDamageMax"                                     "31"
+    "AttackDamageMin"                                     "40"
+    "AttackDamageMax"                                     "45"
     "AttackRate"                                          "1.7"
     "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.3"
@@ -82,9 +96,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_ALL"
     "AttributeBaseStrength"                               "23"
-    "AttributeStrengthGain"                               "2.6"
+    "AttributeStrengthGain"                               "2.4"
     "AttributeBaseAgility"                                "13"
-    "AttributeAgilityGain"                                "1.5"
+    "AttributeAgilityGain"                                "2.3"
     "AttributeBaseIntelligence"                           "25"
     "AttributeIntelligenceGain"                           "1.8"
 

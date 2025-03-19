@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kez: Raptor Dance
+  //=================================================================================================================
+  "kez_raptor_dance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"                                  "1.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 125 150 175 200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown"
+      {
+        "value"                                           "40 35 30 25 20"
+        "special_bonus_unique_kez_ultimate_cooldown"      "-4"
+      }
+      "strike_interval"                                   "0.25"
+      "strikes"                                           "2 3 4 5 6"
+      "radius"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_kez_raptor_dance_radius"    "+50"
+      }
+      "base_damage"
+      {
+        "value"                                           "75"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "max_health_damage_pct"
+      {
+        "value"                                           "4"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "lifesteal_pct"                                     "100"
+      "invuln_period"                                     "0.2"
+      "magic_resist"                                      "100"
+      "hard_dispel"                                       "0"
+      "basic_dispel"                                      "1"
+    }
+  }
+}

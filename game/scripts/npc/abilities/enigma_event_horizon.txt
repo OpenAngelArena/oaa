@@ -9,8 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "6"
 
+    "MaxLevel"                                            "6" // same as Dependent ability (Black Hole) + 1
     "DependentOnAbility"                                  "enigma_black_hole"
 
     "AbilityValues"
@@ -20,7 +20,7 @@
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed_bonus"                                       "15 16 17 18 19 20" //OAA
+      "speed_bonus"                                       "10 12 14 16 18 20" //OAA
       "vision_cone"                                       "0.08715"
     }
   }

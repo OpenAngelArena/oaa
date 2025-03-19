@@ -1,0 +1,110 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Eul: Tornado Collector (W)
+  //=================================================================================================================
+  "eul_tornado_collector_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/eul/eul_tornado_collector.lua"
+    "AbilityTextureName"                                  "custom/eul_tornado_collector"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsBreakable"                                         "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityCooldown"                                     "0.1"
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "tornado_dps"
+      {
+        "value"                                           "10 10 10 10 20 30"
+      }
+      "max_tornados"
+      {
+        "value"                                           "2 4 6 8 8 8"
+        "special_bonus_shard"                             "+2"
+      }
+      "heal_per_tornado"
+      {
+        "value"                                           "20 20 20 20 40 80"
+        "special_bonus_facet_eul_displacement"            "+20"
+      }
+      "max_hp_heal_per_tornado"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_eul_5_oaa"                  "+1.5"
+      }
+      "tornado_damage_radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "spawn_interval"
+      {
+        "value"                                           "20"
+        "special_bonus_shard"                             "=4"
+      }
+      "tornado_duration"
+      {
+        "value"                                           "40"
+      }
+      "wander_radius"
+      {
+        "value"                                           "300"
+        //"affected_by_aoe_increase"                        "1"
+      }
+      "leash_range"                                       "2000"
+      "displacement"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=1"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+      "displacement_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=70 =140 =210 =280 =560 =1120"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+      "displacement_range"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=300"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+      "displacement_cooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_eul_displacement"            "=12 =11 =10 =9 =7 =5"
+        "RequiresFacet"                                   "eul_displacement"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/eul/eul_tornado_ambient.vpcf"
+      "particle"                                          "particles/neutral_fx/wildkin_ripper_hurricane_cast.vpcf"
+    }
+  }
+}

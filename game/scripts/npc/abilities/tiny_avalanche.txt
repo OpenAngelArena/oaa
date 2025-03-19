@@ -43,18 +43,18 @@
         "affected_by_aoe_increase"                        "1"
       }
       "tick_interval"                                     "0.3"
-      "total_duration"                                    "1.4"
+      "total_duration"                                    "1.5"
       "tick_count"                                        "5"
       "stun_duration"                                     "0.3"
       "projectile_speed"                                  "1200"
       "avalanche_damage" //OAA
       {
-        "value"                                           "80 160 240 320 640 960"
-        "special_bonus_unique_tiny"                       "+150"
+        "value"                                           "100 200 300 400 800 1200"
+        "special_bonus_unique_tiny"                       "+100"
       }
       "toss_damage_bonus_pct"
       {
-        "value"                                           "100"
+        "value"                                           "0"
       }
     }
   }

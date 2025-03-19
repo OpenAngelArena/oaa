@@ -16,6 +16,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +50,7 @@
       }
       "AbilityCastRange"
       {
-        "value"                                           "350"
+        "value"                                           "450"
       }
       "dispel"
       {

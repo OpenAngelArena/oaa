@@ -13,13 +13,12 @@
     "IsBreakable"                                         "1"
 
     "Innate"                                              "1"
-
-    "RequiredLevel"                                       "-1"
+    "RequiredLevel"                                       "-1" // maybe not needed
     "MaxLevel"                                            "1"
 
     "AbilityValues"
     {
-      "spell_amp_per_mana"                                "0.007" // this value can't be referenced in the tooltip because dota rounds the number to 0.01
+      "spell_amp_per_mana"                                "0.008" // this value can't be referenced in the tooltip because dota rounds the number to 0.01
     }
   }
 }

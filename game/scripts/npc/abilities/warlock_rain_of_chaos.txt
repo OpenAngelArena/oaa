@@ -10,6 +10,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -43,9 +45,9 @@
         "value"                                           "1500 3000 4500 9000 13500"
       }
       "golem_dmg"                                         "100 200 300 600 1100" //OAA
-      "golem_armor"                                       "10 20 30 40 50" //OAA
+      "golem_armor"                                       "8 14 20 26 32" //OAA
       "golem_movement_speed"                              "320 340 360 380 400"
-      "golem_health_regen"                                "30 60 90 120 150" //OAA
+      "golem_health_regen"                                "25 50 75 100 125"
       "golem_gold_bounty"                                 "100 150 200 500 1000"
       "stun_delay"                                        "0.5"
       "number_of_golems_scepter"
@@ -80,7 +82,7 @@
       }
       "tooltip_golem_armor" //OAA
       {
-        "value"                                           "10 20 30 40 50"
+        "value"                                           "8 14 20 26 32"
         "special_bonus_unique_warlock_2"                  "+20"
       }
       "bonus_slow_resistance"                             "60"

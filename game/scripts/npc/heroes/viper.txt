@@ -11,24 +11,22 @@
     //"Ability11"                                           "special_bonus_unique_viper_1"
 
     //"Ability12"                                           "special_bonus_unique_viper_3"
-    //"Ability13"                                           "special_bonus_unique_viper_6"
+    //"Ability13"                                           "special_bonus_unique_viper_7"
 
     //"Ability14"                                           "special_bonus_unique_viper_2"
-    //"Ability15"                                           "special_bonus_unique_viper_7"
+    //"Ability15"                                           "special_bonus_unique_viper_predator_damage"
 
-    //"Ability16"                                           "special_bonus_unique_viper_5"
+    //"Ability16"                                           "special_bonus_unique_viper_nethertoxin_radius"
     "Ability17"                                           "special_bonus_unique_viper_3_oaa" // replaces special_bonus_unique_viper_8
 
-  // special_bonus_unique_viper_1 - "+{s:bonus_damage} Corrosive Skin Damage Per Second"
-  // special_bonus_unique_viper_2 - "+{s:bonus_damage} Viper Strike DPS"
-  // special_bonus_unique_viper_3 - "+{s:value} Nethertoxin Min/Max Damage"
-  // special_bonus_unique_viper_4 - "+{s:bonus_magic_resistance}% Poison Attack Magic Resistance Reduction"
+    // special_bonus_unique_viper_1 - "Corrosive Skin Damage Per Second"
+    // special_bonus_unique_viper_2 - "Viper Strike DPS"
+    // special_bonus_unique_viper_3 - "Nethertoxin Min/Max Damage"
+    // special_bonus_unique_viper_4 - "Viper Strike Duration"
     // special_bonus_unique_viper_5 - "Become Universal"
-  // special_bonus_unique_viper_6 - "+{s:bonus_bonus_magic_resistance}% Corrosive Skin Magic Resistance"
-  // special_bonus_unique_viper_7 - "+{s:bonus_damage}% Poison Attack slow/damage"
-  // special_bonus_unique_viper_8 - "-{s:bonus_AbilityCooldown}% Viper Strike manacost/cooldown"
-    // special_bonus_unique_viper_3_oaa - Viper Strike Purges and Silences                                                - custom
-
-    "AttributeIntelligenceGain"                           "1.0" // 2.0
+    // special_bonus_unique_viper_6 - "Corrosive Skin Attack Speed Slow"
+    // special_bonus_unique_viper_7 - "Poison Attack slow/damage"
+    // special_bonus_unique_viper_8 - "Viper Strike manacost/cooldown"
+    // special_bonus_unique_viper_3_oaa - Viper Strike Purges and Silences - custom
   }
 }

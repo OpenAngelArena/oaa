@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kez: Shodo Sai
+  //=================================================================================================================
+  "kez_shodo_sai"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "30 20 10 0 0 0"
+    "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "sai_attack_range"                                  "150"
+      "sai_base_attack_time"                              "1.5"
+      "sai_proc_vuln_chance"                              "17"
+      "vuln_slow"                                         "0"
+      "vuln_duration"                                     "8.0"
+      "base_crit_pct" //OAA
+      {
+        "value"                                           "150 160 170 180 190 200"
+        "special_bonus_unique_kez_mark_damage"            "+40"
+      }
+      "stun_duration"                                     "0.1" //OAA, can permastun
+
+      // Parry below here
+      "forward_angle"                                     "180"
+      "speed_penalty"                                     "25"
+      "parry_duration"                                    "2.0"
+      "parry_bonus_crit"                                  "20 40 60 80 100 120" //OAA
+      "parry_stun_duration"                               "0.5"
+      "sai_swap_bonus_movement_speed"
+      {
+        "RequiresFacet"                                   "kez_flutter"
+        "value"                                           "12"
+      }
+    }
+  }
+}

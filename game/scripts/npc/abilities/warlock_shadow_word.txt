@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +33,7 @@
     {
       "damage"
       {
-        "value"                                           "15 25 35 45 145 245"
+        "value"                                           "15 25 35 45 90 180"
       }
       "duration"
       {
@@ -49,7 +51,7 @@
         "value"                                           "0"
         "RequiresShard"                                   "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 11 10"
       }

@@ -3,14 +3,7 @@ LinkLuaModifier("modifier_item_stonework_pendant_passive", "items/neutral/stonew
 item_stonework_pendant = class(ItemBaseClass)
 
 function item_stonework_pendant:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_stonework_pendant:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_stonework_pendant_passive",
-    "modifier_item_spell_lifesteal_oaa",
-  }
+  return "modifier_item_stonework_pendant_passive"
 end
 
 function item_stonework_pendant:IsMuted()

@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "6" // same as Dependent ability (Chakram) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "shredder_chakram"
@@ -17,6 +18,11 @@
     "AbilityValues"
     {
       "mana_restore"                                      "4 5 6 7 8 9"
+      "health_restore"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_timbersaw_exposure_therapy_health"  "+7"
+      }
     }
   }
 }

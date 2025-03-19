@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +49,7 @@
       }
       "shard_spell_amp_bonus"
       {
-        "value"                                           "25"
+        "value"                                           "30"
         "RequiresShard"                                   "1" // RequiresScepter
       }
       "shard_bat_bonus"

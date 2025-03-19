@@ -22,6 +22,56 @@ function crystal_maiden_arcane_magic_oaa:IsStealable()
   return false
 end
 
+function crystal_maiden_arcane_magic_oaa:GetBehavior()
+  if self:GetSpecialValueFor("activatable") == 1 then
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+  end
+  return DOTA_ABILITY_BEHAVIOR_PASSIVE
+end
+
+function crystal_maiden_arcane_magic_oaa:GetCooldown(level)
+  if self:GetSpecialValueFor("activatable") == 1 then
+    local cd = self:GetSpecialValueFor("activation_cooldown")
+    if cd > 0 then
+      return cd
+    end
+  end
+  return 0
+end
+
+function crystal_maiden_arcane_magic_oaa:CastFilterResult()
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResult(self)
+
+  if caster:HasModifier("modifier_crystal_maiden_freezing_field") then
+    return UF_FAIL_CUSTOM
+  end
+
+  return defaultFilterResult
+end
+
+function crystal_maiden_arcane_magic_oaa:GetCustomCastError()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_crystal_maiden_freezing_field") then
+    return "#dota_hud_error_ability_inactive"
+  end
+end
+
+function crystal_maiden_arcane_magic_oaa:OnSpellStart()
+  local caster = self:GetCaster()
+  local vanilla_ability = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
+  if vanilla_ability then
+    vanilla_ability:OnSpellStart()
+  end
+end
+
+function crystal_maiden_arcane_magic_oaa:ProcsMagicStick()
+  if self:GetSpecialValueFor("activatable") == 1 then
+    return true
+  end
+  return false
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_crystal_maiden_arcane_aura_oaa = class(ModifierBaseClass)

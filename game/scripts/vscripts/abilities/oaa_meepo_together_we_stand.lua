@@ -196,10 +196,10 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:OnIntervalThink()
     "item_greater_power_treads_2",
     "item_greater_power_treads_3",
     "item_greater_power_treads_4",
-    "item_greater_tranquil_boots",
-    "item_greater_tranquil_boots_2",
-    "item_greater_tranquil_boots_3",
-    "item_greater_tranquil_boots_4",
+    "item_greater_boots_of_bearing_1",
+    "item_greater_boots_of_bearing_2",
+    "item_greater_boots_of_bearing_3",
+    "item_greater_boots_of_bearing_4",
     "item_greater_travel_boots",
     "item_greater_travel_boots_2",
     "item_greater_travel_boots_3",
@@ -284,7 +284,7 @@ if IsServer() then
       return 0
     end
 
-    return -self.total_dmg_reduction
+    return 0 - math.abs(self.total_dmg_reduction)
   end
 end
 

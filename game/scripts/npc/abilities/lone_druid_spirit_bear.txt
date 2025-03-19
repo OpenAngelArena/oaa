@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Summon Spirit Bear (Innate in OAA)
+  // Lone Druid: Summon Spirit Bear
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
@@ -11,6 +11,8 @@
     "DisplayAdditionalHeroes"                             "1"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +62,7 @@
         "special_bonus_unique_lone_druid_2"               "+7"
       }
       "damage_gain_per_druid_level"                       "5"
-      "hp_gain_per_druid_level"                           "60" //OAA
+      "hp_gain_per_druid_level"                           "70" //OAA
       "bear_attack_leash_range"
       {
         "value"                                           "1100"

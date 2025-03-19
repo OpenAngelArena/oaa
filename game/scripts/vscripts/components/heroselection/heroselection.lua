@@ -57,6 +57,8 @@ function HeroSelection:Init ()
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
       elseif key == "npc_dota_hero_sohei" then
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      elseif key == "npc_dota_hero_eul" then
+        data = LoadKeyValues('scripts/npc/heroes/eul.txt')
       else
         data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end
@@ -173,7 +175,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
         lockedHeroes[playerid] = new_hero_name
       elseif hero_name then
@@ -219,7 +221,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
       end
     end
@@ -262,6 +264,10 @@ function HeroSelection:Init ()
   end)
 end
 
+function HeroSelection:GetHeroList ()
+  return herolist
+end
+
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
@@ -301,13 +307,27 @@ function HeroSelection:StartSelection ()
         end
       end
     elseif OAAOptions.settings.GAME_MODE == "LP" then
-      local herolistFile = 'scripts/npc/herolist_lp.txt'
-      local herolistTable = LoadKeyValues(herolistFile)
-      for key, value in pairs(herolistTable) do
-        if value == 0 then
-          table.insert(rankedpickorder.bans, key)
+      -- local herolistFile = 'scripts/npc/herolist_lp.txt'
+      -- local herolistTable = LoadKeyValues(herolistFile)
+      Bottlepass:GetUnpopularHeroes(function(data)
+        if data and data.ok then
+          for i, value in ipairs(data.bans) do
+            table.insert(rankedpickorder.bans, value)
+          end
         end
-      end
+
+        if HeroSelection.isCM then
+          HeroSelection:CMManager(nil)
+        elseif HeroSelection.isBanning then
+          HeroSelection:RankedManager(nil)
+        else
+          HeroSelection:APTimer(0, "ALL PICK")
+        end
+
+        HeroSelection:BuildBottlePass()
+      end)
+      return
+
     end
     if OAAOptions.settings.HEROES_MODS == "HM03" or OAAOptions.settings.HEROES_MODS_2 == "HM03" then
       local herolistFile = 'scripts/npc/herolist_blood_magic.txt'
@@ -979,7 +999,7 @@ function HeroSelection:SelectHero (playerId, hero)
   if not player then
     PrecacheUnitByNameAsync(hero_name, function()
       loadedHeroes[hero_name] = true
-    end)
+    end, playerId)
   end
 end
 
@@ -1066,17 +1086,25 @@ function HeroSelection:SingleDraftForceRandom(playerId)
   return self:ForceRandomHero(playerId)
 end
 
-function HeroSelection:SingleDraftRandom(playerId)
+function HeroSelection:SingleDraftRandom(playerId, dontPickThisHeroPlease)
   local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
   local myChoices = singleDraftChoices[tostring(playerId)]
   if not myChoices then
     return self:RandomHero(playerId)
   end
 
-  -- random the hero!
-  local randomIndex = RandomInt(1, 4)
-  local index = 1
+  local validHeroChoices = {};
+
   for attr, heroName in pairs(myChoices) do
+    if heroName ~= dontPickThisHeroPlease then
+      table.insert(validHeroChoices, heroName)
+    end
+  end
+  -- random the hero!
+  local randomIndex = RandomInt(1, #validHeroChoices)
+  local index = 1
+
+  for attr, heroName in pairs(validHeroChoices) do
     if index == randomIndex then
       return heroName
     end
@@ -1352,7 +1380,7 @@ function HeroSelection:HeroRerandom(event)
   -- Re-random new hero
   local new_hero
   if OAAOptions.settings.GAME_MODE == "SD" then
-    new_hero = HeroSelection:SingleDraftRandom(playerId)
+    new_hero = HeroSelection:SingleDraftRandom(playerId, locked_hero)
   else
     new_hero = HeroSelection:RandomHero(playerId)
   end

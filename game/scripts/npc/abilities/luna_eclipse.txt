@@ -17,6 +17,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -61,14 +63,14 @@
         "value"                                           "3.6 5.4 7.2 9.0 10.8"
         "special_bonus_scepter"                           "-0.4 +0.2 +0 +0.6 +1.2"
       }
-      "night_duration" //OAA
+      "night_duration" //OAA, slightly larger than AbilityDuration
       {
-        "value"                                           "12"
+        "value"                                           "4 6 8 10 12"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "100"
-        "special_bonus_unique_luna_6"                     "-40"
+        "value"                                           "110"
+        "special_bonus_unique_luna_6"                     "-40.0"
       }
     }
   }

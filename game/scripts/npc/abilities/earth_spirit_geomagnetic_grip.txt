@@ -16,6 +16,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +37,7 @@
         "value"                                           "180"  // NOTE: This radius must match the radius for boulder smash
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage"                                       "50 125 200 275 550 1100"
+      "rock_damage"                                       "70 140 210 280 560 1120"
       "duration"                                          "2 2.5 3 3.5 4 4.5"
       "pull_units_per_second_heroes"                      "600"
       "pull_units_per_second"                             "900"
@@ -44,7 +46,7 @@
       "AbilityCooldown"
       {
         "value"                                           "13"
-        "special_bonus_unique_earth_spirit_5"             "-3"
+        "special_bonus_unique_earth_spirit_5"             "-2"
       }
     }
   }

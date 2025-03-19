@@ -1,0 +1,16 @@
+// "DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike"                     "Cripple"
+// "DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_chance"         "%CRIPPLE CHANCE:"
+// "DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_movement_speed"  "%MOVEMENT SPEED SLOW:"
+// "DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_attack_speed"   "ATTACK SPEED SLOW:"
+// "DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_duration"       "DURATION:"
+
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa"                                   "#{DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike}"
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_Description"                       "This unit has a chance to cripple the target, slowing them for a few seconds."
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_Lore"                              ""
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_chance"                            "#{DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_chance}"
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_ms_slow"                           "#{DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_movement_speed}"
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_as_slow"                           "#{DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_attack_speed}"
+"DOTA_Tooltip_ability_giant_wolf_cripple_oaa_duration"                          "#{DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_maim_duration}"
+
+"DOTA_Tooltip_modifier_giant_wolf_cripple_oaa_effect"                           "#{DOTA_Tooltip_ability_giant_wolf_cripple_oaa}"
+"DOTA_Tooltip_modifier_giant_wolf_cripple_oaa_effect_Description"               "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

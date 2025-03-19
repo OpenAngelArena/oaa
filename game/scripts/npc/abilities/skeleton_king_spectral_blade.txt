@@ -8,20 +8,38 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cursed_damage_pct"                                 "50"
+      "cursed_damage_pct"
+      {
+        "value"                                           "50"
+        "special_bonus_unique_wraith_king_facet_1"        "+15"
+      }
       "cursed_damage"
       {
-        "value"                                           "10 25 40 55 70 85"
+        "value"                                           "10 25 40 55 85 115"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "curse_cooldown"                                    "18 16 14 12 11 10"
-      "curse_cooldown_creep"                              "6"
-      "curse_delay"                                       "3"
+      "curse_cooldown"
+      {
+        "value"                                           "18 16 14 12 11 10"
+        "special_bonus_unique_wraith_king_facet_3"        "-25%"
+      }
+      "curse_cooldown_creep"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_wraith_king_facet_3"        "-25%"
+      }
+      "curse_delay"
+      {
+        "value"                                           "3"
+        //"special_bonus_unique_wraith_king_facet_2"        "-1"
+      }
     }
   }
 }

@@ -16,9 +16,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemSellable"                                        "0"
-    "ItemIsNeutralDrop"                                   "1"
+    "ItemIsNeutralActiveDrop"                             "1"
     "ItemPurchasable"                                     "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
 
@@ -26,8 +25,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hero_spell_lifesteal"                              "50"
-      "creep_spell_lifesteal"                             "10"
       "hp_cost_multiplier"                                "3"
     }
   }

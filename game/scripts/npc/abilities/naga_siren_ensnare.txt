@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,10 +38,9 @@
       "fake_ensnare_distance"                             "900"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "16 15 14 13 12 12"
-        "special_bonus_unique_naga_siren_net_cooldown"    "-2"
+        "value"                                           "15 14 13 12 11 10"
       }
-      "AbilityCastRange" //OAA, Valve has the scepter bonus wrong
+      "AbilityCastRange" // Valve has the scepter bonus wrong
       {
         "value"                                           "500 525 550 575 600 625"
         "special_bonus_scepter"                           "+50%"

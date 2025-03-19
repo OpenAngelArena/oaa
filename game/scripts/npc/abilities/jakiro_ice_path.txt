@@ -15,6 +15,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +44,8 @@
       "path_duration" //OAA
       {
         "value"                                           "3.25 3.5 3.75 4.0 4.25 4.5"
-        "special_bonus_unique_jakiro"                     "+0.5"
+        "special_bonus_facet_jakiro_ice_breaker"          "=5"
+        "special_bonus_unique_jakiro"                     "+0.4"
       }
       "path_radius"
       {
@@ -51,13 +54,28 @@
       }
       "damage"
       {
-        "value"                                           "50"
+        "value"                                           "50 50 50 50 100 150"
         "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_unique_jakiro_6"                   "+60"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 13 11 9 9 9"
-        "special_bonus_unique_jakiro_6"                   "-1.5"
+        "value"                                           "14 13 12 11 10 9"
+      }
+      "detonate_damage"
+      {
+        "value"                                           "=0"
+        "special_bonus_facet_jakiro_ice_breaker"          "=75 =125 =175 =225 =450 =675"
+      }
+      "detonate_stun_duration"
+      {
+        "value"                                           "=0"
+        "special_bonus_facet_jakiro_ice_breaker"          "=0.5"
+      }
+      "detonate_projectile_speed"
+      {
+        "value"                                           "=0"
+        "special_bonus_facet_jakiro_ice_breaker"          "=2400"
       }
     }
   }

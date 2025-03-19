@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "950"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "27"
+    "AbilityCooldown"                                     "25" //OAA
     "AbilityManaCost"                                     "125"
 
     // Special
@@ -34,22 +34,35 @@
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
       }
-      "mana_burned"
+      "mana_burned" //OAA
       {
-        "value"                                           "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
+        "value"                                           "100 175 250 325 400 475 550 625 775 925 1075 1225 1375 1525 1675 1825 1975"
         "levelkey"                                        "wexlevel"
       }
-      "damage_per_mana_pct"
+      "damage_per_mana_pct" //OAA
       {
-        "value"                                           "60"
-        "special_bonus_shard"                             "+50%"
+        "value"                                           "65"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_shard"                           "+50%"
+        }
       }
-      "shard_drag_speed" //OAA
+      "drag_speed"
       {
-        "value"                                           "125"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_shard"                           "+150"
+        }
       }
       "self_mana_restore_pct"                             "25"
+      "damage_barriers"
+      {
+        "value"                                           "0"
+        //"special_bonus_facet_invoker_wex_focus"           "1"
+      }
     }
   }
 }

@@ -79,19 +79,22 @@ function is10v10 () {
   return mapname === '10v10' || mapname === 'oaa_bigmode';
 }
 
-function FindModifier (unit, modifier) {
+// FindModifier returns BuffID or undefined
+function FindModifier (unit, modifierName) {
   for (let i = 0; i < Entities.GetNumBuffs(unit); i++) {
-    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifier) {
+    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifierName) {
       return Entities.GetBuff(unit, i);
     }
   }
 }
 
-function HasModifier (unit, modifier) {
-  return !!FindModifier(unit, modifier);
+// HasModifier returns a boolean
+function HasModifier (unit, modifierName) {
+  return FindModifier(unit, modifierName) !== undefined;
 }
 
-function GetStackCount (unit, modifier) {
-  const m = FindModifier(unit, modifier);
-  return m ? Buffs.GetStackCount(unit, m) : 0;
+// GetStackCount returns a number
+function GetStackCount (unit, modifierName) {
+  const m = FindModifier(unit, modifierName);
+  return m !== undefined ? Buffs.GetStackCount(unit, m) : 0;
 }

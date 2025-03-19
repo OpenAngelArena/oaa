@@ -16,6 +16,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +38,18 @@
     {
       "damage" //OAA
       {
-        "value"                                           "250 500 750 1500 2250"
+        "value"                                           "250 500 750 1250 1750"
       }
       "bonus_jump_damage"
       {
         "value"                                           "15 20 25 40 55"
+        "special_bonus_unique_lich_jump_damage"           "+100"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "jumps"                                             "10"
+      "jumps"                                             "10" // special_bonus_unique_lich_1_oaa
       "jump_range"
       {
-        "value"                                           "600"
+        "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
       }
       "slow_movement_speed"                               "-65"
@@ -61,26 +64,26 @@
       }
       "has_unlimited_jumps"
       {
-        "special_bonus_unique_lich_5"                     "+1"
+        "value"                                           "0"
       }
       "should_fire_chain_frost_on_death"
       {
         "special_bonus_unique_lich_7"                     "+1"
       }
-      "bonus_jumps_per_hero_killed"
+      "bonus_jumps_per_hero_killed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_growing_cold"           "+3"
+        "special_bonus_facet_lich_growing_cold"           "+5"
       }
       "bonus_jumps_per_creep_killed"
       {
         "value"                                           "0"
         "special_bonus_facet_lich_growing_cold"           "+1"
       }
-      "frostbound_duration"
+      "frostbound_duration" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_frostbound"             "=2 =3 =4 =4.5 =5"
+        "special_bonus_facet_lich_frostbound"             "=3"
       }
     }
   }

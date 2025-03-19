@@ -319,39 +319,42 @@ if IsServer() then
     -- Attack Sound
     parent:EmitSound("Hero_WitchDoctor_Ward.Attack")
 
-    if IsServer() then
-      -- check if ability is null
-      if not ability or ability:IsNull() then
-        return
-      end
-      local remainingTargets = ability:GetSpecialValueFor("initial_target_count")
+    -- check if ability exists
+    if not ability or ability:IsNull() then
+      return
+    end
 
-      local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+    local remainingTargets = ability:GetSpecialValueFor("initial_target_count")
+    if remainingTargets == 1 then
+      return
+    end
 
-      -- Find closest target and fire a projectile from it
-      local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, parent:GetAttackRange(), ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-      for _, enemy in ipairs(enemies) do
+    local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+
+    -- Find closest target and attack it
+    local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, parent:GetAttackRange(), ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+    for _, enemy in ipairs(enemies) do
+      if enemy ~= target then
+        local useCastAttackOrb = false
+        local processProcs = true
+        local skipCooldown = true
+        local ignoreInvis = false
+        local useProjectile = true -- only ranged units need a projectile
+        local fakeAttack = false
+
+        local owner = self:GetCaster()
+        local neverMiss = owner and not owner:IsNull() and owner:HasScepter()
+
+        -- fortunately this doesn't then call OnAttackStart
+        -- so we don't need to worry about recursion
+        attacker:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+
         remainingTargets = remainingTargets - 1
-        if remainingTargets < 1 then
-          break
-        end
-        if enemy ~= target then
-          local useCastAttackOrb = false
-          local processProcs = true
-          local skipCooldown = true
-          local ignoreInvis = false
-          local useProjectile = true -- only ranged units need a projectile
-          local fakeAttack = false
 
-          local owner = self:GetCaster()
-          local neverMiss = owner and not owner:IsNull() and owner:HasScepter()
-
-          -- fortunately this doesn't then call OnAttackStart
-          -- so we don't need to worry about recursion
-          attacker:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+        if remainingTargets == 1 then
+          return
         end
       end
-
     end
   end
 

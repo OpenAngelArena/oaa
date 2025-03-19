@@ -4,6 +4,11 @@ LinkLuaModifier("modifier_boss_slime_dead_tracker", "abilities/boss/slime/boss_s
 
 boss_slime_split = class(AbilityBaseClass)
 
+function boss_slime_split:Precache(context)
+  PrecacheResource("model", "models/creeps/darkreef/blob/darkreef_blob_01.vmdl", context)
+  PrecacheResource("model", "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl", context)
+end
+
 function boss_slime_split:GetIntrinsicModifierName()
 	return "modifier_boss_slime_split_passive"
 end

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.37x"
   "hero"          "npc_dota_hero_rubick"
   "Title"         "Recommended items for Rubick"
 
@@ -13,13 +13,27 @@
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_hand_of_midas_1"
+      "item"      "item_maelstrom"
+    }
+
+    "#DOTA_Item_Build_Utility_Initiation"
     {
       "item"      "item_aether_lens"
       "item"      "item_ultimate_scepter"
       "item"      "item_octarine_core"
       "item"      "item_blink"
       "item"      "item_wind_waker"
+    }
+
+    "#DOTA_Item_Build_Rubick_Mix"
+    {
+      "item"      "item_devastator"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_greater_power_treads"
+      "item"      "item_dagger_of_moriah_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -32,14 +46,13 @@
       "item"      "item_angels_demise"
       "item"      "item_arcane_blink"
       "item"      "item_black_king_bar_1"
-      "item"      "item_dagon_oaa"
+      "item"      "item_dagon_oaa_1"
       "item"      "item_ethereal_blade"
-      "item"      "item_glimmer_cape"
       "item"      "item_shield_staff"
       "item"      "item_spirit_vessel_oaa"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_greater_travel_boots"
       "item"      "item_sheepstick_4"
-      "item"      "item_silver_staff"
     }
   }
 }

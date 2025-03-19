@@ -10,6 +10,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -17,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130"
+    "AbilityCooldown"                                     "130" // special_bonus_unique_zeus_1_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +53,7 @@
       "grow_kill_amp"
       {
         "value"                                           "0"
-        "special_bonus_facet_zuus_divine_rampage"         "15"
+        "special_bonus_facet_zuus_divine_rampage"         "25"
       }
     }
   }

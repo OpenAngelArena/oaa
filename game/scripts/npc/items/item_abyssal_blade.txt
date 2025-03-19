@@ -8,14 +8,14 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "1675"
+    "ItemCost"                                            "1275"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade"
     "ItemRequirements"
     {
-      "01"                                                "item_basher;item_vanguard"
+      "01"                                                "item_basher;item_sange"
     }
   }
 
@@ -60,11 +60,8 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "10 20 40 70 110" //OAA
-      "bonus_health"                                      "250 350 500 700 950" //OAA, inherited from Skadi
-      "bonus_health_regen"                                "3 6 9 12 15" //OAA
-      "block_damage_melee"                                "60 120 180 240 300" //OAA
-      "block_damage_ranged"                               "35 70 105 140 175"
-      "block_chance"                                      "60"
+      "slow_resistance"                                   "25 27 29 31 33"
+      "hp_regen_amp"                                      "25 27 29 31 33"
       "bonus_strength"                                    "22 27 32 37 42" //OAA, inherited from Skadi
       "bash_chance_melee"                                 "25"
       "bash_chance_ranged"                                "10"

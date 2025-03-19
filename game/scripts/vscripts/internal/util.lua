@@ -548,12 +548,12 @@ function GetMainAreaBoundsX()
     end
   end
   if radiant_fountain then
-    Xbounds.minX = radiant_fountain:GetAbsOrigin().x + 200
+    Xbounds.minX = radiant_fountain:GetAbsOrigin().x + 100
   else
     print("Radiant Fountain not found!")
   end
   if dire_fountain then
-    Xbounds.maxX = dire_fountain:GetAbsOrigin().x - 200
+    Xbounds.maxX = dire_fountain:GetAbsOrigin().x - 100
   else
     print("Dire Fountain not found!")
   end

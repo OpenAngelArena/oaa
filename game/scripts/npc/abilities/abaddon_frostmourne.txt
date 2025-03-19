@@ -14,6 +14,7 @@
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +29,6 @@
       "curse_slow"
       {
         "value"                                           "10 15 20 25 30 35"
-        "special_bonus_unique_abaddon_6"                  "+15"
       }
       "curse_attack_speed"
       {
@@ -37,7 +37,7 @@
       }
       "curse_dps"
       {
-        "value"                                           "15 25 35 45 90 180"
+        "value"                                           "15 25 35 45 90 135"
         "special_bonus_unique_abaddon_5"                  "+50"
       }
       "tower_dps_pct"                                     "70"

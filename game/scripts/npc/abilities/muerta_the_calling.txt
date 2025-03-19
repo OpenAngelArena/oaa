@@ -13,6 +13,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -53,8 +55,7 @@
       "acceleration"                                      "0.75"
       "rotation_initial"                                  "0"
       "debug_draw"                                        "0"
-      "aura_movespeed_slow"                               "-15 -20 -25 -30 -35 -40"
-      "aura_attackspeed_slow"                             "-30 -40 -50 -60 -70 -80"
+      "aura_movespeed_slow"                               "-20"
       "silence_duration"                                  "1.5 2 2.5 3 3 3"
       "rotation_direction"                                "-1"
       "kill_check_radius"
@@ -76,7 +77,7 @@
       }
       "hp_regen_pct"
       {
-        "special_bonus_unique_muerta_calling_hp_regen"    "+1.5"
+        "special_bonus_unique_muerta_calling_hp_regen"    "+3.0"
       }
     }
   }

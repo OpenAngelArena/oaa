@@ -12,6 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -54,14 +56,17 @@
       {
         "value"                                           "0"
       }
-      "distance_to_damage"
+      "distance_to_damage" //OAA
       {
-        "special_bonus_facet_pudge_flayers_hook"          "12 18 24 30 36 42"              
+        "special_bonus_shard"                             "12 15 18 21 24 27"
       }
-
       "min_distance_damage"
       {
-        "special_bonus_facet_pudge_flayers_hook"          "10"
+        "special_bonus_shard"                             "10"
+      }
+      "cooldown_reduction_pct_allied_hook"
+      {
+        "special_bonus_shard"                             "50"
       }
       "self_stun_duration_percent"
       {

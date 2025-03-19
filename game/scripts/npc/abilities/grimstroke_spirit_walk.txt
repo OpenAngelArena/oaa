@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA, special_bonus_unique_grimstroke_7
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
       "damage_per_tick"                                   "6 9 12 15 30 60"
       "tick_rate"                                         "0.2"
       "tick_dps_tooltip"                                  "30 45 60 75 150 300" // damage_per_tick divided by tick_rate
-      "max_threshold_duration"                            "2.5" // isn't this supposed to be slightly lower than buff_duration?
+      "max_threshold_duration"                            "2.5" // ink tendril exposure time needed for max dmg and max stun
       "can_end_early"
       {
         "value"                                           "0"
@@ -68,12 +68,12 @@
       }
       "shard_bonus_damage_pct"
       {
-        "value"                                           "30"
+        "value"                                           "40"
         "RequiresShard"                                   "1"
       }
       "shard_heal_pct"
       {
-        "value"                                           "30"
+        "value"                                           "40"
         "RequiresShard"                                   "1"
       }
       "shard_creep_penalty"

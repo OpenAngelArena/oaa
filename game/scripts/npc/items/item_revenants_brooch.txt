@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_revenants_brooch"
     "ItemRequirements"
     {
-      "01"                                                "item_relic;item_voodoo_mask"
+      "01"                                                "item_lesser_crit;item_voodoo_mask"
     }
   }
 
@@ -32,19 +32,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/revenants_brooch"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    // "AbilityCooldown"                                     "25"
-    // "AbilityCastPoint"                                    "0.0"
-    // "AbilitySharedCooldown"                               "revenants_brooch"
-    // "AbilityManaCost"                                     "300"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4900"
+    "ItemCost"                                            "3300"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant;brooch;revenants brooch;rb"
@@ -59,10 +52,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 75 115 175 255" //OAA
-      "spell_lifesteal"                                   "12 14 16 18 20" //OAA
-      "manacost_per_hit"                                  "175" //OAA, this doesn't matter for OD, such a failed concept
-      "negative_spell_amp_while_active"                   "-40 -40 -40 -40 -20" //OAA
+      "bonus_damage"                                      "72 87 107 132 162" //OAA
+      "spell_lifesteal"                                   "0" //OAA
+      "crit_chance"                                       "30"
+      "crit_multiplier"                                   "80 90 100 110 120"
+      "hero_spell_lifesteal"                              "16 18 20 22 24" //OAA
+      "creep_spell_lifesteal"                             "3.2 3.6 4.0 4.4 4.8" //OAA
     }
   }
 }

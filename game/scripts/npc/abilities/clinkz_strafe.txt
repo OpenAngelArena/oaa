@@ -36,11 +36,14 @@
         "value"                                           "120 140 160 180 200 220"
         "special_bonus_unique_clinkz_7"                   "+40"
       }
-      "duration"                                          "3.5"
+      "duration"
+      {
+        "value"                                           "3.5"
+        "special_bonus_unique_clinkz_1"                   "+0.75"
+      }
       "attack_range_bonus"
       {
-        "value"                                           "200"
-        "special_bonus_facet_clinkz_suppressive_fire"     "+100"
+        "value"                                           "200" 
       }
       "AbilityCooldown" //OAA
       {
@@ -56,12 +59,12 @@
       "debuff_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_clinkz_suppressive_fire"     "=1.0"
+        "special_bonus_facet_clinkz_suppressive_fire"     "=2.0"
       }
       "blind_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_clinkz_suppressive_fire"     "=5"
+        "special_bonus_facet_clinkz_suppressive_fire"     "=30"
       }
     }
   }

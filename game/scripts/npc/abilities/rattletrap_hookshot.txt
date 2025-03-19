@@ -40,11 +40,11 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "stun_radius_ally"
+      "radius_ally"
       {
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_rattletrap_hookup"           "=300"
+        "special_bonus_facet_rattletrap_hookup"           "=350"
       }
       "cooldown_refund_ally"
       {
@@ -61,7 +61,12 @@
       }
       "duration"                                          "1.2 1.4 1.6 1.8 2.0"
       "speed"                                             "4000 5000 6000 7000 7500"
-      "damage"                                            "75 275 475 1075 1675" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "75 275 475 1075 1675"
+        "special_bonus_unique_clockwerk_hookshot_damage"  "+75"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
     }
   }
 }

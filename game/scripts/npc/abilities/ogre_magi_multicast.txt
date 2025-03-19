@@ -11,7 +11,6 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Special
@@ -25,7 +24,6 @@
         "special_bonus_facet_ogre_magi_fat_chance"        "+0"
         "dynamic_value"                                   "true"
       }
-
       "multicast_3_times" //OAA
       {
         "value"                                           "0 15 20 25 30"
@@ -33,7 +31,6 @@
         "special_bonus_facet_ogre_magi_fat_chance"        "+0"
         "dynamic_value"                                   "true"
       }
-
       "multicast_4_times" //OAA, Ogre can get ~40% from STR
       {
         "value"                                           "0 0 5 5 5"
@@ -41,7 +38,6 @@
         "special_bonus_facet_ogre_magi_fat_chance"        "+0"
         "dynamic_value"                                   "true"
       }
-
       "strength_mult"
       {
         "value"                                           "0"

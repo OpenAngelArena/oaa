@@ -6,18 +6,6 @@ LinkLuaModifier("modifier_electrician_bonus_mana_count", "abilities/electrician/
 
 --------------------------------------------------------------------------------
 
--- function electrician_energy_absorption:GetCooldown(level)
---   local caster = self:GetCaster()
---   local base_cd = self.BaseClass.GetCooldown(self, level)
-
---   local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
---   if talent and talent:GetLevel() > 0 then
---     return base_cd - math.abs(talent:GetSpecialValueFor("value"))
---   end
-
---   return base_cd
--- end
-
 function electrician_energy_absorption:OnSpellStart()
 	local caster = self:GetCaster()
 	local casterOrigin = caster:GetAbsOrigin()
@@ -114,20 +102,6 @@ function electrician_energy_absorption:OnSpellStart()
           ParticleManager:ReleaseParticleIndex(partNum)
         end
 
-        -- create a projectile that's just for visual effect
-        -- would like to just have a particle here that hits the caster
-        -- after like ~0.25 seconds
-        -- ProjectileManager:CreateTrackingProjectile( {
-          -- Ability = self,
-          -- Target = caster,
-          -- Source = target,
-          -- EffectName = "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf",
-          -- iMoveSpeed = caster:GetRangeToUnit( target ) / 0.25,
-          -- iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-          -- bDodgeable = false,
-          -- flExpireTime = GameRules:GetGameTime() + 10,
-        -- } )
-
         -- Add a speed debuff
         local speed_debuff = target:FindModifierByNameAndCaster("modifier_electrician_energy_absorption_debuff", caster)
         if speed_debuff then
@@ -139,9 +113,6 @@ function electrician_energy_absorption:OnSpellStart()
             speed_debuff:SetStackCount(1)
           end
         end
-
-        -- play hit sound
-        target:EmitSound( "Hero_StormSpirit.Attack" )
 
         -- deal damage
         damage_table.victim = target
@@ -181,6 +152,11 @@ function electrician_energy_absorption:OnSpellStart()
       if speed_modifier then
         speed_modifier:SetStackCount(speed_absorbed)
       end
+    end
+
+    -- Check if absorbed mana is more than the mana cost (mana cost after reductions), if true emit another sound
+    if mana_absorbed > self:GetEffectiveManaCost(-1) then
+      caster:EmitSound("Hero_StormSpirit.Overload")
     end
   end
 end

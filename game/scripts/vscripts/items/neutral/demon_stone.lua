@@ -3,10 +3,6 @@ LinkLuaModifier("modifier_demon_stone_summon_passives", "items/neutral/demon_sto
 
 item_demon_stone = class(ItemBaseClass)
 
-function item_demon_stone:GetIntrinsicModifierName()
-  return "modifier_item_demon_stone_passive"
-end
-
 function item_demon_stone:OnSpellStart()
   local caster = self:GetCaster()
   local summon_duration = self:GetSpecialValueFor("summon_duration")
@@ -222,4 +218,12 @@ if IsServer() then
 
     return 0
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+item_enhancement_greedy_oaa = class(ItemBaseClass)
+
+function item_enhancement_greedy_oaa:GetIntrinsicModifierName()
+  return "modifier_item_demon_stone_passive"
 end

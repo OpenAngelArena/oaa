@@ -10,6 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,19 +23,19 @@
         "value"                                           "0"
         "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
       }
-      "corrosive_breath_damage"
+      "corrosive_breath_damage" //OAA
       {
-        "value"                                           "5 10 15 20 40 80"
+        "value"                                           "10 15 20 25 50 75"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
-      "corrosive_breath_duration"
+      "corrosive_breath_duration" //OAA
       {
-        "value"                                           "3"
+        "value"                                           "6"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
-      "corrosive_breath_armor_reduction"
+      "corrosive_breath_armor_reduction" //OAA
       {
-        "value"                                           "0 1 2 3 5 9"
+        "value"                                           "1 2 3 4 6 10"
         "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
       }
       // RED DRAGON
@@ -42,27 +44,14 @@
         "value"                                           "0"
         "special_bonus_facet_dragon_knight_fire_dragon"   "+1"
       }
-      "cleave_starting_width"
+      "magic_damage" //OAA
       {
-        "value"                                           "150"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "cleave_ending_width" //OAA, Valve has double affected_by_aoe_increase
-      {
-        "value"                                           "260"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "10 15 20 25 50 75"
         "RequiresFacet"                                   "dragon_knight_fire_dragon"
       }
-      "cleave_distance" //OAA, Valve has double affected_by_aoe_increase
+      "bonus_aoe" //OAA
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
-      }
-      "cleave_damage"
-      {
-        "value"                                           "30 40 50 60 70 80"
+        "value"                                           "30 45 60 75 90 105"
         "RequiresFacet"                                   "dragon_knight_fire_dragon"
       }
       // BLUE DRAGON
@@ -78,7 +67,7 @@
       }
       "frost_bonus_attack_speed"
       {
-        "value"                                           "-14 -21 -28 -35 -49 -63"
+        "value"                                           "-14 -21 -28 -35 -42 -49"
         "RequiresFacet"                                   "dragon_knight_frost_dragon"
       }
       "frost_duration"

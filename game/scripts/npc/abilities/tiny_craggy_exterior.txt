@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Craggy Exterior
+  // Tiny: Craggy Exterior (Innate)
   //=================================================================================================================
   "tiny_craggy_exterior"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE "
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve has extra space
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "MaxLevel"                                            "6" // same as Dependent ability (Grow) + 1
+    "Innate"                                              "1"
     "DependentOnAbility"                                  "tiny_grow_oaa"
 
     // Special

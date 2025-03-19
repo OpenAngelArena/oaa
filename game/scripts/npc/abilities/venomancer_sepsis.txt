@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Venomancer: Sepsis
+  // Venomancer: Sepsis (Innate)
   //=================================================================================================================
   "venomancer_sepsis"
   {
@@ -11,17 +11,16 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "1"
     "Innate"                                              "1"
-    "HasScepterUpgrade"                                   "1"
-    "IsBreakable"                                         "1"
 
     "AbilityValues"
     {
       "bonus_dmg_per_debuff_pct" //OAA
       {
-        "value"                                           "1"
-        "special_bonus_scepter"                           "+1"
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+2"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "apply_from_ward_attacks"

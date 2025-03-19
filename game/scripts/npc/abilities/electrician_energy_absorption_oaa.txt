@@ -9,15 +9,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/electrician/electrician_energy_absorption.lua"
-    "AbilityTextureName"                                  "custom/electrician_energy_absorption"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/electrician_energy_absorption"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -37,22 +39,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage" // original: 85/150/215/280
+      {
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_unique_electrician_7_oaa"          "+320"
+      }
       "radius"
       {
         "value"                                           "350"
         "special_bonus_unique_electrician_6_oaa"          "+50"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" // original: 85/150/215/280
-      {
-        "value"                                           "90 160 230 300 600 1200"
-        "special_bonus_unique_electrician_8_oaa"          "+140"
-      }
       "mana_absorb_base"                                  "15 20 25 30 40 50" // original: 12/16/20/24
-      "mana_absorb_percentage" // original: 8/10/12/14%
+      "mana_absorb_percentage" // current mana percentage; original: 8/10/12/14% of max mana
       {
         "value"                                           "10 12 14 16 18 20"
-        "special_bonus_unique_electrician_1_oaa"          "+4"
       }
       "speed_absorb_heroes"                               "10 15 20 25 30 35"
       "speed_absorb_non_heroes"                           "5"
@@ -65,7 +66,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+      "particle"                                          "particles/hero/electrician/electrician_energy_absorbtion.vpcf"
       "particle"                                          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
       "particle"                                          "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"

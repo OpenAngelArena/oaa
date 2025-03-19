@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Harpy Stormcrafter: Null Field - Reducing magic resistance aura
+  // Harpy Stormcrafter: Null Field - Aura that reduces magic resistance
   //=================================================================================================================
   "harpy_storm_null_field_oaa"
   {
@@ -15,13 +15,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "magic_resistance"                                  "-17"
+      "magic_resistance"                                  "-15 -17 -19 -21"
       "radius"
       {
         "value"                                           "1200"

@@ -85,7 +85,7 @@ function modifier_serpent_ward_global_aura_effect:IsPurgable()
 end
 
 function modifier_serpent_ward_global_aura_effect:OnCreated()
-  self.bonus_dmg_bosses = 0.5
+  self.bonus_dmg_bosses = 0.4
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_dmg_bosses = ability:GetSpecialValueFor("damage_multiplier_against_bosses")
@@ -95,13 +95,13 @@ end
 function modifier_serpent_ward_global_aura_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    -- special_bonus_unique_shadow_shaman_4 talent is applied automatically to serpent wards created by mass_serpent_wards_vanilla or shard shackles
+    -- talent is applied automatically to serpent wards that were created by mass_serpent_wards_vanilla
     -- so we must use bonus raw dmg instead of bonus base dmg to avoid 'race conditions' (what applies first ...)
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
--- Fix ward damage for serpent wards created with shard Shackles ONLY!!!!!!!!!!!!!!!!!!!
+-- Fix ward damage for serpent wards created with abilities that are not mass_serpent_wards_custom!!!!!!!!!!!!!!!!!!!
 function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDamage()
   local parent = self:GetParent()
   local caster = self:GetCaster()

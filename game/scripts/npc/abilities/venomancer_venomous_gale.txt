@@ -10,6 +10,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,7 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "tick_interval"                                     "3.0"
-      "movement_slow"                                     "-50"
+      "movement_slow"                                     "-35 -40 -45 -50 -55 -60"
       "radius"
       {
         "value"                                           "125"
@@ -53,11 +55,11 @@
         "value"                                           "21 20 19 18 17 16"
         "special_bonus_unique_venomancer_3"               "-5"
       }
-      "explosion_damage"      
+      "explosion_damage"
       {
         "special_bonus_shard"                             "300"
       }
-      "explosion_stun_duration"   
+      "explosion_stun_duration"
       {
         "special_bonus_shard"                             "1.6"
       }

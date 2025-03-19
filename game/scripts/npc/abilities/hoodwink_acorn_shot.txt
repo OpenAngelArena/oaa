@@ -14,6 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
@@ -24,7 +26,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_range"                                       "75 150 225 300 375 450"
+      "bonus_range"                                       "100"
       "acorn_shot_damage"
       {
         "value"                                           "40 80 120 160 320 480"
@@ -32,7 +34,7 @@
       }
       "base_damage_pct"
       {
-        "value"                                           "75" // special_bonus_unique_hoodwink_1_oaa
+        "value"                                           "80" // special_bonus_unique_hoodwink_1_oaa
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bounce_count"

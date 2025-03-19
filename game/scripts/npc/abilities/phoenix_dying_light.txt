@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  "phoenix_dying_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "IsBreakable"                                         "1"
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "damage_pct"                                        "4" //OAA
+    }
+  }
+}

@@ -12,6 +12,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +51,7 @@
       "physical_damage_pct" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "-20 -25 -30 -35 -40 -45"
+        "special_bonus_scepter"                           "-25 -30 -35 -40 -45 -50"
       }
       "cannot_be_dispelled"
       {

@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/electrician/electrician_static_grip.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -15,9 +16,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "custom/electrician_static_grip"
-    "ScriptFile"                                          "abilities/electrician/electrician_static_grip.lua"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,8 +31,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14.0"
-    "AbilityChannelTime"                                  "%channel_time"
+    "AbilityCooldown"                                     "14 13 12 11 11 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +41,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "channel_time"                                      "1.75 2.25 2.75 3.25 3.35 3.45"
+      "max_stun_duration"
+      {
+        "value"                                           "1.5 1.8 2.1 2.4 2.5 2.6"
+        "special_bonus_unique_electrician_1_oaa"          "+0.2"
+      }
       "damage_interval"
       {
         "value"                                           "0.25"
@@ -47,7 +54,7 @@
       "damage_per_second"
       {
         "value"                                           "50 60 70 80 160 240"
-        "special_bonus_unique_electrician_static_grip_damage"  "25%"
+        "special_bonus_unique_electrician_4_oaa"          "+25%"
       }
       "pull_speed"                                        "140"
       "pull_buffer"                                       "150"
@@ -56,23 +63,20 @@
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
-      "psuedochannel"
+      "pseudochannel"
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_kinetic_grip"    "=1"
-        "special_bonus_unique_electrician_7_oaa"          "=1"
-        "RequiresFacet"                                   "electrician_kinetic_grip"
+        "special_bonus_shard"                             "=1"
       }
       "attack_speed_pct"
       {
         "value"                                           "0"
-        "special_bonus_unique_electrician_static_grip_attacks"  "+90"
       }
     }
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"

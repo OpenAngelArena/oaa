@@ -14,6 +14,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +43,6 @@
       "damage"
       {
         "value"                                           "10 15 20 25 50 75"
-        "special_bonus_unique_drow_ranger_2"              "+15"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "shard_regen_reduction_pct_per_stack" //OAA
@@ -50,10 +51,10 @@
         "special_bonus_scepter"                           "+8"
         "RequiresScepter"                                 "1"
       }
-      "shard_bonus_damage_per_stack" //OAA, Valve has it wrong
+      "shard_bonus_damage_per_stack" // Valve's undocumented change
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+15"
+        "special_bonus_scepter"                           "+18"
         "RequiresScepter"                                 "1"
       }
       "shard_stack_duration"
