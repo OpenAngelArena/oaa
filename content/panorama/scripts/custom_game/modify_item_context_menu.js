@@ -1,12 +1,12 @@
-/* global $, GetDotaHud, Players */
+/* global $, GetDotaHud, Players, Entities, Abilities, Game, dotaunitorder_t, CustomNetTables */
 
-const local_player = Players.GetLocalPlayer();
+const localPlayer = Players.GetLocalPlayer();
 const DotaHUD = GetDotaHud();
 
 $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
   if (panel == null) { return; }
-  if (panel.paneltype == 'DOTAAbilityPanel' && panel.BHasClass('ShowingItemContextMenu')) {
-    let currentlySelectedUnit = Players.GetQueryUnit(local_player);
+  if (panel.paneltype === 'DOTAAbilityPanel' && panel.BHasClass('ShowingItemContextMenu')) {
+    let currentlySelectedUnit = Players.GetQueryUnit(localPlayer);
     if (currentlySelectedUnit === -1) {
       currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
     }
@@ -29,7 +29,7 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
             $.Msg(Abilities.GetAbilityName(abilityIndex));
 
             $.Msg(GetItemID(itemName));
-            buyUpgrade(local_player, itemName);
+            buyUpgrade(localPlayer, itemName);
             $.DispatchEvent('DismissAllContextMenus');
           });
         }
@@ -40,7 +40,7 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
 
 function isUpgradable (itemName) {
   let upgradeItemName = '';
-  itemTier = 0;
+  let itemTier = 0;
   if (/_\d$/.test(itemName)) {
     itemTier = Number(itemName.slice(-1));
     upgradeItemName = itemName.slice(0, -1) + (itemTier + 1);
@@ -48,7 +48,7 @@ function isUpgradable (itemName) {
     itemTier = 2;
     upgradeItemName = itemName + '_2';
   }
-  itemID = GetItemID(upgradeItemName);
+  const itemID = GetItemID(upgradeItemName);
   if (itemID) {
     return [upgradeItemName, itemTier];
   }
