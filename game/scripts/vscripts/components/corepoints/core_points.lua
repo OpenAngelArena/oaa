@@ -13,9 +13,6 @@ function CorePointsManager:Init()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
-
-
-  CustomGameEventManager:RegisterListener("upgrade_item_through_context_menu", function(source, event) self:UpgradeItemThroughContextMenu(event) end)
   
   local custom_items = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   local custom_items_ids = {}

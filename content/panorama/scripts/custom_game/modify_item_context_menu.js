@@ -1,13 +1,18 @@
-let LPID = Players.GetLocalPlayer();
+/* global $, GetDotaHud, Players*/
+
+let local_player = Players.GetLocalPlayer();
 let DotaHUD = GetDotaHud()
+
 
 $.RegisterForUnhandledEvent("StyleClassesChanged", function(panel){
   if(panel == null){return;}
   if(panel.paneltype == "DOTAAbilityPanel" && panel.BHasClass("ShowingItemContextMenu")) {
-      if(!Entities.IsControllableByPlayer(Players.GetLocalPlayerPortraitUnit(), LPID)){return;}
+      let currentlySelectedUnit = Players.GetQueryUnit(local_player);
+      if (currentlySelectedUnit === -1) {
+        currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
+      }
+      if (currentlySelectedUnit !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
       if(!Entities.IsRealHero(Players.GetLocalPlayerPortraitUnit())){return;}
-
-      let localUnit = Players.GetLocalPlayerPortraitUnit();
       const itemImage = panel.FindChildTraverse("ItemImage")
       let abilityIndex = itemImage.contextEntityIndex;
       let FindContextMenu = DotaHUD.FindChildTraverse("InventoryItemContextMenu")
@@ -18,13 +23,12 @@ $.RegisterForUnhandledEvent("StyleClassesChanged", function(panel){
               if(!FPanel){
                   let panel = $.CreatePanel("Button", Buttons, "TestButton")
                   panel.visible = true
-                  //$.CreatePanel("Label", panel, "TestText", {text:$.Localize("#CUSTOM_INVENTORY_ContextButton")})
-                  $.CreatePanel("Label", panel, "TestText", {text:"Upgrade Item"})
+                  $.CreatePanel("Label", panel, "TestText", {text:$.Localize("#DOTA_SHOP_DETAILS_UPGRADE")})
                   panel.SetPanelEvent("onactivate", function() {
                       $.Msg(Abilities.GetAbilityName( abilityIndex ))
                       let itemName = Abilities.GetAbilityName( abilityIndex )
                       $.Msg(GetItemID(itemName))
-                      buyUpgrade(LPID, itemName)
+                      buyUpgrade(local_player, itemName)
                       $.DispatchEvent("DismissAllContextMenus");
                   })
               }
@@ -32,7 +36,6 @@ $.RegisterForUnhandledEvent("StyleClassesChanged", function(panel){
       }
   }
 });
-
 
 function isUpgradable (itemName) {
   let upgradeItemName = ""
@@ -59,7 +62,7 @@ function buyUpgrade (ent, itemName) {
   order.UnitIndex = ent
   order.AbilityIndex = Number(GetItemID(upgradeItemName.replace("item_", "item_recipe_")))
   order.Queue = false
-  order.ShowEffects = false
+  order.ShowEffects = true
   Game.PrepareUnitOrders(order)
   var core = "item_upgrade_core"
   if (itemTier >= 2) {
