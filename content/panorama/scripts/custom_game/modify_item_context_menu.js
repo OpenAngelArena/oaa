@@ -26,9 +26,6 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
           panel.visible = true;
           $.CreatePanel('Label', panel, 'TestText', { text: $.Localize('#DOTA_SHOP_DETAILS_UPGRADE') });
           panel.SetPanelEvent('onactivate', function () {
-            $.Msg(Abilities.GetAbilityName(abilityIndex));
-
-            $.Msg(GetItemID(itemName));
             buyUpgrade(localPlayer, itemName);
             $.DispatchEvent('DismissAllContextMenus');
           });
@@ -57,7 +54,6 @@ function isUpgradable (itemName) {
 
 function buyUpgrade (ent, itemName) {
   const [upgradeItemName, itemTier] = isUpgradable(itemName);
-  $.Msg(itemTier);
   const order = {};
   order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM;
   order.UnitIndex = ent;
@@ -75,7 +71,6 @@ function buyUpgrade (ent, itemName) {
 
 function GetItemID (itemName) {
   const allItems = CustomNetTables.GetTableValue('item_kv', 'custom_items');
-  $.Msg(allItems[itemName]);
   if (allItems && allItems[itemName]) {
     return allItems[(itemName)];
   }

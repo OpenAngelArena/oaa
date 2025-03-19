@@ -53,7 +53,6 @@ function CorePointsManager:LoadState(state)
 end
 
 function CorePointsManager:FilterOrders(keys)
-  DeepPrintTable(keys)
   local order = keys.order_type
   local units = keys.units
   local playerID = keys.issuer_player_id_const
