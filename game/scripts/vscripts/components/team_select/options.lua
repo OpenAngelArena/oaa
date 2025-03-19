@@ -32,9 +32,9 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
-  HM25 = "modifier_hp_mana_switch_oaa",
+  --HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
-  HM27 = "modifier_brawler_oaa",
+  --HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   HM29 = "modifier_double_multiplier_oaa",
   --HM30 = "modifier_hybrid_oaa",
@@ -43,7 +43,7 @@ local hero_mods = {
   HM33 = "modifier_titan_soul_oaa",
   --HM34 = "modifier_hero_anti_stun_oaa",
   HM35 = "modifier_octarine_soul_oaa",
-  HM36 = "modifier_smurf_oaa",
+  --HM36 = "modifier_smurf_oaa",
   HM37 = "modifier_speedster_oaa",
   HM38 = "modifier_universal_oaa",
   HM39 = "modifier_rich_man_oaa",
@@ -51,6 +51,7 @@ local hero_mods = {
   HM41 = "modifier_crimson_magic_oaa",
   HM42 = "modifier_ludo_oaa",
   HM43 = "modifier_battlemage_oaa",
+  HM44 = "modifier_multicast_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -148,6 +149,7 @@ function OAAOptions:SaveSettings()
 end
 
 function OAAOptions:SetupGame()
+  local mode = GameRules:GetGameModeEntity()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
     if CustomWardButtons then
@@ -155,8 +157,10 @@ function OAAOptions:SetupGame()
       CustomWardButtons.sentry_cooldown = 30
     end
   end
+  if self.settings.HEROES_MODS == "HM21" or self.settings.HEROES_MODS_2 == "HM21" or self.settings.HEROES_MODS == "HM39" or self.settings.HEROES_MODS_2 == "HM39" then
+    mode:SetLoseGoldOnDeath(false)
+  end
   if self.settings.GLOBAL_MODS == "GM12" then
-    local mode = GameRules:GetGameModeEntity()
     mode:SetBuybackEnabled(true)
   end
 end
@@ -339,6 +343,8 @@ function OAAOptions:TestHeroModifier(keys)
     anti_judecca = "modifier_all_healing_amplify_oaa",
     aoe_increase = "modifier_aoe_radius_increase_oaa",
     attack_range_switch = "modifier_troll_switch_oaa",
+    bad_design_1 = "modifier_bad_design_1_oaa",
+    bad_design_2 = "modifier_bad_design_2_oaa",
     battlemage = "modifier_battlemage_oaa",
     blood_magic = "modifier_blood_magic_oaa",
     boss_killer = "modifier_boss_killer_oaa",
@@ -367,12 +373,15 @@ function OAAOptions:TestHeroModifier(keys)
     magus = "modifier_magus_oaa",
     max_power = "modifier_any_damage_crit_oaa",
     moriah_shield = "modifier_hp_mana_switch_oaa",
+    multicast = "modifier_multicast_oaa",
     nimble = "modifier_nimble_oaa",
     no_brain = "modifier_no_brain_oaa",
     no_hp_bar = "modifier_no_health_bar_oaa",
     octarine_soul = "modifier_octarine_soul_oaa",
+    outworld_attack = "modifier_outworld_attack_oaa",
     phys_immune = "modifier_physical_immunity_oaa",
     pro_active = "modifier_pro_active_oaa",
+    puny = "modifier_puny_oaa",
     quick_spells = "modifier_no_cast_points_oaa",
     rend = "modifier_rend_oaa",
     roshans_body = "modifier_roshan_power_oaa",
@@ -381,6 +390,7 @@ function OAAOptions:TestHeroModifier(keys)
     speedster = "modifier_speedster_oaa",
     spell_resist = "modifier_spell_block_oaa",
     splasher = "modifier_any_damage_splash_oaa",
+    spoons_stash = "modifier_spoons_stash_oaa",
     telescope = "modifier_range_increase_oaa",
     timeless = "modifier_debuff_duration_oaa",
     titan_soul = "modifier_titan_soul_oaa",

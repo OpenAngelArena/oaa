@@ -28,11 +28,11 @@ function modifier_speedster_oaa:DeclareFunctions()
 end
 
 function modifier_speedster_oaa:GetModifierMoveSpeedBonus_Percentage()
-  return 50
+  return 30
 end
 
 function modifier_speedster_oaa:GetModifierAttackSpeedPercentage()
-  return 25
+  return 30
 end
 
 function modifier_speedster_oaa:GetModifierTurnRate_Percentage()

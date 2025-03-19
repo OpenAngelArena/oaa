@@ -36,6 +36,12 @@ function modifier_sorcerer_oaa:OnCreated()
     item_ex_machina = true,
     item_refresher_shard = true,
     item_tranquil_boots = true,
+    item_hand_of_midas_1 = true,
+    item_refresher = true,
+    item_refresher_2 = true,
+    item_refresher_3 = true,
+    item_refresher_4 = true,
+    item_refresher_5 = true,
   }
 end
 
@@ -152,6 +158,14 @@ if IsServer() then
         local item = parent:GetItemInSlot(i)
         if item and item:IsRefreshable() and not self.exempt_item_table[item:GetAbilityName()] then
           item:EndCooldown()
+        end
+      end
+
+      -- Reset cooldown for items that are in backpack
+      for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local backpack_item = parent:GetItemInSlot(j)
+        if backpack_item and not self.exempt_item_table[backpack_item:GetAbilityName()] then
+          backpack_item:EndCooldown()
         end
       end
 

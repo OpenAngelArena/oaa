@@ -31,7 +31,7 @@ function modifier_double_multiplier_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER,
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER,
     --MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
   }
@@ -184,11 +184,11 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecialValue(k
   return value
 end
 
-if IsServer() then
-  function modifier_double_multiplier_oaa:GetModifierStatusResistanceCaster()
-    return 0 - ((self.multiplier - 1) * 100)
-  end
-end
+-- if IsServer() then
+  -- function modifier_double_multiplier_oaa:GetModifierStatusResistanceCaster()
+    -- return 0 - ((self.multiplier - 1) * 100)
+  -- end
+-- end
 
 -- function modifier_double_multiplier_oaa:GetModifierSpellAmplify_Percentage()
   -- return (self.multiplier - 1) * 100

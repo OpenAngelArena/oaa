@@ -40,51 +40,46 @@ function modifier_ludo_oaa:OnCreated()
   end
 
   local parent = self:GetParent()
+  local name = parent:GetUnitName()
 
   self.modifier_list = {
     "modifier_all_healing_amplify_oaa",
-    "modifier_angel_oaa",
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_lifesteal_oaa",
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
+    "modifier_bad_design_1_oaa",
+    "modifier_bad_design_2_oaa",
     "modifier_battlemage_oaa",
-    "modifier_blood_magic_oaa",
-    "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_boss_killer_oaa",
     "modifier_bottle_collector_oaa",
     "modifier_brawler_oaa",
     "modifier_brute_oaa",
     "modifier_crimson_magic_oaa",
     --"modifier_courier_kill_bonus_oaa",
-    "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
     "modifier_diarrhetic_oaa",
-    "modifier_drunk_oaa",
     "modifier_duelist_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
-    "modifier_glass_cannon_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
-    "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
-    "modifier_mr_phys_weak_oaa",
+    "modifier_multicast_oaa",
     "modifier_nimble_oaa",
-    "modifier_no_brain_oaa",
     "modifier_no_cast_points_oaa",
-    "modifier_no_health_bar_oaa",
+    --"modifier_no_health_bar_oaa",
     "modifier_octarine_soul_oaa",
-    "modifier_pro_active_oaa",
+    "modifier_outworld_attack_oaa",
     "modifier_range_increase_oaa",
     "modifier_rend_oaa",
     --"modifier_rich_man_oaa",
     "modifier_roshan_power_oaa",
-    "modifier_smurf_oaa",
     "modifier_sorcerer_oaa",
     "modifier_speedster_oaa",
     "modifier_spell_block_oaa",
+    "modifier_spoons_stash_oaa",
     "modifier_titan_soul_oaa",
     "modifier_troll_switch_oaa",
     "modifier_true_sight_strike_oaa",
@@ -117,52 +112,35 @@ function modifier_ludo_oaa:OnCreated()
     "npc_dota_hero_witch_doctor",
   }
 
-  local bad_blood_magic_heroes = {
-    "npc_dota_hero_ancient_apparition",
-    "npc_dota_hero_clinkz",
-    "npc_dota_hero_drow_ranger",
-    "npc_dota_hero_electrician",
-    "npc_dota_hero_enchantress",
-    "npc_dota_hero_keeper_of_the_light",
-    "npc_dota_hero_leshrac",
-    "npc_dota_hero_medusa",
-    "npc_dota_hero_morphling",
-    "npc_dota_hero_obsidian_destroyer",
-    "npc_dota_hero_shredder",
-    "npc_dota_hero_silencer",
-    "npc_dota_hero_storm_spirit",
-    "npc_dota_hero_tusk",
-    "npc_dota_hero_viper",
-    "npc_dota_hero_winter_wyvern",
-    "npc_dota_hero_witch_doctor",
-  }
-
   for _, v in pairs(healer_heroes) do
-    if parent:GetUnitName() == v then
+    if name == v then
       table.insert(self.modifier_list, "modifier_healer_oaa")
     end
   end
 
-  -- Remove Blood Magic modifier for some heroes
-  for _, v in pairs(bad_blood_magic_heroes) do
-    if parent:GetUnitName() == v then
-      remove_mod_from_table(self.modifier_list, "modifier_blood_magic_oaa")
-    end
+  -- Remove Attack Range Switch from ranged heroes
+  if name ~= "npc_dota_hero_lone_druid" and parent:IsRangedAttacker() then
+    remove_mod_from_table(self.modifier_list, "modifier_troll_switch_oaa")
   end
 
-  -- Remove Cursed Attack modifier from AGI heroes, No Brain modifier from INT heroes and
-  -- Glass Cannon from STR heroes
-  if parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
-    remove_mod_from_table(self.modifier_list, "modifier_cursed_attack_oaa")
-  elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
-    remove_mod_from_table(self.modifier_list, "modifier_no_brain_oaa")
-  elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
-    remove_mod_from_table(self.modifier_list, "modifier_glass_cannon_oaa")
+  -- Add some modifiers for Medusa
+  if name == "npc_dota_hero_medusa" then
+    table.insert(self.modifier_list, "modifier_glass_cannon_oaa")
+    table.insert(self.modifier_list, "modifier_puny_oaa")
+  end
+
+  -- Add some modifiers for Ogre Magi
+  if name == "npc_dota_hero_ogre_magi" then
+    table.insert(self.modifier_list, "modifier_no_brain_oaa")
+  end
+
+  -- Add some modifiers for Tiny
+  if name == "npc_dota_hero_tiny" then
+    table.insert(self.modifier_list, "modifier_cursed_attack_oaa")
   end
 
   self.max_duration = 2 * 60 -- 2 minutes
-  self.on_respawn_chance = 5
-  self.on_kill_chance = 5
+  self.on_respawn_chance = 0
 
   -- Add an actual random modifier after a delay
   self:StartIntervalThink(1)
@@ -204,7 +182,6 @@ end
 function modifier_ludo_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_RESPAWN,
-    MODIFIER_EVENT_ON_HERO_KILLED,
   }
 end
 
@@ -262,48 +239,11 @@ if IsServer() then
       return
     end
 
-    if RandomInt(1, 100) <= self.on_respawn_chance then
+    if self.on_respawn_chance == 100 then
       -- Reset think interval and change the modifier
       self:StartIntervalThink(self.max_duration)
       self:ChangeModifier(parent)
-      self.on_respawn_chance = 5
-    end
-  end
-
-  function modifier_ludo_oaa:OnHeroKilled(event)
-    local parent = self:GetParent()
-    local killer = event.attacker
-    local target = event.target
-
-    -- Check if killer exists
-    if not killer or killer:IsNull() then
-      return
-    end
-
-    -- Don't continue if the killer doesn't belong to the parent
-    if UnitVarToPlayerID(killer) ~= UnitVarToPlayerID(parent) then
-      return
-    end
-
-    -- Ignore self denies and denying allies
-    if target:GetTeamNumber() == parent:GetTeamNumber() then
-      return
-    end
-
-    -- Don't trigger on Meepo Clones, Tempest Doubles and Spirit Bears
-    if target:IsClone() or target:IsTempestDouble() or target:IsSpiritBearOAA() then
-      return
-    end
-
-    if RandomInt(1, 100) <= self.on_kill_chance then
-      -- Check if parent is dead
-      if parent:IsAlive() then
-        -- Reset think interval and change the modifier
-        self:StartIntervalThink(self.max_duration)
-        self:ChangeModifier(parent)
-      else
-        self.on_respawn_chance = 100
-      end
+      self.on_respawn_chance = 0
     end
   end
 end
