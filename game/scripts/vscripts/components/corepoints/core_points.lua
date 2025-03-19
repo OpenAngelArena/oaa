@@ -13,7 +13,6 @@ function CorePointsManager:Init()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
-  
   local custom_items = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   local custom_items_ids = {}
   for k,v in pairs(custom_items) do
@@ -23,8 +22,6 @@ function CorePointsManager:Init()
     end
   end
   CustomNetTables:SetTableValue("item_kv", "custom_items", custom_items_ids)
-  
-
   self.playerID_table = {}
 end
 
