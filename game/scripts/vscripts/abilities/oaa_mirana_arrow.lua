@@ -152,7 +152,7 @@ if IsServer() then
           local particle_delay = 0.8
           local damage_delay = particle_delay + 0.57
           local star_damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
-          local secondary_star_damage_reduction = starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
+          local secondary_star_damage_reduction = self:GetSpecialValueFor("scepter_starstorm_target_pct") --starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
 
           damage_table.damage = star_damage*secondary_star_damage_reduction*0.01
           damage_table.ability = starfall_ability
@@ -223,7 +223,8 @@ if IsServer() then
 
     if starfall_ability:GetLevel() > 0 then
       local damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
-      local radius = math.min(starfall_ability:GetSpecialValueFor("starfall_radius"), starfall_ability:GetSpecialValueFor("starfall_secondary_radius"))
+      --local radius = math.min(starfall_ability:GetSpecialValueFor("starfall_radius"), starfall_ability:GetSpecialValueFor("starfall_secondary_radius"))
+      local radius = self:GetSpecialValueFor("scepter_radius")
 
       local candidates = FindUnitsInRadius(
         caster:GetTeamNumber(),

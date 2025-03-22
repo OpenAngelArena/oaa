@@ -238,7 +238,7 @@ if IsServer() then
       return
     end
 
-    local number_of_trees = 4
+    local number_of_trees = 3
     for i = 1, number_of_trees do
       local random_location = caster:GetAbsOrigin() + RandomVector(500)
       CreateTempTree(random_location, 3)

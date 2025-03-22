@@ -17,6 +17,8 @@ local ARMOR_ENUM = 5
 local GOLD_BOUNTY_ENUM = 6
 local EXP_BOUNTY_ENUM = 7
 
+local NEUTRAL_ABILITIES_UPGRADE_TIME = 7*60 -- every 7 minutes
+
 -- we want to set a timer to spawn creeps
 -- the timer scans the map for all supported creep camps and spawns the creeps
 -- profit
@@ -105,7 +107,15 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     DOTA_UNIT_TARGET_CREEP,
     DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
-    false)
+    false
+  )
+
+  -- Upgrade creep abilities (edge cases: creeps that are out of the camp)
+  for _, unit in pairs(units) do
+    if unit then
+      self:SetCreepAbilityLevels(unit)
+    end
+  end
 
   -- Properties of the creep that is supposed to spawn
   local newCreepProperties = self:AdjustCreepPropertiesByPowerLevel(creepProperties, CreepPowerLevel)
@@ -173,6 +183,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     if not HeroSelection.is10v10 or HudTimer:GetGameTime() < DUEL_INTERVAL then
       creepHandle:AddNewModifier(creepHandle, nil, "modifier_creep_loot", {locationString = locationString})
     end
+    self:SetCreepAbilityLevels(creepHandle)
   end
 
   return true
@@ -353,4 +364,36 @@ function CreepCamps:AlreadyDidDistributedScaleUpgrade(creepHandle, minute)
   end
 
   return false
+end
+
+function CreepCamps:SetCreepAbilityLevels(creepHandle)
+  if HudTimer:GetGameTime() < NEUTRAL_ABILITIES_UPGRADE_TIME then
+    for i = 0, creepHandle:GetAbilityCount() - 1 do
+      local ability = creepHandle:GetAbilityByIndex(i)
+      if ability then
+        ability:SetLevel(1)
+      end
+    end
+  elseif HudTimer:GetGameTime() >= NEUTRAL_ABILITIES_UPGRADE_TIME and HudTimer:GetGameTime() < 2*NEUTRAL_ABILITIES_UPGRADE_TIME then
+    for i = 0, creepHandle:GetAbilityCount() - 1 do
+      local ability = creepHandle:GetAbilityByIndex(i)
+      if ability then
+        ability:SetLevel(2)
+      end
+    end
+  elseif HudTimer:GetGameTime() >= 2*NEUTRAL_ABILITIES_UPGRADE_TIME and HudTimer:GetGameTime() < 3*NEUTRAL_ABILITIES_UPGRADE_TIME then
+    for i = 0, creepHandle:GetAbilityCount() - 1 do
+      local ability = creepHandle:GetAbilityByIndex(i)
+      if ability then
+        ability:SetLevel(3)
+      end
+    end
+  elseif HudTimer:GetGameTime() >= 3*NEUTRAL_ABILITIES_UPGRADE_TIME then
+    for i = 0, creepHandle:GetAbilityCount() - 1 do
+      local ability = creepHandle:GetAbilityByIndex(i)
+      if ability then
+        ability:SetLevel(4)
+      end
+    end
+  end
 end

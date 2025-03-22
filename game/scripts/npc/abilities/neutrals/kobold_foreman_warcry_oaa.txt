@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Kobold Foreman: Warcry - Buffs all allies in an AOE with attack speed and flat damage.
+  // TODO: maybe add % dmg bonus
   //=================================================================================================================
   "kobold_foreman_warcry_oaa"
   {
@@ -13,12 +14,12 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "30.0"
+    "AbilityCooldown"                                     "30 25 20 15"
 
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "75"
     "AbilityProcsMagicStick"                              "1"
 
     "precache"
@@ -30,8 +31,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"                                "50"
-      "bonus_attack_damage"                               "20"
+      "bonus_attack_speed"                                "30 40 50 60"
+      "bonus_attack_damage"                               "15 30 60 120"
       "radius"
       {
         "value"                                           "1200"

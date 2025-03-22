@@ -17,7 +17,7 @@
 
       "items"
       {
-        "item_trusty_shovel"                              "1"
+        "item_trusty_shovel_oaa"                          "1" // item_trusty_shovel
         "item_occult_bracelet"                            "1"
         "item_unstable_wand"                              "1"
         "item_mana_draught"                               "1"
@@ -47,7 +47,7 @@
       "items"
       {
         "item_essence_ring"                               "1"
-        "item_iron_talon"                                 "1"
+        "item_demon_stone"                                "1" // item_iron_talon
         "item_gossamer_cape"                              "1"
         "item_searing_signet"                             "1"
         "item_misericorde"                                "1"
@@ -64,7 +64,7 @@
 
         "item_enhancement_keen_eyed"                      "1"
         "item_enhancement_vast"                           "1"
-        "item_enhancement_greedy"                         "1"
+        "item_enhancement_greedy_oaa"                     "1" // item_enhancement_greedy
         "item_enhancement_vampiric"                       "1"
       }
     }
@@ -96,7 +96,7 @@
 
         "item_enhancement_keen_eyed"                      "2"
         "item_enhancement_vast"                           "2"
-        "item_enhancement_greedy"                         "2"
+        "item_enhancement_greedy_oaa"                     "2" // item_enhancement_greedy
         "item_enhancement_vampiric"                       "2"
       }
     }
@@ -115,7 +115,7 @@
         "item_magnifying_monocle"                         "1"
         "item_ceremonial_robe"                            "1"
         "item_mind_breaker"                               "1"
-        "item_pyrrhic_cloak"                              "1"
+        "item_craggy_coat_oaa"                            "1" // item_pyrrhic_cloak
       }
 
       "enhancements"
@@ -146,12 +146,13 @@
       {
         "item_desolator_2"                                "1"
         "item_fallen_sky"                                 "1"
-        "item_demonicon"                                  "1"
+        "item_reflex_core"                                "1" // item_demonicon
         "item_minotaur_horn"                              "1"
         "item_spider_legs"                                "1"
-        "item_panic_button"                               "1"
+        "item_stonework_pendant"                          "1" // item_panic_button
         "item_unrelenting_eye"                            "1"
-        "item_pirate_hat"                                 "1"
+        "item_blood_sword"                                "1" // item_pirate_hat
+        "item_rune_breaker_oaa"                           "1"
       }
 
       "enhancements"
@@ -165,7 +166,7 @@
         "item_enhancement_audacious"                      "1"
         "item_enhancement_evolved"                        "1"
         "item_enhancement_boundless"                      "1"
-        "item_enhancement_wise"                           "1"
+        "item_arcane_crystal"                             "1" // item_enhancement_wise
       }
     }
   }

@@ -1,0 +1,48 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- 2-Sided Rendering ----
+	F_RENDER_BACKFACES 1
+
+	//---- Do not Cast Shadows ----
+	F_DO_NOT_CAST_SHADOWS 1
+
+	//---- Do not Reflect ----
+	F_DO_NOT_REFLECT 1
+
+	//---- Scroll UV ----
+	F_SCROLL_UV 2 // Scroll All Textures
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Translucent ----
+	F_ALPHA_TEST 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/fires/spiritfire_color.png"
+
+	//---- Scroll UV ----
+	g_flScrollUvSpeed "1.000"
+	g_vScrollUvDirection "[1.000 0.000]"
+	TextureScrollSpeed "materials/default/default.tga"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/fires/fire_selfillum.png"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.350"
+	g_flSpecularIntensity "1.000"
+	TextureBloom "materials/fires/fire_bloom.png"
+	TextureReflectance "materials/default/default_refl.tga"
+
+	//---- Translucent ----
+	g_flAlphaTestReference "0.700"
+	TextureTranslucency "materials/fires/fire_trans.png"
+}

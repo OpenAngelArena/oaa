@@ -65,8 +65,6 @@ end
 function modifier_item_rune_breaker_oaa_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
     self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
   end
 end
@@ -81,18 +79,8 @@ end
 
 function modifier_item_rune_breaker_oaa_passive:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
   }
-end
-
-function modifier_item_rune_breaker_oaa_passive:GetModifierPhysicalArmorBonus()
-  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
-
-function modifier_item_rune_breaker_oaa_passive:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_rune_breaker_oaa_passive:GetModifierBaseDamageOutgoing_Percentage()

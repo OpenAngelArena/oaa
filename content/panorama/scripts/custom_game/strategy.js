@@ -44,4 +44,12 @@ function ShowStrategy () {
   if (contentPanel) {
     contentPanel.style.visibility = 'visible';
   }
+  const radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+  if (radiantTeamPanel) {
+    radiantTeamPanel.style.visibility = 'visible';
+  }
+  const direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+  if (direTeamPanel) {
+    direTeamPanel.style.visibility = 'visible';
+  }
 }

@@ -1,7 +1,8 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Blue Tomato: Vanilla Thunder Clap (Hellbear Smash)
+  // Hellbear Smasher (Blue Tomato): Vanilla Thunder Clap (Hellbear Smash)
+  // TODO: maybe add % max hp dmg
   //=================================================================================================================
   "polar_furbolg_ursa_warrior_thunder_clap"
   {
@@ -15,7 +16,7 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
+    "MaxLevel"                                            "4"
 
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
@@ -25,7 +26,7 @@
     "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "150 250 500 1000" //OAA
+    "AbilityDamage"                                       "110 225 450 900" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,8 +37,8 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "movespeed_slow"                                    "-25"
-      "attackspeed_slow"                                  "-25"
+      "movespeed_slow"                                    "-25 -30 -35 -40" //OAA
+      "attackspeed_slow"                                  "-25 -35 -45 -55" //OAA
       "duration"                                          "3.0"
     }
   }

@@ -34,24 +34,10 @@ function modifier_item_reflex_core_passive:IsPurgable()
   return false
 end
 
-function modifier_item_reflex_core_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.evasion = ability:GetSpecialValueFor("bonus_evasion")
-  end
-end
-
-modifier_item_reflex_core_passive.OnRefresh = modifier_item_reflex_core_passive.OnCreated
-
 function modifier_item_reflex_core_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
-    MODIFIER_PROPERTY_EVASION_CONSTANT,
   }
-end
-
-function modifier_item_reflex_core_passive:GetModifierEvasion_Constant()
-  return self.evasion or self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
 if IsServer() then

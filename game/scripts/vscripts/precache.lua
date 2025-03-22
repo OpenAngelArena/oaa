@@ -90,6 +90,7 @@ g_UnitPrecache = {
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
   "npc_dota_boss_grendel",
+  "npc_dota_neutral_custom_small_ghost",
 }
 
 g_ModelPrecache = {
@@ -107,8 +108,11 @@ g_ParticlePrecache = {
   "particles/items/upgrade_2.vpcf",
   "particles/items/upgrade_3.vpcf",
   "particles/items/upgrade_4.vpcf",
-  "particles/units/heroes/hero_pugna/pugna_netherblast_pre.vpcf",
-  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_netherblast_pre.vpcf", -- For Explosive Death modifier
+  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf", -- For Explosive Death modifier
+  "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", -- For Multicast modifier
+  "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_b.vpcf", -- For Multicast modifier
+  "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_c.vpcf", -- For Multicast modifier
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
   "particles/dungeon_overhead_timer_colored.vpcf", -- Offside overhead numbers
@@ -138,6 +142,7 @@ g_ParticleFolderPrecache = {
 g_SoundPrecache = {
   "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds, Giant Form sound
   "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", -- For Explosive Death modifier
+  "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", -- For Multicast modifier
   -- Ambient sounds
   --"soundevents/ambient/doors.vsndevts",
   "soundevents/music/music.vsndevts",

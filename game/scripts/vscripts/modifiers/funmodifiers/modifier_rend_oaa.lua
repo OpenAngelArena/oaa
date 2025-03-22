@@ -19,44 +19,48 @@ function modifier_rend_oaa:RemoveOnDeath()
 end
 
 function modifier_rend_oaa:OnCreated()
-  self.duration = 6
+  self.duration = 7
 end
 
 function modifier_rend_oaa:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
   }
 end
 
 if IsServer() then
-  function modifier_rend_oaa:OnAttackLanded(event)
+  function modifier_rend_oaa:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
-    local ability = self:GetAbility()
+    local attacker = event.attacker
     local target = event.target
 
-    -- Doesn't work on units that dont have this modifier, doesn't work on illusions
-    if parent ~= event.attacker or parent:IsIllusion() then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
 
-    -- To prevent crashes:
-    if not target then
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
-    if target:IsNull() then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
-    -- Doesn't work on allies, towers, or wards
-    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
       return
     end
 
-    -- Get duration
-    local duration = self.duration
+    -- No need to proc if target is invulnerable or dead
+    if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
+      return
+    end
 
-    target:AddNewModifier(parent, ability, "modifier_rend_armor_reduction_oaa", {duration = duration})
+    target:AddNewModifier(parent, nil, "modifier_rend_armor_reduction_oaa", {duration = self.duration})
   end
 end
 

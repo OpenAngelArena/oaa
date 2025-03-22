@@ -46,21 +46,10 @@
       "parry_duration"                                    "2.0"
       "parry_bonus_crit"                                  "20 40 60 80 100 120" //OAA
       "parry_stun_duration"                               "0.5"
-      "sai_swap_bonus_movement_speed"     
+      "sai_swap_bonus_movement_speed"
       {
         "RequiresFacet"                                   "kez_flutter"
         "value"                                           "12"
-      }
-
-      "mark_trigger_cd_reduction"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_kez_shadowhawk"              "20 30 40 50 55 60"
-      }
-      "invis_bonus_crit"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_kez_shadowhawk"              "50"
       }
     }
   }

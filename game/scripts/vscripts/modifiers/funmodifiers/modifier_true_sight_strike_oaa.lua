@@ -51,7 +51,7 @@ function modifier_true_sight_strike_oaa:CheckState()
 end
 
 function modifier_true_sight_strike_oaa:GetTexture()
-  return "item_gem"
+  return "custom/modifiers/keeper_of_the_truth"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -149,5 +149,5 @@ end
 ]]
 
 function modifier_truesight_aura_effect_oaa:GetTexture()
-  return "item_gem"
+  return "custom/modifiers/keeper_of_the_truth"
 end
