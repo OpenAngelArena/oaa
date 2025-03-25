@@ -52,6 +52,7 @@ local hero_mods = {
   HM42 = "modifier_ludo_oaa",
   HM43 = "modifier_battlemage_oaa",
   HM44 = "modifier_multicast_oaa",
+  HM45 = "modifier_spoons_stash_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -342,8 +343,8 @@ function OAAOptions:TestHeroModifier(keys)
     angels_wings = "modifier_angel_oaa",
     anti_judecca = "modifier_all_healing_amplify_oaa",
     aoe_increase = "modifier_aoe_radius_increase_oaa",
+    armor_power = "modifier_bad_design_1_oaa",
     attack_range_switch = "modifier_troll_switch_oaa",
-    bad_design_1 = "modifier_bad_design_1_oaa",
     bad_design_2 = "modifier_bad_design_2_oaa",
     battlemage = "modifier_battlemage_oaa",
     blood_magic = "modifier_blood_magic_oaa",

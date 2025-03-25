@@ -152,6 +152,38 @@ function PointsManager:SetWinner(teamID)
   GAME_WINNER_TEAM = teamID
   GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
 
+  -- Celebration for winners
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      local player = PlayerResource:GetPlayer(playerID)
+      if player ~= nil and not player:IsNull() then
+        local hero = player:GetAssignedHero()
+        if hero then
+          hero:Stop()
+          hero:RemoveModifierByName("modifier_out_of_duel")
+          hero:AddNewModifier(hero, nil, "modifier_end_game_oaa", {})
+          if player:GetTeam() == teamID then
+            hero:StartGesture(ACT_DOTA_VICTORY)
+          else
+            hero:StartGesture(ACT_DOTA_DEFEAT)
+          end
+        end
+      else
+        local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+        if hero then
+          hero:Stop()
+          hero:RemoveModifierByName("modifier_out_of_duel")
+          hero:AddNewModifier(hero, nil, "modifier_end_game_oaa", {})
+          if PlayerResource:GetTeam(playerID) == teamID then
+            hero:StartGesture(ACT_DOTA_VICTORY)
+          else
+            hero:StartGesture(ACT_DOTA_DEFEAT)
+          end
+        end
+      end
+    end
+  end
+
   Bottlepass:SendWinner(teamID)
 
   Timers:CreateTimer(2, function()
