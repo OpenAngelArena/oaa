@@ -1,3 +1,4 @@
+-- Armor Power
 
 modifier_bad_design_1_oaa = class(ModifierBaseClass)
 

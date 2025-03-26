@@ -52,6 +52,7 @@ local hero_mods = {
   HM42 = "modifier_ludo_oaa",
   HM43 = "modifier_battlemage_oaa",
   HM44 = "modifier_multicast_oaa",
+  HM45 = "modifier_spoons_stash_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -126,6 +127,8 @@ function OAAOptions:Init ()
       --self:SaveSettings()
     end
   end)
+
+  CustomGameEventManager:RegisterListener("oaa_modifier_info_request", Dynamic_Wrap(OAAOptions, "SendModifierInfo"))
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
@@ -342,8 +345,8 @@ function OAAOptions:TestHeroModifier(keys)
     angels_wings = "modifier_angel_oaa",
     anti_judecca = "modifier_all_healing_amplify_oaa",
     aoe_increase = "modifier_aoe_radius_increase_oaa",
+    armor_power = "modifier_bad_design_1_oaa",
     attack_range_switch = "modifier_troll_switch_oaa",
-    bad_design_1 = "modifier_bad_design_1_oaa",
     bad_design_2 = "modifier_bad_design_2_oaa",
     battlemage = "modifier_battlemage_oaa",
     blood_magic = "modifier_blood_magic_oaa",
@@ -429,4 +432,62 @@ function OAAOptions:TestHeroModifier(keys)
       end
     end
   end
+end
+
+function OAAOptions:SendModifierInfo(event)
+  local unit_index = event.unit
+  local playerID = event.PlayerID
+
+  local unit
+  if unit_index then
+    unit = EntIndexToHScript(unit_index)
+  end
+  if not unit or unit:IsNull() then
+    return
+  end
+  if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+    return
+  end
+
+  -- Modifiers that have 'ignore_abilities' table
+  local mod_names = {"modifier_magus_oaa", "modifier_multicast_oaa", "modifier_ham_oaa", "modifier_pro_active_oaa", "modifier_octarine_soul_oaa"}
+  local data = {}
+  data.magus_black_list = {}
+  data.magus_gray_list = {}
+  data.multicast_black_list = {}
+  data.ham_penalty_list = {}
+  data.pro_active_penalty_list = {}
+  data.octarine_soul_penalty_list = {}
+  for _, mod_name in pairs (mod_names) do
+    local mod = unit:FindModifierByName(mod_name)
+    if mod then
+      if mod.ignore_abilities then
+        for ability_name, _ in pairs(mod.ignore_abilities) do
+          if unit:HasAbility(ability_name) then
+            if mod_name == "modifier_magus_oaa" then
+              table.insert(data.magus_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_multicast_oaa" then
+              table.insert(data.multicast_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_ham_oaa" then
+              table.insert(data.ham_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_pro_active_oaa" then
+              table.insert(data.pro_active_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_octarine_soul_oaa" then
+              table.insert(data.octarine_soul_penalty_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+      if mod_name == "modifier_magus_oaa" then
+        if mod.low_chance_to_proc then
+          for ability_name, _ in pairs(mod.low_chance_to_proc) do
+            if unit:HasAbility(ability_name) then
+              table.insert(data.magus_gray_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+    end
+  end
+  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "oaa_modifier_info_update", data)
 end

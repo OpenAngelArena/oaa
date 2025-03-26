@@ -35,6 +35,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_spoons_stash" id="HM45" onmouseover="UIShowTextTooltip(#game_option_spoons_stash_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_multicast" id="HM44" onmouseover="UIShowTextTooltip(#game_option_multicast_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_battlemage" id="HM43" onmouseover="UIShowTextTooltip(#game_option_battlemage_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_crimson_magic" id="HM41" onmouseover="UIShowTextTooltip(#game_option_crimson_magic_description)" onmouseout="UIHideTextTooltip()"/>
@@ -83,6 +84,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_spoons_stash" id="HM45" onmouseover="UIShowTextTooltip(#game_option_spoons_stash_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_multicast" id="HM44" onmouseover="UIShowTextTooltip(#game_option_multicast_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_battlemage" id="HM43" onmouseover="UIShowTextTooltip(#game_option_battlemage_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_crimson_magic" id="HM41" onmouseover="UIShowTextTooltip(#game_option_crimson_magic_description)" onmouseout="UIHideTextTooltip()"/>

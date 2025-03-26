@@ -74,7 +74,7 @@ function Bottlepass:SendWinner (winner)
     end
   end
 
-  self:Request('match/complete', {
+  local req = self:Request('match/complete', {
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
@@ -121,7 +121,7 @@ function Bottlepass:SendWinner (winner)
 ]]
   end)
 
-  if IsInToolsMode() then
+  if not req then
     Bottlepass:SendEndGameStats()
   end
 end
