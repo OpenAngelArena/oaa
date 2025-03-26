@@ -166,6 +166,7 @@ function modifier_multicast_oaa:OnCreated()
     tinkerer_laser_contraption = 1,                      -- lag
     tiny_toss_tree = 1,                                  -- useless
     tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    treant_leech_seed = 1,                               -- crashes
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_launch_snowball = 1,                            -- useless
     tusk_snowball = 1,                                   -- bugs out
