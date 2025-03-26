@@ -15,6 +15,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.FindModifier = FindModifier;
   module.exports.HasModifier = HasModifier;
   module.exports.GetStackCount = GetStackCount;
+  module.exports.GetDotaHud = GetDotaHud;
 }
 const HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
