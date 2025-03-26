@@ -29,15 +29,15 @@ local function remove_mod_from_table(t, mod)
   end
 end
 
-local function TableContains(t, element)
-  if t == nil then return false end
-  for _, v in pairs(t) do
-    if v == element then
-      return true
-    end
-  end
-  return false
-end
+-- local function TableContains(t, element)
+  -- if t == nil then return false end
+  -- for _, v in pairs(t) do
+    -- if v == element then
+      -- return true
+    -- end
+  -- end
+  -- return false
+-- end
 
 function modifier_chaos_oaa:OnCreated()
   if not IsServer() then
