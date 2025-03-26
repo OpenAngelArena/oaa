@@ -128,6 +128,8 @@ function OAAOptions:Init ()
     end
   end)
 
+  CustomGameEventManager:RegisterListener("oaa_modifier_info_request", Dynamic_Wrap(OAAOptions, "SendModifierInfo"))
+
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
@@ -430,4 +432,62 @@ function OAAOptions:TestHeroModifier(keys)
       end
     end
   end
+end
+
+function OAAOptions:SendModifierInfo(event)
+  local unit_index = event.unit
+  local playerID = event.PlayerID
+
+  local unit
+  if unit_index then
+    unit = EntIndexToHScript(unit_index)
+  end
+  if not unit or unit:IsNull() then
+    return
+  end
+  if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+    return
+  end
+
+  -- Modifiers that have 'ignore_abilities' table
+  local mod_names = {"modifier_magus_oaa", "modifier_multicast_oaa", "modifier_ham_oaa", "modifier_pro_active_oaa", "modifier_octarine_soul_oaa"}
+  local data = {}
+  data.magus_black_list = {}
+  data.magus_gray_list = {}
+  data.multicast_black_list = {}
+  data.ham_penalty_list = {}
+  data.pro_active_penalty_list = {}
+  data.octarine_soul_penalty_list = {}
+  for _, mod_name in pairs (mod_names) do
+    local mod = unit:FindModifierByName(mod_name)
+    if mod then
+      if mod.ignore_abilities then
+        for ability_name, _ in pairs(mod.ignore_abilities) do
+          if unit:HasAbility(ability_name) then
+            if mod_name == "modifier_magus_oaa" then
+              table.insert(data.magus_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_multicast_oaa" then
+              table.insert(data.multicast_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_ham_oaa" then
+              table.insert(data.ham_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_pro_active_oaa" then
+              table.insert(data.pro_active_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_octarine_soul_oaa" then
+              table.insert(data.octarine_soul_penalty_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+      if mod_name == "modifier_magus_oaa" then
+        if mod.low_chance_to_proc then
+          for ability_name, _ in pairs(mod.low_chance_to_proc) do
+            if unit:HasAbility(ability_name) then
+              table.insert(data.magus_gray_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+    end
+  end
+  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "oaa_modifier_info_update", data)
 end

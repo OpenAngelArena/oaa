@@ -45,6 +45,17 @@
         <Label id="UpgradeCoreText" html="true" text="#game_info_upgrade_core" />
         <Image id="UpgradeCoreImage" src="file://{images}/custom_game/game_info/upgrade_core.psd" />
       </Panel>
+      <Label id="MagusTitle" text="#game_option_magus" />
+      <Label id="MagusBlackList" text="Can Proc All Spells with Magus." />
+      <Label id="MagusGrayList" text="No reduced chance for proccing spells." />
+      <Label id="HAMTitle" text="#game_option_hyper_active" />
+      <Label id="HAMPenaltyList" text="No penalties." />
+      <Label id="ProActiveTitle" text="#game_option_pro_active" />
+      <Label id="ProActivePenaltyList" text="No penalties." />
+      <Label id="OctarineSoulTitle" text="#game_option_octarine_soul" />
+      <Label id="OctarineSoulPenaltyList" text="No penalties." />
+      <Label id="MulticastTitle" text="#game_option_multicast" />
+      <Label id="MulticastBlackList" text="Can Proc All Spells with Multicast." />
     </Panel>
   </Panel>
 </root>
