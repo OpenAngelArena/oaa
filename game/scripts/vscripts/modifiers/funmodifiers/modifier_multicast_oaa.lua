@@ -166,6 +166,7 @@ function modifier_multicast_oaa:OnCreated()
     tinkerer_laser_contraption = 1,                      -- lag
     tiny_toss_tree = 1,                                  -- useless
     tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    treant_leech_seed = 1,                               -- crashes (changes targetting)
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_launch_snowball = 1,                            -- useless
     tusk_snowball = 1,                                   -- bugs out
@@ -173,7 +174,7 @@ function modifier_multicast_oaa:OnCreated()
     undying_tombstone_grab = 1,                          -- grief, bugs out?
     --ursa_enrage = 1,                                   -- increases duration?
     --vengefulspirit_nether_swap = 1,                    -- grief in some cases, DOTA_UNIT_TARGET_TEAM_CUSTOM
-    --venomancer_plague_ward = 1,                        -- lag
+    venomancer_plague_ward = 1,                          -- crashes (changes targetting)
     visage_stone_form_self_cast = 1,                     -- self grief
     void_spirit_aether_remnant = 1,                      -- lag
     --void_spirit_astral_step = 1,                       -- bugs out?
