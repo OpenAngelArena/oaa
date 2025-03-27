@@ -45,6 +45,8 @@
       "mana_burn_pct" //OAA
       {
         "value"                                           "0"
+        "special_bonus_facet_nyx_assassin_burn_mana"      "=0"
+        "RequiresFacet"                                   "nyx_assassin_burn_mana"
       }
       "aoe"
       {
