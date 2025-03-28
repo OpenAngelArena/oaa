@@ -13,7 +13,7 @@
 
     "AbilityValues"
     {
-      "damage_per_tree_pct"                               "4"
+      "damage_per_tree_pct"                               "3"
       "radius"
       {
         "value"                                           "300 400 500 600 700 800"
@@ -24,7 +24,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "multiplier" //OAA
+      "multiplier"
       {
         "value"                                           "1"
         "special_bonus_facet_furion_ironwood_treant"      "x4"

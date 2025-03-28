@@ -21,10 +21,6 @@
     "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 115 120 125 130 135"
@@ -80,6 +76,11 @@
         "special_bonus_unique_batrider_5"                 "+2"
       }
       "damage_total_tooltip"                              "75 140 215 300 600 900" //OAA, damage_impact + damage_per_second x damage_duration
+      "AbilityCooldown"
+      {
+        "value"                                           "16 15 14 13 12 11"
+        "special_bonus_unique_batrider_5"                 "-6"
+      }
       "slow"                                              "8 16 24 32 40 48"
     }
   }
