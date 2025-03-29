@@ -45,13 +45,11 @@
       }
       "radius_scepter"
       {
-        "value"                                           "475"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "475"
         "affected_by_aoe_increase"                        "1"
       }
       "enemy_overload_duration"
       {
-        "value"                                           "0"
         "special_bonus_facet_storm_spirit_shock_collar"   "=5"
       }
     }

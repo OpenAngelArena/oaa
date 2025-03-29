@@ -54,24 +54,20 @@
       }
       "speed_scepter"
       {
-        "value"                                           "1500"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1500"
       }
       "aoe_scepter"
       {
-        "value"                                           "260"
+        "special_bonus_scepter"                           "260"
         "affected_by_aoe_increase"                        "1"
-        "RequiresScepter"                                 "1"
       }
       "cooldown_scepter"
       {
-        "value"                                           "7"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "7"
       }
       "cast_range_scepter"
       {
-        "value"                                           "2200"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2200"
       }
     }
   }

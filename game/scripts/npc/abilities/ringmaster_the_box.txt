@@ -51,18 +51,15 @@
       }
       "strong_dispel"
       {
-        "value"                                           "0"
         "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"  "+1"
       }
       "grant_flying"
       {
-        "value"                                           "0"
         "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"  "+1"
       }
       "max_charges"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "AbilityCooldown" //OAA
       {
@@ -76,23 +73,19 @@
       }
       "launch_daggers_count"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=8"
       }
       "launch_daggers_range"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=1200"
       }
       "explosion_radius" //OAA
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=450"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_damage" //OAA
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=75 =150 =225 =300 =600 =900"
       }
     }
