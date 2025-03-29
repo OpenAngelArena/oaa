@@ -45,7 +45,6 @@
       {
         "value"                                           "0"
         "special_bonus_facet_sohei_lord"                  "=20"
-        "RequiresFacet"                                   "sohei_lord"
       }
       "spell_crit_damage"
       {
@@ -53,7 +52,6 @@
         "special_bonus_facet_sohei_lord"                  "=120 =130 =140 =150 =160 =170"
         "special_bonus_unique_sohei_5_oaa"                "+50"
         "CalculateSpellDamageTooltip"                     "0"
-        "RequiresFacet"                                   "sohei_lord"
       }
     }
   }

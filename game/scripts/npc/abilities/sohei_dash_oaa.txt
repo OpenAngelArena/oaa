@@ -60,6 +60,11 @@
         "value"                                           "20 19 18 17 16 15"
         "special_bonus_facet_sohei_warrior"               "=16 =13 =10 =7 =6 =5"
       }
+      "warrior_cooldown_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sohei_warrior"               "16 13 10 7 6 5"
+      }
       "dash_speed"                                        "4000" // max Dash speed
       "move_speed_multiplier"                             "7.5"
       "dash_width"
@@ -94,7 +99,6 @@
       {
         "value"                                           "0"
         "special_bonus_facet_sohei_monk"                  "=1"
-        "RequiresFacet"                                   "sohei_monk"
       }
       "procs_attacks"
       {
