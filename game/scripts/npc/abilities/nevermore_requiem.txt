@@ -70,13 +70,11 @@
       "soul_death_release"                                "0.5"
       "requiem_heal_pct_scepter"
       {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "100"
       }
       "requiem_damage_pct_scepter"
       {
-        "value"                                           "60"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "60"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

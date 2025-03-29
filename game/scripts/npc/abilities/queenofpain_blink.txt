@@ -33,18 +33,15 @@
       "min_blink_range"                                   "200"
       "shard_damage" //OAA, it's applied twice if blinked within shard_aoe
       {
-        "RequiresShard"                                   "1"
-        "value"                                           "50 75 100 125 250 500"
+        "special_bonus_shard"                             "50 75 100 125 250 500"
       }
       "shard_duration"
       {
-        "RequiresShard"                                   "1"
-        "value"                                           "1.75"
+        "special_bonus_shard"                             "1.75"
       }
       "shard_aoe"
       {
-        "RequiresShard"                                   "1"
-        "value"                                           "300"
+        "special_bonus_shard"                             "300"
         "affected_by_aoe_increase"                        "1"
       }
     }

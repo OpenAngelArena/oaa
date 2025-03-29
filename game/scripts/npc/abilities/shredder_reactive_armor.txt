@@ -40,55 +40,45 @@
       }
       "AbilityManaCost"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+200"
       }
       "AbilityCooldown"
       {
-        "value"                                           "45"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "45"
       }
       "initial_shield"
       {
-        "value"                                           "200"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "200"
       }
       "shield_per_sec"
       {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "100"
       }
       "shield_per_sec_per_enemy"
       {
-        "value"                                           "75"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "75"
       }
       "max_shield" //OAA
       {
-        "value"                                           "500 600 700 800 1000 1200"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "500 600 700 800 1000 1200"
       }
       "duration"
       {
-        "value"                                           "8"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "8"
       }
       "radius"
       {
-        "value"                                           "600"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_radius"
       {
-        "value"                                           "600"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "base_explosion" //OAA
       {
-        "value"                                           "50 100 150 200 400 800"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "50 100 150 200 400 800"
       }
     }
   }

@@ -48,22 +48,18 @@
       }
       "scepter_duration"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "scepter_attacks"
       {
-        "value"                                           "5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "5"
       }
       "scepter_cast_range"
       {
-        "value"                                           "700"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "700"
       }
       "dispel"
       {
-        "value"                                           "0"
         "special_bonus_unique_riki_5"                     "+1"
       }
       "creep_agility_multiplier"
@@ -73,7 +69,6 @@
       }
       "cooldown_reduction_per_creep_kill"
       {
-        "value"                                           "0"
         "special_bonus_facet_riki_exterminator"           "=0.75"
       }
     }

@@ -53,7 +53,6 @@
       {
         "value"                                           "1600"
         "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
-        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
       }
       "projectile_width"
       {
@@ -63,34 +62,26 @@
       }
       "barrel_width"
       {
-        "value"                                           "0"
         "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=75"
         "affected_by_aoe_increase"                        "1"
       }
       "barrel_impact_damage"
       {
-        "value"                                           "0"
         "special_bonus_facet_brewmaster_roll_out_the_barrel"  "40 70 100 130 260 520"
-        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"
       {
         "value"                                           "700"
         "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
-        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
       }
-      "min_movement" //OAA, Valve has the wrong RequiresFacet
+      "min_movement"
       {
-        "value"                                           "0"
         "special_bonus_facet_brewmaster_drunken_master"   "-15"
-        "RequiresFacet"                                   "brewmaster_drunken_master"
       }
-      "max_movement" //OAA, Valve has the wrong RequiresFacet
+      "max_movement"
       {
-        "value"                                           "0"
         "special_bonus_facet_brewmaster_drunken_master"   "50"
-        "RequiresFacet"                                   "brewmaster_drunken_master"
       }
     }
   }

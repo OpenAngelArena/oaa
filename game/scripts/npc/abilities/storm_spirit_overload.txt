@@ -43,34 +43,28 @@
       }
       "shard_activation_radius"
       {
-        "value"                                           "750"
+        "special_bonus_shard"                             "750"
         "affected_by_aoe_increase"                        "1"
-        "RequiresShard"                                   "1"
       }
       "shard_activation_charges" //OAA
       {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2"
       }
       "shard_activation_duration"
       {
-        "value"                                           "12"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "12"
       }
       "shard_manacost"
       {
-        "value"                                           "150"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "150"
       }
       "shard_cooldown"
       {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "30"
       }
       "shard_attack_speed_bonus"
       {
-        "value"                                           "40"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "40"
       }
       "overload_cast_range"
       {

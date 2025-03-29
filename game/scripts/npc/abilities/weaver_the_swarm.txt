@@ -49,16 +49,13 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_cooldown_reduction" // unused?
+      "shard_cooldown_reduction" // unused
       {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2"
       }
       "experience_gain" //OAA
       {
-        "value"                                           "0"
         "special_bonus_facet_weaver_hivemind"             "=6 =10 =14 =18 =36 =72"
-        "RequiresFacet"                                   "weaver_hivemind"
       }
     }
   }

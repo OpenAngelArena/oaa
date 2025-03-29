@@ -47,43 +47,35 @@
       "attack_redirection_grace_distance"                 "0"
       "soldier_count"
       {
-        "value"                                           "4"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "4"
       }
       "soldier_offset"
       {
-        "value"                                           "150"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "150"
       }
       "scepter_movement_slow_pct" //OAA
       {
-        "value"                                           "20 25 30 35 40 45"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "20 25 30 35 40 45"
       }
       "scepter_movement_slow_duration"
       {
-        "value"                                           "1.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.0"
       }
       "scepter_bonus_damage" //OAA
       {
-        "value"                                           "60 65 70 75 150 225"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "60 65 70 75 150 225"
       }
       "stationary_attack_delay"
       {
-        "value"                                           "0.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.0"
       }
       "knockback_distance"
       {
-        "value"                                           "325"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "325"
       }
       "soldier_attack_range"
       {
-        "value"                                           "275"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "275"
       }
     }
   }

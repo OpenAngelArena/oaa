@@ -46,10 +46,9 @@
         "special_bonus_unique_warlock_7"                  "+150"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_movement_speed_pct"
+      "shard_movement_speed_pct" // unused
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
       "AbilityCooldown"
       {

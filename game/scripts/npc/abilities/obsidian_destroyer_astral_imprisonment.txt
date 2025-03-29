@@ -63,10 +63,8 @@
       }
       "damage_radius"
       {
-        "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_shard"                             "+300"
-        "RequiresShard"                                   "1"
       }
       "AbilityCastRange"
       {
@@ -75,17 +73,14 @@
       }
       "debuff_duration"
       {
-        "value"                                           "0"
         "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+5"
       }
       "percentage_damage"
       {
-        "value"                                           "0"
         "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"
       }
       "percentage_heal"
       {
-        "value"                                           "0"
         "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
       }
     }

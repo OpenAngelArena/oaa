@@ -48,24 +48,19 @@
       "projectile_speed"                                  "800"
       "bonus_damage" //OAA
       {
-        "value"                                           "0"
         "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"  "+100"
       }
       "bonus_night_vision"                                "200"
       "sidegunner_fire_rate"
       {
-        "value"                                           "1.3"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.3"
       }
       "sidegunner_radius"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "700"
-        "RequiresScepter"                                 "1"
       }
       "double_target"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
     }

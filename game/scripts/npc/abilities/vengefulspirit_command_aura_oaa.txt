@@ -43,18 +43,17 @@
       }
       "scepter_illusion_damage_out_pct"
       {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "100"
       }
       "scepter_illusion_damage_in_pct"
       {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "100"
       }
       "scepter_illusion_ms_bonus_pct"
       {
         "value"                                           "0"
-        "RequiresScepter"                                 "1"
       }
     }
   }

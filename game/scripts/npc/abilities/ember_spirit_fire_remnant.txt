@@ -53,23 +53,19 @@
       "duration"                                          "45.0"
       "scepter_range"
       {
-        "value"                                           "3000"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3000"
       }
       "scepter_speed_multiplier"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "scepter_max_charges"
       {
-        "value"                                           "5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "5"
       }
       "shard_charge_radius"
       {
-        "value"                                           "400"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "400"
         "affected_by_aoe_increase"                        "1"
       }
     }

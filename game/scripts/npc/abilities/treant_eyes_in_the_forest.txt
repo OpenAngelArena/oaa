@@ -32,20 +32,17 @@
     {
       "vision_aoe"
       {
-        "value"                                           "800"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "800"
         "affected_by_aoe_increase"                        "1"
       }
       "overgrowth_aoe"
       {
-        "value"                                           "800"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "800"
         "affected_by_aoe_increase"                        "1"
       }
       "tree_respawn_seconds"
       {
-        "value"                                           "10"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "10"
       }
     }
   }

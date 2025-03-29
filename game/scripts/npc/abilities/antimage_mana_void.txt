@@ -80,15 +80,13 @@
       }
       "bonus_attack_damage"
       {
-        "value"                                           "20 45 70 120 270"
-        "RequiresFacet"                                   "antimage_mana_thirst"
+        "special_bonus_facet_antimage_mana_thirst"        "20 45 70 120 270"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "linger_duration"
       {
-        "value"                                           "4.0"
-        "RequiresFacet"                                   "antimage_mana_thirst"
+        "special_bonus_facet_antimage_mana_thirst"        "4.0"
       }
     }
   }

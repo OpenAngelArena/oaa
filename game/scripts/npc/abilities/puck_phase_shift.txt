@@ -27,15 +27,13 @@
     "AbilityValues"
     {
       "duration"                                          "1 1.75 2.5 3.25 3.25 3.25"
-      "shard_attack_range_bonus"
+      "shard_attack_range_bonus" // unused
       {
-        "RequiresShard"                                   "1"
-        "value"                                           "0"
+        "special_bonus_shard"                             "0"
       }
       "shard_bonus_damage" //OAA, this applies to every attack, not just Phase Shift attack
       {
-        "RequiresShard"                                   "1"
-        "value"                                           "20 25 30 35 70 105"
+        "special_bonus_shard"                             "20 25 30 35 70 105"
       }
       "AbilityCooldown" //OAA
       {

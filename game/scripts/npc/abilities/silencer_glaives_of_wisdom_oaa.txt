@@ -48,7 +48,6 @@
       "shard_int_steal_amount_bonus"
       {
         "value"                                           "1"
-        "RequiresShard"                                   "1"
       }
       "int_steal"                                         "1 1 2 3 4 5" // INT steal on enemy hit
       "int_steal_duration"                                "20 25 30 35 40 45"
@@ -58,12 +57,10 @@
       "shard_attacks_for_silence"
       {
         "value"                                           "4"
-        "RequiresShard"                                   "1"
       }
       "shard_silence_duration"
       {
         "value"                                           "1.75"
-        "RequiresShard"                                   "1"
       }
       "scepter_damage_multiplier"                         "1" // unused
     }

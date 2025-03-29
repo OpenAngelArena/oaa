@@ -71,15 +71,19 @@
       }
       "threshold"
       {
-        "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_venomancer"                 "x2.5"
-        "RequiresFacet"                                   "venomancer_plague_carrier"
+        "special_bonus_facet_venomancer_plague_carrier"
+        {
+          "value"                                         "100 150 200 250 500 750"
+          "special_bonus_unique_venomancer"               "x2.5"
+        }
       }
       "threshold_max_hp_pct"
       {
-        "value"                                           "1.5 2 2.5 3 3.5 4"
-        "special_bonus_unique_venomancer"                 "x2.5"
-        "RequiresFacet"                                   "venomancer_plague_carrier"
+        "special_bonus_facet_venomancer_plague_carrier"
+        {
+          "value"                                         "1.5 2 2.5 3 3.5 4"
+          "special_bonus_unique_venomancer"               "x2.5"
+        }
       }
     }
   }

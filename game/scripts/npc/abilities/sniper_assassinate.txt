@@ -46,35 +46,27 @@
       "projectile_speed"                                  "2500"
       "scepter_stun_duration"
       {
-        "value"                                           "0.8 1.0 1.2 1.4 1.6"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.8 1.0 1.2 1.4 1.6"
       }
-      "scepter_crit"
+      "scepter_crit" // unused
       {
-        "value"                                           "0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
       }
       "scepter_cast_point"
       {
-        "value"                                           "0.5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.5"
       }
-      "scatter_range"
+      "scatter_range" // unused
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "0"
       }
-      "scatter_width"
+      "scatter_width" // unused
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "0"
-        "RequiresShard"                                   "1"
       }
-      "scatter_damage_pct"
+      "scatter_damage_pct" // unused
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "0"
-        "RequiresShard"                                   "1"
       }
       "cooldown_reduction_on_kill"                        "0 5 10 10 10"
     }

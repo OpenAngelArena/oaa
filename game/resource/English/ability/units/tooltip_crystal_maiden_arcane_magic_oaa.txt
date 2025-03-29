@@ -11,15 +11,13 @@
 // "DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_activation_cooldown"      "COOLDOWN:"
 
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa"                          "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura}"
-"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Description"              "Gives additional mana regeneration, <font color='#FFA500'>spell amp and intelligence</font> to all friendly units on the map. Allies within a %proximity_bonus_radius% radius of Crystal Maiden receive %proximity_bonus_factor%x the mana regeneration."
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Description"              "Gives additional mana regeneration, <font color='#FFA500'>spell amp and cast range</font> to all friendly units on the map. Allies within a %proximity_bonus_radius% radius of Crystal Maiden receive %proximity_bonus_factor%x the mana regeneration."
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Lore"                     "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Lore}"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Note0"                    "With Arcane Overflow and Aghanim's Scepter, cannot be activated while channeling Freezing Field."
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_mana_regen"               "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_base_mana_regen}"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_proximity_mana_regen_tooltip"  "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_proximity_mana_regen_tooltip}"
-//"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_mana_cost_reduction_pct"  "%MANA COST REDUCTION:"
-//"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_magic_resistance"   "%MAGIC RESISTANCE:"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_spell_amp"          "%SPELL AMPLIFICATION:"
-"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_intelligence"       "BONUS INTELLIGENCE:"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_cast_range"         "CAST RANGE:"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_proximity_bonus_radius"   "CLOSE RADIUS:"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Facet_crystal_maiden_arcane_overflow"  "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Facet_crystal_maiden_arcane_overflow}"
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_activation_spell_amp_pct"  "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_activation_spell_amp_pct}"
@@ -30,4 +28,4 @@
 "DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_activation_cooldown"      "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_activation_cooldown}"
 
 "DOTA_Tooltip_modifier_crystal_maiden_arcane_aura_effect_oaa"                   "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura}"
-"DOTA_Tooltip_modifier_crystal_maiden_arcane_aura_effect_oaa_Description"       "Grants %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."
+"DOTA_Tooltip_modifier_crystal_maiden_arcane_aura_effect_oaa_Description"       "Grants %dMODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING% cast range and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."

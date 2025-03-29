@@ -43,17 +43,14 @@
       }
       "ancient_creeps_scepter"
       {
-        "value"                                           "1 2 3 4 5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1 2 3 4 5"
       }
       "does_purge"
       {
-        "value"                                           "0"
         "special_bonus_unique_chen_12"                    "+1"
       }
       "full_heal_on_chen_and_creeps"
       {
-        "value"                                           "0"
         "special_bonus_unique_chen_2"                     "=1"
       }
     }

@@ -55,9 +55,6 @@ local abilities_with_custom_talents = {
   gyrocopter_flak_cannon = {
     radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
   },
-  hoodwink_acorn_shot = {
-    base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
-  },
   huskar_inner_fire = {
     damage = {"special_bonus_unique_huskar_1_oaa", "+"},
   },

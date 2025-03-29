@@ -51,18 +51,15 @@
       }
       "shard_bonus_charges"
       {
-        "value"                                           "1"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1"
       }
       "shard_fear_duration"
       {
-        "value"                                           "1.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1.0"
       }
       "shard_consecutive_siphon_duration"
       {
-        "value"                                           "3"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "3"
       }
     }
   }

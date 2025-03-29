@@ -37,8 +37,7 @@
       "bonus_damage"                                      "70 85 100 115 130" //OAA
       "spell_lifesteal"
       {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "30"
       }
       "spell_amp_steal" //OAA
       {

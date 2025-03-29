@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14"
+    "AbilityCooldown"                                     "14" // Valve forgot special_bonus_unique_skywrath
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,9 +43,8 @@
       "seal_duration"                                     "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
       "scepter_radius"
       {
-        "value"                                           "500"
+        "special_bonus_scepter"                           "500"
         "affected_by_aoe_increase"                        "1"
-        "RequiresScepter"                                 "1"
       }
     }
   }

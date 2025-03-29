@@ -20,7 +20,6 @@ local function remove_mod_from_table(t, mod)
   local index
   for k, v in pairs(t) do
     if v == mod then
-      table.remove(t, k)
       index = k
       break
     end

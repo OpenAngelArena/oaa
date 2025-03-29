@@ -38,15 +38,19 @@
       }
       "attacks_to_proc"
       {
-        "special_bonus_facet_phantom_assassin_methodical"  "+6"
-        "special_bonus_unique_phantom_assassin_2"         "-1"
-        "RequiresFacet"                                   "phantom_assassin_methodical"
+        "special_bonus_facet_phantom_assassin_methodical"
+        {
+          "value"                                         "6"
+          "special_bonus_unique_phantom_assassin_2"       "-1"
+        }
       }
       "attacks_to_proc_creeps"
       {
-        "special_bonus_facet_phantom_assassin_methodical"  "+4"
-        "special_bonus_unique_phantom_assassin_2"         "-1"
-        "RequiresFacet"                                   "phantom_assassin_methodical"
+        "special_bonus_facet_phantom_assassin_methodical"
+        {
+          "value"                                         "4"
+          "special_bonus_unique_phantom_assassin_2"       "-1"
+        }
       }
       "duration"                                          "6 8 10 12 14"
       "two_tooltip"

@@ -33,23 +33,19 @@
       "attack_range_bonus"                                "0"
       "shard_souls_per_kill" // unused
       {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2"
       }
       "shard_crit_pct" // unused
       {
-        "value"                                           "190"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "190"
       }
       "shard_fear_duration" // unused
       {
-        "value"                                           "0.4"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.4"
       }
       "soul_release_tooltip"                              "30.0"
       "max_soul_increase_on_hero_kill" // OAA, because fuck this shit Valve
       {
-        "value"                                           "0"
         "special_bonus_facet_nevermore_lasting_presence"  "0"
       }
     }

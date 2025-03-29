@@ -77,27 +77,21 @@
       }
       "impact_position_offset"                            "64"
       "target_abort_distance"                             "700"
-      "scepter_heal"
+      "scepter_heal" // unused
       {
-        "value"                                           "300"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "300"
       }
-      "scepter_armor"
+      "scepter_armor" // unused
       {
-        "value"                                           "15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "15"
       }
       "ally_arc_offset"
       {
-        "value"                                           "0"
-        "RequiresFacet"                                   "marci_pickmeup"
         "special_bonus_facet_marci_pickmeup"              "=150"
       }
       "ally_impact_damage_pct"
       {
-        "value"                                           "0"
-        "RequiresFacet"                                   "marci_pickmeup"
-        "special_bonus_facet_marci_pickmeup"              "=25"
+        "special_bonus_facet_marci_pickmeup"              "=35"
       }
       "max_level" //OAA
       {
@@ -110,14 +104,10 @@
       }
       "postjump_unleash_duration"
       {
-        "value"                                           "0"
-        "RequiresFacet"                                   "marci_fleeting_fury"
         "special_bonus_facet_marci_fleeting_fury"         "=3"
       }
       "postjump_flurry_charges"
       {
-        "value"                                           "0"
-        "RequiresFacet"                                   "marci_fleeting_fury"
         "special_bonus_facet_marci_fleeting_fury"         "=3"
       }
     }

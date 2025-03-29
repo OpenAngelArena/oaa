@@ -20,65 +20,53 @@
       // GREEN DRAGON
       "is_green_dragon"
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "1"
       }
       "corrosive_breath_damage" //OAA
       {
-        "value"                                           "10 15 20 25 50 75"
-        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "10 15 20 25 50 75"
       }
       "corrosive_breath_duration" //OAA
       {
-        "value"                                           "6"
-        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "6"
       }
       "corrosive_breath_armor_reduction" //OAA
       {
-        "value"                                           "1 2 3 4 6 10"
-        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "1 2 3 4 6 10"
       }
       // RED DRAGON
       "is_red_dragon"
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_fire_dragon"   "+1"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "1"
       }
       "magic_damage" //OAA
       {
-        "value"                                           "10 15 20 25 50 75"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "10 15 20 25 50 75"
       }
       "bonus_aoe" //OAA
       {
-        "value"                                           "30 45 60 75 90 105"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "30 45 60 75 90 105"
       }
       // BLUE DRAGON
       "is_blue_dragon"
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_frost_dragon"  "+1"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "1"
       }
       "frost_bonus_movement_speed"
       {
-        "value"                                           "-14 -21 -28 -35 -42 -49"
-        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "-14 -21 -28 -35 -42 -49"
       }
       "frost_bonus_attack_speed"
       {
-        "value"                                           "-14 -21 -28 -35 -42 -49"
-        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "-14 -21 -28 -35 -42 -49"
       }
       "frost_duration"
       {
-        "value"                                           "3.0"
-        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "3.0"
       }
       "frost_healing_reduction"
       {
-        "value"                                           "14 21 28 35 42 49"
-        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "14 21 28 35 42 49"
       }
     }
   }

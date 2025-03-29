@@ -45,18 +45,15 @@
       }
       "max_charges"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "charge_restore_time" //OAA
       {
-        "value"                                           "70"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "70"
       }
       "charge_restore_time_tooltip_scepter" //OAA
       {
-        "value"                                           "70"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "70"
       }
       "max_slow" //OAA
       {

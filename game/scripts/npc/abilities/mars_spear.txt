@@ -66,35 +66,29 @@
       "knockback_distance"                                "75"
       "shard_trail_duration"
       {
-        "value"                                           "10.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "10.0"
       }
       "shard_trail_radius"
       {
-        "value"                                           "200"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "200"
         "affected_by_aoe_increase"                        "1"
       }
       "shard_dps" //OAA
       {
-        "value"                                           "25 30 35 40 80 120"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "25 30 35 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "shard_move_slow_pct"
       {
-        "value"                                           "20"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "20"
       }
       "shard_debuff_linger_duration"
       {
-        "value"                                           "2.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2.0"
       }
       "shard_interval"
       {
-        "value"                                           "0.5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.5"
       }
     }
   }

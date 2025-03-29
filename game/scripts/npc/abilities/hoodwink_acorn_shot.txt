@@ -29,12 +29,12 @@
       "bonus_range"                                       "100"
       "acorn_shot_damage"
       {
-        "value"                                           "40 80 120 160 320 480"
+        "value"                                           "45 90 135 180 360 540"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "base_damage_pct"
       {
-        "value"                                           "80" // special_bonus_unique_hoodwink_1_oaa
+        "value"                                           "80"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bounce_count"
