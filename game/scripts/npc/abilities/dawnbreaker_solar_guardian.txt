@@ -39,13 +39,11 @@
       }
       "scepter_aura_duration"
       {
-        "value"                                           "3"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3"
       }
-      "miss_rate"
+      "miss_rate" // unused
       {
-        "value"                                           "0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
       }
       "base_heal" //OAA
       {
@@ -73,13 +71,11 @@
       "max_offset_distance"                               "350"
       "scepter_channel_time"
       {
-        "value"                                           "1.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.0"
       }
       "airtime_scepter_bonus"
       {
-        "value"                                           "3.5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3.5"
       }
       "airtime_scepter_movement_speed"                    "200"
       "airtime_duration"

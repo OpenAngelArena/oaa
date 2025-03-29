@@ -37,18 +37,15 @@
       "bonus_damage"                                      "70 85 100 115 130" //OAA
       "spell_lifesteal"
       {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "30"
       }
       "spell_amp_steal" //OAA
       {
-        "value"                                           "1"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1"
       }
-      "spell_amp_steal_range"
+      "spell_amp_steal_range" //OAA, Valve has it wrong
       {
-        "value"                                           "925"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "925"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_penalty"                                    "50 45 40 35 30" //OAA

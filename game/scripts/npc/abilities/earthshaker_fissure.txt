@@ -47,24 +47,18 @@
       {
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_shard"                             "-2"
-        "RequiresShard"                                   "1"
       }
       "shard_aftershock_stun_duration_pct"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "=50"
-        "RequiresShard"                                   "1"
       }
       "free_pathing_linger_duration"
       {
-        "value"                                           "0.0"
         "special_bonus_shard"                             "=1.0"
-        "RequiresShard"                                   "1"
       }
       "free_pathing_application_radius"                   "150"
       "fissure_movement_speed"
       {
-        "value"                                           "0"
         "special_bonus_facet_earthshaker_fissuresplit"    "+100"
       }
       "fissure_max_distance_moved"                        "300"
