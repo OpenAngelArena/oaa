@@ -32,8 +32,7 @@
       "fade_duration"                                     "0.4 0.6 0.8 1.0 1.2 1.4"
       "scepter_cooldown" // cooldown reduction
       {
-        "value"                                           "50"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "50"
       }
       "break_on_attack"                                   "0"
       "manacost_reduction_during_blur_pct"

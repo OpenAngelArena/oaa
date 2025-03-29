@@ -29,33 +29,27 @@
       }
       "bonus_status_resist_night"
       {
-        "value"                                           "0"
         "special_bonus_unique_night_stalker_hunter_status_resist"  "+20"
       }
       "shard_hp_restore_pct"
       {
-        "value"                                           "25"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "25"
       }
       "shard_mana_restore_pct"
       {
-        "value"                                           "25"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "25"
       }
       "AbilityManaCost"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "+50"
       }
       "shard_cooldown" //OAA
       {
-        "value"                                           "20"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "20"
       }
       "shard_cast_range" //OAA
       {
-        "value"                                           "200"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "200"
       }
       "max_level" //OAA
       {
@@ -68,7 +62,6 @@
       }
       "gives_free_level"
       {
-        "value"                                           "0"
         "special_bonus_facet_night_stalker_dayswap"       "+1"
       }
     }

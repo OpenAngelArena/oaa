@@ -81,27 +81,19 @@
       "slow_duration"                                     "3"
       "parry_swashbuckles"
       {
-        "value"                                           "0"
         "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-        "RequiresFacet"                                   "pangolier_auto_swashbuckle"
       }
       "parry_chance"
       {
-        "value"                                           "0"
         "special_bonus_facet_pangolier_auto_swashbuckle"  "+50"
-        "RequiresFacet"                                   "pangolier_auto_swashbuckle"
       }
       "parry_cooldown"
       {
-        "value"                                           "0"
         "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-        "RequiresFacet"                                   "pangolier_auto_swashbuckle"
       }
       "parry_damage_threshold"
       {
-        "value"                                           "0"
         "special_bonus_facet_pangolier_auto_swashbuckle"  "+25"
-        "RequiresFacet"                                   "pangolier_auto_swashbuckle"
       }
     }
   }

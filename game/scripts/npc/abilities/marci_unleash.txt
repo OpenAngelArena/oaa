@@ -64,17 +64,14 @@
       }
       "scepter_cooldown_reduction"
       {
-        "value"                                           "10.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "10.0"
       }
       "dispel"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
       "pulse_silence_duration"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
       "extend_duration"
