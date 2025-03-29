@@ -75,13 +75,13 @@
       }
       "scepter_cast_range"
       {
-        "value"                                           "1000"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "1000"
       }
       "scepter_heal_prevent_percent"
       {
-        "value"                                           "-25 -30 -35 -40 -45"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "-25 -30 -35 -40 -45"
       }
       "scepter_tar_spill_interval"                        "3"
     }

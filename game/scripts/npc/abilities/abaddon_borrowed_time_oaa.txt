@@ -40,21 +40,20 @@
     {
       "hp_threshold"                                      "350"
       "hp_threshold_max_hp_percent"                       "5"
-      "duration"                                          "4.0 4.25 4.5 5.0 5.5"
-      "duration_scepter"
+      "duration"
       {
-        "value"                                           "5.0 5.5 6.0 7.0 8.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "4.0 4.25 4.5 5.0 5.5"
+        "special_bonus_scepter"                           "=5.0 =5.5 =6.0 =7.0 =8.0"
       }
       "damage_redirect_scepter"
       {
-        "value"                                           "20 25 30 35 40"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "20 25 30 35 40"
       }
       "redirect_range_scepter"
       {
-        "value"                                           "900"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "900"
         "affected_by_aoe_increase"                        "1"
       }
     }
