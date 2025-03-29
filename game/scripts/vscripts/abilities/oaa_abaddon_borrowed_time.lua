@@ -217,7 +217,9 @@ if IsServer() then
     ParticleManager:ReleaseParticleIndex(heal_particle)
 
     -- Heal amount is equal to the damage amount (damage after reductions, not original damage)
-    parent:Heal(kv.damage, self:GetAbility())
+    --parent:Heal(kv.damage, self:GetAbility())
+    local heal_amount = math.max(kv.damage, kv.original_damage)
+    parent:HealWithParams(heal_amount, self:GetAbility(), false, true, parent, false)
 
     -- Block the damage
     return kv.damage

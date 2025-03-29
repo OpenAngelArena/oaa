@@ -273,7 +273,8 @@ if IsServer() then
     )
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() and ally ~= parent then
-        ally:Heal(damage * martyr_heal_percent / 100, ability)
+        --ally:Heal(damage * martyr_heal_percent / 100, ability)
+        ally:HealWithParams(damage * martyr_heal_percent / 100, ability, false, true, parent, false)
       end
     end
   end
