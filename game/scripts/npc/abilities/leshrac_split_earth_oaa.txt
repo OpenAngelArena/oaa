@@ -54,18 +54,18 @@
       "stun_duration"                                     "1.7"
       "shard_extra_instances"
       {
-        "value"                                           "1"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "1"
       }
       "shard_extra_radius_per_instance"
       {
-        "value"                                           "45"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "45"
       }
       "shard_interval"
       {
-        "value"                                           "5"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "5"
       }
     }
   }
