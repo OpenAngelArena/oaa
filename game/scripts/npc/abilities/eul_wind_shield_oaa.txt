@@ -71,9 +71,10 @@
         "special_bonus_facet_eul_ventus"                  "=300"
         "affected_by_aoe_increase"                        "1"
       }
-      "deflect_buffer_range"
+      "deflect_search_radius"
       {
-        "value"                                           "250"
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=550"
         "affected_by_aoe_increase"                        "1"
       }
       "deflected_projectile_speed_pct"

@@ -35,14 +35,15 @@
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa"                                      "Wind Control"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_Description"                          "Grants bonus move speed and attack speed for the duration. Passively also grants move speed and evasion against ranged attackers that are not within %evasion_range_check% radius of Eul."
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_tornado_barrier"            "Grants an all damage barrier."
-"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_ventus"                     "Re-directs all attack projectiles aimed at Eul and his allies towards the closest enemy. Redirected attack projectiles are slowed. Redirected target search range is determined by attacker's attack range."
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_ventus"                     "Re-directs all attack projectiles aimed at Eul and his allies towards the closest visible enemy within %deflect_search_radius% range. Redirected attack projectiles are slowed."
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_Lore"                                 "Quick as the wind!"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_evasion"                              "%EVASION"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_passive_move_speed"                   "%PASSIVE MOVE SPEED:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_move_speed"                    "%ACTIVE MOVE SPEED:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_attack_speed"                  "ACTIVE ATTACK SPEED:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_all_damage_block"                     "BARRIER HEALTH"
-"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_aura_radius"                  "ACTIVE REDIRECT RANGE:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_aura_radius"                  "ALLY REDIRECT RANGE:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_search_radius"                "REDIRECT ENEMY SEARCH RANGE:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflected_projectile_speed_pct"       "%REDIRECTED PROJECTILE SPEED:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_duration"                      "ACTIVE DURATION:"
 
@@ -93,7 +94,6 @@
 "DOTA_Tooltip_modifier_eul_innate_oaa_dead_tornado_debuff_Description"          "Taking damage, move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%."
 
 // talents
-
 "DOTA_Tooltip_Ability_special_bonus_unique_eul_1_oaa"                           "+{s:bonus_damage} Hurricane Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_eul_2_oaa"                           "Hurricane Dispels Target"
 "DOTA_Tooltip_Ability_special_bonus_unique_eul_3_oaa"                           "-{s:bonus_AbilityCooldown}s Wind Control Cooldown"
@@ -105,6 +105,6 @@
 "DOTA_Tooltip_facet_eul_tornado_barrier"                                        "Tornado Barrier"
 "DOTA_Tooltip_facet_eul_tornado_barrier_Description"                            "Wind Control active grants an all damage barrier."
 "DOTA_Tooltip_facet_eul_ventus"                                                 "Ventus"
-"DOTA_Tooltip_facet_eul_ventus_Description"                                     "Wind Control active re-directs all attack projectiles aimed at Eul and his allies towards the closest enemy. Redirected attack projectiles are slowed."
+"DOTA_Tooltip_facet_eul_ventus_Description"                                     "Wind Control active re-directs all attack projectiles aimed at Eul and his allies towards the closest visible enemy. Redirected attack projectiles are slowed."
 "DOTA_Tooltip_facet_eul_displacement"                                           "Displacement"
 "DOTA_Tooltip_facet_eul_displacement_Description"                               "Tornado Collector causes Eul to vanish and reappear at another nearby location, damaging all nearby enemies."
