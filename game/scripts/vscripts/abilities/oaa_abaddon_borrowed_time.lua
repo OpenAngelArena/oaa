@@ -28,10 +28,6 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local buff_duration = self:GetSpecialValueFor("duration")
 
-  if caster:HasScepter() then
-    buff_duration = self:GetSpecialValueFor("duration_scepter")
-  end
-
   -- Strong Dispel (for caster)
   caster:Purge(false, true, false, true, true)
 
@@ -221,7 +217,9 @@ if IsServer() then
     ParticleManager:ReleaseParticleIndex(heal_particle)
 
     -- Heal amount is equal to the damage amount (damage after reductions, not original damage)
-    parent:Heal(kv.damage, self:GetAbility())
+    --parent:Heal(kv.damage, self:GetAbility())
+    local heal_amount = math.max(kv.damage, kv.original_damage)
+    parent:HealWithParams(heal_amount, self:GetAbility(), false, true, parent, false)
 
     -- Block the damage
     return kv.damage

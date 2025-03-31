@@ -45,8 +45,7 @@
       }
       "scepter_cooldown" //OAA, Valve has it wrong, luckily it's unused
       {
-        "value"                                           "5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "5"
       }
       "passthrough_damage"
       {

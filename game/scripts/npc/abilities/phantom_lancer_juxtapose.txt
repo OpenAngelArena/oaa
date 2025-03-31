@@ -60,29 +60,23 @@
       "illusion_from_illusion_duration"                   "4"
       "shard_bonus_illusions"
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
       "invis_duration"
       {
-        "value"                                           "8"
-        "RequiresScepter"                                 "1"
+        "special_bonus_shard"                             "8"
       }
       "invis_movespeed"
       {
-        "value"                                           "15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_shard"                             "15"
       }
       "uncontrollable_illusions"
       {
-        "value"                                           "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+1"
       }
       "new_target_radius"
       {
-        "value"                                           "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+700"
-        "RequiresFacet"                                   "2"
       }
     }
   }

@@ -54,7 +54,8 @@ function temple_guardian_purification_tier5:OnSpellStart()
   local radius = self:GetSpecialValueFor( "radius" )
   local heal = self:GetSpecialValueFor( "heal" )
 
-  hTarget:Heal( heal, self )
+  --hTarget:Heal( heal, self )
+  hTarget:HealWithParams(heal, self, false, true, self:GetCaster(), false)
 
   local nFXIndex1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
   ParticleManager:SetParticleControlEnt( nFXIndex1, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true  );

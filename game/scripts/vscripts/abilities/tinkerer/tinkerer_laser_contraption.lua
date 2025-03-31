@@ -400,7 +400,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
 
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
-        ally:Heal(heal_per_interval, ability)
+        --ally:Heal(heal_per_interval, ability)
+        ally:HealWithParams(heal_per_interval, ability, false, true, real_caster, false)
       end
     end
   end

@@ -43,7 +43,8 @@ function item_greater_guardian_greaves:OnSpellStart()
     local maxHealth = hero:GetMaxHealth()
     local healPerMaxHealth = self:GetSpecialValueFor("max_health_pct_heal_amount") * 0.01
     local healAmount = self:GetSpecialValueFor("replenish_health") + maxHealth * healPerMaxHealth
-    hero:Heal(healAmount, self)
+    --hero:Heal(healAmount, self)
+    hero:HealWithParams(healAmount, self, false, true, caster, false)
 
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"

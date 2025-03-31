@@ -39,7 +39,8 @@ function item_ghost_king_bar_1:OnSpellStart()
     for _, unit in pairs(allies) do
       if unit and not unit:IsNull() then
         -- Restore health (it should work with heal amp)
-        unit:Heal(amount_to_restore, self)
+        --unit:Heal(amount_to_restore, self)
+        unit:HealWithParams(amount_to_restore, self, false, true, caster, false)
         -- Restore mana
         unit:GiveMana(amount_to_restore)
         -- Particle

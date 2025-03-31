@@ -39,35 +39,26 @@
         "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4.0"
       }
       "heal_reduction_pct"                                "20 24 28 32 36 40" //OAA
-
-      // Shard
       "shard_cooldown"
       {
-        "value"                                           "20 15 10 5 5 5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "20 15 10 5 5 5"
       }
       "AbilityManaCost"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "50"
       }
       "stun_duration"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "0.6"
-        "RequiresShard"                                   "1"
       }
       "bleed_as_rupture_pct"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "100"
-        "RequiresShard"                                   "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "katana_swap_bonus_damage"
       {
-        "RequiresFacet"                                   "kez_flutter"
-        "value"                                           "12"
+        "special_bonus_facet_kez_flutter"                 "12"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
     }

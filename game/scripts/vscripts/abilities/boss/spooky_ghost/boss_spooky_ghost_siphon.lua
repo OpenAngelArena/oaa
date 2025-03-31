@@ -176,7 +176,8 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnIntervalThink()
   -- Calculate heal amount
   local heal_amount = damage_dealt * heal_pct * 0.01
   -- Heal the caster
-  caster:Heal(heal_amount, ability)
+  --caster:Heal(heal_amount, ability)
+  caster:HealWithParams(heal_amount, ability, false, true, caster, false)
 end
 
 function modifier_boss_spooky_ghost_siphon_debuff:OnDestroy()

@@ -733,7 +733,6 @@ const keyWhiteList = [
   'LinkedSpecialBonusField',
   'LinkedSpecialBonusOperation',
   'CalculateSpellDamageTooltip',
-  'RequiresScepter',
   'RequiresShard',
   'ad_linked_abilities',
   'ad_linked_ability',

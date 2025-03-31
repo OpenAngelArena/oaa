@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Crystal Maiden: Arcane Magic (OAA Arcane/Brilliance Aura rework)
+  // Crystal Maiden: Arcane Aura (OAA rework)
   //=================================================================================================================
   "crystal_maiden_arcane_magic_oaa"
   {
@@ -74,7 +74,8 @@
       "mana_cost_reduction_pct"                           "0"
       "bonus_magic_resistance"                            "0"
       "bonus_spell_amp"                                   "4 5 6 7 9 12"
-      "bonus_intelligence"                                "5 10 15 20 30 45"
+      "bonus_intelligence"                                "0"
+      "bonus_cast_range"                                  "25 50 75 100 125 150"
     }
   }
 }

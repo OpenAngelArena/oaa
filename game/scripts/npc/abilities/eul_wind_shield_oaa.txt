@@ -59,31 +59,28 @@
       {
         "value"                                           "0"
         "special_bonus_facet_eul_tornado_barrier"         "=100 =170 =240 =310 =620 =930"
-        "RequiresFacet"                                   "eul_tornado_barrier"
       }
       "attack_projectile_deflect"
       {
         "value"                                           "0"
         "special_bonus_facet_eul_ventus"                  "=1"
-        "RequiresFacet"                                   "eul_ventus"
       }
       "deflect_aura_radius"
       {
         "value"                                           "0"
         "special_bonus_facet_eul_ventus"                  "=300"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "eul_ventus"
       }
-      "deflect_buffer_range"
+      "deflect_search_radius"
       {
-        "value"                                           "250"
+        "value"                                           "0"
+        "special_bonus_facet_eul_ventus"                  "=550"
         "affected_by_aoe_increase"                        "1"
       }
       "deflected_projectile_speed_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_eul_ventus"                  "=50"
-        "RequiresFacet"                                   "eul_ventus"
       }
       "deflected_projectile_vision"                       "250"
       "active_duration"

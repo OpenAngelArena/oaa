@@ -35,12 +35,12 @@
       "replica_damage_outgoing" //OAA, also affects Normal Punch illusion
       {
         "value"                                           "-30 -10 10 50 90"
-        "special_bonus_unique_dark_seer_7"                "+20"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
       "tooltip_outgoing" //OAA, also affects Normal Punch illusion
       {
         "value"                                           "70 90 110 150 190"
-        "special_bonus_unique_dark_seer_7"                "+20"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
       "replica_damage_incoming"                           "100 90 80 50 20" // OAA, also affects Normal Punch illusion
       "tooltip_replica_total_damage_incoming" // OAA, also affects Normal Punch illusion
@@ -62,8 +62,7 @@
       }
       "scepter_length_multiplier" // unused
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "wall_damage"                                       "25 50 75 150 225" //OAA
     }
