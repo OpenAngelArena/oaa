@@ -181,7 +181,7 @@ function modifier_multicast_oaa:OnCreated()
     --weaver_time_lapse = 1,                             -- powerful or grief with scepter?
     --winter_wyvern_cold_embrace = 1,                    -- grief
     wisp_tether_break = 1,                               -- useless
-    --witch_doctor_voodoo_switcheroo_oaa = 1,            -- bugs out?
+    witch_doctor_voodoo_switcheroo_oaa = 1,              -- multiplies
     --zuus_cloud_oaa = 1,                                -- powerful
     zuus_heavenly_jump = 1,                              -- self grief in most cases
     --zuus_thundergods_wrath = 1,                        -- powerful
