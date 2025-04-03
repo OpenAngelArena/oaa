@@ -1,4 +1,3 @@
-
 if HeroSelection == nil then
   Debug:EnableDebugging()
   DebugPrint ('Starting HeroSelection')
@@ -352,26 +351,74 @@ function HeroSelection:StartSelection ()
 end
 
 function HeroSelection:BuildBottlePass()
-  -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
   local special_bottles = {}
   local special_arcanas = {}
   HeroSelection.SelectedBottle = {}
   HeroSelection.SelectedArcana = {}
+
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
       local steamid = PlayerResource:GetSteamAccountID(playerID)
+      -- get bottlepass level from server component
+      local bottlepassLevel = Bottlepass.userData[steamid].bottlepassLevel
 
       if steamid ~= 0 then
+        -- Handle bottles
+        local playerBottles = {}
         if SPECIAL_BOTTLES[steamid] then
-          special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
-          HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
+          playerBottles = SPECIAL_BOTTLES[steamid]
         end
-        special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}}
+
+        for level, bottleId in pairs(BOTTLEPASS_LEVEL_REWARDS) do
+          if bottlepassLevel >= level then
+            local hasBottle = false
+            for _, existingBottle in ipairs(playerBottles) do
+              if existingBottle == bottleId then
+                hasBottle = true
+                break
+              end
+            end
+
+            if not hasBottle then
+              table.insert(playerBottles, bottleId)
+            end
+          end
+        end
+
+        if #playerBottles > 0 then
+          special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = playerBottles }
+          HeroSelection.SelectedBottle[playerID] = playerBottles[#playerBottles]
+        end
+
+        -- Handle arcanas
+        local playerArcanas = {}
+        if SPECIAL_ARCANAS[steamid] then
+          playerArcanas = SPECIAL_ARCANAS[steamid]
+        end
+
+        for level, arcanaId in pairs(BOTTLEPASS_ARCANA_REWARDS) do
+          if bottlepassLevel >= level then
+            local hasArcana = false
+            for _, existingArcana in ipairs(playerArcanas) do
+              if existingArcana == arcanaId then
+                hasArcana = true
+                break
+              end
+            end
+
+            if not hasArcana then
+              table.insert(playerArcanas, arcanaId)
+            end
+          end
+        end
+
+        if #playerArcanas > 0 then
+          special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = playerArcanas }
+        end
       end
     end
   end
 
-  -- Populate table with playerIds and list of bottles/arcanas for players
   CustomNetTables:SetTableValue( 'bottlepass', 'special_bottles', special_bottles )
   CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
 end
