@@ -3,7 +3,7 @@
 function OverrideHeroImage (panel) {
   if (panel) {
     const name = panel.heroname;
-    if (name === 'sohei' || name === 'electrician' || name === 'eul') {
+    if (name === 'sohei' || name === 'electrician' || name === 'eul' || name === 'shopkeeper') {
       panel.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + name + '.png")';
       panel.style.backgroundSize = '100% 100%';
     }

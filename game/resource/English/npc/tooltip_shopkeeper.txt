@@ -1,0 +1,98 @@
+"npc_dota_hero_shopkeeper"                                                      "Shopkeeper"
+"npc_dota_hero_shopkeeper_hype"                                                 "" // Missing hype name
+"npc_dota_shopkeeper_krekker"                                                   "" // Missing creep name
+"npc_dota_shopkeeper_item"                                                      "" // Missing other unit name
+
+// Facets
+"DOTA_Tooltip_Facet_facet_shop_keeper_1"                                        "Secret Shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_1_Description"                            "All heroes near you in 450 radius can purchase items from the secret shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_2"                                        "Regular Shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_2_Description"                            "All heroes near you in 450 radius can purchase items from the regular shop"
+
+// Innate Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_innate"                                "Wealthstrike"
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_description"                    "Hero's ranged attacks cost gold, each attack spends %gold_distance% gold but deals %distance_damage% additional magic damage<br>Ability level is tied to ultimate level<br><br>Now gains periodic gold every minute, increased by %percent%%%"
+// Missing Lore for innate ability
+
+// Ability 1
+"DOTA_Tooltip_ability_shopkeeper_ability_1"                                     "Potion of Duality"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_description"                         "Throws a potion at target point that damages and slows enemies in the explosion radius or heals and speeds up allies"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_damage"                              "DAMAGE:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_heal"                                "HEAL:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_slow_movement_speed"                 "%MOVE SLOW:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_bonus_movement_speed"                "%MOVE SPEED BONUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_duration"                            "DURATION:"
+// Missing Lore for ability 1
+
+// Ability 1 Modifiers
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_debuff"                             "Potion of Duality"
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_debuff_description"                 "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_buff"                               "Potion of Duality"
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_buff_description"                   "Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+// Ability 2
+"DOTA_Tooltip_ability_shopkeeper_ability_2"                                     "Cracker Blessing"
+"DOTA_Tooltip_ability_shopkeeper_ability_2_description"                         "Creates a Cracker for target allied unit which allows teleporting to any point on the map"
+"DOTA_Tooltip_ability_shopkeeper_ability_2_item_range"                          "TELEPORT RANGE:"
+"DOTA_Tooltip_ability_shopkeeper_ability_2_cast_duration"                       "TELEPORT DURATION:"
+// Missing Lore for ability 2
+
+// Ability 3
+"DOTA_Tooltip_ability_shopkeeper_ability_3"                                     "Just Business"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_description"                         "The Shopkeeper always finds a way to come out on top using his cunning and gold magic. Turns all heroes into items and makes them invulnerable. Enemies take damage when the effect ends"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_radius"                              "RADIUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_duration"                            "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_damage"                              "DAMAGE:"
+// Missing Lore for ability 3
+
+// Ability 3 Modifier
+"DOTA_Tooltip_modifier_shopkeeper_ability_3_debuff"                             "Just Business"
+"DOTA_Tooltip_modifier_shopkeeper_ability_3_debuff_description"                 "Turned into an item. Stunned"
+
+// Ultimate Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_4"                                     "Forbidden Recipe"
+"DOTA_Tooltip_ability_shopkeeper_ability_4_description"                         "The Shopkeeper uses his secret recipes to create unique items. When activated, two mystical items appear on screen. The player must choose one, and the selected item instantly appears in their inventory. However, beware: these items are created using forbidden recipes and will disappear after some time."
+"DOTA_Tooltip_ability_shopkeeper_ability_4_duration"                            "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_ability_4_item_level"                          "ITEM LEVEL:"
+// Missing Lore for ultimate
+
+// Ultimate Modifier
+"DOTA_Tooltip_modifier_shopkeeper_ability_4"                                    "Forbidden Recipe"
+"DOTA_Tooltip_modifier_shopkeeper_ability_4_description"                        "Has a unique item that will disappear when the effect ends"
+
+// Scepter Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_scepter"                               "Consumption of Magic"
+"DOTA_Tooltip_ability_shopkeeper_ability_scepter_description"                   "The hero uses magic to absorb the passive effect of any item from his inventory.<br><br>After use, select an item from your inventory with mouse"
+
+// Scepter Modifier
+"DOTA_Tooltip_modifier_shopkeeper_ability_scepter_consume"                      "Consumed Item"
+"DOTA_Tooltip_modifier_shopkeeper_ability_scepter_consume_description"          "You absorbed an item and gained its passive bonuses"
+
+// Shard Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_shard"                                 "Golden Deal"
+"DOTA_Tooltip_ability_shopkeeper_ability_shard_description"                     "Shopkeeper can purchase items at %sale%%% discount"
+
+// Items (commented out as not present in Eul's format)
+/*
+// Cracker Item
+"DOTA_Tooltip_ability_shopkeeper_krekker"                                  "Cracker"
+"DOTA_Tooltip_ability_shopkeeper_krekker_description"                      "<h1>Use: Teleport</h1>Allows teleporting to any point on the map.<br>Cast Range: %abilitycastrange%<br>Cast Duration: %cast_duration%"
+
+// Other items would follow same pattern but commented out since not in Eul's format
+*/
+
+// Talents
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_1"                        "-{s:bonus_AbilityChargeRestoreTime}s Potion of Duality Charge Restore Time"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_2"                        "Wealthstrike Attacks Don't Cost Gold"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_3"                        "+{s:bonus_duration}s Forbidden Recipe Duration"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_4"                        "+{s:bonus_damage} Potion of Duality Damage/Heal"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_5"                        "Cracker Blessing Grants 2 Crackers"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_6"                        "---"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_7"                        "+{s:bonus_distance_damage} Wealthstrike Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_8"                        "---"
+
+// Panorama choose descriptions (commented out as not present in Eul's format)
+/*
+"DOTA_Tooltip_ability_item_shopkeeper_aegis_description_choose"                 "<h1>Active:</h1>Hero releases a roar that damages enemies and increases their incoming damage.<br><br><h1>Passive:</h1>Hero reincarnates after death"
+// Other choose descriptions would follow same pattern
+*/

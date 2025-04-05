@@ -1,0 +1,265 @@
+"DOTAAbilities"
+{
+    "shopkeeper_ability_1"
+    {
+        "BaseClass"                                     "ability_lua"
+        "ScriptFile"                                    "abilities/shopkeeper/shopkeeper_ability_1"
+        "AbilityTextureName"                            "custom/shopkeeper_ability_1"
+
+        "MaxLevel"                                            "6"
+        "RequiredLevel"                                       "1"
+        "LevelsBetweenUpgrades"                               "2"
+
+        "AbilityCastAnimation"		                    "ACT_DOTA_CAST_ABILITY_1"
+		"AbilityBehavior"				                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+		"AbilityUnitDamageType"			                "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				                "SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			                "SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityCastRange"				                "900"
+		"AbilityCastPoint"				                "0.3"
+		"AbilityManaCost"				                "80"
+        "AbilityCharges"				                "3"
+		"AbilityValues"
+		{
+            "AbilityChargeRestoreTime"
+            {
+                "value"                                 "28 24 20 16"
+                "special_bonus_unique_shopkeeper_1"     "-3"
+            }
+            "radius"                                    "250"
+            "damage"
+            {
+                "value"                                 "100 160 220 280"
+                "special_bonus_unique_shopkeeper_4"     "+150"
+            }
+            "heal"
+            {
+                "value"                                 "160 220 280 340"
+                "special_bonus_unique_shopkeeper_4"     "+150"
+            }
+            "slow_movement_speed"                       "-22 -26 -30 -34"
+            "bonus_movement_speed"                      "22 26 30 34"
+            "duration"                                  "5"
+            "projectile_speed"                          "1400"
+		}
+    }
+
+    "shopkeeper_ability_2"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_2"
+        "AbilityTextureName"            "custom/shopkeeper_ability_2"
+
+        "MaxLevel"                                            "6"
+        "RequiredLevel"                                       "1"
+        "LevelsBetweenUpgrades"                               "2"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityChannelTime"			"1"	
+		"AbilityCastRange"				"450"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"45 35 25 15"
+        "AbilityGoldCost"               "50"
+        "AbilityValues"
+		{
+            "counter"
+            {
+                "value"                 "1"
+                "special_bonus_unique_shopkeeper_5"     "+1"
+            }
+            "item_range"                        "1700 1800 1900 2000"
+            "cast_duration"                     "3 2.5 2 1.5"
+		}
+    }
+
+    "shopkeeper_ability_2_cast"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_2_cast"
+        "AbilityTextureName"            "../items/custom/shopkeeper_krekker"
+        "AbilityCastAnimation"		    "ACT_DOTA_GENERIC_CHANNEL_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "IsOnCastBar"                   "0"
+        "AbilityChannelTime"			"3 2.5 2 1.5"
+    }
+
+    "shopkeeper_ability_3"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_3"
+        "AbilityTextureName"            "custom/shopkeeper_ability_3"
+
+        "MaxLevel"                                            "6"
+        "RequiredLevel"                                       "1"
+        "LevelsBetweenUpgrades"                               "2"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "AbilityManaCost"               "100 110 120 130"
+		"AbilityCooldown"				"27 24 21 18"
+        "AbilityCastPoint"              "1"
+		"AbilityValues"
+		{
+            "radius"                    "700 800 900 1000"
+            "duration"                  "1.8 2.4 3 3.6"
+            "damage"                    "90 180 270 360"
+		}
+    }
+
+    "shopkeeper_ability_4"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_4"
+        "AbilityTextureName"            "custom/shopkeeper_ability_4"
+
+        "MaxLevel"                                            "5"
+        "RequiredLevel"                                       "6"
+        "LevelsBetweenUpgrades"                               "6"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"60 55 50"
+        // "AbilityGoldCost"            "1500 1000 500"
+        "AbilityManaCost"               "75"
+		"AbilityValues"
+		{
+            "duration"
+            {
+                "value"                              "80"
+                "special_bonus_unique_shopkeeper_3"  "+15"
+            }
+            "item_level"                "1 2 3"
+		}
+    }
+
+    "shopkeeper_ability_scepter"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_scepter"
+        "AbilityTextureName"            "custom/shopkeeper_ability_scepter"
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_6"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"				"300"
+        "MaxLevel"                      "1"
+        "IsGrantedByScepter"            "1"
+    }
+
+    "shopkeeper_ability_shard"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_shard"
+        "AbilityTextureName"            "custom/shopkeeper_ability_shard"
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_6"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "MaxLevel"                      "1"
+        "AbilityCooldown"               "360"
+        "IsGrantedByShard"              "1"
+        "AbilityValues"
+		{
+            "sale"                      "50"
+        }
+    }
+
+    "shopkeeper_ability_innate"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+		"Innate"						"4"
+        "DependentOnAbility"			"shopkeeper_ability_4"
+		"AbilityValues"
+		{
+            "gold_timer"                "60"
+            "percent"                   "30"
+
+            "gold_distance"
+            {
+                "value"                              "3"
+                "special_bonus_unique_shopkeeper_2"  "=0"
+            }
+            "distance_damage"
+            {
+                "value"                                 "10 30 50 70"
+                "special_bonus_unique_shopkeeper_7"     "+150"
+            }
+            "distance"                 "520"
+		}
+    }
+
+    "special_bonus_cast_range_400"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value" "600"
+			}
+		}
+	}
+
+    "special_bonus_unique_shopkeeper_1"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_2"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_3"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_4"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_5"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_6"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_7"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_8"
+	{
+        "BaseClass"						"special_bonus_base"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+}

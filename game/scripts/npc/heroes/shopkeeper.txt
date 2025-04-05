@@ -1,0 +1,75 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Shopkeeper
+  //=================================================================================================================
+    "npc_dota_hero_shopkeeper"
+    {
+        "include_keys_from" 				"npc_dota_hero_ringmaster"
+		"BaseClass" 						"npc_dota_hero"
+        "HeroID"		                    "206"
+        "Model" "models/heroes/shopkeeper/shopkeeper_geometry.vmdl"
+        "DisableWearables"                  "1"
+
+        "Ability1"                          "shopkeeper_ability_1"
+        "Ability2"                          "shopkeeper_ability_2"
+        "Ability3"                          "shopkeeper_ability_3"
+        "Ability4"                          "shopkeeper_ability_scepter"
+        "Ability5"                          "shopkeeper_ability_shard"
+        "Ability6"                          "shopkeeper_ability_4"
+        "Ability7"                          "shopkeeper_ability_innate"
+
+        "Ability10"                         "special_bonus_unique_shopkeeper_1"
+        "Ability11"                         "special_bonus_unique_shopkeeper_2"
+        "Ability12"                         "special_bonus_unique_shopkeeper_5"
+        "Ability13"                         "special_bonus_unique_shopkeeper_4"
+        "Ability14"                         "special_bonus_unique_shopkeeper_3"
+        "Ability15"                         "special_bonus_all_stats_10"
+        "Ability16"                         "special_bonus_unique_shopkeeper_7"
+        "Ability17"                         "special_bonus_cast_range_400"
+
+		"AttackCapabilities"				"DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttributePrimary"                  "DOTA_ATTRIBUTE_ALL"
+
+        "AttributeBaseStrength"             "20"
+        "AttributeStrengthGain"             "3.4"
+
+        "AttributeBaseAgility"              "10"
+        "AttributeAgilityGain"              "2.8"
+
+        "AttributeBaseIntelligence"         "22"
+        "AttributeIntelligenceGain"         "2.6"
+
+        "ProjectileModel"		            ""
+		"ProjectileSpeed"		            "1000"
+
+        "BaseAttackSpeed"		            "104"
+        "ArmorPhysical"		                "2"
+        "AttackRate"                        "1.600000"
+        "AttackRange"                       "500"
+        "MovementSpeed"                     "295"
+        "AttackDamageMin"			        "25"
+		"AttackDamageMax"			        "31"
+        "StatusManaRegen"                   "1.5"
+		"AttackAnimationPoint"				"0.650000"
+        "BoundsHullName"                    "DOTA_HULL_SIZE_SMALL"
+
+        "Facets"
+		{
+			"facet_shop_keeper_1"
+			{
+				"Icon"				"gold"
+				"Color"				"Yellow"
+				"GradientID"		"1"
+			}
+			"facet_shop_keeper_2"
+			{
+				"Icon"				"item"
+				"Color"				"Gray"
+				"GradientID"		"1"
+			}
+		}
+
+        "particle_folder"                                     "particles/hero/shopkeeper"
+    }
+}
