@@ -15,16 +15,18 @@ end
 function shopkeeper_ability_1:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
-
 function shopkeeper_ability_1:OnSpellStart()
     if not IsServer() then return end
+
     local caster = self:GetCaster()
-	local point = self:GetCursorPosition()
-    local attack_position = self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_attack1"))
+    local point = self:GetCursorPosition()
+    local attack_position = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1"))
+
     if point == attack_position then
-        point = attack_position + self:GetCaster():GetForwardVector()
+        point = attack_position + caster:GetForwardVector()
     end
-    local projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
+
+    local projectile_speed = self:GetSpecialValueFor("projectile_speed")
     local direction = point - attack_position
     direction.z = 0
     local distance = direction:Length2D()
@@ -33,45 +35,50 @@ function shopkeeper_ability_1:OnSpellStart()
     local current_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
     if self:GetAutoCastState() then
         current_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+        print("[shopkeeper_ability_1] Alt-casted (autocast ON): targeting enemies")
+    else
+        print("[shopkeeper_ability_1] Normal cast: targeting allies")
     end
 
-    self:GetCaster():EmitSound("ShopKeeper.Hero_sound_3")
+    caster:EmitSound("ShopKeeper.Hero_sound_3")
 
-    local flamebreak_particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_salve_projectile.vpcf", PATTACH_WORLDORIGIN, self:GetCaster())
-	ParticleManager:SetParticleControl(flamebreak_particle, 0, attack_position)
-	ParticleManager:SetParticleControl(flamebreak_particle, 1, Vector(projectile_speed, projectile_speed, projectile_speed))
-	ParticleManager:SetParticleControl(flamebreak_particle, 5, point)
+    local flamebreak_particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_salve_projectile.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(flamebreak_particle, 0, attack_position)
+    ParticleManager:SetParticleControl(flamebreak_particle, 1, Vector(projectile_speed, projectile_speed, projectile_speed))
+    ParticleManager:SetParticleControl(flamebreak_particle, 5, point)
+
     if current_team == DOTA_UNIT_TARGET_TEAM_ENEMY then
         ParticleManager:SetParticleControl(flamebreak_particle, 27, Vector(255, 0, 0))
         ParticleManager:SetParticleControl(flamebreak_particle, 28, Vector(1, 75, 0))
     end
 
-    local info = 
+    local info =
     {
-		Source = self:GetCaster(),
-		Ability = self,
-		vSpawnOrigin = attack_position,
-	    bDeleteOnHit = true,
-	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_NONE,
-	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	    iUnitTargetType = DOTA_UNIT_TARGET_HERO,
-	    EffectName = "",
-	    fDistance = distance,
-	    fStartRadius = 0,
-	    fEndRadius =0,
-		vVelocity = direction * projectile_speed,
-		bHasFrontalCone = false,
-		bReplaceExisting = false,
-		fExpireTime = GameRules:GetGameTime() + 10.0,
-        ExtraData = 
+        Source = caster,
+        Ability = self,
+        vSpawnOrigin = attack_position,
+        bDeleteOnHit = true,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_NONE,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO,
+        EffectName = "",
+        fDistance = distance,
+        fStartRadius = 0,
+        fEndRadius = 0,
+        vVelocity = direction * projectile_speed,
+        bHasFrontalCone = false,
+        bReplaceExisting = false,
+        fExpireTime = GameRules:GetGameTime() + 10.0,
+        ExtraData =
         {
             particle_fx = flamebreak_particle,
             current_team = current_team,
         }
-	}
+    }
 
-	ProjectileManager:CreateLinearProjectile(info)
+    ProjectileManager:CreateLinearProjectile(info)
 end
+
 
 function shopkeeper_ability_1:OnProjectileHit_ExtraData(htarget, vLocation, table)
     local duration = self:GetSpecialValueFor("duration")
@@ -116,7 +123,7 @@ end
 modifier_shopkeeper_ability_1_debuff = class({})
 
 function modifier_shopkeeper_ability_1_debuff:GetTexture()
-    return "shopkeeper_ability_1_secondary"
+    return "shopkeeper_potion_of_duality_debuff"
 end
 
 function modifier_shopkeeper_ability_1_debuff:OnCreated()
