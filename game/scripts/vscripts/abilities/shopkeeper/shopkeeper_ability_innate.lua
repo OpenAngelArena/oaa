@@ -277,7 +277,7 @@ end
 
 function modifier_shopkeeper_ability_innate_shop_buff:ReCreateStore()
     local store_type = DOTA_SHOP_SECRET
-    if self:GetCaster():GetHeroFacetID() == 5 then
+    if self:GetCaster():GetHeroFacetID() == 2 then
         store_type = DOTA_SHOP_HOME
     end
     local trigger = SpawnDOTAShopTriggerRadiusApproximate( self:GetParent():GetOrigin(), 200 )

@@ -4,37 +4,32 @@ LinkLuaModifier("modifier_shopkeeper_all_in_shield", "abilities/shopkeeper/shopk
 shopkeeper_all_in = class({})
 
 function shopkeeper_all_in:OnSpellStart()
-    if not IsServer() then return end
-
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
-    local level = self:GetLevel() - 1  -- Ability level starts at 1, so subtract 1
-    local gold_spent = caster:GetGold()
+    local gold_cost = caster:GetGold()
 
-    -- Calculate the gold cost as 100% of the Shopkeeper's net worth
-    local gold_cost = gold_spent  -- Full net worth of the Shopkeeper
-
-    -- Get scaling values from the KV
-    local conversion_rate = self:GetSpecialValueFor("conversion_rate")[level + 1]  -- Indexing for conversion rate
-    local shield_max_value = self:GetSpecialValueFor("shield_max_value")[level + 1]  -- Max shield value
-    local shield_value = math.floor(gold_cost * conversion_rate)
-
-    -- Ensure the shield value doesn't exceed the max shield value
-    shield_value = math.min(shield_value, shield_max_value)
-
-    -- Spend the full gold
+    -- Deduct the gold manually
     caster:SpendGold(gold_cost, DOTA_ModifyGold_Unspecified)
 
-    -- Apply the shield modifier to the target
+    -- Hard dispel the target before applying the shield
+    target:Purge(true, true, false, true, true)
+
+    -- Get scaling values from the KV
+    local conversion_rate = self:GetSpecialValueFor("conversion_rate")
+    local shield_max_value = self:GetSpecialValueFor("shield_max_value")
+    local shield_value = math.floor(gold_cost * conversion_rate)
+    shield_value = math.min(shield_value, shield_max_value)
+
+    -- Apply the shield
     target:AddNewModifier(caster, self, "modifier_shopkeeper_all_in_shield", {
-        duration = self:GetSpecialValueFor("duration")[level + 1],  -- Duration scaling based on level
+        duration = self:GetSpecialValueFor("duration"),
         shield_value = shield_value
     })
 
-    -- Feedback
     EmitSoundOn("Hero_Alchemist.ChemicalRage.Start", target)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, target, gold_cost, caster:GetPlayerOwner())
 end
+
 
 modifier_shopkeeper_all_in_shield = class({})
 
@@ -44,44 +39,65 @@ function modifier_shopkeeper_all_in_shield:IsPurgable() return false end
 function modifier_shopkeeper_all_in_shield:IsPermanent() return true end
 
 -- This modifier provides a damage shield and debuff immunity
-function modifier_shopkeeper_all_in_shield:DeclareFunctions()
+function modifier_shopkeeper_all_in_shield:CheckState()
     return {
-        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,  -- A function to reduce incoming damage based on the shield value
-        MODIFIER_PROPERTY_STATUS_RESISTANCE,           -- Provides debuff immunity
+        [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
     }
 end
 
-function modifier_shopkeeper_all_in_shield:GetModifierIncomingDamage_Percentage(params)
-    -- Reduce damage based on the shield value
-    if self:GetParent():IsMagicImmune() then
-        return 0  -- If immune, no damage
+function modifier_shopkeeper_all_in_shield:OnCreated(kv)local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+        self.shield_max_value = ability:GetSpecialValueFor("shield_max_value")
+    else
+        self.shield_max_value = 0
     end
 
-    if self.shield_value > 0 then
-        local damage_block = math.min(self.shield_value, params.damage)
-        self.shield_value = self.shield_value - damage_block
-        return -damage_block  -- Return a negative value to reduce the incoming damage
+
+    if not IsServer() then return end
+
+    local shield_value = kv.shield_value or 0
+
+    self:SetStackCount(0 - shield_value)
+end
+
+-- This modifier provides a damage shield and debuff immunity
+function modifier_shopkeeper_all_in_shield:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
+    }
+end
+
+if IsServer() then
+    function modifier_shopkeeper_all_in_shield:GetModifierTotal_ConstantBlock(event)
+        -- Do nothing if damage has HP removal flag
+        if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+            return 0
+        end
+
+        local current_shield = math.abs(self:GetStackCount())
+        local block_amount = math.min(event.damage, current_shield)
+        self:SetStackCount(block_amount - current_shield)
+
+        -- Remove the shield if hp is reduced to nothing
+        if self:GetStackCount() >= 0 then
+            self:Destroy()
+        end
+
+        return block_amount
     end
-
-    return 0  -- No shield left
 end
 
--- Provide status resistance (debuff immunity)
-function modifier_shopkeeper_all_in_shield:GetModifierStatusResistance()
-    return 100  -- 100% resistance to debuffs (i.e., debuff immunity)
-end
-
--- Handle shield destruction (when time is up or the shield runs out)
-function modifier_shopkeeper_all_in_shield:OnDestroy()
-    if not IsServer() then return end
-
-    -- Optional: Play sound or effect when the shield expires
-    EmitSoundOn("Hero_Alchemist.ChemicalRage.End", self:GetParent())
-end
-
--- On creation, initialize shield value
-function modifier_shopkeeper_all_in_shield:OnCreated(kv)
-    if not IsServer() then return end
-
-    self.shield_value = kv.shield_value or 0
+function modifier_shopkeeper_all_in_shield:GetModifierIncomingDamageConstant(event)
+    if IsClient() then
+        local max_shield = self.shield_max_value
+        local current_shield = math.abs(self:GetStackCount())
+        if event.report_max then
+            return max_shield -- max shield hp
+        else
+            return current_shield -- current shield hp
+        end
+    else
+        return 0
+    end
 end
