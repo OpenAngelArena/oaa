@@ -38,7 +38,7 @@ function modifier_shopkeeper_hakoware_debt:IsPurgable() return false end
 function modifier_shopkeeper_hakoware_debt:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_TOOLTIP,
-        MODIFIER_EVENT_ON_ENTITY_HURT,  -- Listen for damage events
+        MODIFIER_EVENT_ON_TAKEDAMAGE,  -- Listen for damage events
     }
 end
 
@@ -97,25 +97,45 @@ function modifier_shopkeeper_hakoware_debt:OnDestroy()
     self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_shopkeeper_hakoware_item_mute", {duration = mute_duration})
 end
 
--- Handle when any entity hurts the Shopkeeper (check if the player with the debt is dealing damage)
-function modifier_shopkeeper_hakoware_debt:OnEntityHurt(params)
-    if not IsServer() then return end
+if IsServer() then
+    function modifier_shopkeeper_hakoware_debt:OnTakeDamage(event)
+        local parent = self:GetParent()
+        local ability = self:GetAbility()
+        local attacker = event.attacker
+        local damaged_unit = event.unit
 
-    -- Only track damage when the Shopkeeper is the target
-    if params.target == self:GetCaster() then
-        -- Check if the attacker is the player with the debt modifier
-        if params.attacker == self:GetParent() then
-            -- Use the damage value directly from the params
-            local damage_dealt = params.damage or 0
-            self.debt = self.debt - damage_dealt
-            self.debt = math.max(self.debt, 0)  -- Prevent debt from going negative
-
-            -- Update the modifier's stack count with the reduced debt
-            self:SetStackCount(math.floor(self.debt))
-
-            -- Optionally print for debugging
-            print("Debt reduced to: " .. self.debt)
+        -- validate attacker and damaged unit
+        if not attacker or attacker:IsNull() or not damaged_unit or damaged_unit:IsNull() then
+            return
         end
+
+        -- ensure attacker is the debt holder
+        if attacker ~= parent then
+            return
+        end
+
+        -- ensure damaged unit is the shopkeeper (caster)
+        if damaged_unit ~= ability:GetCaster() then
+            return
+        end
+
+        local damage = event.damage
+        if damage <= 0 then
+            return
+        end
+
+        -- calculate repayment
+        local old_debt = self.debt
+        self.debt = math.max(self.debt - damage, 0)
+        local repayment = old_debt - self.debt
+
+        -- transfer gold from attacker to shopkeeper
+        if repayment > 0 then
+            attacker:SpendGold(math.floor(repayment), DOTA_ModifyGold_Unspecified)
+            damaged_unit:ModifyGold(math.floor(repayment), true, DOTA_ModifyGold_Unspecified)
+        end
+
+        self:SetStackCount(math.floor(self.debt))
     end
 end
 

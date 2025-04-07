@@ -11,12 +11,11 @@
         "LevelsBetweenUpgrades"                               "2"
 
         "AbilityCastAnimation"		                    "ACT_DOTA_CAST_ABILITY_1"
-		"AbilityBehavior"				                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
-		"AbilityUnitDamageType"			                "DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"SpellImmunityType"				                "SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			                "SPELL_DISPELLABLE_YES_STRONG"
 		"AbilityCastRange"				                "900"
-		"AbilityCastPoint"				                "0.3"
+		"AbilityCastPoint"				                "0.25"
 		"AbilityManaCost"				                "80"
         "AbilityCharges"				                "3"
 		"AbilityValues"
@@ -67,7 +66,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"                                    "0.5"
         "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
-        "AbilityCastRange"                                    "700"
+        "AbilityCastRange"                                    "250 300 350 400 450 500"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -78,8 +77,8 @@
         "AbilityValues"
         {
             "AbilityCooldown"                                   "20 18 16 14 12 10"
-            "duration"                                          "10.0"
-            "interest_rate"                                     "0.05 0.075 0.10 0.125 0.15 0.20"
+            "duration"                                          "5"
+            "interest_rate"                                     "0.1 0.2 0.3 0.4 0.5 0.6"
             "gold_percentage"                                   "10"
             "mute_duration"                                     "3.0 3.5 4.0 4.5 5.0 5.5"  // Scales with ability level
         }
@@ -131,8 +130,9 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastPoint"			    "0.4"
+        "AbilityCastRange"              "700"
         "AbilityCooldown"               "60 55 50 45 40"
-        "AbilityManaCost"               "75"
         "AbilityGoldCost"               "100%"  // Percent of Shopkeeper's net worth
         "AbilityValues"
         {
@@ -151,17 +151,33 @@
         }
     }
 
-    "shopkeeper_ability_scepter"
+    "shopkeeper_vagabond"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_scepter"
-        "AbilityTextureName"            "custom/shopkeeper_ability_scepter"
-        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_6"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCooldown"				"300"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_vagabond"
+        "AbilityTextureName"            "custom/shopkeeper_vagabond"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCooldown"               "300"
         "MaxLevel"                      "1"
         "IsGrantedByScepter"            "1"
+        "AbilityCastPoint"              "0.5"  // Cast point added
+
+        "AbilityValues"
+        {
+            "threshold_percent"
+            {
+                "value" "20"  // The caster's gold won't drop below 20% of their starting gold
+            }
+
+            "duration"
+            {
+                "value" "60"  // Duration of the modifier (in seconds)
+            }
+        }
     }
+
+
 
     "shopkeeper_ability_shard"
     {
@@ -186,7 +202,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"MaxLevel"						"1"
 		"Innate"						"4"
-        "DependentOnAbility"			"shopkeeper_ability_4"
+        "DependentOnAbility"			"shopkeeper_ability_all_in"
 		"AbilityValues"
 		{
             "gold_timer"                "60"
