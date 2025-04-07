@@ -137,7 +137,11 @@ if IsServer() then
     end
     -- To prevent dead nimbuses staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then
-      parent:Kill(self.ability, attacker)
+      if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        parent:ForceKillOAA(false)
+      else
+        parent:Kill(self.ability, attacker)
+      end
     else
       parent:SetHealth(parent:GetHealth() - damage)
     end
