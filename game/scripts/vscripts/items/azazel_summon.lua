@@ -23,7 +23,11 @@ function azazel_summon:OnSpellStart()
 
   -- Destroy any existing summons tied to this caster
   if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
-    caster.azazel_summon:Kill(nil, caster)
+    if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      caster.azazel_summon:ForceKillOAA(false)
+    else
+      caster.azazel_summon:Kill(nil, caster)
+    end
   end
 
   -- Summon parameters

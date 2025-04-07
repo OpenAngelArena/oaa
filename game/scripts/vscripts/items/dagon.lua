@@ -58,11 +58,15 @@ function item_dagon_oaa_1:OnSpellStart()
   end
 
   -- If the target is an illusion, just kill it and don't do damage; same + heal for non-ancient creeps
-  if (target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA()) or (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss()) then
+  if (target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA()) or (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss() and not target:IsCreepHero()) then
     if target:IsCreep() then
       caster:HealWithParams(target:GetHealth() * burst_heal_percent / 100, self, false, true, caster, true)
     end
-    target:Kill(self, caster)
+    if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      target:ForceKillOAA(false)
+    else
+      target:Kill(self, caster)
+    end
     return
   end
 
