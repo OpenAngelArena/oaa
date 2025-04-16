@@ -32,10 +32,8 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
         }
       }
     }
-  } 
+  }
 });
-
-
 
 function isUpgradable (itemName) {
   const allItems = CustomNetTables.GetTableValue('item_kv', 'upgrade_items');
@@ -56,12 +54,4 @@ function buyUpgrade (ent, itemName) {
     order.AbilityIndex = Number(id);
     Game.PrepareUnitOrders(order);
   }
-}
-
-function GetItemID (itemName) {
-  const allItems = CustomNetTables.GetTableValue('item_kv', 'custom_items');
-  if (allItems && allItems[itemName]) {
-    return allItems[(itemName)];
-  }
-  return null;
 }
