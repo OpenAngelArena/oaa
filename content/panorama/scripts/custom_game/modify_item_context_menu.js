@@ -24,6 +24,7 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
         if (!FPanel) {
           const panel = $.CreatePanel('Button', Buttons, 'TestButton');
           panel.visible = true;
+          
           $.CreatePanel('Label', panel, 'TestText', { text: $.Localize('#DOTA_SHOP_DETAILS_UPGRADE') });
           panel.SetPanelEvent('onactivate', function () {
             buyUpgrade(localPlayer, itemName);
@@ -32,41 +33,30 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
         }
       }
     }
-  }
+  } 
 });
 
+
+
 function isUpgradable (itemName) {
-  let upgradeItemName = '';
-  let itemTier = 0;
-  if (/_\d$/.test(itemName)) {
-    itemTier = Number(itemName.slice(-1));
-    upgradeItemName = itemName.slice(0, -1) + (itemTier + 1);
-  } else {
-    itemTier = 2;
-    upgradeItemName = itemName + '_2';
+  const allItems = CustomNetTables.GetTableValue('item_kv', 'upgrade_items');
+  if (allItems && allItems[itemName]) {
+    return allItems[itemName];
   }
-  const itemID = GetItemID(upgradeItemName);
-  if (itemID) {
-    return [upgradeItemName, itemTier];
-  }
-  return null;
+  return false;
 }
 
 function buyUpgrade (ent, itemName) {
-  const [upgradeItemName, itemTier] = isUpgradable(itemName);
+  const idsToPurchase = isUpgradable(itemName);
   const order = {};
   order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM;
   order.UnitIndex = ent;
-  order.AbilityIndex = Number(GetItemID(upgradeItemName.replace('item_', 'item_recipe_')));
   order.Queue = false;
   order.ShowEffects = true;
-  Game.PrepareUnitOrders(order);
-  let core = 'item_upgrade_core';
-  if (itemTier >= 2) {
-    core = core + '_' + (itemTier);
+  for (const id of Object.values(idsToPurchase)) {
+    order.AbilityIndex = Number(id);
+    Game.PrepareUnitOrders(order);
   }
-  order.AbilityIndex = Number(GetItemID(core));
-  Game.PrepareUnitOrders(order);
 }
 
 function GetItemID (itemName) {
