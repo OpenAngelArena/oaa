@@ -92,11 +92,6 @@ local ignored_abilities = {
   item_gungir_3 = true,
   item_gungir_4 = true,
   item_gungir_5 = true,
-  item_satanic_core_1 = true,
-  item_satanic_core_2 = true,
-  item_satanic_core_3 = true,
-  item_satanic_core_4 = true,
-  item_satanic_core_5 = true,
   item_spell_breaker_1 = true,
   item_spell_breaker_2 = true,
   item_spell_breaker_3 = true,
@@ -127,7 +122,11 @@ function modifier_smurf_oaa:ReEquipAllItems()
 
   local parent = self:GetParent()
 
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  local max_slot = DOTA_ITEM_SLOT_6
+  if parent:HasModifier("modifier_spoons_stash_oaa") then
+    max_slot = DOTA_ITEM_SLOT_9
+  end
+  for i = DOTA_ITEM_SLOT_1, max_slot do
     local item = parent:GetItemInSlot(i)
     if item then
       local name = item:GetAbilityName()
@@ -214,5 +213,5 @@ function modifier_smurf_oaa:GetModifierOverrideAbilitySpecialValue(keys)
 end
 
 function modifier_smurf_oaa:GetTexture()
-  return "custom/reduction_orb"
+  return "custom/modifiers/smurf"
 end

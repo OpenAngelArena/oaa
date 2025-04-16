@@ -60,29 +60,24 @@
       {
         "value"                                           "22 21 20 19 18"
       }
-      "shard_regen_pct"
+      "shard_regen_pct" // unused
       {
-        "value"                                           "5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "5"
       }
-      "order_lock_duration"
+      "order_lock_duration" // unused
       {
-        "value"                                           "2.75"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2.75"
       }
-      "shard_cast_range"
+      "shard_cast_range" // unused
       {
-        "value"                                           "300"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "300"
       }
       "gluttony_strength_bonus"
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_fresh_meat"            "2 4 6 10 14" // 6/8 stacks (lvl 20 talent)
       }
       "glutton_strength_stack_duration"
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_fresh_meat"            "12"
       }
     }

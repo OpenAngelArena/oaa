@@ -28,7 +28,7 @@
       "slow_duration"                                     "5.0"
       "AbilityManaCost"
       {
-        "value"                                           "200"
+        "value"                                           "225"
         "special_bonus_shard"                             "=0"
       }
       "clear_curse"
@@ -43,8 +43,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 80 60 55 50"
-        "special_bonus_scepter"                           "-10"
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-30"
       }
     }
   }

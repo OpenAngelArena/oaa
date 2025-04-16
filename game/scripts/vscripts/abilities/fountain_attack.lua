@@ -131,7 +131,11 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     target:Purge(true, false, false, false, false)
     target:ReduceMana(manaReductionAmount, ability)
     if targetHealth - healthReductionAmount < 1 then
-      target:Kill(ability, caster)
+      if teamID == DOTA_TEAM_NEUTRALS then
+        target:Kill(ability, target)
+      else
+        target:Kill(ability, caster)
+      end
     else
       target:SetHealth(targetHealth - healthReductionAmount)
     end

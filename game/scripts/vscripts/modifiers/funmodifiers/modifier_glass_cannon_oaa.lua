@@ -18,17 +18,17 @@ end
 
 function modifier_glass_cannon_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 end
 
-function modifier_glass_cannon_oaa:GetModifierBonusStats_Strength()
-  return -999
+function modifier_glass_cannon_oaa:GetModifierTotalDamageOutgoing_Percentage()
+  return 25
 end
 
-function modifier_glass_cannon_oaa:GetModifierPreAttack_BonusDamage()
-  return 750
+function modifier_glass_cannon_oaa:GetModifierIncomingDamage_Percentage()
+  return 25
 end
 
 function modifier_glass_cannon_oaa:GetTexture()

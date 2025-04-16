@@ -32,9 +32,9 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
-  HM25 = "modifier_hp_mana_switch_oaa",
+  --HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
-  HM27 = "modifier_brawler_oaa",
+  --HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   HM29 = "modifier_double_multiplier_oaa",
   --HM30 = "modifier_hybrid_oaa",
@@ -43,7 +43,7 @@ local hero_mods = {
   HM33 = "modifier_titan_soul_oaa",
   --HM34 = "modifier_hero_anti_stun_oaa",
   HM35 = "modifier_octarine_soul_oaa",
-  HM36 = "modifier_smurf_oaa",
+  --HM36 = "modifier_smurf_oaa",
   HM37 = "modifier_speedster_oaa",
   HM38 = "modifier_universal_oaa",
   HM39 = "modifier_rich_man_oaa",
@@ -51,6 +51,8 @@ local hero_mods = {
   HM41 = "modifier_crimson_magic_oaa",
   HM42 = "modifier_ludo_oaa",
   HM43 = "modifier_battlemage_oaa",
+  HM44 = "modifier_multicast_oaa",
+  HM45 = "modifier_spoons_stash_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -126,6 +128,8 @@ function OAAOptions:Init ()
     end
   end)
 
+  CustomGameEventManager:RegisterListener("oaa_modifier_info_request", Dynamic_Wrap(OAAOptions, "SendModifierInfo"))
+
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
@@ -148,6 +152,7 @@ function OAAOptions:SaveSettings()
 end
 
 function OAAOptions:SetupGame()
+  local mode = GameRules:GetGameModeEntity()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
     if CustomWardButtons then
@@ -155,8 +160,10 @@ function OAAOptions:SetupGame()
       CustomWardButtons.sentry_cooldown = 30
     end
   end
+  if self.settings.HEROES_MODS == "HM21" or self.settings.HEROES_MODS_2 == "HM21" or self.settings.HEROES_MODS == "HM39" or self.settings.HEROES_MODS_2 == "HM39" then
+    mode:SetLoseGoldOnDeath(false)
+  end
   if self.settings.GLOBAL_MODS == "GM12" then
-    local mode = GameRules:GetGameModeEntity()
     mode:SetBuybackEnabled(true)
   end
 end
@@ -338,7 +345,9 @@ function OAAOptions:TestHeroModifier(keys)
     angels_wings = "modifier_angel_oaa",
     anti_judecca = "modifier_all_healing_amplify_oaa",
     aoe_increase = "modifier_aoe_radius_increase_oaa",
+    armor_power = "modifier_bad_design_1_oaa",
     attack_range_switch = "modifier_troll_switch_oaa",
+    bad_design_2 = "modifier_bad_design_2_oaa",
     battlemage = "modifier_battlemage_oaa",
     blood_magic = "modifier_blood_magic_oaa",
     boss_killer = "modifier_boss_killer_oaa",
@@ -367,12 +376,15 @@ function OAAOptions:TestHeroModifier(keys)
     magus = "modifier_magus_oaa",
     max_power = "modifier_any_damage_crit_oaa",
     moriah_shield = "modifier_hp_mana_switch_oaa",
+    multicast = "modifier_multicast_oaa",
     nimble = "modifier_nimble_oaa",
     no_brain = "modifier_no_brain_oaa",
     no_hp_bar = "modifier_no_health_bar_oaa",
     octarine_soul = "modifier_octarine_soul_oaa",
+    outworld_attack = "modifier_outworld_attack_oaa",
     phys_immune = "modifier_physical_immunity_oaa",
     pro_active = "modifier_pro_active_oaa",
+    puny = "modifier_puny_oaa",
     quick_spells = "modifier_no_cast_points_oaa",
     rend = "modifier_rend_oaa",
     roshans_body = "modifier_roshan_power_oaa",
@@ -381,6 +393,7 @@ function OAAOptions:TestHeroModifier(keys)
     speedster = "modifier_speedster_oaa",
     spell_resist = "modifier_spell_block_oaa",
     splasher = "modifier_any_damage_splash_oaa",
+    spoons_stash = "modifier_spoons_stash_oaa",
     telescope = "modifier_range_increase_oaa",
     timeless = "modifier_debuff_duration_oaa",
     titan_soul = "modifier_titan_soul_oaa",
@@ -419,4 +432,62 @@ function OAAOptions:TestHeroModifier(keys)
       end
     end
   end
+end
+
+function OAAOptions:SendModifierInfo(event)
+  local unit_index = event.unit
+  local playerID = event.PlayerID
+
+  local unit
+  if unit_index then
+    unit = EntIndexToHScript(unit_index)
+  end
+  if not unit or unit:IsNull() then
+    return
+  end
+  if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+    return
+  end
+
+  -- Modifiers that have 'ignore_abilities' table
+  local mod_names = {"modifier_magus_oaa", "modifier_multicast_oaa", "modifier_ham_oaa", "modifier_pro_active_oaa", "modifier_octarine_soul_oaa"}
+  local data = {}
+  data.magus_black_list = {}
+  data.magus_gray_list = {}
+  data.multicast_black_list = {}
+  data.ham_penalty_list = {}
+  data.pro_active_penalty_list = {}
+  data.octarine_soul_penalty_list = {}
+  for _, mod_name in pairs (mod_names) do
+    local mod = unit:FindModifierByName(mod_name)
+    if mod then
+      if mod.ignore_abilities then
+        for ability_name, _ in pairs(mod.ignore_abilities) do
+          if unit:HasAbility(ability_name) then
+            if mod_name == "modifier_magus_oaa" then
+              table.insert(data.magus_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_multicast_oaa" then
+              table.insert(data.multicast_black_list, tostring(ability_name))
+            elseif mod_name == "modifier_ham_oaa" then
+              table.insert(data.ham_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_pro_active_oaa" then
+              table.insert(data.pro_active_penalty_list, tostring(ability_name))
+            elseif mod_name == "modifier_octarine_soul_oaa" then
+              table.insert(data.octarine_soul_penalty_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+      if mod_name == "modifier_magus_oaa" then
+        if mod.low_chance_to_proc then
+          for ability_name, _ in pairs(mod.low_chance_to_proc) do
+            if unit:HasAbility(ability_name) then
+              table.insert(data.magus_gray_list, tostring(ability_name))
+            end
+          end
+        end
+      end
+    end
+  end
+  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "oaa_modifier_info_update", data)
 end

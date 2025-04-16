@@ -66,18 +66,15 @@
       "return_projectile_speed"                           "900"
       "max_charges"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "charge_restore_time"
       {
-        "value"                                           "18"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "18"
       }
       "silence_duration_scepter"
       {
-        "value"                                           "2.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2.0"
       }
     }
   }

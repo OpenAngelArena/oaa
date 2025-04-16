@@ -46,13 +46,13 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "jump_delay"                                        "0.15"
-      "kill_damage"
+      "kill_damage" // unused
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "kill_damage_duration"
+      "kill_damage_duration" // unused
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
@@ -65,13 +65,11 @@
       }
       "scepter_min_entangle_duration"
       {
-        "value"                                           "1.5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.5"
       }
       "scepter_max_entangle_duration"
       {
-        "value"                                           "3.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3.0"
       }
     }
   }

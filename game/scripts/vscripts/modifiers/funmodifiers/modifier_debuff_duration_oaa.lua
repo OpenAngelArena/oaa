@@ -27,12 +27,12 @@ end
 
 if IsServer() then
   function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
-    return -30
+    return -25
   end
 end
 
 function modifier_debuff_duration_oaa:GetModifierSpellAmplify_Percentage()
-  return 30
+  return 25
 end
 
 function modifier_debuff_duration_oaa:GetTexture()

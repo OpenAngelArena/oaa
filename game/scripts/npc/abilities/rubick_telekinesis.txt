@@ -56,22 +56,19 @@
       "fall_duration"                                     "0.3"  // the portion of the lift that is falling
       "shard_max_land_distance_bonus_pct"
       {
-        "value"                                           "35"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "35"
       }
-      "shard_cooldown_reduction_pct"
+      "shard_cooldown_reduction_pct" // unused
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
       "shard_teammate_throw_delay"
       {
-        "value"                                           "0.5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.5"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15"
+        "value"                                           "18 17 16 15 15 15"
         "special_bonus_unique_rubick_4"                   "-5"
       }
     }

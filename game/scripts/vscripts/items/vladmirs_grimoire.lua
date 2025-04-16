@@ -449,7 +449,11 @@ if IsServer() then
 
     if not caster:IsAlive() then
       if parent and not parent:IsNull() and parent:IsAlive() then
-        parent:Kill(self:GetAbility(), self.killer)
+        if self.killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+          parent:ForceKillOAA(false)
+        else
+          parent:Kill(self:GetAbility(), self.killer)
+        end
         return
       end
     end

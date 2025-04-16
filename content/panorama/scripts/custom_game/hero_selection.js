@@ -229,6 +229,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM41: '#game_option_crimson_magic',
     HM42: '#game_option_ludo',
     HM43: '#game_option_battlemage',
+    HM44: '#game_option_multicast',
+    HM45: '#game_option_spoons_stash',
     HMB01: '#game_option_giant',
     HMB02: '#game_option_league',
     HMB03: '#game_option_turbo',

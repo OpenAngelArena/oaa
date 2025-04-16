@@ -28,6 +28,7 @@ function modifier_sangromancer_oaa:OnCreated()
     "npc_dota_hero_drow_ranger",
     "npc_dota_hero_electrician",
     "npc_dota_hero_enchantress",
+    "npc_dota_hero_huskar",
     "npc_dota_hero_keeper_of_the_light",
     "npc_dota_hero_leshrac",
     "npc_dota_hero_medusa",
@@ -41,6 +42,15 @@ function modifier_sangromancer_oaa:OnCreated()
     "npc_dota_hero_winter_wyvern",
     "npc_dota_hero_witch_doctor",
   }
+
+  -- Huskar doesnt benefit from either
+  if parent:GetUnitName() == "npc_dota_hero_huskar" then
+    -- Add health per INT modifier instead
+    if not parent:HasModifier("modifier_bad_design_2_oaa") then
+      parent:AddNewModifier(parent, nil, "modifier_bad_design_2_oaa", {})
+    end
+    return
+  end
 
   for _, v in pairs(bad_blood_magic_heroes) do
     if parent:GetUnitName() == v then

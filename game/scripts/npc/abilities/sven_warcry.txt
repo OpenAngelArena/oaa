@@ -52,31 +52,24 @@
       }
       "shard_passive_armor" //OAA
       {
-        "value"                                           "3 4 5 6 8 12"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "3 4 5 6 8 12"
       }
       "shard_passive_movespeed"
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
       "shard_radius"
       {
-        "value"                                           "1200"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "base_barrier_amount" //OAA
       {
-        "value"                                           "0"
         "special_bonus_facet_sven_heavy_plate"            "=100 =170 =240 =310 =620 =930"
-        "RequiresFacet"                                   "sven_heavy_plate"
       }
       "barrier_per_strength"
       {
-        "value"                                           "0"
         "special_bonus_facet_sven_heavy_plate"            "=0"
-        "RequiresFacet"                                   "sven_heavy_plate"
       }
     }
   }
