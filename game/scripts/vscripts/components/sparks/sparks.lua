@@ -360,7 +360,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_zuus = "midas",
   }
 
-  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  local lowPlayerCount = GetMapName() == "tinymode"
   if HeroSelection then
     lowPlayerCount = HeroSelection.lowPlayerCount
   end

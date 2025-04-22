@@ -76,7 +76,7 @@ function ColoredText (colorCode, text) {
 
 function is10v10 () {
   const mapname = Game.GetMapInfo().map_display_name;
-  return mapname === '10v10' || mapname === 'oaa_bigmode';
+  return mapname === '10v10' || mapname === 'oaa_bigmode' || mapname == 'oaa_alternate';
 }
 
 // FindModifier returns BuffID or undefined

@@ -49,14 +49,14 @@ function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
   for index, value in ipairs(item_requirements) do
     if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] ~= nil and GetAbilityKeyValuesByName(value)["ItemCost"] ~= nil) then
       if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] > 0 and GetAbilityKeyValuesByName(value)["ItemCost"] == 1) then
-        print(value)
+        --print(value)
         table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
         needs_upgrade_core = true
       end
     end
   end
   if needs_upgrade_core then
-    print(item_upgrade_recipe)
+    --print(item_upgrade_recipe)
     table.insert(item_ids_needed, GetAbilityKeyValuesByName(item_upgrade_recipe)["ID"])
   else
     for index, value in ipairs(item_requirements) do

@@ -1,6 +1,6 @@
 
 local function shielder_filter ()
-  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  local lowPlayerCount = GetMapName() == "tinymode"
   if HeroSelection then
     lowPlayerCount = HeroSelection.lowPlayerCount
   end
