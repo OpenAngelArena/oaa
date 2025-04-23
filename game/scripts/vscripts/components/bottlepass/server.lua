@@ -321,7 +321,7 @@ end
 
 -- Dont track bans and mmr changes if conditions are met
 function Bottlepass:IsInvalidForTracking()
-  if HeroSelection.is10v10 then
+  if HeroSelection.is10v10 and not HeroSelection.is6v6 then
     return true
   end
   if OAAOptions then
