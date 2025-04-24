@@ -582,8 +582,10 @@ if IsServer() then
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_DEAD),
       parent:GetTeamNumber()
     )
-    if HeroSelection.is10v10 then
-      stealRange = 450
+    if HeroSelection then
+      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+        stealRange = math.floor(stealRange / 2)
+      end
     end
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 

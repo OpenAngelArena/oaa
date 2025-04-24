@@ -489,7 +489,7 @@ function CapturePoints:IsZonePathable(location)
 end
 
 function CapturePoints:GetInitialDelay()
-  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  local lowPlayerCount = GetMapName() == "tinymode"
   if HeroSelection then
     lowPlayerCount = HeroSelection.lowPlayerCount
   end
@@ -512,7 +512,7 @@ function CapturePoints:GetInitialDelay()
 end
 
 function CapturePoints:GetCapturePointIntervalTime()
-  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  local lowPlayerCount = GetMapName() == "tinymode"
   if HeroSelection then
     lowPlayerCount = HeroSelection.lowPlayerCount
   end

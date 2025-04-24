@@ -65,8 +65,10 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
 
       local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) * (percent / 100) / divisor
 
-      if HeroSelection.is10v10 then
-        value = value * 1.5
+      if HeroSelection then
+        if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+          value = value * 1.5
+        end
       end
 
       -- quick and dirty rounding

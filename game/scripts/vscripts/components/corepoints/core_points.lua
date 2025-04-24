@@ -13,16 +13,59 @@ function CorePointsManager:Init()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
+  local upgrade_items_ids = self:ItemIdTableCreate()
+  CustomNetTables:SetTableValue("item_kv", "upgrade_items", upgrade_items_ids)
+  self.playerID_table = {}
+end
+
+local forcedUpgrades = {
+  item_power_treads="item_greater_power_treads"
+}
+
+function CorePointsManager:ItemIdTableCreate()
   local custom_items = LoadKeyValues("scripts/npc/npc_items_custom.txt")
-  local custom_items_ids = {}
-  for k,v in pairs(custom_items) do
-    local item_data = GetAbilityKeyValuesByName(k)
-    if item_data then
-      custom_items_ids[k] = item_data.ID
+  local upgrade_item_ids = {}
+  for item_name, item_values in pairs(custom_items) do
+    if (item_values["UpgradesItems"] ~= nil and item_values["UpgradesItems"] ~= "") then
+      local item_ids_needed = self:GetUpgradeItemIds(item_name, item_values["UpgradesItems"])
+      upgrade_item_ids[item_name] = item_ids_needed
     end
   end
-  CustomNetTables:SetTableValue("item_kv", "custom_items", custom_items_ids)
-  self.playerID_table = {}
+  for item_name, item_upgrades in pairs(forcedUpgrades) do
+    local item_ids_needed = self:GetUpgradeItemIds(item_name, item_upgrades)
+    upgrade_item_ids[item_name] = item_ids_needed
+  end
+  return upgrade_item_ids
+end
+
+function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
+  local item_ids_needed = {}
+  local item_upgrade_recipe = item_upgrade:gsub("item_", "item_recipe_")
+  local item_requirements = {}
+  for substr in GetAbilityKeyValuesByName(item_upgrade_recipe)["ItemRequirements"]["01"]:gmatch("([^;]+)") do
+    table.insert(item_requirements, substr)
+  end
+  local needs_upgrade_core = false
+  for index, value in ipairs(item_requirements) do
+    if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] ~= nil and GetAbilityKeyValuesByName(value)["ItemCost"] ~= nil) then
+      if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] > 0 and GetAbilityKeyValuesByName(value)["ItemCost"] == 1) then
+        --print(value)
+        table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
+        needs_upgrade_core = true
+      end
+    end
+  end
+  if needs_upgrade_core then
+    --print(item_upgrade_recipe)
+    table.insert(item_ids_needed, GetAbilityKeyValuesByName(item_upgrade_recipe)["ID"])
+  else
+    for index, value in ipairs(item_requirements) do
+      if value ~= item_name then
+        table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
+      end
+    end
+  end
+  return item_ids_needed
 end
 
 

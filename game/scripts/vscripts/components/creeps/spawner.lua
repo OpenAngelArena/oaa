@@ -180,9 +180,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
   if creepHandle ~= nil then
     self:SetCreepPropertiesOnHandle(creepHandle, newCreepProperties)
-    if not HeroSelection.is10v10 or HudTimer:GetGameTime() < DUEL_INTERVAL then
-      creepHandle:AddNewModifier(creepHandle, nil, "modifier_creep_loot", {locationString = locationString})
-    end
+    creepHandle:AddNewModifier(creepHandle, nil, "modifier_creep_loot", {locationString = locationString}) -- this handles madstones too, not just bottles
     self:SetCreepAbilityLevels(creepHandle)
   end
 

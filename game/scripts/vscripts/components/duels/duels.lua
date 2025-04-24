@@ -733,7 +733,7 @@ function Duels:PlayerForDuel(playerId)
 end
 
 function Duels:GetDuelIntervalTime()
-  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  local lowPlayerCount = GetMapName() == "tinymode"
   if HeroSelection then
     lowPlayerCount = HeroSelection.lowPlayerCount
   end
@@ -745,7 +745,11 @@ function Duels:GetDuelIntervalTime()
 end
 
 function Duels:GetDuelTimeout(duelType)
-  if GetMapName() == "1v1" then
+  local lowPlayerCount = GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
+  if lowPlayerCount then
     return ONE_V_ONE_DUEL_TIMEOUT
   end
   if not duelType then
