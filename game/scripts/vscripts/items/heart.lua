@@ -39,16 +39,16 @@ function item_heart_oaa_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.HavocHammer.Cast")
 
   -- Havoc Knockback
-  local knockback_table = {
-    should_stun = 0,
-    center_x = center.x,
-    center_y = center.y,
-    center_z = center.z,
-    duration = self:GetSpecialValueFor("knockback_duration"),
-    knockback_duration = self:GetSpecialValueFor("knockback_duration"),
-    knockback_distance = self:GetSpecialValueFor("knockback_distance"),
-    knockback_height = 10,
-  }
+  -- local knockback_table = {
+    -- should_stun = 0,
+    -- center_x = center.x,
+    -- center_y = center.y,
+    -- center_z = center.z,
+    -- duration = self:GetSpecialValueFor("knockback_duration"),
+    -- knockback_duration = self:GetSpecialValueFor("knockback_duration"),
+    -- knockback_distance = self:GetSpecialValueFor("knockback_distance"),
+    -- knockback_height = 10,
+  -- }
 
   -- Havoc Damage
   local havoc_damage = self:GetSpecialValueFor("nuke_base_dmg")
@@ -68,7 +68,7 @@ function item_heart_oaa_1:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       --knockback_table.knockback_distance = radius - (center - enemy:GetAbsOrigin()):Length2D()
-      enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
+      --enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
 
       damage_table.victim = enemy
       ApplyDamage(damage_table)
