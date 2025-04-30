@@ -165,6 +165,8 @@ function dotaAbilities (cb) {
   let finalResult = {};
   let counter = 0;
   for (let i = 0; i < urls.length; i++) {
+    // const index = i;
+    // console.log('Fetching individual hero file ', index);
     request.get({
       url: urls[i]
     }, function (err, response, body) {
@@ -178,6 +180,7 @@ function dotaAbilities (cb) {
       const data = parseKV(body);
       finalResult = { ...finalResult, ...data.DOTAAbilities };
       counter++;
+      // console.log(`Got file ${index}, progress is ${counter}/${urls.length}`);
       if (counter === urls.length) {
         cb(null, finalResult);
       }
@@ -186,6 +189,7 @@ function dotaAbilities (cb) {
 }
 
 function dotaItems (cb) {
+  // console.log('Fetching dota items from github');
   request.get({
     url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/items.txt'
   }, function (err, result) {
@@ -193,11 +197,13 @@ function dotaItems (cb) {
       return cb(err);
     }
     const data = parseKV(result.body);
+    // console.log('Done fetching dota items from github');
     cb(null, data.DOTAAbilities);
   });
 }
 
 function dotaHeroes (cb) {
+  // console.log('Fetching dota heroes from github');
   request.get({
     url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/npc_heroes.txt'
   }, function (err, result) {
@@ -205,6 +211,7 @@ function dotaHeroes (cb) {
       return cb(err);
     }
     const data = parseKV(result.body.replace('}\t\t}', '}\n\t\t}'));
+    // console.log('Done fetching dota heroes from github');
     cb(null, data.DOTAHeroes);
   });
 }

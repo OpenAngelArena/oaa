@@ -40,5 +40,5 @@ function modifier_bad_design_2_oaa:GetModifierConstantHealthRegen()
 end
 
 function modifier_bad_design_2_oaa:GetTexture()
-  return "item_helm_of_iron_will"
+  return "item_cornucopia"
 end

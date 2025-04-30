@@ -112,7 +112,7 @@ function modifier_crystal_maiden_arcane_aura_oaa:GetAuraSearchType()
 end
 
 function modifier_crystal_maiden_arcane_aura_oaa:GetAuraRadius()
-  return 20000
+  return 30000
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -139,7 +139,8 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:OnCreated()
     --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
     --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
     --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
-    self.int = ability:GetSpecialValueFor("bonus_intelligence")
+    --self.int = ability:GetSpecialValueFor("bonus_intelligence")
+    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
   end
 end
 
@@ -148,7 +149,8 @@ modifier_crystal_maiden_arcane_aura_effect_oaa.OnRefresh = modifier_crystal_maid
 function modifier_crystal_maiden_arcane_aura_effect_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE, -- GetModifierSpellAmplify_Percentage
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+    --MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     --MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, --GetModifierPercentageManacostStacking
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
@@ -178,8 +180,12 @@ end
   --return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 --end
 
-function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierBonusStats_Intellect()
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
+-- function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierBonusStats_Intellect()
+  -- return self.int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
+-- end
+
+function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierCastRangeBonusStacking()
+  return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
 end
 
 --function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip()

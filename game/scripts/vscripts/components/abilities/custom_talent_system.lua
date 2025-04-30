@@ -55,9 +55,6 @@ local abilities_with_custom_talents = {
   gyrocopter_flak_cannon = {
     radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
   },
-  hoodwink_acorn_shot = {
-    base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
-  },
   huskar_inner_fire = {
     damage = {"special_bonus_unique_huskar_1_oaa", "+"},
   },
@@ -81,6 +78,9 @@ local abilities_with_custom_talents = {
   },
   muerta_pierce_the_veil = {
     AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
+  },
+  obsidian_destroyer_astral_imprisonment = {
+    damage = {"special_bonus_unique_obsidian_destroyer_1_oaa", "+"},
   },
   queenofpain_shadow_strike = {
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},

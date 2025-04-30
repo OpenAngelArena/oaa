@@ -46,9 +46,7 @@
       "projectile_speed"                                  "1600"
       "dragon_aoe"
       {
-        "value"                                           "=0"
-        "special_bonus_facet_dragon_knight_fire_dragon"   "=100"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "100"
         "affected_by_aoe_increase"                        "1"
       }
       "physical_damage_type"

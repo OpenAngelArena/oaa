@@ -46,28 +46,22 @@
       "knockback_duration"                                "1"
       "AbilityCooldown"
       {
-        "value"                                           "17 15 13 11 10 10"
+        "value"                                           "17 15 13 11 11 11"
         "special_bonus_shard"                             "-3"
       }
       "movement_slow_pct"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "+40"
-        "RequiresShard"                                   "1"
       }
       "hero_damage_heal_pct"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "+50"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "RequiresShard"                                   "1"
       }
       "creep_damage_heal_pct"
       {
-        "value"                                           "0"
         "special_bonus_shard"                             "+10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "RequiresShard"                                   "1"
       }
     }
   }

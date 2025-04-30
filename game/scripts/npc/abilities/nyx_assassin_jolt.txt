@@ -36,7 +36,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "11 10 9 8 7 6"
-        "special_bonus_unique_nyx_jolt_cooldown"          "-3"
+        "special_bonus_unique_nyx_jolt_cooldown"          "-1"
       }
       "max_mana_as_damage_pct" //OAA
       {
@@ -44,12 +44,12 @@
       }
       "mana_burn_pct" //OAA
       {
-        "value"                                           "0"
+        "special_bonus_facet_nyx_assassin_burn_mana"      "=0"
       }
-      "aoe"
+      "aoe" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_nyx"                        "+600"
+        "special_bonus_unique_nyx"                        "+400"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_echo_duration"                              "15"

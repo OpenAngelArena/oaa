@@ -42,39 +42,32 @@
       }
       "scepter_rot_regen_reduction_pct" //OAA
       {
-        "value"                                           "5 10 15 20 25 30"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "5 10 15 20 25 30"
       }
       "attack_damage_per_stack"
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "0.8 1.6 2.4 3.2 3.6 4.0"
       }
       "max_total_stacks"
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "=25"
       }
       "stacks_decrement_per_rot_off_tick"
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "=5"
       }
       "attack_damage_per_second_tooltip"          // attack_damage_per_stack * time_for_max_stacks_tooltip
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "4 8 12 16 18 20"
       }
       "max_bonus_damage_tooltip"                  // attack_damage_per_stack * max_total_stacks
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "20 40 60 80 90 100"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "time_for_max_stacks_tooltip"               // max_total_stacks * rot_tick
       {
-        "value"                                           "0"
         "special_bonus_facet_pudge_rotten_core"           "=5.0"
       }
       "time_for_decay_tooltip"                    // max_total_stacks * rot_tick / stacks_decrement_per_rot_off_tick

@@ -12,6 +12,21 @@
         "Icon"                                            "nuke"
         "Color"                                           "Blue"
         "GradientID"                                      "3"
+        "Deprecated"                                      "true"
+      }
+
+      "nyx_assassin_scuttle"
+      {
+        "Icon"                                            "speed"
+        "Color"                                           "Red"
+        "GradientID"                                      "2"
+      }
+
+      "nyx_assassin_burn_mana_oaa"
+      {
+        "Icon"                                            "nuke"
+        "Color"                                           "Blue"
+        "GradientID"                                      "3"
 
         "Abilities"
         {
@@ -21,13 +36,6 @@
             "AutoLevelAbility"                            "true"
           }
         }
-      }
-
-      "nyx_assassin_scuttle"
-      {
-        "Icon"                                            "speed"
-        "Color"                                           "Red"
-        "GradientID"                                      "2"
       }
     }
   }

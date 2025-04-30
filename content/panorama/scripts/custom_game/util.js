@@ -15,6 +15,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.FindModifier = FindModifier;
   module.exports.HasModifier = HasModifier;
   module.exports.GetStackCount = GetStackCount;
+  module.exports.GetDotaHud = GetDotaHud;
 }
 const HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
@@ -75,7 +76,7 @@ function ColoredText (colorCode, text) {
 
 function is10v10 () {
   const mapname = Game.GetMapInfo().map_display_name;
-  return mapname === '10v10' || mapname === 'oaa_bigmode';
+  return mapname === '10v10' || mapname === 'oaa_bigmode' || mapname === 'oaa_alternate';
 }
 
 // FindModifier returns BuffID or undefined

@@ -60,23 +60,19 @@
       "fake_lance_distance"                               "675"
       "scepter_bounce_radius"
       {
-        "value"                                           "750"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "750"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_bonus_illusion_damage"
       {
-        "value"                                           "30"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "30"
       }
       "scepter_total_hits"
       {
-        "value"                                           "1"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1"
       }
       "illusion_lance_damage_pct"
       {
-        "value"                                           "0"
         "special_bonus_facet_phantom_lancer_lancelot"     "+25"
       }
     }

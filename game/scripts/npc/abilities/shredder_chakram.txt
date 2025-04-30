@@ -62,10 +62,9 @@
       "mana_per_second"                                   "14 22 30 38 46"
       "pass_slow_duration"                                "0.5"
       "slow_health_percentage"                            "5"
-      "castpoint_scepter"
+      "castpoint_scepter" // unused
       {
-        "value"                                           "0.15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.15"
       }
       "second_chakram"
       {

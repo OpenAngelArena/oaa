@@ -49,8 +49,9 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_revenants_brooch_3"
     "MaxUpgradeLevel"                                     "5"
-    "UpgradesItems"                                       "item_revenants_brooch_2;item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,8 +61,8 @@
       "spell_lifesteal"                                   "0"
       "crit_chance"                                       "30"
       "crit_multiplier"                                   "80 90 100 110 120"
-      "hero_spell_lifesteal"                              "16 18 20 22 24"
-      "creep_spell_lifesteal"                             "3.2 3.6 4.0 4.4 4.8"
+      "hero_spell_lifesteal"                              "14 16 18 20 22"
+      "creep_spell_lifesteal"                             "2.8 3.2 3.6 4.0 4.4"
     }
   }
 }

@@ -14,5 +14,9 @@ function item_devDagon:OnSpellStart()
   caster:EmitSound("DOTA_Item.Dagon.Activate")
   target:EmitSound("DOTA_Item.Dagon5.Target")
 
-  target:Kill(self, caster)
+  if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    target:Kill(self, target)
+  else
+    target:Kill(self, caster)
+  end
 end

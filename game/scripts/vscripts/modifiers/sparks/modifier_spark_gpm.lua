@@ -71,8 +71,10 @@ end
 function modifier_spark_gpm:CalculateGPM()
   local gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000}
   local gpm = gpmChart[self:GetSparkLevel()]
-  if HeroSelection and HeroSelection.is10v10 then
-    gpm = gpm * 1.5
+  if HeroSelection then
+    if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+      gpm = gpm * 1.5
+    end
   end
   return math.floor(gpm)
 end

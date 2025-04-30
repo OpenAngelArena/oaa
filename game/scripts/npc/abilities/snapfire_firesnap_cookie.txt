@@ -67,10 +67,10 @@
         "value"                                           "1.0 1.4 1.8 2.2 2.4 2.6"
       }
       "self_cast_delay"                                   "0.3"
-      "target_heal"
+      "target_heal" //OAA
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+200"
+        "special_bonus_shard"                             "+100 +150 +200 +250 +500 +750"
       }
       "shard_damage_multiplier_tooltip"                   "50"
     }

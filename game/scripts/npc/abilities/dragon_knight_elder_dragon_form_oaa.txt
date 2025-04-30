@@ -38,7 +38,7 @@
       // kvs that serve as backup if vanilla ability doesn't work
       // 5th value will be the same as 4th value no matter what we write here,
       // so it's better to be the same as 4th value to avoid confusion in the tooltip
-      "bonus_movement_speed"                              "30 35 40 45 45"
+      "bonus_movement_speed"                              "20"
       "bonus_attack_range"
       {
         "value"                                           "350"

@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Morphling: Accumulation (Innate)
+  //=================================================================================================================
+  "morphling_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_morphling_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+    "Innate"                                              "1"
+    "RequiredLevel"                                       "-1" // maybe not needed
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_primary_stat_per_level"                      "0.7"
+      "bonus_morphed_secondary_stats_per_level"           "0.5"
+    }
+  }
+}

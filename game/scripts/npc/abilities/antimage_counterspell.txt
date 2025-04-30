@@ -46,19 +46,15 @@
       }
       "mana_drain_percent"
       {
-        "RequiresFacet"                                   "antimage_magebanes_mirror"
-        "value"                                           "0"
         "special_bonus_facet_antimage_magebanes_mirror"   "=150 =190 =230 =270 =285 =300"
       }
       "damage_from_mana_drain_percent"
       {
-        "RequiresFacet"                                   "antimage_magebanes_mirror"
-        "value"                                           "100"
+        "special_bonus_facet_antimage_magebanes_mirror"   "100"
       }
       "max_damage_from_mana_drain"
       {
-        "RequiresFacet"                                   "antimage_magebanes_mirror"
-        "value"                                           "400"
+        "special_bonus_facet_antimage_magebanes_mirror"   "400"
       }
       "AbilityCooldown"
       {

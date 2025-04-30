@@ -400,7 +400,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
 
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
-        ally:Heal(heal_per_interval, ability)
+        --ally:Heal(heal_per_interval, ability)
+        ally:HealWithParams(heal_per_interval, ability, false, true, real_caster, false)
       end
     end
   end
@@ -557,7 +558,11 @@ if IsServer() then
 
     -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then
-      parent:Kill(ability, attacker)
+      if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        parent:ForceKillOAA(false)
+      else
+        parent:Kill(ability, attacker)
+      end
     else
       parent:SetHealth(parent:GetHealth() - damage)
     end

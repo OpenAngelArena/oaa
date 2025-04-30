@@ -377,11 +377,11 @@ function modifier_eul_innate_oaa_dead_tornado:DeclareFunctions()
 end
 
 function modifier_eul_innate_oaa_dead_tornado:GetBonusDayVision()
-  return 300 -- total vision: 600
+  return 100 -- total vision: 400
 end
 
 function modifier_eul_innate_oaa_dead_tornado:GetBonusNightVision()
-  return 300 -- total vision: 600
+  return 100 -- total vision: 400
 end
 
 function modifier_eul_innate_oaa_dead_tornado:CheckState()

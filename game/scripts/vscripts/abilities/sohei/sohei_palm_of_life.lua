@@ -188,7 +188,7 @@ if IsServer() then
 				local spell = self:GetAbility()
 				local healAmount = parent:GetHealth() * ( spell:GetSpecialValueFor( "hp_as_heal" ) / 100 )
 
-				self.target:Heal( healAmount, parent )
+				self.target:HealWithParams(healAmount, spell, false, true, parent, false)
 
 				self.target:EmitSound( "Sohei.PalmOfLife.Heal" )
 

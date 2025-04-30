@@ -14,12 +14,11 @@
     "AbilityValues"
     {
       "duration"                                          "40"
-      "bonus_gold"                                        "4" //OAA
+      "bonus_gold"                                        "2" //OAA
       "bonus_bonus_gold"                                  "1" //OAA
       "bounty_multiplier"                                 "2"
       "damage"
       {
-        "value"                                           "0"
         "special_bonus_unique_alchemist_7"                "+2"
       }
       "bonus_gold_cap"
@@ -28,22 +27,18 @@
       }
       "starting_gold_bonus"
       {
-        "value"                                           "0"
         "special_bonus_facet_alchemist_seed_money"        "=250"
       }
       "scepter_bonus_damage" //OAA
       {
-        "value"                                           "20"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "20"
       }
       "scepter_spell_amp"
       {
-        "value"                                           "0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
       }
       "gpm_increase_per_stack"
       {
-        "value"                                           "0"
         "special_bonus_facet_alchemist_dividends"         "+75"
       }
     }

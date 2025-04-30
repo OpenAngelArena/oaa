@@ -17,22 +17,27 @@ function modifier_chaos_oaa:RemoveOnDeath()
 end
 
 local function remove_mod_from_table(t, mod)
+  local index
   for k, v in pairs(t) do
     if v == mod then
-      table.remove(t, k)
+      index = k
+      break
     end
+  end
+  if index then
+    table.remove(t, index)
   end
 end
 
-local function TableContains(t, element)
-  if t == nil then return false end
-  for _, v in pairs(t) do
-    if v == element then
-      return true
-    end
-  end
-  return false
-end
+-- local function TableContains(t, element)
+  -- if t == nil then return false end
+  -- for _, v in pairs(t) do
+    -- if v == element then
+      -- return true
+    -- end
+  -- end
+  -- return false
+-- end
 
 function modifier_chaos_oaa:OnCreated()
   if not IsServer() then
@@ -43,6 +48,7 @@ function modifier_chaos_oaa:OnCreated()
   local name = parent:GetUnitName()
 
   self.initial_modifiers = {
+    "modifier_any_damage_splash_oaa",
     "modifier_blood_magic_oaa",
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_bottle_collector_oaa",
@@ -81,6 +87,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_hp_mana_switch_oaa", -- chaos
     "modifier_mr_phys_weak_oaa", -- chaos
     "modifier_no_brain_oaa", -- chaos
+    "modifier_no_health_bar_oaa", -- chaos
     "modifier_pro_active_oaa", -- chaos
     "modifier_puny_oaa", -- chaos
     "modifier_roshan_power_oaa", -- chaos
@@ -130,15 +137,11 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_wisdom_oaa",
   }
 
-  self.already_had = {}
-  self.modifier_list = self.chaos_modifiers
-
   local healer_heroes = {
     "npc_dota_hero_abaddon",
     "npc_dota_hero_chen",
     "npc_dota_hero_dawnbreaker",
     "npc_dota_hero_dazzle",
-    "npc_dota_hero_death_prophet",
     "npc_dota_hero_enchantress",
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_keeper_of_the_light",
@@ -149,6 +152,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_pugna",
     "npc_dota_hero_shadow_demon",
     "npc_dota_hero_sohei",
+    "npc_dota_hero_tinker",
     "npc_dota_hero_treant",
     "npc_dota_hero_undying",
     "npc_dota_hero_warlock",
@@ -163,6 +167,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_drow_ranger",
     "npc_dota_hero_electrician",
     "npc_dota_hero_enchantress",
+    "npc_dota_hero_huskar",
     "npc_dota_hero_keeper_of_the_light",
     "npc_dota_hero_leshrac",
     "npc_dota_hero_medusa",
@@ -183,15 +188,25 @@ function modifier_chaos_oaa:OnCreated()
     end
   end
 
+  -- Add/remove some modifiers for Huskar
+  if name == "npc_dota_hero_huskar" then
+    remove_mod_from_table(self.good_modifiers, "modifier_outworld_attack_oaa")
+    remove_mod_from_table(self.good_modifiers, "modifier_wisdom_oaa")
+    remove_mod_from_table(self.initial_modifiers, "modifier_hp_mana_switch_oaa")
+    remove_mod_from_table(self.chaos_modifiers, "modifier_hp_mana_switch_oaa")
+  end
+
   -- Add some good modifiers for Medusa
   if name == "npc_dota_hero_medusa" then
     table.insert(self.good_modifiers, "modifier_glass_cannon_oaa")
     table.insert(self.good_modifiers, "modifier_puny_oaa")
   end
 
-  -- Add some good modifiers for Ogre Magi
+  -- Add/remove some modifiers for Ogre Magi
   if name == "npc_dota_hero_ogre_magi" then
     table.insert(self.good_modifiers, "modifier_no_brain_oaa")
+    remove_mod_from_table(self.good_modifiers, "modifier_bad_design_2_oaa")
+    remove_mod_from_table(self.good_modifiers, "modifier_octarine_soul_oaa")
   end
 
   -- Add some good modifiers for Tiny
@@ -209,9 +224,11 @@ function modifier_chaos_oaa:OnCreated()
     if name == v then
       remove_mod_from_table(self.initial_modifiers, "modifier_blood_magic_oaa")
       remove_mod_from_table(self.chaos_modifiers, "modifier_blood_magic_oaa")
-      remove_mod_from_table(self.modifier_list, "modifier_blood_magic_oaa")
     end
   end
+
+  --self.already_had = {}
+  self.modifier_list = self.chaos_modifiers
 
   self.min_duration = 2 * 60
   self.max_duration = 5 * 60
@@ -305,9 +322,9 @@ if IsServer() then
       end
 
       -- Add old modifier to already_had table
-      if not TableContains(self.already_had, mod) and mod ~= "modifier_courier_kill_bonus_oaa" and mod ~= "modifier_rich_man_oaa" then
-        table.insert(self.already_had, mod)
-      end
+      -- if not TableContains(self.already_had, mod) and mod ~= "modifier_courier_kill_bonus_oaa" and mod ~= "modifier_rich_man_oaa" then
+        -- table.insert(self.already_had, mod)
+      -- end
 
       -- Remove the modifier from the table because hero already had it
       remove_mod_from_table(self.initial_modifiers, mod)
@@ -315,7 +332,7 @@ if IsServer() then
 
       -- Reset tables if low amount of elements
       if #self.initial_modifiers < 2 then
-        self.initial_modifiers = self.already_had
+        self.initial_modifiers = self.good_modifiers
       end
       if #self.modifier_list < 2 then
         self.modifier_list = self.good_modifiers

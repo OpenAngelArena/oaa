@@ -17,10 +17,15 @@ function modifier_ludo_oaa:RemoveOnDeath()
 end
 
 local function remove_mod_from_table(t, mod)
+  local index
   for k, v in pairs(t) do
     if v == mod then
-      table.remove(t, k)
+      index = k
+      break
     end
+  end
+  if index then
+    table.remove(t, index)
   end
 end
 
@@ -93,7 +98,6 @@ function modifier_ludo_oaa:OnCreated()
     "npc_dota_hero_chen",
     "npc_dota_hero_dawnbreaker",
     "npc_dota_hero_dazzle",
-    "npc_dota_hero_death_prophet",
     "npc_dota_hero_enchantress",
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_keeper_of_the_light",
@@ -104,6 +108,7 @@ function modifier_ludo_oaa:OnCreated()
     "npc_dota_hero_pugna",
     "npc_dota_hero_shadow_demon",
     "npc_dota_hero_sohei",
+    "npc_dota_hero_tinker",
     "npc_dota_hero_treant",
     "npc_dota_hero_undying",
     "npc_dota_hero_warlock",
@@ -123,15 +128,23 @@ function modifier_ludo_oaa:OnCreated()
     remove_mod_from_table(self.modifier_list, "modifier_troll_switch_oaa")
   end
 
+  -- Add/remove some modifiers for Huskar
+  if name == "npc_dota_hero_huskar" then
+    remove_mod_from_table(self.modifier_list, "modifier_outworld_attack_oaa")
+    remove_mod_from_table(self.modifier_list, "modifier_wisdom_oaa")
+  end
+
   -- Add some modifiers for Medusa
   if name == "npc_dota_hero_medusa" then
     table.insert(self.modifier_list, "modifier_glass_cannon_oaa")
     table.insert(self.modifier_list, "modifier_puny_oaa")
   end
 
-  -- Add some modifiers for Ogre Magi
+  -- Add/remove some modifiers for Ogre Magi
   if name == "npc_dota_hero_ogre_magi" then
     table.insert(self.modifier_list, "modifier_no_brain_oaa")
+    remove_mod_from_table(self.modifier_list, "modifier_bad_design_2_oaa")
+    remove_mod_from_table(self.modifier_list, "modifier_octarine_soul_oaa")
   end
 
   -- Add some modifiers for Tiny

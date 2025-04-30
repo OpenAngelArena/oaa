@@ -129,11 +129,6 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-reflect flag
-    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      return
-    end
-
     -- Ignore damage with HP removal flag
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
       return
@@ -193,17 +188,34 @@ if IsServer() then
     local lifesteal_amount = damage * lifesteal_pct / 100
 
     if lifesteal_amount > 0 then
-      --attacker:Heal(lifesteal_amount, nil)
       -- Particle
       if spell_lifesteal_bool then
-        -- Ignore damage with no-spell-lifesteal flag
-        if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
-          return
+        local succubus = attacker:FindAbilityByName("queenofpain_succubus")
+        local isSuccubus = succubus and succubus:GetLevel() > 0
+        local spellLifestealReflected = false
+        if isSuccubus then
+          spellLifestealReflected = succubus:GetSpecialValueFor("lifesteal_reflected") == 1
         end
 
-        -- Ignore damage with no-spell-amplification flag
-        if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-          return
+        -- Ignore pure damage
+        if dmg_type == DAMAGE_TYPE_PURE then
+          if not isSuccubus then
+            return
+          end
+        end
+
+        -- Ignore damage that has the no-reflect flag
+        if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+          if not spellLifestealReflected then
+            return
+          end
+        end
+
+        -- Ignore damage that has the no-spell-lifesteal flag
+        if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+          if not spellLifestealReflected then
+            return
+          end
         end
 
         -- Spell Lifesteal

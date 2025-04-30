@@ -136,9 +136,7 @@ function eul_wind_shield_oaa:OnProjectileHit_ExtraData(target, location, extra_d
   if extra_data.fake_attack and target:FindModifierByNameAndCaster("modifier_eul_wind_shield_ventus_ally", caster) then
     local speed_pct = self:GetSpecialValueFor("deflected_projectile_speed_pct")
     local vision_radius = self:GetSpecialValueFor("deflected_projectile_vision")
-    local buffer_range = self:GetSpecialValueFor("deflect_buffer_range")
-
-    local search_radius = original_attacker:GetAttackRange() + buffer_range
+    local search_radius = self:GetSpecialValueFor("deflect_search_radius")
     local team = target:GetTeamNumber()
     local target_location = target:GetAbsOrigin()
 

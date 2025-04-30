@@ -44,6 +44,9 @@ LinkLuaModifier("modifier_duel_invulnerability", "modifiers/modifier_duel_invuln
 LinkLuaModifier('modifier_duel_rune_hill', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 
+-- Game End
+LinkLuaModifier("modifier_end_game_oaa", "modifiers/modifier_end_game_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Passive Experience
 LinkLuaModifier("modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
