@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100" //OAA
+    "ItemCost"                                            "300" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -38,13 +38,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
     "AbilityTextureName"                                  "custom/linkens_sphere_1"
 
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCooldown"                                     "14.0 13.0 12.0 11.0 10.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4300" //OAA
+    "ItemCost"                                            "4500" //OAA
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;linken's sphere;linkens"
