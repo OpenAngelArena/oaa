@@ -3,7 +3,7 @@
 //======================================================================
 "DOTA_Tooltip_Ability_item_heart_transplant"                                    "Heart Transplant"
 "DOTA_Tooltip_Ability_item_recipe_heart_transplant"                             "Heart Transplant Recipe"
-"DOTA_Tooltip_Ability_item_heart_transplant_Description"                        "<h1>Active: Transplant</h1> Temporarily transfers %transplant_bonus_strength% Strength, %transplant_bonus_health% HP, and %transplant_health_regen_pct%%% Max HP Regeneration to the selected allied unit for %transplant_max_duration% seconds. Transplanting will stop if the distance between the caster and the unit is larger than %transplant_max_range% range. When transplanting stops, the item goes on cooldown. Cooldown is %cooldown_melee% seconds for melee heroes, or %cooldown_ranged% seconds for ranged heroes."
+"DOTA_Tooltip_Ability_item_heart_transplant_Description"                        "<h1>Active: Transplant</h1> Temporarily transfers %transplant_bonus_strength% Strength, %transplant_bonus_health% HP, and %transplant_health_regen_pct%%% Max HP Regeneration to the selected allied unit for %transplant_max_duration% seconds. Transplanting will stop if the distance between the caster and the unit is larger than %transplant_max_range% range. When transplanting stops, the item goes on cooldown. Cooldown is %cooldown% seconds."
 "DOTA_Tooltip_Ability_item_heart_transplant_Lore"                               "A talisman containing a beautiful priestess's soul."
 "DOTA_Tooltip_Ability_item_heart_transplant_Note0"                              "Max Break Distance increases with Cast Range bonuses."
 "DOTA_Tooltip_Ability_item_heart_transplant_bonus_strength"                     "+$str"
@@ -24,4 +24,4 @@
 "DOTA_Tooltip_modifier_item_heart_transplant_buff"                              "Donated Heart"
 "DOTA_Tooltip_modifier_item_heart_transplant_buff_Description"                  "Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, Health increased by %dMODIFIER_PROPERTY_HEALTH_BONUS%, and healing %fMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP per second"
 
-"oaa_hud_error_only_one_transplant"                                             "Can't cast multiple Heart Transplants simultaneously"
+"oaa_hud_error_only_one_transplant"                                             "Can't have multiple Heart Transplants simultaneously"

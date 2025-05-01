@@ -12,11 +12,7 @@ end
 function item_heart_transplant:CastFilterResultTarget(target)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
-  if target == caster then
-    return UF_FAIL_CUSTOM
-  end
-
-  if target:HasModifier("modifier_item_heart_transplant_buff") or caster:HasModifier("modifier_item_heart_transplant_debuff") then
+  if target == caster or target:HasModifier("modifier_item_heart_transplant_buff") or caster:HasModifier("modifier_item_heart_transplant_debuff") then
     return UF_FAIL_CUSTOM
   end
 
@@ -60,12 +56,7 @@ function item_heart_transplant:TransplantEnd(caster)
     -- Remove debuff from the caster
     caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
 
-    local cooldown = 5
-    if caster:IsRangedAttacker() then
-      cooldown = self:GetSpecialValueFor("cooldown_ranged")
-    else
-      cooldown = self:GetSpecialValueFor("cooldown_melee")
-    end
+    local cooldown = self:GetSpecialValueFor("cooldown")
 
     -- Start cooldown unaffected by cooldown reductions
     self:StartCooldown(cooldown)
@@ -183,8 +174,12 @@ end
 function modifier_item_heart_transplant_debuff:OnCreated()
   local parent = self:GetParent()
 
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
+  if IsServer() then
+    if parent:IsHero() then
+      parent:CalculateStatBonus(true)
+    elseif parent:IsCreep() then
+      parent:CalculateGenericBonuses()
+    end
   end
 end
 
@@ -223,6 +218,8 @@ function modifier_item_heart_transplant_buff:OnCreated()
     local parent = self:GetParent()
     if parent:IsHero() then
       parent:CalculateStatBonus(true)
+    elseif parent:IsCreep() then
+      parent:CalculateGenericBonuses()
     end
     local caster = self:GetCaster()
     if self.particle == nil then
@@ -248,6 +245,8 @@ function modifier_item_heart_transplant_buff:OnRefresh()
     local parent = self:GetParent()
     if parent:IsHero() then
       parent:CalculateStatBonus(true)
+    elseif parent:IsCreep() then
+      parent:CalculateGenericBonuses()
     end
     if self.particle then
       ParticleManager:DestroyParticle(self.particle, true)
@@ -289,6 +288,8 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
 
   if parent:IsHero() then
     parent:CalculateStatBonus(true)
+  elseif parent:IsCreep() then
+    parent:CalculateGenericBonuses()
   end
 end
 
