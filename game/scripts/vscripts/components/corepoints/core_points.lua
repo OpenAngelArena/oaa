@@ -19,7 +19,7 @@ function CorePointsManager:Init()
 end
 
 local forcedUpgrades = {
-  item_power_treads="item_greater_power_treads"
+  item_power_treads = "item_greater_power_treads"
 }
 
 function CorePointsManager:ItemIdTableCreate()

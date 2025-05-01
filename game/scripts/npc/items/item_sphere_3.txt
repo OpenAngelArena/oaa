@@ -41,13 +41,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/linkens_sphere_3"
 
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCooldown"                                     "14.0 13.0 12.0 11.0 10.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9302"
+    "ItemCost"                                            "9502"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
