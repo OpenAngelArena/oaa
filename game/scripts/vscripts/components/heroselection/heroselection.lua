@@ -29,7 +29,7 @@ function HeroSelection:Init ()
 
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" or GetMapName() == "oaa_alternate"
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode"
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode" or GetMapName() == "oaa_alternate"
   self.lowPlayerCount = GetMapName() == "tinymode" or GetMapName() == "tiny_legacy"
   self.is6v6 = GetMapName() == "oaa_alternate"
 
