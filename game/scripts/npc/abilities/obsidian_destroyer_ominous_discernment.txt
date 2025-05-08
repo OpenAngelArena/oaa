@@ -1,0 +1,19 @@
+"DOTAAbilities"
+{
+  "obsidian_destroyer_ominous_discernment"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "bonus_max_mana_per_int" //OAA, special_bonus_unique_obsidian_destroyer_1_oaa
+      {
+        "value"                                           "1.5"
+      }
+    }
+  }
+}
