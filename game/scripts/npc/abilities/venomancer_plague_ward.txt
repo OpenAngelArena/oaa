@@ -33,17 +33,14 @@
       "can_target"
       {
         "value"                                           "0"
-        "special_bonus_facet_venomancer_plague_carrier"   "=1"
       }
       "gold_bounty_pct"
       {
         "value"                                           "100"
-        "special_bonus_facet_venomancer_plague_carrier"   "=20"
       }
       "max_charges"
       {
         "value"                                           "0"
-        "special_bonus_facet_venomancer_plague_carrier"   "=3"
       }
       "duration"
       {
@@ -61,29 +58,13 @@
       }
       "ward_hp_tooltip"
       {
-        "value"                                           "120 230 340 450 900 1800"
+        "value"                                           "150 250 350 450 900 1800"
         "special_bonus_unique_venomancer"                 "x2.5"
       }
       "ward_damage_tooltip"
       {
         "value"                                           "14 22 30 38 46 54"
         "special_bonus_unique_venomancer"                 "x2.5"
-      }
-      "threshold"
-      {
-        "special_bonus_facet_venomancer_plague_carrier"
-        {
-          "value"                                         "100 150 200 250 500 750"
-          "special_bonus_unique_venomancer"               "x2.5"
-        }
-      }
-      "threshold_max_hp_pct"
-      {
-        "special_bonus_facet_venomancer_plague_carrier"
-        {
-          "value"                                         "1.5 2 2.5 3 3.5 4"
-          "special_bonus_unique_venomancer"               "x2.5"
-        }
       }
     }
   }

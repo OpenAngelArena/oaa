@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6801"
+    "ItemCost"                                            "7401"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 2;eye of skadi 2;skadi 2"
@@ -55,9 +55,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "22 27 32 37 42"
-      "bonus_health"                                      "250 350 500 700 950"
-      "bonus_mana"                                        "250 350 500 700 950"
+      "bonus_all_stats"                                   "35 40 45 50 55"
+      "bonus_health"                                      "0"
+      "bonus_mana"                                        "0"
       "cold_slow_melee"                                   "-25 -30 -35 -40 -45"
       "cold_attack_slow_melee"                            "-20"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
