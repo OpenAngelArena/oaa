@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Demon: Shadow Demon Disruption
+  // Shadow Demon: Disruption
   //=================================================================================================================
   "shadow_demon_disruption"
   {
@@ -58,11 +58,6 @@
       "AbilityChargeRestoreTime"                          "23 22 21 20 19 18" //OAA
       "illusion_bounty_base"                              "0"
       "illusion_bounty_growth"                            "2"
-      "can_cast"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_shadow_demon_disruption_cast"  "+1"
-      }
     }
   }
 }
