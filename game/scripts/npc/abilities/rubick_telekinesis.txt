@@ -45,7 +45,7 @@
       }
       "radius"
       {
-        "value"                                           "300 325 350 375 375 375"
+        "value"                                           "300 325 350 375 400 425"
         "affected_by_aoe_increase"                        "1"
       }
       "max_land_distance"
@@ -68,8 +68,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 15 15"
-        "special_bonus_unique_rubick_4"                   "-5"
+        "value"                                           "17 16 15 14 13 12"
+        "special_bonus_unique_rubick_4"                   "-3"
       }
     }
   }
