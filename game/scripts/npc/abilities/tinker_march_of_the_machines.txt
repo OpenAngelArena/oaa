@@ -42,7 +42,7 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "collision_radius"                                  "50 50 50 50 60 70"
+      "collision_radius"                                  "50 55 60 65 70 75" //OAA
       "splash_radius"                                     "150"
       "duration" // OAA
       {
@@ -54,7 +54,7 @@
       "distance"                                          "1800"
       "damage" // OAA
       {
-        "value"                                           "17 26 35 44 62 80"
+        "value"                                           "13 22 31 40 58 76"
         "special_bonus_unique_tinkerer_7"                 "+14"
       }
       "heal_per_second"

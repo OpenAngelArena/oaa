@@ -202,6 +202,7 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
       npc_dota_hero_meepo = 1,
       npc_dota_hero_magnataur = 4,
       npc_dota_hero_night_stalker = 3,
+      npc_dota_hero_silencer = 3,
     }
 
     -- Extra skill point when Meepo, Magnus or NightStalker pick the facet that remove 1 skill point

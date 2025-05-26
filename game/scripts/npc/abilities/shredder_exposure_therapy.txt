@@ -17,11 +17,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "mana_restore"                                      "4 5 6 7 8 9"
-      "health_restore"
+      "mana_restore"                                      "4 6 8 10 12 14"
+      "health_restore" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_timbersaw_exposure_therapy_health"  "+7"
+        "special_bonus_unique_timbersaw_exposure_therapy_health"  "+20"
       }
     }
   }

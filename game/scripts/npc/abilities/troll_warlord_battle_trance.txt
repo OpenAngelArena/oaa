@@ -57,12 +57,16 @@
       "stack_limit_tooltip" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_troll_warlord_bad_influence"  "+12"       // TOOLTIP ONLY: Update stack_limit_during_battle_trance for behavior change
+        "special_bonus_facet_troll_warlord_bad_influence"  "+10" // TOOLTIP ONLY: Update stack_limit_during_battle_trance for behavior change
       }
       "ignore_attack_speed_limit" //OAA
       {
         "value"                                           "0"
         "special_bonus_facet_troll_warlord_bad_influence"  "0"
+      }
+      "strong_dispel"
+      {
+        "special_bonus_unique_troll_warlord_4"            "=1"
       }
     }
   }

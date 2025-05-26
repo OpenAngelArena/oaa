@@ -18,7 +18,7 @@
       "bonus_movement_speed"                              "6 24 36 48 60 72"
       "bonus_regen"
       {
-        "value"                                           "10 70 100 130 230 430"
+        "value"                                           "10 70 100 130 220 370"
         "special_bonus_unique_slark_8"                    "+50"
       }
       "linger_search_radius"
@@ -29,9 +29,9 @@
       {
         "special_bonus_facet_slark_dark_reef_renegade"    "2"
       }
-      "corruption_armor"
+      "corruption_armor" //OAA
       {
-        "special_bonus_facet_slark_dark_reef_renegade"    "-1 -2 -3 -4 -6 -10"
+        "special_bonus_facet_slark_dark_reef_renegade"    "-2 -3 -4 -5 -7 -9"
       }
       "corruption_duration" //OAA
       {
