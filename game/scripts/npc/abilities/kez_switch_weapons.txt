@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kez: Falcon Rush
+  // Kez: Switch Discipline (Innate)
   //=================================================================================================================
   "kez_switch_weapons"
   {
@@ -23,7 +23,12 @@
     {
       "katana_attack_range"                               "225"
       "katana_base_attack_time"                           "2.0"
-      "katana_bonus_damage"                               "12"
+      "katana_agility_bonus_base_damage"
+      {
+        "value"                                           "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
       "katana_swap_bonus_damage"
       {
         "special_bonus_facet_kez_flutter"                 "12"

@@ -1,0 +1,17 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Treant Protector: Primeval Power (Facet)
+  //=================================================================================================================
+  "treant_innate_attack_damage"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "attack_damage_per_level"                           "8" //OAA
+    }
+  }
+}

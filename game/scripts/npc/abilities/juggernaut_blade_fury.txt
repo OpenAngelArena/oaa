@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Juggernaut Blade Fury
+  // Juggernaut: Blade Fury
   //=================================================================================================================
   "juggernaut_blade_fury"
   {
@@ -29,19 +29,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blade_fury_aspd_multiplier"
+      "blade_fury_damage"
       {
-        "value"                                           "2.0"
+        "value"                                           "80 110 140 170 340 680"
+        "special_bonus_unique_juggernaut"                 "+90"
+      }
+      "blade_fury_damage_tick"
+      {
+        "value"                                           "0.2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "blade_fury_radius"
       {
         "value"                                           "260"
         "special_bonus_shard"                             "+100"
         "affected_by_aoe_increase"                        "1"
-      }
-      "blade_fury_damage_per_tick"
-      {
-        "value"                                           "40 45 50 55 65 75"
       }
       "duration"
       {
@@ -50,7 +52,6 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "27 24 21 18 18 18"
-        "special_bonus_unique_juggernaut_blade_fury_cooldown"  "-3"
       }
       "bonus_movespeed"
       {
