@@ -43,12 +43,12 @@
       "jump_delay"                                        "0.25"
       "snake_damage"
       {
-        "value"                                           "90 150 210 270 540 810"
-        "special_bonus_unique_medusa_snake_damage"        "+40"
+        "value"                                           "90 140 190 240 480 720"
+        "special_bonus_unique_medusa_snake_damage"        "+40" // unused
         "CalculateSpellDamageTooltip"                     "1"
       }
       "snake_damage_pct"                                  "0"
-      "snake_mana_steal"                                  "14 15 16 17 18 19"
+      "snake_mana_steal"                                  "15" // mana gain not steal
       "snake_scale"                                       "25" // snake damage and speed increase per jump
       "initial_speed"                                     "800"
       "return_speed"                                      "800"
@@ -60,7 +60,7 @@
       {
         "special_bonus_scepter"                           "0.2"
       }
-      "movement_slow"
+      "movement_slow" // unused
       {
         "value"                                           "30"
       }

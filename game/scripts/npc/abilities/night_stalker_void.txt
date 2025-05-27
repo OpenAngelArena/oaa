@@ -45,8 +45,16 @@
         "value"                                           "2.0 2.5 3 3.5 4 4.5"
         "special_bonus_facet_night_stalker_voidbringer"   "=2.0 =2.5 =3 =3.5 =4 =4.5 =5"
       }
-      "movespeed_slow"                                    "-50"
-      "attackspeed_slow"                                  "-50"
+      "movespeed_slow"
+      {
+        "value"                                           "50"
+        "special_bonus_facet_night_stalker_voidbringer"   "=50 =50 =50 =50 =60 =60 =60"
+      }
+      "attackspeed_slow"
+      {
+        "value"                                           "50"
+        "special_bonus_facet_night_stalker_voidbringer"   "=50 =50 =50 =50 =60 =60 =60"
+      }
       "invisible_damage_pers"
       {
         "value"                                           "0"

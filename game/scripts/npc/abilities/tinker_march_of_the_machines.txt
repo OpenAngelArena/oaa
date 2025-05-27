@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinker: March of the Machines
+  // Tinkerer: March of the Machines
   //=================================================================================================================
   "tinker_march_of_the_machines"
   {
@@ -44,10 +44,10 @@
       }
       "collision_radius"                                  "50 55 60 65 70 75" //OAA
       "splash_radius"                                     "150"
-      "duration" // OAA
+      "duration"
       {
         "value"                                           "6.0"
-        "special_bonus_unique_tinkerer_5"                 "+1.0"
+        "special_bonus_unique_tinker_march_duration"      "+1.0"
       }
       "speed"                                             "400"
       "machines_per_sec"                                  "24 26 28 30 32 34" // OAA
@@ -62,10 +62,11 @@
         "value"                                           "0"
         "special_bonus_facet_tinker_repair_bots"          "+14 +21 +28 +35 +70 +105"
       }
-      "heal_duration"
+      "heal_duration"  // OAA
       {
         "value"                                           "0"
         "special_bonus_facet_tinker_repair_bots"          "+4"
+        "special_bonus_unique_tinkerer_5"                 "+1.0"
       }
     }
   }

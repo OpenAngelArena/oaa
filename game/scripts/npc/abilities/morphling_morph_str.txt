@@ -22,8 +22,8 @@
     "AbilityValues"
     {
       "points_per_tick"                                   "1"
-      "morph_cooldown"                                    "0.2 0.1 0.06 0.05 0.04 0.03" // points_per_tick / morph_rate_tooltip
-      "morph_rate_tooltip"                                "5 10 15 20 25 30"
+      "morph_cooldown"                                    "0.25 0.12 0.08 0.06 0.05 0.04" // points_per_tick / morph_rate_tooltip
+      "morph_rate_tooltip"                                "4 8 12 16 20 24"
       "mana_cost" //OAA
       {
         "value"                                           "10 15 20 25 30 35"
