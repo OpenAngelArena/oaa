@@ -1,0 +1,20 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Silencer: Suffer In Silence (Facet)
+  //=================================================================================================================
+  "silencer_oppressive_silence"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Global Silence) + 1
+    "DependentOnAbility"                                  "silencer_global_silence"
+
+    "AbilityValues"
+    {
+      "damage_pct"                                        "5 10 15 20 25 30" //OAA
+    }
+  }
+}

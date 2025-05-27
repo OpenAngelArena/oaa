@@ -44,16 +44,25 @@
         "special_bonus_unique_lich_2"                     "+0.3"
       }
       "destination"                                       "32 38 44 50 56 62"
-      "mana_drain"                                        "15"
-      "aoe_scepter" //OAA
+      "mana_drain"                                        "20"
+      "aoe_scepter" //OAA, intentional nerf
       {
         "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
-      "creep_duration_multiplier"                         "1" //OAA, to avoid duration bugs
-      "frost_blast_damage_percent"
+      "damage" // damage amp?
       {
-        "value"                                           "0"
+        "special_bonus_facet_lich_cryophobia"             "10 15 20 25 25 25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "slow_resistance"
+      {
+        "special_bonus_facet_lich_cryophobia"             "50"
+      }
+      "post_gaze_debuff_duration_multiplier" //OAA, intentional nerf
+      {
+        "special_bonus_facet_lich_cryophobia"             "=1"
       }
     }
   }
