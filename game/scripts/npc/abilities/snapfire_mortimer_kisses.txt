@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Snapfire Mortimer Kisses
+  // Snapfire: Mortimer Kisses
   //=================================================================================================================
   "snapfire_mortimer_kisses"
   {
@@ -41,6 +41,10 @@
       {
         "value"                                           "8"
         "special_bonus_unique_snapfire_1"                 "+8"
+      }
+      "has_bonus_projectile"
+      {
+        "special_bonus_unique_snapfire_1"                 "1"
       }
       "projectile_speed"                                  "1300"
       "projectile_width"

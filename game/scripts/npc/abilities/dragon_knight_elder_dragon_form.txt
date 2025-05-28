@@ -71,34 +71,34 @@
       {
         "value"                                           "30 40 50 60 70 80"
       }
-      "frost_breath_effect_bonus"
+      "frost_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_frost_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "corrosive_breath_effect_bonus"
+      "corrosive_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_corrosive_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "fire_breath_effect_bonus"
+      "fire_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_fire_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "wyrms_wrath_bonus_tooltip"
+      "wyrms_wrath_bonus_tooltip" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "value"                                           "20 30 40 50 55 60"
-        "special_bonus_unique_dragon_knight_8"            "+50"
+        "special_bonus_unique_dragon_knight_8"            "+25"
       }
     }
   }
