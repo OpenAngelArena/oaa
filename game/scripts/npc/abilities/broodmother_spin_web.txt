@@ -33,7 +33,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "count" //OAA
+      "count" //OAA, same as AbilityCharges
       {
         "value"                                           "4 6 8 10 12 14"
       }
@@ -45,7 +45,7 @@
       "AbilityChargeRestoreTime"
       {
         "value"                                           "27"
-        "special_bonus_unique_broodmother_5"              "-5"
+        "special_bonus_unique_broodmother_5"              "-6"
       }
       "bonus_turn_rate"                                   "0.2"
       "degen" //OAA

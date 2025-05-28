@@ -65,6 +65,10 @@
         "special_bonus_scepter"                           "2"
       }
       "wall_damage"                                       "25 50 75 150 225" //OAA
+      "cooldown_reduction" // Valve not using AbilityCooldown lmao
+      {
+        "special_bonus_unique_dark_seer_13"               "40"
+      }
     }
   }
 }
