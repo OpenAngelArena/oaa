@@ -41,8 +41,13 @@ end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
   self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
-    -- Invoker gets all dem ability points
-    return true
+    if level <= 25 then
+      return true
+    end
+    if level >= 28 then
+      return math.fmod(level, 2) == 0
+    end
+    return false
   end)
 end
 

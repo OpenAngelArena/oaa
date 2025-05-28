@@ -29,14 +29,13 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "23"
-        "special_bonus_unique_invoker_11"                 "-4"
+        "value"                                           "20"
       }
       "damage" //OAA
       {
-        "value"                                           "200 250 300 350 400 450 500 550 650 750 850 950 1050 1150 1250 1350 1450"
+        "value"                                           "200 260 320 380 440 500 560 680 800 920 1160" // needs better scaling; max lvl should be 1425;
         "levelkey"                                        "exortlevel"
       }
       "vision_distance"
@@ -55,7 +54,7 @@
           "special_bonus_scepter"                         "+2"
         }
       }
-      "cataclysm_cooldown"
+      "cataclysm_cooldown" //OAA
       {
         "value"                                           "75"
       }
