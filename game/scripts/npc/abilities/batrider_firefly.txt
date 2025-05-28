@@ -53,7 +53,23 @@
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_slow_resistance"                             "0"
+      "self_burn_buff"
+      {
+        "special_bonus_facet_batrider_buff_on_displacement"  "=1"
+      }
+      "movement_speed_pct_total"
+      {
+        "special_bonus_facet_batrider_buff_on_displacement"  "=25 =30 =35 =40 =45 =50"
+      }
+      "spell_amplification_total" //OAA
+      {
+        "special_bonus_facet_batrider_buff_on_displacement"  "=20 =21 =22 =23 =24 =25"
+      }
+      "hp_cost_per_second"
+      {
+        "special_bonus_facet_batrider_buff_on_displacement"  "=2.0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
     }
   }
 }

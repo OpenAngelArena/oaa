@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseeker's Bloodrage
+  // Bloodseeker: Bloodrage
   //=================================================================================================================
   "bloodseeker_bloodrage"
   {
@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Valve has it wrong (SPELL_IMMUNITY_ENEMIES_YES doesn't make sense if you can target only allies)
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -22,37 +21,38 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2" // Valve DOTA_ABILITY_BEHAVIOR_IMMEDIATE overrides this afaik
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 12 10 8 8 8"
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "8"
+      "duration" //OAA, Valve is dumb
+      {
+        "value"                                           "8"
+        "special_bonus_facet_bloodseeker_old_blood"       "-3"
+      }
       "attack_speed"
       {
         "value"                                           "60 90 120 150 180 210"
-        "special_bonus_unique_bloodseeker_5"              "+25"
       }
       "spell_amp"
       {
         "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_bloodseeker_6"              "+15"
+        "special_bonus_facet_bloodseeker_old_blood"       "=0"
       }
       "damage_pct"
       {
-        "value"                                           "1.4"
+        "value"                                           "1.4" // NOTE: if changing this, change damage_pct_enemies
         "special_bonus_unique_bloodseeker"                "-0.7"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "damage_pct_enemies"  // NOTE: Separate value here so that the talent doesn't buff it for enemies
+      {
+        "value"                                           "1.4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "max_health_dmg_pct" //OAA
@@ -63,6 +63,25 @@
       "thirst_threshold_bonus"
       {
         "value"                                           "0"
+      }
+      "can_silence"
+      {
+        "special_bonus_facet_bloodseeker_old_blood"       "1"
+      }
+      "base_damage_amp"
+      {
+        "special_bonus_facet_bloodseeker_old_blood"       "=10 =15 =20 =25 =30 =35"
+        "special_bonus_unique_bloodseeker_6"              "+15"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_bloodseeker_old_blood"       "=60"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "800"
+        "special_bonus_facet_bloodseeker_old_blood"       "=400"
       }
     }
   }

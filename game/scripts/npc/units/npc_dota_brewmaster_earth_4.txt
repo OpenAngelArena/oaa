@@ -35,8 +35,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "325"    // lvl 3 + 60 x 3
-    "AttackDamageMax"                                     "335"    // lvl 3 + 60 x 3
+    "AttackDamageMin"                                     "330"    // lvl 3 + 60 x 3
+    "AttackDamageMax"                                     "340"    // lvl 3 + 60 x 3
     "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -68,8 +68,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }
