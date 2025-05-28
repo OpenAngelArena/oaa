@@ -31,8 +31,8 @@
       {
         "value"                                           "60 55 50 45 40"
       }
-      "duration"                                          "18 21 24 27 30"
       "bounty"                                            "180 240 300 480 780"
+      "duration"                                          "18 21 24 27 30"
       "max_blind_chance"                                  "35.0"
       "max_slow"                                          "35.0"
       "has_debuff"
@@ -48,12 +48,12 @@
       "invis_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=1 =1 =1 =1 =1"
+        "special_bonus_facet_arc_warden_runed_replica"    "=0 =1 =1 =1 =1"
       }
       "arcane_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=0 =1 =1 =1 =1"
+        "special_bonus_facet_arc_warden_runed_replica"    "=1 =1 =1 =1 =1"
       }
       "haste_rune"
       {
