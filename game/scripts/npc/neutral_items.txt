@@ -17,14 +17,17 @@
 
       "items"
       {
-        "item_trusty_shovel_oaa"                          "1" // item_trusty_shovel
+        //"item_trusty_shovel_oaa"                          "1" // item_trusty_shovel
         "item_occult_bracelet"                            "1"
         "item_unstable_wand"                              "1"
-        "item_mana_draught"                               "1"
+        //"item_mana_draught"                               "1"
         "item_polliwog_charm"                             "1"
         "item_spark_of_courage"                           "1"
         "item_rippers_lash"                               "1"
-        "item_orb_of_destruction"                         "1"
+        //"item_orb_of_destruction"                         "1"
+        "item_sisters_shroud"                             "1"
+        "item_kobold_cup"                                 "1"
+        "item_chipped_vest"                               "1"
       }
 
       "enhancements"
@@ -48,10 +51,12 @@
       {
         "item_essence_ring"                               "1"
         "item_demon_stone"                                "1" // item_iron_talon
-        "item_gossamer_cape"                              "1"
+        //"item_gossamer_cape"                              "1"
         "item_searing_signet"                             "1"
         "item_misericorde"                                "1"
         "item_pogo_stick"                                 "1"
+        "item_mana_draught"                               "1"
+        "item_poor_mans_shield"                           "1"
       }
 
       "enhancements"
@@ -79,11 +84,13 @@
       "items"
       {
         "item_serrated_shiv"                              "1"
-        "item_nemesis_curse"                              "1"
-        "item_gale_guard"                                 "1"
+        //"item_nemesis_curse"                              "1"
+        //"item_gale_guard"                                 "1"
         "item_gunpowder_gauntlets"                        "1"
         "item_whisper_of_the_dread"                       "1"
         "item_ninja_gear"                                 "1"
+        "item_jidi_pollen_bag"                            "1"
+        "item_psychic_headband"                           "1"
       }
 
       "enhancements"
@@ -110,12 +117,15 @@
 
       "items"
       {
-        "item_ogre_seal_totem"                            "1"
+        //"item_ogre_seal_totem"                            "1"
         "item_crippling_crossbow"                         "1"
         "item_magnifying_monocle"                         "1"
-        "item_ceremonial_robe"                            "1"
-        "item_mind_breaker"                               "1"
+        //"item_ceremonial_robe"                            "1"
+        //"item_mind_breaker"                               "1"
         "item_craggy_coat_oaa"                            "1" // item_pyrrhic_cloak
+        "item_dezun_bloodrite"                            "1"
+        "item_giant_maul"                                 "1"
+        "item_outworld_staff"                             "1"
       }
 
       "enhancements"
@@ -149,9 +159,9 @@
         "item_reflex_core"                                "1" // item_demonicon
         "item_minotaur_horn"                              "1"
         "item_spider_legs"                                "1"
-        "item_stonework_pendant"                          "1" // item_panic_button
+        "item_stonework_pendant"                          "1" // item_helm_of_the_undying
         "item_unrelenting_eye"                            "1"
-        "item_blood_sword"                                "1" // item_pirate_hat
+        "item_blood_sword"                                "1" // item_divine_regalia
         "item_rune_breaker_oaa"                           "1"
       }
 

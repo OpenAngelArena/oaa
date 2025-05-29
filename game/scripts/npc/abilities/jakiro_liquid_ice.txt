@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Jakiro's Liquid Ice
+  // Jakiro: Liquid Frost
   //=================================================================================================================
   "jakiro_liquid_ice"
   {
@@ -39,7 +39,7 @@
       }
       "bonus_instance_damage_from_other_abilities"
       {
-        "value"                                           "12 18 24 30 42 66"
+        "value"                                           "8 16 24 32 64 96"
       }
       "pct_health_damage"
       {
@@ -53,7 +53,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "tick_rate"                                         "0.5"
-
       "shares_cooldown"
       {
         "value"                                           "1"

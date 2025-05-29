@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35304"
+    "ItemCost"                                            "35904"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade 5"
@@ -64,8 +64,8 @@
     {
       "bonus_damage"                                      "10 20 40 70 110"
       "slow_resistance"                                   "25 27 29 31 33"
-      "hp_regen_amp"                                      "25 27 29 31 33"
-      "bonus_strength"                                    "22 27 32 37 42"
+      "hp_regen_amp"                                      "20 22 24 26 28"
+      "bonus_strength"                                    "35 40 45 50 55"
       "bash_chance_melee"                                 "25"
       "bash_chance_ranged"                                "10"
       "bash_duration"                                     "1.2"

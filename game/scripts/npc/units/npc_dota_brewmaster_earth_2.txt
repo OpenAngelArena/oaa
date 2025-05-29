@@ -32,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "85" //OAA
-    "AttackDamageMax"                                     "95" //OAA
+    "AttackDamageMin"                                     "90" //OAA
+    "AttackDamageMax"                                     "100" //OAA
     "AttackRate"                                          "1.25"
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "600"
@@ -65,8 +65,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }

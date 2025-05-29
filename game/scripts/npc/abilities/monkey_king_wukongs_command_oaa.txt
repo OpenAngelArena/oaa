@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Monkey King: Wukong's Command OAA version, affects creeps, cannot be stolen
+  // Monkey King: Wukong's Command (OAA version, affects creeps, cannot be stolen)
   //=================================================================================================================
   "monkey_king_wukongs_command_oaa"
   {
@@ -60,7 +60,7 @@
       }
       "bonus_armor"
       {
-        "value"                                           "15 20 25 31 37"
+        "value"                                           "15 20 25 30 35"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "attack_interval"                                   "1.1"

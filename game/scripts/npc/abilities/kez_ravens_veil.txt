@@ -7,6 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -14,7 +15,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityDamageType"                                   "DAMAGE_TYPE_PURE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -36,7 +36,6 @@
       "AbilityCooldown"
       {
         "value"                                           "40 35 30 25 20"
-        "special_bonus_unique_kez_ultimate_cooldown"      "-4"
       }
       "blast_radius"
       {
@@ -44,9 +43,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "blast_speed"                                       "1500"
-      "buff_duration"                                     "7 8 9 10 11"
+      "buff_duration"
+      {
+        "value"                                           "7 8 9 10 11"
+        "special_bonus_facet_kez_shadowhawk"              "+1"
+      }
       "blind_duration"                                    "4.0"
       "bonus_ms"                                          "15 25 35 45 55"
+      "slow"                                              "0"
       "basic_dispel"                                      "1"
       "fade_delay"                                        "0.0"
       "apply_parry_bonus"

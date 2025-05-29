@@ -41,8 +41,8 @@
       "speed"                                             "1200"
       "damage" //OAA
       {
-        "value"                                           "60 105 150 195 390 585"
-        "special_bonus_unique_void_spirit_4"              "+80"
+        "value"                                           "60 110 160 210 420 630"
+        "special_bonus_unique_void_spirit_4"              "+50"
       }
       "buff_duration"
       {
@@ -51,12 +51,14 @@
       "base_absorb_amount" //OAA
       {
         "value"                                           "80 120 160 200 400 800" // physical shield (vanilla: 25/50/75/100)
-        "special_bonus_facet_void_spirit_sanctuary"       "=75 =100 =125 =150 =300 =600" // all dmg shield (vanilla: 25/50/75/100)
+        "special_bonus_facet_void_spirit_sanctuary"       "=50 =75 =100 =125 =250 =500" // all dmg shield (vanilla: 25/50/75/100)
+        "special_bonus_unique_void_spirit_resonant_pulse_barrier"  "+20%"
       }
       "absorb_per_hero_hit" //OAA
       {
         "value"                                           "60 80 100 120 240 360" // physical shield (vanilla: 35/50/65/80)
-        "special_bonus_facet_void_spirit_sanctuary"       "=70 =90 =110 =130 =260 =390" // all dmg shield (vanilla: 50/70/90/110)
+        "special_bonus_facet_void_spirit_sanctuary"       "=50 =70 =90 =110 =220 =330" // all dmg shield (vanilla: 50/70/90/110)
+        "special_bonus_unique_void_spirit_resonant_pulse_barrier"  "+20%"
       }
       "is_all_barrier"
       {

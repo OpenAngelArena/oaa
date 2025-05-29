@@ -49,7 +49,6 @@
       "remnant_watch_distance"
       {
         "value"                                           "450"
-        "special_bonus_shard"                             "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "remnant_watch_radius"
@@ -63,10 +62,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "activation_delay"                                  "0.4"
-      "impact_damage" //OAA
+      "impact_damage"
       {
-        "value"                                           "70 140 210 280 560 1120"
-        "special_bonus_unique_void_spirit_2"              "+70"
+        "value"                                           "90 140 190 240 480 960"
+        "special_bonus_unique_void_spirit_2"              "+60"
       }
       "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
       "pull_destination"                                  "44 50 56 62 68 74"
@@ -79,18 +78,17 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "14 13 12 11 11 11"
-        "special_bonus_shard"                             "-2"
+        "value"                                           "14 13 12 11 10 9"
       }
       "damage_tick_rate"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+1"
+        "special_bonus_shard"                             "+0.5"
       }
       "creep_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+30"
+        "special_bonus_shard"                             "+50"
       }
       "artifice_duration_override"
       {
@@ -101,6 +99,16 @@
       {
         "value"                                           "0"
         "special_bonus_facet_void_spirit_aether_artifice"  "+70.0"     // artifice_pct_effectiveness_tooltip
+      }
+      "truesight_range"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "475"
+      }
+      "rotation_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "1.5"
       }
     }
   }

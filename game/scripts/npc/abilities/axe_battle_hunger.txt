@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Axe Battle Hunger
+  // Axe: Battle Hunger
   //=================================================================================================================
   "axe_battle_hunger"
   {
@@ -41,7 +41,7 @@
       "duration"                                          "12.0"
       "slow"
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "value"                                           "-18 -22 -26 -30 -34 -38"
         "special_bonus_unique_axe_6"                      "-10"
       }
       "damage_per_second" //OAA
@@ -49,7 +49,7 @@
         "value"                                           "10 20 30 40 140 240"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "armor_multiplier" //OAA
+      "armor_multiplier" //OAA, because of special_bonus_unique_axe
       {
         "value"                                           "1"
         "special_bonus_unique_axe"                        "x3"

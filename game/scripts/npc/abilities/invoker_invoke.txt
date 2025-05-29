@@ -14,7 +14,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7"
+    "AbilityCooldown"                                     "5" //OAA
     "AbilityManaCost"                                     "0"
 
     // Special
@@ -22,7 +22,7 @@
     "AbilityValues"
     {
       "max_invoked_spells"                                "2"
-      "cooldown_reduction_per_orb"                        "0.16" // OAA, so it doesn't bug out at OAA levels
+      "cooldown_reduction_per_orb"                        "0.14" // OAA, so it becomes near 0 when maxed out
     }
   }
 }

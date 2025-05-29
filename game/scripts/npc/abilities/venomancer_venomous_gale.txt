@@ -48,7 +48,12 @@
       "create_wards"
       {
         "value"                                           "0"
-        "special_bonus_unique_venomancer_gale_plagueward"  "+2"
+        "special_bonus_facet_venomancer_plague_carrier"   "+1"
+      }
+      "num_created_wards_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_venomancer_plague_carrier"   "+2"
       }
       "AbilityCooldown"
       {

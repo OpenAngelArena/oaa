@@ -47,9 +47,9 @@
       "tick_count"                                        "5"
       "stun_duration"                                     "0.3"
       "projectile_speed"                                  "1200"
-      "avalanche_damage" //OAA
+      "avalanche_damage"
       {
-        "value"                                           "100 200 300 400 800 1200"
+        "value"                                           "100 190 280 370 740 1110"
         "special_bonus_unique_tiny"                       "+100"
       }
       "toss_damage_bonus_pct"

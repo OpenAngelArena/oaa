@@ -8,7 +8,7 @@
     "Ability4"                                            "monkey_king_jingu_mastery_oaa" // replaces monkey_king_jingu_mastery
     "Ability6"                                            "monkey_king_wukongs_command_oaa" // replaces monkey_king_wukongs_command
 
-    //"Ability10"                                           "special_bonus_unique_monkey_king_12"
+    //"Ability10"                                           "special_bonus_unique_monkey_king_3"
     //"Ability11"                                           "special_bonus_unique_monkey_king_9"
 
     //"Ability12"                                           "special_bonus_unique_monkey_king_7"
@@ -19,5 +19,38 @@
 
     //"Ability16"                                           "special_bonus_unique_monkey_king_11"
     "Ability17"                                           "special_bonus_unique_monkey_king_1_oaa" // replaces special_bonus_unique_monkey_king_6
+
+    "Facets"
+    {
+      "monkey_king_wukongs_faithful"
+      {
+        "Icon"                                            "summons"
+        "Color"                                           "Red"
+        "GradientID"                                      "2"
+        "Deprecated"                                      "false"
+      }
+      "monkey_king_simian_stride"
+      {
+        "Icon"                                            "tree"
+        "Color"                                           "Green"
+        "GradientID"                                      "4"
+        "MaxHeroAttributeLevel"                           "6"
+      }
+      "monkey_king_transfiguration"
+      {
+        "Icon"                                            "summons"
+        "Color"                                           "Red"
+        "GradientID"                                      "2"
+        "Deprecated"                                      "true"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "monkey_king_transfiguration"
+            "AbilityIndex"                                "9"
+          }
+        }
+      }
+    }
   }
 }

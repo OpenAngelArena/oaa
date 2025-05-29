@@ -58,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35304"
+    "ItemCost"                                            "35904"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists 2;covfefe 2;blade of judecca 2"
@@ -69,10 +69,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "37 42"
+      "bonus_damage"                                      "50 55"
       "bonus_all_stats"                                   "0"
-      "bonus_health"                                      "1140 1440"
-      "bonus_mana"                                        "1140 1440"
+      "bonus_health"                                      "1000 1100"
+      "bonus_mana"                                        "1000 1100"
       "heal_prevent_percent"                              "55 65"
       "heal_prevent_duration"                             "3"
       "mute_duration"                                     "3 3.5"

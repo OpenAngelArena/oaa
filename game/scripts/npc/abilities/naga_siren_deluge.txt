@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Naga Siren: Undertow
+  // Naga Siren: Deluge
   //=================================================================================================================
   "naga_siren_deluge"
   {
@@ -28,7 +28,7 @@
     {
       "damage"
       {
-        "value"                                           "80 140 200 260 520 1040"
+        "value"                                           "80 150 220 290 580 870"
         "special_bonus_unique_naga_siren_2"               "+30%"
       }
       "radius"
@@ -40,13 +40,13 @@
       {
         "value"                                           "3.5"
       }
-      "status_resistance" //OAA
+      "status_resistance"
       {
-        "value"                                           "-25"
+        "value"                                           "0"
       }
       "max_movement_speed"
       {
-        "value"                                           "240"
+        "value"                                           "230"
       }
     }
   }

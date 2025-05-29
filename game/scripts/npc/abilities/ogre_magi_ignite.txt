@@ -39,18 +39,13 @@
         "value"                                           "20 30 40 50 100 150"
         "special_bonus_unique_ogre_magi_4"                "+12"
       }
-      "slow_movement_speed_pct"                           "-20 -23 -26 -29 -32 -35"
+      "slow_movement_speed_pct"                           "-25 -28 -31 -34 -37 -40" //OAA
       "projectile_speed"                                  "1000"
       "multicast_delay"                                   "0.6"
       "ignite_multicast_aoe"
       {
         "value"                                           "1400"
         "affected_by_aoe_increase"                        "1"
-      }
-      "required_level"
-      {
-        "value"                                           "1"
-        "special_bonus_facet_ogre_magi_learning_curve"    "-1"
       }
     }
   }

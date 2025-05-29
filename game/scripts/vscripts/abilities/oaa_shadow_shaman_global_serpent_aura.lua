@@ -128,7 +128,7 @@ function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDama
 
   -- If Mass Serpent Wards are at levels where everything is correct, dont continue
   -- Level of mass_serpent_wards_vanilla needs to be 3, and level of mass_serpent_wards_custom needs to be 4 or 5
-  if mass_serpent_wards_vanilla:GetLevel() < 3 or mass_serpent_wards_custom:GetLevel() <= 3 then
+  if mass_serpent_wards_vanilla:GetLevel() <= 3 or mass_serpent_wards_custom:GetLevel() <= 3 then
     return 0
   end
 
@@ -141,7 +141,7 @@ function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDama
   -- Get correct damage of the ward (ward damage at current level of mass_serpent_wards_custom)
   local wardDamage = mass_serpent_wards_custom:GetSpecialValueFor("damage_tooltip")
   local hasMegaWardsEnabled = mass_serpent_wards_custom:GetSpecialValueFor("is_mega_ward") == 1
-  local megaWardMultiplier = mass_serpent_wards_custom:GetSpecialValueFor("mega_ward_multiplier_tooltip")
+  local megaWardMultiplier = mass_serpent_wards_custom:GetSpecialValueFor("mega_ward_multiplier_damage")
 
   -- Total damage of the ward will be ward dmg at lvl 3 + difference between dmg at later lvls
   -- mass_serpent_wards_vanilla:GetSpecialValueFor("damage_tooltip") does not work anymore

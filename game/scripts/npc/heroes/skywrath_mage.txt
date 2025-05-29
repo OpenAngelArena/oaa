@@ -5,22 +5,25 @@
   //=================================================================================================================
   "npc_dota_hero_skywrath_mage"
   {
+    "Ability10"                                           "special_bonus_unique_skywrath_1_oaa" // replaces special_bonus_mp_regen_150
+    //"Ability11"                                           "special_bonus_unique_skywrath_6"
+
     //"Ability12"                                           "special_bonus_unique_skywrath"
-    //"Ability13"                                           "special_bonus_unique_skywrath_2"
+    //"Ability13"                                           "special_bonus_unique_skywrath_concussive_shot_slow"
 
     //"Ability14"                                           "special_bonus_unique_skywrath_4"
     //"Ability15"                                           "special_bonus_unique_skywrath_3"
 
-    "Ability16"                                           "special_bonus_unique_skywrath_1_oaa" // replaces special_bonus_unique_skywrath_6
+    //"Ability16"                                           "special_bonus_unique_skywrath_2"
     //"Ability17"                                            "special_bonus_unique_skywrath_5"
 
-  // special_bonus_unique_skywrath - "-{s:value}s Ancient Seal Cooldown"
-  // special_bonus_unique_skywrath_2 - "+{s:value} Arcane Bolt Per Cast"
-  // special_bonus_unique_skywrath_3 - "+{s:value}% Ancient Seal Increased Magic Damage"
-    // special_bonus_unique_skywrath_4 - "Global Concussive Shot"
-  // special_bonus_unique_skywrath_5 - "+{s:value} Mystic Flare Damage"
-    // special_bonus_unique_skywrath_6 - "Arcane Bolt Pierces Spell Immunity" - unused
-  // special_bonus_unique_skywrath_7 - "{s:value} AoE Ancient Seal" - unused
-  // special_bonus_unique_skywrath_1_oaa - "+{s:value} Arcane Bolt Damage" - custom
+    // special_bonus_unique_skywrath - Ancient Seal Cooldown
+    // special_bonus_unique_skywrath_2 - Arcane Bolt Int Multiplier
+    // special_bonus_unique_skywrath_3 - Ancient Seal Increased Magic Damage
+    // special_bonus_unique_skywrath_4 - Global Concussive Shot
+    // special_bonus_unique_skywrath_5 - Mystic Flare Damage
+    // special_bonus_unique_skywrath_6 - Arcane Bolt Cast Range
+    // special_bonus_unique_skywrath_7 - AoE Ancient Sea - unused
+    // special_bonus_unique_skywrath_1_oaa - Arcane Bolt Damage - custom
   }
 }

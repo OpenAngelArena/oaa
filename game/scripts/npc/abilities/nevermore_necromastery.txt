@@ -29,6 +29,7 @@
         "special_bonus_scepter"                           "+5"
       }
       "souls_per_kill"                                    "1"
+      "souls_per_hero_kill"                               "3"
       "necromastery_soul_release"                         "0.7"
       "attack_range_bonus"                                "0"
       "shard_souls_per_kill" // unused
@@ -47,6 +48,10 @@
       "max_soul_increase_on_hero_kill" // OAA, because fuck this shit Valve
       {
         "special_bonus_facet_nevermore_lasting_presence"  "0"
+      }
+      "current_max_souls_tooltip"
+      {
+        "dynamic_value"                                   "true"
       }
     }
   }

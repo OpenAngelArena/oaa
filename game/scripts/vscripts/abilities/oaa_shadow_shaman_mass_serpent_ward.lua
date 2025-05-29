@@ -30,6 +30,7 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local targetPoint = self:GetCursorPosition()
   local isMegaWard = self:GetSpecialValueFor("is_mega_ward") == 1
   local megaWardScale = self:GetSpecialValueFor("mega_ward_model_scale_multiplier")
+  local megaWardBountyMultiplier = self:GetSpecialValueFor("mega_ward_multiplier_health")
   local wardCount = self:GetSpecialValueFor("ward_count")
   local wardHealth = self:GetSpecialValueFor("ward_health")
   local wardDamage = self:GetSpecialValueFor("damage_tooltip")
@@ -86,6 +87,13 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
     -- Fix size of the ward
     if isMegaWard then
       serpentWard:SetModelScale(megaWardScale)
+      -- Fix bounties
+      local min_bounty = serpentWard:GetMinimumGoldBounty()
+      local max_bounty = serpentWard:GetMaximumGoldBounty()
+      local xp_bounty = serpentWard:GetDeathXP()
+      serpentWard:SetMinimumGoldBounty(min_bounty*megaWardBountyMultiplier)
+      serpentWard:SetMaximumGoldBounty(max_bounty*megaWardBountyMultiplier)
+      serpentWard:SetDeathXP(xp_bounty*megaWardBountyMultiplier)
     end
   end
 

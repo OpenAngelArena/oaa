@@ -10,13 +10,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "15"
+    "MaxLevel"                                            "11"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor_removed"                                     "0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2"
+      "armor_removed"                                     "0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8"
       "max_armor_removed"                                 "25" //OAA
       "duration"                                          "5"
     }

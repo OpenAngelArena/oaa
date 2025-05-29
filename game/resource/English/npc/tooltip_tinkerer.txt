@@ -127,10 +127,10 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "Rockets Explode On Impact"
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3_Description"              "Rockets will slow and damage all enemies in a {s:bonus_explode_radius} radius around the hit unit."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:bonus_duration} Tar Spill Duration"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:bonus_duration}s Tar Spill Duration"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5"                          "+{s:bonus_move_speed_slow}/{s:bonus_attack_speed_slow}% Tar Spill Move/Attack Speed Slow"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5_facet_tinker_repair_bots"  "#{DOTA_Tooltip_Ability_special_bonus_unique_tinker_march_duration}"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5_facet_tinker_repair_bots"  "+{s:bonus_heal_duration}s March of the Machines Heal Duration"
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:bonus_burn_dps} Tar Spill Burn Damage"
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6_facet_tinker_repair_bots"  "-{s:bonus_AbilityCooldown}s March of the Machines Cooldown"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Lancer's Phantom Rush / Phantom Edge
+  // Phantom Lancer: Phantom Rush / Phantom Edge
   //=================================================================================================================
   "phantom_lancer_phantom_edge"
   {
@@ -26,7 +26,7 @@
       "max_distance"
       {
         "value"                                           "600 675 750 825 900 975"
-        "special_bonus_unique_phantom_lancer"             "+300"
+        "special_bonus_scepter"                           "+625"
       }
       "bonus_speed"                                       "800"
       "bonus_agility" //OAA, Valve forgot '+' on special_bonus_unique_phantom_lancer_phantom_rush_agility
@@ -38,6 +38,10 @@
       {
         "value"                                           "2"
         "special_bonus_unique_phantom_lancer_2"           "+2.5"
+      }
+      "illusion_spawn_radius"
+      {
+        "special_bonus_scepter"                           "75"
       }
     }
   }

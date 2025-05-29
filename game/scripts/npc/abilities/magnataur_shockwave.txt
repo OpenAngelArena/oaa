@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnataur: Shockwave
+  // Magnus: Shockwave
   //=================================================================================================================
   "magnataur_shockwave"
   {
@@ -65,8 +65,8 @@
       }
       "basic_slow_duration" //OAA
       {
-        "value"                                           "0.7 0.8 0.9 1.0 1.1 1.2 1.2"
-        "special_bonus_facet_magnataur_diminishing_return"  "=0.7 =0.8 =0.9 =1.0 =1.1 =1.2 =1.3"
+        "value"                                           "0.4 0.6 0.8 1.0 1.1 1.2 1.2"
+        "special_bonus_facet_magnataur_diminishing_return"  "=0.4 =0.6 =0.8 =1.0 =1.1 =1.2 =1.3"
       }
       "return_damage_pct"
       {

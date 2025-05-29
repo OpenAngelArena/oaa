@@ -5,17 +5,16 @@
   //=================================================================================================================
   "npc_dota_hero_phantom_lancer"
   {
-    //"Ability10"                                           "special_bonus_unique_phantom_lancer_lance_damage"
+    //"Ability10"                                           "special_bonus_unique_phantom_lancer_lance_slow_duration"
     //"Ability11"                                           "special_bonus_unique_phantom_lancer_phantom_rush_agility"
 
     //"Ability12"                                           "special_bonus_unique_phantom_lancer_2"
     //"Ability13"                                           "special_bonus_unique_phantom_lancer_5"
 
-    //"Ability14"                                           "special_bonus_unique_phantom_lancer"
+    //"Ability14"                                           "special_bonus_unique_phantom_lancer_lance_illusion_damage"
     //"Ability15"                                           "special_bonus_unique_phantom_lancer_6"
 
     "Ability16"                                           "special_bonus_lifesteal_40" // replaces special_bonus_unique_phantom_lancer_4
-    //"Ability17"                                           "special_bonus_24_crit_2"
-
+    //"Ability17"                                           "special_bonus_unique_phantom_lancer_illusory_armaments_dmg"
   }
 }

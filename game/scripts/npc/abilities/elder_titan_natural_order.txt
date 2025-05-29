@@ -26,19 +26,19 @@
         "special_bonus_unique_elder_titan_5"              "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "armor_reduction_pct"                               "25 40 55 70 85 100" //OAA
-      "magic_resistance_pct"                              "25 40 55 70 85 100" //OAA
+      "armor_reduction_pct"                               "50 60 70 80 90 100" //OAA
+      "magic_resistance_pct"                              "50 60 70 80 90 100" //OAA
       "max_stacks"
       {
         "special_bonus_facet_elder_titan_deconstruction"  "20"
       }
       "magic_resistance_per_tick"
       {
-        "special_bonus_facet_elder_titan_deconstruction"  "1"
+        "special_bonus_facet_elder_titan_deconstruction"  "0.8"
       }
       "armor_per_tick"
       {
-        "special_bonus_facet_elder_titan_deconstruction"  "1"
+        "special_bonus_facet_elder_titan_deconstruction"  "0.8"
       }
       "tick_rate"
       {

@@ -39,7 +39,7 @@
       "hero_shield" //OAA
       {
         "value"                                           "100 150 200 250 350 650"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+80"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+90"
       }
       "duration"                                          "10"
       "radius"
@@ -57,15 +57,19 @@
       {
         "value"                                           "15 14 13 12 11 10"
       }
+      "min_damage_increase_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_pangolier_double_jump"       "=30"
+      }
       "max_damage_increase_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_pangolier_double_jump"       "=40"
       }
-      "min_damage_increase_pct"
+      "min_barrier_increase_pct_tooltip"
       {
-        "value"                                           "0"
-        "special_bonus_facet_pangolier_double_jump"       "=25"
+        "special_bonus_facet_pangolier_double_jump"       "=30"
       }
       "max_barrier_increase_pct_tooltip"
       {

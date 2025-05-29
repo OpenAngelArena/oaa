@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "1125"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_helm_of_the_dominator"
     "ItemRequirements"
     {
-      "01"                                                "item_helm_of_iron_will;item_diadem"
+      "01"                                                "item_helm_of_iron_will;item_crown"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2625"
+    "ItemCost"                                            "2550"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hotd;helm of the dominator;helm;dominator"

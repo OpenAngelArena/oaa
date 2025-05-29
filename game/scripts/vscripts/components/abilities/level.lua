@@ -264,7 +264,7 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local basicReqs = {0, 0, 0, 0, 28, 40}
   local ultimateReqs = {0, 0, 0, 37, 49}
 
-  local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 26, 28, 30, 32, 34, 36, 38}
+  local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 28, 32, 36, 40}
   local summonWolvesReqs = {0, 0, 0, 0, 0, 0, 30, 42}
   local extraLevelbasicReqs = {0, 0, 0, 0, 0, 28, 40}
   local basicInnateAbilityReqs = {0, 0, 0, 0, 0, 28, 40}
@@ -279,6 +279,7 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
     magnataur_shockwave = extraLevelbasicReqs,
     night_stalker_hunter_in_the_night = basicInnateAbilityReqs,
     night_stalker_void = extraLevelbasicReqs,
+    silencer_glaives_of_wisdom = extraLevelbasicReqs,
   }
 
   local ability = hero:FindAbilityByName(abilityName)
@@ -289,7 +290,7 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
     reqTable = exceptionAbilityReqs[abilityName]
     if abilityName == "lycan_summon_wolves" and ability:GetSpecialValueFor("max_level") ~= 8 then
       reqTable = basicReqs
-    elseif (abilityName == "night_stalker_void" or abilityName == "magnataur_shockwave" or abilityName == "monkey_king_tree_dance" or abilityName == "night_stalker_hunter_in_the_night") and ability:GetSpecialValueFor("max_level") ~= 7 then
+    elseif (abilityName == "night_stalker_void" or abilityName == "magnataur_shockwave" or abilityName == "night_stalker_hunter_in_the_night" or abilityName == "silencer_glaives_of_wisdom") and ability:GetSpecialValueFor("max_level") ~= 7 then
       reqTable = basicReqs
     end
   elseif IsInnateCustom(abilityName) then
