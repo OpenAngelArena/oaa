@@ -397,7 +397,7 @@ if IsServer() then
       local duration = ability:GetSpecialValueFor("duration")
 
       -- Apply sticky
-      for i = 0, stacks_per_attack do
+      for i = 1, stacks_per_attack do
         target:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
       end
     end
