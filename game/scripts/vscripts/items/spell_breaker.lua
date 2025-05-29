@@ -142,20 +142,14 @@ function modifier_item_spell_breaker_active:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.aoe_multiplier = (100 - ability:GetSpecialValueFor("aoe_decrease_percent"))/100
-    self.spell_lifesteal_reduction = ability:GetSpecialValueFor("spell_lifesteal_reduction")
   end
 end
 
 function modifier_item_spell_breaker_active:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
   }
-end
-
-function modifier_item_spell_breaker_active:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.spell_lifesteal_reduction)
 end
 
 local aoe_keywords = {

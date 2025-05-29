@@ -357,7 +357,9 @@ if IsServer() then
     end
 
     -- Apply Heal reduction debuff
-    damaged_unit:AddNewModifier(parent, ability, "modifier_item_dagger_of_moriah_frostbite", {duration = ability:GetSpecialValueFor("heal_reduction_duration")})
+    local debuff_duration = ability:GetSpecialValueFor("heal_reduction_duration")
+    damaged_unit:AddNewModifier(parent, ability, "modifier_item_dagger_of_moriah_frostbite", {duration = debuff_duration})
+    damaged_unit:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", debuff_duration)
   end
 end
 
@@ -403,9 +405,9 @@ modifier_item_dagger_of_moriah_frostbite.OnRefresh = modifier_item_dagger_of_mor
 function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -417,13 +419,15 @@ function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Perc
   return 0 - math.abs(self.heal_reduction)
 end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
 
 function modifier_item_dagger_of_moriah_frostbite:GetEffectName()
   return "particles/items/dagger_of_moriah/dagger_of_moriah_frostbite.vpcf" --"particles/items4_fx/spirit_vessel_damage.vpcf"

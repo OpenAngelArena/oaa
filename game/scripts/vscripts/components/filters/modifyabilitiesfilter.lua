@@ -39,6 +39,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
   elseif ability_name == "faceless_void_time_dilation" and modifier_name == "modifier_faceless_void_time_dilation_slow" then
     victim:AddNewModifier(caster, ability, "modifier_faceless_void_time_dilation_degen_oaa", {duration = modifier_duration})
+    victim:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", modifier_duration)
   elseif (ability_name == "elder_titan_natural_order" or ability_name == "elder_titan_natural_order_spirit") and modifier_name == "modifier_elder_titan_natural_order_magic_resistance" then
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})

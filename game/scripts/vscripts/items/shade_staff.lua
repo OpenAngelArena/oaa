@@ -132,10 +132,10 @@ function modifier_item_shade_staff_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp = ability:GetSpecialValueFor("bonus_health")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.str = ability:GetSpecialValueFor("bonus_all_stats")
     self.agi = ability:GetSpecialValueFor("bonus_all_stats")
     self.int = ability:GetSpecialValueFor("bonus_all_stats")
-    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
     --self.slow_resist = ability:GetSpecialValueFor("slow_resistance")
     self.status_resist = ability:GetSpecialValueFor("status_resistance")
     -- Stuff active only near trees:
@@ -186,11 +186,10 @@ end
 function modifier_item_shade_staff_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS, -- GetModifierBonusStats_Agility
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING, -- GetModifierSlowResistance_Stacking
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- GetModifierIncomingDamage_Percentage
@@ -199,6 +198,10 @@ end
 
 function modifier_item_shade_staff_passive:GetModifierHealthBonus()
   return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_shade_staff_passive:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Strength()
@@ -211,14 +214,6 @@ end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
-end
-
-function modifier_item_shade_staff_passive:GetModifierHPRegenAmplify_Percentage()
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
-end
-
-function modifier_item_shade_staff_passive:GetModifierLifestealRegenAmplify_Percentage()
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 end
 
 -- Doesn't work, Thanks Valve!

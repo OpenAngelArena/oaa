@@ -42,7 +42,8 @@
         "value"                                           "7 12 17 22 44 66"
         "special_bonus_unique_faceless_void_6"            "+9"
       }
-      "heal_prevent_percent"                              "-25 -30 -35 -40 -45 -50" //OAA, unique to OAA
+      "heal_prevent_percent"                              "-25 -30 -35 -40 -45 -50" //OAA, reduces healing only
+      "health_restoration"                                "-25 -30 -35 -40 -45 -50" //OAA, reduces everything else
     }
   }
 }

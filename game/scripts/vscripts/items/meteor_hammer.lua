@@ -98,7 +98,6 @@ function modifier_item_meteor_hammer_oaa_passives:OnRefresh()
     self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
     self.spell_amp = ability:GetSpecialValueFor("spell_amp")
     self.mana_regen_amp = ability:GetSpecialValueFor("mana_regen_multiplier")
-    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
   end
 
   if IsServer() then
@@ -121,7 +120,6 @@ function modifier_item_meteor_hammer_oaa_passives:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
   }
 end
 
@@ -153,15 +151,6 @@ function modifier_item_meteor_hammer_oaa_passives:GetModifierSpellAmplify_Percen
     return 0
   end
   return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
-end
-
--- Doesn't stack with Kaya items
-function modifier_item_meteor_hammer_oaa_passives:GetModifierSpellLifestealRegenAmplify_Percentage()
-  local parent = self:GetParent()
-  if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") then
-    return 0
-  end
-  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 end
 
 ---------------------------------------------------------------------------------------------------

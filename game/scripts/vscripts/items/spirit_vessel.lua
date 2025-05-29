@@ -107,18 +107,33 @@ function item_spirit_vessel_oaa:OnSpellStart()
   else
     -- Apply stronger version when you have charges and consume a charge, otherwise don't consume a charge but apply a weaker version
     if current_charges >= 1 then
+      -- Remove weaker versions
       if target:HasModifier("modifier_spirit_vessel_oaa_debuff_no_charge") then
         target:RemoveModifierByName("modifier_spirit_vessel_oaa_debuff_no_charge")
+        local crudes = target:FindAllModifiersByName("modifier_item_enhancement_crude")
+        for _, crude in pairs(crudes) do
+          if crude and not crude:IsNull() then
+            local crude_ability = crude:GetAbility()
+            if crude_ability then
+              local crude_ability_name = crude_ability:GetAbilityName()
+              if string.find(crude_ability_name, "item_spirit_vessel") then
+                crude:Destroy()
+              end
+            end
+          end
+        end
       end
       target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_debuff_with_charge", {duration = duration})
+      target:ApplyNonStackableBuff(caster, self, "modifier_item_spirit_vessel_damage", duration)
       self:SetCurrentCharges(current_charges - 1)
       caster.spiritVesselChargesOAA = current_charges - 1
       target:EmitSound("DOTA_Item.SpiritVessel.Target.Enemy")
     else
-      if target:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-        target:RemoveModifierByName("modifier_spirit_vessel_oaa_debuff_with_charge")
+      -- Do not apply weaker versions if they have stronger versions applied
+      if not target:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") and not target:HasModifier("modifier_item_spirit_vessel_damage") then
+        target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_debuff_no_charge", {duration = duration})
+        target:ApplyNonStackableBuff(caster, self, "modifier_item_enhancement_crude", duration)
       end
-      target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_debuff_no_charge", {duration = duration})
       target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
     end
   end
@@ -519,20 +534,21 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:IsDebuff()
 end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:IsHidden()
-  return false
+  return true --false -- change if we dont use vanilla modifier
 end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:IsPurgable()
   return true
 end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetEffectName()
-  return "particles/items4_fx/spirit_vessel_damage.vpcf"
-end
+-- Uncomment if we dont use vanilla modifier
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetEffectName()
+  -- return "particles/items4_fx/spirit_vessel_damage.vpcf"
+-- end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
-end
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetEffectAttachType()
+  -- return PATTACH_ABSORIGIN_FOLLOW
+-- end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:OnCreated()
   if not IsServer() then
@@ -551,7 +567,7 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnRefresh()
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
+    self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount_oaa")
     self.current_hp_dmg = ability:GetSpecialValueFor("current_hp_as_dmg")
     self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_with_charge")
   else
@@ -595,28 +611,30 @@ end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
-end
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHPRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
+-- end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHealAmplify_PercentageTarget()
   return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
 end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
+-- end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
+-- end
 
 function modifier_spirit_vessel_oaa_debuff_with_charge:GetTexture()
   return "item_spirit_vessel"
@@ -660,28 +678,30 @@ modifier_spirit_vessel_oaa_debuff_no_charge.OnRefresh = modifier_spirit_vessel_o
 
 function modifier_spirit_vessel_oaa_debuff_no_charge:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
-function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
-end
+-- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHPRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
+-- end
 
 function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHealAmplify_PercentageTarget()
   return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
 end
 
-function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
+-- end
 
-function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
+-- end
 
 function modifier_spirit_vessel_oaa_debuff_no_charge:GetTexture()
   return "item_spirit_vessel"

@@ -76,7 +76,8 @@
       // Active stuff
       "magic_dmg_amp"                                     "24 27"
       "heal_reduction_duration"                           "3"
-      "heal_reduction_percent"                            "40 45"
+      "heal_reduction_percent"                            "40 45" // reduces healing only
+      "health_restoration"                                "-40 -45" // reduces everything else
       "duration"                                          "10.0"
     }
 
