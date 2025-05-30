@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85"
+    "AbilityManaCost"                                     "95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,10 +43,10 @@
       {
         "value"                                           "30 30 30 30 60 90"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA, because of special_bonus_unique_templar_assassin_refraction_damage
       {
-        "value"                                           "20 40 60 80 160 240"
-        "special_bonus_unique_templar_assassin_refraction_damage"  "+40"
+        "value"                                           "15 30 45 60 120 180"
+        "special_bonus_unique_templar_assassin_refraction_damage"  "+60"
       }
       "bonus_damage_per_instance_burn"
       {

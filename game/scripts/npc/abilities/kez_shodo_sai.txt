@@ -44,9 +44,9 @@
       "forward_angle"                                     "180"
       "speed_penalty"                                     "25"
       "parry_duration"                                    "2.0"
-      "parry_bonus_crit"
+      "parry_bonus_crit" //OAA, this number x enemy level is the bonus crit
       {
-        "value"                                           "0"
+        "value"                                           "3"
         "special_bonus_unique_kez_mark_damage"            "+0"
       }
       "parry_stun_duration"                               "0.5"
