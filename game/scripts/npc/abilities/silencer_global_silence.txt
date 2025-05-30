@@ -34,20 +34,20 @@
     {
       "AbilityDuration" //OAA
       {
-        "value"                                           "4 4.5 5.0 5.5 6.0"
+        "value"                                           "4.5 5.0 5.5 6.0 6.5"
         "special_bonus_facet_silencer_reverberating_silence"  "=0"
       }
       "apply_twice"
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1"
       }
-      "first_duration" //OAA
+      "first_duration" // unused
       {
-        "special_bonus_facet_silencer_reverberating_silence"  "2.75 3.25 3.75 4.25 4.75"
+        "special_bonus_facet_silencer_reverberating_silence"  "3 3.5 4"
       }
-      "second_duration" //OAA
+      "second_duration" // unused
       {
-        "special_bonus_facet_silencer_reverberating_silence"  "1.25"
+        "special_bonus_facet_silencer_reverberating_silence"  "1.5 1.75 2"
       }
       "applies_curse"
       {
