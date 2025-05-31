@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -24,11 +23,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 8 8"
+    "AbilityCooldown"                                     "20 16 12 10 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 140 180 220 260"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +39,7 @@
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "110 175 240 370 500" //OAA
+      "damage"                                            "100 165 230 360 490" //OAA
       "spread"
       {
         "value"                                           "350"

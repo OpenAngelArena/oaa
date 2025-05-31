@@ -4,6 +4,10 @@ LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_proje
 
 boss_alchemist_cannonshot = class(AbilityBaseClass)
 
+function boss_alchemist_cannonshot:Precache(context)
+  PrecacheResource("model", "models/heroes/techies/techies_bomb_projectile.vmdl", context)
+end
+
 ------------------------------------------------------------------------------------
 
 function boss_alchemist_cannonshot:GetCastAnimation()

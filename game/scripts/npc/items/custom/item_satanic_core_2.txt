@@ -50,6 +50,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_satanic_core_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -78,7 +79,7 @@
       "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6"
       // Satanic/Blood Core active stuff
       "unholy_hero_spell_lifesteal"                       "120"
-      "unholy_creep_spell_lifesteal"                      "34"
+      "unholy_creep_spell_lifesteal"                      "30"
       "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
     }

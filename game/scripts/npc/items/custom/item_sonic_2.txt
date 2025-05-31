@@ -36,7 +36,7 @@
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_sonic_2"
+    "UpgradesItems"                                       ""
 
     "ItemCost"                                            "31004"
     "ItemShopTags"                                        "agi;attack_speed;move_speed"
@@ -44,6 +44,8 @@
     "ItemAliases"                                         "sonic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "SpeciallyBannedFromNeutralSlot"                      "1"
 
     "AbilityValues"
     {

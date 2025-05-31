@@ -48,6 +48,7 @@
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +65,7 @@
     {
       "bonus_health"                                      "1300 1800 2450"
       "bonus_strength"                                    "0"
-      "max_mana_to_hp_regen"                              "4.25"
+      "max_mana_to_hp_regen"                              "2.4"
       //"active_hp_regen"                                   "175 200 225"
       //"active_hp_regen_amp"                               "50"
       "active_max_hp_as_heal"                             "7"

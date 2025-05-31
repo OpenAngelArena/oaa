@@ -20,25 +20,30 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "650 750 850 950 1050 1150"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityCooldown"                                     "13 11 9 7 6 5"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"                                   "16 13 10 7 7 7"
-      "AbilityCastRange"                                  "700 800 900 1000 1100 1200"
       "land_distance"                                     "75"
       "projectile_speed"                                  "3000"
       "grapple_speed"                                     "1800"
       "max_distance_break"                                "2000"
-      "bonus_flat_lifesteal"                              "30 60 90 120 220 320"
-      "lifesteal_pct"                                     "100"
-      "creep_lifesteal_reduction_pct"                     "40"
-      "katana_ms_slow_pct"                                "80"
+      "bonus_flat_lifesteal"                              "0"
+      "lifesteal_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_kez_grappling_claw_lifesteal"  "0"
+      }
+      "creep_lifesteal_reduction_pct"                     "0"
+      "debuff_duration"                                   "0.7 0.8 0.9 1.0 1.1 1.2"
+      "katana_ms_slow_pct"                                "70 80 90 100 100 100"
     }
   }
 }

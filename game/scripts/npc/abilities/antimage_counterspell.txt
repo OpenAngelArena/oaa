@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Counterspell
+  // Anti-Mage: Counterspell
   //=================================================================================================================
   "antimage_counterspell"
   {
@@ -29,26 +29,32 @@
     {
       "magic_resistance"
       {
-        "value"                                           "15 25 35 45 50 55"
+        "value"                                           "16 24 32 40 48 56"
         "special_bonus_unique_antimage_4"                 "+10"
       }
       "duration"                                          "1.2"
       "duration_illusion"                                 "4"
       "outgoing_damage"                                   "-25"
       "incoming_damage"                                   "150" //OAA
-      "castable_while_disabled"
-      {
-        "value"                                           "0"
-      }
       "does_reflect"
       {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_magebanes_mirror"   "=1"
+        "value"                                           "1"
       }
       "reflected_spell_amp"
       {
         "value"                                           "0"
-        "special_bonus_facet_antimage_magebanes_mirror"   "+40"
+      }
+      "mana_drain_percent"
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "=150 =200 =250 =300 =350 =400"
+      }
+      "damage_from_mana_drain_percent"
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "100"
+      }
+      "max_damage_from_mana_drain"
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "400 400 400 400 800 1200"
       }
       "AbilityCooldown"
       {

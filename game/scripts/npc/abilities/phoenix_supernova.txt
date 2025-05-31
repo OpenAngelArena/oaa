@@ -48,7 +48,7 @@
       "stun_duration"
       {
         "value"                                           "1.6 2 2.4 2.5 2.6"
-        "special_bonus_unique_phoenix_2"                  "+0.5"
+        "special_bonus_unique_phoenix_2"                  "+0.6"
       }
       "max_hero_attacks" //OAA
       {
@@ -57,14 +57,12 @@
       }
       "max_hero_attacks_scepter" // OAA, max_hero_attacks + 1
       {
-        "value"                                           "7 10 13 15 17"
+        "special_bonus_scepter"                           "7 10 13 15 17"
         "special_bonus_unique_phoenix_1"                  "+2"
-        "RequiresScepter"                                 "1"
       }
       "cast_range_tooltip_scepter"
       {
-        "value"                                           "500"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "500"
       }
     }
   }

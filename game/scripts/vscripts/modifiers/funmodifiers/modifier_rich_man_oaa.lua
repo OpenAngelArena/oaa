@@ -50,27 +50,39 @@ end
 
 function modifier_rich_man_oaa:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_RESPAWN,
+    MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
 if IsServer() then
-  function modifier_rich_man_oaa:OnRespawn(event)
+  function modifier_rich_man_oaa:OnDeath(event)
     local parent = self:GetParent()
+    local killer = event.attacker
+    local dead = event.unit
 
-    if event.unit ~= parent then
+    -- Check for existence of GetUnitName method to determine if dead unit isn't something weird (an item, rune etc.)
+    if dead.GetUnitName == nil then
       return
     end
 
-    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    -- Don't continue if the killer doesn't exist
+    if not killer or killer:IsNull() then
+      return
+    end
+
+    -- Don't continue if the killer doesn't belong to the parent
+    if UnitVarToPlayerID(killer) ~= UnitVarToPlayerID(parent) then
       return
     end
 
     local player = parent:GetPlayerOwner()
+    local gold_per_kill = 25
+    if dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsClone() and not dead:IsSpiritBearOAA() then
+      gold_per_kill = 100
+    end
 
-    -- fuck it
-    Gold:AddGoldWithMessage(player:GetAssignedHero(), 1000 + GameRules:GetGameTime() * 2)
+    Gold:AddGoldWithMessage(player:GetAssignedHero(), gold_per_kill)
   end
 end
 

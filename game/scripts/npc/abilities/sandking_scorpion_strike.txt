@@ -32,7 +32,7 @@
     {
       "radius"
       {
-        "value"                                           "225 255 285 315 345 375"
+        "value"                                           "230 250 270 290 310 330"
         "affected_by_aoe_increase"                        "1"
       }
       "inner_radius"
@@ -40,17 +40,28 @@
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
-      "inner_radius_bonus_damage_pct"                     "20" //OAA
+      "inner_radius_bonus_damage_pct" //OAA
+      {
+        "value"                                           "25"
+      }
+      "inner_radius_procs_caustic"
+      {
+        "special_bonus_facet_sand_king_pinpoint"          "=1"
+      }
       "attack_damage"
       {
-        "value"                                           "35 70 105 140 280 420"
+        "value"                                           "50 75 100 125 250 375"
         "special_bonus_unique_sand_king_scorpion_strike_damage"  "+40"
       }
       "debuff_duration"                                   "4 5 6 7 8 9"
       "strike_slow"
       {
         "value"                                           "10 12 14 16 18 20"
-        "special_bonus_unique_sand_king_3"                "+8"
+        "special_bonus_unique_sand_king_3"                "+12"
+      }
+      "caustic_damage_pct"
+      {
+        "special_bonus_facet_sand_king_pinpoint"          "50"
       }
     }
   }

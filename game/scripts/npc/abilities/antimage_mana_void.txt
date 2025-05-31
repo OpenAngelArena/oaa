@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Mana Void
+  // Anti-Mage: Mana Void
   //=================================================================================================================
   "antimage_mana_void"
   {
@@ -44,7 +44,7 @@
       "mana_void_ministun"
       {
         "value"                                           "0.3"
-        "special_bonus_unique_antimage_8"                 "+0.7"
+        "special_bonus_unique_antimage_8"                 "+0.8"
       }
       "mana_void_aoe_radius"
       {
@@ -80,15 +80,13 @@
       }
       "bonus_attack_damage"
       {
-        "value"                                           "20 45 70 120 270"
-        "RequiresFacet"                                   "antimage_mana_thirst"
+        "special_bonus_facet_antimage_mana_thirst"        "20 45 70 120 270"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "linger_duration"
       {
-        "value"                                           "4.0"
-        "RequiresFacet"                                   "antimage_mana_thirst"
+        "special_bonus_facet_antimage_mana_thirst"        "4.0"
       }
     }
   }

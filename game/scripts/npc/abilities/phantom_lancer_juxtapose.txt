@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Lancer's Juxtapose
+  // Phantom Lancer: Juxtapose
   //=================================================================================================================
   "phantom_lancer_juxtapose"
   {
@@ -31,7 +31,7 @@
         "value"                                           "4"
       }
       "proc_chance_pct"                                   "40 45 50 55 60"
-      "illusion_proc_chance_pct"                          "8"
+      "illusion_proc_chance_pct"                          "9"
       "illusion_duration"                                 "8"
       "illusion_damage_out_pct" //OAA
       {
@@ -49,40 +49,34 @@
       }
       "illusion_damage_in_pct" //OAA
       {
-        "value"                                           "400 375 350 300 200"
+        "value"                                           "400 375 350 300 250"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "tooltip_total_illusion_damage_in_pct" //OAA
       {
-        "value"                                           "500 475 450 400 300"
+        "value"                                           "500 475 450 400 350"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "illusion_from_illusion_duration"                   "4"
       "shard_bonus_illusions"
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
       "invis_duration"
       {
-        "value"                                           "8"
-        "RequiresScepter"                                 "1"
+        "special_bonus_shard"                             "8"
       }
       "invis_movespeed"
       {
-        "value"                                           "15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_shard"                             "15"
       }
       "uncontrollable_illusions"
       {
-        "value"                                           "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+1"
       }
       "new_target_radius"
       {
-        "value"                                           "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+700"
-        "RequiresFacet"                                   "2"
       }
     }
   }

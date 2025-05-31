@@ -32,6 +32,48 @@ item_satanic_core_5 = item_satanic_core_1
 
 ---------------------------------------------------------------------------------------------------
 
+item_bloodstone_1 = class(ItemBaseClass)
+
+function item_bloodstone_1:GetIntrinsicModifierName()
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_bloodstone_1:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_bloodstone",
+    "modifier_item_spell_lifesteal_oaa",
+  }
+end
+
+function item_bloodstone_1:OnSpellStart()
+  local caster = self:GetCaster()
+
+  -- Basic Dispel (for the caster)
+  caster:Purge(false, true, false, false, false)
+
+  local duration = self:GetSpecialValueFor("buff_duration")
+
+  -- Sound
+  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
+
+  -- Blood Pact
+  if not caster:HasModifier("modifier_item_bloodstone_drained") then
+    caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
+  end
+
+  -- Drained
+  local cd = self.BaseClass.GetCooldown(self, self:GetLevel())
+  local drain_duration = cd * caster:GetCooldownReduction()
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_drained", {duration = drain_duration})
+end
+
+item_bloodstone_2 = item_bloodstone_1
+item_bloodstone_3 = item_bloodstone_1
+item_bloodstone_4 = item_bloodstone_1
+item_bloodstone_5 = item_bloodstone_1
+
+---------------------------------------------------------------------------------------------------
+
 modifier_item_satanic_core = class(ModifierBaseClass)
 
 function modifier_item_satanic_core:IsHidden()
@@ -103,8 +145,6 @@ function modifier_item_satanic_core:DeclareFunctions()
     --MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     --MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
-    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
-    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_AOE_BONUS_CONSTANT, -- GetModifierAoEBonusConstant
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
   }
@@ -155,24 +195,6 @@ end
     -- return 0
   -- end
   -- return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
--- end
-
--- function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
-  -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items and with itself
-  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
-    -- return 0
-  -- end
-  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
--- end
-
--- function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
-  -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items and with itself
-  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
-    -- return 0
-  -- end
-  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 -- end
 
 -- Doesn't work, Thanks Valve

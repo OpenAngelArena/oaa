@@ -11,7 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -44,18 +43,15 @@
       }
       "shard_fade_time"
       {
-        "value"                                           "0.15"
-        "RequiresShard"                                   "1" // RequiresScepter
+        "special_bonus_scepter"                           "0.15"
       }
-      "shard_spell_amp_bonus"
+      "shard_spell_amp_bonus" //OAA
       {
-        "value"                                           "25"
-        "RequiresShard"                                   "1" // RequiresScepter
+        "special_bonus_scepter"                           "15 20 25 30 35"
       }
       "shard_bat_bonus"
       {
-        "value"                                           "0.25"
-        "RequiresShard"                                   "1" // RequiresScepter
+        "special_bonus_scepter"                           "0.25"
       }
       "AbilityCooldown" //OAA
       {
@@ -64,7 +60,6 @@
       }
       "bonus_armor"
       {
-        "value"                                           "0"
         "special_bonus_unique_oracle_9"                   "+8"
       }
       "heal_amp_pct"

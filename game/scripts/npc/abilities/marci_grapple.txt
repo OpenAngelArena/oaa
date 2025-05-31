@@ -48,10 +48,14 @@
         "value"                                           "250"
       }
       "pull_angle"                                        "230"
-      "debuff_duration"                                   "3"
-      "impact_damage" //OAA
+      "debuff_duration"
       {
-        "value"                                           "90 160 230 300 600 1200"
+        "value"                                           "3"
+        "special_bonus_unique_marci_dispose_slow"         "+1.5"
+      }
+      "impact_damage"
+      {
+        "value"                                           "60 150 240 330 660 1320"
         "special_bonus_unique_marci_grapple_damage"       "+100"
       }
       "movement_slow_pct"                                 "20 30 40 50 55 60"

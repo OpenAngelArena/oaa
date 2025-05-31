@@ -16,8 +16,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,8 +25,12 @@
     {
       "bonus_attack_speed"
       {
-        "value"                                           "30 50 70 90 110 130"
+        "value"                                           "40 55 70 85 100 115"
         "special_bonus_unique_nevermore_4"                "+30"
+      }
+      "bonus_move_speed"
+      {
+        "value"                                           "5 7 9 11 13 15"
       }
       "cast_speed_pct" //OAA
       {
@@ -40,6 +44,7 @@
       }
       "duration"                                          "8"
       "soul_cost"                                         "5"
+      "max_soul_increase"                                 "5"
     }
   }
 

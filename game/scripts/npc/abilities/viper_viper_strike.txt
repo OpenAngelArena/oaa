@@ -29,14 +29,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6"
+      "duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_viper_4"                    "+1"
+      }
       "damage" //OAA
       {
         "value"                                           "70 130 190 370 670"
         "special_bonus_unique_viper_2"                    "+80"
       }
       "bonus_movement_speed"                              "-60 -70 -80 -80 -80"
-      "bonus_attack_speed"                                "-80 -120 -160 -200 -240"
+      "bonus_attack_speed"                                "-100 -140 -180 -220 -260"
       "AbilityCooldown"
       {
         "value"                                           "50 40 30 30 30"

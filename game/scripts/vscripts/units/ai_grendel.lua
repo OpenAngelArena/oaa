@@ -144,7 +144,6 @@ function GrendelThink ()
 
     local nearestEnemy = nearbyEnemies[1]
     if #nearbyEnemies == 0 and #enemies > 0 then
-      thisEntity.walking = true
       nearestEnemy = enemies[1]
     end
 
@@ -187,7 +186,7 @@ function Wander ()
     thisEntity.startPosition = thisEntity:GetAbsOrigin()
   end
   if not thisEntity.destination then
-    thisEntity.destination = GetNextWanderLocation()
+    thisEntity.destination = GetNextWanderLocation(thisEntity.startPosition)
   end
   if (thisEntity:GetAbsOrigin() - thisEntity.destination):Length2D() < 100 then
     thisEntity.wandering = false
@@ -201,12 +200,10 @@ function Wander ()
 end
 
 function Stop ()
-  thisEntity.walking = false
   thisEntity:Stop()
 end
 
 function WalkTowardsSpot (spot)
-  thisEntity.walking = true
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
@@ -215,7 +212,7 @@ function WalkTowardsSpot (spot)
   })
 end
 
-function GetNextWanderLocation ()
+function GetNextWanderLocation (startPosition)
   -- Change Grendel's destination if he was called by some team
   if Grendel.was_called then
     if Grendel.to_location ~= nil then
@@ -225,7 +222,7 @@ function GetNextWanderLocation ()
 
   local position = Grendel:FindWhereToSpawn()
 
-  return GetGroundPosition(position, nil)
+  return position
 end
 
 function StartWandering ()
@@ -233,6 +230,5 @@ function StartWandering ()
   thisEntity.startPosition = thisEntity:GetAbsOrigin()
   thisEntity.destination = nil
   thisEntity.wandering = true
-  thisEntity.walking = true
   thisEntity.isAggro = false
 end

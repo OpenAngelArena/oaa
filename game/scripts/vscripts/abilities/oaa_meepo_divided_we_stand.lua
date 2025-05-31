@@ -148,7 +148,12 @@ function modifier_meepo_divided_we_stand_oaa:OnDeath(event)
   if IsMeepoCloneOAA(parent) then
     -- CLone died, kill Meepo Prime
     if mainMeepo:IsAlive() then
-      mainMeepo:Kill(event.inflictor, event.attacker)
+      local killer = event.attacker
+      if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        mainMeepo:Kill(event.inflictor, mainMeepo)
+      else
+        mainMeepo:Kill(event.inflictor, killer)
+      end
     end
   end
 

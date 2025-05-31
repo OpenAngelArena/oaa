@@ -28,7 +28,7 @@
       "slow_duration"                                     "5.0"
       "AbilityManaCost"
       {
-        "value"                                           "200"
+        "value"                                           "225"
         "special_bonus_shard"                             "=0"
       }
       "clear_curse"
@@ -36,15 +36,19 @@
         "value"                                           "0"
         "special_bonus_facet_skeleton_king_facet_cursed_blade"  "=1"
       }
-      "shard_skeleton_count"
+      "shard_skeleton_count" //OAA, because of lag
       {
         "value"                                           "0"
-        "special_bonus_facet_skeleton_king_facet_bone_guard"  "2 3 4 5 6"
+        "special_bonus_facet_skeleton_king_facet_bone_guard"  "2"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 80 60 55 50"
-        "special_bonus_scepter"                           "-10"
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-30"
+      }
+      "trigger_wraithfire_blast"
+      {
+        "special_bonus_unique_wraith_king_4"              "=1"
       }
     }
   }

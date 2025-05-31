@@ -293,17 +293,17 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
-        item_gungir = true, -- because of random bounces
-        item_gungir_2 = true,
-        item_gungir_3 = true,
-        item_gungir_4 = true,
-        item_gungir_5 = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
         item_mjollnir_3 = true,
         item_mjollnir_4 = true,
         item_mjollnir_5 = true,
+        item_overwhelming_blink = true,
+        item_overwhelming_blink_2 = true,
+        item_overwhelming_blink_3 = true,
+        item_overwhelming_blink_4 = true,
+        item_overwhelming_blink_5 = true,
         item_radiance = true,
         item_radiance_2 = true,
         item_radiance_3 = true,
@@ -327,7 +327,7 @@ if IsServer() then
       local name = ability:GetAbilityName()
       local hp = self:GetHealth()
       local max_hp = self:GetMaxHealth()
-      if damagingByAccident[name] and hp/max_hp > 96/100 then
+      if damagingByAccident[name] and hp/max_hp > 0.95 then
         return true
       end
     end
@@ -403,7 +403,9 @@ if IsServer() then
         local ability = unit:GetAbilityByIndex(abilityIndex)
         if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
           ability:EndCooldown()
-          ability:RefreshCharges()
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
         end
       end
     end
@@ -457,6 +459,32 @@ if IsServer() then
     end
 
     return true
+  end
+
+  -- Apply a modifier only if it's not from the same source ability otherwise just refresh
+  function CDOTA_BaseNPC:ApplyNonStackableBuff(caster, ability, mod_name, duration)
+    if not ability then
+      return
+    end
+    local applied_by_this_ability = false
+    local ability_name = ability:GetAbilityName()
+    local mods = self:FindAllModifiersByName(mod_name)
+    for _, mod in pairs(mods) do
+      if mod and not mod:IsNull() then
+        local mod_ability = mod:GetAbility()
+        if mod_ability then
+          local mod_ability_name = mod_ability:GetAbilityName()
+          if string.find(mod_ability_name, string.sub(ability_name, 0, string.len(ability_name)-4)) then
+            applied_by_this_ability = true
+            mod:ForceRefresh()
+            break
+          end
+        end
+      end
+    end
+    if not applied_by_this_ability then
+      return self:AddNewModifier(caster, ability, mod_name, {duration = duration})
+    end
   end
 end
 
@@ -512,10 +540,10 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
@@ -594,15 +622,16 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:InstantAttackCanProcCleave()
+    -- If it's on this list and uncommented then it can proc Giant Form
     local list = {
       "modifier_ember_spirit_sleight_of_fist_caster",
       "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
       "modifier_ember_spirit_sleight_of_fist_in_progress",
-      "modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
       "modifier_juggernaut_omnislash",
       "modifier_juggernaut_omnislash_invulnerability",
       --"modifier_mars_gods_rebuke_crit",                         -- Mars W
-      "modifier_monkey_king_boundless_strike_crit",               -- MK Q
+      --"modifier_monkey_king_boundless_strike_crit",               -- MK Q
       "modifier_wukongs_command_oaa_buff",                        -- MK R
       "modifier_pangolier_swashbuckle",
       "modifier_pangolier_swashbuckle_attack",
@@ -612,7 +641,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
       "modifier_tiny_tree_channel",
-      "modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do
       if self:HasModifier(v) then
@@ -671,10 +700,10 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      "modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",
       "modifier_grimstroke_soul_chain",
       "modifier_puck_coiled",
-      "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
+      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:

@@ -46,7 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800"
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "15"
     "AbilitySharedCooldown"                               "spell_breaker"
     "AbilityManaCost"                                     "75"
 
@@ -54,10 +54,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_spell_breaker_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6926"
+    "ItemCost"                                            "6401"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "spell breaker 2;spell disrupter 2; mage bane 2; mage slayer 2"
@@ -71,17 +72,16 @@
       // Mage Slayer stats
       "bonus_magical_armor"                               "21 22 23 24 25"
       "bonus_attack_speed"                                "35 40 45 50 55"
-      "bonus_intellect"                                   "12 17 27 42 62"
       "spell_amp_debuff"                                  "25 30 35 40 45"
+      "bonus_health_regen"                                "5 8 11 14 17"
       "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
-      "duration"                                          "4"
+      "duration"                                          "3"
       "dps"                                               "25 35 55 85 125"
       // Spell Breaker passive stats
-      "bonus_attack_damage"                               "25 35 55 85 125"
+      "bonus_attack_damage"                               "32 42 62 92 132"
       // Spell Breaker active stuff
       "silence_duration"                                  "0.1"
       "aoe_decrease_percent"                              "25"
-      "spell_lifesteal_reduction"                         "25"
       "debuff_duration"                                   "6"
     }
   }

@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 12 10 8 7 6" //OAA
+    "AbilityCooldown"                                     "14 12 10 8 7 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,17 +41,20 @@
       "blast_dot_duration"
       {
         "value"                                           "2.0"
+        "special_bonus_facet_skeleton_king_facet_bone_guard"
+        {
+          "value"                                         "+0"
+          "special_bonus_unique_wraith_king_facet_1"      "+2"
+        }
       }
       "blast_slow"                                        "-20"
       "damage"
       {
         "value"                                           "75 90 105 120 240 480"
-        "special_bonus_unique_wraith_king_3"              "+25%"
       }
       "blast_dot_damage"
       {
         "value"                                           "20 40 60 80 160 320"
-        "special_bonus_unique_wraith_king_3"              "+25%"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Teleportation
+  // Nature's Prophet: Teleportation
   //=================================================================================================================
   "furion_teleportation"
   {
@@ -29,10 +29,9 @@
         "value"                                           "35 30 25 20 15 10"
         "special_bonus_unique_furion_3"                   "-100%"
       }
-      "barrier"
+      "barrier" //OAA
       {
         "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_furion_teleportation_barrier"  "+100"
       }
       "buff_duration"                                     "15"
     }

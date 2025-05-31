@@ -41,12 +41,18 @@
         "value"                                           "1.75 2.25 2.75 3.25 3.35 3.45"
         "special_bonus_unique_chaos_knight_3"             "+0.8" // this is lvl 25 talent in OAA
       }
-      "damage_min"                                        "90 120 150 180 360 720"
-      "damage_max"                                        "150 230 310 390 780 1560"
+      "damage_min"
+      {
+        "value"                                           "90 120 150 180 360 720"
+      }
+      "damage_max"
+      {
+        "value"                                           "155 240 325 410 820 1640"
+      }
       "fake_bolt_distance"                                "675"
       "AbilityCastRange"
       {
-        "value"                                           "500"
+        "value"                                           "600"
         "special_bonus_shard"                             "+0"
       }
       "AbilityCooldown"
@@ -63,6 +69,10 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "=30"
+      }
+      "bounce_range_pct"
+      {
+        "special_bonus_facet_chaos_knight_cloven_chaos"   "=70"
       }
     }
   }

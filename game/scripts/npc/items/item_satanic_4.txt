@@ -43,7 +43,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_satanic_4"
+    "UpgradesItems"                                       "item_satanic_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +61,6 @@
       "bonus_strength"                                    "25 30 40 55 75"
       "bonus_damage"                                      "25 35 55 85 125"
       "lifesteal_percent"                                 "30 35 40 45 50"
-      "creep_lifesteal_reduction_pct"                     "40"
       "unholy_lifesteal_percent"                          "150"
       "unholy_lifesteal_total_tooltip"                    "180 185 190 195 200"
       "unholy_duration"                                   "6.0"

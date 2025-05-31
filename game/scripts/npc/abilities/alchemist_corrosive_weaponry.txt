@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -18,10 +19,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_stacks"                                        "4 6 8 10 11 12"
+      "max_stacks"                                        "7 10 13 16 17 18"
       "debuff_duration"                                   "4.0"
-      "slow_per_stack"                                    "4 5 6 7 8 9"
-      "attack_damage_per_stack"                           "4" //OAA, base damage reduction
+      "slow_per_stack"                                    "2.0 2.1 2.2 2.3 2.4 2.5" //OAA
+      "attack_dmg_per_stack"                              "1.7 1.8 1.9 2.0 2.1 2.2" //OAA, base damage reduction
+      "stacks_per_attack"                                 "2"
+      "one_tooltip"                                       "1"
     }
   }
 }

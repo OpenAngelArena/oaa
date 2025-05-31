@@ -17,7 +17,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "99999"
-    "AbilityCastPoint"                                    "0.3" //OAA
+    "AbilityCastPoint"                                    "0.3" //OAA, intentional nerf
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -43,8 +43,7 @@
       "speed"                                             "1300"
       "scepter_mana_cost" // unused
       {
-        "value"                                           "75"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "75"
       }
       "shard_remnant_speed_pct"                           "300" // unused
     }

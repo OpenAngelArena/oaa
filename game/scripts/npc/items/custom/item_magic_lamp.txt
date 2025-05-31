@@ -40,11 +40,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60"
     "AbilitySharedCooldown"                               "magic_lamp_oaa"
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "150"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34304"
+    "ItemCost"                                            "34504"
     "ItemShopTags"                                        "health_pool;mana_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -56,7 +56,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "1500"
+      "bonus_health"                                      "1250"
       "bonus_mana"                                        "1000"
       "heal_pct"                                          "50"
       "health_threshold"                                  "1"

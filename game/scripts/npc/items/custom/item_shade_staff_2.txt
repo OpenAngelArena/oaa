@@ -47,11 +47,11 @@
     "AbilityCooldown"                                     "17 16 15 14"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "halberd"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "800 850 900 950"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8402"
+    "ItemCost"                                            "7602"
     "ItemShopTags"                                        "str"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shade staff 2;shade branch 2"
@@ -60,17 +60,19 @@
 
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_shade_staff_2;item_shade_staff_3;item_shade_staff_4"
+    "UpgradesItems"                                       "item_shade_staff_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_str"                                         "25 35 50 70"
-      "hp_regen_amp"                                      "27 29 31 33"
-      "status_resistance"                                 "18 20 22 24"
+      "bonus_health"                                      "375 525 725 975"
+      "bonus_all_stats"                                   "10 15 20 25"
+      "bonus_health_regen"                                "9 12 15 18"
+      "hp_regen_amp"                                      "0"
+      "status_resistance"                                 "0"
       // Active
-      "attack_speed_slow"                                 "400"
+      "attack_speed_slow"                                 "250 300 350 400"
       "slow_duration"                                     "4.5 5.0 5.5 6.0"
       "sprout_duration"                                   "4.5 5.0 5.5 6.0"
       "projectile_speed"                                  "900 1100 1300 1500"

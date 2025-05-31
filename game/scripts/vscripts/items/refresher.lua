@@ -35,7 +35,7 @@ function item_refresher_2:OnSpellStart()
     item_tranquil_boots = true,
   }
 
-  -- Reset cooldown for abilities that is not rearm
+  -- Reset cooldown for most abilities
   for i = 0, caster:GetAbilityCount() - 1 do
     local ability = caster:GetAbilityByIndex(i)
     if ability and not exempt_ability_table[ability:GetAbilityName()] then
@@ -45,7 +45,11 @@ function item_refresher_2:OnSpellStart()
   end
 
   -- Reset cooldown for items that are not in backpack
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  local max_slot = DOTA_ITEM_SLOT_6
+  if caster:HasModifier("modifier_spoons_stash_oaa") then
+    max_slot = DOTA_ITEM_SLOT_9
+  end
+  for i = DOTA_ITEM_SLOT_1, max_slot do
     local item = caster:GetItemInSlot(i)
     if item and not exempt_item_table[item:GetAbilityName()] then
       item:EndCooldown()
@@ -60,7 +64,7 @@ function item_refresher_2:OnSpellStart()
 
   -- Reset neutral item cooldown
   local neutral_item = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() and not exempt_item_table[neutral_item:GetAbilityName()] then
+  if neutral_item and neutral_item:IsActiveNeutral() and not exempt_item_table[neutral_item:GetAbilityName()] then
     neutral_item:EndCooldown()
   end
 end

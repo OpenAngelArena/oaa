@@ -20,8 +20,16 @@
     "AbilityValues"
     {
       "damage_threshold"                                  "200" //OAA
-      "damage"                                            "10 20 30 40 50 60" //OAA patch note says 10/20/30/40 ???
-      "damage_illusions"                                  "5 10 15 20 25 30" //OAA patch note says 10 ???
+      "damage" //OAA
+      {
+        "value"                                           "20 30 40 50 60 70"
+        "special_bonus_unique_lina_7"                     "+60%"
+      }
+      "damage_illusions" //OAA
+      {
+        "value"                                           "5 10 15 20 25 30"
+        "special_bonus_unique_lina_7"                     "+60%"
+      }
       "damage_aoe"
       {
         "value"                                           "400"

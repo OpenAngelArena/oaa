@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // MUERTA: Pierce the Veil
+  // Muerta: Pierce the Veil
   //=================================================================================================================
   "muerta_pierce_the_veil"
   {
@@ -30,15 +30,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "8"
+      "duration"
+      {
+        "value"                                           "8"
+        "special_bonus_unique_muerta_pierce_the_veil_duration"  "+2"
+      }
       "transform_duration"                                "0.35"
       "base_damage_pct"                                   "100" // this kv does nothing atm
       "modelscale"                                        "30"
       "bonus_damage"                                      "70 85 100 115 130" //OAA
       "spell_lifesteal"
       {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "30"
       }
       "spell_amp_steal" //OAA
       {

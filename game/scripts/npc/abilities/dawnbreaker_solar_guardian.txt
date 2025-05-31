@@ -37,7 +37,19 @@
         "value"                                           "90 85 80 80 80"
         "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-20"
       }
-      "airtime_duration"                                  "0.8"
+      "scepter_aura_duration"
+      {
+        "special_bonus_scepter"                           "3"
+      }
+      "miss_rate" // unused
+      {
+        "special_bonus_scepter"                           "0"
+      }
+      "base_heal" //OAA
+      {
+        "value"                                           "45 95 145 295 445"
+        "special_bonus_scepter"                           "+10 20 30 60 90"
+      }
       "radius"
       {
         "value"                                           "500"
@@ -49,11 +61,6 @@
         "value"                                           "30 70 110 230 350"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "base_heal" //OAA
-      {
-        "value"                                           "45 95 145 295 545"
-        "special_bonus_scepter"                           "+15 25 35 65 115"
-      }
       "pulse_interval"                                    "0.5"
       "land_damage" //OAA
       {
@@ -64,20 +71,18 @@
       "max_offset_distance"                               "350"
       "scepter_channel_time"
       {
-        "value"                                           "1.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.0"
       }
-      "airtime_scepter_bonus"
+      "airtime_scepter_bonus" // unused
       {
-        "value"                                           "3.5"
-        "RequiresScepter"                                 "1"
-      }
-      "miss_rate" //OAA
-      {
-        "value"                                           "40 50 60 70 80"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3.5"
       }
       "airtime_scepter_movement_speed"                    "200"
+      "airtime_duration"
+      {
+        "value"                                           "0.8"
+        "special_bonus_scepter"                           "=0.5"
+      }
     }
   }
 }

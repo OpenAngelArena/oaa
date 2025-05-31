@@ -7,14 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "3"
-
-    "HasScepterUpgrade"                                   "0" // needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "110"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,22 +33,25 @@
     {
       "ward_count"
       {
-        "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
+        "value"                                           "10"
       }
-      "bonus_damage"
-      {
-        "special_bonus_unique_shadow_shaman_4"            "+20"
-      }
+      "bonus_damage"                                      "0"
       "bonus_attack_range"
       {
         "special_bonus_unique_shadow_shaman_8"            "+160"
       }
       "duration"                                          "45.0"
       "spawn_radius"                                      "150"
-      // damage_tooltip ?
       "hits_to_destroy_tooltip"
       {
         "value"                                           "2"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=0"
+        "special_bonus_unique_shadow_shaman_1"            "50%"
+      }
+      "hits_to_destroy_mega_ward_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=20"
         "special_bonus_unique_shadow_shaman_1"            "50%"
       }
       "ward_health"
@@ -58,26 +59,33 @@
         "value"                                           "4"
         "special_bonus_unique_shadow_shaman_1"            "+2"
       }
+      "bonus_attack_targets"
+      {
+        "special_bonus_unique_shadow_shaman_4"            "+1"
+      }
       "is_mega_ward"
       {
         "value"                                           "0"
         "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+1"
       }
-      "mega_ward_multiplier_tooltip"
+      "mega_ward_multiplier_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=12"  // if changing this, update ward_damage_tooltip
       }
-      "mega_ward_health_tooltip"
-      {
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
-      }
-      "mega_ward_health_reduction_pct"
+      "mega_ward_multiplier_health"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=0"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"  // check ward_health and hits_to_destroy_tooltip as well
       }
       "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5"
+      "ward_damage_tooltip" //OAA, real dmg is set in shadow_shaman_mass_serpent_ward_oaa
+      {
+        "value"                                           "30 75 120"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "x12"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
     }
   }
 }

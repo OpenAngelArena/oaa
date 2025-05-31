@@ -23,11 +23,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "400"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 225 300 375 450"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,10 +39,9 @@
         "special_bonus_facet_doom_bringer_impending_doom"  "+0"        // this is needed for facet tooltip to recognize that it's modifying this value
         "dynamic_value"                                   "true"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "30 50 70 110 150"
-        "special_bonus_facet_doom_bringer_impending_doom"  "=30 =50 =70 =110 =150"
+        "value"                                           "25 45 65 105 145"
       }
       "deniable_pct"                                      "25" // unused
       "AbilityCooldown" //OAA
@@ -59,7 +58,7 @@
         "value"                                           "0"
         "special_bonus_unique_doom_10"                    "+1"
       }
-      "scepter_aura_radius" //OAA
+      "scepter_aura_radius" //OAA, intentional nerf
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+250"

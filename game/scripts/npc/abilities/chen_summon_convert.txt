@@ -40,9 +40,18 @@
       {
         "special_bonus_facet_chen_satyr_convert"          "1"
       }
+      "summon_frogs"
+      {
+        "special_bonus_facet_chen_frog_convert"           "1"
+      }
       "convert_hp_tooltip"
       {
         "dynamic_value"                                   "true"
+      }
+      "attack_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_chen_3"                     "+150"
       }
     }
   }

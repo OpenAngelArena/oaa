@@ -49,23 +49,24 @@
       }
       "trail_duration"
       {
-        "value"                                           "7"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "7"
       }
-      "trail_move_slow"
+      "trail_move_slow" //OAA
       {
-        "value"                                           "-50"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "-20 -30 -40 -50 -60 -70"
       }
       "trail_damage" //OAA
       {
-        "value"                                           "25 30 35 40 80 160"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "25 30 35 40 80 160"
       }
       "trail_damage_interval"
       {
-        "value"                                           "0.5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.5"
+      }
+      "aoe_radius"
+      {
+        "special_bonus_unique_dark_seer_3"                "350"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

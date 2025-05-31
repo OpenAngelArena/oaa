@@ -44,6 +44,9 @@ LinkLuaModifier("modifier_duel_invulnerability", "modifiers/modifier_duel_invuln
 LinkLuaModifier('modifier_duel_rune_hill', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 
+-- Game End
+LinkLuaModifier("modifier_end_game_oaa", "modifiers/modifier_end_game_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Passive Experience
 LinkLuaModifier("modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -65,8 +68,6 @@ LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifyabilitiesfilter/tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 -- Windranger Windrun aghs additional effect:
 LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
--- Revenants Brooch active modifier
-LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyabilitiesfilter/revenants_brooch_mod.lua", LUA_MODIFIER_MOTION_NONE)
 -- Muerta Pierce The Veil penalties modifier
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Wraith Form penalty modifier
@@ -201,3 +202,9 @@ LinkLuaModifier("modifier_bottle_collector_oaa", "modifiers/funmodifiers/modifie
 LinkLuaModifier("modifier_crimson_magic_oaa", "modifiers/funmodifiers/modifier_crimson_magic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ludo_oaa", "modifiers/funmodifiers/modifier_ludo_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_battlemage_oaa", "modifiers/funmodifiers/modifier_battlemage_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bad_design_1_oaa", "modifiers/funmodifiers/modifier_bad_design_1_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bad_design_2_oaa", "modifiers/funmodifiers/modifier_bad_design_2_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_outworld_attack_oaa", "modifiers/funmodifiers/modifier_outworld_attack_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_puny_oaa", "modifiers/funmodifiers/modifier_puny_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_spoons_stash_oaa", "modifiers/funmodifiers/modifier_spoons_stash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_multicast_oaa", "modifiers/funmodifiers/modifier_multicast_oaa.lua", LUA_MODIFIER_MOTION_NONE)

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Unit Name: Mini Rosh Passives - Spell Block + armor aura
+  // Mini Rosh: Mini Rosh Passives - Spell Block + armor aura
   //=================================================================================================================
   "mini_rosh_passives"
   {
@@ -12,15 +12,15 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
-    "AbilityCooldown"                                     "15" // spell block cooldown
+    "AbilityCooldown"                                     "16 15 14 13" // spell block cooldown
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aura_bonus_armor"                                  "5"
+      "aura_bonus_armor"                                  "3 4 5 6"
       "aura_radius"
       {
         "value"                                           "1200"

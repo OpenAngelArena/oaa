@@ -24,10 +24,6 @@
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
@@ -36,6 +32,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "16 14 12 10 10 10"
+        "special_bonus_unique_earth_spirit_7"             "-3.0"
+      }
       "radius"
       {
         "value"                                           "180"  // NOTE: This radius must match the radius for geomagnetic grip
@@ -48,8 +49,8 @@
       }
       "rock_damage" //OAA
       {
-        "value"                                           "120 180 240 300 600 1200"
-        "special_bonus_unique_earth_spirit_6"             "+200"
+        "value"                                           "110 180 250 320 640 960"
+        "special_bonus_unique_earth_spirit_6"             "+100"
       }
       "move_slow"                                         "50"
       "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
@@ -67,7 +68,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "creep_multiplier"                                  "1.25"
+      "creep_multiplier"                                  "1.0"
     }
   }
 }

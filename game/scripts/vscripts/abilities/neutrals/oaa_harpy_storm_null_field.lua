@@ -9,7 +9,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_harpy_null_field_oaa_applier = class(ModifierBaseClass)
+modifier_harpy_null_field_oaa_applier = class({})
 
 function modifier_harpy_null_field_oaa_applier:IsHidden()
   return true
@@ -51,12 +51,12 @@ function modifier_harpy_null_field_oaa_applier:GetAuraSearchType()
 end
 
 function modifier_harpy_null_field_oaa_applier:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD
+  return DOTA_UNIT_TARGET_FLAG_NONE
 end
 
 --------------------------------------------------------------------------------
 
-modifier_harpy_null_field_oaa_effect = class(ModifierBaseClass)
+modifier_harpy_null_field_oaa_effect = class({})
 
 function modifier_harpy_null_field_oaa_effect:IsHidden()
   return false

@@ -54,26 +54,22 @@
       }
       "pull_rotate_speed"                                 "0.25"
       "animation_rate"                                    "0.2"
-      "scepter_pct_damage"
+      "scepter_pct_damage" //OAA
       {
-        "value"                                           "4"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2.0 2.5 3.0 3.5 4.0"
       }
       "scepter_radius"
       {
-        "value"                                           "1200"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_drag_speed" //OAA
       {
-        "value"                                           "125"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "125"
       }
       "scepter_pull_rotate_speed"
       {
-        "value"                                           "0.1"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.1"
       }
     }
   }

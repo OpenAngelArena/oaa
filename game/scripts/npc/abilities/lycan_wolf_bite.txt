@@ -8,9 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA, to not refresh in duels
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 85 80" //OAA
+    "AbilityCooldown"                                     "110 100 90 85 80" // depends on Shapeshift lvl
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lifesteal_percent"                                 "32 34 36 38 40" //OAA
-      "creep_penalty"                                     "0.4"
+      "lifesteal_percent"                                 "32 34 36 38 40" //OAA, depends on Shapeshift lvl
       "lifesteal_range"
       {
         "value"                                           "1200"

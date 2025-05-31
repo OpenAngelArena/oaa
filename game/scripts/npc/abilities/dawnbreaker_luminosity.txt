@@ -38,7 +38,7 @@
       "bonus_damage"
       {
         "value"                                           "125 150 175 200 225 250"
-        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+50"
+        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+40"
       }
       "proc_cooldown"                                     "0.00"
       "allied_healing_pct"                                "90" //OAA
@@ -47,15 +47,10 @@
         "value"                                           "0"
         "special_bonus_facet_dawnbreaker_solar_charged"   "1"
       }
-      "attackspeed_bonus_max"
+      "triggered_by_celestial_hammer"
       {
         "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_solar_battery"   "+50"
-      }
-      "movespeed_bonus_max"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_solar_battery"   "+20"
+        "special_bonus_facet_dawnbreaker_brightmaul_wake"  "1"
       }
     }
   }

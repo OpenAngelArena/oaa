@@ -36,6 +36,10 @@ function modifier_range_increase_oaa:GetModifierCastRangeBonusStacking()
 end
 
 function modifier_range_increase_oaa:GetModifierAttackRangeBonus()
+  local parent = self:GetParent()
+  if not parent:IsRangedAttacker() then
+    return self.bonus_range / 2
+  end
   return self.bonus_range
 end
 

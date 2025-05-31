@@ -34,31 +34,34 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_revenants_brooch"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/revenants_brooch.lua"
     "AbilityTextureName"                                  "custom/revenants_brooch_5"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34379"
+    "ItemCost"                                            "34604"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 5;brooch 5;revenants brooch 5;rb 5"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "ItemBaseLevel"                                       "5"
     "MaxUpgradeLevel"                                     "5"
-    "UpgradesItems"                                       "item_revenants_brooch_5"
+    "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 75 115 175 255"
-      "spell_lifesteal"                                   "12 14 16 18 20"
-      "manacost_per_hit"                                  "175"
-      "negative_spell_amp_while_active"                   "-40 -40 -40 -40 -20"
+      "bonus_damage"                                      "72 87 107 132 162"
+      "spell_lifesteal"                                   "0"
+      "crit_chance"                                       "30"
+      "crit_multiplier"                                   "80 90 100 110 120"
+      "hero_spell_lifesteal"                              "14 16 18 20 22"
+      "creep_spell_lifesteal"                             "2.8 3.2 3.6 4.0 4.4"
     }
   }
 }

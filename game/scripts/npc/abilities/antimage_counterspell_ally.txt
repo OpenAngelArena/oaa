@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Counterspell Ally (shard ability)
+  // Anti-Mage: Counterspell Ally (shard ability)
   //=================================================================================================================
   "antimage_counterspell_ally"
   {
@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
@@ -36,19 +35,25 @@
       "duration_illusion"                                 "4"
       "outgoing_damage"                                   "-25"
       "incoming_damage"                                   "150" //OAA
-      "castable_while_disabled"
-      {
-        "value"                                           "0"
-      }
       "does_reflect"
       {
-        "value"                                           "0"
-        "special_bonus_facet_antimage_magebanes_mirror"   "=1"
+        "value"                                           "1"
       }
       "reflected_spell_amp"
       {
         "value"                                           "0"
-        "special_bonus_facet_antimage_magebanes_mirror"   "+40"
+      }
+      "mana_drain_percent"
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "=300"
+      }
+      "damage_from_mana_drain_percent"
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "100"
+      }
+      "max_damage_from_mana_drain" //OAA
+      {
+        "special_bonus_facet_antimage_magebanes_mirror"   "1200"
       }
     }
   }

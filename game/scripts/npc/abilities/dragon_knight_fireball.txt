@@ -31,7 +31,7 @@
     {
       "radius"
       {
-        "value"                                           "350"
+        "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
       "damage"
@@ -44,7 +44,12 @@
       "linger_duration"                                   "2"
       "dragon_form_cast_range"                            "1400"
       "melee_cast_range"                                  "600"
-      "max_hp_damage"                                     "4" //OAA
+      "physical_damage_type"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
+      }
+      "max_hp_damage"                                     "4" //OAA, unique to OAA
     }
   }
 }

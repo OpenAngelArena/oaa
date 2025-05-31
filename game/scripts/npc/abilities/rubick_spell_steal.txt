@@ -43,8 +43,7 @@
       "stolen_debuff_amp"                                 "10 15 20 25 30" //OAA
       "cast_range_scepter"
       {
-        "value"                                           "1400"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1400"
       }
       "duration" //OAA
       {
@@ -52,8 +51,7 @@
       }
       "stolen_mana_reduction"
       {
-        "value"                                           "0"
-        "special_bonus_facet_rubick_frugal_filch"         "40 50 60 65 70"
+        "special_bonus_facet_rubick_frugal_filch"         "50 65 80 85 90"
       }
     }
   }

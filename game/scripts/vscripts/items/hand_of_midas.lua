@@ -35,10 +35,11 @@ function item_hand_of_midas_1:OnSpellStart()
   local bonusGold = self:GetSpecialValueFor("bonus_gold")
   local player = caster:GetPlayerOwner()
   local playerID = caster:GetPlayerOwnerID()
+  local location = caster:GetAbsOrigin()
 
   -- Midas Particle
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-  ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+  ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", location, false)
   ParticleManager:ReleaseParticleIndex(midas_particle)
 
   if player then
@@ -65,5 +66,17 @@ function item_hand_of_midas_1:OnSpellStart()
   --target:SetMinimumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems
   --target:SetMaximumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems
 
-  target:Kill(self, caster)
+  -- Madstone drop
+  if target:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    local madstone = CreateItem("item_madstone_bundle", nil, nil) -- CDOTA_Item
+    madstone:SetPurchaseTime(0)
+    CreateItemOnPositionSync(target:GetAbsOrigin(), madstone) -- CDOTA_Item_Physical
+    madstone:LaunchLoot(false, 300, 0.25, location, nil)
+  end
+
+  if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    target:ForceKillOAA(false)
+  else
+    target:Kill(self, caster)
+  end
 end

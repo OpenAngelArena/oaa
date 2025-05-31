@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7"
+    "AbilityCooldown"                                     "7" // Valve forgot special_bonus_unique_slardar_4
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,10 +38,10 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "crush_extra_slow"
+      "crush_extra_slow" // same kv for ms and as slow
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT" // Valve this line does nothing lmao
       }
       "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
       "crush_extra_slow_duration"                         "3 4 5 6 6 6"
@@ -58,7 +58,7 @@
       "puddle_radius"
       {
         "value"                                           "250"
-        "special_bonus_scepter"                           "+300"
+        "special_bonus_scepter"                           "x1.8"
         "affected_by_aoe_increase"                        "1"
       }
       "crush_damage" //OAA
@@ -68,13 +68,11 @@
       }
       "shard_amp_duration"
       {
-        "value"                                           "5.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "5.0"
       }
-      "shard_bonus_radius"
+      "shard_bonus_radius" // unused
       {
-        "value"                                           "0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0"
       }
     }
   }

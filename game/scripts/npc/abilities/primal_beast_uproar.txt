@@ -20,15 +20,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "5 10 15 20 40 80"
-      "bonus_damage_per_stack"                            "10 15 20 25 50 100" //OAA
+      "bonus_damage_per_stack" //OAA
+      {
+        "value"                                           "10 16 22 28 56 112"
+      }
       "stack_limit"
       {
-        "value"                                           "5"
+        "value"                                           "6"
+      }
+      "stack_count_increase_on_disable"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_provoke_the_beast"  "3"
       }
       "damage_limit"                                      "50"
       "stack_duration"                                    "20"
-      "move_slow_per_stack"                               "5 6 7 8 9 10"
+      "move_slow_per_stack"                               "4 6 8 10 12 14"
       "slow_duration"                                     "3.0"
       "damage_min"                                        "20"
       "damage_max"                                        "2000"
@@ -46,62 +53,51 @@
       "roar_duration"                                     "7"
       "should_dispell"
       {
-        "value"                                           "0"
         "special_bonus_unique_primal_beast_roar_dispells"  "+1"
       }
       "projectiles_per_stack"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "projectile_distance"
       {
-        "value"                                           "1400"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1400"
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_width"
       {
-        "value"                                           "75"
+        "special_bonus_scepter"                           "75"
         "affected_by_aoe_increase"                        "1"
-        "RequiresScepter"                                 "1"
       }
       "projectile_damage" //OAA
       {
-        "value"                                           "55 65 75 85 105 125"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "55 65 75 85 105 125"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "projectile_speed"
       {
-        "value"                                           "500"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "500"
       }
       "splinter_angle"
       {
-        "value"                                           "30"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "30"
       }
       "max_split_amount"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "split_delay"
       {
-        "value"                                           "1.25"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "1.25"
       }
       "projectile_break_duration"
       {
-        "value"                                           "2.5"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2.5"
       }
       "projectile_waves"
       {
-        "value"                                           "3"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "3"
       }
     }
   }

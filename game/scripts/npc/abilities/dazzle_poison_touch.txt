@@ -50,10 +50,10 @@
         "value"                                           "600 700 800 900 1000 1100"
       }
       "targets"                                           "2 4 6 8 8 8"
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "15 30 45 60 160 260"
-        "special_bonus_unique_dazzle_3"                   "+90"
+        "value"                                           "16 28 40 52 104 208"
+        "special_bonus_unique_dazzle_3"                   "+75"
       }
       "slow"
       {
@@ -61,30 +61,26 @@
         "special_bonus_unique_dazzle_1"                   "-40"
       }
       "projectile_speed"                                  "1300"
-      "duration"                                          "5 6 7 8 8.5 9"
+      "duration"                                          "3.5 5 6.5 8 8.5 9"
       "bonus_damage"                                      "0"
       "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
-      "hex_duration" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+0.75 1.0 1.25 1.5 1.6 1.7"
-      }
       "attack_range_bonus"
       {
         "value"                                           "0"
-        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+300"
+        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+200"
       }
       "split_radius"
       {
         "value"                                           "0"
         "special_bonus_facet_dazzle_poison_bloom"         "=450"
       }
-      "split_damage" //OAA
+      "split_damage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_dazzle_poison_bloom"         "=30 =60 =90 =120 =240 =480"
-        "special_bonus_unique_dazzle_3"                   "+75"
-        "RequiresFacet"                                   "dazzle_poison_bloom"
+        "special_bonus_facet_dazzle_poison_bloom"
+        {
+          "value"                                         "=30 =60 =90 =120 =240 =480"
+          "special_bonus_unique_dazzle_3"                 "+60"
+        }
       }
       "attacks_to_split"
       {

@@ -4,6 +4,11 @@ LinkLuaModifier("modifier_boss_slime_dead_tracker", "abilities/boss/slime/boss_s
 
 boss_slime_split = class(AbilityBaseClass)
 
+function boss_slime_split:Precache(context)
+  PrecacheResource("model", "models/creeps/darkreef/blob/darkreef_blob_01.vmdl", context)
+  PrecacheResource("model", "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl", context)
+end
+
 function boss_slime_split:GetIntrinsicModifierName()
 	return "modifier_boss_slime_split_passive"
 end
@@ -298,14 +303,13 @@ if IsServer() then
     end
 
     local killer = event.attacker
-    local killer_team = killer:GetTeamNumber()
 
     -- Remove invulnerability so we can kill it
     if spawner:HasAbility("boss_out_of_game") then
       spawner:RemoveAbility("boss_out_of_game")
     end
 
-    if killer_team == DOTA_TEAM_NEUTRALS then
+    if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
       spawner:ForceKillOAA(false)
     else
       spawner:Kill(event.inflictor, killer) -- this will crash if the killer is on the neutral team

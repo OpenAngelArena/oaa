@@ -16,7 +16,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityDuration"                                     "0.6" //OAA, Valve's undocumented change
+    "AbilityDuration"                                     "0.8" // Valve's undocumented change
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,43 +27,44 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "overload_move_slow"                                "-80"
-      "overload_attack_slow"                              "-80"
+      "overload_move_slow"
+      {
+        "value"                                           "-80"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "-20.0"
+      }
+      "overload_attack_slow"
+      {
+        "value"                                           "-80"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "-20.0"
+      }
       "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
       {
         "value"                                           "40 60 80 100 200 300"
-        "special_bonus_unique_storm_spirit_overload_aspd"  "+20.0"
       }
       "shard_activation_radius"
       {
-        "value"                                           "750"
+        "special_bonus_shard"                             "750"
         "affected_by_aoe_increase"                        "1"
-        "RequiresShard"                                   "1"
       }
       "shard_activation_charges" //OAA
       {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2"
       }
       "shard_activation_duration"
       {
-        "value"                                           "12"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "12"
       }
       "shard_manacost"
       {
-        "value"                                           "150"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "150"
       }
       "shard_cooldown"
       {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "30"
       }
       "shard_attack_speed_bonus"
       {
-        "value"                                           "40"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "40"
       }
       "overload_cast_range"
       {

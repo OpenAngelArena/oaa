@@ -103,7 +103,7 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
       radius = ability:GetSpecialValueFor("radius")
       aura_stickiness = ability:GetSpecialValueFor("aura_stickiness")
     else
-      radius = 300
+      radius = 225
       aura_stickiness = 0.1
     end
 

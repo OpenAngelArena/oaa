@@ -60,9 +60,12 @@
       "frostbite_duration" //OAA
       {
         "value"                                           "7"
-        "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+5"
+        "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+4"
       }
-      "frost_stacks"                                      "2"
+      "frost_stacks"
+      {
+        "value"                                           "2"
+      }
       "speed"                                             "1500"
       "kill_pct" //OAA
       {
@@ -72,7 +75,7 @@
       "cold_feet_stun_duration_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+60"
+        "special_bonus_shard"                             "+50"
       }
       "cold_feet_aoe"
       {

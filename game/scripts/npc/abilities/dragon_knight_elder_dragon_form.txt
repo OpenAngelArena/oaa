@@ -31,7 +31,7 @@
       {
         "value"                                           "45"
       }
-      "bonus_movement_speed"                              "30 35 40 45 50 55"
+      "bonus_movement_speed"                              "20"
       "bonus_attack_range"
       {
         "value"                                           "350 350 350 350 350 450"
@@ -42,10 +42,10 @@
       {
         "value"                                           "0"
       }
-      "model_scale" //OAA
+      "model_scale"
       {
         "value"                                           "10 15 20 25 30 35"
-        //"special_bonus_scepter"    "+10"
+        "special_bonus_scepter"                           "+10"
       }
       "is_green_dragon"
       {
@@ -64,26 +64,41 @@
       }
       "ranged_splash_radius"
       {
-        "value"                                           "350"
+        "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "frost_breath_effect_bonus"
+      "ranged_splash_damage_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_frost_dragon"  "=20 =30 =40 =50 =55 =60"
-        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+        "value"                                           "30 40 50 60 70 80"
       }
-      "corrosive_breath_effect_bonus"
+      "frost_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "=20 =30 =40 =50 =55 =60"
-        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+        "special_bonus_facet_dragon_knight_frost_dragon"
+        {
+          "value"                                         "=20 =30 =40 =50 =55 =60"
+          "special_bonus_unique_dragon_knight_8"          "+25"
+        }
       }
-      "fire_breath_effect_bonus"
+      "corrosive_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_fire_dragon"   "=20 =30 =40 =50 =55 =60"
-        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"
+        {
+          "value"                                         "=20 =30 =40 =50 =55 =60"
+          "special_bonus_unique_dragon_knight_8"          "+25"
+        }
+      }
+      "fire_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
+      {
+        "special_bonus_facet_dragon_knight_fire_dragon"
+        {
+          "value"                                         "=20 =30 =40 =50 =55 =60"
+          "special_bonus_unique_dragon_knight_8"          "+25"
+        }
+      }
+      "wyrms_wrath_bonus_tooltip" //OAA, because of special_bonus_unique_dragon_knight_8
+      {
+        "value"                                           "20 30 40 50 55 60"
+        "special_bonus_unique_dragon_knight_8"            "+25"
       }
     }
   }

@@ -47,27 +47,23 @@
         "value"                                           "3 6 9 12 14 16"
         "special_bonus_unique_viper_7"                    "+15%"
       }
-      "magic_resistance" //OAA
+      "magic_resistance"
       {
         "value"                                           "4 6 8 10 11 12"
-        "special_bonus_unique_viper_4"                    "+2"
       }
       "max_stacks"                                        "6"
       "bonus_range"                                       "25"
       "shard_armor_reduction"
       {
         "special_bonus_shard"                             "1"
-        "RequiresShard"                                   "1"
       }
       "shard_building_dmg_pct"
       {
         "special_bonus_shard"                             "40"
-        "RequiresShard"                                   "1"
       }
       "shard_bonus_max_stacks"
       {
         "special_bonus_shard"                             "2"
-        "RequiresShard"                                   "1"
       }
       "expiration_damage_radius"
       {

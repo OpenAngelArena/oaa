@@ -10,7 +10,7 @@
 
 "DOTA_Tooltip_Ability_item_heart_oaa_1"                                         "#{DOTA_Tooltip_Ability_item_heart}"
 "DOTA_Tooltip_Ability_item_recipe_heart_oaa_1"                                  "#{DOTA_Tooltip_Ability_item_recipe_heart}"
-"DOTA_Tooltip_Ability_item_heart_oaa_1_Description"                             "<h1>Active: Havoc</h1> Grants %buff_bonus_strength% Strength and %buff_bonus_base_damage% base damage to yourself and your illusions for %buff_duration% seconds. Upon activation, knocks back enemies in %radius% range around you, dealing %nuke_base_dmg% + %nuke_str_dmg%x your STR as magical damage."
+"DOTA_Tooltip_Ability_item_heart_oaa_1_Description"                             "<h1>Active: Havoc</h1> Grants %buff_bonus_strength% Strength and %buff_bonus_base_damage% base damage to yourself and your illusions for %buff_duration% seconds. Upon activation, deals magic damage to enemies in %radius% range around you. Damage is equal to %nuke_base_dmg% + %nuke_str_dmg%x your STR."
 "DOTA_Tooltip_Ability_item_heart_oaa_1_Lore"                                    "#{DOTA_Tooltip_ability_item_heart_Lore}"
 "DOTA_Tooltip_Ability_item_heart_oaa_1_bonus_strength"                          "+$str"
 "DOTA_Tooltip_Ability_item_heart_oaa_1_bonus_health"                            "+$health"

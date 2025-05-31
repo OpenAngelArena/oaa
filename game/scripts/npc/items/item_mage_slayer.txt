@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "400"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -20,7 +20,7 @@
     "ItemResult"                                          "item_mage_slayer"
     "ItemRequirements"
     {
-      "01"                                                "item_cloak;item_oblivion_staff"
+      "01"                                                "item_cloak;item_orb_of_venom;item_gloves;item_cornucopia"
     }
   }
 
@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2825"
+    "ItemCost"                                            "2800"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mage slayer;ms"
@@ -48,13 +48,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_magical_armor"                               "20" //OAA, Cloak (20);
-      "bonus_attack_speed"                                "35" //OAA, Oblivion Staff (35);
+      "bonus_magical_armor"                               "20" // Cloak (20);
+      "bonus_attack_speed"                                "20" //OAA, Gloves (20);
       "spell_amp_debuff"                                  "20" //OAA
+      "bonus_health_regen"                                "5"
       "bonus_mana_regen"                                  "2"
+      "bonus_damage"                                      "8"
       "duration"                                          "3"
-      "bonus_intellect"                                   "10" // Oblivion Staff (10);
-      "dps"                                               "25"
+      "dps"                                               "20"
     }
   }
 }

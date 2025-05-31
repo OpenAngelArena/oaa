@@ -53,21 +53,25 @@
         "value"                                           "700"
       }
       "latch_speed"                                       "1000"
-      "tether_heal_amp"                                   "60 72 84 96 108 120" //OAA
-      "tether_mana_amp"                                   "60 72 84 96 108 120" //OAA
+      "tether_heal_amp"                                   "50 60 70 80 90 100" //OAA
+      "tether_mana_amp"                                   "50 60 70 80 90 100" //OAA
       "self_bonus"                                        "0"
       "slow"
       {
-        "value"                                           "10 20 30 40 50 60"
+        "value"                                           "15 30 45 60 65 70"
         "special_bonus_unique_wisp_11"                    "+15"
       }
       "slow_duration"                                     "0.2"
-      "shard_bonus_spell_lifesteal"
+      "damage"
       {
-        "value"                                           "10"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+120"
       }
-      "damage"                                            "15 25 35 45 90 180"
+      "damage_to_heal"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "50"
+      }
       "tick_rate"                                         "0.5"
       "tether_attack_damage_pct"
       {

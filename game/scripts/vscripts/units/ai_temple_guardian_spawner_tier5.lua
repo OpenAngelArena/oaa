@@ -25,7 +25,11 @@ function TempleGuardianSpawnerThink()
   if thisEntity.bForceKill then
     -- Triggers boss reward
     local killer = EntIndexToHScript( thisEntity.KillValues.entindex_attacker )
-    thisEntity:Kill(nil, killer)
+    if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      thisEntity:ForceKillOAA(false)
+    else
+      thisEntity:Kill(nil, killer)
+    end
     return -1
   end
 
@@ -100,11 +104,19 @@ function RemovePedestals(p1, p2, killer_index)
 
       if p1 and not p1:IsNull() then
         p1:AddNoDraw()
-        p1:Kill(nil, killer)
+        if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+          p1:ForceKillOAA(false)
+        else
+          p1:Kill(nil, killer)
+        end
       end
       if p2 and not p2:IsNull() then
         p2:AddNoDraw()
-        p2:Kill(nil, killer)
+        if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+          p2:ForceKillOAA(false)
+        else
+          p2:Kill(nil, killer)
+        end
       end
 
       if nFXIndex1 then

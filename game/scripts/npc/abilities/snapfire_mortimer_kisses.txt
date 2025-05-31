@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Snapfire Mortimer Kisses
+  // Snapfire: Mortimer Kisses
   //=================================================================================================================
   "snapfire_mortimer_kisses"
   {
@@ -12,6 +12,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -40,6 +42,10 @@
         "value"                                           "8"
         "special_bonus_unique_snapfire_1"                 "+8"
       }
+      "has_bonus_projectile"
+      {
+        "special_bonus_unique_snapfire_1"                 "1"
+      }
       "projectile_speed"                                  "1300"
       "projectile_width"
       {
@@ -53,8 +59,7 @@
       }
       "damage_per_impact" //OAA
       {
-        "value"                                           "180 360 540 900 1620"
-        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+120"
+        "value"                                           "180 360 540 1080 1980"
       }
       "duration_tooltip"                                  "5.5"
       "projectile_vision"
@@ -66,8 +71,8 @@
       "burn_interval"                                     "0.5"
       "burn_damage" //OAA
       {
-        "value"                                           "60 100 140 220 380"
-        "special_bonus_unique_snapfire_5"                 "+25"
+        "value"                                           "60 100 140 260 380"
+        "special_bonus_unique_snapfire_5"                 "+30"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct" //OAA

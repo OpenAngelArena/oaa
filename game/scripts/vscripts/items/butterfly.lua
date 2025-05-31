@@ -18,10 +18,10 @@ function item_butterfly_oaa:OnSpellStart()
   caster:EmitSound("DOTA_Item.Butterfly")
 end
 
-item_butterfly_2 = item_butterfly_oaa
-item_butterfly_3 = item_butterfly_oaa
-item_butterfly_4 = item_butterfly_oaa
-item_butterfly_5 = item_butterfly_oaa
+item_butterfly_oaa_2 = item_butterfly_oaa
+item_butterfly_oaa_3 = item_butterfly_oaa
+item_butterfly_oaa_4 = item_butterfly_oaa
+item_butterfly_oaa_5 = item_butterfly_oaa
 
 ---------------------------------------------------------------------------------------------------
 

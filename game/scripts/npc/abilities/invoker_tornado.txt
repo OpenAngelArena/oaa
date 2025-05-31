@@ -31,7 +31,7 @@
       }
       "travel_distance"
       {
-        "value"                                           "1500 1800 2100 2400 2700 3000 3300 3600 3800 4000 4200 4400 4600 4800 5000"
+        "value"                                           "1500 1800 2100 2400 2700 3000 3300 3600 3900 4200 4500"
         "levelkey"                                        "wexlevel"
       }
       "travel_speed"                                      "1000"
@@ -48,7 +48,7 @@
       "end_vision_duration"                               "1.75"
       "lift_duration"
       {
-        "value"                                           "1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+        "value"                                           "1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3.0 3.2"
         "levelkey"                                        "quaslevel"
       }
       "base_damage"
@@ -63,8 +63,46 @@
       }
       "wex_damage" //OAA
       {
-        "value"                                           "50 100 150 200 250 300 350 400 500 600 700 800 900 1000 1200"
+        "value"                                           "50 110 170 230 290 350 410 530 650 770 1010"
         "levelkey"                                        "wexlevel"
+      }
+      "twister_distance_interval"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "+400"
+        }
+      }
+      "twister_radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "twister_damage"
+      {
+        "value"                                           "0"
+        "levelkey"                                        "wexlevel"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "60 70 80 90 100 110 120 130 140 150 170" // needs better scaling; max lvl should be 360;
+        }
+      }
+      "twister_duration"
+      {
+        "value"                                           "0"
+        "levelkey"                                        "quaslevel"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_scepter"                         "3.2 3.4 3.6 3.8 4.0 4.2 4.4 4.6 4.8 5.0 5.2"
+        }
+      }
+      "twister_tick_rate"
+      {
+        "value"                                           "0.25"
       }
     }
   }

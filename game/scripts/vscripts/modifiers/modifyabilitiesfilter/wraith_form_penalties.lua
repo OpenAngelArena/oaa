@@ -19,7 +19,7 @@ function modifier_wraith_form_penalty_oaa:OnCreated()
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.dmg_penalty = 0 - math.abs(ability:GetSpecialValueFor("scepter_damage_penalty"))
+    self.dmg_penalty = 0 - math.abs(ability:GetSpecialValueFor("wraith_damage_penalty"))
   end
 end
 

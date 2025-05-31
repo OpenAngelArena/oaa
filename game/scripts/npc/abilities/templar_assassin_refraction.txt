@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0"
+    "AbilityCooldown"                                     "14.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85"
+    "AbilityManaCost"                                     "95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +34,8 @@
     {
       "instances"
       {
-        "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_templar_assassin"           "+3"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_unique_templar_assassin"           "+4"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -43,10 +43,10 @@
       {
         "value"                                           "30 30 30 30 60 90"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA, because of special_bonus_unique_templar_assassin_refraction_damage
       {
-        "value"                                           "20 40 60 80 160 240"
-        "special_bonus_unique_templar_assassin_refraction_damage"  "+20"
+        "value"                                           "15 30 45 60 120 180"
+        "special_bonus_unique_templar_assassin_refraction_damage"  "+60"
       }
       "bonus_damage_per_instance_burn"
       {

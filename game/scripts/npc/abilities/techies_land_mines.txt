@@ -43,7 +43,7 @@
       "proximity_threshold"                               "1.0"
       "damage" //OAA
       {
-        "value"                                           "400 600 800 1200 2000"
+        "value"                                           "400 600 800 1200 1600"
       }
       "building_damage_pct"                               "30"
       "activation_delay"
@@ -53,8 +53,7 @@
       }
       "cast_range_scepter_bonus"
       {
-        "value"                                           "300"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "300"
       }
       "AbilityChargeRestoreTime"
       {

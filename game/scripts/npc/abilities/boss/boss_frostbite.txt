@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Generic Boss Frostbite ability - reduce target's regeneration and healing by a percent on attack
+  // Generic Boss Frostbite ability - reduce target's health restoration and healing by a percent on attack
   //=================================================================================================================
   "boss_frostbite"
   {
@@ -21,8 +21,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_prevent_percent"                              "-60"
-      "heal_prevent_duration"                             "5.0"
+      "heal_prevent_percent"                              "-60" // reduces healing only
+      "health_restoration"                                "-60" // reduces everything else
+      "heal_prevent_duration"                             "3.0"
     }
   }
 }

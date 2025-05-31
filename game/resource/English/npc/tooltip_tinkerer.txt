@@ -91,7 +91,7 @@
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies have reduced healing, hp regen, lifesteal and spell lifesteal by %scepter_heal_prevent_percent%%%. Applies Tar Spill every %scepter_tar_spill_interval% seconds or spawns 1 March of the Machines depending on the facet."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies have reduced healing and hp regen (or all health restoration when Valve fixes it) by %scepter_heal_prevent_percent%%%. Applies Tar Spill every %scepter_tar_spill_interval% seconds or spawns 1 March of the Machines depending on the facet."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEALTH RESTORATION REDUCTION:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_shard_description"             "Grants Laser ability: #{DOTA_Tooltip_ability_tinkerer_laser_oaa_Description}"
@@ -113,7 +113,7 @@
 "DOTA_Tooltip_modifier_tinkerer_oil_spill_debuff_Description"                   "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%. If ignited, this unit will take %dMODIFIER_PROPERTY_TOOLTIP% damage."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff"                       "Keen Contraption (Scepter)"
-"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "All health restoration reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "All health restoration reduced by %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff"                               "#{DOTA_Tooltip_modifier_tinker_laser_blind}"
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff_Description"                   "#{DOTA_Tooltip_modifier_tinker_laser_blind_Description}"
@@ -127,18 +127,16 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "Rockets Explode On Impact"
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3_Description"              "Rockets will slow and damage all enemies in a {s:bonus_explode_radius} radius around the hit unit."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:bonus_duration} Tar Spill Duration"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:bonus_duration}s Tar Spill Duration"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5"                          "+{s:bonus_move_speed_slow}/{s:bonus_attack_speed_slow}% Tar Spill Move/Attack Speed Slow"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5_facet_tinker_repair_bots"  "#{DOTA_Tooltip_Ability_special_bonus_unique_tinker_march_duration}"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_5_facet_tinker_repair_bots"  "+{s:bonus_heal_duration}s March of the Machines Heal Duration"
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:bonus_burn_dps} Tar Spill Burn Damage"
-"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6_facet_tinker_repair_bots"  "+{s:bonus_damage}% March of the Machines Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6_facet_tinker_repair_bots"  "-{s:bonus_AbilityCooldown}s March of the Machines Cooldown"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Amplifies Damage"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_facet_tinker_repair_bots"  "-{s:bonus_AbilityCooldown}s March of the Machines Cooldown"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by {s:bonus_damage_amp}%."
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_facet_tinker_repair_bots_Description"  ""
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "+{s:bonus_damage_amp}% Tar Spill All Damage Amp"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_facet_tinker_repair_bots"  "+{s:bonus_damage} March of the Machines Damage"
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          "Keen Contraption Applies Tar Spill"
 

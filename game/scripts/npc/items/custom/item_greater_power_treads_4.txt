@@ -48,8 +48,11 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "SpeciallyBannedFromNeutralSlot"                      "1"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       ""
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +62,7 @@
       "primary_attribute_bonus"                           "15 25 40 60"
       "bonus_magic_resistance"                            "7 8 9 10"
       "bonus_attack_speed"                                "30 35 40 45"
-      "bonus_spell_amp"                                   "6 8 10 12"
+      "bonus_spell_amp"                                   "6 7 8 9"
       "bonus_damage"                                      "10 30 60 100"
       "primary_attribute_multiplier"                      "2"
       "bonus_secondary_stats"                             "10 15 20 25"

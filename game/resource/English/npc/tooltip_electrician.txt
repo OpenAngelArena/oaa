@@ -15,7 +15,7 @@
 "DOTA_Tooltip_Ability_electrician_electric_shield_Description"                  "Grants a shield that blocks damage and grants damage depending on the chosen facet."
 "DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_direct_current"  "Converts up to %max_mana_cost%%% of #{npc_dota_hero_electrician}'s max mana into a shield that blocks incoming magical damage, fading if it sustains too much damage. While the shield holds, nearby enemies are damaged every second."
 "DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_no_current"  "Converts up to %max_mana_cost%%% of #{npc_dota_hero_electrician}'s max mana into a shield that blocks incoming physical damage, fading if it sustains too much damage. Also grants bonus attack damage that is independent of the shield."
-"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"  "Grants a shield that provides bonus magic resistance and blocks a portion of any incoming physical attack damage. Nearby enemies are damaged every second."
+"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"  "Grants a shield that provides bonus magic resistance and blocks a portion of any incoming physical attack damage. Nearby enemies are damaged every second. Increased cooldown."
 "DOTA_Tooltip_Ability_electrician_electric_shield_Lore"                         "Don't point spanners at me."
 "DOTA_Tooltip_Ability_electrician_electric_shield_Note0"                        "Cannot be cast when constantly purged."
 "DOTA_Tooltip_Ability_electrician_electric_shield_duration"                     "DURATION:"
@@ -64,7 +64,7 @@
 "DOTA_Tooltip_modifier_electrician_electric_shield_dc_Description"              "Absorbing magical damage taken, up to a limit. Dealing magic damage in an area of effect."
 
 "DOTA_Tooltip_modifier_electrician_electric_shield_ac"                          "Electric Shield (AC)"
-"DOTA_Tooltip_modifier_electrician_electric_shield_ac_Description"              "Absorbing magical damage taken, up to a limit. Dealing damage in an area of effect. Damage type alternates between magical and physical."
+"DOTA_Tooltip_modifier_electrician_electric_shield_ac_Description"              "Bonus magic resist and attack damage block. Dealing damage in an area of effect. Damage type alternates between magical and physical."
 
 "DOTA_Tooltip_modifier_electrician_electric_shield_nc"                          "Electric Shield (0 A)"
 "DOTA_Tooltip_modifier_electrician_electric_shield_nc_Description"              "Absorbing physical damage taken, up to a limit."

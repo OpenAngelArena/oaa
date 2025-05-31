@@ -36,7 +36,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25" //OAA
+    "AbilityCooldown"                                     "30" //OAA
     "AbilitySharedCooldown"                               "guardian_greaves"
     "AbilityManaCost"                                     "0"
 
@@ -52,6 +52,7 @@
 
     "MaxUpgradeLevel"                                     "1"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_greater_guardian_greaves"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -47,6 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_ward_stack_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -62,7 +63,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health_regen"                                "1.5 4 7 10 13"
+      "bonus_health_regen"                                "2 5 8 11 14"
       "bonus_health"                                      "150 400 650 900 1150"
       "bonus_all_stats"                                   "0"
       "aura_radius"
@@ -75,7 +76,7 @@
       "sentry_duration"                                   "360" // vanilla dota sentry ward duration: 420
       "observer_radius"                                   "1600"
       "sentry_radius"                                     "150"
-      "sentry_reveal_radius"                              "1000"
+      "sentry_reveal_radius"                              "1050"
       "observer_recharge"                                 "100" // vanilla dota observer ward restock: 135
       "observer_max"                                      "3" // vanilla dota observer ward max stock: 4
       "sentry_recharge"                                   "50" // vanilla dota sentry ward restock: 80

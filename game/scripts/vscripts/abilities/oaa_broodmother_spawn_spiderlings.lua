@@ -118,8 +118,10 @@ if IsServer() then
     local max_count = ability:GetSpecialValueFor("spiderling_max_count")
     local spawn_radius = ability:GetSpecialValueFor("spiderling_spawn_radius")
 
-    if HeroSelection.is10v10 then
-      max_count = 7
+    if HeroSelection then
+      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+        max_count = math.floor(max_count / 2)
+      end
     end
 
     -- Spiderlings can spawn spiderlings only if near Broodmother, otherwise don't continue
@@ -198,7 +200,7 @@ if IsServer() then
       -- Add duration to spiders
       summon:AddNewModifier(parent, ability, "modifier_kill", {duration = summon_duration})
       -- modifier_kill when killing the unit no longer triggers OnDeath event, thanks Valve
-      summon:AddNewModifier(parent, ability, "modifier_spider_dead_tracker_oaa", {duration = summon_duration + 6})
+      summon:AddNewModifier(parent, ability, "modifier_spider_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
       -- 6 is poison sting duration on creeps
 
       -- Fix stats of summons

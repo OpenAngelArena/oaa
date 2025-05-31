@@ -47,11 +47,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_abyssal_blade_3;item_abyssal_blade_4;item_abyssal_blade_5"
+    "UpgradesItems"                                       "item_abyssal_blade_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10302"
+    "ItemCost"                                            "10902"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade 3"
@@ -63,12 +63,9 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "10 20 40 70 110"
-      "bonus_health"                                      "250 350 500 700 950"
-      "bonus_health_regen"                                "3 6 9 12 15"
-      "block_damage_melee"                                "60 120 180 240 300"
-      "block_damage_ranged"                               "35 70 105 140 175"
-      "block_chance"                                      "60"
-      "bonus_strength"                                    "22 27 32 37 42"
+      "slow_resistance"                                   "25 27 29 31 33"
+      "hp_regen_amp"                                      "20 22 24 26 28"
+      "bonus_strength"                                    "35 40 45 50 55"
       "bash_chance_melee"                                 "25"
       "bash_chance_ranged"                                "10"
       "bash_duration"                                     "1.2"

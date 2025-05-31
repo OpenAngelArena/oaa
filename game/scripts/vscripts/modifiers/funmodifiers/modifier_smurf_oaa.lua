@@ -87,12 +87,11 @@ local ignored_abilities = {
   --monkey_king_wukongs_command_oaa = true,
   --phantom_assassin_blur = true,
   --spectre_desolate = true,
-  item_bloodstone = true,
-  item_satanic_core_1 = true,
-  item_satanic_core_2 = true,
-  item_satanic_core_3 = true,
-  item_satanic_core_4 = true,
-  item_satanic_core_5 = true,
+  item_gungir = true,
+  item_gungir_2 = true,
+  item_gungir_3 = true,
+  item_gungir_4 = true,
+  item_gungir_5 = true,
   item_spell_breaker_1 = true,
   item_spell_breaker_2 = true,
   item_spell_breaker_3 = true,
@@ -123,7 +122,11 @@ function modifier_smurf_oaa:ReEquipAllItems()
 
   local parent = self:GetParent()
 
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+  local max_slot = DOTA_ITEM_SLOT_6
+  if parent:HasModifier("modifier_spoons_stash_oaa") then
+    max_slot = DOTA_ITEM_SLOT_9
+  end
+  for i = DOTA_ITEM_SLOT_1, max_slot do
     local item = parent:GetItemInSlot(i)
     if item then
       local name = item:GetAbilityName()
@@ -140,11 +143,11 @@ function modifier_smurf_oaa:ReEquipAllItems()
     tp_scroll:OnEquip()
   end
 
-  local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if neutral_item and neutral_item:IsNeutralDrop() then
-    neutral_item:OnUnequip()
-    neutral_item:OnEquip()
-  end
+  -- local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  -- if neutral_item then
+  --   neutral_item:OnUnequip()
+  --   neutral_item:OnEquip()
+  -- end
 end
 
 function modifier_smurf_oaa:GetModifierOverrideAbilitySpecial(keys)
@@ -210,5 +213,5 @@ function modifier_smurf_oaa:GetModifierOverrideAbilitySpecialValue(keys)
 end
 
 function modifier_smurf_oaa:GetTexture()
-  return "custom/reduction_orb"
+  return "custom/modifiers/smurf"
 end

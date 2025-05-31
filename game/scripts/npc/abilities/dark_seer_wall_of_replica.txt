@@ -16,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -35,17 +35,17 @@
       "replica_damage_outgoing" //OAA, also affects Normal Punch illusion
       {
         "value"                                           "-30 -10 10 50 90"
-        "special_bonus_unique_dark_seer_7"                "+20"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
       "tooltip_outgoing" //OAA, also affects Normal Punch illusion
       {
         "value"                                           "70 90 110 150 190"
-        "special_bonus_unique_dark_seer_7"                "+20"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
-      "replica_damage_incoming"                           "100 100 100 50 25" // also affects Normal Punch illusion
-      "tooltip_replica_total_damage_incoming" // also affects Normal Punch illusion
+      "replica_damage_incoming"                           "100 90 80 50 20" // OAA, also affects Normal Punch illusion
+      "tooltip_replica_total_damage_incoming" // OAA, also affects Normal Punch illusion
       {
-        "value"                                           "200 200 200 150 125"
+        "value"                                           "200 190 180 150 120"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -62,10 +62,13 @@
       }
       "scepter_length_multiplier" // unused
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "wall_damage"                                       "25 50 75 150 225" //OAA
+      "cooldown_reduction" // Valve not using AbilityCooldown lmao
+      {
+        "special_bonus_unique_dark_seer_13"               "40"
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 14 14"
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,33 +32,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "rush_range"                                        "525"
+      "rush_speed"                                        "1000"
+      "echo_damage" // secondary attacks pct dmg based on Kez's attack dmg
+      {
+        "value"                                           "45 55 65 75 85 95"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "slow_resist"                                       "15 30 45 60 75 90"
       "duration"
       {
-        "value"                                           "3.0 4.0 5.0 6.0 6.0 6.0"
-        "special_bonus_unique_kez_falcon_rush_duration"   "+2.0"
+        "value"                                           "3.75 4.5 5.25 6.0 6.0 6.0"
+        "special_bonus_unique_kez_falcon_rush_duration"   "+2"
       }
-      "rush_range"
-      {
-        "value"                                           "575"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "buff_evasion_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_kez_falcon_rush_evasion"    "+50"
-      }
-      "rush_speed"                                        "1000"
-      "base_attack_rate_katana"                           "1.4 1.35 1.3 1.25 1.2 1.15" //OAA
-      "base_attack_rate_sai"                              "1.2 1.15 1.10 1.05 1.0 0.95" //OAA
-      "attack_speed_factor"                               "6 7 8 9 10 11"
+      "base_attack_rate"                                  "1.5 1.4 1.3 1.2 1.1 1.0" //OAA, if changing this, change base_attack_rate_katana_tooltip
+      "katana_attack_rate_penalty"                        "0.2" // if changing this, change base_attack_rate_katana_tooltip
+      "base_attack_rate_katana_tooltip"                   "1.7 1.6 1.5 1.4 1.3 1.2" //OAA
+      "attack_speed_factor"                               "6 8 10 12 13 14"
       "current_attack_rate_tooltip"
       {
         "dynamic_value"                                   "true"
-      }
-      "echo_damage"
-      {
-        "value"                                           "100"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
     }
   }

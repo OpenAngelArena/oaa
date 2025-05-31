@@ -48,8 +48,11 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "SpeciallyBannedFromNeutralSlot"                      "1"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_greater_power_treads_2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +62,7 @@
       "primary_attribute_bonus"                           "15 25 40 60" // Universal heroes get 1/3 of this as all stats
       "bonus_magic_resistance"                            "7 8 9 10" // double for STR heroes
       "bonus_attack_speed"                                "30 35 40 45" // +5 per level, double for AGI heroes
-      "bonus_spell_amp"                                   "6 8 10 12" // double for INT heroes
+      "bonus_spell_amp"                                   "6 7 8 9" // double for INT heroes
       "bonus_damage"                                      "10 30 60 100" // double for Universal heroes
       "primary_attribute_multiplier"                      "2"
       "bonus_secondary_stats"                             "10 15 20 25" // +5 per level, Universal heroes get 1/2 of this as all stats

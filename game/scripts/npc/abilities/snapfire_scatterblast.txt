@@ -71,26 +71,22 @@
         "value"                                           "0"
         "special_bonus_facet_snapfire_full_bore"          "=1"
       }
-      "shard_knockback_distance"
+      "shard_knockback_distance" // unused
       {
-        "value"                                           "250"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "250"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_knockback_duration"
+      "shard_knockback_duration" // unused
       {
-        "value"                                           "0.3"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.3"
       }
-      "shard_stun_duration"
+      "shard_stun_duration" // unused
       {
-        "value"                                           "1.4"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1.4"
       }
-      "shard_bonus_point_blank_dmg_pct"
+      "shard_bonus_point_blank_dmg_pct" // unused
       {
-        "value"                                           "85.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "85.0"
       }
     }
   }

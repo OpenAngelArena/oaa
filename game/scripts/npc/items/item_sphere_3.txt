@@ -41,13 +41,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/linkens_sphere_3"
 
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCooldown"                                     "14.0 13.0 12.0 11.0 10.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9302"
+    "ItemCost"                                            "9502"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
@@ -57,14 +57,15 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_sphere_3;item_sphere_4;item_sphere_5"
+    "UpgradesItems"                                       "item_sphere_4"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_all_stats"                                   "16 21 26 31 36"
-      "bonus_health_regen"                                "6 9 12 15 18"
+      "bonus_health_regen"                                "6.5 9.5 12.5 15.5 18.5"
       "bonus_mana_regen"                                  "4.25 4.5 5 5.75 6.75"
       "block_cooldown"                                    "14.0 13.0 12.0 11.0 10.0"
       "upgrade_absorb_duration"                           "10.0"

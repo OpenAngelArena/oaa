@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Sand Storm
+  // Sand King: Sand Storm
   //=================================================================================================================
   "sandking_sand_storm"
   {
@@ -40,33 +40,25 @@
       }
       "sand_storm_radius"
       {
-        "value"                                           "350 400 450 500 550 600"
-        "special_bonus_facet_sand_king_sandshroud"        "=575 =650 =725 =800 =825 =850"
+        "value"                                           "425 500 575 650 725 800"
         "affected_by_aoe_increase"                        "1"
       }
-      "sand_storm_damage" //OAA
+      "sand_storm_damage"
       {
         "value"                                           "30 50 70 90 180 270"
-        "special_bonus_facet_sand_king_dust_devil"        "=20 =35 =50 =65 =130 =195"
-        "special_bonus_unique_sand_king_2"                "+20"
+        "special_bonus_unique_sand_king_2"                "+25"
       }
       "fade_delay" //OAA
       {
-        "value"                                           "-1"
-        "special_bonus_facet_sand_king_sandshroud"        "=1.0"
+        "value"                                           "1.0"
       }
-      "sand_storm_move_speed_pct"
+      "blind_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_sand_king_dust_devil"        "+70"
+        "special_bonus_facet_sand_king_obscurity"         "20 30 40 50 55 60"
       }
-      "sand_storm_max_distance_from_caster"
+      "blind_debuff_duration"
       {
-        "special_bonus_facet_sand_king_dust_devil"        "+2500"
-      }
-      "sand_storm_move_speed_bonus_when_outside_radius"
-      {
-        "special_bonus_facet_sand_king_dust_devil"        "+55"
+        "special_bonus_facet_sand_king_obscurity"         "5"
       }
     }
   }

@@ -44,10 +44,13 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "17 16 15 14 13 12"
-        "special_bonus_unique_clockwerk_7"                "-2"
       }
       "slow_pct"                                          "100"
-      "slow_duration"                                     "0.4"
+      "slow_duration"
+      {
+        "value"                                           "0.4"
+        "special_bonus_unique_clockwerk_7"                "+0.4"
+      }
       "projectile_vision_radius"                          "250"
       "projectile_vision_duration"                        "1.0"
       "projectile_vision_tick_rate"                       "0.15"

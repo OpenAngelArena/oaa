@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Lancer's Spirit Lance
+  // Phantom Lancer: Spirit Lance
   //=================================================================================================================
   "phantom_lancer_spirit_lance"
   {
@@ -24,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 9 8 7 7 7"
+    "AbilityCooldown"                                     "10 9 8 7 6 5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
+    "AbilityManaCost"                                     "120"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -38,38 +38,50 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lance_damage" //OAA
+      "lance_damage"
       {
-        "value"                                           "70 140 210 280 560 1120"
-        "special_bonus_unique_phantom_lancer_lance_damage"  "+70"
+        "value"                                           "70 140 210 280 560 840"
       }
       "lance_speed"                                       "1000"
-      "duration"                                          "3.75"
+      "duration"
+      {
+        "value"                                           "3.75"
+        "special_bonus_unique_phantom_lancer_lance_slow_duration"  "+1.25"
+      }
       "movement_speed_pct"
       {
         "value"                                           "-14 -21 -28 -35 -42 -50"
       }
       "illusion_duration"                                 "3.5 5.0 6.5 8.0 8.0 8.0"
-      "illusion_damage_out_pct"                           "-85 -83 -81 -79 -77 -75" //OAA
-      "tooltip_illusion_damage"                           "15 17 19 21 23 25" //OAA
+      "illusion_damage_out_pct" //OAA
+      {
+        "value"                                           "-85 -83 -81 -79 -77 -75"
+        "special_bonus_unique_phantom_lancer_lance_illusion_damage"  "+15"
+      }
+      "tooltip_illusion_damage" //OAA
+      {
+        "value"                                           "15 17 19 21 23 25"
+        "special_bonus_unique_phantom_lancer_lance_illusion_damage"  "+15"
+      }
       "illusion_damage_in_pct"                            "300 260 220 180 140 100" //OAA
       "tooltip_illusion_total_damage_in_pct"              "400 360 320 280 240 200" //OAA
       "fake_lance_distance"                               "675"
       "scepter_bounce_radius"
       {
-        "value"                                           "750"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_bonus_illusion_damage"
       {
-        "value"                                           "20"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
       }
       "scepter_total_hits"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0"
+      }
+      "illusion_lance_damage_pct"
+      {
+        "special_bonus_facet_phantom_lancer_lancelot"     "+25"
       }
     }
   }

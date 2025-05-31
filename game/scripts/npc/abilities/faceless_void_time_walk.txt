@@ -34,8 +34,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "16 13 10 7 6 6"
-        "special_bonus_unique_faceless_void_5"            "-1"
+        "value"                                           "16 13 10 7 7 7"
+        "special_bonus_unique_faceless_void_5"            "-1.25"
       }
       "backtrack_duration"
       {
@@ -50,10 +50,8 @@
       "dodge_chance_pct"                                  "100"
       "radius" //OAA
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
-        "RequiresScepter"                                 "1"
       }
     }
   }

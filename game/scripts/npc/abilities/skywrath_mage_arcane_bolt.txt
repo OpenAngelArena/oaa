@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "875"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -28,25 +27,30 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
+    "AbilityManaCost"                                     "70 85 100 115 130 145" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "875"
+        "special_bonus_unique_skywrath_6"                 "+125"
+      }
       "bolt_speed"                                        "500"
       "bolt_vision"                                       "325"
-      "bolt_damage"                                       "75 95 115 135 270 405" // special_bonus_unique_skywrath_1_oaa
+      "bolt_damage"                                       "60 90 120 150 300 450" // special_bonus_unique_skywrath_1_oaa
       "int_multiplier"
       {
         "value"                                           "1.5"
-        "special_bonus_unique_skywrath_2"                 "+0.5"
+        "special_bonus_unique_skywrath_2"                 "+1.5"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "vision_duration"                                   "3.34"
       "extra_bolt_search_radius"
       {
-        "value"                                           "700"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "total_bolt_count"

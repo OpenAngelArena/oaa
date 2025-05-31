@@ -74,14 +74,14 @@ function Bottlepass:SendWinner (winner)
     end
   end
 
-  self:Request('match/complete', {
+  local req = self:Request('match/complete', {
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
     players = connectedPlayers,
     abandoned = abandonedPlayers,
     -- let player connection decide if this game should count
-    isValid = PlayerConnection:IsValid()
+    isValid = PlayerConnection:IsValid() and not Bottlepass:IsInvalidForTracking()
   }, function (err, data)
     if data and data.ok then
       local mmrDiffs = {}
@@ -121,7 +121,7 @@ function Bottlepass:SendWinner (winner)
 ]]
   end)
 
-  if IsInToolsMode() then
+  if not req then
     Bottlepass:SendEndGameStats()
   end
 end
@@ -141,7 +141,7 @@ function Bottlepass:SendBans (data)
       end
     end
   end
-  if didBan then
+  if didBan and not self:IsInvalidForTracking() then
     self:Request('match/send_bans', {
       banChoices = banChoices,
       bans = data.bans
@@ -153,7 +153,7 @@ end
 
 function Bottlepass:SendHeroPicks (data)
   Debug:EnableDebugging()
-  DebugPrint('Sending pick screen ban data')
+  DebugPrint('Sending pick screen hero pick data')
   local heroPicks = {}
   local didPick = false
 
@@ -276,10 +276,6 @@ function Bottlepass:Request(api, data, cb)
     cb("No bottlepass in ARDM", {})
     return
   end
-  --if HeroSelection.is10v10 then
-    --cb("No bottlepass in 10v10", {})
-    --return
-  --end
   if GameRules:IsCheatMode() and not IsInToolsMode() then
     cb("No Bottlepass while in cheats mode", {})
     return
@@ -321,4 +317,20 @@ function Bottlepass:Request(api, data, cb)
 
     cb(err, obj)
   end)
+end
+
+-- Dont track bans and mmr changes if conditions are met
+function Bottlepass:IsInvalidForTracking()
+  if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+    return true
+  end
+  if OAAOptions then
+    if OAAOptions.settings then
+      local s = OAAOptions.settings
+      if s.HEROES_MODS ~= "HMN" or s.HEROES_MODS_2 ~= "HMN" or s.HEROES_MODS_BUNDLE ~= "HMBN" or s.BOSSES_MODS ~= "BMN" then
+        return true
+      end
+    end
+  end
+  return false
 end

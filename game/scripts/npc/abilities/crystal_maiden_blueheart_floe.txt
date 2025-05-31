@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Crystal Maiden: Blueheart Floe (Innate)
+  //=================================================================================================================
+  "crystal_maiden_blueheart_floe"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "crystal_maiden_freezing_field"
+    "IsBreakable"                                         "1"
+
+    "AbilityValues"
+    {
+      "mana_regen_multiplier" //OAA
+      {
+        "value"                                           "25 40 55 70 85 100"
+      }
+    }
+  }
+}

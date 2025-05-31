@@ -22,6 +22,56 @@ function crystal_maiden_arcane_magic_oaa:IsStealable()
   return false
 end
 
+function crystal_maiden_arcane_magic_oaa:GetBehavior()
+  if self:GetSpecialValueFor("activatable") == 1 then
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT
+  end
+  return DOTA_ABILITY_BEHAVIOR_PASSIVE
+end
+
+function crystal_maiden_arcane_magic_oaa:GetCooldown(level)
+  if self:GetSpecialValueFor("activatable") == 1 then
+    local cd = self:GetSpecialValueFor("activation_cooldown")
+    if cd > 0 then
+      return cd
+    end
+  end
+  return 0
+end
+
+function crystal_maiden_arcane_magic_oaa:CastFilterResult()
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResult(self)
+
+  if caster:HasModifier("modifier_crystal_maiden_freezing_field") then
+    return UF_FAIL_CUSTOM
+  end
+
+  return defaultFilterResult
+end
+
+function crystal_maiden_arcane_magic_oaa:GetCustomCastError()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_crystal_maiden_freezing_field") then
+    return "#dota_hud_error_ability_inactive"
+  end
+end
+
+function crystal_maiden_arcane_magic_oaa:OnSpellStart()
+  local caster = self:GetCaster()
+  local vanilla_ability = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
+  if vanilla_ability then
+    vanilla_ability:OnSpellStart()
+  end
+end
+
+function crystal_maiden_arcane_magic_oaa:ProcsMagicStick()
+  if self:GetSpecialValueFor("activatable") == 1 then
+    return true
+  end
+  return false
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_crystal_maiden_arcane_aura_oaa = class(ModifierBaseClass)
@@ -62,7 +112,7 @@ function modifier_crystal_maiden_arcane_aura_oaa:GetAuraSearchType()
 end
 
 function modifier_crystal_maiden_arcane_aura_oaa:GetAuraRadius()
-  return 20000
+  return 30000
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -89,7 +139,8 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:OnCreated()
     --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
     --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
     --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
-    self.int = ability:GetSpecialValueFor("bonus_intelligence")
+    --self.int = ability:GetSpecialValueFor("bonus_intelligence")
+    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
   end
 end
 
@@ -98,7 +149,8 @@ modifier_crystal_maiden_arcane_aura_effect_oaa.OnRefresh = modifier_crystal_maid
 function modifier_crystal_maiden_arcane_aura_effect_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE, -- GetModifierSpellAmplify_Percentage
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+    --MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     --MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, --GetModifierPercentageManacostStacking
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
@@ -128,8 +180,12 @@ end
   --return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 --end
 
-function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierBonusStats_Intellect()
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
+-- function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierBonusStats_Intellect()
+  -- return self.int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
+-- end
+
+function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierCastRangeBonusStacking()
+  return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
 end
 
 --function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip()

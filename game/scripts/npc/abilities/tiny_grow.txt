@@ -16,15 +16,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "10 17 24"
+      "bonus_armor"                                       "5 10 15"
       "bonus_damage"
       {
-        "value"                                           "60 120 180"
+        "value"                                           "55 110 165"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_speed_reduction"
       {
-        "value"                                           "-30"
+        "value"                                           "-35"
         "special_bonus_unique_tiny_6"                     "+8"
       }
       "toss_bonus_damage" //OAA
@@ -32,7 +32,7 @@
         "value"                                           "75 300 525"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "move_speed"                                        "10 20 30"
+      "move_speed"                                        "15 20 25" //OAA
     }
   }
 }

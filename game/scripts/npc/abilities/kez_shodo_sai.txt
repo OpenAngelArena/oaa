@@ -30,34 +30,30 @@
     {
       "sai_attack_range"                                  "150"
       "sai_base_attack_time"                              "1.5"
-      "sai_proc_vuln_chance"                              "17"
-      "vuln_slow"                                         "10"
+      "sai_proc_vuln_chance"                              "18"
+      "vuln_slow"                                         "0"
       "vuln_duration"                                     "8.0"
       "base_crit_pct" //OAA
       {
         "value"                                           "150 160 170 180 190 200"
-        "special_bonus_unique_kez_mark_damage"            "+40"
+        "special_bonus_unique_kez_mark_damage"            "+100"
       }
       "stun_duration"                                     "0.1" //OAA, can permastun
-      "shard_base_movement_speed"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "10"
-        "RequiresShard"                                   "1"
-      }
-      "shard_vuln_movement_speed"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "10"
-        "RequiresShard"                                   "1"
-      }
 
       // Parry below here
       "forward_angle"                                     "180"
       "speed_penalty"                                     "25"
       "parry_duration"                                    "2.0"
-      "parry_bonus_crit"                                  "20 40 60 80 100 120" //OAA
+      "parry_bonus_crit" //OAA, this number x enemy level is the bonus crit
+      {
+        "value"                                           "3"
+        "special_bonus_unique_kez_mark_damage"            "+0"
+      }
       "parry_stun_duration"                               "0.5"
+      "sai_swap_bonus_movement_speed"
+      {
+        "special_bonus_facet_kez_flutter"                 "12"
+      }
     }
   }
 }

@@ -38,17 +38,28 @@
         "value"                                           "40 45 50 55 110 220"
         "special_bonus_unique_winter_wyvern_5"            "+25"
       }
-      "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5"
+      "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5" // special_bonus_unique_winter_wyvern_1_oaa
       "shard_cooldown_reduction"
       {
-        "value"                                           "4.0"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "4.0"
       }
       "shard_splinter_range" //OAA
       {
-        "value"                                           "950"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "950"
         "affected_by_aoe_increase"                        "1"
+      }
+      "tick_interval"                                     "0.25"
+      "can_target_buildings"
+      {
+        "special_bonus_facet_winter_wyvern_winterproof"   "=1"
+      }
+      "damage_buff_pct"
+      {
+        "special_bonus_facet_winter_wyvern_winterproof"   "=60"
+      }
+      "damage_buff_duration"
+      {
+        "special_bonus_facet_winter_wyvern_winterproof"   "=6.0"
       }
     }
   }

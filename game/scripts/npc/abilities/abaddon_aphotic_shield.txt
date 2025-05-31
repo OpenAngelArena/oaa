@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 110 125 140 155 170"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,23 +35,19 @@
       "AbilityCooldown"
       {
         "value"                                           "12 10 8 6 6 6"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "+2"
       }
       "duration"
       {
-        "value"                                           "15.0"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "+2"
+        "value"                                           "12.0"
       }
       "radius"
       {
         "value"                                           "675"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "=0"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_absorb" //OAA
+      "damage_absorb" //OAA, because of special_bonus_unique_abaddon
       {
         "value"                                           "120 150 180 210 420 630"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "=170 =210 =250 =290 =580 =870"
         "special_bonus_unique_abaddon"                    "+100"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -63,12 +59,12 @@
       "absorb_to_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "75"
+        "special_bonus_shard"                             "75"
       }
       "absorb_damage_aoe"
       {
         "value"                                           "0"
-        "special_bonus_facet_abaddon_mephitic_shroud"     "675"
+        "special_bonus_shard"                             "675"
         "affected_by_aoe_increase"                        "1"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

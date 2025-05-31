@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35304"
+    "ItemCost"                                            "35904"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 5;eye of skadi 5;skadi 5"
@@ -49,19 +49,21 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "22 27 32 37 42"
-      "bonus_health"                                      "250 350 500 700 950"
-      "bonus_mana"                                        "250 350 500 700 950"
-      "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee"                            "-10"
+      "bonus_all_stats"                                   "35 40 45 50 55"
+      "bonus_health"                                      "0"
+      "bonus_mana"                                        "0"
+      "cold_slow_melee"                                   "-25 -30 -35 -40 -45"
+      "cold_attack_slow_melee"                            "-20"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
       "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
+      "restoration_reduction"                             "40 45 50 55 60"
       "heal_reduction"                                    "40 45 50 55 60"
     }
   }

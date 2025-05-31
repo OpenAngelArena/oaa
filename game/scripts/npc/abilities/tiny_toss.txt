@@ -48,7 +48,7 @@
       "bonus_damage_pct"                                  "0"
       "toss_damage" // reminder: this gets increased with Grow
       {
-        "value"                                           "80 160 240 320 640 1280"
+        "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCharges"
@@ -59,17 +59,17 @@
       "land_movement_slow"
       {
         "value"                                           "0"
-        "special_bonus_facet_tiny_crash_landing"          "15 20 25 30 35 40"
+        "special_bonus_facet_tiny_crash_landing"          "20 25 30 35 40 45"
       }
       "land_attack_slow"
       {
         "value"                                           "0"
-        "special_bonus_facet_tiny_crash_landing"          "10 20 30 40 50 60"
+        "special_bonus_facet_tiny_crash_landing"          "15 25 35 45 55 65"
       }
       "bonus_land_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_tiny_crash_landing"          "20 25 30 35 40 45"
+        "special_bonus_facet_tiny_crash_landing"          "20"
       }
       "land_debuff_duration"
       {

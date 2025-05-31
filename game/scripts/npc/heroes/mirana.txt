@@ -15,20 +15,20 @@
     //"Ability13"                                           "special_bonus_unique_mirana_1"
 
     "Ability14"                                           "special_bonus_unique_mirana_3_oaa" // replaces special_bonus_unique_mirana_4
-    "Ability15"                                           "special_bonus_all_stats_10" // replaces special_bonus_20_crit_2
+    //"Ability15"                                           "special_bonus_base_damage_35"
 
     //"Ability16"                                           "special_bonus_unique_mirana_2"
     //"Ability17"                                           "special_bonus_unique_mirana_7"
 
-  // special_bonus_unique_mirana_1 - "+{s:value} Leap Attack Speed"
-  // special_bonus_unique_mirana_2 - "+{s:value} Multishot Sacred Arrows"
-  // special_bonus_unique_mirana_3 - "-{s:value}s Sacred Arrow cooldown"
-  // special_bonus_unique_mirana_4 - "-{s:value}s Moonlight Shadow Cooldown"       - annoying
-  // special_bonus_unique_mirana_5 - "Moonlight Shadow gives +{s:value} Evasion"
-  // special_bonus_unique_mirana_6 - "+{s:value} Leap Distance"
-  // special_bonus_unique_mirana_7 - "+{s:value} Starstorm Damage"
-    // special_bonus_mirana_arrow_global - "Global Range Arrow"                      - custom, unused
-    // special_bonus_unique_mirana_arrow_pierce - "Bonus Arrow Pierce Count"                - custom, unused
-  // special_bonus_unique_mirana_3_oaa - "+{s:value}s Leap Buff Duration"          - custom
+    // special_bonus_unique_mirana_1 - Leap Attack Speed
+    // special_bonus_unique_mirana_2 - Multishot Sacred Arrows
+    // special_bonus_unique_mirana_3 - Starstorm Cooldown
+    // special_bonus_unique_mirana_4 - Moonlight Shadow Cooldown"                     - annoying
+    // special_bonus_unique_mirana_5 - Moonlight Shadow gives Evasion"
+    // special_bonus_unique_mirana_6 - Leap Distance
+    // special_bonus_unique_mirana_7 - Starstorm Damage
+    // special_bonus_mirana_arrow_global - Global Range Arrow                       - custom, unused
+    // special_bonus_unique_mirana_arrow_pierce - Bonus Arrow Pierce Count          - custom, unused
+    // special_bonus_unique_mirana_3_oaa - Leap Buff Duration"                        - custom
   }
 }

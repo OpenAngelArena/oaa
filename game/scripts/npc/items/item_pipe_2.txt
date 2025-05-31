@@ -48,7 +48,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_pipe_2;item_pipe_3;item_pipe_4"
+    "UpgradesItems"                                       "item_pipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_regen"                                      "6 7 8 9 10"
+      "health_regen"                                      "12 13 14 15 16"
       "magic_resistance"                                  "20 22 24 26 28"
       "barrier_debuff_duration"                           "50.0"
       "tooltip_resist"                                    "20 22 24 26 28"

@@ -16,9 +16,18 @@
         "Color"                                           "Green"
         "GradientID"                                      "0"
       }
+
       "pugna_rewards_of_ruin"
       {
         "Icon"                                            "siege"
+        "Color"                                           "Purple"
+        "GradientID"                                      "2"
+        "Deprecated"                                      "true"
+      }
+
+      "pugna_undead_nature_oaa"
+      {
+        "Icon"                                            "spirit"
         "Color"                                           "Purple"
         "GradientID"                                      "2"
         "Abilities"

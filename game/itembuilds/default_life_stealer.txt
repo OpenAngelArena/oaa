@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37x + Frost"
+  "author"        "OAA 7.37e + Frost"
   "hero"          "npc_dota_hero_life_stealer"
   "Title"         "Recommended items for Lifestealer"
 
@@ -23,7 +23,7 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_armlet"
-      "item"      "item_angels_demise"
+      "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
       "item"      "item_abyssal_blade_2"
       "item"      "item_devastator_oaa_2"
@@ -45,9 +45,9 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
-      "item"      "item_gungir"
       "item"      "item_harpoon"
       "item"      "item_nullifier"
       "item"      "item_overwhelming_blink"

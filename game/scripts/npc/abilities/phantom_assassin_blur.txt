@@ -1,22 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Assassin's Blur
+  // Phantom Assassin: Blur
   //=================================================================================================================
   "phantom_assassin_blur"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    "AbilityCooldown"                                     "45" //OAA
+    "MaxLevel"                                            "6" // same as Dependent ability (Coup De Grace) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "phantom_assassin_coup_de_grace"
 
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "625 550 475 400 375 350"
@@ -27,19 +25,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "30"
+      "duration"                                          "20" //OAA
       "radius"                                            "625 550 475 400 375 350"
       "fade_duration"                                     "0.4 0.6 0.8 1.0 1.2 1.4"
-      "scepter_cooldown" // cooldown reduction
-      {
-        "value"                                           "50"
-        "RequiresScepter"                                 "1"
-      }
-      "break_on_attack"
-      {
-        "value"                                           "1"
-        "special_bonus_facet_phantom_assassin_veiled_one"  "=0"
-      }
+      "break_on_attack"                                   "0"
       "manacost_reduction_during_blur_pct"
       {
         "value"                                           "0"
@@ -56,6 +45,23 @@
         "special_bonus_facet_phantom_assassin_veiled_one"  "100"
       }
       "active_movespeed_bonus"                            "3 6 9 12 15 18"
+      "immediate_cast"
+      {
+        "special_bonus_shard"                             "0"
+      }
+      "purge_on_cast"
+      {
+        "special_bonus_shard"                             "0"
+      }
+      "cooldown_refund_pct"
+      {
+        "special_bonus_shard"                             "60"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "40 38 36 34 32 30"
+        "special_bonus_shard"                             "-10"
+      }
     }
   }
 }

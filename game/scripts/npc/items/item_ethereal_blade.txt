@@ -51,7 +51,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ethereal_blade;item_ethereal_blade_2;item_ethereal_blade_3;item_ethereal_blade_4"
+    "UpgradesItems"                                       "item_ethereal_blade_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -79,6 +79,7 @@
       "duration_ally"                                     "4.0"
       "ethereal_damage_bonus"                             "-40 -45 -50 -55 -60"
       "projectile_speed"                                  "1400"
+      "universal_multiplier_tooltip"                      "45"
     }
   }
 }

@@ -284,7 +284,7 @@ if IsServer() then
       return 0
     end
 
-    return -self.total_dmg_reduction
+    return 0 - math.abs(self.total_dmg_reduction)
   end
 end
 

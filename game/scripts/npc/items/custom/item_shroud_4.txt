@@ -47,12 +47,14 @@
     "AbilityCooldown"                                     "20.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "ethereal"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33804"
+    "ItemCost"                                            "33704"
     "ItemShopTags"                                        "int;agi;str;hard_to_tag"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "shroud of Shadows 4;sos 4"

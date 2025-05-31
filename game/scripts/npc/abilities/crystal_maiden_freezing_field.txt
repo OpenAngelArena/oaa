@@ -28,13 +28,11 @@
       "radius" //OAA
       {
         "value"                                           "800"
-        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=755"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_radius" //OAA
       {
         "value"                                           "305"
-        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=290"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_interval"                                "0.1"
@@ -45,7 +43,6 @@
       "explosion_max_dist" //OAA
       {
         "value"                                           "770"
-        //"special_bonus_facet_crystal_maiden_frozen_expanse" "=730"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
@@ -57,33 +54,25 @@
       {
         "value"                                           "-1"
         "special_bonus_scepter"                           "+3.5"
-        "RequiresScepter"                                 "1"
       }
       "shard_bonus_explosion"
       {
-        "shard_bonus_explosion"                           "0"
         "special_bonus_scepter"                           "+20"
-        "RequiresShard"                                   "1" // RequiresScepter
       }
       "shard_self_movement_speed_slow_pct"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "-75"
-        "RequiresScepter"                                 "1"
       }
       "can_move"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
       "self_cast_range_bonus"
       {
-        "value"                                           "0"
         "special_bonus_facet_crystal_maiden_frozen_expanse"  "75 100 125 150 175"
       }
       "aoe_bonus"
       {
-        "value"                                           "0"
         "special_bonus_facet_crystal_maiden_frozen_expanse"  "6 8 10 11 12"
       }
     }

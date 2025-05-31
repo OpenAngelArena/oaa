@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "3000"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
@@ -34,6 +30,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "45"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.5"
+      }
       "arrow_speed"
       {
         "value"                                           "2200"
@@ -53,21 +54,65 @@
       "max_charge_time"
       {
         "value"                                           "3.0"
-        "special_bonus_scepter"                           "-25%"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "max_damage" //OAA
       {
         "value"                                           "600 1200 1800 3600 5400"
-        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+250"
+        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+400"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
-      "recoil_distance"                                   "350"
+      "recoil_distance"
+      {
+        "value"                                           "350"
+      }
       "recoil_height"                                     "75"
       "recoil_duration"                                   "0.4"
-      "max_slow_debuff_duration"                          "5.0"
-      "misfire_time"                                      "5.0"
-      "slow_move_pct"                                     "30 40 50 60 70"
-      "turn_rate"                                         "60"
+      "max_slow_debuff_duration"
+      {
+        "value"                                           "5.0"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
+      }
+      "misfire_time"
+      {
+        "value"                                           "5.0"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
+      }
+      "slow_move_pct"
+      {
+        "value"                                           "30 40 50 60 70"
+        "special_bonus_scepter"                           "+20"
+      }
+      "turn_rate"
+      {
+        "value"                                           "60"
+        "special_bonus_facet_hoodwink_hipshot"            "x1.33"
+      }
+      "turn_rate_tooltip"
+      {
+        "special_bonus_facet_hoodwink_hipshot"            "33"
+      }
+      "vision_along_indicator"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_hoodwink_sharpshooter_vision"  "=1"
+      }
+      "vision_radius_buffer"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_hoodwink_sharpshooter_vision"  "+35"
+      }
       "base_power"                                        "0.2"
+      "quick_draw_tooltip_pct_cooldown_reduction"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_hipshot"            "50"    // TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+      }
+      "quick_draw_tooltip_efficacy_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_hipshot"            "25"    // TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+      }
     }
   }
 }

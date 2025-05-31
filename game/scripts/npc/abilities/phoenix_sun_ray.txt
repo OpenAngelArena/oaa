@@ -54,13 +54,12 @@
       "turn_rate"                                         "25"
       "shard_move_slow_pct"
       {
-        "value"                                           "10"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "10"
       }
       "focal_point_max_multiplier"
       {
         "value"                                           "0"
-        "special_bonus_facet_phoenix_hotspot"             "150"
+        "special_bonus_facet_phoenix_hotspot"             "160"
       }
       "focal_point_start_length_pct"
       {
@@ -71,6 +70,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_phoenix_hotspot"             "1200"
+      }
+      "focal_point_blind_stack_multiplier"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phoenix_hotspot"             "+2"
       }
     }
   }

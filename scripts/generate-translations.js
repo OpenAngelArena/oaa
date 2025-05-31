@@ -31,8 +31,8 @@ function cleanLanguageFile (contents) {
 }
 
 request.get({
-  // url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_english.txt'
-  url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_english.txt'
+  // url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/resource/localization/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/resource/localization/abilities_english.txt'
 }, function (err, result) {
   if (err) {
     throw err;
@@ -116,6 +116,7 @@ async function getTranslationsForLanguage (lang, cb) {
     language
   });
 
+  console.log('Fetching translation data for', lang);
   request.get({
     url,
     json: true
@@ -124,6 +125,7 @@ async function getTranslationsForLanguage (lang, cb) {
       return cb(err);
     }
     data = data.body;
+    console.log('Done translation data for', lang);
     cb(err, data);
   });
 }
@@ -132,9 +134,10 @@ function getUnchangedStrings (languageName, cb) {
   if (languageName === 'chinese') {
     languageName = 'schinese';
   }
+  console.log('Fetching dota tooltips for', languageName);
   request.get({
-    // url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_' + languageName + '.txt'
-    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_' + languageName + '.txt'
+    // url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/resource/localization/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/resource/localization/abilities_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);
@@ -155,6 +158,8 @@ function getUnchangedStrings (languageName, cb) {
         console.log(languageName, 'No unchaged value for', key, unchagedKeys[key]);
       }
     });
+    console.log('Done fetching dota tooltips for', languageName);
+
     cb(translatedKeys);
   });
 }
@@ -219,10 +224,13 @@ function generateTranslations (lang) {
     }
 
     // translations
+    console.log('Generating ', lang);
     generateFileForTranslations(lang, data, function (lines) {
+      console.log('Writing ', lang);
       fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
         encoding: 'ucs2'
       });
+      console.log('Finished with ', lang);
     });
   });
 }

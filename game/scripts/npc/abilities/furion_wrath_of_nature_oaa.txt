@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Wrath of Nature (OAA rework) - unused
+  // Nature's Prophet: Wrath of Nature (OAA rework) - unused
   //=================================================================================================================
   "furion_wrath_of_nature_oaa"
   {
@@ -29,15 +29,19 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "AbilityCooldown"                                     "65"
     "AbilityManaCost"                                     "130 160 190 220 250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "85"
+        "special_bonus_unique_furion_7"                   "-15"
+      }
       "max_targets"                                       "18"
-      "damage"                                            "150 220 290 430 710"
+      "damage"                                            "115 165 215 365 515"
       "jump_delay"                                        "0.15"
       "damage_percent_add"
       {
@@ -60,22 +64,18 @@
       "damage_scepter"
       {
         "value"                                           "200 300 400 600 1000"
-        "RequiresScepter"                                 "1"
       }
       "scepter_buffer"
       {
         "value"                                           "4"
-        "RequiresScepter"                                 "1"
       }
       "scepter_min_root_duration"
       {
-        "value"                                           "2.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1.5"
       }
       "scepter_max_root_duration"
       {
-        "value"                                           "3.8"
-        "RequiresScepter"                                 "1"
+        "value"                                           "3.0"
       }
     }
   }

@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14"
+    "AbilityCooldown"                                     "15 14 13 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_hoodwink_bushwhack_damage"  "+100"
+        "special_bonus_unique_hoodwink_bushwhack_damage"  "+90"
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"

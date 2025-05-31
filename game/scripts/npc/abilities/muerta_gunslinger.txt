@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // MUERTA: Gunslinger
+  // Muerta: Gunslinger
   //=================================================================================================================
   "muerta_gunslinger"
   {
@@ -26,6 +26,11 @@
       "bonus_damage"
       {
         "special_bonus_unique_muerta_gunslinger_bonus_damage"  "=55"
+      }
+      "dead_shot_cooldown_reduction_on_proc"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_muerta_slingshot"            "1.0"
       }
     }
   }

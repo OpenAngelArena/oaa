@@ -53,15 +53,20 @@
         "value"                                           "0"
         "special_bonus_unique_razor_static_link_aspd"     "+1"
       }
-      "pull_speed"
+      "move_speed_factor"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+75"
+        "special_bonus_shard"                             "+1"
       }
-      "min_pull_range"
+      "pull_speed" // unused
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+175"
+        "special_bonus_shard"                             "0"
+      }
+      "min_pull_range" // unused
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "0"
       }
       "AbilityCastRange"
       {

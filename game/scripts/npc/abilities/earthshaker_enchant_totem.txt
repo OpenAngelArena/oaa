@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 50 55 60 65 70"
+    "AbilityManaCost"                                     "45 55 65 75 85 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,8 +45,7 @@
       }
       "distance_scepter"
       {
-        "value"                                           "950"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "950"
       }
       "AbilityCooldown"
       {
@@ -60,25 +59,21 @@
       "scepter_leap_duration"                             "0.8"
       "scepter_cleave_pct"
       {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "40 40 40 40 50 60"
       }
       "scepter_cleave_starting_width"
       {
-        "value"                                           "150"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "150"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_cleave_ending_width"
       {
-        "value"                                           "360"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "360"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_cleave_distance"
       {
-        "value"                                           "650"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "650"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_attack_range"                                "100"

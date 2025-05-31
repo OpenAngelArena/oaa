@@ -15,7 +15,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -34,7 +33,6 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 14 13 12 11 10"
-        "special_bonus_shard"                             "-3"
       }
       "move_speed"                                        "1900" //OAA
       "min_jump_distance"                                 "0"
@@ -51,11 +49,13 @@
       "landing_radius"
       {
         "value"                                           "275"
+        "special_bonus_unique_marci_rebound_radius"       "+75"
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage"
       {
-        "value"                                           "80 160 240 320 640 1280"
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_shard"                             "+20%"
       }
       "debuff_duration"
       {
@@ -72,20 +72,43 @@
       "ally_buff_duration"                                "4.0"
       "ally_movespeed_pct"
       {
-        "value"                                           "25 30 35 40 45 50"
+        "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_marci_lunge_movespeed"      "+10"
       }
       "impact_position_offset"                            "64"
       "target_abort_distance"                             "700"
-      "scepter_heal"
+      "scepter_heal" // unused
       {
-        "value"                                           "300"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "300"
       }
-      "scepter_armor"
+      "scepter_armor" // unused
       {
-        "value"                                           "15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "15"
+      }
+      "ally_arc_offset"
+      {
+        "special_bonus_facet_marci_pickmeup"              "=150"
+      }
+      "ally_impact_damage_pct"
+      {
+        "special_bonus_facet_marci_pickmeup"              "=35"
+      }
+      "max_level" //OAA
+      {
+        "value"                                           "6"
+        //"special_bonus_facet_marci_pickmeup"            "+1"
+      }
+      "max_level_tooltip" //OAA
+      {
+        "special_bonus_facet_marci_pickmeup"              "=7"
+      }
+      "postjump_unleash_duration"
+      {
+        "special_bonus_facet_marci_fleeting_fury"         "=3"
+      }
+      "postjump_flurry_charges"
+      {
+        "special_bonus_facet_marci_fleeting_fury"         "=3"
       }
     }
   }

@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7226"
+    "ItemCost"                                            "7151"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 2;helm of the overlord 2;helm 2;overlord 2"
@@ -60,6 +60,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_helm_of_the_overlord_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +69,7 @@
       "bonus_stats"                                       "21 26 31 36 41"
       "bonus_armor"                                       "6 7 9 12 16"
       "bonus_regen"                                       "6 9 12 15 18"
-      "health_min"                                        "2000 4500 7000 9500 12000"
+      "health_min"                                        "1800 3600 5400 7200 9000"
       "speed_base"                                        "380"
       "bounty_gold"                                       "250 500 750 1000 1250"
       "creep_bonus_damage"                                "50 100 150 200 250"
@@ -78,6 +79,7 @@
       "model_scale"                                       "20 30 40 50 60"
       "count_limit"                                       "1"
       "creep_ability_level_increase"                      "1"
+      "is_overlord"                                       "1"
     }
   }
 }

@@ -28,8 +28,8 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"            // Physical protection.
-    "MagicalResistance"                                   "25"                                 // Magical protection (percentage).
+    "ArmorPhysical"                                       "20"            // Physical protection.
+    "MagicalResistance"                                   "25"            // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -77,8 +77,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision

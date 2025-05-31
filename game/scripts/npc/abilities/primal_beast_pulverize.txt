@@ -52,12 +52,17 @@
       "bonus_aoe_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_primal_beast_ferocity"       "+10"
+        "special_bonus_facet_primal_beast_ferocity"       "+15"
       }
       "bonus_aoe_pct_per_hit" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_primal_beast_ferocity"       "+10"
+        "special_bonus_facet_primal_beast_ferocity"       "+15"
+      }
+      "max_stacks"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_ferocity"       "+10"       // 0 disables
       }
       "channel_time"
       {

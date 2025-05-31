@@ -20,10 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200 300 400 500 600"
@@ -32,26 +28,48 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120 110 100 90 80"
+        "special_bonus_scepter"                           "-40"
+      }
       "heal_amount" //OAA
       {
         "value"                                           "200 400 600 1200 2200"
-        "special_bonus_unique_chen_2"                     "+400"
       }
       "hot_duration"                                      "10"
       "heal_per_second" //OAA
       {
         "value"                                           "20 40 60 120 220"
-        "special_bonus_unique_chen_2"                     "+20"
       }
       "ancient_creeps_scepter"
       {
-        "value"                                           "1 2 3 4 5"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "1 2 3 4 5"
       }
       "does_purge"
       {
-        "value"                                           "0"
         "special_bonus_unique_chen_12"                    "+1"
+      }
+      "full_heal_on_chen_and_creeps"
+      {
+        "special_bonus_unique_chen_2"                     "=1"
+      }
+      "AbilityChannelTime"
+      {
+        "special_bonus_scepter"                           "=6"
+      }
+      "debuff_immune_radius"
+      {
+        "special_bonus_scepter"                           "=800"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "debuff_immune_resist"
+      {
+        "special_bonus_scepter"                           "60"
+      }
+      "nearby_hot_boost"
+      {
+        "special_bonus_scepter"                           "200"
       }
     }
   }

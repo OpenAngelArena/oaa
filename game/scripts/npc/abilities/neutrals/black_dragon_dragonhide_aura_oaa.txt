@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Black Dragon: Dragonhide Aura - Bonus armor aura, doesn't stack with itself.
+  // TODO: maybe add % armor bonus
   //=================================================================================================================
   "black_dragon_dragonhide_aura_oaa"
   {
@@ -15,13 +16,13 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "5"
+      "bonus_armor"                                       "3 4 5 6"
       "radius"
       {
         "value"                                           "1200"

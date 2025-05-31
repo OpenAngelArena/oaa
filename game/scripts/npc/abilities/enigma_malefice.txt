@@ -41,10 +41,14 @@
         "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
         "special_bonus_shard"                             "+0.30"
       }
+      "shard_bonus_stun_duration_tooltip"
+      {
+        "value"                                           "0.30"      // if updating this, update stun_duration
+      }
       "damage"
       {
         "value"                                           "55 70 85 100 200 300"
-        "special_bonus_unique_enigma_5"                   "+40"
+        "special_bonus_unique_enigma_5"                   "+50"
       }
       "stun_instances"
       {

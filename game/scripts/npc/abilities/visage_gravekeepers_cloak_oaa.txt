@@ -45,7 +45,7 @@
       }
       "radius"
       {
-        "value"                                           "900"
+        "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "max_damage_reduction"
@@ -55,17 +55,14 @@
       "shard_hp_restoration_pct"
       {
         "value"                                           "25"
-        "RequiresShard"                                   "1"
       }
       "shard_cooldown"
       {
         "value"                                           "35"
-        "RequiresShard"                                   "1"
       }
       "shard_manacost"
       {
         "value"                                           "125"
-        "RequiresShard"                                   "1"
       }
     }
   }

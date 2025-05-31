@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100" //OAA
+    "ItemCost"                                            "300" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -38,13 +38,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
     "AbilityTextureName"                                  "custom/linkens_sphere_1"
 
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCooldown"                                     "14.0 13.0 12.0 11.0 10.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4300" //OAA
+    "ItemCost"                                            "4500" //OAA
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;linken's sphere;linkens"
@@ -54,14 +54,15 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_sphere;item_sphere_2;item_sphere_3;item_sphere_4;item_sphere_5"
+    "UpgradesItems"                                       "item_sphere_2"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_all_stats"                                   "16 21 26 31 36"
-      "bonus_health_regen"                                "6 9 12 15 18"
+      "bonus_health_regen"                                "6.5 9.5 12.5 15.5 18.5"
       "bonus_mana_regen"                                  "4.25 4.5 5 5.75 6.75"
       "block_cooldown"                                    "14.0 13.0 12.0 11.0 10.0"
       "upgrade_absorb_duration"                           "10.0" // unused

@@ -33,14 +33,13 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_visage_8"                   "-3"
       }
       "chill_duration"
       {
-        "value"                                           "6"
+        "value"                                           "5"
         "special_bonus_unique_visage_grave_chill_duration"  "+2"
       }
-      "movespeed_bonus"                                   "15 20 25 30 35 40"
+      "movespeed_bonus"                                   "12 16 20 24 28 32"
       "attackspeed_bonus"                                 "40 50 60 70 80 90" //OAA
       "radius"
       {
@@ -49,16 +48,12 @@
       }
       "target_radius"
       {
-        "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "visage_sepulchre"
-        "special_bonus_facet_visage_sepulchre"            "250"
+        "special_bonus_facet_visage_sepulchre"            "300"
       }
       "penalty"
       {
-        "value"                                           "0"
-        "RequiresFacet"                                   "visage_sepulchre"
-        "special_bonus_facet_visage_sepulchre"            "75"
+        "special_bonus_facet_visage_sepulchre"            "70"
       }
     }
   }

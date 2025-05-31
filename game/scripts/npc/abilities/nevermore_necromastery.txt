@@ -29,28 +29,29 @@
         "special_bonus_scepter"                           "+5"
       }
       "souls_per_kill"                                    "1"
+      "souls_per_hero_kill"                               "3"
       "necromastery_soul_release"                         "0.7"
       "attack_range_bonus"                                "0"
       "shard_souls_per_kill" // unused
       {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "2"
       }
       "shard_crit_pct" // unused
       {
-        "value"                                           "190"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "190"
       }
       "shard_fear_duration" // unused
       {
-        "value"                                           "0.4"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "0.4"
       }
       "soul_release_tooltip"                              "30.0"
       "max_soul_increase_on_hero_kill" // OAA, because fuck this shit Valve
       {
-        "value"                                           "0"
         "special_bonus_facet_nevermore_lasting_presence"  "0"
+      }
+      "current_max_souls_tooltip"
+      {
+        "dynamic_value"                                   "true"
       }
     }
   }

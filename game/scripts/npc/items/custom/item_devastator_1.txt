@@ -57,6 +57,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_devastator_oaa_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -92,10 +93,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "devastator_distance"                               "700 750 800 850 900"
-      "devastator_damage"                                 "75 150 300 525 825"
-      "devastator_movespeed_reduction"                    "-10 -20 -30 -40 -50"
+      "devastator_damage"                                 "0 200 300 500 800"
+      "devastator_movespeed_reduction"                    "-15 -20 -25 -30 -35"
       "devastator_movespeed_reduction_duration"           "7"
-      "devastator_armor_reduction"                        "-9 -12 -16 -21 -27" // better than passive
+      "devastator_armor_reduction"                        "-8 -11 -15 -20 -26" // better than passive
       "devastator_armor_reduction_duration"               "7"
       "interval"                                          "2" // to cancel Arcane Blink
       "damage_per_interval"                               "50"

@@ -15,7 +15,8 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"          // if the ability does damage
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"    // SPELL_IMMUNITY_ENEMIES_NO
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"          // Is some part of this spell dispellable? SPELL_DISPELLABLE_YES; SPELL_DISPELLABLE_YES_STRONG;
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"          // Is some part of this ability dispellable? SPELL_DISPELLABLE_YES; SPELL_DISPELLABLE_YES_STRONG;
+    "IsBreakable"                                         "1"                             // Is some part of this ability disabled with Break?
 
     "MaxLevel"                                            "1"       // Neutral units don't need abilities with more levels unless some special logic is used
 
@@ -26,7 +27,7 @@
     "AbilityCooldown"                                     "10.0"
 
     "AbilityManaCost"                                     "100"
-    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
+    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick?
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

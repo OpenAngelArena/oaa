@@ -4,19 +4,19 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS" //OAA, Valve has it wrong
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "7" // same as Dependent ability (Nature's Call) + 1
-    "DependentOnAbility"                                  "furion_force_of_nature"
+    "MaxLevel"                                            "6" // same as Dependent ability (Wrath of Nature) + 1
+    "DependentOnAbility"                                  "furion_wrath_of_nature"
     "Innate"                                              "1"
 
     "AbilityValues"
     {
-      "damage_per_tree_pct"                               "2 3 4 5 6 7 8"
+      "damage_per_tree_pct"                               "3"
       "radius"
       {
-        "value"                                           "300"
+        "value"                                           "300 400 500 600 700 800"
         "affected_by_aoe_increase"                        "1"
       }
       "radius_treant"
@@ -24,10 +24,10 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "multiplier" //OAA
+      "multiplier"
       {
         "value"                                           "1"
-        "special_bonus_facet_furion_ironwood_treant"      "x2 x2 x3 x3 x4 x5 x6"
+        "special_bonus_facet_furion_ironwood_treant"      "x4"
         "special_bonus_unique_furion"                     "x3"
       }
     }

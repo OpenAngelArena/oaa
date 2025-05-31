@@ -54,7 +54,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
+    "UpgradesItems"                                       "item_bloodthorn_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -70,9 +70,9 @@
     "AbilityValues"
     {
       "bonus_intellect"                                   "10 15 25 40 60"
-      "bonus_attack_speed"                                "100 105 110 115 120"
+      "bonus_attack_speed"                                "95 100 105 110 115"
       "bonus_damage"                                      "10 20 40 70 110"
-      "bonus_mana_regen"                                  "3.5 3.75 4.25 5.0 6.0"
+      "bonus_mana_regen"                                  "3.25 3.5 4.0 4.75 5.75"
       "bonus_health_regen"                                "6.5 9 12 15 18"
       "silence_duration"                                  "5"
       "silence_damage_percent"                            "40 45 50 55 60"

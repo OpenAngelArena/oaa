@@ -433,8 +433,8 @@ function modifier_dragon_knight_frostbite_debuff_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -446,10 +446,12 @@ function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHPRegenAmplify_P
   return -self.heal_suppression_pct
 end
 
-function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierLifestealRegenAmplify_Percentage()
-  return -self.heal_suppression_pct
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierLifestealRegenAmplify_Percentage()
+  -- return -self.heal_suppression_pct
+-- end
 
-function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return -self.heal_suppression_pct
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return -self.heal_suppression_pct
+-- end

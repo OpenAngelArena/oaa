@@ -1,0 +1,79 @@
+"DOTAAbilities"
+{
+  "item_recipe_bloodstone"                                "REMOVE"
+  "item_bloodstone"                                       "REMOVE"
+
+  //=================================================================================================================
+  // Recipe: Bloodstone 1
+  //=================================================================================================================
+  "item_recipe_bloodstone_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_bloodstone_1"
+    "ItemRequirements"
+    {
+      "01"                                                "item_voodoo_mask;item_soul_booster;item_void_stone"
+    }
+  }
+
+  //=================================================================================================================
+  // Bloodstone 1
+  //=================================================================================================================
+  "item_bloodstone_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/satanic_core.lua"
+    "AbilityTextureName"                                  "custom/bloodstone"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+    "AbilitySharedCooldown"                               "satanic_core"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_bloodstone_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4400"
+    "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bs;bloodstone"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "AllowedInBackpack"                                   "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_mana"                                        "425 525 675 875 1125"
+      "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
+      "hero_spell_lifesteal"                              "20 22 24 26 28"
+      "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6"
+      "buff_duration"                                     "5"
+      "lifesteal_multiplier"                              "6"
+    }
+  }
+}

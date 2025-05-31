@@ -41,7 +41,7 @@
       }
       "shard_damage"
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "75 150 225 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "shard_count"                                       "7"
@@ -52,18 +52,15 @@
       "turn_rate_slow"                                    "0"
       "aghs_shard_move_slow"
       {
-        "value"                                           "50"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "50"
       }
       "aghs_shard_damage" //OAA
       {
-        "value"                                           "40 55 70 85 145 205"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "40 55 70 85 170 255"
       }
       "aghs_shard_depth"
       {
-        "value"                                           "300"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "300"
       }
     }
   }

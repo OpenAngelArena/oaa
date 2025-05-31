@@ -54,71 +54,51 @@
       }
       "cooldown_scepter" //OAA
       {
-        "value"                                           "35 30 25 20 15"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "40 35 30 25 20"
       }
       "splash_radius_scepter"
       {
-        "value"                                           "325"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "325"
         "affected_by_aoe_increase"                        "1"
       }
       "punch_duration"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+20"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "punch_attack_range"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "=250"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "punch_bonus_damage_base"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+40"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "punch_bonus_damage_per_stack"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+30"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "punch_grace_period"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+3"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "cleave_starting_width"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+150"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "cleave_ending_width"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+360"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "cleave_distance"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+650"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "lion_fist_of_death"
       }
       "cleave_damage"
       {
-        "value"                                           "0"
         "special_bonus_facet_lion_fist_of_death"          "+50"
-        "RequiresFacet"                                   "lion_fist_of_death"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

@@ -33,13 +33,17 @@
       {
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_invoker_chaos_meteor_size"  "+25"
       }
-      "travel_distance"
+      "travel_distance" //OAA
       {
-        "value"                                           "465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750"
+        "value"                                           "465 615 765 915 1065 1215 1365 1515 1665 1815 1965"
         "levelkey"                                        "wexlevel"
       }
-      "travel_speed"                                      "300"
+      "travel_speed"
+      {
+        "value"                                           "300"
+      }
       "damage_interval"
       {
         "value"                                           "0.5"
@@ -52,15 +56,15 @@
         "affected_by_aoe_increase"                        "1"
       }
       "end_vision_duration"                               "3.0"
-      "main_damage" //OAA, Valve bad at math (+25 every non-OAA lvl)
+      "main_damage" //OAA
       {
-        "value"                                           "55 80 105 130 155 180 205 230 280 330 380 430 480 530 580"
+        "value"                                           "55 90 125 160 195 230 265 335 405 475 615"
         "levelkey"                                        "exortlevel"
       }
       "burn_duration"                                     "3.0"
       "burn_dps" //OAA
       {
-        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
+        "value"                                           "10 16 22 28 34 40 46 58 70 82 106" // needs better scaling; max lvl should be 120;
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
@@ -69,6 +73,10 @@
       {
         "value"                                           "1"
         "special_bonus_unique_invoker_additional_chaos_meteors"  "+2"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0"
       }
     }
   }

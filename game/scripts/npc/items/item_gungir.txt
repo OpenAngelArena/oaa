@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "1100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_gungir"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_maelstrom;item_rod_of_atos"
+      "01"                                                "item_point_booster;item_rod_of_atos"
     }
   }
 
@@ -36,7 +36,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
@@ -45,17 +44,18 @@
     "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "150"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_gungir_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5750"
-    "ItemShopTags"                                        "damage;agi;str;int;unique"
+    "ItemCost"                                            "4550"
+    "ItemShopTags"                                        "int;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir;gliepnir;glaypnir"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,24 +65,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "25 35 55 85 125" // Maelstrom (25)
-      "bonus_attack_speed"                                "25 30 35 40 45"
-      "chain_chance"                                      "25"
-      "chain_damage"                                      "140 180 260 380 560" // Maelstrom (120)
-      "chain_strikes"                                     "4"
-      "chain_radius"                                      "650 750 850 950 1050"
-      "chain_delay"                                       "0.25"
-      "chain_cooldown"                                    "0.2"
-      "bonus_intellect"                                   "24 29 39 54 74" // Rod of Atos (15)
-      "bonus_hp"                                          "275 525 775 1025 1275"
-      "duration"                                          "2.0 2.25 2.5 2.75 3.0"
-      "radius"
+      "bonus_aoe"                                         "50 60 70 80 90" // OAA, If changing this, change radius_tooltip
+      "bonus_hp"                                          "450 550 700 900 1150"
+      "bonus_intellect"                                   "12 17 27 42 62"
+      "bonus_mana"                                        "200 300 450 650 900"
+      "radius" //OAA
       {
-        "value"                                           "350"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "active_damage"                                     "165 315 515 765 1065"
-      "illusion_multiplier_pct"                           "100" //OAA
+      "radius_tooltip" // radius + bonus_aoe
+      {
+        "value"                                           "350 360 370 380 390"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "duration"                                          "2.0 2.25 2.5 2.75 3.0"
     }
   }
 }

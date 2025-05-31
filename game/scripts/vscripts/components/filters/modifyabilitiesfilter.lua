@@ -39,6 +39,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
   elseif ability_name == "faceless_void_time_dilation" and modifier_name == "modifier_faceless_void_time_dilation_slow" then
     victim:AddNewModifier(caster, ability, "modifier_faceless_void_time_dilation_degen_oaa", {duration = modifier_duration})
+    victim:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", modifier_duration)
   elseif (ability_name == "elder_titan_natural_order" or ability_name == "elder_titan_natural_order_spirit") and modifier_name == "modifier_elder_titan_natural_order_magic_resistance" then
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})
@@ -49,8 +50,6 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
     victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false
-  elseif modifier_name == "modifier_item_revenants_brooch_active" then
-    victim:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
   elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
     victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then

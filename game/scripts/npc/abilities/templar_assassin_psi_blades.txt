@@ -20,22 +20,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_range" //OAA
+      "bonus_attack_range"
       {
-        "value"                                           "0 50 100 150 200 250 300"
-        "special_bonus_unique_templar_assassin_8"         "+100"
+        "value"                                           "50 100 150 200 250 300 350"
       }
       "attack_spill_range" //OAA
       {
-        "value"                                           "500 550 600 650 700 750 800"
-        "special_bonus_unique_templar_assassin_8"         "+100"
+        "value"                                           "350 400 500 600 700 750 800"
       }
       "attack_spill_width"
       {
         "value"                                           "90"
         "affected_by_aoe_increase"                        "1"
       }
-      "attack_spill_pct"                                  "80 85 90 95 100 105 110" //OAA
+      "attack_spill_pct"                                  "60 70 80 90 100 110 120" //OAA
       "meld_strike_spills"
       {
         "value"                                           "0.0"

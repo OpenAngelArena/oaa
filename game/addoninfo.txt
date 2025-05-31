@@ -1,7 +1,7 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
 	TeamCount = 3
-	maps = 
+	maps =
 	[
 		"oaa_seasonal",
 		"oaa_alternate",
@@ -11,14 +11,14 @@
 	IsPlayable = 1
 	PenaltiesEnabled = false
 	EnablePickRules = 1
-	map_options = 
+	map_options =
 	[
 		{
 			MaxPlayers = 10
 			map = "oaa_seasonal"
 		},
 		{
-			MaxPlayers = 10
+			MaxPlayers = 12
 			map = "oaa_alternate"
 		},
 		{
@@ -37,12 +37,12 @@
 	Default_Keys = [  ]
 	DisableIK = true
 	EventGame = false
-	hero_picker = 
+	hero_picker =
 	{
 	}
 	HeroGuidesSupported = true
 	ForceDefaultGuide = true
-	MinimalPrecache = true
+	MinimalPrecache = false
 	MinPlayers = 1
 	MaxPlayers = 10
 }

@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12"
+    "AbilityCooldown"                                     "15 14 13 12 12 12" // Valve forgot special_bonus_unique_windranger_4
     "AbilityDuration"                                     "3 4 5 6 6.5 7"
 
     // Cost
@@ -45,29 +45,25 @@
       }
       "scepter_movespeed_bonus_pct"
       {
-        "RequiresScepter"                                 "1"
-        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
       }
       "physical_damage_pct" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "-20 -25 -30 -35 -40 -45"
+        "special_bonus_scepter"                           "-25 -30 -35 -40 -45 -50"
       }
       "cannot_be_dispelled"
       {
-        "value"                                           "0"
         "special_bonus_unique_windranger_windrun_undispellable"  "+1"
       }
       "ally_movespeed_bonus_pct"
       {
-        "value"                                           "0"
         "special_bonus_facet_windrunner_tailwind"         "=15"
       }
       "duration"                                          "3 4 5 6 6.5 7"
       "scepter_spell_amp" //OAA
       {
-        "RequiresScepter"                                 "1"
-        "value"                                           "16 20 24 28 32 36"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "16 20 24 28 32 36"
       }
     }
   }

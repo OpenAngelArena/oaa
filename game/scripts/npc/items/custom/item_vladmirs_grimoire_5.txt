@@ -50,6 +50,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -64,17 +65,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "4 8 12 16 20"
+      "bonus_all_stats"                                   "4 9 14 19 24"
       "bonus_health"                                      "175 275 425 625 875"
       "bonus_mana"                                        "175 275 425 625 875"
       // Vladmir Aura
-      "armor_aura"                                        "4 5 7 10 14"
+      "armor_aura"                                        "3 4 6 9 13"
       "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
       "lifesteal_aura"                                    "20 25 30 35 40"
-      "damage_aura"                                       "18 22 27 33 40"
+      "damage_aura"                                       "18 22 26 30 34"
       // Grimoire unique parts
-      "damage_reduction_against_bosses"                   "20 24 28 32 36"
-      "creep_damage_reduction_against_bosses"             "40 48 56 64 72"
+      "damage_reduction_against_bosses"                   "18 20 22 24 26"
+      "creep_damage_reduction_against_bosses"             "36 40 44 48 52"
       "banish_duration"                                   "4"
       "aura_radius"
       {

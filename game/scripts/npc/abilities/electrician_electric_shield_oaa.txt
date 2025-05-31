@@ -35,7 +35,8 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "24"
+        "value"                                           "18"
+        "special_bonus_facet_electrician_alternating_current"  "=24"
       }
       "duration"
       {
@@ -63,20 +64,17 @@
         "value"                                           "0"
         "special_bonus_facet_electrician_direct_current"  "=70"
         "CalculateSpellDamageTooltip"                     "0"
-        "RequiresFacet"                                   "electrician_direct_current"
       }
       "attack_damage_block" // Alternating Current
       {
         "value"                                           "0"
         "special_bonus_facet_electrician_alternating_current"  "=15 =35 =55 =75 =150 =225"
         "CalculateSpellDamageTooltip"                     "0"
-        "RequiresFacet"                                   "electrician_alternating_current"
       }
       "bonus_magic_resist" // Alternating Current
       {
         "value"                                           "0"
         "special_bonus_facet_electrician_alternating_current"  "=15 =20 =25 =30 =35 =40"
-        "RequiresFacet"                                   "electrician_alternating_current"
       }
       "aura_radius" // both Direct Current & Alternating Current
       {
@@ -101,15 +99,13 @@
         "special_bonus_facet_electrician_no_current"      "=70"
         "special_bonus_unique_electrician_2_oaa"          "+30"
         "CalculateSpellDamageTooltip"                     "0"
-        "RequiresFacet"                                   "electrician_no_current"
       }
       "bonus_attack_damage" // No Current
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_no_current"      "=25 =35 =45 =55 =110 =165"
+        "special_bonus_facet_electrician_no_current"      "=25 =35 =45 =55 =110 =220"
         "special_bonus_unique_electrician_5_oaa"          "+100"
         "CalculateSpellDamageTooltip"                     "0"
-        "RequiresFacet"                                   "electrician_no_current"
       }
     }
 

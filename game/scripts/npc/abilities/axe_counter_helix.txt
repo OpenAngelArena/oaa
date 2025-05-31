@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Axe Counter Helix
+  // Axe: Counter Helix
   //=================================================================================================================
   "axe_counter_helix"
   {
@@ -21,8 +21,8 @@
     {
       "damage"
       {
-        "value"                                           "95 120 145 170 340 510"
-        "special_bonus_unique_axe_4"                      "+25"
+        "value"                                           "100 120 140 160 320 480"
+        "special_bonus_unique_axe_4"                      "+30"
       }
       "radius"
       {
@@ -39,9 +39,9 @@
       {
         "special_bonus_scepter"                           "+6.0"
       }
-      "damage_reduction" //OAA, to prevent 100%
+      "damage_reduction" // only attack damage reduction
       {
-        "special_bonus_scepter"                           "+18"
+        "special_bonus_scepter"                           "+12"
       }
       "max_stacks"
       {

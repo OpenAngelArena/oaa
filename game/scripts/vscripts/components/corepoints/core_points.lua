@@ -13,9 +13,61 @@ function CorePointsManager:Init()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
-
+  local upgrade_items_ids = self:ItemIdTableCreate()
+  CustomNetTables:SetTableValue("item_kv", "upgrade_items", upgrade_items_ids)
   self.playerID_table = {}
 end
+
+local forcedUpgrades = {
+  item_power_treads = "item_greater_power_treads"
+}
+
+function CorePointsManager:ItemIdTableCreate()
+  local custom_items = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  local upgrade_item_ids = {}
+  for item_name, item_values in pairs(custom_items) do
+    if (item_values["UpgradesItems"] ~= nil and item_values["UpgradesItems"] ~= "") then
+      local item_ids_needed = self:GetUpgradeItemIds(item_name, item_values["UpgradesItems"])
+      upgrade_item_ids[item_name] = item_ids_needed
+    end
+  end
+  for item_name, item_upgrades in pairs(forcedUpgrades) do
+    local item_ids_needed = self:GetUpgradeItemIds(item_name, item_upgrades)
+    upgrade_item_ids[item_name] = item_ids_needed
+  end
+  return upgrade_item_ids
+end
+
+function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
+  local item_ids_needed = {}
+  local item_upgrade_recipe = item_upgrade:gsub("item_", "item_recipe_")
+  local item_requirements = {}
+  for substr in GetAbilityKeyValuesByName(item_upgrade_recipe)["ItemRequirements"]["01"]:gmatch("([^;]+)") do
+    table.insert(item_requirements, substr)
+  end
+  local needs_upgrade_core = false
+  for index, value in ipairs(item_requirements) do
+    if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] ~= nil and GetAbilityKeyValuesByName(value)["ItemCost"] ~= nil) then
+      if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] > 0 and GetAbilityKeyValuesByName(value)["ItemCost"] == 1) then
+        --print(value)
+        table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
+        needs_upgrade_core = true
+      end
+    end
+  end
+  if needs_upgrade_core then
+    --print(item_upgrade_recipe)
+    table.insert(item_ids_needed, GetAbilityKeyValuesByName(item_upgrade_recipe)["ID"])
+  else
+    for index, value in ipairs(item_requirements) do
+      if value ~= item_name then
+        table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
+      end
+    end
+  end
+  return item_ids_needed
+end
+
 
 function CorePointsManager:GetState()
   local state = {}
@@ -75,6 +127,8 @@ function CorePointsManager:FilterOrders(keys)
   -- DOTA_UNIT_ORDER_SET_ITEM_COMBINE_LOCK = 32
   -- DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN = 37
   -- DOTA_UNIT_ORDER_TAKE_ITEM_FROM_NEUTRAL_ITEM_STASH = 39
+  -- DOTA_UNIT_ORDER_CONSUME_ITEM = 41
+  -- DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL = 42
 
   if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
     -- Check if needed variables exist
@@ -136,6 +190,12 @@ function CorePointsManager:FilterOrders(keys)
       if string.find(target:GetName(), "shop") ~= nil then
         --local purchaser = ability:GetPurchaser()
         self:AddCorePoints(self:GetCorePointsSellValue(ability), unit_with_order, playerID)
+      end
+    end
+  elseif order == DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL then
+    if unit_with_order and ability then
+      if CorePointsManager:GetCorePointsFullValue(ability) > 0 then
+        return false
       end
     end
   end

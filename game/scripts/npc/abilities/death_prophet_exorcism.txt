@@ -52,35 +52,31 @@
       "hero_spirit_min_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_death_prophet_ghosts"        "=88 =96 =104 =164 =264"
+        "special_bonus_facet_death_prophet_ghosts"        "=88 =106 =124 =164 =264"
       }
       "hero_spirit_max_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_death_prophet_ghosts"        "=94 =102 =110 =170 =270"
+        "special_bonus_facet_death_prophet_ghosts"        "=94 =112 =130 =170 =270"
       }
       "heal_percent"                                      "25"
       "average_damage"                                    "65 75 85 115 165" //OAA, important for tooltip
       "ghost_spawn_rate"                                  "0.35"
       "scepter_movespeed_slow"
       {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "100"
       }
       "scepter_movespeed_debuff_duration"
       {
-        "value"                                           "0.3"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "0.3"
       }
       "scepter_spirit_life_duration"
       {
-        "value"                                           "20"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "20"
       }
       "scepter_spirit_bonus_damage" // this is a percent increase
       {
-        "value"                                           "50 50 50 75 100"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "50 50 50 75 100"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "movement_bonus"                                    "4 8 12 16 20"

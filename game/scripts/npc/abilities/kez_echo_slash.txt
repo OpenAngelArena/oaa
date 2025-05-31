@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 13 12"
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,11 +36,13 @@
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "value"                                           "70 80 90 100 110 120"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "echo_hero_damage"
+      "echo_hero_damage" // bonus dmg
       {
-        "value"                                           "25 45 65 85 170 340"
+        "value"                                           "20 40 60 80 160 320"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "katana_strikes"
       {

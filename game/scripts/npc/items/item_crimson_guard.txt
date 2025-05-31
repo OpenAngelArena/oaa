@@ -45,7 +45,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_crimson_guard;item_crimson_guard_2;item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
+    "UpgradesItems"                                       "item_crimson_guard_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "350 450 600 800 1050" //OAA
+      "bonus_health"                                      "300 400 550 750 1000" //OAA
       "bonus_health_regen"                                "12 15 18 21 24"
       "bonus_armor"                                       "7 8 10 13 17" //OAA
       "block_damage_melee"                                "75 125 175 225 275"

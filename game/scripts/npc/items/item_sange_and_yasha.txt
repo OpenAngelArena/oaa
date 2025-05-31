@@ -14,6 +14,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_sange_and_yasha_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,11 +31,11 @@
     {
       "bonus_strength"                                    "20 25 35 50 70" //OAA
       "bonus_agility"                                     "20 25 35 50 70" //OAA
-      "status_resistance"                                 "20 22 24 26 28" //OAA
+      "status_resistance"                                 "18 20 22 24 26" //OAA
       "bonus_attack_speed"                                "15 20 25 30 35" //OAA, Yasha (15);
       "movement_speed_percent_bonus"                      "10 12 14 16 18" //OAA, Yasha (10);
-      "hp_regen_amp"                                      "22 24 26 28 30" //OAA, Sange (20);
-      "slow_resistance"                                   "20 22 24 26 28" //OAA, Sange (20);
+      "hp_regen_amp"                                      "20 22 24 26 28"
+      "slow_resistance"                                   "22 24 26 28 30" //OAA, Sange (20);
     }
   }
 }

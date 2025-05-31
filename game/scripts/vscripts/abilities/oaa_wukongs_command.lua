@@ -15,7 +15,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 2 -- Change this if Monkey King has extra ring talent
-      local max_number_of_monkeys_per_ring = math.max(self:GetSpecialValueFor("num_second_soldiers_scepter"), self:GetSpecialValueFor("num_third_soldiers_scepter"))
+      local max_number_of_monkeys_per_ring = 10
       local hidden_point = Vector(-10000, -10000, -10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -46,7 +46,7 @@ if IsServer() then
     -- Do this only if Wukong's command is not active to prevent lag (Wukong's Command is active only if caster has a buff)
     if self.clones and (not caster:HasModifier("modifier_wukongs_command_oaa_buff")) and caster:IsRealHero() then
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
+      local max_number_of_monkeys_per_ring = 11
       -- Update items of the clones
       for i= 1, max_number_of_rings do
         self:CopyCasterItems(self.clones[i]["top"], caster)
@@ -158,17 +158,6 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
 end
 ]]
 
-function monkey_king_wukongs_command_oaa:GetCooldown(level)
-  local cooldown = self.BaseClass.GetCooldown(self, level)
-  local caster = self:GetCaster()
-
-  if caster:HasScepter() then
-    cooldown = self:GetSpecialValueFor("cooldown_scepter")
-  end
-
-  return cooldown
-end
-
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   if not IsServer() then
     return
@@ -240,12 +229,6 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     if caster:HasScepter() then
       third_ring = self:GetSpecialValueFor("num_third_soldiers_scepter")
     end
-  end
-
-  -- Scepter extra monkeys
-  if caster:HasScepter() then
-    first_ring = self:GetSpecialValueFor("num_first_soldiers_scepter")
-    second_ring = self:GetSpecialValueFor("num_second_soldiers_scepter")
   end
 
   -- Sound (EmitSoundOn doesn't respect fog of war)
@@ -803,11 +786,15 @@ if IsServer() then
       -- Reset failure count
       parent.failure_count = 0
       -- Apply no-lifesteal modifier
-      local mod = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
+      local mod1 = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
+      local mod2 = caster:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", -1)
       -- Apply caster's attack that cannot miss
       caster:PerformAttack(target, true, true, true, false, false, false, true)
       -- Remove no-lifesteal modifier
-      mod:Destroy()
+      mod1:Destroy()
+      if mod2 then
+        mod2:Destroy()
+      end
     else
       -- Increment failure count
       parent.failure_count = pseudo_rng_mult
@@ -942,13 +929,14 @@ end
 
 function modifier_wukongs_command_oaa_no_lifesteal:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
-function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
-  return -200
-end
+-- Doesn't work, I hate you Valve!
+-- function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
+  -- return -200
+-- end
 
 ---------------------------------------------------------------------------------------------------
 

@@ -5,10 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_lich"
   {
-    //"Ability5"                                           "generic_hidden"// replaces lich_death_charge //TODO: new innate
-
     "Ability14"                                           "special_bonus_unique_lich_1_oaa" //replaces "special_bonus_unique_lich_7"
 
-    "Ability17"                                           "special_bonus_unique_lich_7" //replaces "special_bonus_unique_lich_5"
+    "Ability17"                                           "special_bonus_unique_lich_7" //replaces "special_bonus_unique_lich_jump_damage"
   }
 }

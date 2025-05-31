@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,29 +37,19 @@
       "duration"
       {
         "value"                                           "6.0"
-        "special_bonus_unique_arc_warden_4"               "+2.0"
+        "special_bonus_scepter"                           "+2.0"
       }
-      "search_radius"                                     "150" //OAA
+      "search_radius"                                     "200" //OAA
       "think_interval"                                    "0.5"
       "damage_per_second"
       {
         "value"                                           "15 30 45 60 120 180"
-        "RequiresFacet"                                   "arc_warden_order"
+        "special_bonus_scepter"                           "+50%"
       }
       "move_speed_slow_pct"
       {
-        "value"                                           "15 22 30 39 49 60"
-        "RequiresFacet"                                   "arc_warden_order"
-      }
-      "tempest_damage_per_second"
-      {
-        "value"                                           "20 45 70 95 190 285"
-        "RequiresFacet"                                   "arc_warden_disorder"
-      }
-      "tempest_move_speed_slow_pct"
-      {
-        "value"                                           "5 8 11 14 17 20"
-        "RequiresFacet"                                   "arc_warden_disorder"
+        "value"                                           "14 21 28 35 42 49"
+        "special_bonus_unique_arc_warden_4"               "+20"
       }
       "AbilityCastRange"
       {
@@ -69,7 +59,7 @@
       "applies_silence"
       {
         "value"                                           "0"
-        "special_bonus_unique_arc_warden_flux_silences"   "1"
+        "special_bonus_scepter"                           "1"
       }
     }
   }

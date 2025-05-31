@@ -43,7 +43,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "width"                                             "100"
-      "spear_damage"                                      "100 200 300 600 900" //OAA special_bonus_unique_mars_2_oaa
+      "spear_damage"                                      "100 200 300 450 600" //OAA special_bonus_unique_mars_2_oaa
       "formation_time"                                    "0.1"
       "spear_distance_from_wall"                          "160"
       "spear_attack_interval"                             "1"
@@ -71,6 +71,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_mars_victory_feast"          "+30"
+      }
+      "allied_reduction_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_mars_victory_feast"          "+50"               
       }
     }
   }

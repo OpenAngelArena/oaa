@@ -34,11 +34,11 @@
       "ensnare_duration"                                  "0.8 1.2 1.6 2.0 2.1 2.2"
       "maim_chance"                                       "20"
       "maim_duration"                                     "0.8 1.2 1.6 2.0 2.1 2.2"
-      "maim_slow"                                         "8 16 24 32 36 40"
-      "maim_attack_slow"                                  "8 16 24 32 36 40"    //note:currently unused in code, just tooltips.
+      "maim_slow"                                         "8 16 24 32 36 40" // affects attack speed slow too
+      "maim_attack_slow"                                  "8 16 24 32 36 40" // tooltip only
       "maim_damage"
       {
-        "value"                                           "5 10 15 20 40 60"
+        "value"                                           "10 15 20 25 50 75"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

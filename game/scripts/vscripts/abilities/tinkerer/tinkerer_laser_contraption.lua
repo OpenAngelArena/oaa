@@ -400,7 +400,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
 
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
-        ally:Heal(heal_per_interval, ability)
+        --ally:Heal(heal_per_interval, ability)
+        ally:HealWithParams(heal_per_interval, ability, false, true, real_caster, false)
       end
     end
   end
@@ -450,8 +451,10 @@ function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE,
   }
 end
 
@@ -463,11 +466,22 @@ function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Pe
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplification()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplificationUnique()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
@@ -557,7 +571,11 @@ if IsServer() then
 
     -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then
-      parent:Kill(ability, attacker)
+      if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        parent:ForceKillOAA(false)
+      else
+        parent:Kill(ability, attacker)
+      end
     else
       parent:SetHealth(parent:GetHealth() - damage)
     end

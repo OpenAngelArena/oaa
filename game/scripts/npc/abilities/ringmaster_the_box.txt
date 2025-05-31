@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,10 +32,9 @@
       "AbilityCastRange"
       {
         "value"                                           "600"
-        "special_bonus_unique_ringmaster_box_cast_range"  "+200"
       }
       "invis_duration"                                    "2.0 2.4 2.8 3.2 3.3 3.4"
-      "move_speed"                                        "5 10 15 20 25 30"
+      "move_speed"                                        "5 10 15 20 25 30" //OAA
       "magic_resist"                                      "50 60 70 80 85 90"
       "slow_resist"                                       "100"
       "transform_time"                                    "0.5"
@@ -51,18 +50,15 @@
       }
       "strong_dispel"
       {
-        "value"                                           "0"
         "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"  "+1"
       }
       "grant_flying"
       {
-        "value"                                           "0"
         "special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"  "+1"
       }
       "max_charges"
       {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "2"
       }
       "AbilityCooldown" //OAA
       {
@@ -76,22 +72,19 @@
       }
       "launch_daggers_count"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=8"
       }
       "launch_daggers_range"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=1200"
       }
-      "explosion_radius"
+      "explosion_radius" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "=225"
+        "special_bonus_scepter"                           "=325"
+        "affected_by_aoe_increase"                        "1"
       }
       "explosion_damage" //OAA
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "=75 =150 =225 =300 =600 =900"
       }
     }

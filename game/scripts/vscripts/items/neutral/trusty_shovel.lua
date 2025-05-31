@@ -1,10 +1,4 @@
-LinkLuaModifier("modifier_item_trusty_shovel_oaa_passive", "items/neutral/trusty_shovel.lua", LUA_MODIFIER_MOTION_NONE)
-
 item_trusty_shovel_oaa = class(ItemBaseClass)
-
-function item_trusty_shovel_oaa:GetIntrinsicModifierName()
-  return "modifier_item_trusty_shovel_oaa_passive"
-end
 
 function item_trusty_shovel_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -24,7 +18,7 @@ function item_trusty_shovel_oaa:OnSpellStart()
 
   if game_time <= 10*60 then
     self.rewards = {
-      "kobold_soldier",
+      "kobold",
       "flask",
       "enchanted_mango",
       "bottle",
@@ -33,6 +27,7 @@ function item_trusty_shovel_oaa:OnSpellStart()
     }
   elseif game_time > 10*60 and game_time <= 20*60 then
     self.rewards = {
+      "kobold_soldier",
       "kobold_commander",
       "burst_elixir",
       "famango",
@@ -40,16 +35,16 @@ function item_trusty_shovel_oaa:OnSpellStart()
   elseif game_time > 20*60 and game_time <= 30*60 then
     self.rewards = {
       "harpy",
+      "kobold_commander",
       "burst_elixir",
-      "sustain_elixir",
       "great_famango",
     }
   elseif game_time > 30*60 and game_time <= 40*60 then
     self.rewards = {
       "ghost",
+      "harpy",
       "burst_elixir",
       "sustain_elixir",
-      "hybrid_elixir",
       "great_famango",
     }
   elseif game_time > 40*60 then
@@ -243,38 +238,3 @@ end
   -- --EXP BOUNTY
   -- creepHandle:SetDeathXP(math.floor(creepProperties[5]))
 -- end
-
----------------------------------------------------------------------------------------------------
-
-modifier_item_trusty_shovel_oaa_passive = class(ModifierBaseClass)
-
-function modifier_item_trusty_shovel_oaa_passive:IsHidden()
-  return true
-end
-
-function modifier_item_trusty_shovel_oaa_passive:IsDebuff()
-  return false
-end
-
-function modifier_item_trusty_shovel_oaa_passive:IsPurgable()
-  return false
-end
-
-function modifier_item_trusty_shovel_oaa_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-  end
-end
-
-modifier_item_trusty_shovel_oaa_passive.OnRefresh = modifier_item_trusty_shovel_oaa_passive.OnCreated
-
-function modifier_item_trusty_shovel_oaa_passive:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-  }
-end
-
-function modifier_item_trusty_shovel_oaa_passive:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end

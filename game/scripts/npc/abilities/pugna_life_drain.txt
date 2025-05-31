@@ -36,7 +36,7 @@
     {
       "health_drain" //OAA
       {
-        "value"                                           "150 350 550 950 1350"
+        "value"                                           "150 350 550 850 1150"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
@@ -47,44 +47,37 @@
       }
       "ally_healing" //OAA
       {
-        "value"                                           "150 350 550 950 1350"
+        "value"                                           "150 350 550 850 1150"
       }
-      "health_to_mana_rate"                               "50"
+      "health_to_mana_rate"                               "0"
       "tick_rate"                                         "0.25"
       "drain_buffer"                                      "200"
       "shard_damage_pct_from_ward"
       {
-        "value"                                           "75"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "75"
       }
       "bonus_heal_pct"
       {
-        "value"                                           "0"
         "special_bonus_unique_pugna_1"                    "+20"
       }
       "spell_amp_drain_rate"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+8"
       }
       "spell_amp_drain_max"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+75"
       }
       "spell_amp_drain_rate_ward"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+4"
       }
       "spell_amp_drain_duration"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+8"
       }
       "max_spell_amp_drain_pct"
       {
-        "value"                                           "0"
         "special_bonus_scepter"                           "+100"
       }
       "AbilityCooldown"

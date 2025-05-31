@@ -38,7 +38,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/heavens_halberd_4"
 
     // Stats
@@ -47,11 +47,11 @@
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "25"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16403"
+    "ItemCost"                                            "15603"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd 4;halberd 4"
@@ -60,18 +60,20 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_heavens_halberd_4"
+    "UpgradesItems"                                       "item_heavens_halberd_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_evasion"                                     "20 25 30 35 40"
-      "bonus_strength"                                    "20 30 45 65 90"
+      "bonus_health"                                      "275 375 525 725 975"
+      "bonus_health_regen"                                "6 9 12 15 18"
+      "block_damage_melee"                                "60 120 180 240 300"
+      "block_damage_ranged"                               "30 60 90 120 150"
+      "block_chance"                                      "60"
+      "bonus_all_stats"                                   "5 10 15 20 25"
       "disarm_range"                                      "4.0 4.5 5.0 5.5 6.0"
       "disarm_melee"                                      "3.0 3.25 3.5 3.75 4.0"
-      "slow_resistance"                                   "25 27 29 31 33"
-      "hp_regen_amp"                                      "25 27 29 31 33"
       "cooldown_tooltip"                                  "18 17 16 15 14"
     }
   }

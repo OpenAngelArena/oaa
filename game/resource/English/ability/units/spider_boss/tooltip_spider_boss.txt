@@ -32,14 +32,14 @@
 "dota_tooltip_ability_spider_boss_poison_spit_duration"                         "DURATION:"
 
 "dota_tooltip_ability_spider_boss_rage"                                         "Ankaboot Rage"
-"dota_tooltip_ability_spider_boss_rage_description"                             "Ankaboot becomes filled with rage, gains lifesteal, bonus damage and bonus movement speed. Ankaboot's attack speed cannot be slowed when enraged."
-"dota_tooltip_ability_spider_boss_rage_bonus_damage"                            "BONUS DAMAGE:"
+"dota_tooltip_ability_spider_boss_rage_description"                             "Ankaboot becomes filled with rage, gains lifesteal and bonus movement speed. Ankaboot's attack speed cannot be slowed when enraged."
+"dota_tooltip_ability_spider_boss_rage_base_attack_time"                        "RAGE BAT:"
 "dota_tooltip_ability_spider_boss_rage_lifesteal_pct"                           "%BONUS LIFESTEAL:"
 "dota_tooltip_ability_spider_boss_rage_bonus_movespeed_pct"                     "%BONUS MOVE SPEED:"
 "dota_tooltip_ability_spider_boss_rage_duration"                                "DURATION:"
 
 "DOTA_Tooltip_modifier_spider_boss_rage"                                        "#{dota_tooltip_ability_spider_boss_rage}"
-"DOTA_Tooltip_modifier_spider_boss_rage_Description"                            "Unslowable attack speed, damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% and lifestealing for %dMODIFIER_PROPERTY_TOOLTIP%%%."
+"DOTA_Tooltip_modifier_spider_boss_rage_Description"                            "Improved BAT, Unslowable attack speed, lifestealing for %dMODIFIER_PROPERTY_TOOLTIP%%% and bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed."
 
 "DOTA_Tooltip_Ability_spider_boss_spidershot"                                   "Spidershot"
 "DOTA_Tooltip_Ability_spider_boss_spidershot_Description"                       "Shoots spider cocoons which damage the first unit they pass as well as erupting into a swarm of explosive spiders after a delay, unless they are destroyed."

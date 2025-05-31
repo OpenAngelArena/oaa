@@ -28,15 +28,16 @@ function HeroSelection:Init ()
   self.moduleName = "HeroSelection"
 
   self.isCM = GetMapName() == "captains_mode"
-  self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
-  self.isRanked = GetMapName() == "oaa_alternate" or GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode"
-  self.lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" or GetMapName() == "oaa_alternate"
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode" or GetMapName() == "oaa_alternate"
+  self.lowPlayerCount = GetMapName() == "tinymode" or GetMapName() == "tiny_legacy"
+  self.is6v6 = GetMapName() == "oaa_alternate"
 
   local herolistFile = 'scripts/npc/herolist.txt'
   if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
-  if self.is10v10 then
+  if self.is10v10 and not self.is6v6 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
   if self.lowPlayerCount then
@@ -175,7 +176,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
         lockedHeroes[playerid] = new_hero_name
       elseif hero_name then
@@ -221,7 +222,7 @@ function HeroSelection:Init ()
           PrecacheUnitByNameAsync(new_hero_name, function()
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          end, playerid)
         end
       end
     end
@@ -628,6 +629,9 @@ function HeroSelection:ChooseBans ()
       if HeroSelection.is10v10 then
         maxBansPerTeam = 6
       end
+      if HeroSelection.is6v6 then
+        maxBansPerTeam = 4
+      end
       while banCount < totalChoices / 2 do
         local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
         local playerID = playerIDs[choiceNum]
@@ -680,7 +684,7 @@ function HeroSelection:ChooseBans ()
 
       -- Randomly ban certain number of heroes
       local random_draft_bans = math.ceil(#list_of_hero_names * 60/100)
-      if HeroSelection.is10v10 then
+      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
         random_draft_bans = math.ceil(#list_of_hero_names * 40/100)
       end
       DebugPrint("RANDOM DRAFT: Banning "..tostring(random_draft_bans).." random heroes")
@@ -999,7 +1003,7 @@ function HeroSelection:SelectHero (playerId, hero)
   if not player then
     PrecacheUnitByNameAsync(hero_name, function()
       loadedHeroes[hero_name] = true
-    end)
+    end, playerId)
   end
 end
 

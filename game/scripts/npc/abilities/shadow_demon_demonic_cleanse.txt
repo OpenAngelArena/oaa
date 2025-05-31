@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -15,12 +15,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve has it wrong: SPELL_IMMUNITY_ENEMIES_YES
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "6.0"
-    "AbilityCooldown"                                     "70 65 60 60 60"
+    "AbilityDuration"                                     "5.0"
+    "AbilityCooldown"                                     "60"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,31 +29,15 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "purge_damage" //OAA
+      "purge_damage"
       {
-        "value"                                           "300 600 900 1800 2700"
-        "special_bonus_unique_shadow_demon_1"             "+150"
-      }
-      "max_charges"
-      {
-        "value"                                           "2"
-        "RequiresScepter"                                 "1"
-      }
-      "charge_restore_time"
-      {
-        "value"                                           "70 65 60 60 60"
-        "RequiresScepter"                                 "1"
-      }
-      "charge_restore_time_tooltip_scepter"
-      {
-        "value"                                           "70 65 60 60 60"
-        "RequiresScepter"                                 "1"
+        "value"                                           "450"
       }
     }
   }

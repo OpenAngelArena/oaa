@@ -58,8 +58,11 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "SpeciallyBannedFromNeutralSlot"                      "1"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_greater_travel_boots_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

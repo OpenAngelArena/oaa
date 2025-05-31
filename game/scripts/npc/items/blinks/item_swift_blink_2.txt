@@ -41,7 +41,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1200 1250 1300 1350 1400"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0 14.0 13.0 12.0 11.0"
     "AbilityManaCost"                                     "0"
@@ -51,7 +51,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_swift_blink_2;item_swift_blink_3;item_swift_blink_4"
+    "UpgradesItems"                                       "item_swift_blink_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -66,9 +66,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"                                       "1200"
+      "blink_range"                                       "1200 1250 1300 1350 1400"
       "blink_damage_cooldown"                             "3.0"
-      "blink_range_clamp"                                 "960"
+      "blink_range_clamp"                                 "960 1000 1040 1080 1120"
       "bonus_agility"                                     "25 30 40 55 75"
       "bonus_movement"                                    "40"
       "bonus_agi_active"                                  "35 40 50 65 85"

@@ -13,13 +13,13 @@
 
     "AbilityValues"
     {
-      "explosion_delay"                                   ".2"
+      "explosion_delay"                                   ".3"
       "explosion_radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "explosion_dmg"                                     "25 70 115 160 205 410 820"
+      "explosion_dmg"                                     "25 70 115 160 205 340 565"
       "explosion_nonhero_reduce"                          "50"
 
       "bonus_hp"                                          "0 80 160 240 320 640 1280"
