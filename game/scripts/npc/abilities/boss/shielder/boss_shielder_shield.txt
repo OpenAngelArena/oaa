@@ -22,13 +22,5 @@
       "shield_width"                                      "0.5 -0.173 -0.766" // In terms of cosine
       "damage_return_pct"                                 "20" // damage return when damaged from the front
     }
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/shielder/hex_shield_1.vpcf"
-      "particle"                                          "particles/shielder/hex_shield_2.vpcf"
-      "particle"                                          "particles/shielder/hex_shield_3.vpcf"
-    }
   }
 }

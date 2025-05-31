@@ -212,6 +212,10 @@ if IsServer() then
         end
       else
         -- Victim is on Radiant or Dire team
+        if attacker:IsOAABoss() or victim:IsOAABoss() then
+          -- when testing bosses do not track
+          return
+        end
         if victim_team == attacker_team then
           -- Victim and Attacker are allies -> do not track the damage
           return
