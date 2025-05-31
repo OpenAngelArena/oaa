@@ -25,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "2.2 2.6 3.0 3.4 3.8 4.2" //OAA
-    "AbilityCooldown"                                     "10" //OAA
+    "AbilityCooldown"                                     "14 13 12 11 10 9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -76,22 +76,18 @@
       {
         "special_bonus_scepter"                           "100"
       }
-
       "scepter_shock_radius"
       {
         "special_bonus_scepter"                           "600"
       }
-
       "scepter_shock_interval"
       {
         "special_bonus_scepter"                           "0.9"
       }
-
       "alt_cast_on_allies"
       {
         "special_bonus_scepter"                           "1"
       }
-
       "ally_break_range"
       {
         "special_bonus_scepter"                           "2000"

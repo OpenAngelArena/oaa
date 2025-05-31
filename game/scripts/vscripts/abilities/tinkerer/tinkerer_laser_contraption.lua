@@ -451,8 +451,10 @@ function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE,
   }
 end
 
@@ -464,11 +466,22 @@ function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Pe
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplification()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplificationUnique()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 

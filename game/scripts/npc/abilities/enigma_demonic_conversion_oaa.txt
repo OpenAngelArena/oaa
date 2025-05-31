@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "450 500 550 600 650 700" // same as Malefice
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
@@ -29,7 +29,7 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 80 90 100 110 120"
-    "AbilityHealthCost"                                   "70 80 90 100 110 120"
+    "AbilityHealthCost"                                   "75 100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,6 +68,8 @@
       "eidelon_base_movespeed"                            "370"
       "eidolon_magic_resist"                              "60"
       "eidolon_attack_range"                              "500"
+      "allied_damage_pct"                                 "45" // unused
+      "self_modelscale"                                   "-40" // unused
       "spawn_offset"                                      "100"
       "current_health_pct"                                "3"
       "eidolon_xp_bounty"                                 "10"

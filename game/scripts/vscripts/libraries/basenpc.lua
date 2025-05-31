@@ -460,6 +460,32 @@ if IsServer() then
 
     return true
   end
+
+  -- Apply a modifier only if it's not from the same source ability otherwise just refresh
+  function CDOTA_BaseNPC:ApplyNonStackableBuff(caster, ability, mod_name, duration)
+    if not ability then
+      return
+    end
+    local applied_by_this_ability = false
+    local ability_name = ability:GetAbilityName()
+    local mods = self:FindAllModifiersByName(mod_name)
+    for _, mod in pairs(mods) do
+      if mod and not mod:IsNull() then
+        local mod_ability = mod:GetAbility()
+        if mod_ability then
+          local mod_ability_name = mod_ability:GetAbilityName()
+          if string.find(mod_ability_name, string.sub(ability_name, 0, string.len(ability_name)-4)) then
+            applied_by_this_ability = true
+            mod:ForceRefresh()
+            break
+          end
+        end
+      end
+    end
+    if not applied_by_this_ability then
+      return self:AddNewModifier(caster, ability, mod_name, {duration = duration})
+    end
+  end
 end
 
 -- On Server:

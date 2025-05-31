@@ -145,8 +145,6 @@ function modifier_item_satanic_core:DeclareFunctions()
     --MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     --MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
-    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
-    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_AOE_BONUS_CONSTANT, -- GetModifierAoEBonusConstant
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
   }
@@ -197,24 +195,6 @@ end
     -- return 0
   -- end
   -- return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
--- end
-
--- function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
-  -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items and with itself
-  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
-    -- return 0
-  -- end
-  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
--- end
-
--- function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
-  -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items and with itself
-  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
-    -- return 0
-  -- end
-  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 -- end
 
 -- Doesn't work, Thanks Valve

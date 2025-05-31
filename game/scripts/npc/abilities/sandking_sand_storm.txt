@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Sand Storm
+  // Sand King: Sand Storm
   //=================================================================================================================
   "sandking_sand_storm"
   {
@@ -46,7 +46,7 @@
       "sand_storm_damage"
       {
         "value"                                           "30 50 70 90 180 270"
-        "special_bonus_unique_sand_king_2"                "+20"
+        "special_bonus_unique_sand_king_2"                "+25"
       }
       "fade_delay" //OAA
       {

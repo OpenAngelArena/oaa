@@ -128,9 +128,9 @@ function modifier_omniknight_degen_aura_effect_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -150,13 +150,15 @@ function modifier_omniknight_degen_aura_effect_oaa:GetModifierHPRegenAmplify_Per
   return self.heal_prevent_percent
 end
 
-function modifier_omniknight_degen_aura_effect_oaa:GetModifierLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_omniknight_degen_aura_effect_oaa:GetModifierLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end
 
-function modifier_omniknight_degen_aura_effect_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_omniknight_degen_aura_effect_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end
 
 function modifier_omniknight_degen_aura_effect_oaa:GetEffectName()
   return "particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"

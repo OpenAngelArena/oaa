@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Counterspell Ally (shard ability)
+  // Anti-Mage: Counterspell Ally (shard ability)
   //=================================================================================================================
   "antimage_counterspell_ally"
   {
@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
@@ -46,15 +45,15 @@
       }
       "mana_drain_percent"
       {
-        "special_bonus_facet_antimage_magebanes_mirror"   "=270"
+        "special_bonus_facet_antimage_magebanes_mirror"   "=300"
       }
       "damage_from_mana_drain_percent"
       {
         "special_bonus_facet_antimage_magebanes_mirror"   "100"
       }
-      "max_damage_from_mana_drain"
+      "max_damage_from_mana_drain" //OAA
       {
-        "special_bonus_facet_antimage_magebanes_mirror"   "400"
+        "special_bonus_facet_antimage_magebanes_mirror"   "1200"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Counterspell
+  // Anti-Mage: Counterspell
   //=================================================================================================================
   "antimage_counterspell"
   {
@@ -46,7 +46,7 @@
       }
       "mana_drain_percent"
       {
-        "special_bonus_facet_antimage_magebanes_mirror"   "=150 =190 =230 =270 =285 =300"
+        "special_bonus_facet_antimage_magebanes_mirror"   "=150 =200 =250 =300 =350 =400"
       }
       "damage_from_mana_drain_percent"
       {
@@ -54,7 +54,7 @@
       }
       "max_damage_from_mana_drain"
       {
-        "special_bonus_facet_antimage_magebanes_mirror"   "400"
+        "special_bonus_facet_antimage_magebanes_mirror"   "400 400 400 400 800 1200"
       }
       "AbilityCooldown"
       {

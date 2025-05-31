@@ -786,11 +786,15 @@ if IsServer() then
       -- Reset failure count
       parent.failure_count = 0
       -- Apply no-lifesteal modifier
-      local mod = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
+      local mod1 = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
+      local mod2 = caster:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", -1)
       -- Apply caster's attack that cannot miss
       caster:PerformAttack(target, true, true, true, false, false, false, true)
       -- Remove no-lifesteal modifier
-      mod:Destroy()
+      mod1:Destroy()
+      if mod2 then
+        mod2:Destroy()
+      end
     else
       -- Increment failure count
       parent.failure_count = pseudo_rng_mult
@@ -925,13 +929,14 @@ end
 
 function modifier_wukongs_command_oaa_no_lifesteal:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
-function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
-  return -200
-end
+-- Doesn't work, I hate you Valve!
+-- function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
+  -- return -200
+-- end
 
 ---------------------------------------------------------------------------------------------------
 

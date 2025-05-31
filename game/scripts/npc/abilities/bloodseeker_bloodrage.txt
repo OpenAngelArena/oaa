@@ -7,19 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Valve has it wrong (SPELL_IMMUNITY_ENEMIES_YES doesn't make sense if you can target only allies)
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2" // Valve DOTA_ABILITY_BEHAVIOR_IMMEDIATE overrides this afaik
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -70,7 +67,7 @@
       }
       "base_damage_amp"
       {
-        "special_bonus_facet_bloodseeker_old_blood"       "=10 =15 =20 =25 =30 =35"
+        "special_bonus_facet_bloodseeker_old_blood"       "=15 =20 =25 =30 =35 =40"
         "special_bonus_unique_bloodseeker_6"              "+15"
       }
       "AbilityManaCost"
@@ -83,6 +80,7 @@
         "value"                                           "800"
         "special_bonus_facet_bloodseeker_old_blood"       "=400"
       }
+      "enemy_castpoint"                                   "0.3"
     }
   }
 }
