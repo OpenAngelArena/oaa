@@ -269,7 +269,6 @@ if IsServer() then
       end
 
       local bonus_damage = attacker:GetMana() * mana_pool_damage_pct * 0.01
-      local player = attacker:GetPlayerOwner()
       local point = target:GetAbsOrigin() -- store the location before we apply damage to the target
 
       -- Primary damage table
@@ -305,15 +304,13 @@ if IsServer() then
           if enemy and not enemy:IsNull() and enemy ~= target then
             damage_table_2.victim = enemy
 
-            --SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
-
             ApplyDamage(damage_table_2)
           end
         end
       end
 
       -- Overhead particle message
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, nil)
 
       -- Apply bonus damage to the attacked target
       ApplyDamage(damage_table_1)

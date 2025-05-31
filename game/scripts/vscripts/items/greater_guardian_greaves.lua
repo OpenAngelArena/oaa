@@ -32,11 +32,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
 
-    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
-
-    if hero ~= caster then
-      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
-    end
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, nil)
   end
 
   local function ReplenishHealth(hero)
@@ -49,7 +45,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
 
-    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, hero, healAmount, nil)
 
     if hero:IsHero() then
       local particleHeal = ParticleManager:CreateParticle(particleHealName, PATTACH_ABSORIGIN_FOLLOW, hero)

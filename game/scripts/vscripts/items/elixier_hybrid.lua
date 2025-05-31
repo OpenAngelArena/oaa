@@ -190,7 +190,7 @@ if IsServer() then
     end
 
     local damage_dealt = ApplyDamage(damage_table)
-    SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, damaged_unit, damage_dealt, parent:GetPlayerOwner())
+    SendOverheadEventMessage(nil, overhead_alert, damaged_unit, damage_dealt, nil)
   end
 
   function modifier_elixier_hybrid_active:OnAttackLanded(event)
@@ -227,7 +227,7 @@ if IsServer() then
     }
 
     local damage_dealt = ApplyDamage(damage_table)
-    SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, parent:GetPlayerOwner())
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, nil)
   end
 end
 

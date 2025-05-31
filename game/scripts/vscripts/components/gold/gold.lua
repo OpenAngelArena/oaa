@@ -144,7 +144,7 @@ end
 
 function Gold:AddGoldWithMessage(unit, gold, optPlayerID)
   local player = optPlayerID and PlayerResource:GetPlayer(optPlayerID) or PlayerResource:GetPlayer(UnitVarToPlayerID(unit))
-  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), player)
+  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), nil)
   self:AddGold(optPlayerID or unit, gold)
 end
 

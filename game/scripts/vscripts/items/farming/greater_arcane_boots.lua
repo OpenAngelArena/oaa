@@ -29,11 +29,7 @@ function item_greater_arcane_boots:OnSpellStart()
 
     local particleManaGainName = "particles/items_fx/arcane_boots_recipient.vpcf"
 
-    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
-
-    if hero ~= caster then
-      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
-    end
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, nil)
 
     local particleManaGain = ParticleManager:CreateParticle(particleManaGainName, PATTACH_ABSORIGIN_FOLLOW, hero)
     ParticleManager:SetParticleControl(particleManaGain, 1, hero:GetOrigin())
