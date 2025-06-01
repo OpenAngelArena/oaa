@@ -153,8 +153,8 @@ function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConst
       self:SetStackCount(barrier_hp - block_amount)
 
       if block_amount > 0 then
-        -- Magic Block visual effect
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+        -- Visual effect
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD, parent, block_amount, nil)
         -- Give mana to the parent, mana amount is equal to block amount
         parent:GiveMana(block_amount)
       end

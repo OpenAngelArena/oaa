@@ -152,5 +152,5 @@ function modifier_creep_assist_gold_aura:OnDeath(keys)
 
   Gold:ModifyGold(playerID, bounty, true, DOTA_ModifyGold_SharedGold)
 
-  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, attacked, math.floor(bounty), player)
+  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, attacked, math.floor(bounty), nil)
 end

@@ -1,6 +1,6 @@
 g_ItemPrecache = {
   "item_angels_halo",
-  --"item_blood_sword",
+  "item_blood_sword",
   "item_bubble_orb_1",
   "item_butterfly_oaa",
   "item_craggy_coat_oaa",
@@ -90,7 +90,11 @@ g_UnitPrecache = {
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
   "npc_dota_boss_grendel",
-  "npc_dota_neutral_custom_small_ghost",
+  "npc_dota_neutral_custom_big_wolf", -- because of Invisibility
+  "npc_dota_neutral_custom_ghost", -- because of Frostburn and Curse
+  "npc_dota_neutral_custom_kobold", -- because of Dig
+  "npc_dota_neutral_custom_kobold_foreman", -- because of Warcry
+  "npc_dota_neutral_custom_small_ghost", -- because of Vortex
 }
 
 g_ModelPrecache = {
@@ -115,12 +119,19 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_c.vpcf", -- For Multicast modifier
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
+  -- Offside
   "particles/dungeon_overhead_timer_colored.vpcf", -- Offside overhead numbers
+  "particles/misc/screen_blood_overlay.vpcf", -- Offside screen particle
   -- Shrines
   "particles/misc/shrines/radiant_shrine_ambient.vpcf",
   "particles/misc/shrines/dire_shrine_ambient.vpcf",
   "particles/misc/shrines/radiant_shrine_active.vpcf",
   "particles/misc/shrines/dire_shrine_active.vpcf",
+  -- Duel runes
+  "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
+  "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
+  "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+  "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
 }
 
 g_ParticleFolderPrecache = {

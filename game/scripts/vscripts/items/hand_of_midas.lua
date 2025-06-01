@@ -44,7 +44,7 @@ function item_hand_of_midas_1:OnSpellStart()
 
   if player then
     -- Overhead gold amount popup
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, target, bonusGold, player)
+    SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, target, bonusGold, nil)
     -- If the Hand of Midas user is a Spirit Bear or Arc Warden Tempest Double:
     if not caster:IsHero() or caster:IsTempestDouble() or caster:IsSpiritBearOAA() then
       caster = player:GetAssignedHero()

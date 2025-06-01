@@ -399,7 +399,7 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
 
     if block_amount > 0 then
       -- Visual effect
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCKED, parent, block_amount, nil)
     end
 
     return block_amount

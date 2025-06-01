@@ -160,7 +160,7 @@ if IsServer() then
       -- bonus gold
       if bonus_gold > 0 then
         Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, nil)
       end
 
       -- bonus experience
@@ -168,7 +168,7 @@ if IsServer() then
         local XPBounty = target:GetDeathXP()
         bonus_xp = bonus_xp * XPBounty / 100
         parent:AddExperience(bonus_xp, DOTA_ModifyXP_CreepKill, false, true)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, parent, bonus_xp, player)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, parent, bonus_xp, nil)
       end
 
       -- particle

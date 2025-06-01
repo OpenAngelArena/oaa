@@ -160,7 +160,7 @@ function CorePointsManager:FilterOrders(keys)
               -- Convert Core Points to Gold
               Gold:ModifyGold(unit_with_order, gold, true, DOTA_ModifyGold_SellItem)
               -- Gold text/number over unit's head
-              SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit_with_order, gold, player)
+              SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit_with_order, gold, nil)
               -- Sound for the player only
               EmitSoundOnClient("General.Sell", player)
               return false

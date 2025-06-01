@@ -203,7 +203,7 @@ function HeroKillGold:HeroDeathHandler (keys)
 
       local killerPlayer = hero:GetPlayerOwner()
       if killerPlayer then
-        SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, specific_base_gold, killerPlayer)
+        SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, specific_base_gold, nil)
       end
     end
   end
@@ -328,7 +328,7 @@ function HeroKillGold:HeroDeathHandler (keys)
 
       local player = hero:GetPlayerOwner()
       if player then
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_assist_gold, player)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_assist_gold, nil)
       end
     end
   end
