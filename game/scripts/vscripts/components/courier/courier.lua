@@ -17,8 +17,11 @@ function Courier:Init ()
   if self.enableCustomCourier then
     GameEvents:OnHeroInGame(Courier.SpawnCourier)
   else
-    GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
-    ListenToGameEvent("npc_spawned", Dynamic_Wrap(Courier, 'OnNpcSpawned'), self)
+    --GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+    --ListenToGameEvent("npc_spawned", Dynamic_Wrap(Courier, 'OnNpcSpawned'), self)
+    --GameRules:GetGameModeEntity():SetCanSellAnywhere(true)
+    local global_shop = SpawnDOTAShopTriggerRadiusApproximate(Vector(0,0,0), 99999)
+    global_shop:SetShopType(DOTA_SHOP_HOME)
   end
 end
 
@@ -88,9 +91,9 @@ function modifier_custom_courier_stuff:DeclareFunctions()
   if Courier.enableCustomCourier then
     funcs = {
       MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
-      MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+      --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
       MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
-      MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
+      --MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
       MODIFIER_PROPERTY_MOVESPEED_LIMIT,
       MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
       MODIFIER_PROPERTY_VISUAL_Z_DELTA,
