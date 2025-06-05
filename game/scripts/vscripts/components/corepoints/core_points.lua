@@ -68,7 +68,6 @@ function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
   return item_ids_needed
 end
 
-
 function CorePointsManager:GetState()
   local state = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -130,7 +129,7 @@ function CorePointsManager:FilterOrders(keys)
   -- DOTA_UNIT_ORDER_CONSUME_ITEM = 41
   -- DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL = 42
 
-  if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+  if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then -- ignores items purchased through quickbuy
     -- Check if needed variables exist
     if unit_with_order and shop_item then
       local core_points_cost = self:GetCorePointsFullValue(shop_item)
