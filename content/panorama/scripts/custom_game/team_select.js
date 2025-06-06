@@ -1,4 +1,4 @@
-/* global $, GameEvents, Game, GameUI, CustomNetTables, Players, is10v10, DOTATeam_t */
+/* global $, GameEvents, Game, GameUI, CustomNetTables, Players, is10v10 */
 
 'use strict';
 
