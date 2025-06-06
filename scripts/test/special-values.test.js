@@ -921,7 +921,10 @@ function buildItemTree (t, data, cb) {
         t.fail('missing item in items list ' + item);
         return;
       }
-      t.equal(items[item].baseCost, items[item].cost, 'cost is set correctly in kv for ' + item);
+      const purchasable = items[item].item.values.ItemPurchasable !== '0';
+      if (purchasable) {
+        t.equal(items[item].baseCost, items[item].cost, 'cost is set correctly in kv for ' + item);
+      }
 
       // this chunk of code will write the item costs in the file for you
       // useful...
@@ -962,6 +965,11 @@ function buildItemTree (t, data, cb) {
     // console.log('Calculating the cost for', item);
     const itemData = items[item];
     const requirements = itemData.recipes;
+    if (itemData.item.values.ItemPurchasable === '0') {
+      itemData.cost = 0;
+      itemData.totalCost = 0;
+      return;
+    }
 
     requirements.forEach(function (reqList) {
       let cost = Number(itemData.recipe.values.ItemCost);

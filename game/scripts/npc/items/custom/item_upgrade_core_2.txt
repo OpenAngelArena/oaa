@@ -1,5 +1,31 @@
 "DOTAAbilities"
 {
+  "item_recipe_upgrade_core_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "0"
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_upgrade_core_2"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_upgrade_core;item_upgrade_core"
+    }
+  }
+
   //=================================================================================================================
   // Demons Blood
   //=================================================================================================================
@@ -23,10 +49,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "1"
-    "ItemPurchasable"                                     "1"
+    "ItemPurchasable"                                     "0"
     //"ItemSellable"                                      "0"
     "ItemKillable"                                        "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "IsTempestDoubleClonable"                             "0"
 
     // Special
