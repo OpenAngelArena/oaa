@@ -3,13 +3,13 @@
 //======================================================================
 "DOTA_Tooltip_Ability_item_elixier_burst"                                       "Burst Elixir"
 "DOTA_Tooltip_Ability_item_recipe_elixier_burst"                                "#{DOTA_Tooltip_Ability_item_elixier_burst} Recipe"
-"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra move speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixir. <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra move speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixir." // <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>
 "DOTA_Tooltip_Ability_item_elixier_burst_Lore"                                  "A tangy concoction that grants a sudden burst of swiftness."
 "DOTA_Tooltip_Ability_item_elixier_burst_Note0"                                 "Buff is not lost on death and not purged by the Duel."
 
 "DOTA_Tooltip_Ability_item_elixier_hybrid"                                      "Hybrid Elixir"
 "DOTA_Tooltip_Ability_item_recipe_elixier_hybrid"                               "#{DOTA_Tooltip_Ability_item_elixier_hybrid} Recipe"
-"DOTA_Tooltip_Ability_item_elixier_hybrid_Description"                          "<h1>Active: Imbibe</h1> For %duration% seconds, increases mana regen by %bonus_mana_regen%.\n\nDeals extra %bonus_physical_damage% physical damage every time you deal magic damage and extra %bonus_magic_damage% magic damage every time you deal physical damage. <br><font color='#FF0000'>Costs 10 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_Description"                          "<h1>Active: Imbibe</h1> For %duration% seconds, increases mana regen by %bonus_mana_regen%.\n\nDeals extra %bonus_physical_damage% physical damage every time you deal magic damage and extra %bonus_magic_damage% magic damage every time you deal physical damage." //<br><font color='#FF0000'>Costs 16 #{oaa_core_points}.</font>
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Lore"                                 "A sweet concoction that empowers both mind and body with the essence of magic."
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Note0"                                "Doesn't proc on Pure damage."
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Note1"                                "#{DOTA_Tooltip_Ability_item_elixier_burst_Note0}"
@@ -17,7 +17,7 @@
 
 "DOTA_Tooltip_Ability_item_elixier_sustain"                                     "Sustain Elixir"
 "DOTA_Tooltip_Ability_item_recipe_elixier_sustain"                              "#{DOTA_Tooltip_Ability_item_elixier_sustain} Recipe"
-"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %duration% seconds, grants %bonus_hp_regen% health regen, %bonus_lifesteal%%% lifesteal and %bonus_spell_lifesteal%%% spell lifesteal. Lifesteal and spell lifesteal are reduced against creeps and illusions. <br><font color='#FF0000'>Costs 6 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %duration% seconds, grants %bonus_hp_regen% health regen, %bonus_lifesteal%%% lifesteal and %bonus_spell_lifesteal%%% spell lifesteal. Lifesteal and spell lifesteal are reduced against creeps and illusions." // <br><font color='#FF0000'>Costs 8 #{oaa_core_points}.</font>
 "DOTA_Tooltip_Ability_item_elixier_sustain_Lore"                                "A mellow concoction that protects the body and enhances its natural regeneration."
 "DOTA_Tooltip_Ability_item_elixier_sustain_Note0"                               "#{DOTA_Tooltip_Ability_item_elixier_burst_Note0}"
 

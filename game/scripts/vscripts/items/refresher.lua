@@ -31,7 +31,7 @@ function item_refresher_2:OnSpellStart()
     item_refresher_3 = true,
     item_refresher_4 = true,
     item_refresher_5 = true,
-    item_refresher_shard = true,
+    item_refresher_shard_oaa = true,
     item_tranquil_boots = true,
   }
 

@@ -1,6 +1,20 @@
 //==========================================================================
 // Refresher Shard
 //==========================================================================
-"DOTA_Tooltip_Ability_item_refresher_shard_Description"                         "<h1>Use: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. This item's cooldown does not progress in backpack <font color='#FFA500'>and doesn't get refreshed at the start of duels.</font> <br><font color='#FF0000'>Costs 40 #{oaa_core_points}.</font>"
-"DOTA_Tooltip_ability_item_refresher_shard_Note0"                               "Refresher Shard is NOT shareable."
-"DOTA_Tooltip_ability_item_refresher_shard_Note1"                               "DOES NOT share cooldown with Refresher Orb."
+// "DOTA_Tooltip_Ability_item_refresher_shard"                                    "Refresher Shard"
+// "DOTA_Tooltip_Ability_item_refresher_shard_Description"                        "<h1>Use: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. Shares a cooldown with Refresher Orb. This item's cooldown only progresses in your hero's main inventory."
+// "DOTA_Tooltip_Ability_item_refresher_shard_lore"                               "Across an epoch of endless battle, the Immortal's will to triumph never faltered."
+// "DOTA_Tooltip_ability_item_refresher_shard_Note0"                              "Refresher Shard is shareable."
+// "DOTA_Tooltip_ability_item_refresher_shard_bonus_health_regen"                 "+$hp_regen"
+// "DOTA_Tooltip_ability_item_refresher_shard_bonus_mana_regen"                   "+$mana_regen"
+// "DOTA_Tooltip_ability_item_refresher_shard_bonus_damage"                       "+$damage"
+
+"DOTA_Tooltip_Ability_item_refresher_shard_oaa"                                 "#{DOTA_Tooltip_Ability_item_refresher_shard}"
+"DOTA_Tooltip_Ability_item_recipe_refresher_shard_oaa"                          "#{DOTA_Tooltip_Ability_item_refresher_shard} Recipe"
+"DOTA_Tooltip_Ability_item_refresher_shard_oaa_Description"                     "<h1>Use: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. <font color='#FFA500'>DOES NOT share cooldown with Refresher Orb.</font>.This item's cooldown does not progress in backpack <font color='#FFA500'>and doesn't get refreshed at the start of duels.</font>" // <br><font color='#FF0000'>Costs 40 #{oaa_core_points}.</font>
+"DOTA_Tooltip_Ability_item_refresher_shard_oaa_lore"                            "#{DOTA_Tooltip_Ability_item_refresher_shard_lore}"
+"DOTA_Tooltip_ability_item_refresher_shard_oaa_Note0"                           "Refresher Shard is NOT shareable."
+"DOTA_Tooltip_ability_item_refresher_shard_oaa_Note1"                           "DOES NOT share cooldown with Refresher Orb."
+"DOTA_Tooltip_ability_item_refresher_shard_oaa_bonus_health_regen"              "#{DOTA_Tooltip_ability_item_refresher_shard_bonus_health_regen}"
+"DOTA_Tooltip_ability_item_refresher_shard_oaa_bonus_mana_regen"                "#{DOTA_Tooltip_ability_item_refresher_shard_bonus_mana_regen}"
+"DOTA_Tooltip_ability_item_refresher_shard_oaa_bonus_damage"                    "#{DOTA_Tooltip_ability_item_refresher_shard_bonus_damage}"

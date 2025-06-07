@@ -19,10 +19,9 @@
     //"ItemSellable"                                      "0"
     "ItemKillable"                                        "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-
+    "ItemPermanent"                                       "0"
+    "ItemCastOnPickup"                                    "1"
+    "AutoPickup"                                          "1"
   }
 
 }

@@ -1,5 +1,32 @@
 "DOTAAbilities"
 {
+  "item_recipe_azazel_summon_tank"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "1"
+    "SecretShop"                                          "1"
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_azazel_summon_tank"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_upgrade_core"
+    }
+  }
+  
   //=================================================================================================================
   // Azazel Summon - Tank
   //=================================================================================================================
@@ -20,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "1"
+    //"ItemCorePointCost"                                   "1"
     "ItemCost"                                            "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
