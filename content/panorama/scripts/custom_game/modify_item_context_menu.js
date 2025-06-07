@@ -1,4 +1,4 @@
-/* global $, GetDotaHud, Players, Entities, Abilities, Game, dotaunitorder_t, CustomNetTables */
+/* global $, GetDotaHud, Players, Entities, Abilities, CustomNetTables */
 
 const localPlayer = Players.GetLocalPlayer();
 const DotaHUD = GetDotaHud();
@@ -24,7 +24,7 @@ $.RegisterForUnhandledEvent('StyleClassesChanged', function (panel) {
         if (!FPanel) {
           const panel = $.CreatePanel('Button', Buttons, 'TestButton');
           panel.visible = true;
-          $.CreatePanel('Label', panel, 'TestText', { text: $.Localize('#DOTA_SHOP_DETAILS_UPGRADE') });
+          $.CreatePanel('Label', panel, 'TestText', { text: $.Localize('#oaa_items_upgrade_button') });
           panel.SetPanelEvent('onactivate', function () {
             buyUpgrade(localPlayer, itemName);
             $.DispatchEvent('DismissAllContextMenus');
@@ -43,15 +43,19 @@ function isUpgradable (itemName) {
   return false;
 }
 
+// function buyUpgrade (ent, itemName) {
+// const idsToPurchase = isUpgradable(itemName);
+// const order = {};
+// order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM;
+// order.UnitIndex = ent;
+// order.Queue = false;
+// order.ShowEffects = true;
+// for (const id of Object.values(idsToPurchase)) {
+// order.AbilityIndex = Number(id);
+// Game.PrepareUnitOrders(order);
+// }
+// }
+
 function buyUpgrade (ent, itemName) {
-  const idsToPurchase = isUpgradable(itemName);
-  const order = {};
-  order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM;
-  order.UnitIndex = ent;
-  order.Queue = false;
-  order.ShowEffects = true;
-  for (const id of Object.values(idsToPurchase)) {
-    order.AbilityIndex = Number(id);
-    Game.PrepareUnitOrders(order);
-  }
+  GameEvents.SendCustomGameEventToServer('oaa_upgrade_item', { itemName: itemName });
 }
