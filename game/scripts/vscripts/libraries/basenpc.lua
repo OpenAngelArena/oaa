@@ -419,7 +419,7 @@ if IsServer() then
         item_refresher_3 = true,
         item_refresher_4 = true,
         item_refresher_5 = true,
-        item_refresher_shard = true,
+        item_refresher_shard_oaa = true,
       }
 
       -- Reset cooldown for items that are not in backpack and not in stash

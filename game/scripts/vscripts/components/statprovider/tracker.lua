@@ -8,7 +8,7 @@ function StatTracker:Init()
 
   self.stats = {}
   for i = 0, DOTA_MAX_PLAYERS - 1 do
-    if PlayerResource:IsValidPlayerID(i) then
+    if PlayerResource:IsValidPlayerID(i) and not PlayerResource:IsBlackBoxPlayer(i) then
       self:InitializeForId(i)
     end
   end
@@ -69,7 +69,7 @@ function StatTracker:ResetTracking(keys)
 
   self.stats = {}
   for i = 0, DOTA_MAX_PLAYERS - 1 do
-    if PlayerResource:IsValidPlayerID(i) then
+    if PlayerResource:IsValidPlayerID(i) and not PlayerResource:IsBlackBoxPlayer(i) then
       self:InitializeForId(i)
     end
   end
@@ -164,7 +164,7 @@ if IsServer() then
     if attacker_team == DOTA_TEAM_NEUTRALS then
       -- Attacker is on neutral team
       if victim_team == DOTA_TEAM_NEUTRALS then
-        -- Neutrals damaging each other, this is funny but we do not care about it
+        -- Neutrals damaging each other, this is funny but we do not care about it -> do not track
         return
       else
         victim_id = UnitVarToPlayerID(victim)
@@ -172,8 +172,16 @@ if IsServer() then
         if victim_id and not StatTracker.stats[victim_id] and PlayerResource:IsValidPlayerID(victim_id) then
           StatTracker:InitializeForId(victim_id)
         end
-        if victim:IsRealHero() and not victim:IsTempestDouble() and not victim:IsSpiritBearOAA() then
+        if victim:IsRealHero() and not victim:IsTempestDouble() and not victim:IsSpiritBearOAA() and not victim:IsOAABoss() then
           -- Victim is a player's hero
+          if not victim_id then
+            print("StatTracker: Something is definitely wrong, victim id does not exist.")
+            return
+          end
+          if not StatTracker.stats[victim_id] then
+            print("StatTracker: Something is maybe wrong, victim id not registered, maybe because of the bot hero created after game started?")
+            return
+          end
           if attacker:IsOAABoss() then
             -- Attacker is a boss
             StatTracker.stats[victim_id].damage_taken_from_bosses = StatTracker.stats[victim_id].damage_taken_from_bosses + damage
@@ -182,12 +190,16 @@ if IsServer() then
             StatTracker.stats[victim_id].damage_taken_from_neutral_creeps = StatTracker.stats[victim_id].damage_taken_from_neutral_creeps + damage
           end
         else
-          -- Victim is a player's creep, an illusion, a Tempest Double or Spirit Bear
+          -- Victim is a player's creep, an illusion, a Tempest Double, Spirit Bear or a boss created through cheats
           return
         end
       end
     else
       -- Attacker is on Radiant or Dire team
+      if attacker:IsOAABoss() then
+        -- Radiant or Dire bosses do not exist yet so attacker is most likely created through cheats -> do not track
+        return
+      end
       if victim_team == DOTA_TEAM_NEUTRALS then
         -- Victim is a neutral
         -- It does not matter if attacker is a creep or not, it belongs to a player
@@ -197,7 +209,15 @@ if IsServer() then
           StatTracker:InitializeForId(attacker_id)
         end
         if victim:IsIllusion() then
-          -- Neutral illusion of something -> ignore
+          -- Neutral illusion of something -> do not track
+          return
+        end
+        if not attacker_id then
+          print("StatTracker: Something is definitely wrong, attacker id does not exist.")
+          return
+        end
+        if not StatTracker.stats[attacker_id] then
+          print("StatTracker: Something is maybe wrong, attacker id not registered, maybe because of the bot hero created after game started?")
           return
         end
         if victim:IsOAABoss() then
@@ -207,19 +227,19 @@ if IsServer() then
           -- Victim is a hero -> it's probably a boss or a boss creep
           StatTracker.stats[attacker_id].damage_dealt_to_bosses = StatTracker.stats[attacker_id].damage_dealt_to_bosses + damage
         else
-          -- Victim is a neutral creep
+          -- Victim is a neutral creep (neutral illusions are excluded earlier)
           StatTracker.stats[attacker_id].damage_dealt_to_neutral_creeps = StatTracker.stats[attacker_id].damage_dealt_to_neutral_creeps + damage
         end
       else
         -- Victim is on Radiant or Dire team
-        if attacker:IsOAABoss() or victim:IsOAABoss() then
-          -- when testing bosses do not track
-          return
-        end
         if victim_team == attacker_team then
-          -- Victim and Attacker are allies -> do not track the damage
+          -- Victim and Attacker are allies -> do not track
           return
         else
+          if victim:IsOAABoss() then
+            -- Radiant or Dire bosses do not exist yet so victim is most likely created through cheats -> do not track
+            return
+          end
           victim_id = UnitVarToPlayerID(victim)
           attacker_id = UnitVarToPlayerID(attacker)
           -- Initialize for newly added bots to prevent an error
@@ -228,6 +248,22 @@ if IsServer() then
           end
           if attacker_id and not StatTracker.stats[attacker_id] and PlayerResource:IsValidPlayerID(attacker_id) then
             StatTracker:InitializeForId(attacker_id)
+          end
+          if not attacker_id then
+            print("StatTracker: Something is definitely wrong, attacker id does not exist.")
+            return
+          end
+          if not victim_id then
+            print("StatTracker: Something is definitely wrong, victim id does not exist.")
+            return
+          end
+          if not StatTracker.stats[victim_id] then
+            print("StatTracker: Something is maybe wrong, victim id not registered, maybe because of the bot hero created after game started?")
+            return
+          end
+          if not StatTracker.stats[attacker_id] then
+            print("StatTracker: Something is maybe wrong, attacker id not registered, maybe because of the bot hero created after game started?")
+            return
           end
           if victim:IsRealHero() and not victim:IsTempestDouble() and not victim:IsSpiritBearOAA() then
             -- Victim is a player's hero

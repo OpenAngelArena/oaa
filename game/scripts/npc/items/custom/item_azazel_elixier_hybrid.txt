@@ -1,5 +1,32 @@
 "DOTAAbilities"
 {
+  "item_recipe_elixier_hybrid"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "1"
+    "SecretShop"                                          "1"
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_elixier_hybrid"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_upgrade_core_4"
+    }
+  }
+  
   //=================================================================================================================
   // Elixier - Hybrid
   //=================================================================================================================
@@ -22,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "10"
+    //"ItemCorePointCost"                                   "10"
     "ItemCost"                                            "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"

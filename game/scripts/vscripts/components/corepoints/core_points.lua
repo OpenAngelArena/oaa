@@ -16,10 +16,12 @@ function CorePointsManager:Init()
   local upgrade_items_ids = self:ItemIdTableCreate()
   CustomNetTables:SetTableValue("item_kv", "upgrade_items", upgrade_items_ids)
   self.playerID_table = {}
+  CustomGameEventManager:RegisterListener("oaa_upgrade_item", Dynamic_Wrap(CorePointsManager, "UpgradeItemButtonPressed"))
 end
 
 local forcedUpgrades = {
-  item_power_treads = "item_greater_power_treads"
+  item_power_treads = "item_greater_power_treads",
+  item_desolator = "item_devastator_oaa_2",
 }
 
 function CorePointsManager:ItemIdTableCreate()
@@ -42,22 +44,31 @@ function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
   local item_ids_needed = {}
   local item_upgrade_recipe = item_upgrade:gsub("item_", "item_recipe_")
   local item_requirements = {}
-  for substr in GetAbilityKeyValuesByName(item_upgrade_recipe)["ItemRequirements"]["01"]:gmatch("([^;]+)") do
+  local recipe_kvs = GetAbilityKeyValuesByName(item_upgrade_recipe)
+  if not recipe_kvs then
+    print("KVs for recipe "..tostring(item_upgrade_recipe).." do not exist.")
+  end
+  for substr in recipe_kvs["ItemRequirements"]["01"]:gmatch("([^;]+)") do
     table.insert(item_requirements, substr)
   end
   local needs_upgrade_core = false
   for index, value in ipairs(item_requirements) do
-    if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] ~= nil and GetAbilityKeyValuesByName(value)["ItemCost"] ~= nil) then
-      if (GetAbilityKeyValuesByName(value)["ItemCorePointCost"] > 0 and GetAbilityKeyValuesByName(value)["ItemCost"] == 1) then
-        --print(value)
-        table.insert(item_ids_needed, GetAbilityKeyValuesByName(value)["ID"])
-        needs_upgrade_core = true
+    local item_kvs = GetAbilityKeyValuesByName(value)
+    if item_kvs then
+      if (item_kvs["ItemCorePointCost"] ~= nil and item_kvs["ItemCost"] ~= nil) then
+        if (item_kvs["ItemCorePointCost"] > 0 and item_kvs["ItemCost"] == 1) then
+          --print(value)
+          table.insert(item_ids_needed, item_kvs["ID"])
+          needs_upgrade_core = true
+        end
       end
+    else
+      print("KVs for "..tostring(value).." do not exist.")
     end
   end
   if needs_upgrade_core then
     --print(item_upgrade_recipe)
-    table.insert(item_ids_needed, GetAbilityKeyValuesByName(item_upgrade_recipe)["ID"])
+    table.insert(item_ids_needed, recipe_kvs["ID"])
   else
     for index, value in ipairs(item_requirements) do
       if value ~= item_name then
@@ -68,6 +79,83 @@ function CorePointsManager:GetUpgradeItemIds(item_name, item_upgrade)
   return item_ids_needed
 end
 
+function CorePointsManager:UpgradeItemButtonPressed(event)
+  local pid = event.PlayerID
+  local item_name = event.itemName
+  local purchaser = PlayerResource:GetSelectedHeroEntity(pid)
+
+  local item_kvs = GetAbilityKeyValuesByName(item_name)
+  local item_upgrade = item_kvs.UpgradesItems
+  for name, upgrade in pairs(forcedUpgrades) do
+    if name == item_name then
+      item_upgrade = upgrade
+      break
+    end
+  end
+
+  local function BuyIfAllowed (item, hero, playerID)
+    local current_gold = Gold:GetGold(playerID)
+    local current_cps = CorePointsManager:GetCorePointsOnHero(hero, playerID)
+    local gold_cost = GetItemCost(item)
+    local cp_cost = CorePointsManager:GetCorePointsFullValue(item)
+    -- Check for core point cost
+    if current_cps >= cp_cost then
+      local allowed_to_buy = true
+      local tier = CorePointsManager:GetTierFromCorePointCost(cp_cost)
+      if cp_cost > CorePointsManager:GetCorePointValueOfTier(1) then
+        allowed_to_buy = BossSpawner.hasKilledTiers[tier] == true
+        if CapturePoints and CapturePoints.currentCapture == nil and CapturePoints.NumCaptures >= tier then
+          allowed_to_buy = true -- Both Capture Points of corresponding tier were captured
+        end
+      end
+
+      if allowed_to_buy then
+        -- Check for gold cost
+        if current_gold >= gold_cost then
+          CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
+          Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+          hero:AddItemByName(item)
+        else
+          -- Error - not enough gold
+          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 63})
+        end
+      else
+        -- Error - requirements not met
+        local error_msg1 = "#oaa_hud_error_requires_tier_" .. tostring(tier) .. "_boss_or_cp"
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg1})
+      end
+    else
+      -- Error - not enough core points
+      --local needed = cp_cost - current_cps
+      local error_msg2 = "#oaa_hud_error_not_enough_core_points" --.. tostring(needed) .. "#oaa_hud_error_more_needed"
+      CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg2})
+    end
+  end
+
+  if item_upgrade ~= nil and item_upgrade ~= "" then
+    local item_requirements = {}
+    local item_upgrade_recipe = item_upgrade:gsub("item_", "item_recipe_")
+    local recipe_kvs = GetAbilityKeyValuesByName(item_upgrade_recipe)
+    if not recipe_kvs then
+      print("KVs for recipe "..tostring(item_upgrade_recipe).." do not exist.")
+      return
+    end
+    BuyIfAllowed (item_upgrade_recipe, purchaser, pid)
+    for substr in recipe_kvs["ItemRequirements"]["01"]:gmatch("([^;]+)") do
+      table.insert(item_requirements, substr)
+    end
+    for _, item in ipairs(item_requirements) do
+      if item ~= item_name then
+        local sub_item_kvs = GetAbilityKeyValuesByName(item)
+        if sub_item_kvs then
+          BuyIfAllowed (item, purchaser, pid)
+        else
+          print("KVs for "..tostring(item).." do not exist.")
+        end
+      end
+    end
+  end
+end
 
 function CorePointsManager:GetState()
   local state = {}
@@ -130,7 +218,7 @@ function CorePointsManager:FilterOrders(keys)
   -- DOTA_UNIT_ORDER_CONSUME_ITEM = 41
   -- DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL = 42
 
-  if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+  if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then -- ignores items purchased through quickbuy
     -- Check if needed variables exist
     if unit_with_order and shop_item then
       local core_points_cost = self:GetCorePointsFullValue(shop_item)
@@ -451,54 +539,54 @@ function CorePointsManager:AddCorePoints(amount, unit, playerID)
   end
 end
 
--- function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
-  -- Debug.EnableDebugging()
-  -- if not unit or not playerID then
-    -- print("CorePointsManager: Couldnt do GiveUpgradeCoreToHero for this unit and playerID")
-    -- return
-  -- end
+function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
+  Debug.EnableDebugging()
+  if not unit or not playerID then
+    print("CorePointsManager: Couldnt do GiveUpgradeCoreToHero for this unit and playerID")
+    return
+  end
 
-  -- local hero = unit
+  local hero = unit
 
-  -- if not hero then
-    -- hero = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(unit))
-  -- end
+  if not hero then
+    hero = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(unit))
+  end
 
-  -- if not unit:HasModifier("modifier_core_points_counter_oaa") then
-    -- hero = PlayerResource:GetSelectedHeroEntity(playerID)
-  -- end
+  if not unit:HasModifier("modifier_core_points_counter_oaa") then
+    hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  end
 
-  -- if not hero then
-    -- print("CorePointsManager (GiveUpgradeCoreToHero): Couldnt find a hero.")
-    -- return
-  -- end
+  if not hero then
+    print("CorePointsManager (GiveUpgradeCoreToHero): Couldnt find a hero.")
+    return
+  end
 
-  -- local item_name = ""
-  -- if number == self:GetCorePointValueOfTier(1) then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 1 core")
-    -- item_name = "item_upgrade_core"
-  -- elseif number == self:GetCorePointValueOfTier(2) then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 2 core")
-    -- item_name = "item_upgrade_core_2"
-  -- elseif number == self:GetCorePointValueOfTier(3) then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 3 core")
-    -- item_name = "item_upgrade_core_3"
-  -- elseif number == self:GetCorePointValueOfTier(4) then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 4 core")
-    -- item_name = "item_upgrade_core_4"
-  -- elseif number == 0 then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Item has no core point value. Not giving a core.")
-    -- return
-  -- else
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
-    -- return
-  -- end
+  local item_name = ""
+  if number == self:GetCorePointValueOfTier(1) then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 1 core")
+    item_name = "item_upgrade_core"
+  elseif number == self:GetCorePointValueOfTier(2) then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 2 core")
+    item_name = "item_upgrade_core_2"
+  elseif number == self:GetCorePointValueOfTier(3) then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 3 core")
+    item_name = "item_upgrade_core_3"
+  elseif number == self:GetCorePointValueOfTier(4) then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 4 core")
+    item_name = "item_upgrade_core_4"
+  elseif number == 0 then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Item has no core point value. Not giving a core.")
+    return
+  else
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
+    return
+  end
 
-  -- if item_name ~= "" then
-    -- DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
-    -- hero:AddItemByName(item_name)
-  -- end
--- end
+  if item_name ~= "" then
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
+    hero:AddItemByName(item_name)
+  end
+end
 
 function CorePointsManager:GiveCorePointsToWholeTeam(amount, teamID)
   PlayerResource:GetPlayerIDsForTeam(teamID):each(function (playerID)

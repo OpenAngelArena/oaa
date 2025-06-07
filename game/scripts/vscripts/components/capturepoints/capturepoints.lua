@@ -180,9 +180,9 @@ function CapturePoints:StartCapture(color)
 end
 
 function CapturePoints:GiveItemToWholeTeam (item, teamId)
-  if CorePointsManager then
-    CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
-  else
+  --if CorePointsManager then
+    --CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
+  --else
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
       local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
@@ -190,7 +190,7 @@ function CapturePoints:GiveItemToWholeTeam (item, teamId)
         hero:AddItemByName(item)
       end
     end)
-  end
+  --end
 end
 
 function CapturePoints:Reward(teamId)

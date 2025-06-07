@@ -34,7 +34,7 @@ function modifier_sorcerer_oaa:OnCreated()
   -- Put item exemption in here
   self.exempt_item_table = {
     item_ex_machina = true,
-    item_refresher_shard = true,
+    item_refresher_shard_oaa = true,
     item_tranquil_boots = true,
     item_hand_of_midas_1 = true,
     item_refresher = true,
