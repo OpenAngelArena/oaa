@@ -235,7 +235,6 @@ function CorePointsManager:FilterOrders(keys)
           end
           if allowed_to_buy then
             self:AddCorePoints(-core_points_cost, unit_with_order, playerID)
-            --self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
             local shop_item_name -- string
             if type(shop_item) == 'string' then
               shop_item_name = shop_item
@@ -282,7 +281,20 @@ function CorePointsManager:FilterOrders(keys)
     end
   elseif order == DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL then
     if unit_with_order and ability then
+      local item_name = ability:GetName()
+      if string.find(item_name, "item_upgrade_core") then
+        -- Grant core points value of the upgrade core
+        self:AddCorePoints(self:GetCorePointsSellValue(ability), unit_with_order, playerID)
+        -- Remove the item
+        unit_with_order:RemoveItem(ability)
+        -- Sounds
+        EmitSoundOnClient("General.Sell", PlayerResource:GetPlayer(playerID)) -- plays only in the center of the map for some reason
+        unit_with_order:EmitSound("General.Sell") -- plays on the hero
+        return false
+      end
       if CorePointsManager:GetCorePointsFullValue(ability) > 0 then
+        local error_msg3 = "#oaa_hud_error_cannot_mark_to_sell"
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg3})
         return false
       end
     end
@@ -329,6 +341,7 @@ function CorePointsManager:GetGoldValueOfCorePoint()
   return 750
 end
 
+-- Unused until Valve fixes Quickbuy ignoring the filter
 function CorePointsManager:GetCorePointValueOfUpdgradeCore(item_name)
   return self:GetCorePointsFullValue(item_name)
 end
@@ -417,7 +430,7 @@ function CorePointsManager:GetCorePointsFullValue(item)
   -- First recipe
   local req_string = item_req["01"]
 
-  -- Check the first recipe if it contains upgrade cores
+  -- Check the first recipe if it contains upgrade cores (HAVING MULTIPLE UPGRADE CORES IN THE RECIPE IS NOT SUPPORTED with the following code!)
   local uc1 = string.find(req_string, "upgrade_core", -15)
   local uc2 = string.find(req_string, "upgrade_core_2", -15)
   local uc3 = string.find(req_string, "upgrade_core_3", -15)
@@ -436,10 +449,10 @@ function CorePointsManager:GetCorePointsFullValue(item)
   local full_value = recipe_value
 
   -- Value of Upgrade Cores in core points:
-  local c1 = self:GetCorePointsFullValue("item_upgrade_core")
-  local c2 = self:GetCorePointsFullValue("item_upgrade_core_2")
-  local c3 = self:GetCorePointsFullValue("item_upgrade_core_3")
-  local c4 = self:GetCorePointsFullValue("item_upgrade_core_4")
+  local c1 = self:GetCorePointsFullValue("item_upgrade_core") -- or self:GetCorePointValueOfTier(1) if core point cost is not set in upgrade core's kvs
+  local c2 = self:GetCorePointsFullValue("item_upgrade_core_2") -- or self:GetCorePointValueOfTier(2) if core point cost is not set in upgrade core 2's kvs
+  local c3 = self:GetCorePointsFullValue("item_upgrade_core_3") -- or self:GetCorePointValueOfTier(3) if core point cost is not set in upgrade core 3's kvs
+  local c4 = self:GetCorePointsFullValue("item_upgrade_core_4") -- or self:GetCorePointValueOfTier(4) if core point cost is not set in upgrade core 4's kvs
 
   if uc1 then
     if uc2 then
@@ -533,12 +546,14 @@ end
 
 function CorePointsManager:AddCorePoints(amount, unit, playerID)
   -- Avoid calling SetCorePointsOnHero if amount (core point change) is 0
+  -- amount can be negative
   if amount ~= 0 then
     local core_points = self:GetCorePointsOnHero(unit, playerID)
     self:SetCorePointsOnHero(core_points + amount, unit, playerID)
   end
 end
 
+-- Unused
 function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
   Debug.EnableDebugging()
   if not unit or not playerID then
@@ -588,6 +603,7 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
   end
 end
 
+-- Unused until Valve fixes Quickbuy ignoring the filter
 function CorePointsManager:GiveCorePointsToWholeTeam(amount, teamID)
   PlayerResource:GetPlayerIDsForTeam(teamID):each(function (playerID)
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
