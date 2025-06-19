@@ -45,7 +45,11 @@
       "vision_duration"                                   "3.0"
       "duration"                                          "1.4"
       "move_slow"                                         "80"
-      "aspd_slow"                                         "100"
+      "aspd_slow" // OAA, Valve this is hilarious
+      {
+        "value"                                           "100"
+        //"special_bonus_unique_zeus"                       "+2"
+      }
       "targets"
       {
         "value"                                           "1"

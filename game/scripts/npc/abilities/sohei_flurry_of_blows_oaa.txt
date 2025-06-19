@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/sohei/sohei_flurry_of_blows.lua"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityTextureName"                                  "custom/ronin_flurry_of_blows"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" // DOTA_ABILITY_BEHAVIOR_CHANNELLED
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"

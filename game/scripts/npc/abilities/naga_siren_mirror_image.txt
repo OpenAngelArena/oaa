@@ -17,10 +17,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28 27 26 25 24 23" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75 90 105 120 135 150"
@@ -35,7 +31,7 @@
         "value"                                           "-75 -70 -65 -60 -50 -40"
         "special_bonus_unique_naga_siren_4"               "+10"
       }
-      "outgoing_damage_tooltip"   
+      "outgoing_damage_tooltip"
       {
         "value"                                           "25 30 35 40 50 60"
         "special_bonus_unique_naga_siren_4"               "+10"
@@ -50,12 +46,17 @@
         "value"                                           "350 305 260 215 200 185"
         "special_bonus_unique_naga_siren_3"               "-50"
       }
-      "images_count"              
+      "images_count"
       {
         "value"                                           "3"
         "special_bonus_unique_naga_siren"                 "+1"
       }
       "invuln_duration"                                   "0.5"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "28 27 26 25 24 23"
+        "special_bonus_unique_naga_siren_6"               "-10"
+      }
     }
   }
 }

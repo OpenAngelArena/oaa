@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -18,10 +18,6 @@
 
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.25"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -59,6 +55,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120"
+        "special_bonus_unique_outworld_devourer_5"        "-60"
       }
     }
   }

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -52,6 +52,14 @@
       "stolen_mana_reduction"
       {
         "special_bonus_facet_rubick_frugal_filch"         "50 65 80 85 90"
+      }
+      "stolen_spell_cooldown_percent"
+      {
+        "special_bonus_unique_rubick_6"                   "25"
+      }
+      "spell_amp_percent"
+      {
+        "special_bonus_unique_rubick_5"                   "40"
       }
     }
   }

@@ -24,10 +24,6 @@
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.10"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "2.5" // Valve forgot special_bonus_unique_oracle_5
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
@@ -36,11 +32,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "90 180 270 360 720 1080" // Valve forgot special_bonus_unique_oracle_8
+      "damage"                                            "90 180 270 360 720 1080"
       "heal_per_second"                                   "15 25 35 45 90 135"
       "total_heal_tooltip"                                "150 250 350 450 900 1350"
       "duration"                                          "10"
       "tick_rate"                                         "0.1"
+      "damage_modifier"
+      {
+        "value"                                           "1"
+        "special_bonus_unique_oracle_8"                   "+25%"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "2.5"
+        "special_bonus_unique_oracle_5"                   "-1"
+      }
     }
   }
 }

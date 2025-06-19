@@ -98,7 +98,8 @@ const ignoreValuesFor = [
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
   'item_smoke_of_deceit',
-  'centaur_stampede'
+  'centaur_stampede',
+  'templar_assassin_psi_blades'
   // 'shredder_chakram',
   // 'shredder_chakram_2',
   // 'tiny_grow',
@@ -344,7 +345,7 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
       if (!specialValuesForItem[rootItem]) {
         testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
         specialValuesForItem[rootItem] = specials;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+      } else if (values.AbilityType !== 'ABILITY_TYPE_ATTRIBUTES' && isItem) {
         spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent across levels');
       }
     }
@@ -368,7 +369,7 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
       if (!abilityValuesForItem[rootItem2]) {
         testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
         abilityValuesForItem[rootItem2] = abilityValues;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+      } else if (values.AbilityType !== 'ABILITY_TYPE_ATTRIBUTES' && isItem) {
         spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent across levels');
       }
     }

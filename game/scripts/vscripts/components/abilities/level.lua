@@ -299,7 +299,7 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
     else
       reqTable = basicInnateAbilityReqs
     end
-  elseif IsUltimateAbilityCustom(abilityName) then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+  elseif IsUltimateAbilityCustom(abilityName) then -- Ability is ABILITY_TYPE_ULTIMATE
     reqTable = ultimateReqs
   end
 

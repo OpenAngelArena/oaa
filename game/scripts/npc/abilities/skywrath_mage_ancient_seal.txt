@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "700 750 800 850 900 950"
     "AbilityCastPoint"                                    "0.1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14" // Valve forgot special_bonus_unique_skywrath
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "80 90 100 110 120 130"
@@ -45,6 +41,11 @@
       {
         "special_bonus_scepter"                           "500"
         "affected_by_aoe_increase"                        "1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "14"
+        "special_bonus_unique_skywrath"                   "-7"
       }
     }
   }
