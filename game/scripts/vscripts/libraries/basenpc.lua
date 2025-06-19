@@ -571,9 +571,8 @@ if CDOTA_BaseNPC then
         --if caster then
           --local talent = caster:FindAbilityByName("special_bonus_unique_puck_5")
           --if talent and talent:GetLevel() > 0 then
-          if pierce then
-            return true
-          end
+        if pierce then
+          return true
         end
       end
 
