@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -18,10 +18,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +34,11 @@
       "return_time"
       {
         "value"                                           "12.0"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "80 75 70 65 60"
+        "special_bonus_unique_wisp_6"                     "-30"
       }
       "shield_hp"                                         "250 350 450 750 1250" //OAA
     }

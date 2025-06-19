@@ -29,8 +29,16 @@
     "AbilityValues"
     {
       "duration"                                          "6.0"
-      "illusion_damage_outgoing"                          "-20"
-      "tooltip_outgoing"                                  "80"
+      "illusion_damage_outgoing" //OAA, Valve has it wrong?
+      {
+        "value"                                           "-20"
+        "special_bonus_unique_spectre_4"                  "+25"
+      }
+      "tooltip_outgoing" //OAA, Valve has it wrong?
+      {
+        "value"                                           "80"
+        "special_bonus_unique_spectre_4"                  "+25"
+      }
       "illusion_damage_incoming"                          "100"
       "tooltip_illusion_total_damage_incoming"            "200"
       "attack_delay"                                      "0"

@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12" // Valve forgot special_bonus_unique_windranger_4
     "AbilityDuration"                                     "3 4 5 6 6.5 7"
 
     // Cost
@@ -60,6 +59,11 @@
         "special_bonus_facet_windrunner_tailwind"         "=15"
       }
       "duration"                                          "3 4 5 6 6.5 7"
+      "AbilityCooldown"
+      {
+        "value"                                           "15 14 13 12 12 12"
+        "special_bonus_unique_windranger_4"               "-2"
+      }
       "scepter_spell_amp" //OAA
       {
         "value"                                           "0"

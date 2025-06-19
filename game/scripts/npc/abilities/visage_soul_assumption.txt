@@ -75,6 +75,11 @@
       }
       "damage_min"                                        "2.0"
       "damage_max"                                        "3000.0"
+      "target_count"
+      {
+        "value"                                           "1"
+        "special_bonus_unique_visage_3"                   "=3"
+      }
     }
   }
 }

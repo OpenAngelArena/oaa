@@ -60,6 +60,10 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
+      "zombie_bonus_damage"
+      {
+        "special_bonus_unique_undying"                    "+20"
+      }
       "zombie_attack_damage_per_level" //OAA
       {
         "value"                                           "2"

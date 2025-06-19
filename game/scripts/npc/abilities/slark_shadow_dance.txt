@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -33,7 +33,10 @@
         "special_bonus_unique_slark_3"                    "+1.25"
       }
       "fade_time"                                         "0"
-      // Valve is missing special_bonus_unique_slark_7
+      "attack_speed"
+      {
+        "special_bonus_unique_slark_7"                    "100"
+      }
       "health_regen_pct_oaa"                              "1.5 2 2.5 3 3.5" //OAA, unique to OAA
     }
   }

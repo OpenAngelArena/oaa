@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75" //OAA
     "AbilityDuration"                                     "35.0"
 
     // Cost
@@ -41,6 +40,11 @@
       {
         "value"                                           "30"
         "special_bonus_unique_sven_gods_strength_slow_resist"  "+20"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "95 90 85 80 75"
+        "special_bonus_unique_sven_3"                     "-12"
       }
     }
   }
