@@ -566,10 +566,12 @@ if CDOTA_BaseNPC then
       -- Puck Dream Coil pierce debuff immunity with the talent
       local dream_coil = self:FindModifierByName("modifier_puck_coiled")
       if dream_coil then
-        local caster = dream_coil:GetCaster()
-        if caster then
-          local talent = caster:FindAbilityByName("special_bonus_unique_puck_5")
-          if talent and talent:GetLevel() > 0 then
+        local pierce = dream_coil:GetSpecialValueFor("pierces_debuff_immunity") == 1
+        --local caster = dream_coil:GetCaster()
+        --if caster then
+          --local talent = caster:FindAbilityByName("special_bonus_unique_puck_5")
+          --if talent and talent:GetLevel() > 0 then
+          if pierce then
             return true
           end
         end
@@ -598,12 +600,9 @@ if CDOTA_BaseNPC then
 
     local power_cogs = self:FindModifierByName("modifier_rattletrap_cog_marker")
     if power_cogs then
-      local caster = power_cogs:GetCaster()
-      if caster then
-        local talent = caster:FindAbilityByName("special_bonus_unique_clockwerk_2")
-        if talent and talent:GetLevel() > 0 then
-          return true
-        end
+      local check = power_cogs:GetSpecialValueFor("leash") == 1
+      if check then
+        return true
       end
     end
 
