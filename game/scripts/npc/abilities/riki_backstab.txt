@@ -23,7 +23,11 @@
       "fade_delay" //OAA
       {
         "value"                                           "4 3.5 3 2.5 2"
-        "special_bonus_unique_riki_6"                     "-1"
+        "special_bonus_unique_riki_6"                     "-1.25"
+      }
+      "invis_movespeed_bonus_percent"
+      {
+        "special_bonus_unique_riki_8"                     "10"
       }
     }
   }

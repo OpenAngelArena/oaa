@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rattletrap: Rocket Flare
+  // Clockwerk: Rocket Flare
   //=================================================================================================================
   "rattletrap_rocket_flare"
   {
@@ -38,7 +38,6 @@
       "damage" //OAA
       {
         "value"                                           "70 140 210 280 560 840"
-        "special_bonus_unique_clockwerk_flare_damage"     "+100"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCooldown" //OAA
@@ -54,6 +53,10 @@
       "projectile_vision_radius"                          "250"
       "projectile_vision_duration"                        "1.0"
       "projectile_vision_tick_rate"                       "0.15"
+      "true_sight"
+      {
+        "special_bonus_unique_clockwerk_4"                "1"
+      }
     }
   }
 }

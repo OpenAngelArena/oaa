@@ -19,10 +19,6 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.25"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200 300 400 500 600"
@@ -59,6 +55,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120"
+        "special_bonus_unique_outworld_devourer_5"        "-60"
       }
     }
   }
