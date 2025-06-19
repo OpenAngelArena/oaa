@@ -113,6 +113,10 @@
         "value"                                           "0"
         "special_bonus_facet_hoodwink_hipshot"            "25"    // TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
       }
+      "pierce_debuff_immunity"
+      {
+        "special_bonus_unique_hoodwink_sharpshooter_pure_damage"  "1"
+      }
     }
   }
 }

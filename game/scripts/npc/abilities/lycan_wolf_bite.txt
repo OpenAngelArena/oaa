@@ -15,16 +15,12 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // depends on Shapeshift lvl
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "300"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 85 80" // depends on Shapeshift lvl
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,6 +37,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "attack_range"                                      "150"
+      "AbilityCooldown"
+      {
+        "value"                                           "110 100 90 85 80"
+        "special_bonus_unique_lycan_8"                    "-15"
+      }
     }
   }
 }

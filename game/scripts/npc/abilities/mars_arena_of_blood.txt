@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mars Arena of Blood
+  // Mars: Arena of Blood
   //=================================================================================================================
   "mars_arena_of_blood"
   {
@@ -75,7 +75,11 @@
       "allied_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+50"               
+        "special_bonus_facet_mars_victory_feast"          "+50"
+      }
+      "health_regen"
+      {
+        "special_bonus_unique_mars_arena_of_blood_hp_regen"  "180"
       }
     }
   }
