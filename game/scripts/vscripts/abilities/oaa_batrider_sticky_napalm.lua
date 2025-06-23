@@ -468,8 +468,6 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnCreated()
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
   local ability = self:GetAbility()
   local max_stacks = 20
   local unlimited = false
