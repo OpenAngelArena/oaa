@@ -156,6 +156,7 @@ if IsServer() then
       ["batrider_sticky_napalm_oaa"] = true,
       ["item_trumps_fists"] = true,           -- Blade of Judecca
       ["item_trumps_fists_2"] = true,
+      ["lina_combustion"] = true,
     }
 
     if non_trigger_inflictors[inflictor:GetName()] then

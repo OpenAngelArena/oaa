@@ -57,6 +57,7 @@ function batrider_sticky_napalm_oaa:OnSpellStart()
         for i = 1, stacks_per_cast do
           enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
         end
+        ApplyStickyNapalmDamage(1, self, caster, enemy, true)
       end
     end
   end
@@ -116,12 +117,15 @@ function modifier_batrider_sticky_napalm_oaa_passive:GetModifierDisableTurning()
 end
 ]]
 
-function ApplyStickyNapalmDamage(count, ability, caster, target)
+function ApplyStickyNapalmDamage(count, ability, caster, target, application)
   if not ability or ability:IsNull() or not caster or caster:IsNull() or not IsServer() then
     return
   end
 
   local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
+  if application then
+    bonus_damage = ability:GetLevelSpecialValueFor("application_damage", ability:GetLevel()-1)
+  end
 
   local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
   local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
@@ -278,7 +282,7 @@ if IsServer() then
 
     local stack_count = debuff:GetStackCount()
 
-    ApplyStickyNapalmDamage(stack_count, ability, caster, damaged_unit)
+    ApplyStickyNapalmDamage(stack_count, ability, caster, damaged_unit, false)
   end
 
   function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
@@ -331,6 +335,7 @@ if IsServer() then
         for i = 1, stacks_to_apply do
           unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
         end
+        ApplyStickyNapalmDamage(1, ability, parent, unit, true)
       end
     elseif not sticky_debuff and flamebreak_tracker then
       -- Unit has a tracker but doesn't have a debuff -> this means OnModifierAdded triggered for applying flamebreak_tracker
@@ -346,6 +351,7 @@ if IsServer() then
       for i = 1, stacks_to_apply do
         unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
       end
+      ApplyStickyNapalmDamage(1, ability, parent, unit, true)
     end
   end
 
@@ -400,6 +406,7 @@ if IsServer() then
       for i = 1, stacks_per_attack do
         target:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
       end
+      ApplyStickyNapalmDamage(1, ability, parent, target, true)
     end
   end
 end
@@ -458,8 +465,6 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnCreated()
   self.stack_particle = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_batrider/batrider_stickynapalm_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, parent, caster:GetTeamNumber())
   ParticleManager:SetParticleControl(self.stack_particle, 1, Vector(math.floor(self:GetStackCount() / 10), self:GetStackCount() % 10, 0))
   self:AddParticle(self.stack_particle, false, false, -1, false, false)
-
-  ApplyStickyNapalmDamage(1, ability, caster, parent)
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
@@ -488,8 +493,6 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
   if self.stack_particle then
     ParticleManager:SetParticleControl(self.stack_particle, 1, Vector(math.floor(self:GetStackCount() / 10), self:GetStackCount() % 10, 0))
   end
-
-  ApplyStickyNapalmDamage(self:GetStackCount(), ability, caster, parent)
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:DeclareFunctions()
