@@ -577,16 +577,16 @@ if CDOTA_BaseNPC then
       end
 
       -- Time Zone always pierces debuff immunity
-      local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
-      if time_zone then
-        local caster = time_zone:GetCaster()
-        if caster then
-          -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
-          if self:GetTeamNumber() ~= caster:GetTeamNumber() then
-            return true
-          end
-        end
-      end
+      -- local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+      -- if time_zone then
+        -- local caster = time_zone:GetCaster()
+        -- if caster then
+          -- -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+          -- if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+            -- return true
+          -- end
+        -- end
+      -- end
 
       return false
     end
@@ -605,16 +605,16 @@ if CDOTA_BaseNPC then
       end
     end
 
-    local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
-    if time_zone then
-      local caster = time_zone:GetCaster()
-      if caster then
-        -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
-        if self:GetTeamNumber() ~= caster:GetTeamNumber() then
-          return true
-        end
-      end
-    end
+    -- local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+    -- if time_zone then
+      -- local caster = time_zone:GetCaster()
+      -- if caster then
+        -- -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+        -- if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+          -- return true
+        -- end
+      -- end
+    -- end
 
     return false
   end
