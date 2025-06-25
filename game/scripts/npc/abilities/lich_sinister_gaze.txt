@@ -50,9 +50,9 @@
         "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" // damage amp?
+      "damage"
       {
-        "special_bonus_facet_lich_cryophobia"             "10 15 20 25 25 25"
+        "special_bonus_facet_lich_cryophobia"             "15 20 25 30 35 40"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
