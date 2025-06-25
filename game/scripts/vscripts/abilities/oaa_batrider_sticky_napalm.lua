@@ -124,7 +124,7 @@ function ApplyStickyNapalmDamagePerStack(count, ability, caster, target)
     return
   end
 
-  local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
+  local bonus_damage = ability:GetSpecialValueFor("damage_per_stack")
   local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
   local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
   local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
@@ -163,8 +163,8 @@ function ApplyStickyNapalmApplicationDamage(ability, caster, target)
     return
   end
 
-  local dmg_per_stack = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
-  local base_dmg = ability:GetLevelSpecialValueFor("application_damage", ability:GetLevel()-1)
+  local dmg_per_stack = ability:GetSpecialValueFor("damage_per_stack")
+  local base_dmg = ability:GetSpecialValueFor("application_damage")
   local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
   local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
   local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
