@@ -23,7 +23,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "200"
     "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4"
       }
-      "impale_duration"                                   "0.6"
+      "impale_duration"                                   "0.5"
       "bleed_as_rupture_pct"
       {
         "value"                                           "50"
