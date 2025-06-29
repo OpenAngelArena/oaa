@@ -17,6 +17,7 @@ function CorePointsManager:Init()
   CustomNetTables:SetTableValue("item_kv", "upgrade_items", upgrade_items_ids)
   self.playerID_table = {}
   CustomGameEventManager:RegisterListener("oaa_upgrade_item", Dynamic_Wrap(CorePointsManager, "UpgradeItemButtonPressed"))
+  CustomGameEventManager:RegisterListener("oaa_purchase_core", Dynamic_Wrap(CorePointsManager, "PurchaseCoreButtonPressed"))
 end
 
 local forcedUpgrades = {
@@ -155,6 +156,60 @@ function CorePointsManager:UpgradeItemButtonPressed(event)
       end
     end
   end
+end
+
+function CorePointsManager:PurchaseCoreButtonPressed(event)
+  local pid = event.PlayerID
+  local tier = event.tier
+  local purchaser = PlayerResource:GetSelectedHeroEntity(pid)
+  local item_name = "item_upgrade_core"
+  if tonumber(tier) ~= 1 then
+    item_name = item_name.."_"..tostring(tier)
+  end
+
+  local function BuyIfAllowed (item, hero, playerID)
+    local current_gold = Gold:GetGold(playerID)
+    local current_cps = CorePointsManager:GetCorePointsOnHero(hero, playerID)
+    local gold_cost = GetItemCost(item)
+    local cp_cost = CorePointsManager:GetCorePointsFullValue(item)
+    -- Check for core point cost
+    if current_cps >= cp_cost then
+      local allowed_to_buy = true
+      local tier = CorePointsManager:GetTierFromCorePointCost(cp_cost)
+      if cp_cost > CorePointsManager:GetCorePointValueOfTier(1) then
+        allowed_to_buy = BossSpawner.hasKilledTiers[tier] == true
+        if CapturePoints and CapturePoints.currentCapture == nil and CapturePoints.NumCaptures >= tier then
+          allowed_to_buy = true -- Both Capture Points of corresponding tier were captured
+        end
+      end
+
+      if allowed_to_buy then
+        -- Check for gold cost
+        if current_gold >= gold_cost then
+          CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
+          Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+          hero:AddItemByName(item)
+          -- Sound for the player only
+          EmitSoundOnClient("General.Buy", PlayerResource:GetPlayer(playerID))
+          hero:EmitSound("General.Buy") -- plays on the hero
+        else
+          -- Error - not enough gold
+          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 63})
+        end
+      else
+        -- Error - requirements not met
+        local error_msg1 = "#oaa_hud_error_requires_tier_" .. tostring(tier) .. "_boss_or_cp"
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg1})
+      end
+    else
+      -- Error - not enough core points
+      --local needed = cp_cost - current_cps
+      local error_msg2 = "#oaa_hud_error_not_enough_core_points" --.. tostring(needed) .. "#oaa_hud_error_more_needed"
+      CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg2})
+    end
+  end
+
+  BuyIfAllowed (item_name, purchaser, pid)
 end
 
 function CorePointsManager:GetState()

@@ -1,6 +1,12 @@
-/* global $, GameEvents, Players, HasModifier, GetStackCount, Game, Entities */
+/* global $, GameEvents, Players, HasModifier, GetStackCount, Game, Entities, CLICK_BEHAVIORS */
 
 'use strict';
+
+let isWindowCurrentlyOpen = false;
+const corePointsTextPanel = $('#CorePointsText');
+const corePointsIconPanel = $('#CorePointsIcon');
+const exchangeWindow = $('#CorePointsExchangePanel');
+const cssOpen = 'visible_overlay';
 
 // this happens for every core points change
 function OnCorePointsChanged (args) {
@@ -14,11 +20,10 @@ function OnCorePointsChanged (args) {
   // If currently selected unit is not the player's hero then don't continue
   if (currentlySelectedUnit !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
 
-  const cpLabel = $('#CorePointsText');
   const corePoints = args.cp;
 
   // Convert to string to ensure consistent display
-  cpLabel.text = String(corePoints);
+  corePointsTextPanel.text = String(corePoints);
 }
 
 // this happens when a player selects any unit
@@ -45,11 +50,32 @@ function ShowCorePointsOnSelected () {
     // $.Msg('Core Points:', corePoints);
     // Only update if we got a valid number
     if (!isNaN(corePoints)) {
-      $('#CorePointsText').text = String(corePoints);
+      corePointsTextPanel.text = String(corePoints);
     }
   } else {
-    $('#CorePointsText').text = '0';
+    corePointsTextPanel.text = '0';
   }
+}
+
+function ToggleExchangeWindow () {
+  const currentEntity = Players.GetLocalPlayerPortraitUnit();
+  // Currently closed: open!
+  if (!isWindowCurrentlyOpen) {
+    // Prevent opening window if a hero is not selected
+    if (Entities.IsValidEntity(currentEntity) && Entities.IsHero(currentEntity)) {
+      isWindowCurrentlyOpen = true;
+      exchangeWindow.AddClass(cssOpen);
+      Game.EmitSound('ui_chat_slide_in');
+    }
+  } else { // Currently open: close!
+    isWindowCurrentlyOpen = false;
+    exchangeWindow.RemoveClass(cssOpen);
+    Game.EmitSound('ui_chat_slide_out');
+  }
+}
+
+function buyUpgradeCore (tier) {
+  GameEvents.SendCustomGameEventToServer('oaa_purchase_core', { tier: tier });
 }
 
 (function () {
@@ -63,7 +89,39 @@ function ShowCorePointsOnSelected () {
     context.style.marginRight = '0px';
     context.style.marginLeft = '290px';
     context.style.transform = 'scaleX(-1)';
-    $('#CorePointsText').style.transform = 'scaleX(-1)';
-    $('#CorePointsIcon').style.transform = 'scaleX(-1)';
+    corePointsTextPanel.style.transform = 'scaleX(-1)';
+    corePointsIconPanel.style.transform = 'scaleX(-1)';
   }
+
+  corePointsTextPanel.SetPanelEvent('onactivate', function () { ToggleExchangeWindow(); });
+  corePointsTextPanel.SetPanelEvent('oncontextmenu', function () { ToggleExchangeWindow(); });
+  corePointsIconPanel.SetPanelEvent('onactivate', function () { ToggleExchangeWindow(); });
+  corePointsIconPanel.SetPanelEvent('oncontextmenu', function () { ToggleExchangeWindow(); });
+
+  $('#CorePointRow1').SetPanelEvent('onactivate', function () { buyUpgradeCore(1); });
+  $('#CorePointRow1').SetPanelEvent('oncontextmenu', function () { buyUpgradeCore(1); });
+  $('#CorePointRow2').SetPanelEvent('onactivate', function () { buyUpgradeCore(2); });
+  $('#CorePointRow2').SetPanelEvent('oncontextmenu', function () { buyUpgradeCore(2); });
+  $('#CorePointRow3').SetPanelEvent('onactivate', function () { buyUpgradeCore(3); });
+  $('#CorePointRow3').SetPanelEvent('oncontextmenu', function () { buyUpgradeCore(3); });
+  $('#CorePointRow4').SetPanelEvent('onactivate', function () { buyUpgradeCore(4); });
+  $('#CorePointRow4').SetPanelEvent('oncontextmenu', function () { buyUpgradeCore(4); });
+  $('#CorePointRow5').SetPanelEvent('onactivate', function () { buyUpgradeCore(5); });
+  $('#CorePointRow5').SetPanelEvent('oncontextmenu', function () { buyUpgradeCore(5); });
+
+  // Allow mouse clicks outside the window to close it.
+  GameUI.SetMouseCallback(function (event, value) {
+    if (isWindowCurrentlyOpen && value === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
+      if (event === 'pressed') {
+        const cursorPos = GameUI.GetCursorPosition();
+        if (cursorPos[0] < exchangeWindow.actualxoffset || exchangeWindow.actualxoffset + exchangeWindow.contentwidth < cursorPos[0] || cursorPos[1] < exchangeWindow.actualyoffset || exchangeWindow.actualyoffset + exchangeWindow.contentheight < cursorPos[1]) {
+          $.Schedule(0, function () {
+            ToggleExchangeWindow();
+          });
+        }
+      }
+    }
+
+    return false;
+  });
 })();
