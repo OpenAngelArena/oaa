@@ -160,11 +160,11 @@ end
 
 function CorePointsManager:PurchaseCoreButtonPressed(event)
   local pid = event.PlayerID
-  local tier = event.tier
+  local core_tier = event.tier
   local purchaser = PlayerResource:GetSelectedHeroEntity(pid)
   local item_name = "item_upgrade_core"
-  if tonumber(tier) ~= 1 then
-    item_name = item_name.."_"..tostring(tier)
+  if tonumber(core_tier) ~= 1 then
+    item_name = item_name.."_"..tostring(core_tier)
   end
 
   local function BuyIfAllowed (item, hero, playerID)
