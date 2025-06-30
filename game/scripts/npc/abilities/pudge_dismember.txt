@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Pudge Dismember
+  // Pudge: Dismember
   //=================================================================================================================
   "pudge_dismember"
   {
@@ -40,7 +40,7 @@
       "strength_damage"
       {
         "value"                                           "0.3 0.6 0.9 1.5 2.1"
-        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong lmao
+        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong, not applied during 7.36b
         "CalculateSpellDamageTooltip"                     "0"
       }
       "ticks"

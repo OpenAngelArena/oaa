@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Savage Roar Bear
+  // Lone Druid: Savage Roar (Bear Version)
   //=================================================================================================================
   "lone_druid_savage_roar_bear"
   {
@@ -29,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA, Valve has it wrong
+      "radius" //OAA, Valve has it wrong, not applied during 7.35
       {
         "value"                                           "350"
         "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"

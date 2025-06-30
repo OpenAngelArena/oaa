@@ -1,9 +1,15 @@
 .ResourcePanel
 {
-  width: 105px;
-  height:  60px;
   margin-right: 290px;
   align: right bottom;
+  border-right: 1px solid #00000088;
+  flow-children: down;
+}
+
+.CorePointsPanel
+{
+  width: 105px;
+  height:  60px;
   background-image:  url("s2r://panorama/images/hud/reborn/courier_gold_bg_262_psd.vtex");
   background-size: 387px 60px;
   border-right: 1px solid #00000088;
@@ -13,7 +19,6 @@
 {
   width: 56px;
   height: 36px;
-  /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) ); */
   background-image: url("s2r://panorama/images/hud/reborn/shop_launcher_button_psd.vtex");
   box-shadow: #00000055 0px 0px 2px 2px;
   brightness: 1;
@@ -61,4 +66,40 @@
   height: 21px;
   horizontal-align: center;
   vertical-align: center;
+}
+
+#CorePointsExchangePanel {
+  background-color: #000000da;
+  background-image: url("s2r://panorama/images/hud/reborn/ability_bg_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 175px;
+  margin-bottom: 5px;
+  width: 210px;
+  visibility: collapse;
+  flow-children: down;
+}
+
+#CorePointsExchangePanel.visible_overlay
+{
+  visibility: visible;
+}
+
+.UpgradeCoreText
+{
+  text-shadow: 0px 1px 0px 2.0 #00000077;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffeeaa;
+  margin-left: 45px;
+  margin-top: 7px;
+}
+
+.UpgradeCoreIcon
+{
+  width: 43px;
+  height: 32px;
+  horizontal-align: center;
+  vertical-align: center;
+  margin-top: 2px;
 }

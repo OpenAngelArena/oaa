@@ -174,8 +174,8 @@ function dotaAbilities (cb) {
         cb(err);
       }
       // god damn it valve
-      body = body.replace('value "3"', '"value" "3"');
-      body = body.replace('"value"\t\t\t\t\t\t600', '"value"           "600"');
+      // body = body.replace('value "3"', '"value" "3"');
+      // body = body.replace('"value"\t\t\t\t\t\t600', '"value"           "600"');
 
       const data = parseKV(body);
       finalResult = { ...finalResult, ...data.DOTAAbilities };

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Jakiro's Ice Path
+  // Jakiro: Ice Path
   //=================================================================================================================
   "jakiro_ice_path"
   {
@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200" //OAA, Valve has it wrong
+    "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.65"
 
     // Damage.
@@ -41,7 +41,7 @@
         "value"                                           "1.25 1.50 1.75 2.0 2.25 2.5"
         "special_bonus_unique_jakiro"                     "+0.4"
       }
-      "path_duration" //OAA
+      "path_duration" //OAA, intentional nerf
       {
         "value"                                           "3.25 3.5 3.75 4.0 4.25 4.5"
         "special_bonus_facet_jakiro_ice_breaker"          "=5"

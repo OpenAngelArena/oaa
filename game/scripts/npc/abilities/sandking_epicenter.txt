@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Epicenter
+  // Sand King: Epicenter
   //=================================================================================================================
   "sandking_epicenter"
   {
@@ -70,9 +70,9 @@
         "special_bonus_unique_sand_king_5"                "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_interval" //OAA, Valve has it wrong
+      "shard_interval"
       {
-        "special_bonus_shard"                             "3.0"
+        "special_bonus_shard"                             "3"
       }
       "linger_duration"                                   "3.0"
       "scepter_explosion_radius_pct"

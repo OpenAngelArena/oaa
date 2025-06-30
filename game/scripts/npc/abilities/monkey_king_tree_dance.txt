@@ -52,12 +52,12 @@
       "perched_spot_height"                               "192.0"
       "unperched_stunned_duration"                        "4.0"
       "top_level_height"                                  "500"
-      "impact_damage_tooltip" //OAA, Valve has it wrong
+      "impact_damage_tooltip" //OAA, Valve has it wrong, tooltip error, not fixed since 7.37
       {
         "value"                                           "110 200 290 380 760 1520"
         "special_bonus_unique_monkey_king_3"              "+100"
       }
-      "impact_movement_slow_tooltip"                      "35 50 65 80 90 100" // OAA, Valve has it wrong
+      "impact_movement_slow_tooltip"                      "35 50 65 80 90 100" // OAA, Valve has it wrong, not applied during 7.36
       "range"                                             "800"
       "max_level" //OAA
       {

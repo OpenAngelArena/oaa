@@ -29,12 +29,12 @@
     "AbilityValues"
     {
       "duration"                                          "6.0"
-      "illusion_damage_outgoing" //OAA, Valve has it wrong?
+      "illusion_damage_outgoing" //OAA, Valve has it wrong? Is this talent applied multiple times?
       {
         "value"                                           "-20"
         "special_bonus_unique_spectre_4"                  "+25"
       }
-      "tooltip_outgoing" //OAA, Valve has it wrong?
+      "tooltip_outgoing" //OAA, Valve has it wrong? Is this talent applied multiple times?
       {
         "value"                                           "80"
         "special_bonus_unique_spectre_4"                  "+25"
