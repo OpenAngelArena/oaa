@@ -91,6 +91,7 @@ function buyUpgradeCore (tier) {
     context.style.transform = 'scaleX(-1)';
     corePointsTextPanel.style.transform = 'scaleX(-1)';
     corePointsIconPanel.style.transform = 'scaleX(-1)';
+    exchangeWindow.style.transform = 'scaleX(-1)';
   }
 
   corePointsTextPanel.SetPanelEvent('onactivate', function () { ToggleExchangeWindow(); });
