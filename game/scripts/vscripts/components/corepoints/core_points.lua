@@ -113,9 +113,17 @@ function CorePointsManager:UpgradeItemButtonPressed(event)
       if allowed_to_buy then
         -- Check for gold cost
         if current_gold >= gold_cost then
-          CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
-          Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
-          hero:AddItemByName(item)
+          if hero:HasRoomForItemOAA() then
+            CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
+            Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+            hero:AddItemByName(item)
+            -- Sound for the player only
+            EmitSoundOnClient("General.Buy", PlayerResource:GetPlayer(playerID))
+            hero:EmitSound("General.Buy") -- plays on the hero
+          else
+            local error_msg_inventory_full = "#dota_hud_error_cant_pick_up_item"
+            CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg_inventory_full})
+          end
         else
           -- Error - not enough gold
           CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 63})
@@ -186,12 +194,17 @@ function CorePointsManager:PurchaseCoreButtonPressed(event)
       if allowed_to_buy then
         -- Check for gold cost
         if current_gold >= gold_cost then
-          CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
-          Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
-          hero:AddItemByName(item)
-          -- Sound for the player only
-          EmitSoundOnClient("General.Buy", PlayerResource:GetPlayer(playerID))
-          hero:EmitSound("General.Buy") -- plays on the hero
+          if hero:HasRoomForItemOAA() then
+            CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
+            Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+            hero:AddItemByName(item)
+            -- Sound for the player only
+            EmitSoundOnClient("General.Buy", PlayerResource:GetPlayer(playerID))
+            hero:EmitSound("General.Buy") -- plays on the hero
+          else
+            local error_msg_inventory_full = "#dota_hud_error_cant_pick_up_item"
+            CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg_inventory_full})
+          end
         else
           -- Error - not enough gold
           CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 63})
@@ -654,7 +667,12 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
 
   if item_name ~= "" then
     DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
-    hero:AddItemByName(item_name)
+    if hero:HasRoomForItemOAA() then
+      hero:AddItemByName(item_name)
+    else
+      local error_msg_inventory_full = "#dota_hud_error_cant_pick_up_item"
+      CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg_inventory_full})
+    end
   end
 end
 
