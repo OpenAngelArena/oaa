@@ -27,7 +27,6 @@ g_ItemPrecache = {
   --"item_reduction_orb_1",
   "item_reflection_shard_1",
   --"item_reflex_core",
-  "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
   --"item_sacred_skull",
   --"item_satanic_core_1",
@@ -145,7 +144,6 @@ g_ParticleFolderPrecache = {
   "particles/items/enrage_crystal",
   "particles/items/heart_transplant",
   "particles/items/reflection_shard",
-  "particles/items/regen_crystal",
   "particles/items/trumps_fists",
   "particles/items/vampire",
 }

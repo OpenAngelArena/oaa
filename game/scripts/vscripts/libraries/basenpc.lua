@@ -36,14 +36,16 @@ if IsServer() then
       "modifier_item_nullifier_mute",                  -- Nullifier debuff
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
+      --"modifier_item_angels_demise_slow",              -- Khanda Slow
+      "modifier_item_angels_demise_break",             -- Khanda Break
       -- custom:
       "modifier_item_shade_staff_trees_debuff",        -- Shade Staff debuff
       "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
-      "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
       "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
     }
 
     local undispellable_ability_debuffs = {
+      "modifier_antimage_empowered_mana_break_debuff", -- Anti-Mage scepter debuff
       "modifier_axe_berserkers_call",
       "modifier_bloodseeker_rupture",
       --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
@@ -51,9 +53,12 @@ if IsServer() then
       "modifier_doom_bringer_doom_enemy",
       "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
+      "modifier_enchantress_little_friends_aura", -- Enchantress scepter aura that affects neutral creeps
+      "modifier_enchantress_little_friends_kill_credit", -- Enchantress scepter debuff that allows her to take credit for the kill made with neutrals
       "modifier_forged_spirit_melting_strike_debuff",
       "modifier_grimstroke_soul_chain",
       "modifier_huskar_burning_spear_debuff",   -- Burning Spear stacks
+      "modifier_huskar_life_break_taunt",       -- Huskar Life Break scepter taunt
       "modifier_ice_blast",
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
@@ -63,6 +68,7 @@ if IsServer() then
       "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
       "modifier_razor_static_link_debuff",
+      "modifier_rooted_undispellable",          -- generic undispellable root - Enchantress scepter uses this
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
       "modifier_shadow_demon_disruption",
       "modifier_shadow_demon_purge_slow",
@@ -75,6 +81,9 @@ if IsServer() then
       "modifier_tusk_walrus_punch_slow",
       "modifier_ursa_fury_swipes_damage_increase",
       "modifier_venomancer_poison_nova",
+      "modifier_venomancer_noxious_plague_primary",
+      "modifier_venomancer_noxious_plague_secondary",
+      "modifier_venomancer_noxious_plague_slow",
       "modifier_viper_viper_strike_slow",
       "modifier_windrunner_windrun_slow",
       "modifier_winter_wyvern_winters_curse",
@@ -147,7 +156,6 @@ if IsServer() then
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
       --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
-      "modifier_item_regen_crystal_active",          -- Regen Crystal buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff
       "modifier_item_spiked_mail_active_return",     -- Spiked Mail active buff
       "modifier_item_stoneskin_stone_armor",         -- Stoneskin Armor buff
@@ -196,11 +204,13 @@ if IsServer() then
       "modifier_skywrath_mage_shard_bonus_counter",
       "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
+      "modifier_sven_warcry",  -- Warcry becomes undispellable with shard
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
       "modifier_ursa_enrage",
+      "modifier_visage_summon_familiars_stone_form_buff", -- Visage and his familiars use the same Stone Form modifier
       "modifier_weaver_shukuchi",
-      "modifier_windrunner_windrun",
+      "modifier_windrunner_windrun",  -- Windrun becomes undispellable with the talent
       "modifier_windrunner_windrun_invis",
       "modifier_winter_wyvern_cold_embrace",
       "modifier_wisp_overcharge",

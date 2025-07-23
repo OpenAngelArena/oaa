@@ -164,3 +164,17 @@ function modifier_item_magic_lamp_oaa_buff:GetEffectName()
   return "particles/items5_fx/magic_lamp.vpcf"
 end
 
+function modifier_item_magic_lamp_oaa_buff:OnCreated()
+  if not IsServer() then return end
+  self:StartIntervalThink(0.1)
+end
+
+function modifier_item_magic_lamp_oaa_buff:OnIntervalThink()
+  if not IsServer() then return end
+  local parent = self:GetParent()
+
+  -- Dispel all debuffs (99.99% at least)
+  parent:DispelUndispellableDebuffs()
+  parent:Purge(false, true, false, true, true)
+end
+
