@@ -5,6 +5,29 @@
   //=================================================================================================================
   "npc_dota_hero_rattletrap"
   {
+    "Facets"
+    {
+      "rattletrap_hookup"
+      {
+        "Icon"                                            "cooldown"
+        "Color"                                           "Gray"
+        "GradientID"                                      "2"
+      }
 
+      "rattletrap_expanded_armature"
+      {
+        "Icon"                                            "area_of_effect"
+        "Color"                                           "Red"
+        "GradientID"                                      "2"
+      }
+
+      "rattletrap_junk_mail"
+      {
+        "Icon"                                            "armor"
+        "Color"                                           "Yellow"
+        "GradientID"                                      "1"
+        "Deprecated"                                      "true"
+      }
+    }
   }
 }
