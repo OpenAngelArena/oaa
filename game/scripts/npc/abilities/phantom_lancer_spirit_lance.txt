@@ -58,6 +58,8 @@
       {
         "value"                                           "15 17 19 21 23 25"
         "special_bonus_unique_phantom_lancer_lance_illusion_damage"  "+15"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "illusion_damage_in_pct"                            "300 260 220 180 140 100" //OAA
       "tooltip_illusion_total_damage_in_pct"              "400 360 320 280 240 200" //OAA
