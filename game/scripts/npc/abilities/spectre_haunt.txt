@@ -29,18 +29,19 @@
     "AbilityValues"
     {
       "duration"                                          "6.0"
-      "illusion_damage_outgoing" //OAA, Valve has it wrong? Is this talent applied multiple times?
-      {
-        "value"                                           "-20"
-        "special_bonus_unique_spectre_4"                  "+25"
-      }
-      "tooltip_outgoing" //OAA, Valve has it wrong? Is this talent applied multiple times?
+      "illusion_damage_outgoing"                          "-20" // Valve has it wrong? Is this talent special_bonus_unique_spectre_4 even applied?
+      "tooltip_outgoing" //OAA, Valve has it wrong? I will fix only the tooltip just in case talent actually works
       {
         "value"                                           "80"
         "special_bonus_unique_spectre_4"                  "+25"
       }
       "illusion_damage_incoming"                          "100"
-      "tooltip_illusion_total_damage_incoming"            "200"
+      "tooltip_illusion_total_damage_incoming"
+      {
+        "value"                                           "200"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "attack_delay"                                      "0"
       "destroy_if_target_is_dead"
       {

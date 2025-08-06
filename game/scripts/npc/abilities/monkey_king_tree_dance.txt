@@ -46,7 +46,12 @@
         "value"                                           "800"
         "special_bonus_unique_monkey_king_7"              "+450"
       }
-      "jump_damage_cooldown"                              "3.0"
+      "jump_damage_cooldown"
+      {
+        "value"                                           "3.0"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "perched_day_vision"                                "700"
       "perched_night_vision"                              "500"
       "perched_spot_height"                               "192.0"

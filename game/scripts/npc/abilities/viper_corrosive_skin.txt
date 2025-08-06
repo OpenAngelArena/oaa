@@ -21,10 +21,12 @@
       "bonus_attack_speed"
       {
         "value"                                           "8 16 24 32 36 40"
+        "display_type"                                    "kDebuffValue"
       }
       "bonus_magic_resistance"
       {
         "value"                                           "10 15 20 25 30 35"
+        "display_type"                                    "kBuffPercentage"
       }
       "damage"
       {
@@ -44,6 +46,7 @@
       "effect_multiplier"
       {
         "special_bonus_scepter"                           "4"
+        "display_type"                                    "kBuffPercentage"
       }
       "nethertoxin_bonus_pct"
       {

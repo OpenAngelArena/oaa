@@ -47,6 +47,8 @@
         "value"                                           "20 40 60 80 120 180 260 360"
         "special_bonus_unique_lycan_3"                    "+10"
         "special_bonus_facet_lycan_spirit_wolves"         "=0"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "wolf_hp" //OAA
       {
@@ -63,6 +65,8 @@
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_3"                    "+10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "bonus_armor"
       {
@@ -110,6 +114,8 @@
           "value"                                         "6 11 16 21 26 31"
           "special_bonus_unique_lycan_3"                  "+5"
         }
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "death_fx_time"
       {

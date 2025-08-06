@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: God's Strength
+  // Sven: God's Strength
   //=================================================================================================================
   "sven_gods_strength"
   {
@@ -35,6 +35,8 @@
       {
         "value"                                           "110 150 190 270 350"
         "special_bonus_unique_sven_2"                     "+50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_slow_resistance"
       {
