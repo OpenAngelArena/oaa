@@ -46,7 +46,12 @@
         "special_bonus_unique_spectre_4"                  "+25"
       }
       "illusion_damage_incoming"                          "100 100 100 75 25"
-      "tooltip_illusion_total_damage_incoming"            "200 200 200 175 125"
+      "tooltip_illusion_total_damage_incoming"
+      {
+        "value"                                           "200 200 200 175 125"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "attack_delay"                                      "0"
       "destroy_if_target_is_dead"
       {

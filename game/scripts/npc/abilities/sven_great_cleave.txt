@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Great Cleave
+  // Sven: Great Cleave
   //=================================================================================================================
   "sven_great_cleave"
   {
@@ -37,6 +37,8 @@
       {
         "value"                                           "50 65 80 95 110 125"
         "special_bonus_unique_sven_8"                     "+25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "strength_bonus"                                    "00"
     }
