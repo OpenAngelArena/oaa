@@ -863,7 +863,7 @@ function ChangeHeroImage (container, hero) {
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix
   const shortHeroName = container.heroname;
-  if (shortHeroName === 'sohei' || shortHeroName === 'electrician' || shortHeroName === 'eul') {
+  if (shortHeroName === 'sohei' || shortHeroName === 'electrician' || shortHeroName === 'eul' || shortHeroName === 'bubble_witch') {
     // re-add prefix
     container.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + shortHeroName + '.png")';
     container.style.backgroundSize = '100% 100%';
@@ -1328,6 +1328,17 @@ function CreateHeroPanel (parent, hero) {
       particleonly: 'false',
       renderdeferred: 'false',
       camera: 'camera1',
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
+  } else if (hero === 'npc_dota_hero_bubble_witch') {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      particleonly: 'false',
+      renderdeferred: 'false',
       rotateonhover: 'true',
       yawmin: '-10',
       yawmax: '10',
