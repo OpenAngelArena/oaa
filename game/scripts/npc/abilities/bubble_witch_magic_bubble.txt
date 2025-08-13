@@ -1,0 +1,69 @@
+"DOTAAbilities"
+{
+  "bubble_witch_magic_bubble" // W - Magic Bubble
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_magic_bubble.lua"
+    "AbilityTextureName"                                  "custom/bubble_witch_w" //"abaddon_aphotic_shield"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityChargeRestoreTime"                            "12 10 9 8 8 8"
+
+    // Mana Cost + Magic Stick/Wand
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCharges" // can be improved with talent
+      {
+        "value"                                           "1"
+      }
+      "duration"                                          "3 4 5 6 6.5 7" // buff duration; grants free pathing
+      "turn_speed_reduction"                              "0" // percentage
+      "move_speed_reduction"                              "10" // percentage
+      "base_dmg"                                          "0" // base explode dmg
+      "damage_taken_as_explode_damage" // like Pyrrhic cloak; percentage
+      {
+        "value"                                           "75"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "explode_damage_cap"                                "150 250 350 450 900 1350"
+      "explode_dmg_radius"
+      {
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+    }
+  }
+}

@@ -60,6 +60,8 @@ function HeroSelection:Init ()
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
       elseif key == "npc_dota_hero_eul" then
         data = LoadKeyValues('scripts/npc/heroes/eul.txt')
+       elseif key == "npc_dota_hero_bubble_witch" then
+        data = LoadKeyValues('scripts/npc/heroes/eul.txt')
       else
         data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end

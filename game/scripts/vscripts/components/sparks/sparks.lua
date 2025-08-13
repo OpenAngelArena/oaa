@@ -244,6 +244,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_brewmaster = "midas",
     npc_dota_hero_bristleback = "power",
     npc_dota_hero_broodmother = "power",
+    npc_dota_hero_bubble_witch = "midas",
     npc_dota_hero_centaur = "midas",
     npc_dota_hero_chaos_knight = "cleave", -- cleave or power
     npc_dota_hero_chen = "power",
