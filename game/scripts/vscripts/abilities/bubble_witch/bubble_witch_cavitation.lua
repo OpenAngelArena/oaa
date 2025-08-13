@@ -95,8 +95,6 @@ if IsServer() then
 
   function modifier_bubble_witch_cavitation_movement:OnDestroy()
     local parent = self:GetParent()
-    local caster = self:GetCaster()
-    local ability = self:GetAbility()
     local parent_origin = parent:GetAbsOrigin()
 
     parent:RemoveHorizontalMotionController(self)
@@ -205,7 +203,6 @@ if IsServer() then
     local parent_origin = parent:GetAbsOrigin()
 
     -- Bubble pop damage
-    local ability = self:GetAbility()
     if ability and not ability:IsNull() and parent and not parent:IsNull() and parent:IsAlive() then
       local damage_table = {
         attacker = caster,
