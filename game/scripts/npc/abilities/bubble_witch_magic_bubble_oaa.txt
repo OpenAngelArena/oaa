@@ -60,12 +60,17 @@
         "value"                                           "75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "explode_damage_cap"                                "100 200 300 400 800 1200"
+      "explode_damage_cap"
+      {
+        "value"                                           "100 200 300 400 800 1200"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "explode_dmg_radius"
       {
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "applies_basic_dispel"
       {

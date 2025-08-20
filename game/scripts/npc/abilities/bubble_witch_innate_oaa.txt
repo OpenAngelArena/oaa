@@ -25,12 +25,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_dmg"                                          "50 100 150 200 300 400" // base explode dmg
+      "base_dmg"
+      {
+        "value"                                           "50 100 150 200 300 400"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
       "explode_dmg_radius"
       {
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "immune_time"                                       "1"
     }

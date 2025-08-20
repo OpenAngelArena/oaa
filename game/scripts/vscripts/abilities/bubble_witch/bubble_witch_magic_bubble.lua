@@ -12,9 +12,6 @@ function bubble_witch_magic_bubble:OnSpellStart()
     target:Purge(false, true, false, false, false)
   end
 
-  -- Remove previous instance
-  target:RemoveModifierByName("modifier_bubble_witch_magic_bubble_buff")
-
   -- Buff
   target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = self:GetSpecialValueFor("duration")})
 

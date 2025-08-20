@@ -62,6 +62,7 @@ if IsServer() then
     end
 
     local black_list = {
+      modifier_bottle_regeneration = 1, -- not intended
       modifier_bubble_witch_blow_bubbles_ally = 1, -- to prevent multiple proccing
       modifier_bubble_witch_blow_bubbles_caster = 1, -- this is nonsense
       modifier_bubble_witch_bubble_of_protection_buff = 1, -- not intended
@@ -104,7 +105,7 @@ if IsServer() then
 
     local duration = mod:GetDuration()
     if duration > 0 then
-      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {duration = mod:GetRemainingTime(), linked_mod = name})
+      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {linked_mod = name}) -- duration = mod:GetRemainingTime()
     end
   end
 end

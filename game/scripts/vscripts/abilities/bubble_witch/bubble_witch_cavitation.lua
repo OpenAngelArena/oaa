@@ -126,6 +126,8 @@ if IsServer() then
 
     self.distance = self.distance - tickTraveled
 
+    GridNav:DestroyTreesAroundPoint(tickOrigin, 128, false)
+
     -- Unstucking (ResolveNPCPositions) is happening OnDestroy;
     parent:SetAbsOrigin(tickOrigin)
   end
