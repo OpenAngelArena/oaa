@@ -6,6 +6,12 @@ function bubble_witch_magic_bubble:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
+  local applies_basic_dispel = self:GetSpecialValueFor("applies_basic_dispel")
+  if applies_basic_dispel > 0 then
+    -- Basic Dispel for allies
+    target:Purge(false, true, false, false, false)
+  end
+
   -- Remove previous instance
   target:RemoveModifierByName("modifier_bubble_witch_magic_bubble_buff")
 

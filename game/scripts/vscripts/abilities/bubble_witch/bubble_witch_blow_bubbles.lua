@@ -111,6 +111,8 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local start_radius = ability:GetSpecialValueFor("cone_starting_width")
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
   local extend_duration = ability:GetSpecialValueFor("extend_duration_per_hit")
+  local applies_to_caster = ability:GetSpecialValueFor("applies_to_caster")
+  local base_buff_duration = ability:GetSpecialValueFor("buff_duration")
   local speed = distance
   local direction = parent:GetForwardVector()
   direction.z = 0
@@ -208,7 +210,7 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
     if unit and not unit:IsNull() and unit ~= parent then
       if unit:GetTeamNumber() == parent_team then
         -- Ally
-        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = ability:GetSpecialValueFor("buff_duration")})
+        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
         local magic_bubble_buff = unit:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
         if magic_bubble_buff then
           local remain = magic_bubble_buff:GetRemainingTime()
@@ -225,6 +227,15 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
         damage_table.victim = unit
         ApplyDamage(damage_table)
       end
+    end
+  end
+
+  if applies_to_caster > 0 then
+    parent:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
+    local magic_bubble_buff = parent:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
+    if magic_bubble_buff then
+      local remain = magic_bubble_buff:GetRemainingTime()
+      magic_bubble_buff:SetDuration(remain + extend_duration, true)
     end
   end
 end

@@ -104,7 +104,7 @@ if IsServer() then
 
     local duration = mod:GetDuration()
     if duration > 0 then
-      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {duration = mod:GetRemainingTime()})
+      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {duration = mod:GetRemainingTime(), linked_mod = name})
     end
   end
 end
@@ -132,7 +132,7 @@ function modifier_bubble_witch_innate_buff_oaa:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_bubble_witch_innate_buff_oaa:OnCreated()
+function modifier_bubble_witch_innate_buff_oaa:OnCreated(kv)
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.dmg = ability:GetSpecialValueFor("base_dmg")
@@ -143,9 +143,27 @@ function modifier_bubble_witch_innate_buff_oaa:OnCreated()
     self.radius = 675
     self.immune_time = 1
   end
+  if IsServer() and self:GetDuration() > 0.1 and self:GetRemainingTime() > 0.1 then
+    self.linked_mod = kv.linked_mod
+    self:StartIntervalThink(0.1)
+  end
 end
 
 if IsServer() then
+  function modifier_bubble_witch_innate_buff_oaa:OnIntervalThink()
+    local caster = self:GetCaster()
+    local parent = self:GetParent()
+    if not self.linked_mod then
+      self:StartIntervalThink(-1)
+      return
+    end
+    local linked_buff = parent:FindModifierByNameAndCaster(self.linked_mod, caster)
+    if not linked_buff or linked_buff:IsNull() then
+      self:StartIntervalThink(-1)
+      self:Destroy()
+    end
+  end
+
   function modifier_bubble_witch_innate_buff_oaa:OnDestroy()
     local caster = self:GetCaster()
     local parent = self:GetParent()

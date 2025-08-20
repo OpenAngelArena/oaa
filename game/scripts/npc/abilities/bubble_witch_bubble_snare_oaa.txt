@@ -41,22 +41,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" // can be improved with talent
+      "damage"
       {
         "value"                                           "90 160 230 300 600 1200"
       }
-      "debuff_duration" // can be improved with talent
+      "debuff_duration"
       {
-        "value"                                           "1.4 1.6 1.8 2.0 2.1 2.2"
+        "value"                                           "1.4 1.5 1.6 1.7 1.8 1.9"
+        "special_bonus_unique_bubble_witch_2"             "+0.5"
       }
       "knockback_distance"
       {
         "value"                                           "375"
       }
       "knockback_speed"                                   "270"
-      "AbilityCooldown" // can be improved with talent
+      "AbilityCooldown"
       {
         "value"                                           "17 16 15 14 13 12"
+        "special_bonus_unique_bubble_witch_3"             "-3"
       }
     }
   }

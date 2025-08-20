@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24 21 18 15 14 13"
-
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 90 110 130 150 170"
@@ -48,9 +44,10 @@
     {
       "duration"                                          "2" // wave number is this + 1
       "shield_per_second"                                 "40 55 70 85 115 145"
-      "dps" // can be improved with talent
+      "dps"
       {
         "value"                                           "50 75 100 125 250 500"
+        "special_bonus_unique_bubble_witch_1"             "+150"
       }
       "move_speed_increase_per_second"                    "10" // percentage
       "move_speed_slow_per_second"                        "15" // percentage
@@ -72,6 +69,16 @@
       }
       "extend_duration_per_hit"                           "0.5"
       "shield_multiplier_in_bubble_of_protection"         "2"
+      "applies_to_caster"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_bubble_witch_4"             "=1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "18 17 16 15 14 13"
+        "special_bonus_unique_bubble_witch_5"             "-3"
+      }
     }
   }
 }
