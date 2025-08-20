@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+  "bubble_witch_blow_bubbles" // E - Blow Bubbles
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_blow_bubbles.lua"
+    "AbilityTextureName"                                  "puck_illusory_orb"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT" // DOTA_ABILITY_BEHAVIOR_DIRECTIONAL, locked facing (disabled turning)
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Mana Cost + Magic Stick/Wand
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 90 110 130 150 170"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/generic_gameplay/rune_shield_bubble.vpcf" // particle on allies
+      "particle"                                          "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf" // blow bubbles particle
+      //"particle"                                          "particles/econ/wards/fall20_cauldron_ward/fall20_cauldron_ward_ambient_bubbles.vpcf" // does not work
+      //"particle"                                          "particles/econ/items/techies/techies_fall_crazy_night_of_magic_mount/techies_fall_crazy_night_ambient_bubbles.vpcf" // does not work
+      "particle"                                          "particles/econ/events/ti10/high_five/high_five_lvl1_overhead_soap_bubbles.vpcf" // particle on enemies
+      "particle"                                          "particles/hero/bubble_witch/bubbles_model.vpcf" // particle on caster
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"                                          "2" // wave number is this + 1
+      "shield_per_second"                                 "40 55 70 85 115 145"
+      "dps"
+      {
+        "value"                                           "50 75 100 125 250 500"
+        "special_bonus_unique_bubble_witch_1"             "+150"
+        "CalculateSpellDamageTooltip"                     "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "move_speed_increase_per_second"                    "10" // percentage
+      "move_speed_slow_per_second"                        "15" // percentage
+      "buff_duration"                                     "6" // shield and ms bonus linger duration
+      "debuff_duration"                                   "2" // slow linger duration
+      "cone_starting_width" // 150 + collision size + 1
+      {
+        "value"                                           "175"
+      }
+      "cone_ending_width" // 2 x cone_starting_width
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cone_distance"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "extend_duration_per_hit"                           "0.5"
+      "shield_multiplier_in_bubble_of_protection"         "2"
+      "applies_to_caster"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_bubble_witch_4"             "=1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "18 17 16 15 14 13"
+        "special_bonus_unique_bubble_witch_5"             "-3"
+      }
+    }
+  }
+}

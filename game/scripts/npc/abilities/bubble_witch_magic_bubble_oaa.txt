@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+  "bubble_witch_magic_bubble" // W - Magic Bubble
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_magic_bubble.lua"
+    "AbilityTextureName"                                  "custom/bubble_witch_w" //"abaddon_aphotic_shield"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityChargeRestoreTime"                            "12 11 10 9 9 9"
+
+    // Mana Cost + Magic Stick/Wand
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCharges"
+      {
+        "value"                                           "1"
+        "special_bonus_unique_bubble_witch_6"             "+1"
+      }
+      "duration"                                          "3.5 4.0 4.5 5.0 5.5 6.0" // buff duration; grants free pathing
+      "turn_speed_reduction"                              "0" // percentage
+      "move_speed_reduction"                              "10" // percentage
+      "base_dmg"                                          "0" // base explode dmg
+      "damage_taken_as_explode_damage" // like Pyrrhic cloak; percentage
+      {
+        "value"                                           "75"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "explode_damage_cap"
+      {
+        "value"                                           "100 200 300 400 800 1200"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "explode_dmg_radius"
+      {
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "applies_basic_dispel"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=1"
+      }
+    }
+  }
+}

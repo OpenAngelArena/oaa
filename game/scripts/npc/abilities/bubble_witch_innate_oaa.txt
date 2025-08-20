@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+  "bubble_witch_innate" // Innate - Bubbly
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsBreakable"                                         "1"
+
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "bubble_witch_bubble_of_protection"
+    "MaxLevel"                                            "6" // same as Dependent ability + 1
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/neutral_fx/frogmen_water_bubble_explosion.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "base_dmg"
+      {
+        "value"                                           "50 100 150 200 300 400"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "explode_dmg_radius"
+      {
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "immune_time"                                       "1"
+    }
+  }
+}

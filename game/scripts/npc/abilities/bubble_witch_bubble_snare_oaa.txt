@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+  "bubble_witch_cavitation" // Q - Bubble Snare
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_cavitation.lua"
+    "AbilityTextureName"                                  "custom/bubble_witch_q"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "550 575 600 625 650 675"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    // Mana Cost + Magic Stick/Wand
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 125 150 175 200 225"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      //"particle"                                          "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
+      "particle"                                          "particles/units/heroes/hero_spirit_breaker/spirit_breaker_magnet.vpcf"
+      "particle"                                          "particles/neutral_fx/frogmen_water_bubble_explosion.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage"
+      {
+        "value"                                           "90 160 230 300 600 1200"
+      }
+      "debuff_duration"
+      {
+        "value"                                           "1.4 1.5 1.6 1.7 1.8 1.9"
+        "special_bonus_unique_bubble_witch_2"             "+0.5"
+      }
+      "knockback_distance"
+      {
+        "value"                                           "375"
+      }
+      "knockback_speed"                                   "270"
+      "AbilityCooldown"
+      {
+        "value"                                           "17 16 15 14 13 12"
+        "special_bonus_unique_bubble_witch_3"             "-3"
+      }
+    }
+  }
+}
