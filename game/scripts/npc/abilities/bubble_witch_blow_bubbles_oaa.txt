@@ -31,10 +31,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/generic_gameplay/rune_shield_bubble.vpcf"
-      "particle"                                          "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf"
+      "particle"                                          "particles/generic_gameplay/rune_shield_bubble.vpcf" // particle on allies
+      "particle"                                          "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf" // blow bubbles particle
       //"particle"                                          "particles/econ/wards/fall20_cauldron_ward/fall20_cauldron_ward_ambient_bubbles.vpcf" // does not work
       //"particle"                                          "particles/econ/items/techies/techies_fall_crazy_night_of_magic_mount/techies_fall_crazy_night_ambient_bubbles.vpcf" // does not work
+      "particle"                                          "particles/econ/events/ti10/high_five/high_five_lvl1_overhead_soap_bubbles.vpcf" // particle on enemies
+      "particle"                                          "particles/hero/bubble_witch/bubbles_model.vpcf" // particle on caster
       "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
     }
 

@@ -97,6 +97,10 @@ function modifier_bubble_witch_blow_bubbles_caster:OnCreated()
   if IsServer() then
     self:OnIntervalThink()
     self:StartIntervalThink(1)
+
+    self.particle = ParticleManager:CreateParticle("particles/hero/bubble_witch/bubbles_model.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+    ParticleManager:SetParticleControlEnt(self.particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true)
+    ParticleManager:SetParticleControl(self.particle, 2, Vector(0,0,0))
   end
 end
 
@@ -243,6 +247,10 @@ end
 function modifier_bubble_witch_blow_bubbles_caster:OnDestroy()
   if IsServer() then
     self:GetParent():StopSound("Bubble_Witch.Blow_Bubbles.Loop")
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+    end
   end
 end
 
@@ -261,14 +269,6 @@ end
 function modifier_bubble_witch_blow_bubbles_caster:GetModifierDisableTurning()
   return 1
 end
-
--- function modifier_bubble_witch_blow_bubbles_caster:GetEffectName()
-  -- return
--- end
-
--- function modifier_bubble_witch_blow_bubbles_caster:GetEffectAttachType()
-  -- return PATTACH_ABSORIGIN_FOLLOW
--- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -418,7 +418,7 @@ function modifier_bubble_witch_blow_bubbles_ally:GetEffectName()
 end
 
 function modifier_bubble_witch_blow_bubbles_ally:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_ROOTBONE_FOLLOW
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -469,10 +469,10 @@ function modifier_bubble_witch_blow_bubbles_enemy:GetModifierMoveSpeedBonus_Perc
   return 0 - math.abs(self:GetStackCount() * self.move_speed_slow_per_stack)
 end
 
--- function modifier_bubble_witch_blow_bubbles_enemy:GetEffectName()
-  -- return
--- end
+ function modifier_bubble_witch_blow_bubbles_enemy:GetEffectName()
+  return "particles/econ/events/ti10/high_five/high_five_lvl1_overhead_soap_bubbles.vpcf"
+end
 
--- function modifier_bubble_witch_blow_bubbles_enemy:GetEffectAttachType()
-  -- return PATTACH_ABSORIGIN_FOLLOW
--- end
+ function modifier_bubble_witch_blow_bubbles_enemy:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end

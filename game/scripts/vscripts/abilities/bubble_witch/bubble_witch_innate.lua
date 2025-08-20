@@ -62,17 +62,19 @@ if IsServer() then
     end
 
     local black_list = {
-      modifier_bottle_regeneration = 1, -- not intended
-      modifier_bubble_witch_blow_bubbles_ally = 1, -- to prevent multiple proccing
-      modifier_bubble_witch_blow_bubbles_caster = 1, -- this is nonsense
-      modifier_bubble_witch_bubble_of_protection_buff = 1, -- not intended
+      modifier_bottle_regeneration = 1, -- not intended, to prevent multiple proccing
+      modifier_bubble_witch_blow_bubbles_ally = 1, -- to prevent multiple proccing, duration isn't constant
+      modifier_bubble_witch_blow_bubbles_caster = 1, -- this is nonsense, not really a buff
+      modifier_bubble_witch_bubble_of_protection_buff = 1, -- not intended, similar to aura
       modifier_bubble_witch_innate_buff_oaa = 1, -- to prevent a loop
       modifier_bubble_witch_innate_immune_oaa = 1, -- to prevent a loop
+      modifier_bubble_witch_magic_bubble_buff = 1, -- to prevent multiple proccing, duration isn't constant
       modifier_generic_dead_tracker_oaa = 1, -- not intended, not a buff
-      modifier_illusion = 1, -- not intended
+      modifier_illusion = 1, -- not intended, not a buff
+      modifier_invisible = 1, -- not intended, to prevent multiple proccing
       modifier_item_assault_positive = 1, -- not intended, aura
       modifier_item_bloodstone_drained = 1, -- not intended, not a buff
-      modifier_item_bubble_orb_visible_buff = 1, -- not intended
+      modifier_item_bubble_orb_visible_buff = 1, -- not intended, similar to aura
       modifier_item_buckler_effect = 1, -- not intended, aura
       modifier_item_crimson_guard_nostack = 1, -- not intended, not a buff
       modifier_item_harpoon_pull = 1, -- not intended, not a buff
@@ -80,7 +82,7 @@ if IsServer() then
       modifier_item_lucience_regen_effect = 1, -- not intended, aura
       modifier_item_magic_lamp_oaa_buff = 1, -- not intended, not a buff
       modifier_item_mekansm_noheal = 1, -- not intended, not a buff
-      modifier_item_preemptive_bubble_block = 1, -- not intended
+      modifier_item_preemptive_bubble_block = 1, -- not intended, similar to aura
       modifier_item_ring_of_basilius_effect = 1, -- not intended, aura
       modifier_item_siege_mode_thinker = 1, -- not intended
       modifier_kill = 1, -- not intended, not a buff
@@ -105,7 +107,7 @@ if IsServer() then
 
     local duration = mod:GetDuration()
     if duration > 0 then
-      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {linked_mod = name}) -- duration = mod:GetRemainingTime()
+      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {duration = mod:GetRemainingTime(), linked_mod = name})
     end
   end
 end
@@ -144,7 +146,7 @@ function modifier_bubble_witch_innate_buff_oaa:OnCreated(kv)
     self.radius = 675
     self.immune_time = 1
   end
-  if IsServer() and self:GetDuration() > 0.1 and self:GetRemainingTime() > 0.1 then
+  if IsServer() and self:GetDuration() > 0.1 and self:GetRemainingTime() > 0.1 and kv.linked_mod then
     self.linked_mod = kv.linked_mod
     self:StartIntervalThink(0.1)
   end

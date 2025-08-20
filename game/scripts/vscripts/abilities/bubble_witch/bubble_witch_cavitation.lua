@@ -13,6 +13,9 @@ function bubble_witch_cavitation:OnSpellStart()
 
   local duration = self:GetSpecialValueFor("debuff_duration")
 
+  -- Duration is reduced with Status Resistance
+  duration = target:GetValueChangedByStatusResistance(duration)
+
   -- Bubble Form Sound
   target:EmitSound("Bubble_Witch.Bubble_Snare.Target")
 
@@ -159,20 +162,11 @@ function modifier_bubble_witch_cavitation_debuff:IsPurgable()
   return true
 end
 
---function modifier_bubble_witch_cavitation_debuff:OnCreated()
-    --if not IsServer() then return end
-    --local particle = ParticleManager:CreateParticle("particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-    --ParticleManager:SetParticleControlEnt( particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true )
-    --self:AddParticle(particle, false, false, -1, false, false)
-    --self:GetParent():AddNewModifier(self:GetCaster(), nil, "modifier_ice_slide", {})
---end
-
-function modifier_bubble_witch_cavitation_debuff:GetEffectName()
-  return "particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf" -- "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
-end
-
-function modifier_bubble_witch_cavitation_debuff:GetEffectAttachType()
-  return PATTACH_ROOTBONE_FOLLOW
+function modifier_bubble_witch_cavitation_debuff:OnCreated()
+  if not IsServer() then return end
+  self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_magnet.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+  ParticleManager:SetParticleControlEnt(self.particle, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), true )
+  --self:GetParent():AddNewModifier(self:GetCaster(), nil, "modifier_ice_slide", {})
 end
 
 function modifier_bubble_witch_cavitation_debuff:DeclareFunctions()
@@ -214,6 +208,11 @@ if IsServer() then
         ability = ability,
       }
       ApplyDamage(damage_table)
+    end
+
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
     end
 
     -- Bubble pop particle

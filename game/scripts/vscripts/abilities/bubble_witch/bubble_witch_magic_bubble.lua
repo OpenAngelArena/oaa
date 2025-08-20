@@ -114,6 +114,10 @@ if IsServer() then
     local ability = self:GetAbility()
     local parent_pos = parent:GetAbsOrigin()
 
+    if not caster or caster:IsNull() then
+      return
+    end
+
     local enemies = FindUnitsInRadius(
       caster:GetTeamNumber(),
       parent_pos,
@@ -141,6 +145,24 @@ if IsServer() then
           ApplyDamage(damage_table)
         end
       end
+    end
+
+    local innate = caster:FindAbilityByName("bubble_witch_innate")
+    if not innate or innate:IsNull() then
+      return
+    end
+
+    -- If owner is affected by break, do nothing
+    if caster:PassivesDisabled() then
+      return
+    end
+
+    if not parent or parent:IsNull() then
+      return
+    end
+
+    if parent:IsAlive() then
+      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
     end
 
     -- Bubble pop particle

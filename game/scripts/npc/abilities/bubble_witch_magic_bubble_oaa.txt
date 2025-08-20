@@ -27,7 +27,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityChargeRestoreTime"                            "12 10 9 8 8 8"
+    "AbilityChargeRestoreTime"                            "12 11 10 9 9 9"
 
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
         "value"                                           "1"
         "special_bonus_unique_bubble_witch_6"             "+1"
       }
-      "duration"                                          "3 4 5 6 6.5 7" // buff duration; grants free pathing
+      "duration"                                          "3.5 4.0 4.5 5.0 5.5 6.0" // buff duration; grants free pathing
       "turn_speed_reduction"                              "0" // percentage
       "move_speed_reduction"                              "10" // percentage
       "base_dmg"                                          "0" // base explode dmg
