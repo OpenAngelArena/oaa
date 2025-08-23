@@ -31,7 +31,7 @@
 
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
     "AbilityProcsMagicStick"                              "1"
 
     // Precache
@@ -55,9 +55,9 @@
       "turn_speed_reduction"                              "0" // percentage
       "move_speed_reduction"                              "10" // percentage
       "base_dmg"                                          "0" // base explode dmg
-      "damage_taken_as_explode_damage" // like Pyrrhic cloak; percentage
+      "damage_taken_as_explode_damage" // percentage
       {
-        "value"                                           "75"
+        "value"                                           "50"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "explode_damage_cap"

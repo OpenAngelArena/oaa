@@ -50,10 +50,11 @@
 "DOTA_Tooltip_modifier_bubble_witch_blow_bubbles_enemy_Description"             "Reduced move speed."
 
 "DOTA_Tooltip_ability_bubble_witch_bubble_of_protection"                        "Bubble of Protection"
-"DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_Description"            "Creates a big bubble at target location that makes every non-ward unit inside of it invulnerable to damage. All-damage shield from Blow Bubbles is doubled for allied units inside the bubble."
+"DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_Description"            "Creates a big bubble at target location that makes every non-ward unit inside of it take %damage_reduction%%% less damage. All-damage shield from Blow Bubbles is doubled for allied units inside the bubble."
 "DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_Lore"                   "Heroes never die while inside the big bubble."
 "DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_radius"                 "RADIUS:"
 "DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_duration"               "DURATION:"
+"DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_damage_reduction"       "%DAMAGE REDUCTION:"
 "DOTA_Tooltip_ability_bubble_witch_bubble_of_protection_scepter_description"    "Knocks back all enemies inside of the bubble upon cast."
 
 "DOTA_Tooltip_modifier_bubble_witch_bubble_of_protection_buff"                  "#{DOTA_Tooltip_ability_bubble_witch_bubble_of_protection}"

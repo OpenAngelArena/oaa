@@ -130,22 +130,42 @@ function modifier_bubble_witch_bubble_of_protection_buff:IsPurgable()
   return false
 end
 
+function modifier_bubble_witch_bubble_of_protection_buff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
+  else
+    self.dmg_reduction = 85
+  end
+
+end
+
 function modifier_bubble_witch_bubble_of_protection_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
 end
 
-function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamagePhysical()
-  return 1
-end
+-- function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamagePhysical()
+  -- return 1
+-- end
 
-function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamageMagical()
-  return 1
-end
+-- function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamageMagical()
+  -- return 1
+-- end
 
-function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamagePure()
-  return 1
+-- function modifier_bubble_witch_bubble_of_protection_buff:GetAbsoluteNoDamagePure()
+  -- return 1
+-- end
+
+if IsServer() then
+  function modifier_bubble_witch_bubble_of_protection_buff:GetModifierTotal_ConstantBlock(keys)
+    if keys.damage <= 0 then
+      return 0
+    end
+    return keys.damage * self.dmg_reduction / 100
+  end
 end
