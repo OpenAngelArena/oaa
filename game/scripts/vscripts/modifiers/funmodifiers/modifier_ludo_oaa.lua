@@ -131,6 +131,7 @@ function modifier_ludo_oaa:OnCreated()
 
   -- Add/remove some modifiers for Huskar
   if name == "npc_dota_hero_huskar" then
+    table.insert(self.modifier_list, "modifier_no_brain_oaa")
     remove_mod_from_table(self.modifier_list, "modifier_outworld_attack_oaa")
     remove_mod_from_table(self.modifier_list, "modifier_wisdom_oaa")
   end
