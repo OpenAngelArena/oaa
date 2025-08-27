@@ -190,6 +190,7 @@ function modifier_chaos_oaa:OnCreated()
 
   -- Add/remove some modifiers for Huskar
   if name == "npc_dota_hero_huskar" then
+    table.insert(self.good_modifiers, "modifier_no_brain_oaa")
     remove_mod_from_table(self.good_modifiers, "modifier_outworld_attack_oaa")
     remove_mod_from_table(self.good_modifiers, "modifier_wisdom_oaa")
     remove_mod_from_table(self.initial_modifiers, "modifier_hp_mana_switch_oaa")

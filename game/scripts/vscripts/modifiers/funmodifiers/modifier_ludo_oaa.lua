@@ -123,13 +123,15 @@ function modifier_ludo_oaa:OnCreated()
     end
   end
 
-  -- Remove Attack Range Switch from ranged heroes
+  -- Remove Attack Range Switch and Roshan's Body from ranged heroes
   if name ~= "npc_dota_hero_lone_druid" and parent:IsRangedAttacker() then
     remove_mod_from_table(self.modifier_list, "modifier_troll_switch_oaa")
+    remove_mod_from_table(self.modifier_list, "modifier_roshan_power_oaa")
   end
 
   -- Add/remove some modifiers for Huskar
   if name == "npc_dota_hero_huskar" then
+    table.insert(self.modifier_list, "modifier_no_brain_oaa")
     remove_mod_from_table(self.modifier_list, "modifier_outworld_attack_oaa")
     remove_mod_from_table(self.modifier_list, "modifier_wisdom_oaa")
   end
