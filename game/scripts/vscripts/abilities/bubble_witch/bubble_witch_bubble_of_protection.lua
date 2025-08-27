@@ -135,7 +135,7 @@ function modifier_bubble_witch_bubble_of_protection_buff:OnCreated()
   if ability and not ability:IsNull() then
     self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
   else
-    self.dmg_reduction = 85
+    self.dmg_reduction = 75
   end
 
 end
