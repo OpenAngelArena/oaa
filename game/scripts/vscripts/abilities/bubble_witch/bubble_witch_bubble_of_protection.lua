@@ -189,7 +189,6 @@ function modifier_bubble_witch_bubble_of_protection_debuff:IsPurgable()
 end
 
 function modifier_bubble_witch_bubble_of_protection_debuff:OnCreated()
-  local ability = self:GetAbility()
   local movement_slow = 100
   local attack_slow = 100
 
