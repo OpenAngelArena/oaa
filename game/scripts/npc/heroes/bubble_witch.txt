@@ -20,8 +20,8 @@
     "AttackDamageMin"                                     "30"
     "AttackDamageMax"                                     "36"
     "AttackRange"                                         "600"
-    "ProjectileModel"		"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
-    "ProjectileSpeed"		"900"
+    "ProjectileModel"                                     "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+    "ProjectileSpeed"                                     "900"
     "AttackRate"                                          "1.7"
     "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.45"
@@ -68,7 +68,7 @@
     "Ability15"                                           "special_bonus_unique_bubble_witch_4" // blow bubbles applies to caster
 
     "Ability16"                                           "special_bonus_unique_bubble_witch_1" // blow bubbles dps
-    "Ability17"                                           "special_bonus_unique_bubble_witch_6" // magic bubble extra charge
+    "Ability17"                                           "special_bonus_unique_bubble_witch_7" // bubble of protection cd
 
     "Facets"
     {

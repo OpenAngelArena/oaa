@@ -64,7 +64,7 @@
       "burn_duration"                                     "3.0"
       "burn_dps" //OAA
       {
-        "value"                                           "10 16 22 28 34 40 46 58 70 82 106" // needs better scaling; max lvl should be 120;
+        "value"                                           "10 17 24 31 38 45 52 66 80 94 122"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"

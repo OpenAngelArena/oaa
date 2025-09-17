@@ -21,12 +21,8 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "550"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 105 100 95 90"
 
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
@@ -52,6 +48,11 @@
       }
       "damage_reduction"                                  "75" // percentage
       "duration"                                          "3 3.5 4 4.5 5"
+      "AbilityCooldown"
+      {
+        "value"                                           "110 105 100 95 90"
+        "special_bonus_unique_bubble_witch_7"             "-10"
+      }
     }
   }
 }

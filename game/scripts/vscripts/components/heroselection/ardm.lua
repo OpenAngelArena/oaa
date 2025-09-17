@@ -498,17 +498,18 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   for i = DOTA_ITEM_SLOT_1, 20 do
     local item = old_hero:GetItemInSlot(i)
     if item then
-      if i == DOTA_ITEM_NEUTRAL_SLOT then
+      -- if i == DOTA_ITEM_NEUTRAL_SLOT then
         -- Return found neutral item to neutral stash (order), this is better than recreating another neutral item
-        local order_table = {
-          UnitIndex = old_hero:GetEntityIndex(),
-          OrderType = DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN,
-          AbilityIndex = item:GetEntityIndex(),
-          Queue = false,
-        }
-        ExecuteOrderFromTable(order_table)
+        -- Neutral items system changed, this is deprecated
+        -- local order_table = {
+          -- UnitIndex = old_hero:GetEntityIndex(),
+          -- OrderType = DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN,
+          -- AbilityIndex = item:GetEntityIndex(),
+          -- Queue = false,
+        -- }
+        -- ExecuteOrderFromTable(order_table)
         --PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item) -- crashes
-      elseif item:GetName() == "item_tpscroll" and i == DOTA_ITEM_TP_SCROLL then
+      if item:GetName() == "item_tpscroll" and i == DOTA_ITEM_TP_SCROLL then
         items[DOTA_ITEM_TP_SCROLL] = {"item_tpscroll", nil, item:GetCooldownTimeRemaining(), nil}
       end
     end

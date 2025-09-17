@@ -23,6 +23,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "spawn_tornado"
+      {
+        "value"                                           "0"
+      }
       "tornado_linger_time"                               "20"
       "movespeed_slow"
       {
@@ -47,8 +51,8 @@
       }
       "attack_dmg_per_int"
       {
-        "value"                                           "0"
-        "special_bonus_unique_eul_6_oaa"                  "+1"
+        "value"                                           "0.45"
+        //"special_bonus_unique_eul_6_oaa"                  "+1"
       }
     }
 
