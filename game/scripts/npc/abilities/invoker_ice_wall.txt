@@ -90,7 +90,7 @@
           "special_bonus_scepter"                         "1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6"
         }
       }
-      "root_damage"
+      "root_damage" //OAA
       {
         "value"                                           "0"
         "levelkey"                                        "quaslevel"
@@ -98,7 +98,7 @@
         "special_bonus_facet_invoker_quas_focus"
         {
           "value"                                         "0"
-          "special_bonus_scepter"                         "100 125 150 175 200 225 250 275 300 325 375" // needs better scaling; max lvl should be 750;
+          "special_bonus_scepter"                         "100 125 150 175 200 225 250 300 350 400 500"
         }
       }
     }
