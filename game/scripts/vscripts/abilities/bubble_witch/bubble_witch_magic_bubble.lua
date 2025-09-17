@@ -12,6 +12,12 @@ function bubble_witch_magic_bubble:OnSpellStart()
     target:Purge(false, true, false, false, false)
   end
 
+  local applies_strong_dispel = self:GetSpecialValueFor("applies_strong_dispel")
+  if applies_strong_dispel > 0 then
+    -- Strong Dispel for allies
+    target:Purge(false, true, false, true, true)
+  end
+
   -- Buff
   target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = self:GetSpecialValueFor("duration")})
 
