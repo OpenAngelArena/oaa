@@ -25,7 +25,7 @@ end
 modifier_eul_innate_oaa = class(ModifierBaseClass)
 
 function modifier_eul_innate_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_eul_innate_oaa:IsDebuff()
@@ -40,9 +40,21 @@ function modifier_eul_innate_oaa:RemoveOnDeath()
   return false
 end
 
+function modifier_eul_innate_oaa:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg_per_int = ability:GetSpecialValueFor("attack_dmg_per_int")
+  else
+    self.dmg_per_int = 0.45
+  end
+end
+
+modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
+
 function modifier_eul_innate_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
     MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, spell block and spell reflect
     MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- needed for dispel talent
     MODIFIER_EVENT_ON_DEATH, -- needed for Tornado spawn on death
@@ -51,9 +63,19 @@ function modifier_eul_innate_oaa:DeclareFunctions()
 end
 
 function modifier_eul_innate_oaa:GetModifierBaseAttack_BonusDamage()
-  local int_grants_dmg = self:GetAbility():GetSpecialValueFor("attack_dmg_per_int") > 0
-  if int_grants_dmg then
-    return self:GetParent():GetIntellect(false) * self:GetAbility():GetSpecialValueFor("attack_dmg_per_int")
+  local parent = self:GetParent()
+  local int_grants_dmg = self.dmg_per_int > 0
+  if int_grants_dmg and not parent:PassivesDisabled() then
+    return self.dmg_per_int * parent:GetIntellect(false)
+  end
+  return 0
+end
+
+function modifier_eul_innate_oaa:OnTooltip()
+  local parent = self:GetParent()
+  local int_grants_dmg = self.dmg_per_int > 0
+  if int_grants_dmg and not parent:PassivesDisabled() then
+    return self.dmg_per_int * parent:GetIntellect(false)
   end
   return 0
 end

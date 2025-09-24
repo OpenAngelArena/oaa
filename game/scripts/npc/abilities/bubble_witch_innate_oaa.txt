@@ -28,6 +28,7 @@
       "base_dmg"
       {
         "value"                                           "50 75 100 125 250 375"
+        "special_bonus_facet_bubble_witch_extra_bubbly"   "=40 =50 =60 =70 =90 =110"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "explode_dmg_radius"
@@ -37,7 +38,11 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "immune_time"                                       "0.1"
+      "immune_time"
+      {
+        "value"                                           "0.1"
+        "special_bonus_facet_bubble_witch_extra_bubbly"   "=0"
+      }
     }
   }
 }
