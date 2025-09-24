@@ -72,7 +72,18 @@
 
     "Facets"
     {
-
+      "bubble_witch_healing_bubble"
+      {
+        "Icon"                                            "healing"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
+      }
+      "bubble_witch_extra_bubbly"
+      {
+        "Icon"                                            "nuke"
+        "Color"                                           "Blue"
+        "GradientID"                                      "0"
+      }
     }
 
     "AbilityTalentStart"                                  "10"

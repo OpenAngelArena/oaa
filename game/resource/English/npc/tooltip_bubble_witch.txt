@@ -62,12 +62,14 @@
 "DOTA_Tooltip_modifier_bubble_witch_bubble_of_protection_debuff"                "#{DOTA_Tooltip_ability_bubble_witch_bubble_of_protection}"
 "DOTA_Tooltip_modifier_bubble_witch_bubble_of_protection_debuff_Description"    "Slowed."
 
+// innate
 "DOTA_Tooltip_ability_bubble_witch_innate"                                      "Bubbly"
 "DOTA_Tooltip_ability_bubble_witch_innate_Description"                          "Buffs created by Bubble Witch that have duration will explode when removed or when they expire dealing damage to nearby enemies. Enemies that take damage from Bubbly will be immune to Bubbly damage for %immune_time% second."
 "DOTA_Tooltip_ability_bubble_witch_innate_Lore"                                 "Pop!"
 "DOTA_Tooltip_ability_bubble_witch_innate_base_dmg"                             "DAMAGE:"
 "DOTA_Tooltip_ability_bubble_witch_innate_explode_dmg_radius"                   "EXPLODE RADIUS:"
 
+// talents
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_1"                      "+{s:bonus_dps} #{DOTA_Tooltip_ability_bubble_witch_blow_bubbles} DPS"
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_2"                      "+{s:bonus_debuff_duration}s #{DOTA_Tooltip_ability_bubble_witch_cavitation} Duration"
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_3"                      "-{s:bonus_AbilityCooldown}s #{DOTA_Tooltip_ability_bubble_witch_cavitation} Cooldown"
@@ -76,3 +78,11 @@
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_6"                      "+{s:bonus_AbilityCharges} #{DOTA_Tooltip_ability_bubble_witch_magic_bubble} Charge"
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_7"                      "-{s:bonus_AbilityCooldown}s #{DOTA_Tooltip_ability_bubble_witch_bubble_of_protection} Cooldown"
 "DOTA_Tooltip_ability_special_bonus_unique_bubble_witch_8"                      ""
+
+// facets
+"DOTA_Tooltip_facet_bubble_witch_healing_bubble"                                "Healing Bubble"
+"DOTA_Tooltip_facet_bubble_witch_healing_bubble_Description"                    "Magic Bubble heals the affected target for the damage taken after popping."
+"DOTA_Tooltip_ability_bubble_witch_magic_bubble_Facet_bubble_witch_healing_bubble"  "Target ally will be healed after popping. Heal is equal to pop damage."
+"DOTA_Tooltip_facet_bubble_witch_extra_bubbly"                                  "Extra Bubbly"
+"DOTA_Tooltip_facet_bubble_witch_extra_bubbly_Description"                      "Bubbly immune time removed but damage is reduced."
+"DOTA_Tooltip_ability_bubble_witch_innate_Facet_bubble_witch_extra_bubbly"      "#{DOTA_Tooltip_facet_bubble_witch_extra_bubbly_Description}"

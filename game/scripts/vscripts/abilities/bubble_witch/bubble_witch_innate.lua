@@ -144,7 +144,7 @@ function modifier_bubble_witch_innate_buff_oaa:OnCreated(kv)
   else
     self.dmg = 50
     self.radius = 675
-    self.immune_time = 1
+    self.immune_time = 0.1
   end
   if IsServer() and self:GetDuration() > 0.1 and self:GetRemainingTime() > 0.1 and kv.linked_mod then
     self.linked_mod = kv.linked_mod
@@ -195,7 +195,9 @@ if IsServer() then
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() then
         if not enemy:HasModifier("modifier_bubble_witch_innate_immune_oaa") then
-          enemy:AddNewModifier(enemy, nil, "modifier_bubble_witch_innate_immune_oaa", {duration = self.immune_time})
+          if self.immune_time > 0 then
+            enemy:AddNewModifier(enemy, nil, "modifier_bubble_witch_innate_immune_oaa", {duration = self.immune_time})
+          end
           damage_table.victim = enemy
           ApplyDamage(damage_table)
         end

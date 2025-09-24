@@ -153,6 +153,18 @@ if IsServer() then
       end
     end
 
+    if not parent or parent:IsNull() then
+      return
+    end
+
+    local heal = ability:GetSpecialValueFor("healing_dmg_ratio")
+    if heal > 0 then
+      local heal_amount = total_dmg
+      -- Healing
+      --parent:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+      parent:HealWithParams(heal_amount, ability, false, true, caster, false)
+    end
+
     local innate = caster:FindAbilityByName("bubble_witch_innate")
     if not innate or innate:IsNull() then
       return
@@ -160,10 +172,6 @@ if IsServer() then
 
     -- If owner is affected by break, do nothing
     if caster:PassivesDisabled() then
-      return
-    end
-
-    if not parent or parent:IsNull() then
       return
     end
 
