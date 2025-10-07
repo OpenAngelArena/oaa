@@ -69,7 +69,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"            // Team name.
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision
@@ -80,5 +79,8 @@
     // Bots
     //----------------------------------------------------------------
     "AttackDesire"                                        "1.5"       // How much bots want to attack them vs other non-hero things
+
+    //"ImmuneToOmnislash"                                   "1"
+    //"UntargetableByExorcismSpirits"                       "1"
   }
 }
