@@ -17,10 +17,10 @@
     // Casting
     "AbilityValues"
     {
-      "attack_speed" //OAA
+      "attack_speed" //OAA, max oaa lvl should be the same as max vanilla lvl
       {
         "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_troll_warlord_5"            "+5"
+        "special_bonus_unique_troll_warlord_5"            "+4"
       }
       "max_stacks" //OAA
       {

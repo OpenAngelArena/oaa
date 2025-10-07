@@ -18,9 +18,9 @@
     "AbilityValues"
     {
       "duration"                                          "4.0"
-      "bonus_attack_speed"
+      "bonus_attack_speed" // with scepter: multiplied by effect_multiplier within effect_multiplier_distance radius
       {
-        "value"                                           "8 16 24 32 36 40"
+        "value"                                           "9 18 27 36 40 45"
         "display_type"                                    "kDebuffValue"
       }
       "bonus_magic_resistance"

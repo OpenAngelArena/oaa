@@ -28,8 +28,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "sai_attack_range"                                  "150"
-      "sai_base_attack_time"                              "1.5"
       "sai_proc_vuln_chance"                              "18"
       "vuln_slow"                                         "0"
       "vuln_duration"                                     "8.0"
@@ -50,10 +48,6 @@
         "special_bonus_unique_kez_mark_damage"            "+0"
       }
       "parry_stun_duration"                               "0.5"
-      "sai_swap_bonus_movement_speed"
-      {
-        "special_bonus_facet_kez_flutter"                 "12"
-      }
     }
   }
 }

@@ -1,14 +1,18 @@
 "DOTAAbilities"
 {
+  "item_recipe_refresher"                                 "REMOVE"
+  "item_refresher"                                        "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Refresher Orb
+  // Recipe: Refresher Orb 1
   //=================================================================================================================
-  "item_recipe_refresher"
+  "item_recipe_refresher_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +22,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_refresher"
+    "ItemResult"                                          "item_refresher_1"
     "ItemRequirements"
     {
       "01"                                                "item_cornucopia;item_ring_of_tarrasque;item_tiara_of_selemene"
@@ -28,18 +32,18 @@
   //=================================================================================================================
   // Refresher
   //=================================================================================================================
-  "item_refresher"
+  "item_refresher_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    //"BaseClass"                                           "item_lua"
-    //"ScriptFile"                                          "items/refresher.lua"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/refresher_orb_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "180" //OAA
     "AbilitySharedCooldown"                               "refresher_oaa" //OAA
     "AbilityManaCost"                                     "500" //OAA
 

@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "450"
     "AbilityCastPoint"                                    "0.01"
 
     // Time
@@ -60,9 +60,9 @@
         "special_bonus_scepter"                           "7 10 13 15 17"
         "special_bonus_unique_phoenix_1"                  "+2"
       }
-      "cast_range_tooltip_scepter"
+      "cast_range_tooltip_scepter" // OAA, Valve forgot about it
       {
-        "special_bonus_scepter"                           "500"
+        "special_bonus_scepter"                           "450"
       }
     }
   }
