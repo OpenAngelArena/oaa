@@ -114,12 +114,30 @@ function modifier_boss_frostbite_effect:OnCreated()
   end
 end
 
-function modifier_boss_frostbite_effect:OnRefresh()
+modifier_boss_frostbite_effect.OnRefresh = modifier_boss_frostbite_effect.OnCreated
+
+function modifier_boss_frostbite_effect:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
   local ability = self:GetAbility()
-  if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-  else
-    self.heal_prevent_percent = -60
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
   end
 end
 

@@ -84,6 +84,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_slark_shadow_dance_aura" then
     victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {duration = modifier_duration})
+  elseif modifier_name == "modifier_item_overwhelming_blink_debuff" and ability_name ~= "item_overwhelming_blink" then
+    victim:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff_oaa", {duration = modifier_duration})
   end
 
   return true

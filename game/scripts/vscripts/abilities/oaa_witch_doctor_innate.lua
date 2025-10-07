@@ -144,6 +144,31 @@ end
 
 modifier_witch_doctor_innate_oaa_effect.OnRefresh = modifier_witch_doctor_innate_oaa_effect.OnCreated
 
+function modifier_witch_doctor_innate_oaa_effect:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_witch_doctor_innate_oaa_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,

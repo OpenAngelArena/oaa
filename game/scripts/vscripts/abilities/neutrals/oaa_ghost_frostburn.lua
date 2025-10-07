@@ -110,6 +110,33 @@ function modifier_frostburn_oaa_effect:OnCreated()
   --self.health_fraction = 0
 end
 
+modifier_frostburn_oaa_effect.OnRefresh = modifier_frostburn_oaa_effect.OnCreated
+
+function modifier_frostburn_oaa_effect:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_frostburn_oaa_effect:GetEffectName()
   return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
 end

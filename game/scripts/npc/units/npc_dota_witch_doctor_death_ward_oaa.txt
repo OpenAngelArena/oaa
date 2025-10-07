@@ -66,8 +66,6 @@
     // Combat
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision
@@ -76,5 +74,8 @@
     "VisionNighttimeRange"                                "800"
 
     "HasInventory"                                        "0"
+
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
   }
 }

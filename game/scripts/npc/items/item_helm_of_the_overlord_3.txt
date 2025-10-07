@@ -47,7 +47,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "dominate"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -80,6 +80,7 @@
       "count_limit"                                       "1"
       "creep_ability_level_increase"                      "1"
       "is_overlord"                                       "1"
+      "creep_damage_taken_cooldown"                       "3"
     }
   }
 }
