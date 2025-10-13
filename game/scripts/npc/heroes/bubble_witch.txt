@@ -7,7 +7,7 @@
   {
     "BaseClass"                                           "npc_dota_hero_crystal_maiden"
     "HeroID"                                              "133"
-    "Model"                                               "models/heroes/crystal_maiden/crystal_maiden_arcana.vmdl"
+    "Model"                                               "models/heroes/bubble_witch/bubble_witch.vmdl"
     "ModelScale"                                          "1"
 
     "BotImplemented"                                      "0"
@@ -24,7 +24,7 @@
     "ProjectileSpeed"                                     "900"
     "AttackRate"                                          "1.7"
     "BaseAttackSpeed"                                     "100"
-    "AttackAnimationPoint"                                "0.45"
+    "AttackAnimationPoint"                                "0.4"
     "AttackSpeedActivityModifiers"
     {
       "fast"                                              "170"

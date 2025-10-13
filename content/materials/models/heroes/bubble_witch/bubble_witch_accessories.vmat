@@ -4,6 +4,10 @@ Layer0
 {
 	shader "hero.vfx"
 
+	//---- Effect Proxies ----
+	F_USE_HERO_EFFECTS_PROXY 1
+	F_USE_STATUS_EFFECTS_PROXY 1
+
 	//---- Translucency ----
 	F_ALPHA_TEST 1
 
@@ -31,8 +35,13 @@ Layer0
 
 	//---- Detail 1 ----
 	g_flDetailTexCoordRotation "0.000"
+	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	g_vDetailTexCoordOffset "[0.000 0.000]"
 	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Detail 2 ----
+	g_flDetail2BlendFactor "0.000"
+	TextureDetail2 ""
 
 	//---- Fresnel ----
 	g_flFresnelModulatesAlpha "0.000"
@@ -73,5 +82,46 @@ Layer0
 		"TextureSpecularExponent" ""
 		"TextureSpecularMask" ""
 		"TextureTintByBaseMask" ""
+	}
+
+
+	VariableState
+	{
+		"Blend To Full"
+		{
+		}
+		"Cloak"
+		{
+		}
+		"Color"
+		{
+		}
+		"Detail 1"
+		{
+		}
+		"Detail 2"
+		{
+		}
+		"Fresnel"
+		{
+		}
+		"Lighting"
+		{
+			"Ambient" 0
+			"Bloom" 0
+			"Overbright" 0
+		}
+		"Normal Map"
+		{
+		}
+		"Rim"
+		{
+		}
+		"Specular"
+		{
+		}
+		"Translucency"
+		{
+		}
 	}
 }
