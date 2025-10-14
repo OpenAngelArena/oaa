@@ -42,6 +42,10 @@
 										from = "bubble_witch_bubble.vmat"
 										to = "materials/particles/models/hero/bubble_witch/rainbow_bubble.vmat"
 									},
+									{
+										from = "bubble_witch_eyes.vmat"
+										to = "materials/models/heroes/bubble_witch/bubble_witch_eyes.vmat"
+									},
 								]
 								use_single_material = false
 								single_override_material = ""
@@ -411,46 +415,6 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "death"
-						children = 
-						[
-							{
-								_class = "ExtractMotion"
-								extract_tx = true
-								extract_ty = true
-								extract_tz = false
-								extract_rz = false
-								linear = false
-								quadratic = false
-								extract_initial_offset = false
-								root_bone_name = ""
-								motion_type = "Uniform"
-							},
-						]
-						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_DIE"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						delete_from_compiled_model = false
-						source_filename = "models/heroes/bubble_witch/anims/death.dmx"
-						import_bone_scales = false
-						start_frame = -1
-						end_frame = -1
-						framerate = -1.0
-						reverse = false
-						additional_anim_files = [  ]
-					},
-					{
-						_class = "AnimFile"
 						name = "ability2"
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
@@ -541,7 +505,47 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "death1"
+						name = "death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/heroes/bubble_witch/anims/death.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "death_special"
 						children = 
 						[
 							{
@@ -571,7 +575,7 @@
 						disable_compression = false
 						animgraph_additive = false
 						delete_from_compiled_model = false
-						source_filename = "models/heroes/bubble_witch/anims/death.dmx"
+						source_filename = "models/heroes/bubble_witch/anims/death_special.dmx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1

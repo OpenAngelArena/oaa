@@ -4,6 +4,9 @@ Layer0
 {
 	shader "hero.vfx"
 
+	//---- 2-Sided Rendering ----
+	F_RENDER_BACKFACES 1
+
 	//---- Effect Proxies ----
 	F_USE_HERO_EFFECTS_PROXY 1
 	F_USE_STATUS_EFFECTS_PROXY 1
