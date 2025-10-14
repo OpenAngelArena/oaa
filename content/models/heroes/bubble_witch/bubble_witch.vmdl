@@ -582,6 +582,22 @@
 				]
 				default_root_bone_name = ""
 			},
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+					{
+						_class = "BoneMarkup"
+						target_bone = "root"
+						ignore_Translation = false
+						ignore_rotation = false
+						ignore_scale = false
+						do_not_discard = true
+					},
+				]
+				bone_cull_type = "Aggressive"
+				primary_root_bone = ""
+			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
