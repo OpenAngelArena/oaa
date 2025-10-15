@@ -609,6 +609,31 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnIntervalThink()
   ApplyDamage(damageTable)
 end
 
+function modifier_spirit_vessel_oaa_debuff_with_charge:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_spirit_vessel_damage")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_spirit_vessel_oaa_debuff_with_charge:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
@@ -675,6 +700,31 @@ function modifier_spirit_vessel_oaa_debuff_no_charge:OnCreated()
 end
 
 modifier_spirit_vessel_oaa_debuff_no_charge.OnRefresh = modifier_spirit_vessel_oaa_debuff_no_charge.OnCreated
+
+function modifier_spirit_vessel_oaa_debuff_no_charge:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
 
 function modifier_spirit_vessel_oaa_debuff_no_charge:DeclareFunctions()
   return {
