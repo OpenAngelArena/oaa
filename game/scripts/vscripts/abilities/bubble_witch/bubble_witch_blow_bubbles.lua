@@ -110,7 +110,7 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local parent_team = parent:GetTeamNumber()
   local parent_loc = parent:GetAbsOrigin()
 
-  local projectile_name = "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf"
+  local projectile_name = "particles/hero/bubble_witch/rainbow_bubble_linear_projectile.vpcf"
   local distance = ability:GetSpecialValueFor("cone_distance") + parent:GetCastRangeBonus()
   local start_radius = ability:GetSpecialValueFor("cone_starting_width")
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
