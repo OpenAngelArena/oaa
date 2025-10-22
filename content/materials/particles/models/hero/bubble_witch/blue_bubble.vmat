@@ -1,0 +1,137 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "hero.vfx"
+
+	//---- Masks ----
+	F_MASKS_1 1
+	F_MASKS_2 1
+
+	//---- Specular ----
+	F_SPECULAR_CUBE_MAP 1
+
+	//---- Translucency ----
+	F_ADDITIVE_BLEND 1
+	F_TRANSLUCENT 1
+
+	//---- Blend To Full ----
+	g_flEnvMapBlendToFull "0.000"
+	g_flMetalnessBlendToFull "0.000"
+	g_flReflectionsTintByBaseBlendToNone "0.000"
+	g_flSelfIllumBlendToFull "0.000"
+	g_flSpecularBlendToFull "0.000"
+	g_flSpecularExponentBlendToFull "0.000"
+
+	//---- Cloak ----
+	g_flCloakBlurAmount "0.005"
+	g_flCloakIntensity "0.855"
+	g_flCloakRefractAmount "0.101"
+	g_flMaterialCloakFactor "0.000"
+	g_vCloakColorTint "[1.000 1.000 1.000]"
+
+	//---- Color ----
+	g_flDiffuseModulationAmount "1.000"
+	g_flTexCoordRotation "0.000"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "[0.000000 0.000000 0.000000 1.000000]"
+
+	//---- Detail 1 ----
+	g_flDetailTexCoordRotation "0.000"
+	g_vDetailTexCoordOffset "[0.000 0.000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Fresnel ----
+	g_flFresnelModulatesAlpha "0.000"
+	TextureFresnelWarpColor "materials/particles/models/hero/bubble_witch/blue_bubble_fresnelwarprim_fresnelwarpcolor.png"
+	TextureFresnelWarpRim "materials/particles/models/hero/bubble_witch/blue_bubble_fresnelwarprim.png"
+	TextureFresnelWarpSpec "materials/particles/models/hero/bubble_witch/blue_bubble_fresnelwarprim_fresnelwarpspec.png"
+
+	//---- Lighting ----
+	g_flAmbientScale "1.000"
+	g_flBloomScale "0.308"
+	g_flBloomShift "0.000"
+	g_flOverbrightFactor "1.000"
+	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Mask 1 ----
+	TextureDetailMask "[0.000000 0.000000 0.000000 0.000000]"
+	TextureDiffuseWarpMask "[0.000000 0.000000 0.000000 0.000000]"
+	TextureMetalnessMask "[0.111000 0.111000 0.111000 0.000000]"
+	TextureSelfIllumMask "[0.224000 0.224000 0.224000 0.000000]"
+
+	//---- Mask 2 ----
+	TextureRimMask "[1.000000 1.000000 1.000000 0.000000]"
+	TextureSpecularExponent "[1.000000 1.000000 1.000000 0.000000]"
+	TextureSpecularMask "[1.000000 1.000000 1.000000 0.000000]"
+	TextureTintByBaseMask "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Normal Map ----
+	TextureNormal "[0.501961 0.501961 1.000000 0.000000]"
+
+	//---- Rim ----
+	g_flRimLightScale "6.000"
+	g_vRimLightColor "[0.631373 0.737255 1.000000 0.000000]"
+
+	//---- Specular ----
+	g_flCubeMapScalar "6.000"
+	g_flSpecularExponent "63.050"
+	g_flSpecularScale "1.000"
+	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+	TextureCubeMap "materials/particles/models/hero/bubble_witch/blue_bubble_cube.png"
+
+	//---- Translucency ----
+	TextureTranslucency "materials/particles/models/hero/bubble_witch/rainbow_bubble_tcolor.png"
+
+	DynamicParams
+	{
+		g_flSelfIllumBlendToFull "return $SELFILLUM;"
+		g_vRimLightColor "return $RIMCOLOR;"
+		g_vSpecularColor "return $SPECCOLOR;"
+	}
+
+
+	VariableState
+	{
+		"Blend To Full"
+		{
+		}
+		"Cloak"
+		{
+		}
+		"Color"
+		{
+		}
+		"Detail 1"
+		{
+		}
+		"Fresnel"
+		{
+		}
+		"Lighting"
+		{
+			"Ambient" 0
+			"Bloom" 0
+			"Overbright" 0
+		}
+		"Mask 1"
+		{
+		}
+		"Mask 2"
+		{
+		}
+		"Normal Map"
+		{
+		}
+		"Rim"
+		{
+		}
+		"Specular"
+		{
+		}
+		"Translucency"
+		{
+		}
+	}
+}
