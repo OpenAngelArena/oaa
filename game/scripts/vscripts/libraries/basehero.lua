@@ -136,15 +136,49 @@ function CDOTA_BaseNPC_Hero:HasRoomForItemOAA()
     local item = self:GetItemInSlot(i)
     if not item then
       bHasRoom = true
+      break
     end
   end
-  -- Stash slots
-  for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-    local item = self:GetItemInSlot(i)
-    if not item then
-      bHasRoom = true
+  -- Check stash slots
+  if not bHasRoom then
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+      local item = self:GetItemInSlot(i)
+      if not item then
+        bHasRoom = true
+        break
+      end
     end
   end
 
   return bHasRoom
+end
+
+-- I am not sure if FindItemInInventory and HasItemInInventory check every slot so we use this custom method:
+function CDOTA_BaseNPC_Hero:HasItemAlreadyOAA(item_name)
+  -- Iterate over item slots
+  local bHasItem = false
+  -- Normal slots and backpack slots
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = self:GetItemInSlot(i)
+    if item and not item:IsNull() then
+      if item:GetAbilityName() == item_name then
+        bHasItem = true
+        break
+      end
+    end
+  end
+  -- Check stash slots
+  if not bHasItem then
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+      local item = self:GetItemInSlot(i)
+      if item and not item:IsNull() then
+        if item:GetAbilityName() == item_name then
+          bHasItem = true
+          break
+        end
+      end
+    end
+  end
+
+  return bHasItem
 end
