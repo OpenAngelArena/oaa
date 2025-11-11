@@ -78,7 +78,13 @@ function modifier_drunk_oaa:OnIntervalThink()
   local position = parent:GetAbsOrigin() + RandomVector(1):Normalized() * RandomFloat(50, 200)
 
   -- The land is moving, not me
-  parent:MoveToPosition(position)
+  --parent:MoveToPosition(position)
+  ExecuteOrderFromTable({
+    UnitIndex = parent:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = position,
+    Queue = false,
+  })
 end
 
 function modifier_drunk_oaa:GetModifierAvoidDamage(event)

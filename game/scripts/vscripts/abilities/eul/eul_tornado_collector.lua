@@ -524,7 +524,13 @@ function modifier_eul_tornado_passive:OnIntervalThink()
 
   local caster_pos = caster:GetAbsOrigin()
 
-  tornado:MoveToPosition(caster_pos + self.local_move_to)
+  --tornado:MoveToPosition(caster_pos + self.local_move_to)
+  ExecuteOrderFromTable({
+    UnitIndex = tornado:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = caster_pos + self.local_move_to,
+    Queue = false,
+  })
 
   local leash = ability:GetSpecialValueFor("leash_range")
   local distance = (caster:GetAbsOrigin() - tornado:GetAbsOrigin()):Length2D()

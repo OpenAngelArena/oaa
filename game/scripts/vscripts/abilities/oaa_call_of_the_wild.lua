@@ -117,7 +117,13 @@ function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
 
   Timers:CreateTimer(2/30, function()
     if hawk and target_loc then
-      hawk:MoveToPosition(target_loc)
+      --hawk:MoveToPosition(target_loc)
+      ExecuteOrderFromTable({
+        UnitIndex = hawk:entindex(),
+        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+        Position = target_loc,
+        Queue = false,
+      })
     end
   end)
 end

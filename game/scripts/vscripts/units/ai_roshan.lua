@@ -103,7 +103,13 @@ function RoshanThink()
     else
       -- Check if the boss was messed around with displacing abilities (Force Staff for example)
       if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
-        thisEntity:MoveToPosition(thisEntity.spawn_position)
+        --thisEntity:MoveToPosition(thisEntity.spawn_position)
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+          Position = thisEntity.spawn_position,
+          Queue = false,
+        })
         thisEntity.state = SIMPLE_AI_STATE_LEASH
       end
     end
@@ -198,7 +204,13 @@ function RoshanThink()
     -- Add Debuff Protection when leashing
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
-    thisEntity:MoveToPosition(thisEntity.spawn_position)
+    --thisEntity:MoveToPosition(thisEntity.spawn_position)
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+      Position = thisEntity.spawn_position,
+      Queue = false,
+    })
     -- Check if boss reached the spawn_position
     if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() < 10 then
       -- Go into the idle state if the boss is back to the spawn position

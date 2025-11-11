@@ -36,7 +36,7 @@ function GameMode:_InitGameMode()
   GameRules:SetStartingGold( STARTING_GOLD )
 
   local gamemode = GameRules:GetGameModeEntity()
-  gamemode:SetFriendlyBuildingMoveToEnabled(true)
+  gamemode:SetFriendlyBuildingMoveToEnabled(true) -- to enable rightclicking the custom invulnerable shrines
 
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
