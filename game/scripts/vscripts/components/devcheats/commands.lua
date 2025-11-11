@@ -79,11 +79,15 @@ function DevCheats:AddBots(keys)
 
   -- Eanble bots and fill empty slots
   if IsServer() and GameRules:GetMaxTeamPlayers() - numPlayers > 0 then
-    -- Set bot difficulty
-    SendToServerConsole("dota_bot_set_difficulty 4")
-    SendToServerConsole("dota_bot_practice_difficulty 4")
     -- Fill all empty slots with bots
     SendToServerConsole("dota_bot_populate")
+    --GameRules:BotPopulate()
+    -- Enable bots
+    Convars:SetBool('dota_bot_mode', true)
+    Convars:SetBool('dota_bot_disable', false)
+    -- Set bot difficulty
+    Convars:SetInt('dota_bot_set_difficulty', 4)
+    Convars:SetInt('dota_bot_practice_difficulty', 4)
   end
 
   -- Don't think these settings are necessary
