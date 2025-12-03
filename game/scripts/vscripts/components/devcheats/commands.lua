@@ -34,7 +34,6 @@ function DevCheats:Init()
 end
 
 -- Print all modifiers on player's hero to console
--- TODO: Allow printing modifiers on selected units if possible
 function DevCheats:PrintModifiers(keys)
   local playerID = keys.playerid
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
