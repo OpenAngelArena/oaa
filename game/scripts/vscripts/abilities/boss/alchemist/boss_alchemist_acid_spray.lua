@@ -138,6 +138,7 @@ function modifier_boss_acid_spray_thinker:OnDestroy()
     ParticleManager:ReleaseParticleIndex(self.particle)
   end
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end

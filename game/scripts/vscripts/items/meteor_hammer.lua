@@ -43,16 +43,9 @@ function item_meteor_hammer_1:OnChannelFinish(bInterrupted)
   caster:FadeGesture(ACT_DOTA_TELEPORT)
 
   if not bInterrupted then
+    local total_duration = self:GetSpecialValueFor("land_time") + self:GetSpecialValueFor("stun_duration")
     caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
-    CreateModifierThinker(
-      caster,
-      self,
-      "modifier_item_meteor_hammer_oaa_thinker",
-      {duration = self:GetSpecialValueFor("land_time") + self:GetSpecialValueFor("stun_duration")},
-      self:GetCursorPosition(),
-      caster:GetTeamNumber(),
-      false
-    )
+    CreateModifierThinker(caster, self, "modifier_item_meteor_hammer_oaa_thinker", {duration = total_duration}, self:GetCursorPosition(), caster:GetTeamNumber(), false)
   else
     caster:StopSound("DOTA_Item.MeteorHammer.Channel")
     ParticleManager:DestroyParticle(self.channel_particle_caster, true)
@@ -253,6 +246,7 @@ function modifier_item_meteor_hammer_oaa_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end

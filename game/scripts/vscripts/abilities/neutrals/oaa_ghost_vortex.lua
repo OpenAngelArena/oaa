@@ -61,14 +61,20 @@ function modifier_vortex_oaa_thinker:OnCreated()
 end
 
 function modifier_vortex_oaa_thinker:OnDestroy()
-  if IsServer() then
+  if not IsServer() then
+    return
+  end
+  -- Remove the particle
+  if self.nfx then
+    ParticleManager:DestroyParticle(self.nfx, false)
+    ParticleManager:ReleaseParticleIndex(self.nfx)
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
     -- Stop sound loop
-    self:GetParent():StopSound("Hero_Ancient_Apparition.IceVortex")
-    -- Remove the particle
-    if self.nfx then
-      ParticleManager:DestroyParticle(self.nfx, false)
-      ParticleManager:ReleaseParticleIndex(self.nfx)
-    end
+    parent:StopSound("Hero_Ancient_Apparition.IceVortex")
+    -- Kill the thinker entity if it exists
+    parent:ForceKillOAA(false)
   end
 end
 

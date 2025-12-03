@@ -161,6 +161,7 @@ function modifier_item_preemptive_bubble_aura_block:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end

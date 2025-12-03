@@ -40,7 +40,7 @@ function bubble_witch_bubble_of_protection:OnSpellStart()
       center_x = target_pos.x,
       center_y = target_pos.y,
       center_z = target_pos.z,
-      knockback_distance = radius + 10,
+      knockback_distance = radius + 100,
       knockback_height = 25,
       knockback_duration = 0.1,
       duration = 0.1,
@@ -91,8 +91,15 @@ function modifier_bubble_witch_bubble_of_protection_thinker:OnCreated(keys)
 end
 
 function modifier_bubble_witch_bubble_of_protection_thinker:OnDestroy()
-  if IsServer() then
-    self:GetParent():StopSound("Bubble_Witch.Bubble_Of_Protection.Loop")
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    -- Stop sound loop
+    parent:StopSound("Bubble_Witch.Bubble_Of_Protection.Loop")
+    -- Kill the thinker entity if it exists
+    parent:ForceKillOAA(false)
   end
 end
 
@@ -139,7 +146,6 @@ function modifier_bubble_witch_bubble_of_protection_buff:OnCreated()
   else
     self.dmg_reduction = 75
   end
-
 end
 
 function modifier_bubble_witch_bubble_of_protection_buff:DeclareFunctions()

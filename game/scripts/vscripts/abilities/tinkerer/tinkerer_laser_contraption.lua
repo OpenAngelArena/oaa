@@ -421,6 +421,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end

@@ -89,6 +89,7 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
     if parent and not parent:IsNull() then
       -- Instead of UTIL_Remove:
       parent:AddNoDraw()
+      -- Kill the thinker entity if it exists
       parent:ForceKillOAA(false)
     end
   end
