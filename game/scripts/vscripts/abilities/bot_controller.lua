@@ -55,7 +55,7 @@ function Control( keys )
     return
   end
 
-  -- If there are hero(s) nearby and bot is low on health, let bot decide what todo
+  -- If there are hero(s) nearby and bot is low on health, let bot decide
   if #heroes > 0 or caster:GetHealth() < healthRetreat then
     caster:RemoveModifierByName("modifier_disable_control")
   -- If none of the above conditions are made, disable all bot orders and force them to move to a semi-random part of the map

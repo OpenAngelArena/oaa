@@ -61,12 +61,12 @@
       "speed_update_interval"                             "0.5"
       "bounces"
       {
-        "value"                                           "0 0 1 2 3" // original: 0/1/2
+        "value"                                           "0 1 2 2 3" // original: 0/1/2
         "special_bonus_scepter"                           "+2"
       }
       "bounce_range" // original: 500 or 700
       {
-        "value"                                           "525"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "summon_illusion_damage_scepter" // original: 700/850/1000

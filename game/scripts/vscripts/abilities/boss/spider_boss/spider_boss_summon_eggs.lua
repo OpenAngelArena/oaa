@@ -4,7 +4,7 @@ spider_boss_summon_eggs = class( AbilityBaseClass )
 function spider_boss_summon_eggs:Precache(context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_visage/visage_summon_familiars.vpcf", context)
-  --PrecacheResource("soundfile", "TODO: find soundevents file for Broodmother voice lines", context)
+  --PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_broodmother.vsndevts", context)
   --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 

@@ -53,7 +53,7 @@ end
 function CreepPower:Init ()
   self.moduleName = "CreepPower (Creep Scaling)"
 
-  local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
+  local maxTeamPlayerCount = 10
   if HeroSelection then
     if HeroSelection.is10v10 then
       maxTeamPlayerCount = 20

@@ -62,7 +62,6 @@ if IsServer() then
     local blockAmount = event.damage * damageReduction / 100
 
     if blockAmount > 0 then
-      -- Visual effect (TODO: add unique visual effect)
       SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
     end
 

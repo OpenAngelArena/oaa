@@ -35,7 +35,7 @@ function item_far_sight:OnSpellStart()
   dummy:AddNewModifier(caster, self, "modifier_kill", {duration = revealDuration})
   dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = revealDuration + MANUAL_GARBAGE_CLEANING_TIME})
 
-  dummy:MakeVisibleToTeam(casterTeam, revealDuration)
+  dummy:MakeVisibleToTeam(casterTeam, revealDuration) -- crashes without this
   --dummy:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, revealDuration)
 end
 

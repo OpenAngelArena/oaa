@@ -301,3 +301,14 @@ end
 function modifier_zuus_bolt_true_sight:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 end
+
+function modifier_zuus_bolt_true_sight:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
+    parent:ForceKillOAA(false)
+  end
+end

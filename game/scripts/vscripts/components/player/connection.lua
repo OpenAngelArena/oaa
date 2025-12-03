@@ -204,7 +204,6 @@ function PlayerConnection:Think()
   end
 
   if self.countdown and self.countdown > 0 then
-    -- TODO: Show Nice Message
     if otherTeam == DOTA_TEAM_GOODGUYS then
       Notifications:TopToAll({
         text="#abandon_good_auto_win",

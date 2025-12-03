@@ -200,7 +200,6 @@ if IsServer() then
     local block_amount = keys.damage * damageReduction / 100
 
     if block_amount > 0 then
-      -- Visual effect (TODO: add vanilla visual effect)
       SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
     end
 
@@ -291,7 +290,6 @@ if IsServer() then
       local block_amount = keys.damage * damageReduction / 100
 
       if block_amount > 0 then
-        -- Visual effect (TODO: add unique visual effect)
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, self:GetParent(), block_amount, nil)
       end
 
