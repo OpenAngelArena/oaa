@@ -217,7 +217,7 @@ function GameMode:InitGameMode()
   InitModule(HeroCosmetics)
 
   -- Increase maximum owned item limit
-  Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
+  Convars:SetInt('dota_max_physical_items_purchase_limit', 99)
 
   -- Change spectating delay
   if GetMapName() ~= "captains_mode" then

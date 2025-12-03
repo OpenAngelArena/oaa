@@ -112,7 +112,13 @@ function ShielderThink()
     else
       -- Check if the boss was messed around with displacing abilities (Force Staff for example)
       if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
-        thisEntity:MoveToPosition(thisEntity.spawn_position)
+        --thisEntity:MoveToPosition(thisEntity.spawn_position)
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+          Position = thisEntity.spawn_position,
+          Queue = false,
+        })
         thisEntity.state = SIMPLE_AI_STATE_LEASH
       end
     end
@@ -166,8 +172,6 @@ function ShielderThink()
       if not thisEntity:GetAggroTarget() or thisEntity:IsIdle() then
         thisEntity.aggro_target = nil
       end
-      -- OLD: if not thisEntity.aggro_target:IsAttackingEntity(thisEntity) then
-      -- OLD: thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
     else
       -- Check HP of the boss and if its able to attack
       if current_hp_pct < aggro_hp_pct then -- not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
@@ -182,7 +186,13 @@ function ShielderThink()
     -- Debuff Protection when leashing - don't add to Shielder
     --thisEntity:AddNewModifier(thisEntity, nil, "modifier_anti_stun_oaa", {})
     -- Actual leashing
-    thisEntity:MoveToPosition(thisEntity.spawn_position)
+    --thisEntity:MoveToPosition(thisEntity.spawn_position)
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+      Position = thisEntity.spawn_position,
+      Queue = false,
+    })
     -- Check if boss reached the spawn_position
     if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() < 10 then
       -- Go into the idle state if the boss is back to the spawn position
