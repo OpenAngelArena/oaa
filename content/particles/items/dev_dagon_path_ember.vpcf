@@ -1,19 +1,96 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 160
 	m_ConstantColor = [ 255, 188, 82, 255 ]
-	m_Renderers = 
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
 	[
 		{
-			_class = "C_OP_RenderSprites"
-			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_bAdditive = true
-			m_flOverbrightFactor = 5.0
-			m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
-			m_flAnimationRate = 1.0
-			m_flAnimationRate2 = 0.1
+			m_name = "preview"
+			m_drivers = [  ]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.25
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 300.0
+			}
+		},
+		{
+			_class = "C_OP_InstantaneousEmitter"
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.4
+				m_flRandomMax = 0.8
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 1
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 10.0
+				m_flRandomMax = 20.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
+		},
+		{
+			_class = "C_INIT_CreateFromParentParticles"
+			m_bRandomDistribution = true
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 70, 70, 255, 255 ]
+			m_ColorMax = [ 35, 35, 199, 255 ]
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_flNoiseScaleLoc = 3.0
+			m_vecOutputMin = [ -232.0, -232.0, -232.0 ]
+			m_vecOutputMax = [ 232.0, 232.0, 232.0 ]
+			m_flNoiseScale = 0.2
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_INVALID"
+			}
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ -10.0, -10.0, -10.0 ]
+			m_OffsetMax = [ 10.0, 10.0, 10.0 ]
 		},
 	]
 	m_Operators = 
@@ -37,67 +114,19 @@
 			m_ColorFade = [ 11, 11, 174, 255 ]
 		},
 	]
-	m_Initializers = 
+	m_Renderers = 
 	[
 		{
-			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.4
-			m_fLifetimeMax = 0.8
-		},
-		{
-			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 10.0
-			m_flRadiusMax = 20.0
-		},
-		{
-			_class = "C_INIT_InitialVelocityNoise"
-			m_flNoiseScaleLoc = 3.0
-			m_vecOutputMin = [ -232.0, -232.0, -232.0 ]
-			m_vecOutputMax = [ 232.0, 232.0, 232.0 ]
-			m_flNoiseScale = 0.2
-		},
-		{
-			_class = "C_INIT_RandomRotation"
-		},
-		{
-			_class = "C_INIT_CreateFromParentParticles"
-			m_bRandomDistribution = true
-		},
-		{
-			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 70, 70, 255, 255 ]
-			m_ColorMax = [ 35, 35, 199, 255 ]
-		},
-		{
-			_class = "C_INIT_PositionOffset"
-			m_OffsetMin = [ -10.0, -10.0, -10.0 ]
-			m_OffsetMax = [ 10.0, 10.0, 10.0 ]
-		},
-	]
-	m_Emitters = 
-	[
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 0.25
-			m_flEmitRate = 300.0
-		},
-		{
-			_class = "C_OP_InstantaneousEmitter"
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		{
-			m_name = "preview"
-			m_drivers = 
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 5.0
+			m_flAnimationRate = 1.0
+			m_vecTexturesInput = 
 			[
 				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
+					m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
 				},
 			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
 }

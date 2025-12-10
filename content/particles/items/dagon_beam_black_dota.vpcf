@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 32
-	m_ConstantColor = [ 255, 0, 0, 255 ]
+	m_ConstantColor = [ 19, 8, 8, 255 ]
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 3
 	m_controlPointConfigurations = 
@@ -53,9 +53,9 @@
 		},
 		{
 			_class = "C_INIT_CreateSequentialPathV2"
-			m_bSaveOffset = true
-			m_bLoop = false
 			m_flNumToAssign = 20.0
+			m_bLoop = false
+			m_bSaveOffset = true
 			m_PathParams = 
 			{
 				m_nEndControlPointNumber = 1
@@ -66,54 +66,135 @@
 			m_InputValue = 
 			{
 				m_nType = "PF_TYPE_RANDOM_UNIFORM"
-				m_flRandomMin = 75.0
-				m_flRandomMax = 150.0
+				m_flRandomMin = 50.0
+				m_flRandomMax = 75.0
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 			}
 		},
 		{
 			_class = "C_INIT_CreateInEpitrochoid"
-			m_nComponent1 = 2
-			m_flRadius1 = 15.0
-			m_flRadius2 = -4.0
-			m_flOffset = 9.0
-			m_flParticleDensity = 0.4
-			m_bUseCount = true
 			m_bOffsetExistingPos = true
+			m_bUseCount = true
+			m_flParticleDensity = 0.4
+			m_flOffset = 9.0
+			m_flRadius2 = -4.0
+			m_flRadius1 = 15.0
+			m_nComponent1 = 2
 		},
 		{
 			_class = "C_INIT_PositionWarp"
-			m_bUseCount = true
-			m_flWarpTime = 3.0
 			m_vecWarpMin = [ 0.0001, 0.0001, 0.0001 ]
+			m_flWarpTime = 3.0
+			m_bUseCount = true
 		},
 		{
 			_class = "C_INIT_PositionWarp"
-			m_bUseCount = true
-			m_flWarpStartTime = 29.0
-			m_flWarpTime = 2.0
-			m_vecWarpMax = [ 0.0001, 0.0001, 0.0001 ]
 			m_nControlPointNumber = 1
+			m_vecWarpMax = [ 0.0001, 0.0001, 0.0001 ]
+			m_flWarpTime = 2.0
+			m_flWarpStartTime = 29.0
+			m_bUseCount = true
 		},
 		{
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_flInput0 = 400.0
-				m_flInput1 = 2000.0
-				m_flOutput0 = 1.0
-				m_flOutput1 = 3.0
-				m_nMapType = "PF_MAP_TYPE_REMAP"
 				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_CURVE"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
 				m_nControlPoint = 2
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
+				m_bReverseOrder = false
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_strSnapshotSubset = ""
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 400.0
+				m_flInput1 = 800.0
+				m_flOutput0 = 1.0
+				m_flOutput1 = 1.5
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = 
+					[
+						{
+							x = 400.0
+							y = 1.00596
+							m_flSlopeIncoming = 0.001238
+							m_flSlopeOutgoing = 0.001238
+						},
+						{
+							x = 799.061096
+							y = 1.5
+							m_flSlopeIncoming = -0.001257
+							m_flSlopeOutgoing = -0.001257
+						},
+						{
+							x = 1200.0
+							y = 0.0
+							m_flSlopeIncoming = -0.003741
+							m_flSlopeOutgoing = -0.003741
+						},
+					]
+					m_tangents = 
+					[
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_SPLINE"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_SPLINE"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_SPLINE"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+					]
+					m_vDomainMins = [ 400.0, 0.0 ]
+					m_vDomainMaxs = [ 1200.0, 1.5 ]
+				}
 			}
 			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
-			m_vecOutputMin = [ -250.0, -250.0, -250.0 ]
 			m_vecOutputMax = [ 250.0, 250.0, 250.0 ]
+			m_vecOutputMin = [ -250.0, -250.0, -250.0 ]
 			m_TransformInput = 
 			{
 				m_nType = "PT_TYPE_INVALID"
@@ -128,8 +209,8 @@
 		},
 		{
 			_class = "C_OP_Decay"
-			m_flOpStartFadeInTime = 0.35
 			m_flOpEndFadeInTime = 0.35
+			m_flOpStartFadeInTime = 0.35
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -137,20 +218,20 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.765
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
 			m_flStartScale = 0.0
-		},
-		{
-			_class = "C_OP_DampenToCP"
-			m_flRange = 22.0
-			m_flScale = 0.5
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
+			m_flBias = 0.765
 		},
 		{
 			_class = "C_OP_DampenToCP"
 			m_flScale = 0.5
 			m_flRange = 22.0
+		},
+		{
+			_class = "C_OP_DampenToCP"
 			m_nControlPointNumber = 1
+			m_flRange = 22.0
+			m_flScale = 0.5
 		},
 		{
 			_class = "C_OP_LockToSavedSequentialPathV2"
@@ -171,9 +252,9 @@
 		},
 		{
 			_class = "C_OP_PercentageBetweenTransforms"
-			m_flInputMin = 0.01
-			m_flInputMax = 0.2
 			m_nFieldOutput = 16
+			m_flInputMax = 0.2
+			m_flInputMin = 0.01
 			m_TransformEnd = 
 			{
 				m_nControlPoint = 1
@@ -185,11 +266,11 @@
 		},
 		{
 			_class = "C_OP_VectorNoise"
-			m_fl4NoiseScale = 0.35
-			m_nFieldOutput = 0
-			m_vecOutputMin = [ -5.0, -5.0, -5.0 ]
-			m_vecOutputMax = [ 5.0, 5.0, 5.0 ]
 			m_bAdditive = true
+			m_vecOutputMax = [ 5.0, 5.0, 5.0 ]
+			m_vecOutputMin = [ -5.0, -5.0, -5.0 ]
+			m_nFieldOutput = 0
+			m_fl4NoiseScale = 0.35
 		},
 	]
 	m_Renderers = 
@@ -197,14 +278,15 @@
 		{
 			_class = "C_OP_RenderRopes"
 			m_flRadiusScale = 0.5
-			m_flTextureVWorldSize = 6791.632324
-			m_flTextureVOffset = 10.611926
+			m_flTextureVWorldSize = 200.0
+			m_flTextureVOffset = 0.3125
+			m_flTextureVScrollRate = -400.0
 			m_nMaxTesselation = 2
 			m_nMinTesselation = 2
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/beam_generic_3.vtex"
+					m_hTexture = resource:"materials/particle/beam_vine.vtex"
 					m_TextureControls = 
 					{
 						m_flFinalTextureScaleU = 
@@ -215,61 +297,6 @@
 					}
 				},
 			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
-	m_Children = 
-	[
-		{
-			m_ChildRef = resource:"particles/items/dagon_beam_black_dota.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_beam_black_oaa.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_c_dota.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_c_oaa.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_edge_rope_dota.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_edge_rope_oaa.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_src_glow.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_src_burst.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_tgt_burst.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_path_ember.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_tgt_glow.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_tgt_sparks.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items_fx/dagon_path_steam.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_edge_rope_flash_dota.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_edge_rope_flash_oaa.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_tgt_lgt_dota.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/items/dagon_tgt_lgt_oaa.vpcf"
 		},
 	]
 }
