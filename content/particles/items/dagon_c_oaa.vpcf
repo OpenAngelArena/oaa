@@ -4,7 +4,7 @@
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 32
 	m_flConstantRadius = 20.0
-	m_nBehaviorVersion = 5
+	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 4
 	m_controlPointConfigurations = 
 	[
@@ -151,11 +151,11 @@
 			m_flEndScale = 0.0
 		},
 		{
-			_class = "C_OP_InheritFromParentParticles"
+			_class = "C_OP_InheritFromParentParticlesV2"
 			m_nFieldOutput = 0
 		},
 		{
-			_class = "C_OP_InheritFromParentParticles"
+			_class = "C_OP_InheritFromParentParticlesV2"
 			m_nFieldOutput = 2
 		},
 	]

@@ -4,7 +4,7 @@
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 32
 	m_ConstantColor = [ 255, 0, 0, 255 ]
-	m_nBehaviorVersion = 5
+	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 3
 	m_controlPointConfigurations = 
 	[
@@ -52,7 +52,7 @@
 			m_nOutputField = 1
 		},
 		{
-			_class = "C_INIT_CreateSequentialPath"
+			_class = "C_INIT_CreateSequentialPathV2"
 			m_bSaveOffset = true
 			m_bLoop = false
 			m_flNumToAssign = 20.0
@@ -153,7 +153,7 @@
 			m_nControlPointNumber = 1
 		},
 		{
-			_class = "C_OP_LockToSavedSequentialPath"
+			_class = "C_OP_LockToSavedSequentialPathV2"
 			m_PathParams = 
 			{
 				m_flMidPoint = 0.25
