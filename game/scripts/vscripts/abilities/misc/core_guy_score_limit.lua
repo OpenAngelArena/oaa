@@ -38,14 +38,14 @@ function core_guy_score_limit:OnSpellStart()
   self:StartCooldown(cooldown)
 
   local caster = self:GetCaster()
-  caster:SetModifierStackCount("modifier_core_shrine", caster, 0-math.abs(cooldown))
+  caster:SetModifierStackCount("modifier_core_shrine", caster, cooldown)
 end
 
 function core_guy_score_limit:GetCooldown()
-  --return (self.timesUsed or 1) * 60 * 8
   if IsServer() then
     return PointsManager.timesUsedShrine * LIMIT_INCREASE_STARTING_COOLDOWN
   else
-    return math.abs(self:GetCaster():GetModifierStackCount("modifier_core_shrine", self:GetCaster())) or 60 * 8
+    local caster = self:GetCaster()
+    return caster:GetModifierStackCount("modifier_core_shrine", caster)
   end
 end
