@@ -52,6 +52,7 @@ function modifier_core_shrine:OnCreated()
   self.ordered_heroes = {}
   if IsServer() then
     self:GetAbility():StartCooldown(self:GetAbility():GetCooldown())
+    self:SetStackCount(LIMIT_INCREASE_STARTING_COOLDOWN)
     self:StartIntervalThink(0.1)
   end
 end
