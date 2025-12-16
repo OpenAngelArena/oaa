@@ -21,11 +21,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "90 80 70 70 70"
+    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 225 300 300 300"
+    "AbilityManaCost"                                     "150 225 300 375 450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,12 @@
         "special_bonus_unique_ringmaster_wheel_radius"    "+100"
       }
       "trap_duration"                                     "4"
-      "wheel_stun"                                        "2.5 2.75 3.0 3.0 3.0"
+      "wheel_stun"                                        "2.5 2.75 3.0 3.25 3.5"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 75 100 100 100"
+      "aura_damage"                                       "50 100 150 250 350" //OAA
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 450 600 600 600"
+      "explosion_damage"                                  "300 600 900 1500 2100" //OAA
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"
