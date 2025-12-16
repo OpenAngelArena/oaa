@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -25,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 17 14 11 10 9"
+    "AbilityCooldown"                                     "17 14 11 8 8 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 100 105 110 115 120"
+    "AbilityManaCost"                                     "70 70 70 70 70 70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

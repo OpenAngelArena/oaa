@@ -30,20 +30,20 @@
       }
       "rotating_glaives_movement_radius"
       {
-        "value"                                           "250"
+        "value"                                           "225"
       }
       "rotating_glaives_hit_radius"
       {
-        "value"                                           "175"
+        "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
       "rotating_glaives_movement_radius_expand_speed_scale"
       {
-        "value"                                           "3"
+        "value"                                           "4"
       }
       "rotating_glaives_collision_damage"
       {
-        "value"                                           "22 28 34 40 43 46" // this is a % of luna's damage
+        "value"                                           "28 32 36 40" // this is a % of luna's damage
         "special_bonus_shard"                             "+20"
       }
       "rotating_glaives_speed"
