@@ -57,9 +57,9 @@
       {
         "special_bonus_shard"                             "+3"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "15 13 11 9 8 7"
+        "value"                                           "12 11 10 9 8 7"
         "special_bonus_unique_ursa_3"                     "=0.25"
       }
       "AbilityCharges"
@@ -67,9 +67,9 @@
         "value"                                           "0"
         "special_bonus_unique_ursa_3"                     "+2"
       }
-      "AbilityChargeRestoreTime"
+      "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
       {
-        "value"                                           "15 13 11 9 8 7"
+        "value"                                           "12 11 10 9 8 7"
       }
     }
   }

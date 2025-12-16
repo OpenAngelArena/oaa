@@ -31,10 +31,10 @@
 
     "AbilityValues"
     {
-      "heal_per_second"
+      "heal_per_second" //OAA, total heal can be big because there are no towers here
       {
-        "value"                                           "4 7 10 13 13 13"
-        "special_bonus_unique_treant_8"                   "+4"
+        "value"                                           "10 15 20 25 50 100"
+        "special_bonus_unique_treant_8"                   "+30"
       }
       "duration"                                          "12"
       "aoe_radius"
@@ -51,7 +51,7 @@
       {
         "special_bonus_shard"                             "0"
       }
-      "damage_block_loss"                                 "35 30 25 20"
+      "damage_block_loss"                                 "35 30 25 20 15 10"
       "damage_block_threshold"                            "20"
     }
   }
