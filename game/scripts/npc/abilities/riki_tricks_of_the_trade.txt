@@ -9,8 +9,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -18,50 +20,68 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
     "AbilityChannelTime"                                  "2.0"
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 55 65 75 85 95"
+    "AbilityManaCost"                                     "65 65 65 65 65 65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "15 14 13 12 11 10"
+        "value"                                           "21 18 15 12 12 12"
+        "special_bonus_unique_riki_6"                     "-4"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "400"
+        "special_bonus_scepter"                           "+300"
       }
       "radius"
       {
-        "value"                                           "450"
+        "value"                                           "425"
         "affected_by_aoe_increase"                        "1"
       }
-      "attack_count"                                      "4"
-      "damage_pct"                                        "40 40 40 40 45 50"
-      "agility_pct"
+      "attack_count"
       {
-        "value"                                           "55 70 85 100 115 130"
-        "special_bonus_unique_riki_2"                     "+50"
+        "value"                                           "4"
       }
-      "scepter_duration"
+      "speed_per_attack"                                  "180"
+      "interval_targets"                                  "2"
+      "attack_damage"
+      {
+        "value"                                           "30 50 70 90"
+      }
+      "base_attack_damage_pct"
+      {
+        "special_bonus_unique_riki_tricks_dmg"           "+15"
+      }
+      "agility_pct"                                       "0"
+      "dispel"
+      {
+        "value"                                           "0"
+      }
+      "pocket_riki_enabled"
+      {
+        "special_bonus_scepter"                           "=1"
+      }
+      "scepter_movespeed"
+      {
+        "special_bonus_scepter"                           "15"
+      }
+      "scepter_bonus_duration"
+      {
+        "special_bonus_scepter"                           "1"
+      }
+      "scepter_bonus_attacks"
       {
         "special_bonus_scepter"                           "2"
       }
-      "scepter_attacks"
-      {
-        "special_bonus_scepter"                           "5"
-      }
-      "scepter_cast_range"
-      {
-        "special_bonus_scepter"                           "700"
-      }
-      "dispel"
-      {
-        "special_bonus_unique_riki_5"                     "+1"
-      }
+      "cd_per_kill"                                       "0"
       "creep_agility_multiplier"
       {
         "value"                                           "1"

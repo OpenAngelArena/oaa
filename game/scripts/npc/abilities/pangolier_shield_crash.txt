@@ -45,7 +45,6 @@
       "radius"
       {
         "value"                                           "500"
-        "special_bonus_unique_pangolier_shield_crash_radius"  "+125"
         "affected_by_aoe_increase"                        "1"
       }
       "can_double_jump"
@@ -55,7 +54,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
+        "value"                                           "16 13 10 7 7 7"
+        "special_bonus_unique_pangolier_shield_crash_cooldown"  "-1.5"
       }
       "min_damage_increase_pct"
       {
@@ -83,22 +83,9 @@
       "jump_horizontal_distance"                          "225"
       "slow"                                              "20 25 30 35 40 45"
       "slow_duration"                                     "3"
-      "parry_swashbuckles"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-      }
-      "parry_chance"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+50"
-      }
-      "parry_cooldown"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-      }
-      "parry_damage_threshold"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+25"
-      }
+      
+      
+      "scepter_damage_outgoing_tooltip"                   "75"
     }
   }
 }

@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
@@ -19,32 +19,35 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.1"
-    "AbilityCharges"                                      "2"
+    
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75"
+    "AbilityManaCost"                                     "50 55 60 65 65 65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "600 700 800 900 1000 1100"
+        "special_bonus_unique_riki_9"                     "+500"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "13 10 7 4 4 4"
+        "special_bonus_unique_riki_5"                     "-1"
+      }
       "bonus_damage"
       {
-        "value"                                           "40 55 70 85 170 340"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                           "15 30 45 60 60 60"
       }
-      "AbilityChargeRestoreTime" //OAA
-      {
-        "value"                                           "16 15 14 13 13 13"
-        "special_bonus_unique_riki_9"                     "-4"
-      }
+      
       "slow"                                              "0.5"
     }
   }
