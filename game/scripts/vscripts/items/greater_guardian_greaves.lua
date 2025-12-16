@@ -168,7 +168,7 @@ function modifier_item_greater_guardian_greaves:GetAuraRadius()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierAura()
-  return "modifier_item_guardian_greaves_aura" -- modifier_item_greater_guardian_greaves_aura ?
+  return "modifier_item_greater_guardian_greaves_aura" -- modifier_item_guardian_greaves_aura
 end
 
 ------------------------------------------------------------------------------

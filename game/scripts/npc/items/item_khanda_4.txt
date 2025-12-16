@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18000"
+    "ItemCost"                                            "18600"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "khanda; kanda"
@@ -62,10 +62,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_mana_regen"                                  "8 8.25 8.75 9.5 10.5"
-      "bonus_health"                                      "200 300 450 650 900"
-      "bonus_mana"                                        "200 300 450 650 900"
+      "bonus_health"                                      "450 550 700 900 1150"
+      "bonus_mana"                                        "450 550 700 900 1150"
       "bonus_all_stats"                                   "8 13 18 23 28"
+      "bonus_health_regen"                                "7 10 13 16 19"
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
       "slow"                                              "30 35 40 45 50"
       "slow_duration"                                     "4 4.25 4.5 4.75 5"
       "bonus_spell_damage"                                "250 375 550 775 1050"
