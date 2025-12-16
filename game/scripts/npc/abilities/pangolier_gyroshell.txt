@@ -35,7 +35,7 @@
     "AbilityValues"
     {
       "damage_pct"                                        "100" // Pangolier's attack damage
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
         "value"                                           "90 85 80 75 70"
         "special_bonus_unique_pangolier_5"                "-15"
@@ -82,7 +82,6 @@
       }
       "move_speed_ramp_up_time"                           "1.0"
       "jump_recover_time"                                 "0.25"
-      
       "magic_resistance"                                  "60"
     }
   }
