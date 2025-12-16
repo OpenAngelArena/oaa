@@ -10,9 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
-    "AbilitySound"                                        "Hero_Spectre.Haunt"
-    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "1"
 
     // Casting
@@ -30,9 +27,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "180 160 140"
+        "value"                                           "120"
         "special_bonus_scepter"                           "-20"
       }
       "scepter_cooldown_reduction_tooltip"                "20"
