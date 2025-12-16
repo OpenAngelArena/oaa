@@ -12,7 +12,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,9 +30,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "21 18 15 12 12 12"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_riki_6"                     "-4"
       }
       "AbilityCastRange"
