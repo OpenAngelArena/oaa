@@ -66,16 +66,16 @@
         "value"                                           "650"
         "special_bonus_unique_shadow_shaman_8"            "+160"
       }
-      "hits_to_destroy_tooltip" // hits to destroy for heroes
+      "hits_to_destroy_tooltip" // hits to destroy for heroes (ward_health / 2)
       {
         "value"                                           "2"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=20"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=18"
         "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
       "ward_health" // hits to destroy for creeps
       {
         "value"                                           "4"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=40"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=36"
         "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
       "bonus_attack_targets"
@@ -95,7 +95,7 @@
       "mega_ward_multiplier_health" // needed for tooltip
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=9"
       }
       "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5 3.7 3.9"
     }
