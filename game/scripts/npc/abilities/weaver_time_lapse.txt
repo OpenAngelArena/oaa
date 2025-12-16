@@ -18,12 +18,22 @@
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA
     "AbilityCastRange"                                    "500"
 
-    "AbilityCooldown"                                     "50 45 40 35 30" //OAA
+    // Cooldown defined under AbilityValues to match base
     "AbilityManaCost"                                     "150 75 0 0 0"
 
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "70 55 40 35 30"
+        "special_bonus_scepter"                           "-10"
+      }
+      "targets_allies"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+      }
       "cooldown_scepter" //OAA
       {
         "special_bonus_scepter"                           "50 45 40 35 30"

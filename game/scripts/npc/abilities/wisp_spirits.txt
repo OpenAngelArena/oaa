@@ -22,17 +22,21 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "19.0"
+    "AbilityDuration"                                     "15"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_damage"                                      "12 18 24 30 60 120"
+      "creep_damage"
+      {
+        "value"                                           "12 18 24 30 60 120"
+        "special_bonus_unique_wisp"                       "+50%"
+      }
       "hero_damage"
       {
         "value"                                           "30 50 70 90 180 360"
-        "special_bonus_unique_wisp"                       "+60"
+        "special_bonus_unique_wisp"                       "+50%"
       }
       "revolution_time"                                   "5.0"
       "min_range"                                         "200"
@@ -53,7 +57,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "spirit_movement_rate"                              "250"
-      "spirit_duration"                                   "19.0"
+      "spirit_duration"                                   "15"
       "spirit_amount"                                     "5"
       "scepter_slow_pct" //OAA
       {
@@ -67,11 +71,11 @@
       }
       "AbilityManaCost"
       {
-        "value"                                           "100 110 120 130 140 150"
+        "value"                                           "90 100 110 120 130 140"
       }
       "AbilityCooldown"
       {
-        "value"                                           "22 21 20 19 18 17"
+        "value"                                           "15 15 15 15 15 15"
         "special_bonus_scepter"                           "-50%"
       }
     }

@@ -30,7 +30,10 @@
         "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_weaver_1"                   "+60"
       }
-      "speed"                                             "200 230 260 290 300 310" // unused
+      "speed"
+      {
+        "value"                                           "200 230 260 290 300 310" // unused
+      }
       "radius"
       {
         "value"                                           "175"
@@ -50,7 +53,8 @@
       }
       "min_movespeed_override"
       {
-        "special_bonus_facet_weaver_skitterstep"          "+600"
+        "value"                                           "550"
+        "special_bonus_facet_weaver_skitterstep"          "=600"
       }
       "shukuchi_attack_mark_radius"
       {

@@ -8,21 +8,22 @@
 
 ## Build, Test, and Development Commands
 - `nvm use` (Node `v20.11.0`): Match the repo’s Node version (`.nvmrc`).
-- `yarn test`: Lints JS with semistandard and runs Tape tests, summarized via tap-summary.
-- `yarn run spec`: Runs tests with tap-spec for readable output.
-- `yarn run fetch:dota-kv`: Downloads base Dota KV files (items, heroes, hero KV files) into `scripts/cache/dota_kv/` for offline/consistent testing. The cache directory is gitignored.
+- `npm test`: Lints JS with semistandard and runs Tape tests, summarized via tap-summary.
+- - Note: This outputs a lot of text, and the most useful part is always at the end. Consider using `npm run test > .test_output.log 2>&1; tail -n 200 .test_output.log`.
+- `npm run spec`: Runs tests with tap-spec for readable output. Prefer to use `npm test` over this.
+- `npm run fetch:dota-kv`: Downloads base Dota KV files (items, heroes, hero KV files) into `scripts/cache/dota_kv/` for offline/consistent testing. The cache directory is gitignored.
 - Lint Lua with your editor + `.luacheckrc` (CI validates style). Example local run: `luacheck game/scripts/vscripts`.
 
 ## Coding Style & Naming Conventions
 - Indentation: 2 spaces; UTF-8; trim trailing whitespace (`.editorconfig`).
-- JavaScript: semistandard style; globals set for Dota 2 UI (`GameUI`, `Players`, etc.). Run `yarn run semistandard`.
+- JavaScript: semistandard style; globals set for Dota 2 UI (`GameUI`, `Players`, etc.). Run `npm run semistandard`.
 - Lua: follow `.luacheckrc` and existing patterns; prefer snake_case for files and identifiers.
 - Tests: name JS tests `*.test.js` under `scripts/test/`.
 
 ## Testing Guidelines
 - Framework: Tape for JS utilities in `scripts/`.
 - Scope: add/extend tests when modifying parsing, KV, or translation helpers.
-- Run: `yarn test` (CI must pass). Keep fixtures small and colocated under `scripts/test/fixtures/` when needed.
+- Run: `npm test` (CI must pass). Keep fixtures small and colocated under `scripts/test/fixtures/` when needed.
 
 ## KV Files & Unit Tests
 - Locations: `game/scripts/npc/abilities/`, `game/scripts/npc/items/`, `game/scripts/npc/heroes/`.

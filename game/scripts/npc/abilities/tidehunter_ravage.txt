@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 115 110 100 90" //OAA
+    
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -43,10 +43,15 @@
         "affected_by_aoe_increase"                        "1"
       }
       "speed"                                             "725"
+      "AbilityCooldown"
+      {
+        "value"                                           "150.0 145.0 140.0 140.0 140.0"
+        "special_bonus_unique_tidehunter_ravage_cooldown" "-15"
+      }
       "duration"
       {
         "value"                                           "2.0 2.2 2.4 2.6 2.8"
-        "special_bonus_unique_tidehunter_7"               "+0.8"
+        "special_bonus_unique_tidehunter_7"               "+1.0"
       }
     }
   }

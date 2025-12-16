@@ -21,20 +21,20 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
+    "AbilityCooldown"                                     "90 80 70 70 70"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 275 375 475 575"
+    "AbilityManaCost"                                     "150 225 300 300 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "min_range"                                         "700"
-      "mesmerize_radius" //OAA
+      "mesmerize_radius"
       {
-        "value"                                           "550"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_ringmaster_wheel_radius"    "+100"
       }
@@ -45,12 +45,12 @@
         "special_bonus_unique_ringmaster_wheel_radius"    "+100"
       }
       "trap_duration"                                     "4"
-      "wheel_stun"                                        "2.5 2.75 3.0 3.25 3.5"
+      "wheel_stun"                                        "2.5 2.75 3.0 3.0 3.0"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 100 150 250 350" //OAA
+      "aura_damage"                                       "50 75 100 100 100"
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 600 900 1800 2700" //OAA
+      "explosion_damage"                                  "300 450 600 600 600"
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"

@@ -5,15 +5,15 @@
   //=================================================================================================================
   "treant_leech_seed"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "400 450 500 550 600 650"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "150"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,45 +21,41 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 120 130"
+    // AbilityManaCost: follows base; do not override
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_interval"                                   "1"
-      "leech_damage" //OAA
-      {
-        "value"                                           "18 35 52 69 138 276"
-        "special_bonus_unique_treant_2"                   "+60"
-      }
-      "movement_slow" //OAA
-      {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
-        "special_bonus_unique_treant_3"                   "-20"
-      }
+      // damage_interval handled implicitly by base
+      "movement_slow"                                    "0"
       "radius"
       {
         "value"                                           "650"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "5.0"
+      "duration"                                          "0.9 1.1 1.3 1.5"
       "projectile_speed"                                  "450"
-      "can_target_ground"
+      "flat_heal"                                         "15 25 35 45"
+      "leech_heal"
       {
-        "value"                                           "0"
-        "special_bonus_facet_treant_sapling"              "=1"
+        "value"                                           "20"
+        "special_bonus_unique_treant_3"                   "+10"
       }
-      "creep_damage_reduction_pct"
+      "leech_damage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_treant_sapling"              "=50"
+        "value"                                           "20 40 60 80"
+        "special_bonus_unique_treant_2"                   "+80"
       }
-      "creep_heal_reduction_pct"                          "50"
+      "max_heal_units"                                    "5"
+      "AbilityCooldown"
+      {
+        "value"                                           "15 12 9 6"
+        "special_bonus_unique_treant_14"                  "-3"
+      }
+      "healing_pulse_count"                               "2"
     }
   }
 }

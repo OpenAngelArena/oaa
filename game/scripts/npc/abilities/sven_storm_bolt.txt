@@ -20,12 +20,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityCooldown"                                     "21 18 15 12 11 10"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bolt_speed"                                        "1000"
+      "AbilityCastRange"
+      {
+        "value"                                           "600"
+        "special_bonus_scepter"                           "+25%"
+      }
+      "bolt_speed"
+      {
+        "value"                                           "1000"
+        "special_bonus_scepter"                           "+25%"
+      }
       "bolt_stun_duration"
       {
         "value"                                           "1.0 1.2 1.4 1.6 1.7 1.8"
@@ -55,11 +63,7 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
-      "cast_range_bonus_scepter"
-      {
-        "special_bonus_scepter"                           "350" // Valve didn't apply the nerf since 7.29
-      }
-      "scepter_bonus_damage"                              "30 80 130 180 280 480" //OAA
+      "scepter_bonus_damage"                              "180"
     }
   }
 }

@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "30"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,18 +32,12 @@
     {
       "vision_aoe"
       {
-        "special_bonus_scepter"                           "800"
+        "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "overgrowth_aoe"
-      {
-        "special_bonus_scepter"                           "800"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "tree_respawn_seconds"
-      {
-        "special_bonus_scepter"                           "10"
-      }
+      "max_eyes"                                         "0"
+      "hits_to_kill"                                      "2"
+      "duration"                                         "300"
     }
   }
 }

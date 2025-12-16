@@ -30,8 +30,16 @@
       "duration"
       {
         "value"                                           "4 4.25 4.5 4.75 5.0"
-        "special_bonus_unique_slark_3"                    "+1.25"
+        "special_bonus_unique_slark_3"                    "+1.5"
       }
+      "bonus_movement_speed"                              "24 36 48"
+      "bonus_regen"
+      {
+        "value"                                           "60 90 120"
+        "special_bonus_unique_slark_8"                    "+30"
+      }
+      "activation_delay"                                  "0.5"
+      "neutral_disable"                                   "2.0"
       "fade_time"                                         "0"
       "attack_speed"
       {
