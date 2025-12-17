@@ -41,7 +41,14 @@
       {
         "value"                                           "0"
       }
-      "bonus_movespeed"                                   "10 22 34 46 58 70"
+      "bonus_movespeed"
+      {
+        "value"                                           "10 22 34 46 58 70"
+      }
+      "break_move_cap"
+      {
+        "value"                                           "0"
+      }
       "AbilityChargeRestoreTime"
       {
         "value"                                           "27"
