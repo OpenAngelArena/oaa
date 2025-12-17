@@ -60,7 +60,7 @@
       "stun_duration"
       {
         "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
-        "special_bonus_unique_earth_spirit_3"             "+0.3"
+        "special_bonus_unique_earth_spirit_rolling_boulder_stun"  "+0.3"
       }
       "rock_bonus_duration"                               "0.3 0.5 0.7 0.9 1.0 1.1"
       "damage_str"                                        "100"
@@ -78,21 +78,7 @@
         "value"                                           "0"
         "special_bonus_facet_earth_spirit_ready_to_roll"  "1"
       }
-      "allied_bonus_movespeed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "15 20 25 30 35 40"
-      }
-      "allied_bonus_movespeed_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "4.0"
-      }
-      "allied_bonus_stun_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "0.3 0.5 0.7 0.9 1.0 1.1"
-      }
+      // Removed allied_* bonus keys to match vanilla
     }
   }
 }
