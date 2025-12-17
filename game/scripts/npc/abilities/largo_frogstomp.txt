@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastAnimation"                                 "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
@@ -31,20 +31,20 @@
     {
       "AbilityCooldown"
       {
-        "value"                                         "20 18 16 14 13 12"
+        "value"                                           "20 18 16 14 13 12"
       }
       "damage_per_stomp"
       {
-        "value"                                         "35 45 55 65 75 85"
-        "special_bonus_unique_largo_1"                   "+15"
+        "value"                                           "35 45 55 65 75 85"
+        "special_bonus_unique_largo_1"                    "+15"
       }
       "total_ticks"
       {
-        "value"                                         "4 5 6 7 8 9"
+        "value"                                           "4 5 6 7 8 9"
       }
       "slow"
       {
-        "value"                                         "12 18 24 30 36 42"
+        "value"                                           "12 18 24 30 36 42"
       }
       "radius"
       {
@@ -59,8 +59,8 @@
       {
         "value"                                           "0.1"
       }
-      "stomp_interval"                                   "1"
-      "delay"                                            "0.5"
+      "stomp_interval"                                    "1"
+      "delay"                                             "0.5"
     }
   }
 }
