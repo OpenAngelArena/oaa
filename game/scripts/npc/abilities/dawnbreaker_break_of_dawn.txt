@@ -13,7 +13,11 @@
     "AbilityValues"
     {
       "day_threshold"                                     "0.006"
-      "max_dmg_pct"                                       "25" // might need changing
+      "max_dmg_pct"
+      {
+        "value"                                           "25"
+        "special_bonus_unique_dawnbreaker_break_of_dawn_damage"  "+15"
+      }
       "max_vision_pct"                                    "20"
       "current_dmg_tooltip"
       {

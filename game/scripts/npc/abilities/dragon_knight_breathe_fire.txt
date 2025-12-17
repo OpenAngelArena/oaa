@@ -24,7 +24,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +44,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "range"                                             "750"
-      "AbilityCastRange"                                  "600"
+      "AbilityCastRange"
+      {
+        "value"                                           "600"
+        "special_bonus_unique_dragon_knight_9"           "+60%"
+      }
       "speed"                                             "1050"
       "damage" //OAA, special_bonus_unique_dragon_knight_1_oaa
       {
@@ -55,7 +58,11 @@
       "reduction"
       {
         "value"                                           "-30"
-        "special_bonus_unique_dragon_knight_3"            "-30"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "14 13 12 11 11 11"
+        "special_bonus_unique_dragon_knight_3"           "-2"
       }
       "dragon_form_bonus_pct" //OAA
       {
