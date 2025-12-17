@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Frogstomp
+  //=================================================================================================================
+  "largo_frogstomp"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastAnimation"                                 "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "85 95 105 115 125 135"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown"
+      {
+        "value"                                         "20 18 16 14 13 12"
+      }
+      "damage_per_stomp"
+      {
+        "value"                                         "35 45 55 65 75 85"
+        "special_bonus_unique_largo_1"                   "+15"
+      }
+      "total_ticks"
+      {
+        "value"                                         "4 5 6 7 8 9"
+      }
+      "slow"
+      {
+        "value"                                         "12 18 24 30 36 42"
+      }
+      "radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "800"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0.1"
+      }
+      "stomp_interval"                                   "1"
+      "delay"                                            "0.5"
+    }
+  }
+}

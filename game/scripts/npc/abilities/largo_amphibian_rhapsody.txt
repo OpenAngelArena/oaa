@@ -1,0 +1,135 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Amphibian Rhapsody
+  //=================================================================================================================
+  "largo_amphibian_rhapsody"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+    "SubAbilityNames"                                     "largo_song_fight_song;largo_song_double_time;largo_song_good_vibrations"
+
+    "AbilityDraftExtraAbilities"
+    {
+      "largo_song_fight_song"                             "hidden"
+      "largo_song_double_time"                            "hidden"
+      "largo_song_good_vibrations"                        "hidden"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    //"AbilityCastAnimation"                               "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "2"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    //"AbilityManaCost"                                   "8 12 16"
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"
+      {
+        "value"                                           "0"
+      }
+      "radius"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_speed_bonus"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "magic_damage_bonus"
+      {
+        "value"                                           "20 25 30 40 50"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "spell_amp_bonus"
+      {
+        "value"                                           "8 12 16 20 24"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "movespeed_bonus_burst"
+      {
+        "value"                                           "16 22 28 34 40"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "slow_resistance"
+      {
+        "value"                                           "70 80 90 95 100"
+      }
+      "heal_burst"
+      {
+        "value"                                           "34 56 78 100 130"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "rhythm_interval"                                   "1"
+      "rhythm_grace_period"                               "0.4"
+      "battle_burst_duration"
+      {
+        "value"                                           "1"
+        //"special_bonus_shard"                            "+0.5"
+      }
+      "movement_burst_duration"
+      {
+        "value"                                           "1"
+        //"special_bonus_shard"                            "+0.5"
+      }
+      "slow_resistance_burst_duration"
+      {
+        "value"                                           "0.3"
+      }
+      "max_stacks"
+      {
+        "value"                                           "5"
+      }
+      "armor_per_stack"                                   "2 3 4 5 6"
+      "song_cost_reduction_per_stack_tooltip"             "1 1.5 2" // keep tooltip base
+      "stack_duration"
+      {
+        "value"                                           "5"
+      }
+      "double_song"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1"
+      }
+      "armor_ally_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_6"                    "=50"
+      }
+      "damage_per_stack"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+10 +15 +20"
+        "special_bonus_unique_largo_7"                    "+7"
+      }
+      "burst_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+50"
+        "special_bonus_unique_largo_7"                    "+17.5"
+      }
+      "stack_decrement_on_exit"                           "0"
+    }
+  }
+}
