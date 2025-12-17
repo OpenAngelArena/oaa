@@ -34,11 +34,11 @@
       "attack_speed"
       {
         "value"                                           "60 90 120 150 180 210"
+        "special_bonus_unique_bloodseeker_5"              "+30"
       }
       "spell_amp"
       {
         "value"                                           "15 20 25 30 35 40"
-        "special_bonus_unique_bloodseeker_6"              "+15"
         "special_bonus_facet_bloodseeker_old_blood"       "=0"
       }
       "damage_pct"
@@ -55,7 +55,7 @@
       "max_health_dmg_pct" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+2.0"
+        "special_bonus_shard"                             "+2"
       }
       "thirst_threshold_bonus"
       {
@@ -68,7 +68,6 @@
       "base_damage_amp"
       {
         "special_bonus_facet_bloodseeker_old_blood"       "=15 =20 =25 =30 =35 =40"
-        "special_bonus_unique_bloodseeker_6"              "+15"
       }
       "AbilityManaCost"
       {

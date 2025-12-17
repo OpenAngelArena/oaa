@@ -17,7 +17,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
+    // AbilityCooldown moved into AbilityValues to match vanilla structure
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityManaCost"                                     "150 200 250 250 250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,19 +33,38 @@
     {
       "duration"
       {
-        "value"                                           "16 18 20 22 24"
-        "special_bonus_shard"                             "+8"
+        "value"                                           "16 20 24 26 28"
       }
       "split_duration"                                    "0.6"
+      "AbilityCooldown"
+      {
+        "value"                                           "140 130 120 110 100"
+        "special_bonus_unique_brewmaster_primal_split_cooldown" "-15"
+      }
+      "tooltip_earth_brewling_damage"
+      {
+        "value"                                           "35 70 105 140"
+        "special_bonus_unique_brewmaster_2"               "+14"
+      }
       "tooltip_earth_brewling_hp" //OAA
       {
         "value"                                           "1400 3200 5000 8600 15800"
         "special_bonus_unique_brewmaster"                 "+1800"
       }
+      "tooltip_storm_brewling_damage"
+      {
+        "value"                                           "30 50 70 90"
+        "special_bonus_unique_brewmaster_2"               "+14"
+      }
       "tooltip_storm_brewling_hp" //OAA
       {
         "value"                                           "1000 2000 3000 6000 9000"
         "special_bonus_unique_brewmaster"                 "+1800"
+      }
+      "tooltip_fire_brewling_damage"
+      {
+        "value"                                           "70 120 170 220"
+        "special_bonus_unique_brewmaster_2"               "+14"
       }
       "tooltip_fire_brewling_hp" //OAA
       {
@@ -65,13 +84,38 @@
       "bonus_damage"
       {
         "value"                                           "0"
-        "special_bonus_unique_brewmaster_2"               "+10"
+        "special_bonus_unique_brewmaster_2"               "+14"
       }
-      "give_brawler_passive"
+      "current_hp_agi"
       {
         "value"                                           "0"
-        "special_bonus_unique_brewmaster_6"               "=1"
       }
+      "current_dmg_agi"
+      {
+        "value"                                           "0"
+      }
+      "primal_split_cancel"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+      }
+      "hp_per_attribute"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "dmg_per_attribute"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "attribute_share_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "give_brawler_passive"                              "1"
+      "scepter_bonus_levels"                              "1"
     }
   }
 }

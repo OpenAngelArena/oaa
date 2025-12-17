@@ -35,12 +35,12 @@
       "duration"
       {
         "value"                                           "5"
-        "special_bonus_unique_brewmaster_5"               "+30%"
+        "special_bonus_unique_brewmaster_5"               "+40%"
       }
       "total_ignite_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
-        "special_bonus_unique_brewmaster_5"               "+30%"
+        "special_bonus_unique_brewmaster_5"               "+40%"
       }
       "movement_slow"                                     "24 28 32 36 40 44"
       "radius"
@@ -51,37 +51,34 @@
       "extra_duration"                                    "3"
       "projectile_speed"
       {
-        "value"                                           "1600"
-        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
+        "value"                                           "950"
       }
       "projectile_width"
       {
-        "value"                                           "250"
-        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "+100"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "barrel_width"
       {
-        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=75"
+        "value"                                           "75"
         "affected_by_aoe_increase"                        "1"
       }
       "barrel_impact_damage"
       {
-        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "40 70 100 130 260 520"
+        "value"                                           "40 70 100 130"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"
       {
-        "value"                                           "700"
-        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
+        "value"                                           "950"
       }
       "min_movement"
       {
-        "special_bonus_facet_brewmaster_drunken_master"   "-15"
+        "value"                                           "-15"
       }
       "max_movement"
       {
-        "special_bonus_facet_brewmaster_drunken_master"   "50"
+        "value"                                           "50"
       }
       "fear_duration"
       {

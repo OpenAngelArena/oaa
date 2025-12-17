@@ -15,11 +15,12 @@
     {
       "bonus_building_damage" // bonus boss damage
       {
-        "value"                                           "10 20 30 40 50 60"
+        "value"                                                 "30"
+        "special_bonus_unique_lone_druid_spirit_bear_demolish"  "+20"
       }
-      "true_form_bonus_building_damage" // bonus boss damage in True Form
+      "bonus_damage_against_entangled"
       {
-        "value"                                           "15 30 45 60 75 90"
+        "special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled" "15"
       }
     }
   }

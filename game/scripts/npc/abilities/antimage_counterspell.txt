@@ -34,7 +34,7 @@
       }
       "duration"                                          "1.2"
       "duration_illusion"                                 "4"
-      "outgoing_damage"                                   "-25"
+      "outgoing_damage"                                   "0"
       "incoming_damage"                                   "150" //OAA
       "does_reflect"
       {
@@ -59,6 +59,10 @@
       "AbilityCooldown"
       {
         "value"                                           "15 11 7 3 3 3"
+      }
+      "heal_pct"
+      {
+        "value"                                           "0"
       }
     }
   }
