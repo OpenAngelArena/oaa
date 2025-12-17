@@ -35,11 +35,6 @@
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "eyes_radius"
-      {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
-      }
       "damage" //OAA
       {
         "value"                                           "95 145 195 345 495"
@@ -48,11 +43,32 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "90"
-        "special_bonus_unique_treant_14"                  "-35"
+        "special_bonus_scepter"                           "-30"
       }
       "undispellable"
       {
         "value"                                           "0"
+      }
+      "bloom_duration"
+      {
+        "special_bonus_scepter"                           "16"
+      }
+      "strength_bonus"
+      {
+        "special_bonus_scepter"                           "100"
+      }
+      "splash_pct"
+      {
+        "special_bonus_scepter"                           "60"
+      }
+      "splash_radius"
+      {
+        "special_bonus_scepter"                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "movement_speed"
+      {
+        "special_bonus_scepter"                           "345"
       }
     }
   }

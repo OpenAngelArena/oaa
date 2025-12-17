@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35800"
+    "ItemCost"                                            "35700"
     "ItemShopTags"                                        "damage;attack_speed;crit;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "invis 5;silver edge 5"
@@ -70,6 +70,7 @@
       "windwalk_bonus_damage"                             "300 400 500 600 700"
       "backstab_duration"                                 "6"
       "visibility_radius"                                 "1025"
+      "max_movement_speed"                                "200"
     }
   }
 }

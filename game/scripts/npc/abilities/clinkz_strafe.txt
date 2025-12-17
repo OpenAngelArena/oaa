@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0"
 
     // Cost
@@ -55,7 +55,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "archer_attack_speed_pct"                           "60"
+      "archer_attack_speed_pct"                           "50"
       "debuff_duration"
       {
         "value"                                           "0"

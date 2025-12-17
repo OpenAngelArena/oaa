@@ -1,31 +1,6 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Guardian Greaves
-  //=================================================================================================================
-  "item_recipe_guardian_greaves"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1450"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_guardian_greaves"
-
-    "ItemRequirements"
-    {
-      "01"                                                "item_mekansm;item_arcane_boots;item_buckler"
-    }
-  }
-
-  //=================================================================================================================
   // Guardian Greaves
   //=================================================================================================================
   "item_guardian_greaves"
@@ -42,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5050"
+    "ItemCost"                                            "4300"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "guardian greaves"
@@ -59,10 +34,10 @@
     "AbilityValues"
     {
       "bonus_movement"                                    "50"
-      "bonus_armor"                                       "4"
+      "bonus_armor"                                       "5"
       "mana_regen"                                        "1.5"
       "aura_health_regen"                                 "2.5"
-      "aura_armor"                                        "3"
+      //"aura_armor"                                        "3"
       "aura_mana_regen"                                   "1.5"
       "aura_radius"
       {
@@ -70,8 +45,8 @@
         "affected_by_aoe_increase"                        "1"
       }
       "aura_health_regen_bonus"                           "14.5"
-      "aura_mana_regen_bonus"                             "5"
-      "aura_armor_bonus"                                  "8"
+      //"aura_mana_regen_bonus"                             "5"
+      //"aura_armor_bonus"                                  "8"
       "aura_bonus_threshold"                              "25"
       "replenish_health"                                  "325"
       "replenish_mana"                                    "200"

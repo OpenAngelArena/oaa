@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Amphibian Rhapsody — Fight Song
+  //=================================================================================================================
+  "largo_song_fight_song"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "ShowCooldownInTooltips"                              "0"
+    "AbilitySound"                                        "Hero_Largo.AmphibianRhapsody.Song0"
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.2"
+    "AbilitySharedCooldown"                               "largo_songs"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "double_song"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1"
+      }
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
+      "attack_speed_bonus_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "magic_damage_bonus_tooltip"
+      {
+        "value"                                           "20 25 30 40 50"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "spell_amp_bonus_tooltip"
+      {
+        "value"                                           "8 12 16 20 24"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "battle_burst_duration_tooltip"
+      {
+        "value"                                           "1"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "20 32 44 56 68"
+      }
+    }
+  }
+}

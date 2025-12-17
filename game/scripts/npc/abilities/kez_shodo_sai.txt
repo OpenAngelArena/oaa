@@ -44,10 +44,14 @@
       "parry_duration"                                    "2.0"
       "parry_bonus_crit" //OAA, this number x enemy level is the bonus crit
       {
-        "value"                                           "3"
+        "value"                                           "4"
         "special_bonus_unique_kez_mark_damage"            "+0"
       }
-      "parry_stun_duration"                               "0.5"
+      "parry_stun_duration"                               "0.4"
+      "sai_swap_bonus_movement_speed"
+      {
+        "value"                                           "12"
+      }
     }
   }
 }

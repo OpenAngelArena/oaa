@@ -16,16 +16,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "550" // doesn't matter what it says here, this value is not used
+    "AbilityCastPoint"                                    "0.3" // doesn't matter what it says here, this value is not used
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110"
+    "AbilityCooldown"                                     "110 105 100" // doesn't matter what it says here, this value is not used
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 350 550"
+    "AbilityManaCost"                                     "200 350 550" // doesn't matter what it says here, this value is not used
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "hits_to_destroy_mega_ward_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=20"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=18"
         "special_bonus_unique_shadow_shaman_1"            "50%"
       }
       "ward_health"
@@ -76,7 +76,7 @@
       "mega_ward_multiplier_health"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"  // check ward_health and hits_to_destroy_tooltip as well
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=9"  // check ward_health and hits_to_destroy_tooltip as well
       }
       "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5"
       "ward_damage_tooltip" //OAA, real dmg is set in shadow_shaman_mass_serpent_ward_oaa

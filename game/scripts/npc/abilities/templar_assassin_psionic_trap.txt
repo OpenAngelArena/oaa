@@ -49,19 +49,19 @@
       "movement_speed_min"
       {
         "value"                                           "20"
-        "special_bonus_unique_templar_assassin_3"         "+5"
+        "special_bonus_unique_templar_assassin_3"         "+10"
       }
       "movement_speed_max"
       {
         "value"                                           "50"
-        "special_bonus_unique_templar_assassin_3"         "+5"
+        "special_bonus_unique_templar_assassin_3"         "+10"
       }
       "trap_bonus_damage"
       {
-        "value"                                           "225 300 375 600 975"
+        "value"                                           "200 300 400 600 800"
       }
-      "instant_trap_damage"                               "225 300 375 600 975" //OAA
-      "extra_damage"                                      "375"
+      "instant_trap_damage"                               "200 300 400 600 800" //OAA
+      "extra_damage"                                      "400"
       "damage_tick_rate"                                  "0.5"
       "trap_max_charge_duration"                          "3.5"
       "min_silence_duration"

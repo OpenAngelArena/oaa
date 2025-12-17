@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Croak of Genius
+  //=================================================================================================================
+  "largo_croak_of_genius"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilitySound"                                        "Hero_Largo.CroakOfGenius.Cast"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+    "AbilityCastGestureSlot"                              "DEFAULT"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25 35 45 55 65 75"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_per_second"
+      {
+        "value"                                           "0"
+      }
+      "damage_portion_pct"
+      {
+        "value"                                           "30 35 40 45 50 55"
+      }
+      "damage_duration"
+      {
+        "value"                                           "5"
+      }
+      "damage_hp_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_3"                    "=1.5"
+      }
+      "mana_cost_reduction"
+      {
+        "value"                                           "15"
+      }
+      "slow"
+      {
+        "value"                                           "0"
+      }
+      "damage_threshold"                                  "0"
+      "duration"                                          "12 18 24 30 31 32"
+      "duration_reduction"                                "0.5"
+      "AbilityCooldown"
+      {
+        "value"                                           "25"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+      }
+    }
+  }
+}

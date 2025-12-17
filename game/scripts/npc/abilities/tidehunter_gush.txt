@@ -36,16 +36,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "gush_damage" //OAA
+      "gush_damage" //OAA, because of the talent
       {
-        "value"                                           "110 160 210 260 520 1040"
-        "special_bonus_unique_tidehunter_2"               "+200"
+        "value"                                           "100 160 220 280 560 1120"
+        "special_bonus_unique_tidehunter_2"               "+150"
       }
       "projectile_speed"                                  "2500"
       "movement_speed"
       {
         "value"                                           "-40"
-        "special_bonus_unique_tidehunter_5"               "-15"
+        "special_bonus_unique_tidehunter_5"               "-20"
       }
       "negative_armor"
       {

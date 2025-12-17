@@ -68,17 +68,19 @@
       "magnetized_rocks_buff_self"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=1"
       }
       "magnetized_rocks_buff_self_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "+8"
       }
       "magnetized_rocks_bonus_self_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=40 =80 =120 =160 =200"
+      }
+      "magnetize_self"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_earth_spirit_2"             "1"
       }
     }
   }

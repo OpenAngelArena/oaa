@@ -35,22 +35,13 @@
       }
       "speed"                                             "1000"
       "rock_speed"                                        "1600"
-      "allied_hero_speed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "1900"
-      }
       "distance"
       {
         "value"                                           "800"
         "special_bonus_unique_earth_spirit_4"             "+150"
       }
       "rock_distance_multiplier"                          "2"
-      "allied_hero_multiplier"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "2.5"
-      }
+      // Removed allied_hero_speed and allied_hero_multiplier per vanilla
       "delay"                                             "0.6"
       "damage" //OAA
       {
@@ -60,10 +51,17 @@
       "stun_duration"
       {
         "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
-        "special_bonus_unique_earth_spirit_3"             "+0.3"
+        "special_bonus_unique_earth_spirit_rolling_boulder_stun"  "+0.3"
       }
-      "rock_bonus_duration"                               "0.3 0.5 0.7 0.9 1.0 1.1"
-      "damage_str"                                        "100"
+      "rock_bonus_duration"
+      {
+        "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
+      }
+      "damage_str"
+      {
+        "value"                                           "100"
+        "special_bonus_unique_earth_spirit"               "+175"
+      }
       "AbilityCooldown" //OAA, cooldown starts when current roll ends
       {
         "value"                                           "10 8 6 4 4 4"
@@ -71,28 +69,9 @@
       "destroy_stone"
       {
         "value"                                           "1"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=0"
       }
-      "can_roll_over_allied_heroes"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "1"
-      }
-      "allied_bonus_movespeed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "15 20 25 30 35 40"
-      }
-      "allied_bonus_movespeed_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "4.0"
-      }
-      "allied_bonus_stun_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_earth_spirit_ready_to_roll"  "0.3 0.5 0.7 0.9 1.0 1.1"
-      }
+      "can_roll_over_allied_heroes"                       "0"
+      // Removed allied_* bonus keys to match vanilla
     }
   }
 }

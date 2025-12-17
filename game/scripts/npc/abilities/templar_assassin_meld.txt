@@ -34,11 +34,11 @@
     {
       "bonus_damage"
       {
-        "value"                                           "55 105 155 205 410 820"
+        "value"                                           "50 100 150 200 400 800"
       }
       "bonus_armor"
       {
-        "value"                                           "-3.5 -5 -6.5 -8 -11 -14"
+        "value"                                           "-2 -4 -6 -8 -12 -16"
         "special_bonus_unique_templar_assassin_8"         "-3"
       }
       "bash_duration"
@@ -57,7 +57,7 @@
       "debuff_duration"
       {
         "value"                                           "6"
-        "special_bonus_unique_templar_assassin_meld_duration"  "+2"
+        "special_bonus_unique_templar_assassin_meld_duration"  "+1.5"
       }
     }
   }

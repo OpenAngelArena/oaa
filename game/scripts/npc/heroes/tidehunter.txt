@@ -5,7 +5,9 @@
   //=================================================================================================================
   "npc_dota_hero_tidehunter"
   {
-    "Ability14"                                           "special_bonus_hp_350" // replaces special_bonus_unique_tidehunter_10
+    "Ability14"                                           "special_bonus_hp_350" // replaces special_bonus_unique_tidehunter_smash_on_blubber
     //"Ability15"                                           "special_bonus_unique_tidehunter_4"
+
+    "Ability17"                                           "special_bonus_unique_tidehunter_smash_on_blubber" // replaces special_bonus_unique_tidehunter_10
   }
 }

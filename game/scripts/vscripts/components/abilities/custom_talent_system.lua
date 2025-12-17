@@ -94,9 +94,6 @@ local abilities_with_custom_talents = {
   storm_spirit_overload = {
     overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},
   },
-  techies_sticky_bomb = {
-    damage = {"special_bonus_unique_techies_1_oaa", "+"},
-  },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},
   },

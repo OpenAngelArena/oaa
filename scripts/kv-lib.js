@@ -80,6 +80,7 @@ function dotaAbilities (cb) {
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_juggernaut.txt',
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_keeper_of_the_light.txt',
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_kunkka.txt',
+    'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_largo.txt',
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_legion_commander.txt',
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_leshrac.txt',
     'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/heroes/npc_dota_hero_lich.txt',

@@ -58,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35375"
+    "ItemCost"                                            "35200"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eb 5;ethereal blade 5;eblade 5"
@@ -69,20 +69,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "8 13 18 23 28"
-      "bonus_strength"                                    "8 13 18 23 28"
-      "bonus_intellect"                                   "8 13 18 23 28"
-      "bonus_mana"                                        "300 400 550 750 1000"
-      "bonus_cast_range"                                  "225 275 325 375 425"
-      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
+      "bonus_agility"                                     "24 29 34 39 44"
+      "bonus_strength"                                    "24 29 34 39 44"
+      "bonus_intellect"                                   "24 29 34 39 44"
       "blast_movement_slow"                               "-80"
       "duration"                                          "4.0"
-      "blast_agility_multiplier"                          "1.5"
-      "blast_damage_base"                                 "75 175 275 375 475"
+      "blast_stat_multiplier"                             "1.0"
+      "blast_damage_base"                                 "50 150 250 350 450"
       "duration_ally"                                     "4.0"
-      "ethereal_damage_bonus"                             "-40 -45 -50 -55 -60"
+      "ethereal_damage_bonus"                             "-30 -35 -40 -45 -50"
       "projectile_speed"                                  "1400"
-      "universal_multiplier_tooltip"                      "45"
     }
   }
 }

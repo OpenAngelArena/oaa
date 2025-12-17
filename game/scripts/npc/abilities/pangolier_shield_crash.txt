@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,11 +41,10 @@
         "value"                                           "100 150 200 250 350 650"
         "special_bonus_unique_pangolier_shield_crash_herostacks"  "+90"
       }
-      "duration"                                          "10"
+      "duration"                                          "6"
       "radius"
       {
         "value"                                           "500"
-        "special_bonus_unique_pangolier_shield_crash_radius"  "+125"
         "affected_by_aoe_increase"                        "1"
       }
       "can_double_jump"
@@ -55,7 +54,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
+        "value"                                           "13 11 9 7 6 5"
+        "special_bonus_unique_pangolier_shield_crash_cooldown"  "-1.5"
       }
       "min_damage_increase_pct"
       {
@@ -74,31 +74,13 @@
       "max_barrier_increase_pct_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_facet_pangolier_double_jump"       "=40"
       }
       "jump_duration"                                     "0.4"
       "jump_duration_gyroshell"                           "0.75"
       "jump_height"                                       "250"
       "jump_height_gyroshell"                             "350"
       "jump_horizontal_distance"                          "225"
-      "slow"                                              "20 25 30 35 40 45"
-      "slow_duration"                                     "3"
-      "parry_swashbuckles"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-      }
-      "parry_chance"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+50"
-      }
-      "parry_cooldown"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+2"
-      }
-      "parry_damage_threshold"
-      {
-        "special_bonus_facet_pangolier_auto_swashbuckle"  "+25"
-      }
+      "scepter_damage_outgoing_tooltip"                   "75"
     }
   }
 }

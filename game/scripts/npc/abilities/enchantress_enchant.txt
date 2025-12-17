@@ -49,10 +49,11 @@
       {
         "value"                                           "200 400 600 800 1600 3200"
       }
-      "enchant_armor"
+      // Removed: enchant_armor (replaced by bonus_armor in vanilla)
+      "bonus_armor"
       {
         "value"                                           "0"
-        "special_bonus_unique_enchantress_enchant_armor"  "+10"
+        "special_bonus_unique_enchantress_enchant_armor"  "+5"
       }
       "enchant_damage" //OAA
       {

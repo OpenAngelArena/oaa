@@ -21,10 +21,10 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650"
+    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "15"
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +34,13 @@
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_5"                  "+35"
+        "special_bonus_unique_invoker_5"                  "+50"
       }
       "bonus_damage"
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_5"                  "+35"
+        "special_bonus_unique_invoker_5"                  "+50"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_attack_range"

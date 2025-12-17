@@ -25,16 +25,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 275 375 475 575"
+    "AbilityManaCost"                                     "150 225 300 375 450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "min_range"                                         "700"
-      "mesmerize_radius" //OAA
+      "mesmerize_radius"
       {
-        "value"                                           "550"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_ringmaster_wheel_radius"    "+100"
       }
@@ -50,7 +50,7 @@
       "aura_tick_interval"                                "0.5"
       "aura_damage"                                       "50 100 150 250 350" //OAA
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 600 900 1800 2700" //OAA
+      "explosion_damage"                                  "300 600 900 1500 2100" //OAA
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"
