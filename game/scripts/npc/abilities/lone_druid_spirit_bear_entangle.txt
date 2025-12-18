@@ -9,26 +9,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    // Inherit vanilla SpellImmunityType
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6" // +2 extra levels in OAA
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
+    "MaxLevel"                                            "6" // same lvl as lone_druid_entangle
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilityValues" // These are all dummy (tooltip) values. lone_druid_entangle handles everything
     {
       "entangle_duration"
       {
-        "value"                                           "1.2 1.6 2.0 2.4"
+        "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
         "special_bonus_unique_lone_druid_entangle_duration"  "+0.6"
       }
       "damage"
       {
-        "value"                                           "60 70 80 90"
+        "value"                                           "60 70 80 90 180 270"
         "special_bonus_unique_lone_druid_1"               "+20"
       }
       "spirit_bear_counters_applied_tooltip"              "1"

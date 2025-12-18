@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 18 15 12"
+    "AbilityCooldown"                                     "21 18 15 12 11 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,24 +36,20 @@
       "rush_speed"                                        "850"
       "base_echo_damage"
       {
-        "value"                                           "35 40 45 50"
+        "value"                                           "35 40 45 50 100 150"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "slow_resist"                                       "15 30 45 60 75 90"
       "duration"
       {
-        "value"                                           "3.75 4.5 5.25 6.0"
+        "value"                                           "3.75 4.5 5.25 6.0 6.25 6.5"
         "special_bonus_unique_kez_falcon_rush_duration"   "+2"
       }
-      "base_attack_rate"                                  "1.5 1.4 1.3 1.2 1.1 1.0" //OAA, if changing this, change base_attack_rate_katana_tooltip
-      // Removed: katana_attack_rate_penalty (not in vanilla values)
-      "base_attack_rate_katana_tooltip"                   "1.7 1.6 1.5 1.4 1.3 1.2" //OAA
+      "break_range"                                       "825"
       "bonus_attack_speed"
       {
         "special_bonus_unique_kez_falcon_rush_attack_speed"  "=60"
       }
-      // Removed: current_attack_rate_tooltip (tooltip-only, not in vanilla)
-      "break_range"                                       "825"
       "echo_proc_chance_reduction"                        "50"
     }
   }

@@ -29,32 +29,31 @@
     {
       "bonus_armor"
       {
-        "value"                                           "10 15 20"
-      }
-      "bonus_attack_damage"
-      {
-        "value"                                           "50 90 130"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "10 15 20 25 30"
       }
       "bonus_hp"
       {
         "value"                                           "500 1000 1500 3000 4500"
         "special_bonus_facet_lone_druid_unbearable"       "-100%"
-        //"special_bonus_unique_lone_druid_7"               "+1000"
+      }
+      "bonus_attack_damage"
+      {
+        "value"                                           "50 90 130 170 210"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "attack_speed_pct"
       {
         "special_bonus_facet_lone_druid_unbearable"       "+15"
       }
-      "duration" //OAA
+      "duration"
       {
         "value"                                           "25"
       }
       "transformation_time"                               "1.933"
       "AbilityCooldown"
       {
-        "value"                                           "60 55 50"
+        "value"                                           "60 55 50 45 40"
       }
       "transform_bear"
       {
