@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  "invoker_tornado_ad"
+  {
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "MaxLevel"						"6"
+    "HotKeyOverride"				"X"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    "AbilitySound"					"Hero_Invoker.Tornado"
+    "AbilityCastRange"				"2000"
+    "AbilityCastPoint"				"0.05"
+    "AbilityCastAnimation"			"ACT_INVALID"
+    "AbilityManaCost"				"140"
+    "AbilityValues"
+    {
+    "AbilityCooldown"
+    {
+    "value"					"30"
+    "special_bonus_unique_invoker_3" "-4"
+    }
+    "travel_distance"		"1200 1865 2530 3200"
+    "travel_speed"			"1000"
+    "area_of_effect"
+    {
+    "value"		"200"
+    "affected_by_aoe_increase"	"1"
+    }
+    "vision_distance"
+    {
+    "value"			"200"
+    "affected_by_aoe_increase"	"1"
+    }
+    "end_vision_duration"	"1.75"
+    "lift_duration"
+    {
+    "value"				"1.1 1.6 2.1 2.6 3.1 3.6"
+    }
+    "base_damage"			"70"
+    "quas_damage"			"0 0 0 0"
+    "wex_damage"			"90 165 240 315"
+    }
+    }
+  }
+

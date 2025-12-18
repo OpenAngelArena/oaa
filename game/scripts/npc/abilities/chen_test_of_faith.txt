@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+  "chen_test_of_faith"
+  {
+    "MaxLevel"                                            "6"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+    "FightRecapLevel"				"1"
+    "AbilitySound"					"Hero_Chen.TestOfFaith.Target"
+    "AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"				"600 600 600 600 600 600"
+    "AbilityCooldown"				"16"
+    "AbilityManaCost"				"60 80 100 120 140 160"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityValues"
+    {
+    "damage_min"
+    {
+    "value" "50 100 150 200 250 300"
+    }
+    "damage_max"
+    {
+    "value" "100 200 300 400 500 600"
+    }
+    "heal_min"
+    {
+    "value" "25 50 75 100 125 150"
+    }
+    "heal_max"
+    {
+    "value" "50 100 150 200 250 300"
+    }
+    }
+    }
+  }
+

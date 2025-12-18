@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  "furion_arboreal_might"
+  {
+    "MaxLevel"                                            "6"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilitySound"					"Hero_Furion.ForceOfNature"
+    "AbilityCastRange"				"750"
+    "AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCooldown"				"30"
+    "AbilityManaCost"				"80 90 100 110 120 130"
+    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+    "AbilityValues"
+    {
+    "area_of_effect"		"700"
+    "max_trees"
+    {
+    "value"													"14 18 22 26 30 34"
+    "special_bonus_unique_furion_arboreal_might_trees"		"+8"
+    }
+    "duration"				"15"
+    "trees_per_stack"		"2"
+    "damage_per_stack"		"6"
+    "armor_per_stack"		"1"
+    }
+    }
+  }
+

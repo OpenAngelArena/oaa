@@ -1,0 +1,30 @@
+"DOTAAbilities"
+{
+  "slark_saltwater_shiv"
+  {
+    "MaxLevel"                                            "6"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "AbilitySound"					"Hero_DoomBringer.InfernalBlade.Target"
+    "AbilityCooldown"				"10 8 6 4 2 0"
+    "AbilityManaCost"				"20"
+    "AbilityCastRange"				"150"
+    "AbilityCastPoint"				"0.0"
+    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+    "AbilityValues"
+    {
+    "duration"						"6 8 10 12"
+    "agi_bonus_damage_factor"		"0"
+    "base_health_rest_steal"		"0"
+    "health_rest_steal"				"3 4 5 6"
+    "regen_steal"					"3"
+    "ms_steal"						"3"
+    "melee_range_buffer"			"0"
+    }
+    }
+  }
+

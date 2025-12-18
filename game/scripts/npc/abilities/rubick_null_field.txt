@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  "rubick_null_field"
+  {
+    "MaxLevel"                                            "6"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"		"DEFAULT"
+    "IsBreakable"					"1"
+    "AbilityCooldown"				"30"
+    "AbilityValues"
+    {
+    "magic_damage_reduction_pct"
+    {
+    "value" "10 14 18 22 26 30"
+    }
+    "radius"
+    {
+    "value" "1200"
+    }
+    }
+    }
+  }
+

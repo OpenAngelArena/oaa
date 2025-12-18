@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+  "mirana_solar_flare"
+  {
+    "MaxLevel"                                            "5"
+    "AbilityType"					"ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+    "FightRecapLevel"				"2"
+    "AbilitySound"					"Ability.MoonlightShadow"
+    "AbilityCastRange"				"0"
+    "AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+    "AbilityManaCost"				"125"
+    "AbilityValues"
+    {
+    "AbilityCooldown"
+    {
+    "value"			"120 110 100 90 80"
+    "special_bonus_unique_mirana_4"			"-30"
+    }
+    "smoothness"						"0.015"
+    "increase_rate"						"10 15 20"
+    "max_total_increase"				"70 110 150"
+    "day_vision_multiplier"				"0"
+    "ally_pct"							"50"
+    "duration"							"16"
+    "max_damage_time"					"6"
+    "evasion"
+    {
+    "value"			"0"
+    "special_bonus_unique_mirana_5"		"+20"
+    }
+    }
+    }
+  }
+
