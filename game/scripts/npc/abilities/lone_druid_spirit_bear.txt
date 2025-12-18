@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Summon Spirit Bear
+  // Lone Druid: Summon Spirit Bear (Innate)
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
@@ -10,17 +10,11 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,17 +24,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "120.0"
+        "value"                                           "75"
         "special_bonus_unique_lone_druid_2"               "-25"
       }
-      "bear_hp"                                           "1100 1500 1900 2300 3100 3900" //OAA
+      "bear_hp"                                           "1500"
       "bear_regen_tooltip"                                "3"
-      "bear_bat" //OAA
+      "bear_bat"
       {
-        "value"                                           "1.7 1.65 1.6 1.55 1.5 1.45"
-        //"special_bonus_unique_lone_druid_10"              "-0.1"
+        "value"                                           "1.5"
       }
       "bear_armor"                                        "0"
       "backlash_damage" //OAA
@@ -58,21 +51,20 @@
       "bonus_bear_hp"
       {
         "value"                                           "0"
-        //"special_bonus_unique_lone_druid_7"               "+1000"
       }
       "bonus_bear_armor"
       {
         "value"                                           "0"
       }
       "damage_gain_per_druid_level"                       "0"
-      "hp_gain_per_druid_level"                           "70" //OAA
+      "hp_gain_per_druid_level"                           "0"
       "bear_attack_leash_range"
       {
         "value"                                           "1100"
       }
-      "strength_gain_tooltip"                             "4.5"
-      "agility_gain_tooltip"                              "4.5"
-      "intelligence_gain_tooltip"                         "0.5"
+      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_units
+      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_units
+      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_units
     }
   }
 }

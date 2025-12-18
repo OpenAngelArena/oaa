@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Ravens Veil) + 1
+    "MaxLevel"                                            "6" // OAA (correcting valve error) same as Dependent ability (Ravens Veil) + 1
     "DependentOnAbility"                                  "kez_ravens_veil"
 
     // Special

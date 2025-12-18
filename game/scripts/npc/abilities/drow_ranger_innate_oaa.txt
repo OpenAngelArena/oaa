@@ -25,15 +25,8 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      //"trueshot_agi_bonus_base"                         "0"
-      //"trueshot_agi_bonus_per_level"                    "1"
-      //"trueshot_agi_bonus_allies_pct"                   "50"
       "trueshot_agi_bonus_self"                           "0.75"
       "trueshot_agi_bonus_allies"                         "0.5"
-      // "agi_bonus_pct_tooltip"
-      // {
-        // "dynamic_value"                                   "true"
-      // }
     }
   }
 }

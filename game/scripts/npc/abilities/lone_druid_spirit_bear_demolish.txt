@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Spirit Bear Demolish
+  // Lone Druid: Spirit Bear Demolish (Innate)
   //=================================================================================================================
   "lone_druid_spirit_bear_demolish"
   {
@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
-    "MaxLevel"                                            "6" // +2 extra levels in OAA
+    "MaxLevel"                                            "1"
 
     "AbilityValues"
     {
