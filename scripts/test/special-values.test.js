@@ -105,6 +105,19 @@ const ignoreValuesFor = [
   // 'tiny_grow',
 ];
 
+// Keys at the top-level ability definition that are expected to scale by level
+const levelScalingTopKeys = [
+  'AbilityCastPoint',
+  'AbilityCastRange',
+  'AbilityChannelTime',
+  'AbilityChargeRestoreTime',
+  'AbilityCharges',
+  'AbilityCooldown',
+  'AbilityDamage',
+  'AbilityDuration',
+  'AbilityManaCost'
+];
+
 test('KV Values', function (t) {
   t.test('before', function (t) {
     t.plan(4);
@@ -312,6 +325,19 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
   if (parentKV) {
     checkInheritedValues(t, isItem, values, kvFileContent[item].comments, parentKV.values);
 
+    // New: Verify MaxLevel equals base dota or base+2 (only for abilities)
+    if (!isItem) {
+      // Only check hero abilities (exclude neutrals dir)
+      const inNeutralsDir = typeof fileName === 'string' && fileName.indexOf(path.sep + 'neutrals' + path.sep) !== -1;
+      if (!inNeutralsDir) {
+        // Only check when the ability name exactly matches a base Dota ability
+        const baseByName = dotaAbilities && dotaAbilities[item] && dotaAbilities[item].values ? dotaAbilities[item].values : null;
+        if (baseByName) {
+          validateMaxLevelAgainstBase(t, item, values.MaxLevel, baseByName.MaxLevel);
+        }
+      }
+    }
+
     if (kvFileContent[item].ItemRequirements) {
       if (!kvFileContent[item].comments.ItemRequirements || !kvFileContent[item].comments.ItemRequirements.includes('OAA')) {
         t.deepEquals(kvFileContent[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(kvFileContent[item].ItemRequirements, null, 2));
@@ -378,6 +404,50 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
       t.fail('This ability have no AbilityValues while it should!');
     }
   }
+  // New: Validate value counts vs MaxLevel for abilities
+  try {
+    if (!isItem) {
+      const overrideMax = extractMaxLevelOverride(kvFileContent[item].comments ? kvFileContent[item].comments.MaxLevel : null);
+      const maxLevelStr = values.MaxLevel;
+      const maxLevel = Number.isFinite(overrideMax) ? overrideMax : (maxLevelStr ? parseInt(maxLevelStr, 10) : NaN);
+      // Only enforce for abilities that actually level beyond 1
+      if (!Number.isNaN(maxLevel) && maxLevel > 1) {
+        // Check top-level ability values that scale by level
+        Object.keys(values).forEach(function (key) {
+          if (key === 'MaxLevel') return;
+          if (levelScalingTopKeys.indexOf(key) === -1) return;
+          const v = values[key];
+          if (typeof v === 'string') {
+            validateValueTokenCount(t, item, 'values.' + key, v, maxLevel);
+          }
+        });
+
+        // Check AbilitySpecial entries
+        if (specials) {
+          Object.keys(specials)
+            .filter(k => k !== 'values')
+            .forEach(function (num) {
+              const sv = specials[num].values;
+              const keyNames = filterExtraKeysFromSpecialValue(Object.keys(sv));
+              keyNames.forEach(function (kn) {
+                const svVal = sv[kn];
+                if (typeof svVal === 'string') {
+                  validateValueTokenCount(t, item, 'AbilitySpecial[' + num + '].' + kn, svVal, maxLevel);
+                }
+              });
+            });
+        }
+
+        // Recursively check AbilityValues for numeric lists throughout nested blocks
+        if (abilityValues) {
+          recursivelyCheckAbilityValues(t, item, abilityValues, 'AbilityValues', maxLevel);
+        }
+      }
+    }
+  } catch (e) {
+    t.fail('Error while validating value counts for ' + item + ': ' + e.message);
+  }
+
   done();
 }
 
@@ -742,6 +812,70 @@ const keyWhiteList = [
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);
+}
+
+// Parses an override from a MaxLevel comment: e.g., "// MaxLevel: 7 with Aghanim Shard"
+function extractMaxLevelOverride (commentStr) {
+  if (!commentStr || typeof commentStr !== 'string') return null;
+  const m = commentStr.match(/MaxLevel:\s*(\d+)/i);
+  if (!m) return null;
+  const n = parseInt(m[1], 10);
+  return Number.isNaN(n) ? null : n;
+}
+
+// Ensure MaxLevel is either equal to vanilla or vanilla + 2 (when available)
+function validateMaxLevelAgainstBase (t, abilityName, ourMaxLevelStr, baseMaxLevelStr) {
+  const our = ourMaxLevelStr ? parseInt(ourMaxLevelStr, 10) : NaN;
+  const base = baseMaxLevelStr ? parseInt(baseMaxLevelStr, 10) : NaN;
+  if (Number.isNaN(base) || base <= 0) return; // skip if base is not numeric
+  if (Number.isNaN(our) || our <= 0) return; // skip if ours not specified numerically
+
+  const allowed = [base, base + 2];
+  if (allowed.indexOf(our) === -1) {
+    t.fail('MaxLevel for ' + abilityName + ' should be ' + base + ' or ' + (base + 2) + ', got ' + our);
+  }
+}
+
+function recursivelyCheckAbilityValues (t, itemName, node, basePath, maxLevel) {
+  if (!node || typeof node !== 'object') return;
+
+  // If this node has a values map, validate its string entries
+  if (node.values && typeof node.values === 'object') {
+    Object.keys(node.values).forEach(function (kn) {
+      const v = node.values[kn];
+      if (typeof v === 'string') {
+        validateValueTokenCount(t, itemName, basePath + '.' + kn, v, maxLevel);
+      }
+    });
+  }
+
+  // Recurse into child blocks (exclude helper keys)
+  Object.keys(node).filter(function (k) {
+    return k !== 'values' && k !== 'comments';
+  }).forEach(function (childKey) {
+    const child = node[childKey];
+    if (child && typeof child === 'object') {
+      recursivelyCheckAbilityValues(t, itemName, child, basePath + '[' + childKey + ']', maxLevel);
+    }
+  });
+}
+
+// Ensures a string value is either a single entry or exactly maxLevel entries.
+// Only enforces when the string appears to be a list of numeric tokens.
+function validateValueTokenCount (t, itemName, pathName, value, maxLevel) {
+  if (typeof value !== 'string') return;
+  // Normalize whitespace and split
+  const tokens = value.trim().split(/\s+/).filter(Boolean);
+  if (tokens.length <= 1) return; // Single entry is always valid
+
+  // If all tokens are numeric-like, enforce count. Otherwise skip to avoid false positives
+  const numericLike = /^-?\d+(?:\.\d+)?$/;
+  const allNumeric = tokens.every(tok => numericLike.test(tok));
+  if (!allNumeric) return;
+
+  if (tokens.length !== maxLevel) {
+    t.fail('Level-scaling value count mismatch at ' + pathName + ' of ' + itemName + ': found ' + tokens.length + ' values, expected 1 or ' + maxLevel + '. Value: ' + value);
+  }
 }
 
 // check upgrade paths and costs
