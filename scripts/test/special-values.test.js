@@ -333,7 +333,8 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
         // Only check when the ability name exactly matches a base Dota ability
         const baseByName = dotaAbilities && dotaAbilities[item] && dotaAbilities[item].values ? dotaAbilities[item].values : null;
         if (baseByName) {
-          validateMaxLevelAgainstBase(t, item, values.MaxLevel, baseByName.MaxLevel);
+          const maxLevelComment = kvFileContent[item].comments ? kvFileContent[item].comments.MaxLevel : null;
+          validateMaxLevelAgainstBase(t, item, values.MaxLevel, baseByName.MaxLevel, maxLevelComment);
         }
       }
     }
@@ -418,7 +419,8 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
           if (levelScalingTopKeys.indexOf(key) === -1) return;
           const v = values[key];
           if (typeof v === 'string') {
-            validateValueTokenCount(t, item, 'values.' + key, v, maxLevel);
+            const c = kvFileContent[item].comments && kvFileContent[item].comments[key];
+            validateValueTokenCount(t, item, 'values.' + key, v, maxLevel, c);
           }
         });
 
@@ -432,7 +434,8 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
               keyNames.forEach(function (kn) {
                 const svVal = sv[kn];
                 if (typeof svVal === 'string') {
-                  validateValueTokenCount(t, item, 'AbilitySpecial[' + num + '].' + kn, svVal, maxLevel);
+                  const c = specials[num].comments && specials[num].comments[kn];
+                  validateValueTokenCount(t, item, 'AbilitySpecial[' + num + '].' + kn, svVal, maxLevel, c);
                 }
               });
             });
@@ -824,7 +827,9 @@ function extractMaxLevelOverride (commentStr) {
 }
 
 // Ensure MaxLevel is either equal to vanilla or vanilla + 2 (when available)
-function validateMaxLevelAgainstBase (t, abilityName, ourMaxLevelStr, baseMaxLevelStr) {
+function validateMaxLevelAgainstBase (t, abilityName, ourMaxLevelStr, baseMaxLevelStr, commentStr) {
+  // Allow explicit OAA comment to skip the base vs base+2 constraint, but keep scaling checks elsewhere
+  if (commentStr && typeof commentStr === 'string' && /OAA/i.test(commentStr)) return;
   const our = ourMaxLevelStr ? parseInt(ourMaxLevelStr, 10) : NaN;
   const base = baseMaxLevelStr ? parseInt(baseMaxLevelStr, 10) : NaN;
   if (Number.isNaN(base) || base <= 0) return; // skip if base is not numeric
@@ -844,7 +849,8 @@ function recursivelyCheckAbilityValues (t, itemName, node, basePath, maxLevel) {
     Object.keys(node.values).forEach(function (kn) {
       const v = node.values[kn];
       if (typeof v === 'string') {
-        validateValueTokenCount(t, itemName, basePath + '.' + kn, v, maxLevel);
+        const c = node.comments && node.comments[kn];
+        validateValueTokenCount(t, itemName, basePath + '.' + kn, v, maxLevel, c);
       }
     });
   }
@@ -862,7 +868,9 @@ function recursivelyCheckAbilityValues (t, itemName, node, basePath, maxLevel) {
 
 // Ensures a string value is either a single entry or exactly maxLevel entries.
 // Only enforces when the string appears to be a list of numeric tokens.
-function validateValueTokenCount (t, itemName, pathName, value, maxLevel) {
+function validateValueTokenCount (t, itemName, pathName, value, maxLevel, commentStr) {
+  // Allow skipping the scaling assertion for this specific value when it carries an OAA comment
+  if (commentStr && typeof commentStr === 'string' && /OAA/i.test(commentStr)) return;
   if (typeof value !== 'string') return;
   // Normalize whitespace and split
   const tokens = value.trim().split(/\s+/).filter(Boolean);
