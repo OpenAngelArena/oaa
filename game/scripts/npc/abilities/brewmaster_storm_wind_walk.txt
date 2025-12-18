@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,11 +26,11 @@
     {
       "bonus_damage"
       {
-        "value"                                           "140 200 260 320 380"
+        "value"                                           "140 200 260 320 380 420"
       }
       "bonus_movement_speeed"
       {
-        "value"                                           "25 35 45 55 65"
+        "value"                                           "25 35 45 55 65 75"
       }
       "duration"
       {
