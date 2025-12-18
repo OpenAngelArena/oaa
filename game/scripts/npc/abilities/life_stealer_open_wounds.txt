@@ -37,6 +37,7 @@
       "duration"                                          "7"
       "slow_steps"
       {
+        // these aren't scaling values, every level uses these for each of the ticks... It's an insane way to do it...
         "value"                                           "-50 -50 -40 -30 -20 -10 -10 -10" // OAA
         "special_bonus_unique_lifestealer_4"              "-15"
       }
