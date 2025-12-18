@@ -3,33 +3,33 @@
   "brewmaster_drunken_haze"
   {
     "MaxLevel"                                            "6"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityCastRange"				"850 850 850 850 850 850"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"				"1"
-    "AbilitySound"					"Hero_Brewmaster.DrunkenHaze.Cast"
-    "AbilityCastPoint"				"0.2"
-    "AbilityCooldown"				"11 9 7 5 3 1"
-    "AbilityManaCost"				"25"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityCastRange"                                    "850 850 850 850 850 850"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "AbilitySound"                                        "Hero_Brewmaster.DrunkenHaze.Cast"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCooldown"                                     "11 9 7 5 3 1"
+    "AbilityManaCost"                                     "25"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityValues"
     {
-    "duration"
-    {
-    "value" "4.5"
-    }
-    "movement_slow"
-    {
-    "value" "10 20 30 40 50 60"
-    }
-    "miss_chance"
-    {
-    "value" "70"
-    }
-    }
+      "duration"
+      {
+        "value"                                           "4.5"
+      }
+      "movement_slow"
+      {
+        "value"                                           "10 20 30 40 50 60"
+      }
+      "miss_chance"
+      {
+        "value"                                           "70"
+      }
     }
   }
+}
 

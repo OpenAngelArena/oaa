@@ -2,33 +2,33 @@
 {
   "invoker_alacrity_ad"
   {
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "MaxLevel"						"6"
-    "HotKeyOverride"				"Z"
-    "AbilitySound"					"Hero_Invoker.Alacrity"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "AbilityCastRange"				"650"
-    "AbilityCastPoint"				"0.05"
-    "AbilityCastAnimation"			"ACT_INVALID"
-    "AbilityCooldown"				"17"
-    "AbilityManaCost"				"90"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "MaxLevel"                                            "6"
+    "HotKeyOverride"                                      "Z"
+    "AbilitySound"                                        "Hero_Invoker.Alacrity"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastAnimation"                                "ACT_INVALID"
+    "AbilityCooldown"                                     "17"
+    "AbilityManaCost"                                     "90"
     "AbilityValues"
     {
-    "bonus_attack_speed"
-    {
-    "value"					"22 42 62 82 102 122"
-    "special_bonus_unique_invoker_5"	"+50"
-    }
-    "bonus_damage"
-    {
-    "value"					"22 42 62 82 102 122"
-    "special_bonus_unique_invoker_5"	"+50"
-    }
-    "duration"					"9"
-    }
+      "bonus_attack_speed"
+      {
+        "value"                                           "22 42 62 82 102 122"
+        "special_bonus_unique_invoker_5"                  "+50"
+      }
+      "bonus_damage"
+      {
+        "value"                                           "22 42 62 82 102 122"
+        "special_bonus_unique_invoker_5"                  "+50"
+      }
+      "duration"                                          "9"
     }
   }
+}
 

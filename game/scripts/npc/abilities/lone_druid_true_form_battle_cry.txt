@@ -2,34 +2,34 @@
 {
   "lone_druid_true_form_battle_cry"
   {
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-    "MaxLevel"						"5"
-    "AbilitySound"					"Hero_LoneDruid.BattleCry"
-    "AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5"
-    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCooldown"				"45.0"
-    "AbilityManaCost"				"50 50 50 50 50"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                            "5"
+    "AbilitySound"                                        "Hero_LoneDruid.BattleCry"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCooldown"                                     "45.0"
+    "AbilityManaCost"                                     "50 50 50 50 50"
     "AbilityValues"
     {
-    "bonus_damage"
-    {
-    "value" "70 100 130 160 190"
-    }
-    "bonus_armor"
-    {
-    "value" "10 15 20 25 30"
-    }
-    "cry_duration"
-    {
-    "value" "5"
-    }
-    "range"
-    {
-    "value" "1000"
-    }
-    }
+      "bonus_damage"
+      {
+        "value"                                           "70 100 130 160 190"
+      }
+      "bonus_armor"
+      {
+        "value"                                           "10 15 20 25 30"
+      }
+      "cry_duration"
+      {
+        "value"                                           "5"
+      }
+      "range"
+      {
+        "value"                                           "1000"
+      }
     }
   }
+}
 

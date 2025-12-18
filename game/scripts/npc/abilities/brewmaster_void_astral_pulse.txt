@@ -3,31 +3,31 @@
   "brewmaster_void_astral_pulse"
   {
     "MaxLevel"                                            "5"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "AbilityCastRange"				"500"
-    "AbilityCooldown"				"12"
-    "AbilityCastPoint"				"0.15"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityCastRange"                                    "500"
+    "AbilityCooldown"                                     "12"
+    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityValues"
     {
-    "radius"
-    {
-    "value" "500"
-    }
-    "duration"
-    {
-    "value" "2.5"
-    }
-    "slow"
-    {
-    "value" "20 30 40 50 60"
-    }
-    }
+      "radius"
+      {
+        "value"                                           "500"
+      }
+      "duration"
+      {
+        "value"                                           "2.5"
+      }
+      "slow"
+      {
+        "value"                                           "20 30 40 50 60"
+      }
     }
   }
+}
 

@@ -2,44 +2,44 @@
 {
   "invoker_emp_ad"
   {
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"						"6"
-    "HotKeyOverride"				"C"
-    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-    "AbilitySound"					"Hero_Invoker.EMP.Charge"
-    "HasShardUpgrade"				"1"
-    "AbilityCastRange"				"950"
-    "AbilityCastPoint"				"0.05"
-    "AbilityCastAnimation"			"ACT_INVALID"
-    "AbilityCooldown"				"30"
-    "AbilityManaCost"				"125"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    "HotKeyOverride"                                      "C"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilitySound"                                        "Hero_Invoker.EMP.Charge"
+    "HasShardUpgrade"                                     "1"
+    "AbilityCastRange"                                    "950"
+    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastAnimation"                                "ACT_INVALID"
+    "AbilityCooldown"                                     "30"
+    "AbilityManaCost"                                     "125"
     "AbilityValues"
     {
-    "delay"
-    {
-    "value"					"2.9"
-    }
-    "area_of_effect"
-    {
-    "value"			"675"
-    "affected_by_aoe_increase"	"1"
-    }
-    "mana_burned"
-    {
-    "value"			"100 250 400 550 700 850"
-    }
-    "damage_per_mana_pct"
-    {
-    "value"			"60"
-    "special_bonus_shard"	"+50%"
-    }
-    "shard_drag_speed"
-    {
-    "special_bonus_shard"		"175"
-    }
-    "self_mana_restore_pct"			"25"
-    }
+      "delay"
+      {
+        "value"                                           "2.9"
+      }
+      "area_of_effect"
+      {
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "mana_burned"
+      {
+        "value"                                           "100 250 400 550 700 850"
+      }
+      "damage_per_mana_pct"
+      {
+        "value"                                           "60"
+        "special_bonus_shard"                             "+50%"
+      }
+      "shard_drag_speed"
+      {
+        "special_bonus_shard"                             "175"
+      }
+      "self_mana_restore_pct"                             "25"
     }
   }
+}
 

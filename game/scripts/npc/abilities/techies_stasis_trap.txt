@@ -3,50 +3,50 @@
   "techies_stasis_trap"
   {
     "MaxLevel"                                            "6"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "HasScepterUpgrade"				"1"
-    "AbilityCastRange"				"150"
-    "AbilityCastPoint"				"1.0"
-    "AbilityCooldown"				"20.0 16.0 13.0 10.0 7 4"
-    "AbilityManaCost"				"80 110 140 160 180 200"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "HasScepterUpgrade"                                   "1"
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "1.0"
+    "AbilityCooldown"                                     "20.0 16.0 13.0 10.0 7 4"
+    "AbilityManaCost"                                     "80 110 140 160 180 200"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityValues"
     {
-    "activation_radius"
-    {
-    "value" "400"
-    }
-    "explode_delay"
-    {
-    "value" "0"
-    }
-    "stun_radius"
-    {
-    "value" "600"
-    }
-    "stun_duration"
-    {
-    "value" "2 3 4 5 6 7"
-    }
-    "activation_time"
-    {
-    "value" "2"
-    }
-    "fade_time"
-    {
-    "value" "2"
-    }
-    "duration"
-    {
-    "value" "600"
-    }
-    "cast_range_scepter_bonus"
-    {
-    "special_bonus_scepter" "300"
-    }
-    }
+      "activation_radius"
+      {
+        "value"                                           "400"
+      }
+      "explode_delay"
+      {
+        "value"                                           "0"
+      }
+      "stun_radius"
+      {
+        "value"                                           "600"
+      }
+      "stun_duration"
+      {
+        "value"                                           "2 3 4 5 6 7"
+      }
+      "activation_time"
+      {
+        "value"                                           "2"
+      }
+      "fade_time"
+      {
+        "value"                                           "2"
+      }
+      "duration"
+      {
+        "value"                                           "600"
+      }
+      "cast_range_scepter_bonus"
+      {
+        "special_bonus_scepter"                           "300"
+      }
     }
   }
+}
 
