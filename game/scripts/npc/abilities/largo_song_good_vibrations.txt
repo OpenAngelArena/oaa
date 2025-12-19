@@ -7,9 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "ShowCooldownInTooltips"                              "0"
 
     "MaxLevel"                                            "5"
 
@@ -20,7 +18,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.2"
-    "AbilitySharedCooldown"                               "largo_songs"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +29,12 @@
         "special_bonus_scepter"                           "=1"
       }
       "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
-      "heal_burst_tooltip"
+      "radius"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "heal_burst"
       {
         "value"                                           "34 56 78 156 312"
         "special_bonus_unique_largo_7"                    "+35%"

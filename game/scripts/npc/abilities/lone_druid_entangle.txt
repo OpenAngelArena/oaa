@@ -1,0 +1,69 @@
+"DOTAAbilities"
+{
+  "lone_druid_entangle"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3"
+
+    "AbilityManaCost"                                     "60"
+    "AbilityValues"
+    {
+      "AbilityCooldown"
+      {
+        "value"                                           "24 22 20 18 16 14"
+      }
+      "active_radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                           "+100"
+      }
+      "counter_duration"                                  "10"
+      "lone_druid_counters_applied_tooltip"               "1"
+      "hits_required"
+      {
+        "value"                                           "5"
+      }
+      "hits_incremented_on_active"
+      {
+        "value"                                           "2"
+      }
+      "lone_druid_buff_duration"
+      {
+        "value"                                           "10"
+      }
+      "nostack_protection"
+      {
+        "value"                                           "1"
+        "special_bonus_scepter"                           "=0"
+      }
+      "root_heroes_on_cast"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "1"
+      }
+      "entangle_duration"
+      {
+        "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
+        "special_bonus_unique_lone_druid_entangle_duration"  "+0.6"
+      }
+      "damage"
+      {
+        "value"                                           "60 70 80 90 180 270"
+        "special_bonus_unique_lone_druid_1"               "+15"
+      }
+    }
+  }
+}
+
