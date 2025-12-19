@@ -7,10 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "ShowCooldownInTooltips"                              "0"
-    "AbilitySound"                                        "Hero_Largo.AmphibianRhapsody.Song0"
 
     "MaxLevel"                                            "5"
 
@@ -21,7 +18,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.2"
-    "AbilitySharedCooldown"                               "largo_songs"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,22 +29,22 @@
         "special_bonus_scepter"                           "=1"
       }
       "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
-      "attack_speed_bonus_tooltip"
+      "radius"
       {
-        "value"                                           "0"
-        "special_bonus_unique_largo_7"                    "+35%"
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
       }
-      "magic_damage_bonus_tooltip"
+      "magic_damage_bonus"
       {
         "value"                                           "20 25 30 40 50"
         "special_bonus_unique_largo_7"                    "+35%"
       }
-      "spell_amp_bonus_tooltip"
+      "spell_amp_bonus"
       {
         "value"                                           "8 12 16 20 24"
         "special_bonus_unique_largo_7"                    "+35%"
       }
-      "battle_burst_duration_tooltip"
+      "battle_burst_duration"
       {
         "value"                                           "1"
       }
