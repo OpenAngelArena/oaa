@@ -2,19 +2,21 @@
 {
   "spectre_shadow_step"
   {
-    "MaxLevel"                                            "6"
+
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
-    "LinkedAbility"                                       "spectre_reality"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "32 28 24 20 16 12"
+    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
     "AbilityManaCost"                                     "60 65 70 75 80 85"
+
     "AbilityValues"
     {
       "AbilityCastRange"
@@ -23,7 +25,7 @@
       }
       "duration"
       {
-        "value"                                           "3.5 4.0 4.5 5.0 5.5 6"
+        "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
         "special_bonus_unique_spectre_shadow_step_duration"  "+1.0"
       }
       "illusion_damage_incoming"                          "100"

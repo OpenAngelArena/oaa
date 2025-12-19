@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Desolate
+  // Spectre: Desolate (Innate)
   //=================================================================================================================
   "spectre_desolate"
   {
@@ -10,8 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "IsBreakable"                                         "1"
-    "Innate"                                              "1"
+
     "MaxLevel"                                            "1"
 
     // Special
