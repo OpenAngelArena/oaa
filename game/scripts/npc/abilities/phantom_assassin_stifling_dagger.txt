@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Assassin's Stifling Dagger
+  // Phantom Assassin: Stifling Dagger
   //=================================================================================================================
   "phantom_assassin_stifling_dagger"
   {
@@ -57,6 +57,10 @@
       "dagger_secondary_reduce"
       {
         "special_bonus_facet_phantom_assassin_sweet_release"  "50"
+      }
+      "extra_daggers"
+      {
+        "special_bonus_unique_phantom_assassin"           "2"
       }
     }
   }

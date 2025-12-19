@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Lina Light Strike Array
+  // Lina: Light Strike Array
   //=================================================================================================================
   "lina_light_strike_array"
   {
@@ -37,30 +37,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "light_strike_array_delay_time"                     "0.5"
-      "light_strike_array_stun_duration"                  "1.0 1.4 1.8 2.2 2.4 2.6"
+      "light_strike_array_stun_duration"                  "1.2 1.6 2.0 2.4 2.5 2.6"
       "light_strike_array_damage"
       {
         "value"                                           "110 160 210 260 520 1040"
         "special_bonus_unique_lina_3"                     "+150"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "impact_damage_pct"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "light_strike_array_burn_damage_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_lina_3"                     "+150"
-        "special_bonus_facet_lina_dot"                    "=110 =160 =210 =260 =520 =1040"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_percent_tooltip"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "light_strike_array_burn_duration_tooltip"
-      {
-        "value"                                           "0"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_duration"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_ADD"
       }
     }
   }

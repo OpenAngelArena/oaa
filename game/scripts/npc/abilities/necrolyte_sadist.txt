@@ -1,5 +1,8 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // Necrophos: Sadist (Innate)
+  //=================================================================================================================
   "necrolyte_sadist"
   {
     // General
@@ -12,12 +15,12 @@
 
     "AbilityValues"
     {
-      "health_regen"                                      "3 4.5 6 7.5 9 10.5"
-      "mana_regen"                                        "3 4.5 6 7.5 9 10.5"
+      "health_regen"                                      "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
+      "mana_regen"                                        "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
       "bonus_aoe"
       {
         "value"                                           "0"
-        "special_bonus_facet_necrolyte_profane_potency"   "+40"
+        "special_bonus_facet_necrolyte_profane_potency"   "+35"
       }
       "bonus_spell_amp"
       {

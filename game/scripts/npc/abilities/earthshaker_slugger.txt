@@ -1,61 +1,63 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earthshaker: Slugger
+  // Earthshaker: Slugger (Innate)
   //=================================================================================================================
   "earthshaker_slugger"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "6"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Echo Slam) + 1
+    "Innate"                                              "1"
     "DependentOnAbility"                                  "earthshaker_echo_slam"
 
     "AbilityValues"
     {
       "projectile_body_on_kill"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=1"
+        "value"                                           "1"
       }
       "projectile_body_initial_impact_radius"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=225"
+        "value"                                           "225"
       }
       "projectile_body_speed"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=1600"
+        "value"                                           "1600"
       }
       "projectile_body_distance"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=1200"
+        "value"                                           "1200"
       }
       "projectile_body_width_creep"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_width_hero"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_vision"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_damage_creep"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=40 =60 =80 =100 =200 =400"
+        "value"                                           "30 45 60 75 150 300"
       }
       "projectile_body_damage_hero"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=150 =250 =350 =450 =650 =850"
+        "value"                                           "150 250 350 450 900 1350"
       }
       "projectile_body_damage_additional_percent_health"
       {
-        "special_bonus_facet_earthshaker_slugger"         "=7"
+        "value"                                           "7"
       }
     }
   }

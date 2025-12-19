@@ -56,6 +56,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_hurricane_pike_2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +66,7 @@
       "bonus_health"                                      "200 300 450 650 900" // Force Staff (175);
       "bonus_agility"                                     "17 22 32 47 67" //OAA, Dragon Lance (15);
       "bonus_strength"                                    "12 17 22 27 32" //OAA, Dragon Lance (10);
-      "base_attack_range"                                 "150 160 170 180 190"
+      "base_attack_range"                                 "140 150 160 170 180"
       "push_length"                                       "600"
       "enemy_length"                                      "450"
       "range_duration"                                    "6"

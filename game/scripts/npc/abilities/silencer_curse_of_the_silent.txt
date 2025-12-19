@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -19,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -68,8 +67,8 @@
       }
       "penalty_multiplier"
       {
-        "value"                                           "1.5"
-        "special_bonus_unique_silencer"                   "+0.5"
+        "value"                                           "1.25"
+        "special_bonus_unique_silencer"                   "+0.25"
       }
       "duration_percent_per_stolen_int"
       {

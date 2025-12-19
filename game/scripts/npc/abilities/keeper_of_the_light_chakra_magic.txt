@@ -32,7 +32,7 @@
     {
       "mana_restore"
       {
-        "value"                                           "75 150 225 300 600 900"
+        "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_keeper_of_the_light_2"      "+200"
       }
       "cooldown_reduction"                                "3 4 5 6 7 8"
@@ -41,9 +41,13 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 14 13 12 12 12"
-        "special_bonus_unique_keeper_of_the_light_7"      "-3"
+        "special_bonus_unique_keeper_of_the_light_7"      "-2"
       }
       "self_bonus"                                        "30"
+      "strong_dispel"
+      {
+        "special_bonus_unique_keeper_of_the_light_14"     "1"
+      }
     }
   }
 }

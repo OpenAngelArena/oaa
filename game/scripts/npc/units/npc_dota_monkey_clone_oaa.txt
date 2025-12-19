@@ -74,8 +74,6 @@
     // Combat
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 
     // Vision
@@ -108,5 +106,8 @@
         }
       }
     }
+
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
   }
 }

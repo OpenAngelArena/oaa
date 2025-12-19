@@ -65,12 +65,7 @@ function modifier_wisp_relocate_shield_oaa:GetModifierIncomingDamageConstant(eve
 
     if block_amount > 0 then
       -- Visual effect
-      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
-      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
-        alert_type = OVERHEAD_ALERT_BLOCK
-      end
-
-      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
     end
 
     -- Remove the barrier if hp is reduced to nothing

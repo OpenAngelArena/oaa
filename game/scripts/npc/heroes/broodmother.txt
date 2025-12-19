@@ -16,23 +16,23 @@
     "Ability10"                                           "special_bonus_all_stats_5" // replaces special_bonus_unique_broodmother_3
     //"Ability11"                                           "special_bonus_unique_broodmother_6"
 
-    //"Ability12"                                           "special_bonus_unique_broodmother_5"
-    "Ability13"                                           "special_bonus_unique_broodmother_2" // replaces special_bonus_unique_broodmother_7
+    //"Ability12"                                           "special_bonus_unique_broodmother_2"
+    "Ability13"                                           "special_bonus_unique_broodmother_2_oaa" // replaces special_bonus_unique_broodmother_7
 
-    "Ability14"                                           "special_bonus_unique_broodmother_4_oaa" // replaces special_bonus_unique_broodmother_2
+    //"Ability14"                                           "special_bonus_unique_broodmother_5"
     "Ability15"                                           "special_bonus_unique_broodmother_4" // replaces special_bonus_attack_speed_35
 
     //"Ability16"                                           "special_bonus_unique_broodmother_1"
-    "Ability17"                                           "special_bonus_unique_broodmother_2_oaa" // replaces special_bonus_unique_broodmother_4
+    "Ability17"                                           "special_bonus_unique_broodmother_4_oaa" // replaces special_bonus_unique_broodmother_web_speed
 
-    // special_bonus_unique_broodmother_1 - "improved BAT during Insatiable Hunger"                          - 25
-    // special_bonus_unique_broodmother_2 - "Incapacitating Bite Attack Bonus"                               - 20 -> 15
-    // special_bonus_unique_broodmother_3 - "Spawn Spiderlings Damage"                                       - useless
-    // special_bonus_unique_broodmother_4 - "Incapacitating Bite Slow/Miss Chance"                           - 25 -> 20
-    // special_bonus_unique_broodmother_5 - "Spin Web Recharge Time"                                         - 15
-    // special_bonus_unique_broodmother_6 - "Spider's Milk Hero Health as heal"                              - 10
-    // special_bonus_unique_broodmother_7 - "Spiderlings Health"                                             - replaced with custom one
-  // special_bonus_unique_broodmother_2_oaa - "+{s:value} Spiderlings Health"                              - 25
-  // special_bonus_unique_broodmother_4_oaa - "+{s:value} Spiderlings Attack Damage"                       - 20
+    // special_bonus_unique_broodmother_1 - BAT during Insatiable Hunger
+    // special_bonus_unique_broodmother_2 - Incapacitating Bite Attack Bonus
+    // special_bonus_unique_broodmother_3 - Spawn Spiderlings Damage                                       - do not use this one
+    // special_bonus_unique_broodmother_4 - Incapacitating Bite Slow/Miss Chance
+    // special_bonus_unique_broodmother_5 - Spin Web Charge Restore Time
+    // special_bonus_unique_broodmother_6 - Spider's Milk Hero Health as heal
+    // special_bonus_unique_broodmother_7 - Spiderlings Health                                             - do not use this one
+    // special_bonus_unique_broodmother_2_oaa - Spiderlings Health per hero lvl
+    // special_bonus_unique_broodmother_4_oaa - Spiderlings Attack Damage per hero lvl
   }
 }

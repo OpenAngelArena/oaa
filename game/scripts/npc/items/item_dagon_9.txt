@@ -54,13 +54,14 @@
 
     "MaxUpgradeLevel"                                     "9"
     "ItemBaseLevel"                                       "9"
+    "UpgradesItems"                                       ""
 
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37454"
+    "ItemCost"                                            "37400"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 9"

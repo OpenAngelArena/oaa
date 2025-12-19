@@ -9,7 +9,7 @@
     "ScriptFile"                                          "abilities/boss/shielder/boss_shielder_shield.lua"
     "AbilityTextureName"                                  "mars_bulwark"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "IsBreakable"                                         "1"
@@ -21,14 +21,6 @@
       "damage_reduction_pct"                              "100" // damage reduction when damaged from the front
       "shield_width"                                      "0.5 -0.173 -0.766" // In terms of cosine
       "damage_return_pct"                                 "20" // damage return when damaged from the front
-    }
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/shielder/hex_shield_1.vpcf"
-      "particle"                                          "particles/shielder/hex_shield_2.vpcf"
-      "particle"                                          "particles/shielder/hex_shield_3.vpcf"
     }
   }
 }

@@ -51,7 +51,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_mjollnir;item_mjollnir_2;item_mjollnir_3;item_mjollnir_4"
+    "UpgradesItems"                                       "item_mjollnir_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -83,7 +83,7 @@
       "chain_delay"                                       "0.25"
       "chain_cooldown"                                    "0.2"
       "max_charges"                                       "0" // unused
-      "illusion_multiplier_pct"                           "100" //OAA
+      "illusion_multiplier_pct"                           "100"
     }
   }
 }

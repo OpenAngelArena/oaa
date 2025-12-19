@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9052"
+    "ItemCost"                                            "9050"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb"
@@ -56,7 +56,8 @@
     "ItemInitialCharges"                                  "0"
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_charge_bkb_2;item_charge_bkb_3;item_charge_bkb_4"
+    "UpgradesItems"                                       "item_charge_bkb_3"
+
     "AbilityValues"
     {
       //Wand Stats:

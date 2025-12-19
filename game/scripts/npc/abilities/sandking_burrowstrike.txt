@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Burrowsrike
+  // Sand King: Burrowsrike
   //=================================================================================================================
   "sandking_burrowstrike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" // Valve's undocumented change, no unit targetting anymore
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -24,9 +24,9 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
-    "AbilityDamage"                                       "80 140 200 260 520 1040"
+    "AbilityDamage"                                       "80 150 220 290 580 1160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
       "AbilityCooldown"
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_sand_king_7"                "-2"
+        "special_bonus_unique_sand_king_7"                "-3"
       }
       "burrow_width"
       {
@@ -51,14 +51,20 @@
       "AbilityCastRange"
       {
         "value"                                           "525 600 675 750 825 900"
-        "special_bonus_unique_sand_king_8"                "+150"
+        "special_bonus_unique_sand_king_8"                "+200"
       }
-      "burrow_speed_scepter" // unused
+      "mound_duration"
       {
-        "special_bonus_scepter"                           "3000"
+        "special_bonus_facet_sand_king_deeper_underground"  "=0"
       }
-      "scepter_channel_time"                              "2" // unused
-      "scepter_max_power"                                 "2" // unused
+      "is_vector_target"
+      {
+        "special_bonus_facet_sand_king_deeper_underground"  "1"
+      }
+      "underground_distance_pct"
+      {
+        "special_bonus_facet_sand_king_deeper_underground"  "60"
+      }
     }
   }
 }

@@ -80,7 +80,7 @@ function modifier_spark_gold:OnDeath(event)
     -- bonus gold
     if Gold and bonus_gold > 0 then
       Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, nil)
     end
   end
 end

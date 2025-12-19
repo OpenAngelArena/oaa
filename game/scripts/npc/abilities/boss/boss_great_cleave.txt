@@ -36,7 +36,9 @@
       "great_cleave_damage" //OAA
       {
         "value"                                           "100"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_8"
+        "special_bonus_unique_sven_8"                     "+25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "strength_bonus"                                    "0" //OAA
     }

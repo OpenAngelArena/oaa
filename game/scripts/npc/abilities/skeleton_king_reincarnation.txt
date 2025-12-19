@@ -5,7 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -20,12 +20,12 @@
       "reincarnate_time"                                  "3.0"
       "slow_radius"
       {
-        "value"                                           "900"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "movespeed"                                         "-75"
       "attackslow"                                        "-75"
-      "slow_duration"                                     "5.0"
+      "slow_duration"                                     "4.0"
       "AbilityManaCost"
       {
         "value"                                           "225"
@@ -43,8 +43,12 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 80 60 55 50"
-        "special_bonus_scepter"                           "-10"
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-30"
+      }
+      "trigger_wraithfire_blast"
+      {
+        "special_bonus_unique_wraith_king_4"              "=1"
       }
     }
   }

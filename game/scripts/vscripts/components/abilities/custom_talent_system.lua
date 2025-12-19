@@ -79,6 +79,9 @@ local abilities_with_custom_talents = {
   muerta_pierce_the_veil = {
     AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
   },
+  obsidian_destroyer_ominous_discernment = {
+    bonus_max_mana_per_int = {"special_bonus_unique_obsidian_destroyer_1_oaa", "+"},
+  },
   queenofpain_shadow_strike = {
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
@@ -90,9 +93,6 @@ local abilities_with_custom_talents = {
   },
   storm_spirit_overload = {
     overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},
-  },
-  techies_sticky_bomb = {
-    damage = {"special_bonus_unique_techies_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},

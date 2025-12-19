@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Necrolyte's Ghost Shroud
+  // Necrophos: Ghost Shroud
   //=================================================================================================================
   "necrolyte_ghost_shroud"
   {
@@ -39,7 +39,7 @@
       "movement_speed"
       {
         "value"                                           "16 19 22 25 28 31"
-        "special_bonus_unique_necrophos_3"                "+20"
+        "special_bonus_unique_necrophos_3"                "+15"
       }
       "movement_transfer"
       {
@@ -48,13 +48,14 @@
       }
       "slow_aoe"
       {
-        "value"                                           "750"
+        "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage"                                      "-20"
       "AbilityCooldown" //OAA
       {
         "value"                                           "22 20 18 16 15 14"
+        "special_bonus_unique_necrophos_6"                "-2.5"
       }
     }
   }

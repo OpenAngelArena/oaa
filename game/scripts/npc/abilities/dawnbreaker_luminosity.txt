@@ -39,13 +39,15 @@
       {
         "value"                                           "125 150 175 200 225 250"
         "special_bonus_unique_dawnbreaker_luminosity_crit"  "+40"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "proc_cooldown"                                     "0.00"
       "allied_healing_pct"                                "90" //OAA
       "cooldown_reduction"
       {
         "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_solar_charged"   "1"
+        "special_bonus_facet_dawnbreaker_solar_charged"   "0.8"
       }
       "triggered_by_celestial_hammer"
       {

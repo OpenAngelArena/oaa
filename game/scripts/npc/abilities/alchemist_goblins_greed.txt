@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Greevil's Greed
+  // Alchemist: Greevil's Greed (Innate)
   //=================================================================================================================
   "alchemist_goblins_greed"
   {
@@ -19,7 +19,7 @@
       "bounty_multiplier"                                 "2"
       "damage"
       {
-        "special_bonus_unique_alchemist_7"                "+2"
+        "special_bonus_unique_alchemist_7"                "+2.5"
       }
       "bonus_gold_cap"
       {
@@ -29,17 +29,14 @@
       {
         "special_bonus_facet_alchemist_seed_money"        "=250"
       }
-      "scepter_bonus_damage" //OAA
-      {
-        "special_bonus_scepter"                           "20"
-      }
+      "scepter_bonus_damage"                              "20" //OAA
       "scepter_spell_amp"
       {
         "special_bonus_scepter"                           "0"
       }
       "gpm_increase_per_stack"
       {
-        "special_bonus_facet_alchemist_dividends"         "+75"
+        "special_bonus_facet_alchemist_dividends"         "+70"
       }
     }
   }

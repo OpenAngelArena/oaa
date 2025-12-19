@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "280"
+    "ItemCost"                                            "320"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -25,7 +25,7 @@
     "ItemResult"                                          "item_urn_of_shadows_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_sobi_mask;item_ring_of_protection;item_fluffy_hat"
+      "01"                                                "item_circlet;item_sobi_mask;item_ring_of_protection"
     }
   }
   //=================================================================================================================
@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "880"
+    "ItemCost"                                            "825"
     "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "urn; urn of shadows"
@@ -62,9 +62,9 @@
     "AbilityValues"
     {
       "bonus_mana_regen"                                  "1.4"
-      "bonus_all_stats"                                   "0"
+      "bonus_all_stats"                                   "2"
       "bonus_armor"                                       "2"
-      "bonus_health"                                      "125"
+      "bonus_health"                                      "0"
       "soul_radius"
       {
         "value"                                           "1400"

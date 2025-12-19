@@ -33,15 +33,26 @@
     {
       "heal_per_second" //OAA, total heal can be big because there are no towers here
       {
-        "value"                                           "10 18 26 34 68 104"
+        "value"                                           "10 15 20 25 50 100"
         "special_bonus_unique_treant_8"                   "+30"
       }
-      "bonus_armor" //OAA
+      "duration"                                          "12"
+      "aoe_radius"
       {
-        "value"                                           "4 6 8 10 12 14"
-        "special_bonus_unique_treant_13"                  "+4"
+        "special_bonus_unique_treant_7"                   "450"
+        "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "15" //OAA
+      "damage_block_base"
+      {
+        "value"                                           "100"
+        "special_bonus_unique_treant_13"                  "+20"
+      }
+      "passive_reset_cd"
+      {
+        "special_bonus_shard"                             "0"
+      }
+      "damage_block_loss"                                 "35 30 25 20 15 10"
+      "damage_block_threshold"                            "20"
     }
   }
 }

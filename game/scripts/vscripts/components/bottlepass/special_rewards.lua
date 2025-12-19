@@ -27,7 +27,7 @@ SPECIAL_BOTTLES = {
   [141335296] = {1}, -- SquawkyArctangent
   [56309069] = {1}, -- imaGecko
   [116407282] = {1}, -- Haganeko
-  [123791730] = {1,57,61,62,63,64,65,66,67,68,69,70}, -- Warpdragon
+  [123791730] = {1,57,61,62,63,64,65,66,67,68,69,70,71}, -- Warpdragon
   [98536810] = {1}, -- Honeth
   [53917791] = {1}, -- Minnakht
   [103179022] = {1}, -- Allan vbhg
@@ -77,10 +77,11 @@ SPECIAL_BOTTLES = {
 
 
   -- special people
+  [232219850] = {3,4,5,48}, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
   [110318967] = {4,5,7}, -- timo
   [34314091] = {8}, -- frej
   [370166341] = {9}, -- Melon
-  [110964954] = {3,4,10}, -- Karmatic
+  [110964954] = {3,4,10}, -- KarmaticNeutral
   [121375868] = {3,4,5}, -- BUDSTER
   [110199172] = {3,4,5}, -- Mr F
   [315878482] = {3,4,5}, -- GFC
@@ -93,7 +94,13 @@ SPECIAL_BOTTLES = {
   [858631509] = {3,4,5,54}, -- Obby
   [256293935] = {3,4,5,9}, -- Woozi
   [151615799] = {4,5,60}, -- FrostKitten
+  [298317439] = {4,5,60}, -- ICryALot
   [111521761] = {3,4,57,70}, -- Jandiss
+  [184428872] = {3,4,5,26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: (Devil)SunriseSyrene
+  [350476614] = {3,4,5}, -- Cha Cha
+  [109102649] = {3,4,5}, -- silvr
+  [183027403] = {3,4,5}, -- Sythrus
+  [52829586] = {3,4,5}, -- Savage Matt
 
   -- twitch donators 3
 
@@ -210,7 +217,8 @@ SPECIAL_BOTTLES = {
   [80434451] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
 
   -- twitch donators 50 Custom
-
+  --24maxpower
+  --(Devil)SunriseSyrene
   [113802823] = {3,4,5,11}, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
   [75237487] = {3,4,5,12}, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
   [66682246] = {3,4,5,13}, --steam: http://steamcommunity.com/profiles/76561198026947974 - twitch: GhostFromBE
@@ -227,7 +235,6 @@ SPECIAL_BOTTLES = {
   [134237802] = {3,4,5,23}, --steam: http://steamcommunity.com/profiles/76561198094503530 - twitch: TheRealXAgent
   [252879820] = {3,4,5,24}, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
   [177718580] = {3,4,5,25}, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
-  [184428872] = {3,4,5,26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: (Devil)SunriseSyrene
   [28215809] = {3,4,5,27}, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
   [119820692] = {3,4,5,28}, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
   [59735209] = {3,4,5,29}, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
@@ -249,7 +256,6 @@ SPECIAL_BOTTLES = {
   [196939910] = {3,4,5,45}, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
   [147100058] = {3,4,5,46}, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
   [94579357] = {3,4,5,47}, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: -no name given}, current steam name Doctor Demon
-  [232219850] = {3,4,5,48}, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
   [128386634] = {3,4,5,49}, --steam: https://steamcommunity.com/profiles/76561198088652362/ - twitch: -no name given}, Discord: TruffleHunt
   [61476137] = {3,4,5,50}, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
   [40292108] = {3,4,5,51}, --steam: https://steamcommunity.com/profiles/76561198000557836 - twitch: Zeldamasterrt

@@ -84,3 +84,6 @@ game/models/heroes/*
 .idea
 
 .vscode/settings.json
+
+# Cached base Dota KV files (downloaded by scripts/fetch-dota-kv.js)
+scripts/cache/dota_kv/

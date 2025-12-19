@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Monkey King: Wukong's Command OAA version, affects creeps, cannot be stolen
+  // Monkey King: Wukong's Command (OAA version, affects creeps, cannot be stolen)
   //=================================================================================================================
   "monkey_king_wukongs_command_oaa"
   {
@@ -10,7 +10,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_wukongs_command.lua"
     "AbilityTextureName"                                  "monkey_king_wukongs_command"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -60,7 +60,7 @@
       }
       "bonus_armor"
       {
-        "value"                                           "15 20 25 31 37"
+        "value"                                           "15 20 25 30 35"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "attack_interval"                                   "1.1"
@@ -109,6 +109,7 @@
         "value"                                           "0"
         "special_bonus_facet_monkey_king_wukongs_faithful"  "+4.0"
       }
+      "health_restoration"                                "-200" // needed to prevent Satanic procs, it works how its intended for now
     }
   }
 }

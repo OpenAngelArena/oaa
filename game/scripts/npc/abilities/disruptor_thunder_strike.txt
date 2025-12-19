@@ -50,19 +50,19 @@
         "special_bonus_shard"                             "+1"
       }
       "strike_interval"                                   "2.0"
-      "strike_damage"                                     "40 65 90 115 230 460" //OAA
+      "strike_damage"                                     "25 55 85 115 230 460"
       "strike_damage_bonus"
       {
         "value"                                           "0"
         "special_bonus_unique_disruptor_consecutive_strike_damage"  "+15"
       }
-      "slow_duration" //OAA, Valve forgot '+0' on special_bonus_unique_disruptor
+      "slow_duration"
       {
-        "value"                                           "0.4"
-        "special_bonus_unique_disruptor"                  "+0.6"
+        "value"                                           "0.3"
+        "special_bonus_facet_disruptor_thunderstorm"      "x1.75"
       }
       "slow_amount"                                       "100"
-      "shard_ground_delay"                                "5"
+      "shard_ground_delay"                                "4"
       "hits_units_inside_kinetic"
       {
         "value"                                           "0"

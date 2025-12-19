@@ -43,17 +43,18 @@
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       ""
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "bubble"
-    "AbilityCastRange"                                    "300"
+    "AbilityCastRange"                                    "225"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33854"
+    "ItemCost"                                            "33850"
     "ItemShopTags"                                        "armor;regen_health;regen_mana;mana_pool;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bubble 2; bubble orb 2"

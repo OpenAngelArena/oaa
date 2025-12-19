@@ -48,17 +48,21 @@ function BossAI:Create (unit, options)
 end
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
-  if CorePointsManager then
-    CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
-  else
+  --if CorePointsManager then
+    --CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
+  --else
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
       local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
       if hero then
-        hero:AddItemByName(item)
+        if hero:HasRoomForItemOAA() then
+          hero:AddItemByName(item)
+        else
+          CorePointsManager:AddCorePoints(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), hero, playerId)
+        end
       end
     end)
-  end
+  --end
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)

@@ -46,13 +46,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17703"
+    "ItemCost"                                            "17700"
     "ItemPurchasable"                                     "1"
     "ItemAliases"                                         "pull 4;harpoon 4"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_harpoon_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -44,11 +44,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_silver_edge_2;item_silver_edge_3;item_silver_edge_4"
+    "UpgradesItems"                                       "item_silver_edge_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7301"
+    "ItemCost"                                            "7200"
     "ItemShopTags"                                        "damage;attack_speed;crit;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "invis 2;silver edge 2"
@@ -70,6 +70,7 @@
       "windwalk_bonus_damage"                             "300 400 500 600 700"
       "backstab_duration"                                 "6"
       "visibility_radius"                                 "1025"
+      "max_movement_speed"                                "200"
     }
   }
 }

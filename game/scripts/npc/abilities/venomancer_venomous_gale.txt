@@ -48,12 +48,22 @@
       "create_wards"
       {
         "value"                                           "0"
-        "special_bonus_unique_venomancer_gale_plagueward"  "+2"
+        "special_bonus_facet_venomancer_plague_carrier"   "+1"
+      }
+      "num_created_wards_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_venomancer_plague_carrier"   "+2"
       }
       "AbilityCooldown"
       {
         "value"                                           "21 20 19 18 17 16"
         "special_bonus_unique_venomancer_3"               "-5"
+      }
+      "ward_hp_dmg_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_venomancer_plague_carrier"   "=75"
       }
       "explosion_damage" //OAA
       {

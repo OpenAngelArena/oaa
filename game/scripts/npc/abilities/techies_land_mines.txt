@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -60,7 +60,7 @@
         "value"                                           "15"
         "special_bonus_unique_techies_3"                  "-3"
       }
-      "outer_damage"                                      "50"
+      "outer_damage"                                      "60"
       "min_distance"                                      "150"
       "placement_radius"                                  "350"
       "mres_reduction"                                    "15 20 25 30 35"

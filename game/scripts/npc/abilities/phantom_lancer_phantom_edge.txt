@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Lancer's Phantom Rush / Phantom Edge
+  // Phantom Lancer: Phantom Rush / Phantom Edge
   //=================================================================================================================
   "phantom_lancer_phantom_edge"
   {
@@ -14,31 +14,32 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "15 11 7 3 3 3"
+      }
       "min_distance"                                      "275"
       "max_distance"
       {
         "value"                                           "600 675 750 825 900 975"
-        "special_bonus_unique_phantom_lancer"             "+300"
+        "special_bonus_scepter"                           "+625"
       }
       "bonus_speed"                                       "800"
-      "bonus_agility" //OAA, Valve forgot '+' on special_bonus_unique_phantom_lancer_phantom_rush_agility
+      "bonus_agility"                                     "0"
+      "agility_duration"                                  "0"
+      "illusion_spawn_radius"
       {
-        "value"                                           "10 20 30 40 60 80"
-        "special_bonus_unique_phantom_lancer_phantom_rush_agility"  "+10"
+        "special_bonus_scepter"                           "125"
       }
-      "agility_duration"
+      "illusion_spawn_travel_distance"
       {
-        "value"                                           "2"
-        "special_bonus_unique_phantom_lancer_2"           "+2.5"
+        "special_bonus_scepter"                           "600"
       }
+      "evasion"                                           "20 30 40 50 60 70"
     }
   }
 }

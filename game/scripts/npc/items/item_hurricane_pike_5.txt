@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34454"
+    "ItemCost"                                            "34450"
     "ItemShopTags"                                        "agi;str;int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 5;pike 5"
@@ -59,6 +59,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +69,7 @@
       "bonus_health"                                      "200 300 450 650 900"
       "bonus_agility"                                     "17 22 32 47 67"
       "bonus_strength"                                    "12 17 22 27 32"
-      "base_attack_range"                                 "150 160 170 180 190"
+      "base_attack_range"                                 "140 150 160 170 180"
       "push_length"                                       "600"
       "enemy_length"                                      "450"
       "range_duration"                                    "6"

@@ -14,7 +14,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -44,7 +44,7 @@
         "value"                                           "200 400 600 1000 1800"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "grab_radius_scepter"
+      "grab_radius_scepter" // unused
       {
         "special_bonus_scepter"                           "+650"
         "affected_by_aoe_increase"                        "1"
@@ -52,7 +52,7 @@
       "AbilityCooldown"
       {
         "value"                                           "90 75 60 60 60"
-        "special_bonus_unique_batrider_6"                 "-7"
+        "special_bonus_unique_batrider_6"                 "-8"
       }
       "tick_rate"                                         "0.5"
     }

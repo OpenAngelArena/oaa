@@ -8,15 +8,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "special_bonus_undefined"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityType"                                         "ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "value"                                             "60"
-      "value2"                                            "120"
+      "value"                                             "70"
+      "value2"                                            "140"
     }
   }
 }

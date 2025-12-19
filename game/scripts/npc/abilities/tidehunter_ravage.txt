@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -20,10 +20,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 115 110 100 90" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -43,10 +39,15 @@
         "affected_by_aoe_increase"                        "1"
       }
       "speed"                                             "725"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120"
+        "special_bonus_unique_tidehunter_ravage_cooldown"  "-15"
+      }
       "duration"
       {
         "value"                                           "2.0 2.2 2.4 2.6 2.8"
-        "special_bonus_unique_tidehunter_7"               "+0.8"
+        "special_bonus_unique_tidehunter_7"               "+1.0"
       }
     }
   }

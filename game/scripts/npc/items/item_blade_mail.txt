@@ -51,7 +51,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "2000" //OAA
     "ItemShopTags"                                        "damage;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -62,12 +61,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "18" // Broadsword (15)
+      "bonus_damage"                                      "15" // Broadsword (15)
       "bonus_armor"                                       "5" //OAA, Chainmail (4)
       "bonus_intellect"                                   "0"
       "duration"                                          "5.5"
-      "passive_reflection_constant"                       "20"
-      "passive_reflection_pct"                            "20"
+      "passive_reflection_constant"                       "10"
+      "passive_reflection_pct"                            "15"
       "active_reflection_pct"                             "80" //OAA
     }
   }

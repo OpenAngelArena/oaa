@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Necrolyte's Reaper's Scythe
+  // Necrophos: Reaper's Scythe
   //=================================================================================================================
   "necrolyte_reapers_scythe"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -38,12 +38,11 @@
     {
       "damage_per_health"                                 "0.7 0.8 0.9 1.0 1.1"
       "stun_duration"                                     "1.5"
-      "hp_per_kill"                                       "2 4 6 8 10"
+      "hp_per_kill"                                       "1 2 3 4 5"
       "mana_per_kill"                                     "1 2 3 4 5"
       "AbilityCastRange"
       {
         "value"                                           "600"
-        "special_bonus_unique_necrophos_6"                "+125"
       }
     }
   }

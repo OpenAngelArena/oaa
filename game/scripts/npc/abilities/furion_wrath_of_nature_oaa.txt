@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Wrath of Nature (OAA rework) - unused
+  // Nature's Prophet: Wrath of Nature (OAA rework) - unused
   //=================================================================================================================
   "furion_wrath_of_nature_oaa"
   {
@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/furion_wrath_of_nature_oaa.lua"
     "AbilityTextureName"                                  "furion_wrath_of_nature"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -41,7 +41,7 @@
         "special_bonus_unique_furion_7"                   "-15"
       }
       "max_targets"                                       "18"
-      "damage"                                            "125 165 205 325 445"
+      "damage"                                            "115 165 215 365 515"
       "jump_delay"                                        "0.15"
       "damage_percent_add"
       {

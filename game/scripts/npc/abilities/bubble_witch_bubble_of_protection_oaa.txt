@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  "bubble_witch_bubble_of_protection" // R - Bubble of Protection
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bubble_witch/bubble_witch_bubble_of_protection.lua"
+    "AbilityTextureName"                                  "custom/bubble_witch_r"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+
+    // Mana Cost + Magic Stick/Wand
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/bubble_witch/protection_bubble.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "225"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "damage_reduction"                                  "75" // percentage
+      "duration"                                          "3 3.5 4 4.5 5"
+      "AbilityCooldown"
+      {
+        "value"                                           "110 105 100 95 90"
+        "special_bonus_unique_bubble_witch_7"             "-30"
+      }
+    }
+  }
+}

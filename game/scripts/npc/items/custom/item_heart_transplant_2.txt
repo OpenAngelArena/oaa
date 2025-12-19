@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Heart Transplant (Based on Solar Crest)
+  // Recipe: Heart Transplant 2
   //=================================================================================================================
   "item_recipe_heart_transplant_2"
   {
@@ -28,7 +28,7 @@
   }
 
   //=================================================================================================================
-  // Heart Transplant (Based on Solar Crest)
+  // Heart Transplant 2
   //=================================================================================================================
   "item_heart_transplant_2"
   {
@@ -52,14 +52,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35604"
+    "ItemCost"                                            "35500"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "transplant 2;heart transplant 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       ""
 
     // "IsTempestDoubleClonable"                          "0"
 
@@ -68,12 +70,11 @@
     "AbilityValues"
     {
       "bonus_strength"                                    "55 75"
-      "bonus_health"                                      "950 1250"
+      "bonus_health"                                      "700 950"
       "health_regen_pct"                                  "1.4"
-      "cooldown_melee"                                    "5"
-      "cooldown_ranged"                                   "7"
+      "cooldown"                                          "5"
       "transplant_bonus_strength"                         "50 70"
-      "transplant_bonus_health"                           "700 950"
+      "transplant_bonus_health"                           "650 900"
       "transplant_health_regen_pct"                       "1.3"
       "transplant_max_range"                              "1000"
       "transplant_max_duration"                           "12"

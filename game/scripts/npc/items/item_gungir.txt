@@ -44,12 +44,13 @@
     "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "150"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_gungir_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -66,7 +67,7 @@
     {
       "bonus_aoe"                                         "50 60 70 80 90" // OAA, If changing this, change radius_tooltip
       "bonus_hp"                                          "450 550 700 900 1150"
-      "bonus_intellect"                                   "15 20 30 45 65"
+      "bonus_intellect"                                   "12 17 27 42 62"
       "bonus_mana"                                        "200 300 450 650 900"
       "radius" //OAA
       {

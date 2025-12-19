@@ -229,7 +229,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
       hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
       local player = hero:GetPlayerOwner()
       if player then
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, creep, bounty, player)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, creep, bounty, nil)
       end
     end
   end

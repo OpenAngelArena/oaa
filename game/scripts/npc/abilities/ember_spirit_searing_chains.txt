@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
+    "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "duration"
       {
         "value"                                           "1.5 2.0 2.5 3.0 3.25 3.5"
-        "special_bonus_unique_ember_spirit_2"             "+1"
+        "special_bonus_unique_ember_spirit_2"             "+0.8"
       }
       "radius"
       {
@@ -46,13 +46,13 @@
       "damage_per_second"
       {
         "value"                                           "50 70 90 110 220 440"
-        "special_bonus_unique_ember_spirit_chains_dps"    "+60"
+        "special_bonus_unique_ember_spirit_chains_dps"    "+50"
       }
       "tick_interval"                                     "0.5"
       "unit_count"
       {
         "value"                                           "2"
-        "special_bonus_facet_ember_spirit_chain_gang"     "+1"
+        "special_bonus_facet_ember_spirit_chain_gang"     "+2"
       }
       "remnant_chains"
       {

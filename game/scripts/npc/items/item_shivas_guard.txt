@@ -45,6 +45,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_shivas_guard_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -79,7 +80,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "blast_speed"                                       "400"
-      "hp_regen_degen_aura"                               "25"
+      "restoration_reduction_aura"                        "25"
       "illusion_multiplier_pct"                           "100" //OAA
       "spell_amp"                                         "15 18 21 24 27"
       "resist_debuff_duration"                            "16.0"

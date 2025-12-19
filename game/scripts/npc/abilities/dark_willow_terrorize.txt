@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -22,7 +22,7 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "1.0"
 
-    "AbilityCooldown"                                     "100 90 80 70 60"
+    // Cooldown is inside AbilityValues per vanilla
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,12 @@
         "affected_by_aoe_increase"                        "1"
       }
       "destination_status_duration"                       "2.8 3.0 3.2 3.4 3.6"
-      "return_travel_speed"                               "600"
+      "return_travel_speed"                               "800"
+      "AbilityCooldown"
+      {
+        "value"                                           "100 90 80 70 60"
+        "special_bonus_unique_dark_willow_7"              "-15"
+      }
       "starting_height"                                   "300"
       "telegraph_to_enemies"                              "0"
       "impact_damage"

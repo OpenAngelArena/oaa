@@ -10,7 +10,7 @@
     "ScriptFile"                                          "abilities/tiny_grow.lua"
     "AbilityTextureName"                                  "tiny_grow"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "5 10 15 25 35" // for the tooltip
+      "bonus_armor"                                       "5 10 15 20 25" // for the tooltip
       "bonus_damage"
       {
         "value"                                           "55 110 165 220 275" // for the tooltip
@@ -28,7 +28,7 @@
       }
       "attack_speed_reduction" // for the tooltip
       {
-        "value"                                           "-30"
+        "value"                                           "-35"
         "special_bonus_unique_tiny_6"                     "+8"
       }
       "toss_bonus_damage" // for the tooltip
@@ -36,9 +36,9 @@
         "value"                                           "75 300 525 1200 1875"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "move_speed"                                        "15 20 25 30 35" // for the tooltip
+      "move_speed"                                        "10 15 20 25 30" // for the tooltip
 
-      "bonus_armor_oaa"                                   "0 0 0 10 20" // bonus_armor - bonus_armor(at lvl 3)
+      "bonus_armor_oaa"                                   "0 0 0 5 10" // bonus_armor - bonus_armor(at lvl 3)
       "bonus_damage_oaa"                                  "0 0 0 55 110" // bonus_damage - bonus_damage(at lvl 3)
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"

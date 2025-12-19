@@ -27,13 +27,13 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkDevCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
   ChatCommand:LinkDevCommand("-kill_all", Dynamic_Wrap(DevCheats, "KillEverything"), self)
+  ChatCommand:LinkDevCommand("-lazydev", Dynamic_Wrap(DevCheats, "LazyDev"), self)
   --ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
   ChatCommand:LinkCommand("-entity_count", Dynamic_Wrap(DevCheats, "CountAllEntities"), self)
   ChatCommand:LinkCommand("-memory", Dynamic_Wrap(DevCheats, "MemoryUsage"), self)
 end
 
 -- Print all modifiers on player's hero to console
--- TODO: Allow printing modifiers on selected units if possible
 function DevCheats:PrintModifiers(keys)
   local playerID = keys.playerid
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -78,11 +78,15 @@ function DevCheats:AddBots(keys)
 
   -- Eanble bots and fill empty slots
   if IsServer() and GameRules:GetMaxTeamPlayers() - numPlayers > 0 then
-    -- Set bot difficulty
-    SendToServerConsole("dota_bot_set_difficulty 4")
-    SendToServerConsole("dota_bot_practice_difficulty 4")
     -- Fill all empty slots with bots
     SendToServerConsole("dota_bot_populate")
+    --GameRules:BotPopulate()
+    -- Enable bots
+    Convars:SetBool('dota_bot_mode', true)
+    Convars:SetBool('dota_bot_disable', false)
+    -- Set bot difficulty
+    Convars:SetInt('dota_bot_set_difficulty', 4)
+    Convars:SetInt('dota_bot_practice_difficulty', 4)
   end
 
   -- Don't think these settings are necessary
@@ -404,4 +408,55 @@ function DevCheats:MemoryUsage(keys)
     return left .. (num:reverse():gsub('(%d%d%d)', '%1,'):reverse()) .. right
   end
   GameRules:SendCustomMessage("Current LUA Memory Usage: "..comma_value(collectgarbage('count')*1024).." KB", 0, 0)
+end
+
+function DevCheats:LazyDev(keys)
+  local playerID = keys.playerid
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  local to_summon = {
+    "npc_dota_boss_tier_1", -- Roshan
+    "npc_dota_boss_twin",
+    "npc_dota_creature_ogre_tank_boss",
+    "npc_dota_boss_tier_4", -- Killer Tomato
+    "npc_dota_boss_tier_1_tier5", -- Tier 5 Roshan
+    "npc_dota_boss_twin_tier5",
+    "npc_dota_creature_ogre_tank_boss_tier5",
+    "npc_dota_boss_tier_5", -- Big Bird
+    "npc_dota_boss_simple_1", -- Skeleton Boss (Geostrike)
+    "npc_dota_boss_simple_5", -- Dire Creep Boss (Great Cleave)
+    "npc_dota_boss_simple_7", -- Dire Creep Boss (Kraken Shell)
+    "npc_dota_boss_shielder",
+    "npc_dota_boss_simple_2", -- Bear Boss (Fury Swipes)
+    "npc_dota_creature_slime_spawner",
+    "npc_dota_boss_charger",
+    "npc_dota_boss_swiper",
+    "npc_dota_boss_carapace",
+    "npc_dota_creature_tormentor_boss",
+    "npc_dota_creature_lycan_boss",
+    "npc_dota_creature_magma_boss",
+    "npc_dota_creature_dire_tower_boss",
+    "npc_dota_creature_spider_boss",
+    "npc_dota_creature_temple_guardian_spawner",
+    "npc_dota_boss_stopfightingyourself",
+    "npc_dota_boss_tier_6", -- Spooky Ghost
+    "npc_dota_boss_spiders", -- Alchemist Boss
+    "npc_dota_boss_simple_1_tier5", -- Tier 5 Skeleton Boss (Geostrike)
+    "npc_dota_boss_simple_5_tier5", -- Tier 5 Dire Creep Boss (Great Cleave)
+    "npc_dota_boss_simple_2_tier5", -- Tier 5 Bear Boss (Fury Swipes)
+    "npc_dota_boss_charger_tier5",
+    "npc_dota_creature_lycan_boss_tier5",
+    "npc_dota_creature_temple_guardian_spawner_tier5",
+    "npc_dota_boss_stopfightingyourself_tier5",
+    "npc_dota_boss_wanderer_1",
+    "npc_dota_boss_wanderer_2",
+    "npc_dota_boss_wanderer_3",
+    "npc_dota_boss_grendel",
+  }
+
+  for i = 1, #to_summon do
+    Timers:CreateTimer(i, function()
+      local boss = CreateUnitByName(to_summon[i], Vector(RandomInt(i*100, i*200),RandomInt(i*100, i*200), 0), true, hero, hero:GetOwner(), hero:GetTeamNumber())
+      boss:SetControllableByPlayer(playerID, true)
+    end)
+  end
 end

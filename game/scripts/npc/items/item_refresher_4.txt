@@ -41,16 +41,17 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "180"
     "AbilitySharedCooldown"                               "refresher_oaa"
     "AbilityManaCost"                                     "500"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_refresher_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17803"
+    "ItemCost"                                            "17900"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 4;refresher 4"

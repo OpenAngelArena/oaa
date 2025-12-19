@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -54,6 +54,10 @@
         "value"                                           "0"
         "special_bonus_unique_legion_commander_5"         "+300"
         "affected_by_aoe_increase"                        "1"
+      }
+      "immunity_duration"
+      {
+        "special_bonus_unique_legion_commander_8"         "1.5"
       }
     }
   }

@@ -82,7 +82,11 @@ function modifier_dev_attack_aura:OnIntervalThink()
     target:ReduceMana(manaReductionAmount, ability)
     caster:GiveMana(manaReductionAmount)
     if targetHealth - healthReductionAmount < 1 then
-      target:Kill(ability, caster)
+      if teamID == DOTA_TEAM_NEUTRALS then
+        target:Kill(ability, target)
+      else
+        target:Kill(ability, caster)
+      end
     else
       target:SetHealth(targetHealth - healthReductionAmount)
       caster:Heal(healthReductionAmount, ability)

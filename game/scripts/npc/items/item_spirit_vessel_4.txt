@@ -51,10 +51,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_spirit_vessel_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15783"
+    "ItemCost"                                            "15725"
     "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "sv 4;spirit vessel 4"
@@ -65,9 +66,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "375 475 625 825 1075"
+      "bonus_health"                                      "0"
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "0"
+      "bonus_all_stats"                                   "10 15 20 25 30"
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"
       {
@@ -76,11 +77,13 @@
       }
       "kill_charges"                                      "1"
       "soul_heal_amount"                                  "45 60 85 120 165"
-      "soul_damage_amount"                                "25 35 55 85 125"
+      "soul_damage_amount_oaa"                            "25 35 55 85 125"
       "duration"                                          "8.0"
       "heal_reduction_with_charge"                        "54 58 62 66 70"
-      "heal_reduction_no_charge"                          "24 28 32 36 40"
+      "heal_reduction_no_charge"                          "40 45 50 55 60"
       "current_hp_as_dmg"                                 "4 4.5 5 5.5 6"
+      "health_restoration"                                "-40 -45 -50 -55 -60"
+      "restoration_reduction_enemy"                       "54 58 62 66 70"
     }
   }
 }

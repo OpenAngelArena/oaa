@@ -35,12 +35,12 @@
       "tombstone_health"
       {
         "value"                                           "20 24 28 32 36 40"
-        "special_bonus_unique_undying_5"                  "+24"
+        "special_bonus_unique_undying_5"                  "+16"
       }
       "hits_to_destroy_tooltip"
       {
         "value"                                           "5 6 7 8 9 10"
-        "special_bonus_unique_undying_5"                  "+6"
+        "special_bonus_unique_undying_5"                  "+4"
       }
       "duration"                                          "30.0"
       "radius"
@@ -59,6 +59,10 @@
         "special_bonus_unique_undying"                    "+20"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "zombie_bonus_damage"
+      {
+        "special_bonus_unique_undying"                    "+20"
       }
       "zombie_attack_damage_per_level" //OAA
       {

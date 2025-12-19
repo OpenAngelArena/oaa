@@ -36,7 +36,7 @@
       "max_distance"                                      "1950"
       "orb_speed"
       {
-        "value"                                           "550 550 550 550 600 650"
+        "value"                                           "550"
         "special_bonus_facet_puck_curveball"              "+200"
       }
       "orb_vision"
@@ -48,7 +48,7 @@
       "damage" //OAA
       {
         "value"                                           "90 160 230 300 600 1200"
-        "special_bonus_unique_puck_orb_damage"            "+75"
+        "special_bonus_unique_puck_orb_damage"            "+70"
       }
       "AbilityCooldown"
       {
@@ -89,6 +89,18 @@
       {
         "value"                                           "0"
         "special_bonus_facet_puck_curveball"              "0.0"
+      }
+      "increase_per_sec"
+      {
+        "special_bonus_facet_puck_curveball"              "0"
+      }
+      "damage_over_time_pct"
+      {
+        "special_bonus_facet_puck_curveball"              "=3"
+      }
+      "damage_interval"
+      {
+        "special_bonus_facet_puck_curveball"              "=0.5"
       }
     }
   }

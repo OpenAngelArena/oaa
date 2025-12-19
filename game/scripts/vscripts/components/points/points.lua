@@ -22,7 +22,7 @@ function PointsManager:Init ()
   self.timesUsedShrine = 0
 
   local scoreLimit = NORMAL_KILL_LIMIT
-  if HeroSelection.is10v10 then
+  if HeroSelection.is10v10 and not HeroSelection.is6v6 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
     self.limitConstant = 10
   elseif HeroSelection.lowPlayerCount then
@@ -255,7 +255,7 @@ function PointsManager:IncreaseLimit(limit_increase)
   local extend_amount = 0
   local player_count = PlayerResource:SafeGetTeamPlayerCount()
   local standard_extend_amount = player_count * KILL_LIMIT_INCREASE
-  if HeroSelection.is10v10 then
+  if HeroSelection.is10v10 and not HeroSelection.is6v6 then
     standard_extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
   elseif HeroSelection.lowPlayerCount then
     standard_extend_amount = math.min(ONE_V_ONE_LIMIT_INCREASE * player_count, 6)
@@ -316,7 +316,7 @@ function PointsManager:RefreshLimit()
   local base_limit = NORMAL_KILL_LIMIT
   local current_player_count = PlayerResource:SafeGetTeamPlayerCount()
   local extend_amount = KILL_LIMIT_INCREASE * current_player_count
-  if HeroSelection.is10v10 then
+  if HeroSelection.is10v10 and not HeroSelection.is6v6 then
     base_limit = TEN_V_TEN_KILL_LIMIT
     extend_amount = TEN_V_TEN_LIMIT_INCREASE * current_player_count
   elseif HeroSelection.lowPlayerCount then

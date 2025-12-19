@@ -88,7 +88,7 @@ function IsUltimateAbilityCustom(ability)
     return false
   end
 
-  if ability_data.AbilityType == "DOTA_ABILITY_TYPE_ULTIMATE" then
+  if ability_data.AbilityType == "ABILITY_TYPE_ULTIMATE" then
     return true
   end
 

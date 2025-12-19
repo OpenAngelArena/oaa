@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.0"
-    "AbilityCastRange"                                    "1000 1200 1400 1500 1600"
+    "AbilityCastRange"                                    "900 1150 1400 1500 1600"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
     {
       "radius"
       {
-        "value"                                           "1000 1200 1400 1500 1600"
+        "value"                                           "900 1150 1400 1500 1600"
         "affected_by_aoe_increase"                        "1"
       }
       "duration" //OAA
@@ -41,8 +41,8 @@
       "animation_rate"                                    "0.55"
       "heal_pct"
       {
-        "value"                                           "2 3 4 5 6"
-        "special_bonus_shard"                             "+3"
+        "value"                                           "1 2 3 3 3"
+        "special_bonus_shard"                             "+1"
       }
       "mana_pct"
       {

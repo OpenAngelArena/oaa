@@ -47,10 +47,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_lucience_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3126"
+    "ItemCost"                                            "3125"
     "ItemShopTags"                                        "str;int;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience;lucio"
@@ -69,8 +70,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "15 25 40 60"
-      "bonus_intellect"                                   "15 25 40 60"
+      "bonus_strength"                                    "12 22 37 57"
+      "bonus_intellect"                                   "12 22 37 57"
       "aura_bonus_hp_regen"                               "60 80 120 180"
       "aura_bonus_mana_regen"                             "1.75 2.25 3.0 4.0"
       "aura_percentage_bonus_movement_speed"              "20 25 30 35"

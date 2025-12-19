@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Earthshaker Aftershock
+  // Earthshaker: Aftershock
   //=================================================================================================================
   "earthshaker_aftershock"
   {
@@ -24,25 +24,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aftershock_range"
+      "aftershock_range" //OAA, intentional buff
       {
-        "value"                                           "350"
+        "value"                                           "325" // if changing this, update aftershock_range_tooltip
         "affected_by_aoe_increase"                        "1"
       }
       "aftershock_damage" //OAA
       {
-        "value"                                           "70 100 130 160 320 640"
+        "value"                                           "65 90 115 140 280 560"
         "special_bonus_unique_earthshaker_6"              "+100"
       }
-      "aftershock_range_increase_per_level_interval" //OAA
+      "aftershock_range_increase_per_level_interval"
       {
         "value"                                           "0"
-        "special_bonus_facet_earthshaker_tectonic_buildup"  "+40"
+        "special_bonus_facet_earthshaker_tectonic_buildup"  "+30"
       }
-      "aftershock_range_level_interval"
+      "aftershock_range_tooltip" //OAA, intentional buff
       {
-        "value"                                           "0"
-        "special_bonus_facet_earthshaker_tectonic_buildup"  "+10"
+        "value"                                           "325"  // if changing this, update aftershock_range
+        "affected_by_aoe_increase"                        "1"
+        "dynamic_value"                                   "true"
+        "special_bonus_facet_earthshaker_tectonic_buildup"  "+0"
       }
     }
   }

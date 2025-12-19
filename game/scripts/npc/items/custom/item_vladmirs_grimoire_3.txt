@@ -50,10 +50,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_vladmirs_grimoire_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9152"
+    "ItemCost"                                            "9150"
     "ItemShopTags"                                        "mana_pool;damage;armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
@@ -68,7 +69,7 @@
       "bonus_health"                                      "175 275 425 625 875"
       "bonus_mana"                                        "175 275 425 625 875"
       // Vladmir Aura
-      "armor_aura"                                        "4 5 7 10 14"
+      "armor_aura"                                        "3 4 6 9 13"
       "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
       "lifesteal_aura"                                    "20 25 30 35 40"
       "damage_aura"                                       "18 22 26 30 34"

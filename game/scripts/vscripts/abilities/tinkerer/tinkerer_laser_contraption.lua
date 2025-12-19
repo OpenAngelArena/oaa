@@ -195,29 +195,29 @@ function modifier_tinkerer_laser_contraption_thinker:IsPurgable()
   return false
 end
 
-function modifier_tinkerer_laser_contraption_thinker:IsAura()
-  return self:GetCaster():HasScepter()
-end
+-- function modifier_tinkerer_laser_contraption_thinker:IsAura()
+  -- return self:GetCaster():HasScepter()
+-- end
 
-function modifier_tinkerer_laser_contraption_thinker:GetModifierAura()
-  return "modifier_tinkerer_laser_contraption_debuff"
-end
+-- function modifier_tinkerer_laser_contraption_thinker:GetModifierAura()
+  -- return "modifier_tinkerer_laser_contraption_debuff"
+-- end
 
-function modifier_tinkerer_laser_contraption_thinker:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("radius")
-end
+-- function modifier_tinkerer_laser_contraption_thinker:GetAuraRadius()
+  -- return self:GetAbility():GetSpecialValueFor("radius")
+-- end
 
-function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_ENEMY
-end
+-- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchTeam()
+  -- return DOTA_UNIT_TARGET_TEAM_ENEMY
+-- end
 
-function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
-end
+-- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
+  -- return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+-- end
 
-function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_NONE
-end
+-- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
+  -- return DOTA_UNIT_TARGET_FLAG_NONE
+-- end
 
 function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   if not IsServer() then
@@ -359,6 +359,14 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
+      if caster:HasScepter() then
+        -- Apply Heal reduction debuff
+        if not enemy:HasModifier("modifier_tinkerer_laser_contraption_debuff") then
+          enemy:AddNewModifier(caster, ability, "modifier_tinkerer_laser_contraption_debuff", {duration = self:GetRemainingTime() + 0.5})
+        end
+        -- Apply Health Restoration reduction debuff (it will refresh with each interval tick)
+        enemy:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", self:GetRemainingTime())
+      end
       -- Actual damage
       damage_table.victim = enemy
       ApplyDamage(damage_table)
@@ -413,6 +421,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end
@@ -447,12 +456,39 @@ end
 
 modifier_tinkerer_laser_contraption_debuff.OnRefresh = modifier_tinkerer_laser_contraption_debuff.OnCreated
 
+function modifier_tinkerer_laser_contraption_debuff:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, -- GetModifierHealAmplify_PercentageTarget
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION, -- GetModifierPropertyRestorationAmplification
+    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE, -- GetModifierPropertyRestorationAmplificationUnique
   }
 end
 
@@ -460,17 +496,30 @@ function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_Perce
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Percentage()
-  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
-end
+-- Still works but we need all health restoration
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplification()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
+
+-- Doesn't work, Thanks Valve!
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplificationUnique()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
 
 -- function modifier_tinkerer_laser_contraption_debuff:CheckState()
   -- return {
@@ -558,7 +607,11 @@ if IsServer() then
 
     -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then
-      parent:Kill(ability, attacker)
+      if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        parent:ForceKillOAA(false)
+      else
+        parent:Kill(ability, attacker)
+      end
     else
       parent:SetHealth(parent:GetHealth() - damage)
     end

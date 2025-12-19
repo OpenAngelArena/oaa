@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mars Arena of Blood
+  // Mars: Arena of Blood
   //=================================================================================================================
   "mars_arena_of_blood"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -34,9 +34,9 @@
       "AbilityCooldown"
       {
         "value"                                           "100 95 90 85 80"
-        "special_bonus_unique_mars_arena_cooldown"        "-20"
+        "special_bonus_unique_mars_arena_cooldown"        "-16"
       }
-      "duration"                                          "5 6 7 8 9"
+      "duration"                                          "5.5"
       "radius"
       {
         "value"                                           "550"
@@ -75,7 +75,11 @@
       "allied_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+50"               
+        "special_bonus_facet_mars_victory_feast"          "+50"
+      }
+      "health_regen"
+      {
+        "special_bonus_unique_mars_arena_of_blood_hp_regen"  "180"
       }
     }
   }

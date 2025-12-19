@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5201"
+    "ItemCost"                                            "5200"
     "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud 2;es 2"
@@ -48,6 +48,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_eternal_shroud_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

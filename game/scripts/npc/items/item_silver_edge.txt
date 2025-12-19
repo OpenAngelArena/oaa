@@ -41,11 +41,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_silver_edge;item_silver_edge_2;item_silver_edge_3;item_silver_edge_4"
+    "UpgradesItems"                                       "item_silver_edge_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5800"
+    "ItemCost"                                            "5700"
     "ItemShopTags"                                        "damage;attack_speed;crit;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sb;invis;shadow blade;silver edge"
@@ -67,6 +67,8 @@
       "windwalk_bonus_damage"                             "300 400 500 600 700"
       "backstab_duration"                                 "6"
       "visibility_radius"                                 "1025"
+      // Vanilla includes max_movement_speed as a separate key; include it to match structure
+      "max_movement_speed"                                "200"
     }
   }
 }

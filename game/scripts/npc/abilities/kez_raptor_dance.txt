@@ -7,12 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,11 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "1.0"
+    "AbilityCastPoint"                                    "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,10 +33,13 @@
       "AbilityCooldown"
       {
         "value"                                           "40 35 30 25 20"
-        "special_bonus_unique_kez_ultimate_cooldown"      "-4"
       }
       "strike_interval"                                   "0.25"
-      "strikes"                                           "2 3 4 5 6"
+      "strikes"
+      {
+        "value"                                           "4"
+        "special_bonus_unique_kez_raptor_dance_strikes"   "+1"
+      }
       "radius"
       {
         "value"                                           "450"
@@ -49,15 +48,16 @@
       }
       "base_damage"
       {
-        "value"                                           "75"
+        "value"                                           "30 60 90 150 210"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "max_health_damage_pct"
       {
-        "value"                                           "4"
+        "value"                                           "2.5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "lifesteal_pct"                                     "100"
+      "illusion_lifesteal_pct"                            "20"
       "invuln_period"                                     "0.2"
       "magic_resist"                                      "100"
       "hard_dispel"                                       "0"

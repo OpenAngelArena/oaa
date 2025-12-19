@@ -22,7 +22,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
     "AbilityDuration"                                     "35" //OAA, same as decay_duration, Valve has it wrong
 
     // Cost
@@ -36,7 +35,7 @@
       "decay_damage"
       {
         "value"                                           "20 60 100 140 280 560"
-        "special_bonus_unique_undying_8"                  "+40"
+        "special_bonus_unique_undying_8"                  "+30"
       }
       "str_steal" //OAA
       {
@@ -55,6 +54,11 @@
       "str_scale_up"                                      "2"
       "creep_damage_multiplier"                           "2.0"
       "shard_buff_duration"                               "40"
+      "AbilityCooldown"
+      {
+        "value"                                           "13 10 7 4 4 4"
+        "special_bonus_unique_undying_2"                  "-2"
+      }
     }
   }
 }

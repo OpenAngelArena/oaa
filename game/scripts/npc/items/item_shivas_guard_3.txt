@@ -48,10 +48,11 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_shivas_guard_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8777"
+    "ItemCost"                                            "8775"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard 3;shivas guard 3;shiva 3"
@@ -82,7 +83,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "blast_speed"                                       "400"
-      "hp_regen_degen_aura"                               "25"
+      "restoration_reduction_aura"                        "25"
       "illusion_multiplier_pct"                           "100"
       "spell_amp"                                         "15 18 21 24 27"
       "resist_debuff_duration"                            "16.0"

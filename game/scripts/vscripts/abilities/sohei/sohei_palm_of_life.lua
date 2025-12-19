@@ -197,7 +197,7 @@ if IsServer() then
         ParticleManager:SetParticleControl( part, 1, Vector( self.target:GetModelRadius(), 1, 1 ) )
         ParticleManager:ReleaseParticleIndex( part )
 
-				SendOverheadEventMessage( nil, 10, self.target, healAmount, nil )
+				SendOverheadEventMessage( nil, OVERHEAD_ALERT_HEAL, self.target, healAmount, nil )
 
 				-- undo momentum charge
 				local modMomentum = parent:FindModifierByName( "modifier_sohei_momentum_passive" )

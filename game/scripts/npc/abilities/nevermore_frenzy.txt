@@ -16,8 +16,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0"
-    "AbilityManaCost"                                     "60"
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,6 +27,10 @@
       {
         "value"                                           "40 55 70 85 100 115"
         "special_bonus_unique_nevermore_4"                "+30"
+      }
+      "bonus_move_speed"
+      {
+        "value"                                           "5 7 9 11 13 15"
       }
       "cast_speed_pct" //OAA
       {
@@ -38,8 +42,9 @@
         "value"                                           "0"
         "special_bonus_unique_nevermore_frenzy_castspeed"  "=120"
       }
-      "duration"                                          "7.5 8 8.5 9 9.5 10"
+      "duration"                                          "8"
       "soul_cost"                                         "5"
+      "max_soul_increase"                                 "5"
     }
   }
 

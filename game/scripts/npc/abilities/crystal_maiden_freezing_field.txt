@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -47,13 +47,13 @@
       }
       "damage" //OAA
       {
-        "value"                                           "105 180 255 405 555"
+        "value"                                           "110 185 260 410 560"
         "special_bonus_unique_crystal_maiden_3"           "+75"
       }
       "frostbite_delay" // negative means don't apply.
       {
         "value"                                           "-1"
-        "special_bonus_scepter"                           "+3.5"
+        "special_bonus_scepter"                           "+3.0"
       }
       "shard_bonus_explosion"
       {

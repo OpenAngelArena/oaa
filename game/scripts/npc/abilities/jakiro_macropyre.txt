@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Jakiro's Macropyre
+  // Jakiro: Macropyre
   //=================================================================================================================
   "jakiro_macropyre"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -42,7 +42,6 @@
       "path_width"
       {
         "value"                                           "500"
-        "special_bonus_scepter"                           "+70"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"
@@ -55,7 +54,7 @@
         "value"                                           "1400"
       }
       "burn_interval"                                     "0.5"
-      "linger_duration"                                   "2"
+      "linger_duration"                                   "1"
       "pure_damage_type"
       {
         "value"                                           "0"
@@ -70,6 +69,11 @@
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+50"
+      }
+      "ice_edge_path_offset"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+20"
       }
       "ice_edge_linger_duration"
       {

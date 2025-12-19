@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Death Coil
+  // Abaddon: Mist Coil
   //=================================================================================================================
   "abaddon_death_coil"
   {
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.5 6.0 5.5 5.0 5.0 5.0"
+    "AbilityCooldown"                                     "8 7 6 5 4 3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +38,14 @@
       {
         "value"                                           "40"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "self_damage_enemy_target"
+      {
+        "value"                                           "40"
+        "special_bonus_facet_abaddon_mists_of_fate"       "=70"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "missile_speed"                                     "1300"
       "target_damage" //OAA
@@ -55,6 +63,16 @@
         "value"                                           "0"
         "special_bonus_unique_abaddon_4"                  "+350"
         "affected_by_aoe_increase"                        "1"
+      }
+      "perform_attack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_abaddon_mists_of_fate"       "+1"
+      }
+      "damage_percentage_on_perform_attack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_abaddon_mists_of_fate"       "=40 =60 =80 =100 =100 =100"
       }
     }
   }

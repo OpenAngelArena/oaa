@@ -137,7 +137,11 @@ if IsServer() then
     end
     -- To prevent dead nimbuses staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then
-      parent:Kill(self.ability, attacker)
+      if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+        parent:ForceKillOAA(false)
+      else
+        parent:Kill(self.ability, attacker)
+      end
     else
       parent:SetHealth(parent:GetHealth() - damage)
     end
@@ -296,4 +300,15 @@ end
 
 function modifier_zuus_bolt_true_sight:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+function modifier_zuus_bolt_true_sight:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
+    parent:ForceKillOAA(false)
+  end
 end

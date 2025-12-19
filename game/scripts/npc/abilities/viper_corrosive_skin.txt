@@ -18,14 +18,15 @@
     "AbilityValues"
     {
       "duration"                                          "4.0"
-      "bonus_attack_speed"
+      "bonus_attack_speed" // with scepter: multiplied by effect_multiplier within effect_multiplier_distance radius
       {
-        "value"                                           "8 16 24 32 36 40"
-        "special_bonus_unique_viper_6"                    "+20"
+        "value"                                           "9 18 27 36 40 45"
+        "display_type"                                    "kDebuffValue"
       }
       "bonus_magic_resistance"
       {
         "value"                                           "10 15 20 25 30 35"
+        "display_type"                                    "kBuffPercentage"
       }
       "damage"
       {
@@ -45,6 +46,7 @@
       "effect_multiplier"
       {
         "special_bonus_scepter"                           "4"
+        "display_type"                                    "kBuffPercentage"
       }
       "nethertoxin_bonus_pct"
       {
@@ -52,7 +54,7 @@
       }
       "nethertoxin_bonus_pct_max_duration_tooltip"
       {
-        "special_bonus_facet_viper_caustic_bath"          "=4.0"
+        "special_bonus_facet_viper_caustic_bath"          "=5.0"
       }
     }
   }

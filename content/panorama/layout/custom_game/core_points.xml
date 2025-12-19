@@ -7,12 +7,56 @@
     <include src="file://{resources}/scripts/custom_game/core_points.js" />
   </scripts>
 
-  <Panel hittest="false" class='ResourcePanel'>
-    <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#oaa_core_points)" onmouseout="UIHideTextTooltip()">
-      <Image id="CorePointsIcon" src="file://{images}/items/custom/upgrade_core.png"/>
+  <Panel class='ResourcePanel'>
+    <Panel id="CorePointsExchangePanel">
+      <Panel id ="CorePointRow5" class="CorePointRow">
+        <Panel class="UpgradeCoreIconPanel">
+          <Image class="UpgradeCoreIcon" src="file://{images}/items/custom/upgrade_core_5.png"/>
+        </Panel>
+        <Panel class="UpgradeCoreTextPanel">
+          <Label class="UpgradeCoreText" text="Upgrade Core 5"/>
+        </Panel>
+      </Panel>
+      <Panel id="CorePointRow4" class="CorePointRow">
+        <Panel class="UpgradeCoreIconPanel">
+          <Image class="UpgradeCoreIcon" src="file://{images}/items/custom/upgrade_core_4.png"/>
+        </Panel>
+        <Panel class="UpgradeCoreTextPanel">
+          <Label class="UpgradeCoreText" text="Upgrade Core 4"/>
+        </Panel>
+      </Panel>
+      <Panel id="CorePointRow3" class="CorePointRow">
+        <Panel class="UpgradeCoreIconPanel">
+          <Image class="UpgradeCoreIcon" src="file://{images}/items/custom/upgrade_core_3.png"/>
+        </Panel>
+        <Panel class="UpgradeCoreTextPanel">
+          <Label class="UpgradeCoreText" text="Upgrade Core 3"/>
+        </Panel>
+      </Panel>
+      <Panel id="CorePointRow2" class="CorePointRow">
+        <Panel class="UpgradeCoreIconPanel">
+          <Image class="UpgradeCoreIcon" src="file://{images}/items/custom/upgrade_core_2.png"/>
+        </Panel>
+        <Panel class="UpgradeCoreTextPanel">
+          <Label class="UpgradeCoreText" text="Upgrade Core 2"/>
+        </Panel>
+      </Panel>
+      <Panel id="CorePointRow1" class="CorePointRow">
+        <Panel class="UpgradeCoreIconPanel">
+          <Image class="UpgradeCoreIcon" src="file://{images}/items/custom/upgrade_core.png"/>
+        </Panel>
+        <Panel class="UpgradeCoreTextPanel">
+          <Label class="UpgradeCoreText" text="Upgrade Core 1"/>
+        </Panel>
+      </Panel>
     </Panel>
-    <Panel class="CorePointsLabelPanel" onmouseover="UIShowTextTooltip(#oaa_core_points_tip)" onmouseout="UIHideTextTooltip()">
-      <Label id="CorePointsText" text="0" html="true" class="TitleFont" />
+    <Panel class='CorePointsPanel'>
+      <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#oaa_core_points)" onmouseout="UIHideTextTooltip()">
+        <Image id="CorePointsIcon" src="file://{images}/items/custom/upgrade_core.png"/>
+      </Panel>
+      <Panel class="CorePointsLabelPanel">
+        <Label id="CorePointsText" text="0" html="true" class="TitleFont" />
+      </Panel>
     </Panel>
   </Panel>
 </root>

@@ -47,7 +47,7 @@
       "attack_damage" // percentage of attack damage
       {
         "value"                                           "0"
-        "special_bonus_unique_pangolier_3"                "+15"
+        "special_bonus_unique_pangolier_3"                "+20"
       }
       "dash_speed"                                        "2000"
       "attack_interval"                                   "0.1"
@@ -66,6 +66,9 @@
         "value"                                           "3"
       }
       "procs_onhit_effects"                               "1"
+      "slow_duration"                                     "0.4"
+      "slow_percent"                                      "100"
+      "damage_penalty"                                    "25"
     }
   }
 }

@@ -48,10 +48,11 @@
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34054"
+    "ItemCost"                                            "34050"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal 2"
@@ -66,7 +67,7 @@
       "bonus_damage"                                      "85 125"
       "bonus_status_resist"                               "20 22"
       //"bonus_slow_resist"                                 "20 22"
-      "dmg_reduction_while_stunned"                       "25 30"
+      "dmg_reduction_while_stunned"                       "20 22"
       "cooldown_tooltip"                                  "24 18"
       "active_duration"                                   "2"
       "active_status_resist"                              "50"

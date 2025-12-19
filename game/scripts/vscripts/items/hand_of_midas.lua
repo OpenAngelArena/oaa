@@ -44,7 +44,7 @@ function item_hand_of_midas_1:OnSpellStart()
 
   if player then
     -- Overhead gold amount popup
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, target, bonusGold, player)
+    SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, target, bonusGold, nil)
     -- If the Hand of Midas user is a Spirit Bear or Arc Warden Tempest Double:
     if not caster:IsHero() or caster:IsTempestDouble() or caster:IsSpiritBearOAA() then
       caster = player:GetAssignedHero()
@@ -67,10 +67,16 @@ function item_hand_of_midas_1:OnSpellStart()
   --target:SetMaximumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems
 
   -- Madstone drop
-  local madstone = CreateItem("item_madstone_bundle", nil, nil) -- CDOTA_Item
-  madstone:SetPurchaseTime(0)
-  CreateItemOnPositionSync(target:GetAbsOrigin(), madstone) -- CDOTA_Item_Physical
-  madstone:LaunchLoot(false, 300, 0.25, location, nil)
+  if target:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    local madstone = CreateItem("item_madstone_bundle", nil, nil) -- CDOTA_Item
+    madstone:SetPurchaseTime(0)
+    CreateItemOnPositionSync(target:GetAbsOrigin(), madstone) -- CDOTA_Item_Physical
+    madstone:LaunchLoot(false, 300, 0.25, location, nil)
+  end
 
-  target:Kill(self, caster)
+  if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    target:ForceKillOAA(false)
+  else
+    target:Kill(self, caster)
+  end
 end

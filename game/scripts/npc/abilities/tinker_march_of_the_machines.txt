@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinker: March of the Machines
+  // Tinkerer: March of the Machines
   //=================================================================================================================
   "tinker_march_of_the_machines"
   {
@@ -34,7 +34,7 @@
     {
       "AbilityCooldown" // OAA
       {
-        "value"                                           "25.0 23.0 21.0 19.0 17.0 15.0"
+        "value"                                           "25 23 21 19 17 15"
         "special_bonus_unique_tinkerer_6"                 "-6"
       }
       "radius"
@@ -42,30 +42,31 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "collision_radius"                                  "75" // OAA
+      "collision_radius"                                  "50 55 60 65 70 75" //OAA
       "splash_radius"                                     "150"
-      "duration" // OAA
+      "duration" //OAA
       {
-        "value"                                           "6.0"
-        "special_bonus_unique_tinkerer_5"                 "+1.0"
+        "value"                                           "7.0"
+        "special_bonus_unique_tinker_march_duration"      "+1.0"
       }
       "speed"                                             "400"
       "machines_per_sec"                                  "24 26 28 30 32 34" // OAA
       "distance"                                          "1800"
       "damage" // OAA
       {
-        "value"                                           "17 26 35 44 62 80"
-        "special_bonus_unique_tinkerer_7"                 "+14"
+        "value"                                           "13 22 31 40 58 76"
+        "special_bonus_unique_tinkerer_7"                 "+16"
       }
       "heal_per_second"
       {
         "value"                                           "0"
         "special_bonus_facet_tinker_repair_bots"          "+14 +21 +28 +35 +70 +105"
       }
-      "heal_duration"
+      "heal_duration"  // OAA
       {
         "value"                                           "0"
         "special_bonus_facet_tinker_repair_bots"          "+4"
+        "special_bonus_unique_tinkerer_5"                 "+1.0"
       }
     }
   }

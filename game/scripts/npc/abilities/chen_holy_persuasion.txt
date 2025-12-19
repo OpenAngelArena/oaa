@@ -43,18 +43,16 @@
       "movement_speed_bonus"                              "5 10 20 30 45 60"
       "damage_bonus" //OAA
       {
-        "value"                                           "10 20 30 40 80 160"
-        "special_bonus_unique_chen_5"                     "+24"
+        "value"                                           "10 15 20 25 50 100"
+        "special_bonus_unique_chen_5"                     "+15"
       }
       "is_martyr"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+1"
       }
       "current_hp_pct_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+30.0" // TOOLTIP ONLY, reflects current_hp_pct in chen_martyrdom
       }
       "creep_ability_level"
       {

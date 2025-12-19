@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Lina Laguna Blade
+  // Lina: Laguna Blade
   //=================================================================================================================
   "lina_laguna_blade"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -20,12 +20,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 300 450 900 1350"
+    "AbilityManaCost"                                     "150 300 450 600 750"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,24 +34,6 @@
       "damage" //OAA
       {
         "value"                                           "500 900 1300 2100 2900"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "impact_damage_pct"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "burn_damage_tooltip" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_lina_dot"                    "=500 =900 =1300 =2100 =2900"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_percent_tooltip"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-      }
-      "burn_duration_tooltip"
-      {
-        "value"                                           "0"
-        "LinkedSpecialBonus"                              "lina_slow_burn"
-        "LinkedSpecialBonusField"                         "burn_duration"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_ADD"
       }
       "damage_delay"                                      "0.25"
       "AbilityCooldown" //OAA
@@ -67,7 +49,7 @@
       {
         "special_bonus_facet_lina_supercharge"            "+5"
       }
-      "supercharge_stacks" //OAA
+      "supercharge_stacks" //OAA, intentional nerf
       {
         "value"                                           "0"
         "special_bonus_facet_lina_supercharge"            "=8 =9 =10 =11 =12"

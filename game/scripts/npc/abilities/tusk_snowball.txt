@@ -23,10 +23,6 @@
     "AbilityCastRange"                                    "1150"
     "AbilityCastPoint"                                    "0.1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 15 15" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
@@ -63,10 +59,15 @@
       "snowball_windup"                                   "3.0"
       "snowball_grab_radius"
       {
-        "value"                                           "350"
+        "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
       "snowball_speed_bonus"                              "50"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "18 17 16 15 15 15"
+        "special_bonus_unique_tusk_6"                     "-8"
+      }
     }
   }
 }

@@ -34,15 +34,19 @@
       "attack_damage_reduction" //OAA
       {
         "value"                                           "25 28 31 34 37 40"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "total_attack_damage_reduction"
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_5"                    "+1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "armor"
       {
-        "value"                                           "4 5 6 7 9 13"
+        "value"                                           "4 5 6 7 9 11"
         "special_bonus_unique_lycan_howl_armor"           "+3"
       }
       "radius" //OAA, during night time it's global

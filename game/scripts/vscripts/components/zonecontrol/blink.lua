@@ -20,8 +20,6 @@ if BlinkBlock == nil then
   Debug.EnabledModules['zonecontrol:blink'] = false
 end
 
--- todo: support items
-
 function BlinkBlock:Init ()
   self.moduleName = "BlinkBlock"
   ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(BlinkBlock, 'OnAbilityUsed'), self)
@@ -33,7 +31,6 @@ function BlinkBlock:OnAbilityUsed(keys)
   local hero = player:GetAssignedHero()
   local startPos = hero:GetAbsOrigin()
 
-  -- todo: Meepo will break this
   -- todo: allow things like natures profit
   Timers:CreateTimer(0.01, function ()
     if not hero or hero:IsNull() then

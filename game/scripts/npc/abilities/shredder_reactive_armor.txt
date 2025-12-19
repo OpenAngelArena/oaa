@@ -22,7 +22,7 @@
       "bonus_hp_regen" //OAA
       {
         "value"                                           "0.5 1.2 1.9 2.6 3.3 4.0" // total regen: 4/9.6/15.2/20.8/26.4/32
-        "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.2" // with both talents: 8.4/14.4/25.2/33.6/42/50.4
+        "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.25" // with both talents: 9/17.4/25.8/34.2/42.6/51
       }
       "stack_limit" //OAA
       {
@@ -42,13 +42,13 @@
       {
         "special_bonus_scepter"                           "+200"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "special_bonus_scepter"                           "45"
+        "special_bonus_scepter"                           "40"
       }
       "initial_shield"
       {
-        "special_bonus_scepter"                           "200"
+        "special_bonus_scepter"                           "150"
       }
       "shield_per_sec"
       {

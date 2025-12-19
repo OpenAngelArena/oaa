@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -46,7 +46,7 @@
         "special_bonus_unique_axe_5"                      "+200"
       }
       "speed_bonus"                                       "20 25 30 35 40"
-      "armor_bonus"                                       "20 25 30 35 40"
+      "armor_bonus"                                       "10 15 20 25 30"
       "speed_duration"
       {
         "value"                                           "6"

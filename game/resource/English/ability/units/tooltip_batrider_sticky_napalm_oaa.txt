@@ -18,6 +18,7 @@
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_Note0"                         "All damage from Batrider gets amplified, except for Radiance, Blood Grenade, Orb of Venom, Orb of Corrosion, Urn of Shadows, Spirit Vessel, Cloak of Flames, Mage Slayer, Spell Breaker and Blade of Judecca."
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_Note1"                         "#{DOTA_Tooltip_ability_batrider_sticky_napalm_Note1}"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_per_stack"              "EXTRA DAMAGE PER STACK:"
+"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_application_damage"            "APPLICATION DAMAGE:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_duration"                      "#{DOTA_Tooltip_ability_batrider_sticky_napalm_duration}"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_movement_speed_pct"            "%MOVE SPEED SLOW PER STACK:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_turn_rate_pct"                 "#{DOTA_Tooltip_ability_batrider_sticky_napalm_turn_rate_pct}"
@@ -25,7 +26,7 @@
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_creeps"                 "%DAMAGE AGAINST CREEPS:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_ancients"               "%DAMAGE AGAINST ANCIENTS:"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_damage_bosses"                 "%<font color='#FFA500'>DAMAGE AGAINST BOSSES:</font>"
-"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_shard_description"             "Every %shard_number_of_attack_proc%nd attack will apply a stack of Sticky Napalm."
+"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_shard_description"             "Sticky Napalm no longer has a stack limit.<br><br><font color='#FFA500'>Increases damage against bosses</font>."
 
 "DOTA_Tooltip_modifier_batrider_sticky_napalm_oaa_debuff"                       "#{DOTA_Tooltip_modifier_batrider_sticky_napalm}"
 "DOTA_Tooltip_modifier_batrider_sticky_napalm_oaa_debuff_Description"           "Increasing napalm-caster's damage.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."

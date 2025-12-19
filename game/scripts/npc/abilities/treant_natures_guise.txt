@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Treant Protector: Nature's Guise (Innate)
+  //=================================================================================================================
+  "treant_natures_guise"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "grace_time"                                        "2"
+      "cooldown_time"
+      {
+        "value"                                           "2.75"
+      }
+
+      "movement_bonus"
+      {
+        "value"                                           "10"
+        "special_bonus_unique_treant_12"                  "+2.5"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "30"
+        "hero_levelup"                                    "-1"
+        "levelup_interval"                                "2"
+      }
+      "shard_root_time"                                   "0"
+      "shard_by_tree_root_time"                           "0"
+      "shard_damage"                                      "0"
+      "attack_damage_pct"                                 "0"
+      "shard_cooldown"                                    "0"
+    }
+  }
+}

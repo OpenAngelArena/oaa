@@ -12,10 +12,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "30 40 50 60 70 80"
@@ -25,10 +21,15 @@
       "movement_speed"                                    "8 12 16 20 28 36"
       "status_resistance"                                 "40 46 52 58 64 70" //OAA
       "duration"                                          "8"
-      "damage_barrier" //OAA
+      "damage_barrier"
       {
         "value"                                           "0"
-        "special_bonus_unique_spirit_breaker_shield"      "+500"
+        "special_bonus_unique_spirit_breaker_shield"      "+375"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "19 18 17 16 15 14"
+        "special_bonus_unique_spirit_breaker_2"           "-3"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Phantom Lancer's Doppelwalk
+  // Phantom Lancer: Doppelganger
   //=================================================================================================================
   "phantom_lancer_doppelwalk"
   {
@@ -15,12 +15,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575 600 625 650 675 700" //OAA
     "AbilityCastPoint"                                    "0.1"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,11 +46,25 @@
       {
         "value"                                           "1"
       }
-      "cast_range_tooltip"                                "575 600 625 650 675 700" //OAA
-      "hp_missing_per_extra_illusion_pct"                 
+      "hp_missing_per_extra_illusion_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_phantom_lancer_convergence"  "25"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "16 15 14 13 12 11"
+        "special_bonus_unique_phantom_lancer_4"           "-4"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "575"
+        "special_bonus_unique_phantom_lancer_doppelwalk_cast_range"  "+125"
+      }
+      "cast_range_tooltip" //OAA
+      {
+        "value"                                           "575"
+        "special_bonus_unique_phantom_lancer_doppelwalk_cast_range"  "+125"
       }
     }
   }

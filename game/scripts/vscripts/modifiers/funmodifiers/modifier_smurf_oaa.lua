@@ -87,6 +87,7 @@ local ignored_abilities = {
   --monkey_king_wukongs_command_oaa = true,
   --phantom_assassin_blur = true,
   --spectre_desolate = true,
+  item_dezun_bloodrite  = true,
   item_gungir = true,
   item_gungir_2 = true,
   item_gungir_3 = true,
@@ -130,7 +131,7 @@ function modifier_smurf_oaa:ReEquipAllItems()
     local item = parent:GetItemInSlot(i)
     if item then
       local name = item:GetAbilityName()
-      if not string.find(name, "ultimate_scepter") and not string.find(name, "aghanims_scepter") then
+      if not string.find(name, "ultimate_scepter") and not string.find(name, "aghanims_scepter") and not string.find(name, "item_gungir") then
         item:OnUnequip()
         item:OnEquip()
       end

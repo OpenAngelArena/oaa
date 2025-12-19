@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -20,10 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200 300 400 500 600"
@@ -32,6 +28,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120 110 100 90 80"
+        "special_bonus_scepter"                           "-40"
+      }
       "heal_amount" //OAA
       {
         "value"                                           "200 400 600 1200 2200"
@@ -52,6 +53,23 @@
       "full_heal_on_chen_and_creeps"
       {
         "special_bonus_unique_chen_2"                     "=1"
+      }
+      "AbilityChannelTime"
+      {
+        "special_bonus_scepter"                           "=6"
+      }
+      "debuff_immune_radius"
+      {
+        "special_bonus_scepter"                           "=800"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "debuff_immune_resist"
+      {
+        "special_bonus_scepter"                           "60"
+      }
+      "nearby_hot_boost"
+      {
+        "special_bonus_scepter"                           "200"
       }
     }
   }

@@ -24,7 +24,7 @@ end
 
 function crystal_maiden_arcane_magic_oaa:GetBehavior()
   if self:GetSpecialValueFor("activatable") == 1 then
-    return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT
   end
   return DOTA_ABILITY_BEHAVIOR_PASSIVE
 end

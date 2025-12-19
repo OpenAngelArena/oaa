@@ -10,17 +10,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 50 40 40 40" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -45,6 +41,11 @@
       {
         "value"                                           "1"
         "special_bonus_facet_terrorblade_condemned"       "=0"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "60 55 50 45 40"
+        "special_bonus_unique_terrorblade"                "-30"
       }
       "cast_range_tooltip"                                "475 500 525 550 575" //OAA
       "cast_point_tooltip"                                "0.35 0.3 0.25 0.2 0.15" //OAA

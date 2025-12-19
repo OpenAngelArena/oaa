@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Pudge Dismember
+  // Pudge: Dismember
   //=================================================================================================================
   "pudge_dismember"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -40,7 +40,7 @@
       "strength_damage"
       {
         "value"                                           "0.3 0.6 0.9 1.5 2.1"
-        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong lmao
+        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong, not applied during 7.36b
         "CalculateSpellDamageTooltip"                     "0"
       }
       "ticks"

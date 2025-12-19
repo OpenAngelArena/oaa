@@ -113,8 +113,12 @@ function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(key
 
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
-    ParticleManager:SetParticleControl(particle, 1, Vector(nil, 0, 0))
+    --ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0,0,0), true)
+    --ParticleManager:SetParticleControl(particle, 4, parent:GetOrigin() )
+    --ParticleManager:SetParticleControlForward(particle, 0, (parent:GetOrigin()-attacker:GetOrigin()):Normalized())
     ParticleManager:ReleaseParticleIndex(particle)
+
+    parent:EmitSound("Hero_Mars.Shield.Block")
 
     return damage * (ability:GetSpecialValueFor("damage_reduction_pct")) / 100
   end

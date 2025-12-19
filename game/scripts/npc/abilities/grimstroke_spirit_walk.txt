@@ -19,10 +19,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA, special_bonus_unique_grimstroke_7
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500 600 700 800 900 1000"
@@ -56,7 +52,7 @@
       {
         "value"                                           "90 180 270 360 720 1080"
       }
-      "max_stun"                                          "1.6 2.0 2.4 2.8 3.2 3.6" //OAA
+      "max_stun"                                          "1.6 2.0 2.4 2.8 2.9 3.0"
       "damage_per_tick"                                   "6 9 12 15 30 45" // affected by shard_bonus_damage_pct
       "tick_rate"                                         "0.2"
       "tick_dps_tooltip"                                  "30 45 60 75 150 225" // damage_per_tick divided by tick_rate; affected by shard_bonus_damage_pct
@@ -77,6 +73,11 @@
       "shard_creep_penalty"
       {
         "special_bonus_shard"                             "0.2"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "21 20 19 18 17 16"
+        "special_bonus_unique_grimstroke_7"               "-4"
       }
     }
   }

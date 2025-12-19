@@ -77,7 +77,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
       local allyPlayer = PlayerResource:GetPlayer(pID)
 
       Gold:ModifyGold(pID, bounty, false, DOTA_ModifyGold_SharedGold)
-      SendOverheadEventMessage(allyPlayer, OVERHEAD_ALERT_GOLD, killedUnit, math.floor(bounty), allyPlayer)
+      SendOverheadEventMessage(allyPlayer, OVERHEAD_ALERT_GOLD, killedUnit, math.floor(bounty), nil)
     end
   end
 
@@ -121,6 +121,6 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local newBounty = math.ceil((newGoldBountyMin + newGoldBountyMax) / 2)
   local attackingPlayer = PlayerResource:GetPlayer(playerID)
   Gold:ModifyGold(playerID, newBounty, false, DOTA_ModifyGold_CreepKill)
-  SendOverheadEventMessage(attackingPlayer, OVERHEAD_ALERT_GOLD, killedUnit, newBounty, attackingPlayer)
+  SendOverheadEventMessage(attackingPlayer, OVERHEAD_ALERT_GOLD, killedUnit, newBounty, nil)
   ]]
 end)

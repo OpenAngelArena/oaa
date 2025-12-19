@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36104"
+    "ItemCost"                                            "36100"
     "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "disperser 5"
@@ -61,7 +61,8 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-    "UpgradesItems"                                       "item_disperser_5"
+    "UpgradesItems"                                       ""
+
     "UpgradeRecipe"                                       "item_recipe_disperser_5"
 
     // Special
@@ -71,8 +72,8 @@
       "bonus_agility"                                     "40 45 55 70 90"
       "bonus_intellect"                                   "10 15 25 40 60"
       "feedback_mana_burn"                                "40 50 70 100 140"
-      "feedback_mana_burn_illusion_melee"                 "8 18 28 38 48"
-      "feedback_mana_burn_illusion_ranged"                "8 18 28 38 48"
+      "feedback_mana_burn_illusion_melee"                 "0"
+      "feedback_mana_burn_illusion_ranged"                "0"
       "purge_rate"                                        "5"
       "purge_root_duration"                               "3.0"
       "damage_per_burn"                                   "1.0"

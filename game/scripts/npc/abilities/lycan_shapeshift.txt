@@ -8,16 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +33,7 @@
       "transformation_time"                               "1.1"
       "crit_chance"                                       "40"
       "crit_multiplier"                                   "160 190 220 250 280" //OAA, intentional nerf
-      "health_bonus"                                      "250 350 450 750 1050"
+      "health_bonus"                                      "225 325 425 725 1025"
       "is_wolfpack"
       {
         "value"                                           "0"
@@ -47,6 +43,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_lycan_pack_leader"           "+5"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_lycan_8"                    "-15"
       }
     }
   }

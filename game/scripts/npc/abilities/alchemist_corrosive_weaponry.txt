@@ -19,10 +19,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_stacks"                                        "10 12 14 16 18 20"
+      "max_stacks"                                        "7 10 13 16 17 18"
       "debuff_duration"                                   "4.0"
-      "slow_per_stack"                                    "0.5 1 1.5 2 2.5 3" //OAA
-      "attack_damage_per_stack"                           "2" //OAA, base damage reduction
+      "slow_per_stack"                                    "2.0 2.1 2.2 2.3 2.4 2.5" //OAA
+      "attack_dmg_per_stack"                              "1.7 1.8 1.9 2.0 2.1 2.2" //OAA, base damage reduction
       "stacks_per_attack"                                 "2"
       "one_tooltip"                                       "1"
     }

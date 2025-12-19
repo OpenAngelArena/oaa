@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "LevelsBetweenUpgrades"                               "6"
@@ -26,27 +26,22 @@
       }
       "multicast_3_times" //OAA
       {
-        "value"                                           "0 15 20 25 30"
+        "value"                                           "0 28 30 32 34"
         // Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
         "special_bonus_facet_ogre_magi_fat_chance"        "+0"
         "dynamic_value"                                   "true"
       }
-      "multicast_4_times" //OAA, Ogre can get ~40% from STR
+      "multicast_4_times" //OAA
       {
-        "value"                                           "0 0 5 5 5"
+        "value"                                           "0 0 15 16 17"
         // Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
         "special_bonus_facet_ogre_magi_fat_chance"        "+0"
         "dynamic_value"                                   "true"
       }
-      "strength_mult"
+      "strength_mult" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_ogre_magi_fat_chance"        "=0.06"
-      }
-      "required_level"
-      {
-        "value"                                           "6"
-        "special_bonus_facet_ogre_magi_learning_curve"    "-1"
+        "special_bonus_facet_ogre_magi_fat_chance"        "=0.03"
       }
     }
   }

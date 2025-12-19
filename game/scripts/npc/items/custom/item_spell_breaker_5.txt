@@ -46,7 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800"
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "15"
     "AbilitySharedCooldown"                               "spell_breaker"
     "AbilityManaCost"                                     "75"
 
@@ -54,10 +54,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34904"
+    "ItemCost"                                            "34900"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "spell breaker 5;spell disrupter 5; mage bane 5; mage slayer 5"

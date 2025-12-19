@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "1125"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_helm_of_the_dominator"
     "ItemRequirements"
     {
-      "01"                                                "item_helm_of_iron_will;item_diadem"
+      "01"                                                "item_helm_of_iron_will;item_crown"
     }
   }
 
@@ -44,11 +44,11 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "dominate"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2625"
+    "ItemCost"                                            "2550"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hotd;helm of the dominator;helm;dominator"
@@ -65,7 +65,7 @@
       "bonus_armor"                                       "6"
       "bonus_regen"                                       "6"
       "health_min"                                        "1000"
-      "speed_base"                                        "380"
+      "speed_base"                                        "370"
       "bounty_gold"                                       "100"
       "creep_bonus_damage"                                "25"
       "creep_bonus_hp_regen"                              "12"
@@ -74,6 +74,8 @@
       "model_scale"                                       "0"
       "count_limit"                                       "1"
       "creep_ability_level_increase"                      "0"
+      "creep_damage_taken_cooldown"                       "3"
+      "bounty_pct"                                        "50"
     }
   }
 }

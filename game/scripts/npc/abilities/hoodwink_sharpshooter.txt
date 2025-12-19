@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -112,6 +112,10 @@
       {
         "value"                                           "0"
         "special_bonus_facet_hoodwink_hipshot"            "25"    // TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+      }
+      "pierce_debuff_immunity"
+      {
+        "special_bonus_unique_hoodwink_sharpshooter_pure_damage"  "1"
       }
     }
   }

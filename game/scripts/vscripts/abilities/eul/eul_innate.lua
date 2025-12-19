@@ -10,10 +10,22 @@ function eul_innate_oaa:GetIntrinsicModifierName()
 end
 
 ---------------------------------------------------------------------------------------------------
+function StopWindSounds(caster, parent)
+  -- Try to stop sound loops (does not work)
+  local sound_name = "n_creep_Wildkin.Tornado"
+  caster:StopSound(sound_name)
+  StopSoundOn(sound_name, caster)
+  if parent and not parent:IsNull() then
+    parent:StopSound(sound_name)
+    StopSoundOn(sound_name, parent)
+  end
+end
+---------------------------------------------------------------------------------------------------
+
 modifier_eul_innate_oaa = class(ModifierBaseClass)
 
 function modifier_eul_innate_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_eul_innate_oaa:IsDebuff()
@@ -28,9 +40,21 @@ function modifier_eul_innate_oaa:RemoveOnDeath()
   return false
 end
 
+function modifier_eul_innate_oaa:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg_per_int = ability:GetSpecialValueFor("attack_dmg_per_int")
+  else
+    self.dmg_per_int = 0.45
+  end
+end
+
+modifier_eul_innate_oaa.OnRefresh = modifier_eul_innate_oaa.OnCreated
+
 function modifier_eul_innate_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
     MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, spell block and spell reflect
     MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- needed for dispel talent
     MODIFIER_EVENT_ON_DEATH, -- needed for Tornado spawn on death
@@ -39,9 +63,19 @@ function modifier_eul_innate_oaa:DeclareFunctions()
 end
 
 function modifier_eul_innate_oaa:GetModifierBaseAttack_BonusDamage()
-  local int_grants_dmg = self:GetAbility():GetSpecialValueFor("attack_dmg_per_int") == 1
-  if int_grants_dmg then
-    return self:GetParent():GetIntellect(false)
+  local parent = self:GetParent()
+  local int_grants_dmg = self.dmg_per_int > 0
+  if int_grants_dmg and not parent:PassivesDisabled() then
+    return self.dmg_per_int * parent:GetIntellect(false)
+  end
+  return 0
+end
+
+function modifier_eul_innate_oaa:OnTooltip()
+  local parent = self:GetParent()
+  local int_grants_dmg = self.dmg_per_int > 0
+  if int_grants_dmg and not parent:PassivesDisabled() then
+    return self.dmg_per_int * parent:GetIntellect(false)
   end
   return 0
 end
@@ -77,11 +111,29 @@ if IsServer() then
         if dispel then
           target:Purge(true, false, false, false, false)
         end
-        -- Applying the debuff tracker
+        -- Applying the tracker
         target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
       else
         -- Remove the vanilla modifier because vanilla ability isn't blocked - thanks Valve for your consistency
         target:RemoveModifierByNameAndCaster("modifier_enraged_wildkin_hurricane", caster)
+        StopWindSounds(caster, target)
+      end
+    else
+      -- Applying the tracker
+      target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
+      if target == caster and (target:IsRooted() or target:IsLeashedOAA()) then
+        -- Remove the vanilla modifier because vanilla ability will go off
+        target:RemoveModifierByNameAndCaster("modifier_enraged_wildkin_hurricane", caster)
+        StopWindSounds(caster, target)
+        -- Refund cooldown and mana cost
+        cast_ability:EndCooldown()
+        cast_ability:RefundManaCost()
+        -- Errors - rooted/leashed
+        if target:IsRooted() then
+          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(target:GetPlayerOwnerID()), "custom_dota_hud_error_message", {reason = 80, message = "#dota_hud_error_ability_disabled_by_root"})
+        elseif target:IsLeashedOAA() then
+          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(target:GetPlayerOwnerID()), "custom_dota_hud_error_message", {reason = 80, message = "#dota_hud_error_ability_disabled_by_tether"})
+        end
       end
     end
   end
@@ -120,8 +172,13 @@ if IsServer() then
 
   function modifier_eul_innate_oaa:OnDeath(event)
     local parent = self:GetParent()
+    local ability = self:GetAbility()
     local killer = event.attacker
     local dead = event.unit
+
+    if ability:GetSpecialValueFor("spawn_tornado") == 0 then
+      return
+    end
 
     -- Don't continue if parent is an illusion or affected by break
     if parent:IsIllusion() or parent:PassivesDisabled() then
@@ -142,8 +199,11 @@ if IsServer() then
     local dead_dmg = parent:GetAverageTrueAttackDamage(parent)
     local dead_ms = parent:GetIdealSpeedNoSlows()
     local dead_id = parent:GetPlayerOwnerID() or parent:GetPlayerID()
-    local ability = self:GetAbility()
     local tornado_duration = ability:GetSpecialValueFor("tornado_linger_time")
+
+    if tornado_duration <= 0 then
+      return
+    end
 
     local tornado_dmg = dead_dmg * ability:GetSpecialValueFor("attack_damage_as_tornado_damage_pct") * 0.01
 
@@ -168,6 +228,11 @@ if IsServer() then
 
   function modifier_eul_innate_oaa:OnRespawn(event)
     local parent = self:GetParent()
+    local ability = self:GetAbility()
+
+    if ability:GetSpecialValueFor("spawn_tornado") == 0 or ability:GetSpecialValueFor("tornado_linger_time") <= 0 then
+      return
+    end
 
     -- Stuff that shoudln't happen if this ability is put on other heroes
     if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
@@ -251,6 +316,8 @@ function modifier_eul_hurricane_oaa:OnDestroy()
     return
   end
 
+  StopWindSounds(caster, parent)
+
   -- Check if parent is dead
   if not parent:IsAlive() then
     return
@@ -263,23 +330,16 @@ function modifier_eul_hurricane_oaa:OnDestroy()
     end
   end
 
-  local damage_table = {
-    attacker = caster,
-    victim = parent,
-    damage = ability:GetSpecialValueFor("damage"),
-    damage_type = ability:GetAbilityDamageType(),
-    ability = ability,
-  }
+  if caster:GetTeamNumber() ~= parent:GetTeamNumber() then
+    local damage_table = {
+      attacker = caster,
+      victim = parent,
+      damage = ability:GetSpecialValueFor("damage"),
+      damage_type = ability:GetAbilityDamageType(),
+      ability = ability,
+    }
 
-  ApplyDamage(damage_table)
-
-  -- Try to stop sound loops (does not work)
-  local sound_name = "n_creep_Wildkin.Tornado"
-  caster:StopSound(sound_name)
-  StopSoundOn(sound_name, caster)
-  if parent and not parent:IsNull() then
-    parent:StopSound(sound_name)
-    StopSoundOn(sound_name, parent)
+    ApplyDamage(damage_table)
   end
 end
 
@@ -377,11 +437,11 @@ function modifier_eul_innate_oaa_dead_tornado:DeclareFunctions()
 end
 
 function modifier_eul_innate_oaa_dead_tornado:GetBonusDayVision()
-  return 300 -- total vision: 600
+  return 100 -- total vision: 400
 end
 
 function modifier_eul_innate_oaa_dead_tornado:GetBonusNightVision()
-  return 300 -- total vision: 600
+  return 100 -- total vision: 400
 end
 
 function modifier_eul_innate_oaa_dead_tornado:CheckState()

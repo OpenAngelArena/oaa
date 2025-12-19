@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -37,7 +37,7 @@
         "value"                                           "350 350 350 350 350 450"
         "special_bonus_unique_dragon_knight_7"            "+150"
       }
-      "bonus_attack_damage"                               "20 60 100 140 180 220"
+      "bonus_attack_damage"                               "20 50 80 110 140 170"
       "magic_resistance"
       {
         "value"                                           "0"
@@ -71,34 +71,38 @@
       {
         "value"                                           "30 40 50 60 70 80"
       }
-      "frost_breath_effect_bonus"
+      "frost_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_frost_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "corrosive_breath_effect_bonus"
+      "corrosive_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_corrosive_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "fire_breath_effect_bonus"
+      "fire_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "special_bonus_facet_dragon_knight_fire_dragon"
         {
           "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+50"
+          "special_bonus_unique_dragon_knight_8"          "+25"
         }
       }
-      "wyrms_wrath_bonus_tooltip"
+      "wyrms_wrath_bonus_tooltip" //OAA, because of special_bonus_unique_dragon_knight_8
       {
         "value"                                           "20 30 40 50 55 60"
-        "special_bonus_unique_dragon_knight_8"            "+50"
+        "special_bonus_unique_dragon_knight_8"            "+25"
+      }
+      "health_bar_offset"
+      {
+        "value"                                           "300"
       }
     }
   }

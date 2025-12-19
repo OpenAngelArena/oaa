@@ -64,13 +64,15 @@
 //"DOTA_Tooltip_ability_tornado_tempest"                                          "Tempest"
 //"DOTA_Tooltip_ability_tornado_tempest_Description"                              "The Tornado's overpowering winds slow all nearby enemies, flinging debris at them and inflicting damage every second. Enemies closer to the center of the Tornado take more damage."
 "DOTA_Tooltip_ability_eul_innate_oaa"                                           "#{DOTA_Tooltip_ability_tornado_tempest}"
-"DOTA_Tooltip_ability_eul_innate_oaa_Description"                               "Eul will stay on the battlefield even after death as a Tornado that slows and deals damage based on his attack damage. Tornado's movement speed is the same as the hero's movement speed."
-"DOTA_Tooltip_ability_eul_innate_oaa_Lore"                                      "The Tornado's overpowering winds slow, fling debris and inflict damage. Enemies closer to the center of the Tornado take more damage."
-"DOTA_Tooltip_ability_eul_innate_oaa_tornado_linger_time"                       "TORNADO DURATION:"
-"DOTA_Tooltip_ability_eul_innate_oaa_movespeed_slow"                            "%MOVE SPEED SLOW:"
-"DOTA_Tooltip_ability_eul_innate_oaa_attackspeed_slow"                          "%ATTACK SPEED SLOW:"
-"DOTA_Tooltip_ability_eul_innate_oaa_tornado_radius"                            "TORNADO RADIUS:"
-"DOTA_Tooltip_ability_eul_innate_oaa_attack_damage_as_tornado_damage_pct"       "%ATTACK DAMAGE AS TORNADO DPS:"
+//"DOTA_Tooltip_ability_eul_innate_oaa_Description"                               "Eul will stay on the battlefield even after death as a Tornado that slows and deals damage based on his attack damage. Tornado's movement speed is the same as the hero's movement speed."
+"DOTA_Tooltip_ability_eul_innate_oaa_Description"                               "Eul will gain some base attack damage from Intelligence too."
+"DOTA_Tooltip_ability_eul_innate_oaa_Lore"                                      "Overpowering winds slow, fling debris and inflict damage."
+//"DOTA_Tooltip_ability_eul_innate_oaa_tornado_linger_time"                       "TORNADO DURATION:"
+//"DOTA_Tooltip_ability_eul_innate_oaa_movespeed_slow"                            "%MOVE SPEED SLOW:"
+//"DOTA_Tooltip_ability_eul_innate_oaa_attackspeed_slow"                          "%ATTACK SPEED SLOW:"
+//"DOTA_Tooltip_ability_eul_innate_oaa_tornado_radius"                            "TORNADO RADIUS:"
+//"DOTA_Tooltip_ability_eul_innate_oaa_attack_damage_as_tornado_damage_pct"       "%ATTACK DAMAGE AS TORNADO DPS:"
+"DOTA_Tooltip_ability_eul_innate_oaa_attack_dmg_per_int"                        "ATTACK DAMAGE PER INT:"
 
 // modifiers
 //"DOTA_Tooltip_modifier_enraged_wildkin_hurricane"                               "Hurricaned"
@@ -92,6 +94,9 @@
 //"DOTA_Tooltip_modifier_tornado_tempest_debuff_Description"                      "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%. Taking damage per second based on proximity to the Tornado."
 "DOTA_Tooltip_modifier_eul_innate_oaa_dead_tornado_debuff"                      "#{DOTA_Tooltip_modifier_tornado_tempest_debuff}"
 "DOTA_Tooltip_modifier_eul_innate_oaa_dead_tornado_debuff_Description"          "Taking damage, move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%."
+
+"DOTA_Tooltip_modifier_eul_innate_oaa"                                          "#{DOTA_Tooltip_ability_eul_innate_oaa}"
+"DOTA_Tooltip_modifier_eul_innate_oaa_Description"                              "Bonus %dMODIFIER_PROPERTY_TOOLTIP% base attack damage."
 
 // talents
 "DOTA_Tooltip_Ability_special_bonus_unique_eul_1_oaa"                           "+{s:bonus_damage} Hurricane Damage"

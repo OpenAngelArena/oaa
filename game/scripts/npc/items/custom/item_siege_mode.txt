@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17453"
+    "ItemCost"                                            "17450"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -58,7 +58,7 @@
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_siege_mode"
+    "UpgradesItems"                                       "item_siege_mode_2"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -79,7 +79,7 @@
       "bonus_agility"                                     "47 67"
       "bonus_strength"                                    "27 32"
       "bonus_intellect"                                   "27 32"
-      "bonus_attack_range"                                "180 190" // ranged only
+      "bonus_attack_range"                                "170 180" // ranged only
       "passive_splash_radius"
       {
         "value"                                           "250"

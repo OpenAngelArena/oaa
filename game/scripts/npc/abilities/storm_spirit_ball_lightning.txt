@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Storm Spirit Ball Lightning
+  // Storm Spirit: Ball Lightning
   //=================================================================================================================
   "storm_spirit_ball_lightning"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -49,6 +49,10 @@
       }
       "blocker_duration"                                  "5"
       "scepter_remnant_interval"                          "300"
+      "auto_remnant_interval"
+      {
+        "special_bonus_unique_storm_spirit_4"             "450"
+      }
     }
   }
 

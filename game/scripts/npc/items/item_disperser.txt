@@ -32,7 +32,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //OAA, Valve forgot
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //OAA, Valve forgot, DOTA_ABILITY_BEHAVIOR_AOE not removed during 7.35c
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot
@@ -60,7 +60,8 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_disperser"
+    "UpgradesItems"                                       "item_disperser_2"
+
     "UpgradeRecipe"                                       "item_recipe_disperser" // if there is a bug related to buying, it's caused by this
 
     // Special
@@ -70,8 +71,8 @@
       "bonus_agility"                                     "40 45 55 70 90"
       "bonus_intellect"                                   "10 15 25 40 60"
       "feedback_mana_burn"                                "40 50 70 100 140"
-      "feedback_mana_burn_illusion_melee"                 "8 18 28 38 48"
-      "feedback_mana_burn_illusion_ranged"                "8 18 28 38 48"
+      "feedback_mana_burn_illusion_melee"                 "0"
+      "feedback_mana_burn_illusion_ranged"                "0"
       "purge_rate"                                        "5"
       "purge_root_duration"                               "3.0"
       "damage_per_burn"                                   "1.0"

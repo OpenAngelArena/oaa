@@ -51,11 +51,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_ghost_king_bar_3;item_ghost_king_bar_4;item_ghost_king_bar_5"
+    "UpgradesItems"                                       "item_ghost_king_bar_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9177"
+    "ItemCost"                                            "9175"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -69,7 +69,7 @@
       "bonus_health"                                      "0"
       "bonus_mana"                                        "0"
       "bonus_all_stats"                                   "15 20 25 30 35"
-      "heal_amp"                                          "27 29 31 33 35"
+      "heal_amp"                                          "15 17 19 21 23"
       "aura_health_regen"                                 "3 6 9 12 15"
       "aura_radius"
       {

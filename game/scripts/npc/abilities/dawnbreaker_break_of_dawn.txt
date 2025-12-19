@@ -5,17 +5,28 @@
   //=================================================================================================================
   "dawnbreaker_break_of_dawn"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "1"
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "dawnbreaker_solar_guardian"
+
     "AbilityValues"
     {
-      "reveal_duration"                                   "4"
-      "think_interval"                                    "0.1"
-      "reveal_linger"                                     "1"
-      "reveal_radius"                                     "20000"
-      "conceal_duration"                                  "1"
+      "day_threshold"                                     "0.006"
+      "max_dmg_pct"
+      {
+        "value"                                           "25"
+        "special_bonus_unique_dawnbreaker_break_of_dawn_damage"  "+15"
+      }
+      "max_vision_pct"                                    "20"
+      "current_dmg_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "current_vision_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
     }
   }
 }

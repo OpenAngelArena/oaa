@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -34,12 +34,12 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "90 85 80 80 80"
-        "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-20"
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-15"
       }
       "scepter_aura_duration"
       {
-        "special_bonus_scepter"                           "3"
+        "special_bonus_scepter"                           "2"
       }
       "miss_rate" // unused
       {
@@ -71,7 +71,7 @@
       "max_offset_distance"                               "350"
       "scepter_channel_time"
       {
-        "special_bonus_scepter"                           "1.0"
+        "special_bonus_scepter"                           "1.7"
       }
       "airtime_scepter_bonus" // unused
       {
@@ -81,7 +81,6 @@
       "airtime_duration"
       {
         "value"                                           "0.8"
-        "special_bonus_scepter"                           "=0.5"
       }
     }
   }

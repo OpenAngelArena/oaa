@@ -19,7 +19,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@
     {
       "mana_per_second"
       {
-        "value"                                           "8 12 16 20 24 28"
+        "value"                                           "9 12 15 18 21 24"
         "special_bonus_unique_witch_doctor_4"             "x0.75"
       }
       "tooltip_mana_per_second"
@@ -61,6 +61,10 @@
       {
         "value"                                           "0"
         "special_bonus_facet_witch_doctor_voodoo_festeration"  "=25 =30 =35 =40 =45 =50"
+      }
+      "bonus_heal_percent"
+      {
+        "special_bonus_unique_witch_doctor_2"             "1"
       }
     }
   }

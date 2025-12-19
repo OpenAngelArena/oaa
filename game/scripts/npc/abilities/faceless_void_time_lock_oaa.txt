@@ -33,12 +33,12 @@
       "chance_pct"                                        "18 20 22 24 26 28"
       "min_damage" // it should be vanilla value x 2
       {
-        "value"                                           "24 36 48 60 120 180"
+        "value"                                           "36 44 52 60 120 180"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
       }
       "max_damage" // it should be at least: vanilla value x 4
       {
-        "value"                                           "48 72 96 120 240 360"
+        "value"                                           "72 88 104 120 240 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
         "LinkedSpecialBonusField"                         "value2"
       }

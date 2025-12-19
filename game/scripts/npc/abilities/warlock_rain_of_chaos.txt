@@ -5,7 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -68,11 +68,15 @@
       }
       "bonus_magic_resistance"
       {
-        "special_bonus_unique_warlock_1"                  "+80"
+
       }
       "bonus_armor"
       {
         "special_bonus_unique_warlock_2"                  "+20"
+      }
+      "bonus_damage_resist"
+      {
+        "special_bonus_unique_warlock_1"                  "+25"
       }
       "tooltip_golem_armor" //OAA
       {
@@ -82,7 +86,11 @@
       "bonus_slow_resistance"                             "60"
       "tooltip_manahealthboost" //OAA
       {
-        "special_bonus_facet_warlock_golem"               "+50"
+        "special_bonus_facet_warlock_golem"               "+60"
+      }
+      "golem_on_death"
+      {
+        "special_bonus_unique_warlock_4"                  "1"
       }
     }
   }

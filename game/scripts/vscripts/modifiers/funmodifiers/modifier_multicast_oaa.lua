@@ -51,7 +51,7 @@ function modifier_multicast_oaa:OnCreated()
     chen_holy_persuasion = 1,                            -- dominating every creep or hero
     clinkz_burning_army = 1,                             -- lag
     clinkz_death_pact = 1,                               -- instant kill
-    clinkz_death_pact_oaa = 1,                           -- instant kill
+    clinkz_death_pact_oaa = 1,                           -- instant kill, DOTA_UNIT_TARGET_CUSTOM
     crystal_maiden_arcane_magic_oaa = 1,                 -- useless
     crystal_maiden_freezing_field_stop = 1,              -- useless
     dark_seer_wall_of_replica = 1,                       -- lag
@@ -60,9 +60,9 @@ function modifier_multicast_oaa:OnCreated()
     --dawnbreaker_fire_wreath = 1,                       -- bugs out?
     dazzle_nothl_projection = 1,                         -- multiple projections?
     dazzle_nothl_projection_end = 1,                     -- useless
-    doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     --doom_bringer_doom = 1,                             -- powerful
-    earth_spirit_petrify = 1,                            -- grief, trolling, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    earth_spirit_petrify = 1,                            -- grief, trolling, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     earth_spirit_rolling_boulder = 1,                    -- bugs out
     earth_spirit_stone_caller = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- useless
@@ -89,6 +89,7 @@ function modifier_multicast_oaa:OnCreated()
     invoker_wex = 1,                                     -- self grief in most cases
     keeper_of_the_light_illuminate_end = 1,              -- useless
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- useless
+    keeper_of_the_light_recall = 1,                      -- bugs out? DOTA_UNIT_TARGET_CUSTOM
     kez_raptor_dance = 1,                                -- bugs out?
     kez_shodo_sai_parry_cancel = 1,                      -- useless
     kez_switch_weapons = 1,                              -- self grief in most cases
@@ -96,7 +97,7 @@ function modifier_multicast_oaa:OnCreated()
     kunkka_torrent_storm = 1,                            -- lag
     --leshrac_diabolic_edict = 1,                        -- powerful
     life_stealer_consume = 1,                            -- useless
-    life_stealer_infest = 1,                             -- bugs out, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    life_stealer_infest = 1,                             -- bugs out, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     lone_druid_spirit_bear = 1,                          -- multiple bears?
     meepo_megameepo_fling = 1,                           -- bugs out when out of meepos?
     mirana_leap = 1,                                     -- self grief in most cases
@@ -107,7 +108,7 @@ function modifier_multicast_oaa:OnCreated()
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- lag
     morphling_morph_replicate = 1,                       -- useless
-    morphling_replicate = 1,                             -- bugs out, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    morphling_replicate = 1,                             -- bugs out, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     muerta_parting_shot = 1,                             -- bugs out
     muerta_the_calling = 1,                              -- lag
     naga_siren_song_of_the_siren_cancel = 1,             -- useless
@@ -150,7 +151,7 @@ function modifier_multicast_oaa:OnCreated()
     --silencer_global_silence = 1,                       -- powerful because of scepter?
     skeleton_king_bone_guard = 1,                        -- lag because of the talent that grants free skeletons
     skeleton_king_reincarnation = 1,                     -- lag because of the skeletons
-    snapfire_gobble_up = 1,                              -- instant kill and other bugs, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    snapfire_gobble_up = 1,                              -- instant kill and other bugs, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     snapfire_spit_creep = 1,                             -- useless
     sniper_take_aim = 1,                                 -- useless
     sohei_flurry_of_blows = 1,                           -- self grief
@@ -162,19 +163,17 @@ function modifier_multicast_oaa:OnCreated()
     --terrorblade_conjure_image = 1,                     -- lag
     --terrorblade_conjure_image_oaa = 1,                 -- lag
     --terrorblade_reflection = 1,                        -- lag
-    terrorblade_sunder = 1,                              -- self grief, can proc on creeps
+    terrorblade_sunder = 1,                              -- self grief, can proc on creeps, DOTA_UNIT_TARGET_CUSTOM
     tinkerer_laser_contraption = 1,                      -- lag
     tiny_toss_tree = 1,                                  -- useless
-    tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
-    treant_leech_seed = 1,                               -- crashes (changes targetting)
+    tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_launch_snowball = 1,                            -- useless
     tusk_snowball = 1,                                   -- bugs out
     undying_tombstone = 1,                               -- lag
     undying_tombstone_grab = 1,                          -- grief, bugs out?
     --ursa_enrage = 1,                                   -- increases duration?
-    --vengefulspirit_nether_swap = 1,                    -- grief in some cases, DOTA_UNIT_TARGET_TEAM_CUSTOM
-    venomancer_plague_ward = 1,                          -- crashes (changes targetting)
+    --vengefulspirit_nether_swap = 1,                    -- grief in some cases, DOTA_UNIT_TARGET_TEAM_CUSTOM, DOTA_UNIT_TARGET_CUSTOM
     visage_stone_form_self_cast = 1,                     -- self grief
     void_spirit_aether_remnant = 1,                      -- lag
     --void_spirit_astral_step = 1,                       -- bugs out?
@@ -182,7 +181,7 @@ function modifier_multicast_oaa:OnCreated()
     --weaver_time_lapse = 1,                             -- powerful or grief with scepter?
     --winter_wyvern_cold_embrace = 1,                    -- grief
     wisp_tether_break = 1,                               -- useless
-    --witch_doctor_voodoo_switcheroo_oaa = 1,            -- bugs out?
+    witch_doctor_voodoo_switcheroo_oaa = 1,              -- multiplies
     --zuus_cloud_oaa = 1,                                -- powerful
     zuus_heavenly_jump = 1,                              -- self grief in most cases
     --zuus_thundergods_wrath = 1,                        -- powerful
@@ -260,51 +259,59 @@ if IsServer() then
         local delay = self.delay
 
         local name = ability:GetAbilityName()
-        local target_team = ability:GetAbilityTargetTeam()
-        if target_team ~= DOTA_UNIT_TARGET_TEAM_FRIENDLY and target_team ~= DOTA_UNIT_TARGET_TEAM_ENEMY and target_team ~= DOTA_UNIT_TARGET_TEAM_BOTH then
-          -- DOTA_UNIT_TARGET_TEAM_NONE or DOTA_UNIT_TARGET_TEAM_CUSTOM - if there are issues it's because of this
-          target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+        local ability_data = GetAbilityKeyValuesByName(name)
+        if not ability_data then
+          return
         end
-        --local behavior = ability:GetBehaviorInt()
-        local behavior = ability:GetBehavior()
-        if type(behavior) == 'userdata' then
-          behavior = tonumber(tostring(behavior))
-        end
+        local behavior = ability_data.AbilityBehavior
         if not behavior then
-          behavior = DOTA_ABILITY_BEHAVIOR_NONE
+          return
         end
-
-        local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
-        local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
-        local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
-        local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
-
-        -- If bit.band of behavior is malfunctioning or we somehow got an invalid ability, recheck the kv of the ability
+        local isNoTarget = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
+        local isUnitTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
+        local isPointTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_POINT")
+        local isAttackAbility = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK")
+        local isChannelAbility = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_CHANNELLED")
         if not isNoTarget and not isUnitTargetting and not isPointTargetting then
-          local ability_data = GetAbilityKeyValuesByName(name)
-          if not ability_data then
-            return
-          end
-          behavior = ability_data.AbilityBehavior
-          if not behavior then
-            return
-          end
-          isNoTarget = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
-          isUnitTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
-          isPointTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_POINT")
-          if not isNoTarget and not isUnitTargetting and not isPointTargetting then
-            return
-          end
+          return
         end
+        if isAttackAbility then
+          -- buggy
+          return
+        end
+        if isChannelAbility then
+          -- Channeling spells never end so we need to create a dummy and cast the spell
+          return
+        end
+        local behavior_user_data = ability:GetBehavior()
+        if type(behavior_user_data) == 'userdata' then
+          behavior_user_data = tonumber(tostring(behavior_user_data))
+        end
+        local isUnitTargetting2 = bit.band(behavior_user_data, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
+        local isPointTargetting2 = bit.band(behavior_user_data, DOTA_ABILITY_BEHAVIOR_POINT) > 0
+        -- print("Unit target: kv, userdata")
+        -- print(isUnitTargetting, isUnitTargetting2)
+        -- print("Point target: kv, userdata")
+        -- print(isPointTargetting, isPointTargetting2)
+        isUnitTargetting = isUnitTargetting2
+        isPointTargetting = isPointTargetting2
+
         local target = parent:GetCursorCastTarget()
         local pos = parent:GetCursorPosition()
         local targets = {target}
         local real_pos = pos
-        if isChannel then
-          -- Channeling spells never end so we need to create a dummy and cast the spell
-          return
+
+        if isPointTargetting and isUnitTargetting then
+          -- some abilities have both, treat them as point target
+          isUnitTargetting = false
         end
         if isUnitTargetting then
+          local target_team = ability:GetAbilityTargetTeam()
+          if target_team == DOTA_UNIT_TARGET_TEAM_NONE then
+            return
+          elseif target_team == DOTA_UNIT_TARGET_TEAM_CUSTOM then
+            target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+          end
           if target_team == DOTA_UNIT_TARGET_TEAM_FRIENDLY then
             targets = self:FindRandomAllies(ability, target, mult)
           elseif target_team == DOTA_UNIT_TARGET_TEAM_BOTH then
@@ -363,16 +370,21 @@ if IsServer() then
 
         Timers:CreateTimer(delay, function()
           -- Ensure it still exists
-          if IsValidEntity(ability) and targets then
-            -- Position cursor
-            parent:SetCursorPosition(real_pos)
-
-            if isUnitTargetting then
+          if ability and not ability:IsNull() and IsValidEntity(ability) then
+            if isUnitTargetting and targets then
               local index = RandomInt(1, #targets)
               local multicast_target = targets[index]
               table.remove(targets, index)
               -- Null check
-              if not multicast_target or multicast_target:IsNull() or not multicast_target:IsAlive() then
+              if not multicast_target or multicast_target:IsNull() or not parent or parent:IsNull() then
+                return
+              end
+              -- is entity a unit
+              if multicast_target.GetUnitName == nil then
+                return
+              end
+              -- is entity alive
+              if not multicast_target:IsAlive() or not parent:IsAlive() then
                 return
               end
               -- Spell Block check
@@ -380,6 +392,10 @@ if IsServer() then
                 return
               end
               parent:SetCursorCastTarget(multicast_target)
+            end
+            if isPointTargetting then
+              -- Position cursor
+              parent:SetCursorPosition(real_pos)
             end
 
             --ability:OnAbilityPhaseStart()
@@ -407,18 +423,13 @@ function modifier_multicast_oaa:FindRandomAllies(ability, target, n)
   local parent = self:GetParent()
   local random_allies = {}
 
-  local target_type = ability:GetAbilityTargetType()
-  if target_type == DOTA_UNIT_TARGET_CUSTOM then
-    target_type = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-  end
-
   local allies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
     nil,
     ability:GetEffectiveCastRange(parent:GetAbsOrigin(), parent),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    target_type,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
@@ -447,18 +458,13 @@ function modifier_multicast_oaa:FindRandomEnemies(ability, target, n)
   local parent = self:GetParent()
   local random_enemies = {}
 
-  local target_type = ability:GetAbilityTargetType()
-  if target_type == DOTA_UNIT_TARGET_CUSTOM then
-    target_type = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-  end
-
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
     nil,
     ability:GetEffectiveCastRange(parent:GetAbsOrigin(), nil),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    target_type,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false

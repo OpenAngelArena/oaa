@@ -53,10 +53,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33909"
+    "ItemCost"                                            "33905"
     "ItemShopTags"                                        "armor;regen_mana;mana_pool;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -70,9 +71,9 @@
       "bonus_health"                                      "0"
       "bonus_health_regen"                                "0"
       "bonus_mana"                                        "300 400 550 750 1000"
-      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4 5"
       "bonus_armor"                                       "5 6 8 11 15"
-      "bonus_to_worst_attribute"                          "12 17 27 42 62"
+      "bonus_to_worst_attribute"                          "10 15 25 40 60"
       "bonus_vision_range"                                "225 275 325 375 425"
       "bonus_cast_range"                                  "225 275 325 375 425"
       "reveal_radius"

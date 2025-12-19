@@ -14,6 +14,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_kaya_and_sange_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -31,10 +32,9 @@
       "bonus_strength"                                    "20 25 35 50 70" //OAA
       "bonus_intellect"                                   "20 25 35 50 70" //OAA
       "slow_resistance"                                   "22 24 26 28 30" //OAA, Sange (20);
-      "mana_regen_multiplier"                             "50 60 70 80 90" // Kaya (50);
+      "mana_regen_multiplier"                             "50 60 70 80 90" // Kaya (40);
       "spell_amp"                                         "12 16 20 24 28" // Kaya (10);
-      "hp_regen_amp"                                      "20 22 24 26 28" //OAA, Sange (20);
-      "spell_lifesteal_amp"                               "14 16 18 20 22" //OAA, Kaya (12);
+      "hp_regen_amp"                                      "20 22 24 26 28"
       "manacost_reduction"                                "20 22 24 26 28" //OAA
     }
   }

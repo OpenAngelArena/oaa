@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -40,7 +40,12 @@
         "special_bonus_unique_chaos_knight_4"             "+10" // we don't use this talent
       }
       "outgoing_damage"                                   "-50 -25 0 25 50" //OAA
-      "outgoing_damage_tooltip"                           "50 75 100 125 150" //OAA
+      "outgoing_damage_tooltip" //OAA
+      {
+        "value"                                           "50 75 100 125 150"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "incoming_damage" //OAA
       {
         "value"                                           "225 200 175 125 25"
@@ -48,6 +53,8 @@
       "incoming_damage_tooltip" //OAA
       {
         "value"                                           "325 300 275 225 125"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "invuln_duration"                                   "0.5"
       "vision_radius"

@@ -45,17 +45,17 @@ function Control( keys )
 
   -- If no heros nearbym and not maximum health but not super low health and within range of fountain, wait at foutain until fully regened
   if #heroes == 0 and caster:GetHealth() >= healthRetreat and caster:GetHealth() < caster:GetMaxHealth() - 200 and caster:FindModifierByName("modifier_fountain_aura_buff") then
-    caster:MoveToPosition(caster:GetAbsOrigin())
+    --caster:MoveToPosition(caster:GetAbsOrigin())
     return
   end
 
   -- If there are creeps nearby run away towards the center of the map
   if #creeps > 0 then
-    caster:MoveToPosition(Vector(0,0,0))
+    --caster:MoveToPosition(Vector(0,0,0))
     return
   end
 
-  -- If there are hero(s) nearby and bot is low on health, let bot decide what todo
+  -- If there are hero(s) nearby and bot is low on health, let bot decide
   if #heroes > 0 or caster:GetHealth() < healthRetreat then
     caster:RemoveModifierByName("modifier_disable_control")
   -- If none of the above conditions are made, disable all bot orders and force them to move to a semi-random part of the map
@@ -65,10 +65,10 @@ function Control( keys )
     if ability:IsCooldownReady() then
       -- If bots are in a duel and the arena middle has been set move there, otherwise go to random spot
       if ArenaMiddle then
-        caster:MoveToPositionAggressive(ArenaMiddle)
+        --caster:MoveToPositionAggressive(ArenaMiddle)
         cooldown = 3
       else
-        caster:MoveToPosition(Vector(RandomInt(-6000, 6000), RandomInt(-6000, 6000), RandomInt(-6000, 6000)))
+        --caster:MoveToPosition(Vector(RandomInt(-6000, 6000), RandomInt(-6000, 6000), RandomInt(-6000, 6000)))
       end
     end
   end

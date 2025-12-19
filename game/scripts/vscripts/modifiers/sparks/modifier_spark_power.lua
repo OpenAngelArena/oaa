@@ -243,7 +243,7 @@ if IsServer() then
       damage = damage / 7
     end
     if damage > 0 then
-      SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
+      SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_DAMAGE, target, damage, nil)
     end
 
     return damage

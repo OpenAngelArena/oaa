@@ -41,7 +41,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "satanic_core"
     "AbilityManaCost"                                     "0"
 
@@ -49,10 +49,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_bloodstone_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5901"
+    "ItemCost"                                            "5850"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs 2;bloodstone 2"

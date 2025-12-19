@@ -185,7 +185,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Check if attacker and victim survived previous damage instance
   if caster and not caster:IsNull() and target and not target:IsNull() and target:IsAlive() then
     -- Overhead particle message
-    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, nil)
     -- Do Glaives of Wisdom damage
     ApplyDamage(damage_table_2)
   end
@@ -379,7 +379,6 @@ if IsServer() then
 
     if self.procRecords[event.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
       local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
-      local player = parent:GetPlayerOwner()
 
       -- Talent that increases Glaives of Wisdom damage (done through kv)
       --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
@@ -506,7 +505,7 @@ if IsServer() then
       end
 
       -- Overhead particle message
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, nil)
 
       -- Do Glaives of Wisdom damage
       ApplyDamage(damageTable)
@@ -582,8 +581,10 @@ if IsServer() then
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_DEAD),
       parent:GetTeamNumber()
     )
-    if HeroSelection.is10v10 then
-      stealRange = 450
+    if HeroSelection then
+      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+        stealRange = math.floor(stealRange / 2)
+      end
     end
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 

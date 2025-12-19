@@ -42,10 +42,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_kaya_and_sange_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9202"
+    "ItemCost"                                            "9200"
     "ItemShopTags"                                        "str;int;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "snk 3;s&k 3;sk 3;sange and kaya 3"
@@ -62,7 +63,6 @@
       "mana_regen_multiplier"                             "50 60 70 80 90"
       "spell_amp"                                         "12 16 20 24 28"
       "hp_regen_amp"                                      "20 22 24 26 28"
-      "spell_lifesteal_amp"                               "14 16 18 20 22"
       "manacost_reduction"                                "20 22 24 26 28"
     }
   }

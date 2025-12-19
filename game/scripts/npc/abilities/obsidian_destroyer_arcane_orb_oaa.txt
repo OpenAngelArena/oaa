@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Obsidian Destroyer: Arcane Orb (OAA rework)
+  // OD: Arcane Orb (OAA rework)
   //=================================================================================================================
   "obsidian_destroyer_arcane_orb_oaa"
   {
@@ -20,13 +20,13 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCastRange"                                    "450"
+    "AbilityCastRange"                                    "450" // actually equal to OD's attack range
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0" // old: "80 120 160 200 400 600"
-    "AbilityCooldown"                                     "3 2 1 0 0 0"
+    "AbilityCooldown"                                     "4.5 3 1.5 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

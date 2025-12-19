@@ -36,16 +36,14 @@
       "lift_duration"
       {
         "value"                                           "0.95 1.2 1.45 1.7 1.8 1.9"
-        "special_bonus_unique_rubick_7"                   "+0.5"
       }
-      "stun_duration" //OAA, Valve has it wrong
+      "stun_duration"
       {
         "value"                                           "0.9 1.1 1.3 1.5 1.6 1.7"
-        "special_bonus_unique_rubick_7"                   "+0.5"
       }
       "radius"
       {
-        "value"                                           "300 325 350 375 375 375"
+        "value"                                           "300 325 350 375 400 425"
         "affected_by_aoe_increase"                        "1"
       }
       "max_land_distance"
@@ -68,8 +66,12 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 15 15"
-        "special_bonus_unique_rubick_4"                   "-5"
+        "value"                                           "17 16 15 14 13 12"
+        "special_bonus_unique_rubick_4"                   "-3"
+      }
+      "landing_damage"
+      {
+        "special_bonus_unique_rubick_8"                   "165"
       }
     }
   }

@@ -144,7 +144,7 @@ end
 
 function Gold:AddGoldWithMessage(unit, gold, optPlayerID)
   local player = optPlayerID and PlayerResource:GetPlayer(optPlayerID) or PlayerResource:GetPlayer(UnitVarToPlayerID(unit))
-  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), player)
+  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), nil)
   self:AddGold(optPlayerID or unit, gold)
 end
 
@@ -176,8 +176,10 @@ function Gold:PassiveGPM(hero)
   if current_time and self:IsGoldGenActive() then
     local tick =  math.floor(current_time/GPM_TICK_INTERVAL)
     local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
-    if HeroSelection.is10v10 then
-      gold_per_tick = math.floor(gold_per_tick * 1.5)
+    if HeroSelection then
+      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+        gold_per_tick = math.floor(gold_per_tick * 1.5)
+      end
     end
     self:ModifyGold(hero, gold_per_tick, false, DOTA_ModifyGold_GameTick)
   end

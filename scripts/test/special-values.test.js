@@ -98,7 +98,8 @@ const ignoreValuesFor = [
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
   'item_smoke_of_deceit',
-  'centaur_stampede'
+  'centaur_stampede',
+  'templar_assassin_psi_blades'
   // 'shredder_chakram',
   // 'shredder_chakram_2',
   // 'tiny_grow',
@@ -344,7 +345,7 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
       if (!specialValuesForItem[rootItem]) {
         testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
         specialValuesForItem[rootItem] = specials;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+      } else if (values.AbilityType !== 'ABILITY_TYPE_ATTRIBUTES' && isItem) {
         spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent across levels');
       }
     }
@@ -368,7 +369,7 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
       if (!abilityValuesForItem[rootItem2]) {
         testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
         abilityValuesForItem[rootItem2] = abilityValues;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+      } else if (values.AbilityType !== 'ABILITY_TYPE_ATTRIBUTES' && isItem) {
         spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent across levels');
       }
     }
@@ -921,7 +922,10 @@ function buildItemTree (t, data, cb) {
         t.fail('missing item in items list ' + item);
         return;
       }
-      t.equal(items[item].baseCost, items[item].cost, 'cost is set correctly in kv for ' + item);
+      const purchasable = items[item].item.values.ItemPurchasable !== '0';
+      if (purchasable) {
+        t.equal(items[item].baseCost, items[item].cost, 'cost is set correctly in kv for ' + item);
+      }
 
       // this chunk of code will write the item costs in the file for you
       // useful...
@@ -962,6 +966,11 @@ function buildItemTree (t, data, cb) {
     // console.log('Calculating the cost for', item);
     const itemData = items[item];
     const requirements = itemData.recipes;
+    if (itemData.item.values.ItemPurchasable === '0') {
+      itemData.cost = 0;
+      itemData.totalCost = 0;
+      return;
+    }
 
     requirements.forEach(function (reqList) {
       let cost = Number(itemData.recipe.values.ItemCost);

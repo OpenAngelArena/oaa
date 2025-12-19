@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rattletrap: Power Cogs
+  // Clockwerk: Power Cogs
   //=================================================================================================================
   "rattletrap_power_cogs"
   {
@@ -36,6 +36,7 @@
       "mana_burn"
       {
         "value"                                           "35 70 105 140 280 560"
+        "special_bonus_unique_clockwerk_2"                "+70"
       }
       "mana_burn_as_damage_pct"                           "50"
       "magic_barrier"
@@ -80,9 +81,14 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "18 17 16 15 14 13"
+        "special_bonus_unique_clockwerk_9"                "-2"
       }
       "projectile_distance"                               "1000"
       "projectile_speed"                                  "1000"
+      "debuff_immune_inside_cogs"
+      {
+        "special_bonus_unique_clockwerk_6"                "1"
+      }
     }
   }
 }

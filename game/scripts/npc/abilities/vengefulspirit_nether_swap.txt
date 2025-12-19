@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Vengeful Spirit Nether Swap
+  // Vengeful Spirit: Nether Swap
   //=================================================================================================================
   "vengefulspirit_nether_swap"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -22,12 +21,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800 950 1100 1250 1400"
+    "AbilityCastRange"                                    "800 950 1100 1250 1400" //OAA, undocumented change by Valve
     "AbilityCastPoint"                                    "0.4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "46 44 38 34 30" //OAA, it has cd reduction talent
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,6 +46,11 @@
       {
         "value"                                           "150 300 450 900 1350"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+150"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "46 44 38 34 30"
+        "special_bonus_unique_vengeful_spirit_9"          "-18"
       }
     }
   }

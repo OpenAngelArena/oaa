@@ -24,8 +24,8 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
-    "AbilityCooldown"                                     "16 13 10 7 7 7"
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
+    "AbilityCooldown"                                     "13 11 9 7 7 7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,16 +33,20 @@
     {
       "radius"
       {
-        "value"                                           "275"
+        "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
       }
       "damage"
       {
-        "value"                                           "75 125 175 225 450 900"
+        "value"                                           "60 120 180 240 480 960"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "speed"                                             "2000"
-      "silence_duration"                                  "1.75 2.0 2.25 2.5 2.75 3.0"
+      "silence_duration"                                  "2.0 2.25 2.5 2.75 3.0 3.25"
+      "attack_factor"
+      {
+        "value"                                           "0"
+      }
     }
   }
 }

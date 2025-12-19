@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
@@ -41,8 +41,8 @@
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "19 18 17 16 15"
-        "special_bonus_unique_void_spirit_1"              "-4"
+        "value"                                           "18 17 16 15 14"
+        "special_bonus_unique_void_spirit_1"              "-3"
       }
       "min_travel_distance"                               "200"
       "max_travel_distance"                               "800 900 1000 1100 1200"
@@ -64,6 +64,10 @@
       "attack_chance_pct"
       {
         "value"                                           "0"
+      }
+      "crit_damage"
+      {
+        "special_bonus_unique_void_spirit_8"              "140"
       }
     }
   }

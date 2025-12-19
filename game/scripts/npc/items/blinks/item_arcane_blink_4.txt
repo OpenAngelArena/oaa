@@ -42,7 +42,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400 1450 1500 1550 1600"
-    "AbilityOvershootCastRange"                           "1120 1160 1200 1240 1280" // 4/5 of AbilityCastRange
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "9.0 8.5 8.0 8.5 7.0"
     "AbilityManaCost"                                     "0"
@@ -52,11 +51,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_arcane_blink_3;item_arcane_blink_4"
+    "UpgradesItems"                                       "item_arcane_blink_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "19803"
+    "ItemCost"                                            "19800"
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "arcane blink dagger 4;int blink 4"

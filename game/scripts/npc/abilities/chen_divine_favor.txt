@@ -43,8 +43,12 @@
       {
         "value"                                           "6"
       }
-      "bonus_armor"                                       "5 10 15 20 30 40"
-      "heal_amp"                                          "5 10 15 20 25 30"
+      "bonus_armor"                                       "5 10 15 20 25 30"
+      "heal_amp"
+      {
+        "value"                                           "5 10 15 20 25 30"
+        "special_bonus_unique_chen_divine_favor_healing"  "+15"
+      }
       "creep_bonus"                                       "1"
     }
   }

@@ -12,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -84,7 +84,7 @@
       }
       "creep_max_hp_drain_pct_per_second"
       {
-        "value"                                           "2.0 1.0 0.0 0.0 0.0"
+        "value"                                           "1.5 0.75 0.0 0.0 0.0"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
@@ -96,7 +96,7 @@
       "dot_damage_as_pct_of_damage_dealt"
       {
         "value"                                           "0"
-        "special_bonus_facet_life_stealer_gorestorm"      "+25.0"
+        "special_bonus_facet_life_stealer_gorestorm"      "+30.0"
       }
       "dot_duration"
       {

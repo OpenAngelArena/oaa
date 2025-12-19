@@ -47,11 +47,11 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "dominate"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7226"
+    "ItemCost"                                            "7150"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 2;helm of the overlord 2;helm 2;overlord 2"
@@ -60,6 +60,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_helm_of_the_overlord_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -79,6 +80,7 @@
       "count_limit"                                       "1"
       "creep_ability_level_increase"                      "1"
       "is_overlord"                                       "1"
+      "creep_damage_taken_cooldown"                       "3"
     }
   }
 }

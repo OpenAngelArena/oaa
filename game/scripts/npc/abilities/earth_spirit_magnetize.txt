@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -68,17 +68,19 @@
       "magnetized_rocks_buff_self"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=1"
       }
       "magnetized_rocks_buff_self_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "+8"
       }
       "magnetized_rocks_bonus_self_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_resonance"      "=40 =80 =120 =160 =200"
+      }
+      "magnetize_self"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_earth_spirit_2"             "1"
       }
     }
   }

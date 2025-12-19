@@ -63,6 +63,7 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
       -- Instead of UTIL_Remove:
       self:StartIntervalThink(-1)
       parent:AddNoDraw()
+      -- Kill the thinker entity (instead of adding duration or something else)
       parent:ForceKillOAA(false)
     end
   end

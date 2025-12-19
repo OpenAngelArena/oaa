@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -33,7 +33,7 @@
     {
       "duration"
       {
-        "value"                                           "3.5 4 4.5 5.0 5.25 5.5"
+        "value"                                           "4 4.5 5.0 5.5 5.75 6"
       }
       "fx_halo_height" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {

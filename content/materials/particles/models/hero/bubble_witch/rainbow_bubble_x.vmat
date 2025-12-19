@@ -1,0 +1,108 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- 2-Sided Rendering ----
+	F_RENDER_BACKFACES 1
+
+	//---- Lit Translucent ----
+	F_ALLOW_LIGHTING_ON_TRANSLUCENT 1
+
+	//---- Scroll UV ----
+	F_SCROLL_UV 1 // Scroll Color Only
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Translucent ----
+	F_ALPHA_ANGLE_POWER 1
+	F_TRANSLUCENT 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/particles/models/hero/bubble_witch/rainbow_bubble_color.png"
+
+	//---- Scroll UV ----
+	g_flScrollUvSpeed "1.000"
+	g_vScrollUvDirection "[0.000 1.000]"
+	TextureScrollSpeed "materials/default/default.tga"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/particles/models/hero/bubble_witch/rainbow_bubble_selfillum.png"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.028"
+	g_flSpecularIntensity "3.126"
+	TextureBloom "materials/particles/models/hero/bubble_witch/rainbow_bubble_bloom.png"
+	TextureReflectance "materials/particles/models/hero/bubble_witch/rainbow_bubble_refl.png"
+
+	//---- Translucent ----
+	g_flAlphaAnglePower "3.543"
+	g_flOpacityScale "1.000"
+	TextureTranslucency "materials/default/default_trans.tga"
+
+	Attributes
+	{
+		PreviewModel "maps/backgrounds/models/fairy_showcase_hero_seat/fairy_showcase_seat.vmdl"
+	}
+
+	UnusedVariables
+	{
+		"g_flAlphaTestReference" "0.99"
+		"g_vColorTint2" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureTintMask" ""
+		"g_flBumpStrength" "1"
+		"TextureNormal" "materials/default/default_normal.tga"
+		"g_flCubeMapScalarExterior" "1"
+		"TextureExteriorCubeMap" ""
+		"g_flWindFlexibility" "0.3"
+		"g_flWindHighFrequencyEffects" "1"
+		"g_flWindLinearity" "0"
+		"g_flWindLowFrequencyEffects" "1"
+		"g_flWindSpeedMultiplier" "1"
+		"TextureWindMaskHigh" ""
+		"TextureWindMaskLow" ""
+		"TextureWindRandomNoise" ""
+		"g_vColorTint3" "[1.000000 1.000000 1.000000 0.000000]"
+		"g_vColorTint4" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureTintMask2" ""
+		"g_flCubeMapPowerRefract" "1"
+		"g_flCubeMapScalarRefract" "1"
+		"g_flCubeRefractTransparency" "0"
+		"g_flRefractBumpStrength" "1"
+		"g_flRefractInnerGlow" "1"
+		"g_flRefractionIndex" "1.2"
+		"TextureCubeMapRefract" ""
+		"g_flCubeMapPowerReflect" "1"
+		"g_flCubeMapScalarReflect" "1"
+		"g_flReflectBumpStrength" "1"
+		"g_flReflectRimPower" "8"
+		"g_flReflectRimStrength" "1"
+		"TextureCubeMapReflect" ""
+		"TextureSpecularWarp" ""
+		"g_flCubeMapScalar" "1"
+		"TextureCubeMap" ""
+		"TextureCubeMapSeparateMask" ""
+		"g_vDetail2TexCoordOffset" "[0.000 0.000]"
+		"g_vDetail2TexCoordScale" "[1.000 1.000]"
+		"g_vDetail2ColorTint" "[1.000000 1.000000 1.000000 0.000000]"
+		"g_flDetail2BlendFactor" "0"
+		"TextureDetail2" ""
+		"TextureDetailMask" ""
+		"TextureDiffuseWarpMask" ""
+		"TextureMetalnessMask" ""
+		"TextureRimMask" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureSpecularExponent" ""
+		"TextureSpecularMask" ""
+		"TextureTintByBaseMask" ""
+		"g_flDetailBlendToFull" "0"
+		"g_flDetailBlendFactor" "1"
+		"g_vDetail1ColorTint" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureDetail" ""
+		"g_flOverbrightFactor" "1"
+	}
+}

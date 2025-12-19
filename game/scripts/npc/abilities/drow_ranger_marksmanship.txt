@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
@@ -26,7 +26,7 @@
         "special_bonus_unique_drow_ranger_3"              "+10"
       }
       "bonus_damage"                                      "10 20 30 40 50" //OAA
-      "disable_range"                                     "400"
+      "disable_range"                                     "325"
     }
   }
 }

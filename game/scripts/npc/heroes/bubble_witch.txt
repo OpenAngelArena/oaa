@@ -1,0 +1,108 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Bubble Witch
+  //=================================================================================================================
+  "npc_dota_hero_bubble_witch"
+  {
+    "BaseClass"                                           "npc_dota_hero_marci"
+    "HeroID"                                              "133"
+    "Model"                                               "models/heroes/bubble_witch/bubble_witch.vmdl"
+    "ModelScale"                                          "1"
+
+    "BotImplemented"                                      "0"
+
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"                                    "1.5"
+    "MovementSpeed"                                       "290"
+
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "30"
+    "AttackDamageMax"                                     "36"
+    "AttackRange"                                         "600"
+    "ProjectileModel"                                     "particles/hero/bubble_witch/bubble_witch_base_attack.vpcf"
+    "ProjectileSpeed"                                     "900"
+    "AttackRate"                                          "1.7"
+    "BaseAttackSpeed"                                     "100"
+    "AttackAnimationPoint"                                "0.4"
+    "AttackSpeedActivityModifiers"
+    {
+      "fast"                                              "170"
+      "faster"                                            "275"
+      "fastest"                                           "350"
+    }
+
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "25"
+
+    "StatusHealthRegen"                                   "1"
+    "StatusHealth"                                        "200"
+    "StatusManaRegen"                                     "0.0"
+    "StatusMana"                                          "75"
+
+    "AttributePrimary"                                    "DOTA_ATTRIBUTE_INTELLECT"
+    "AttributeBaseStrength"                               "17"
+    "AttributeStrengthGain"                               "2.2"
+    "AttributeBaseAgility"                                "16"
+    "AttributeAgilityGain"                                "2.2"
+    "AttributeBaseIntelligence"                           "18"
+    "AttributeIntelligenceGain"                           "3.3"
+
+    "Ability1"                                            "bubble_witch_cavitation"
+    "Ability2"                                            "bubble_witch_magic_bubble"
+    "Ability3"                                            "bubble_witch_blow_bubbles"
+    "Ability4"                                            "bubble_witch_innate"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "bubble_witch_bubble_of_protection"
+    "Ability7"                                            "generic_hidden"
+    "Ability8"                                            "generic_hidden"
+    "Ability9"                                            "generic_hidden"
+
+    "Ability10"                                           "special_bonus_unique_bubble_witch_5" // blow bubbles cd
+    "Ability11"                                           "special_bonus_unique_bubble_witch_8" // bubbly bonus dmg
+
+    "Ability12"                                           "special_bonus_hp_300"
+    "Ability13"                                           "special_bonus_unique_bubble_witch_3" // bubble snare cd
+
+    "Ability14"                                           "special_bonus_unique_bubble_witch_2" // bubble snare duration
+    "Ability15"                                           "special_bonus_unique_bubble_witch_4" // blow bubbles applies to caster
+
+    "Ability16"                                           "special_bonus_unique_bubble_witch_1" // blow bubbles dps
+    "Ability17"                                           "special_bonus_unique_bubble_witch_7" // bubble of protection cd
+
+    "Facets"
+    {
+      "bubble_witch_healing_bubble"
+      {
+        "Icon"                                            "healing"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
+      }
+      "bubble_witch_extra_bubbly"
+      {
+        "Icon"                                            "nuke"
+        "Color"                                           "Blue"
+        "GradientID"                                      "0"
+      }
+    }
+
+    "AbilityTalentStart"                                  "10"
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "HasInventory"                                        "1"
+
+    "VisionDaytimeRange"                                  "1800"
+    "VisionNighttimeRange"                                "800"
+
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+
+    "precache"
+    {
+      "model"                                             "models/heroes/crystal_maiden/crystal_maiden_arcana.vmdl"
+    }
+    "particle_folder"                                     "particles/hero/bubble_witch"
+    "GameSoundsFile"                                      "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+    "SoundSet"                                            "hero_Crystal"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_crystalmaiden.vsndevts"
+  }
+}

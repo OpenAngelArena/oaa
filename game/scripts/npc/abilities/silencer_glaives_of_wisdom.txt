@@ -14,7 +14,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
-    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -29,15 +28,24 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 25 30 35 45 55" //OAA
+    "AbilityManaCost"                                     "20 25 30 35 45 55 55" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_level" //OAA
+      {
+        "value"                                           "6"
+        "special_bonus_facet_silencer_spread_the_knowledge"  "+1"
+      }
+      "max_level_tooltip" //OAA
+      {
+        "special_bonus_facet_silencer_spread_the_knowledge"  "=7"
+      }
       "intellect_damage_pct" //OAA
       {
-        "value"                                           "35 40 45 50 55 60"
+        "value"                                           "35 40 45 50 55 60 60"
         "special_bonus_unique_silencer_3"                 "+25"
       }
       "int_steal" //OAA
@@ -47,19 +55,27 @@
       }
       "int_steal_duration" //OAA
       {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_shard"                             "+25"
+        "value"                                           "10 15 20 25 30 35 40"
+        "special_bonus_unique_silencer_5"                 "+35"
       }
       "bounce_range"
       {
         "value"                                           "0"
-        "special_bonus_unique_silencer_glaives_bounces"   "+600"
+        "special_bonus_facet_silencer_spread_the_knowledge"  "=0 =0 =0 =0 =450 =450 =450"
         "affected_by_aoe_increase"                        "1"
+      }
+      "bounce_range_tooltip"
+      {
+        "special_bonus_facet_silencer_spread_the_knowledge"  "+450"
       }
       "bounce_count"
       {
         "value"                                           "0"
-        "special_bonus_unique_silencer_glaives_bounces"   "+1"
+        "special_bonus_facet_silencer_spread_the_knowledge"  "=0 =0 =0 =0 =1 =1 =1"
+      }
+      "bounce_count_tooltip"
+      {
+        "special_bonus_facet_silencer_spread_the_knowledge"  "+1"
       }
       "stacks_for_silence"
       {

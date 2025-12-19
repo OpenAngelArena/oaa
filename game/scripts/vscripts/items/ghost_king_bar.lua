@@ -403,11 +403,17 @@ end
 -- end
 
 function modifier_item_ghost_king_bar_active:GetModifierMagicalResistanceDecrepifyUnique()
-  return self.extra_spell_damage_percent or self:GetAbility():GetSpecialValueFor("ethereal_damage_bonus")
+  local parent = self:GetParent()
+  if not parent:IsDebuffImmune() then
+    return self.extra_spell_damage_percent or self:GetAbility():GetSpecialValueFor("ethereal_damage_bonus")
+  end
 end
 
 function modifier_item_ghost_king_bar_active:GetAbsoluteNoDamagePhysical()
-  return 1
+  local parent = self:GetParent()
+  if not parent:IsDebuffImmune() then
+    return 1
+  end
 end
 
 if IsServer() then
@@ -490,14 +496,22 @@ if IsServer() then
 end
 
 function modifier_item_ghost_king_bar_active:CheckState()
+  local parent = self:GetParent()
   local state = {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
 
   -- Check for Muerta innate
-  if not self:GetParent():HasModifier("modifier_muerta_supernatural") then
+  if not parent:HasModifier("modifier_muerta_supernatural") then
     state[MODIFIER_STATE_DISARMED] = true
+  end
+
+  -- Check for Debuff Immunity (grant only phased movement)
+  if parent:IsDebuffImmune() then
+    state = {
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    }
   end
 
   return state

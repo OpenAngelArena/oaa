@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "7.38.0"
+GAME_VERSION = "7.40.0"
 
 -- Setup the main logger
 require('internal/logging')
@@ -61,6 +61,49 @@ function Precache( context )
 
   for _,Sound in pairs( g_SoundPrecache ) do
     PrecacheResource( "soundfile", Sound, context )
+  end
+
+  -- Precache bots
+  if IsInToolsMode() then
+    PrecacheUnitByNameSync("npc_dota_hero_axe", context)
+    PrecacheUnitByNameSync("npc_dota_hero_bane", context)
+    PrecacheUnitByNameSync("npc_dota_hero_bloodseeker", context)
+    PrecacheUnitByNameSync("npc_dota_hero_bounty_hunter", context)
+    PrecacheUnitByNameSync("npc_dota_hero_bristleback", context)
+    PrecacheUnitByNameSync("npc_dota_hero_chaos_knight", context)
+    PrecacheUnitByNameSync("npc_dota_hero_crystal_maiden", context)
+    PrecacheUnitByNameSync("npc_dota_hero_dazzle", context)
+    PrecacheUnitByNameSync("npc_dota_hero_death_prophet", context)
+    PrecacheUnitByNameSync("npc_dota_hero_dragon_knight", context)
+    PrecacheUnitByNameSync("npc_dota_hero_drow_ranger", context)
+    PrecacheUnitByNameSync("npc_dota_hero_earthshaker", context)
+    PrecacheUnitByNameSync("npc_dota_hero_jakiro", context)
+    PrecacheUnitByNameSync("npc_dota_hero_juggernaut", context)
+    PrecacheUnitByNameSync("npc_dota_hero_kunkka", context)
+    PrecacheUnitByNameSync("npc_dota_hero_lich", context)
+    PrecacheUnitByNameSync("npc_dota_hero_lina", context)
+    PrecacheUnitByNameSync("npc_dota_hero_lion", context)
+    PrecacheUnitByNameSync("npc_dota_hero_luna", context)
+    PrecacheUnitByNameSync("npc_dota_hero_necrolyte", context)
+    PrecacheUnitByNameSync("npc_dota_hero_nevermore", context)
+    PrecacheUnitByNameSync("npc_dota_hero_omniknight", context)
+    PrecacheUnitByNameSync("npc_dota_hero_oracle", context)
+    PrecacheUnitByNameSync("npc_dota_hero_phantom_assassin", context)
+    PrecacheUnitByNameSync("npc_dota_hero_pudge", context)
+    PrecacheUnitByNameSync("npc_dota_hero_razor", context)
+    PrecacheUnitByNameSync("npc_dota_hero_sand_king", context)
+    PrecacheUnitByNameSync("npc_dota_hero_skeleton_king", context)
+    PrecacheUnitByNameSync("npc_dota_hero_skywrath_mage", context)
+    PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
+    PrecacheUnitByNameSync("npc_dota_hero_sven", context)
+    PrecacheUnitByNameSync("npc_dota_hero_tidehunter", context)
+    PrecacheUnitByNameSync("npc_dota_hero_tiny", context)
+    PrecacheUnitByNameSync("npc_dota_hero_vengefulspirit", context)
+    PrecacheUnitByNameSync("npc_dota_hero_viper", context)
+    PrecacheUnitByNameSync("npc_dota_hero_warlock", context)
+    PrecacheUnitByNameSync("npc_dota_hero_windrunner", context)
+    PrecacheUnitByNameSync("npc_dota_hero_witch_doctor", context)
+    PrecacheUnitByNameSync("npc_dota_hero_zuus", context)
   end
 
   -- precache all hero econ folders

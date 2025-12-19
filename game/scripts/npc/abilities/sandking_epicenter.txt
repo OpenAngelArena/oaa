@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Epicenter
+  // Sand King: Epicenter
   //=================================================================================================================
   "sandking_epicenter"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -37,7 +37,7 @@
       "epicenter_pulses"
       {
         "value"                                           "12 16 20 24 28"
-        "special_bonus_unique_sand_king"                  "+10"
+        "special_bonus_unique_sand_king"                  "+8"
       }
       "epicenter_damage"
       {
@@ -53,7 +53,7 @@
       }
       "epicenter_radius_increment" //OAA
       {
-        "value"                                           "8"
+        "value"                                           "10"
         "special_bonus_unique_sand_king_5"                "+7"
       }
       "epicenter_slow"
@@ -72,12 +72,12 @@
       }
       "shard_interval"
       {
-        "special_bonus_shard"                             "3.5"
+        "special_bonus_shard"                             "3"
       }
       "linger_duration"                                   "3.0"
       "scepter_explosion_radius_pct"
       {
-        "special_bonus_scepter"                           "+15"
+        "special_bonus_scepter"                           "+35"
       }
       "scepter_explosion_min_dist"
       {

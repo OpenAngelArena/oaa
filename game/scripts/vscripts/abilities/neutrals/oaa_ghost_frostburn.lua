@@ -61,15 +61,23 @@ if IsServer() then
       return
     end
 
+    -- Do nothing if attacker is an illusion, dead or affected by break
+    if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
+      return
+    end
+
     -- Don't continue if the attacked entity doesn't have IsMagicImmune method -> attacked entity is something weird
     if target.IsMagicImmune == nil then
       return
     end
 
-    -- Don't proc for illusions, when broken or on spell immune units
-    if not parent:IsIllusion() and not parent:PassivesDisabled() and not target:IsMagicImmune() then
-      target:AddNewModifier(parent, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
+    -- Don't affect buildings, wards, spell immune units and invulnerable units.
+    if target:IsMagicImmune() or target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
     end
+
+    target:AddNewModifier(parent, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
+    target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
   end
 end
 
@@ -102,6 +110,33 @@ function modifier_frostburn_oaa_effect:OnCreated()
   --self.health_fraction = 0
 end
 
+modifier_frostburn_oaa_effect.OnRefresh = modifier_frostburn_oaa_effect.OnCreated
+
+function modifier_frostburn_oaa_effect:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_frostburn_oaa_effect:GetEffectName()
   return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
 end
@@ -109,9 +144,9 @@ end
 function modifier_frostburn_oaa_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_EVENT_ON_HEALTH_GAINED
   }
@@ -125,13 +160,15 @@ function modifier_frostburn_oaa_effect:GetModifierHPRegenAmplify_Percentage()
   return 0 - math.abs(self.heal_prevent_percent)
 end
 
-function modifier_frostburn_oaa_effect:GetModifierLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_prevent_percent)
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_frostburn_oaa_effect:GetModifierLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_prevent_percent)
+-- end
 
-function modifier_frostburn_oaa_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_prevent_percent)
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_frostburn_oaa_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_prevent_percent)
+-- end
 
 function modifier_frostburn_oaa_effect:GetModifierAttackSpeedBonus_Constant()
   return 0 - math.abs(self.attack_slow)

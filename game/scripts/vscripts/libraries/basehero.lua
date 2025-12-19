@@ -124,5 +124,61 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
 	else
 		unit:SetRangedProjectileName(unit:GetBaseRangedProjectileName())
   end
+end
 
+-- HasRoomForItem returns INT which is weird
+-- HasAnyAvailableInventorySpace() is bugged in that it counts wards as empty inventory slots for some reason
+function CDOTA_BaseNPC_Hero:HasRoomForItemOAA()
+  -- Iterate over item slots
+  local bHasRoom = false
+  -- Normal slots and backpack slots
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = self:GetItemInSlot(i)
+    if not item then
+      bHasRoom = true
+      break
+    end
+  end
+  -- Check stash slots
+  if not bHasRoom then
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+      local item = self:GetItemInSlot(i)
+      if not item then
+        bHasRoom = true
+        break
+      end
+    end
+  end
+
+  return bHasRoom
+end
+
+-- I am not sure if FindItemInInventory and HasItemInInventory check every slot so we use this custom method:
+function CDOTA_BaseNPC_Hero:HasItemAlreadyOAA(item_name)
+  -- Iterate over item slots
+  local bHasItem = false
+  -- Normal slots and backpack slots
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = self:GetItemInSlot(i)
+    if item and not item:IsNull() then
+      if item:GetAbilityName() == item_name then
+        bHasItem = true
+        break
+      end
+    end
+  end
+  -- Check stash slots
+  if not bHasItem then
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+      local item = self:GetItemInSlot(i)
+      if item and not item:IsNull() then
+        if item:GetAbilityName() == item_name then
+          bHasItem = true
+          break
+        end
+      end
+    end
+  end
+
+  return bHasItem
 end

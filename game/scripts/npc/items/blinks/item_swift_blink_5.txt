@@ -42,7 +42,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200 1250 1300 1350 1400"
-    "AbilityOvershootCastRange"                           "960 1000 1040 1080 1120"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0 14.0 13.0 12.0 11.0"
     "AbilityManaCost"                                     "0"
@@ -52,11 +51,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-    "UpgradesItems"                                       "item_swift_blink_3;item_swift_blink_4"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36804"
+    "ItemCost"                                            "36800"
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "blink dagger;agi blink"

@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Disruptor: Electromagnetic Repulsion (Innate)
+  //=================================================================================================================
+  "disruptor_electromagnetic_repulsion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "disruptor_static_storm"
+
+    "AbilityCooldown"                                     "5"
+
+    "AbilityValues"
+    {
+      "damage_threshold"                                  "250"
+      "effect_radius"
+      {
+        "value"                                           "400"
+        "special_bonus_unique_disruptor_7"                "+150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "knockback"
+      {
+        "value"                                           "300"
+        "special_bonus_unique_disruptor_7"                "+150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "knockback_duration"                                ".2"
+      "damage_reset_interval"                             "7"
+      "AbilityCastRange"
+      {
+        "special_bonus_facet_disruptor_conduit"           "=600"
+      }
+      "current_hp_as_damage"
+      {
+        "special_bonus_facet_disruptor_conduit"           "=10"
+      }
+      "manual_cooldown" //OAA
+      {
+        "special_bonus_facet_disruptor_conduit"           "14 12 10 8 7 6"
+      }
+      "AbilityManaCost"
+      {
+        "special_bonus_facet_disruptor_conduit"           "=50"
+      }
+      "max_level" //OAA
+      {
+        "value"                                           "1"
+        "special_bonus_facet_disruptor_conduit"           "=6" // same as Dependent ability (Static Storm) + 1
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -19,7 +19,7 @@
       "damage_health_pct" // current hp pct
       {
         "value"                                           "2.5 3.0 3.5 4.0 4.5 5.0"
-        "special_bonus_unique_zeus_static_field_dmg"      "+1"
+        "special_bonus_unique_zeus_static_field_dmg"      "+2"
         "special_bonus_facet_zuus_livewire"               "=0"
       }
       "damage_health_pct_max_close"
@@ -27,7 +27,7 @@
         "special_bonus_facet_zuus_livewire"
         {
           "value"                                         "=5 =6 =7 =8 =8 =8"
-          "special_bonus_unique_zeus_static_field_dmg"    "+1"
+          "special_bonus_unique_zeus_static_field_dmg"    "+2"
         }
       }
       "damage_health_pct_min_close"
@@ -35,7 +35,7 @@
         "special_bonus_facet_zuus_livewire"
         {
           "value"                                         "=2.5 =3.0 =3.5 =4.0 =4.5 =5.0"
-          "special_bonus_unique_zeus_static_field_dmg"    "+1"
+          "special_bonus_unique_zeus_static_field_dmg"    "+2"
         }
       }
       "distance_threshold_min"

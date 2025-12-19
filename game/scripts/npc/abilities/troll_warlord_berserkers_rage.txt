@@ -21,12 +21,12 @@
       "bonus_move_speed"
       {
         "value"                                           "15 25 35 45 55 65"
-        "special_bonus_unique_troll_warlord_2"            "+25"
+        "special_bonus_unique_troll_warlord_2"            "+20"
       }
       "bonus_armor" //OAA, Valve has var_type FIELD_INTEGER
       {
-        "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_troll_warlord"              "+9"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_unique_troll_warlord"              "+10"
       }
       "bonus_range"                                       "350" // this is probably not needed here
       "base_attack_time"                                  "1.4" // this is probably not needed here
@@ -38,7 +38,7 @@
       "maim_attack_slow"                                  "8 16 24 32 36 40" // tooltip only
       "maim_damage"
       {
-        "value"                                           "5 10 15 20 40 60"
+        "value"                                           "10 15 20 25 50 75"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

@@ -26,7 +26,7 @@
     {
       "AbilityManaCost"
       {
-        "value"                                           "45 50 55 60 65 70"
+        "value"                                           "60 65 70 75 80 85"
       }
       "AbilityCooldown" //OAA
       {
@@ -39,12 +39,12 @@
       }
       "illusion_outgoing_damage"
       {
-        "value"                                           "-60 -40 -20 0 40 80"
+        "value"                                           "-70 -55 -40 -25 -10 5"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                           "40 60 80 100 140 180"
+        "value"                                           "30 45 60 75 90 105"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "move_slow"

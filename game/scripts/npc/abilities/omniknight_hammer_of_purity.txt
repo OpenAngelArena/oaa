@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 35 40 45 50 55"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,13 +33,11 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "13 10 7 4 4 4"
-        //"special_bonus_unique_omniknight_3"               "-5"
-        //note: AbilityChargeRestoreTime uses these values when it grants the charge
+        "value"                                           "14 11 8 5 5 5"
       }
-      "base_damage" //OAA this is damage based on Omniknight's base damage
+      "base_damage" // this is damage based on Omniknight's base damage
       {
-        "value"                                           "55 80 105 130 155 180"
+        "value"                                           "55 70 85 100 115 130"
         "special_bonus_unique_omniknight_4"               "+75"
       }
       "bonus_damage"                                      "50 75 100 125 250 375" //OAA this is actually base damage of the spell
@@ -51,6 +49,9 @@
       {
         "value"                                           "-1"
       }
+      "attack_range_bonus"                                "75"
+      "duration"                                          "0.2"
+      "movement_slow"                                     "75"
     }
   }
 }

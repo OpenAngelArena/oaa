@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5551"
+    "ItemCost"                                            "5550"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb;cbkb;charge"
@@ -60,7 +60,8 @@
     "ItemInitialCharges"                                  "0"      //RamonNZ: This should be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_charge_bkb;item_charge_bkb_2;item_charge_bkb_3;item_charge_bkb_4"
+    "UpgradesItems"                                       "item_charge_bkb_2"
+
     "AbilityValues"
     {
       //Wand Stats:

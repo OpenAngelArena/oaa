@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -25,6 +25,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "reflected_stroke"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "+1"
+      }
       "start_radius"
       {
         "value"                                           "120"
@@ -40,10 +45,14 @@
         "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_grimstroke_2"               "+75%"
       }
-      "bonus_damage_per_target" //OAA
+      "bonus_damage_per_hero" //OAA
       {
-        "value"                                           "20 30 40 50 70 110"
-        "special_bonus_facet_grimstroke_fine_art"         "+0 +10 +20 +30 +40 +50"
+        "value"                                           "20 40 60 80 120 200"
+        "special_bonus_unique_grimstroke_2"               "+75%"
+      }
+      "bonus_damage_per_creep" //OAA
+      {
+        "value"                                           "10 20 30 40 60 100"
         "special_bonus_unique_grimstroke_2"               "+75%"
       }
       "movement_slow_pct"                                 "50 60 70 80 85 90"
@@ -62,55 +71,41 @@
         "value"                                           "2000"
         "special_bonus_unique_grimstroke_3"               "+70%"
       }
-      "vector_stroke"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "=1"
-      }
       "vector_min_cos_facing_angle"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "-0.99"
+        "value"                                           "-0.99"
       }
       "vector_strength"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "0.6"
+        "value"                                           "0.6"
       }
       "vector_max_travel_time_multiplier"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "=5"
+        "value"                                           "5"
       }
       "vector_acceptable_radian_to_snap_velocity"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "0.25"
+        "value"                                           "0.25"
       }
       "vector_distance_to_start_force_turning"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "=100"
+        "value"                                           "100"
       }
       "vector_deg_turn_divisor"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "=1.3"
+        "value"                                           "1.3"
       }
       "vector_deg_turn_max"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "=60"
+        "value"                                           "60"
       }
       "vector_reticle_distance"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "400.0"
+        "value"                                           "400.0"
       }
       "vector_reticle_radius"
       {
-        "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "140.0"
+        "value"                                           "140.0"
         "affected_by_aoe_increase"                        "1"
       }
     }

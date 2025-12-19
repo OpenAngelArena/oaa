@@ -17,7 +17,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     "AbilityManaCost"                                     "50"
 
@@ -35,15 +35,13 @@
         "value"                                           "65"
       }
       "headshot_chance"                                   "100"
-      "active_attack_range_bonus"
+      "active_attack_range_bonus" //OAA
       {
-        "value"                                           "200"
-        "special_bonus_unique_sniper_5"                   "+55"
+        "value"                                           "100 150 200 250 300 350"
+        "special_bonus_unique_sniper_5"                   "+50"
       }
-      "bonus_armor"
-      {
-        "value"                                           "5 10 15 20 25 30"
-      }
+      "bonus_vision"                                      "250 500 750 1000 1250 1500" //OAA
+      "view_restrict"                                     "140"
       "does_root"
       {
         "value"                                           "0"

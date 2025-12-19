@@ -1,3 +1,3 @@
-"DOTA_Tooltip_Facet_batrider_arsonist_Description"                              "Sticky Napalm deals more damage to Bosses."
+"DOTA_Tooltip_Facet_batrider_arsonist_Description"                              "Level <font color='#FFA500'>5+</font> Sticky Napalm causes every attack to apply 1 stack of Sticky Napalm. <font color='#FFA500'>Does not increase max level!</font>"
 "DOTA_Tooltip_ability_batrider_sticky_napalm_Facet_batrider_arsonist"           "#{DOTA_Tooltip_Facet_batrider_arsonist_Description}"
-"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_Facet_batrider_arsonist"       "Sticky Napalm deals %bonus_damage_bosses%%% more damage to Bosses."
+"DOTA_Tooltip_ability_batrider_sticky_napalm_oaa_Facet_batrider_arsonist"       "#{DOTA_Tooltip_Facet_batrider_arsonist_Description}"

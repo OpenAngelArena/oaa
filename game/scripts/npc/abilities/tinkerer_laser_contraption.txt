@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/tinkerer/tinkerer_laser_contraption.lua"
     "AbilityTextureName"                                  "custom/tinkerer_laser_contraption"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
@@ -70,7 +70,7 @@
       }
       "attacks_to_destroy"
       {
-        "value"                                           "2"
+        "value"                                           "1 1 2 2 2"
         "special_bonus_scepter"                           "+1"
       }
       "scepter_cast_range"
@@ -78,7 +78,12 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "1000"
       }
-      "scepter_heal_prevent_percent"
+      "scepter_heal_prevent_percent" // reduces only healing
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "-25 -30 -35 -40 -45"
+      }
+      "health_restoration" // reduces everything else
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "-25 -30 -35 -40 -45"

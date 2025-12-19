@@ -20,7 +20,7 @@
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityManaCost"                                     "85 90 95 100 105 110"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,6 +60,10 @@
       {
         "value"                                           "0"
         "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
+      }
+      "AbilityCharges"
+      {
+        "special_bonus_unique_hoodwink_acorn_shot_charges"  "2"
       }
     }
   }

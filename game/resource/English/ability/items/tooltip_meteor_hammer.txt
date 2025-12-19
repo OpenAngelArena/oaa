@@ -7,7 +7,6 @@
 //"DOTA_Tooltip_ability_item_meteor_hammer_bonus_intellect"                       "+$int"
 //"DOTA_Tooltip_ability_item_meteor_hammer_spell_amp"                             "%+Spell Amplification"
 //"DOTA_Tooltip_ability_item_meteor_hammer_mana_regen_multiplier"                 "%+Mana Regen Amplification"
-//"DOTA_Tooltip_ability_item_meteor_hammer_spell_lifesteal_amp"                   "%+Spell Lifesteal Amplification"
 
 //"DOTA_Tooltip_modifier_item_meteor_hammer_burn"                                 "Meteor Hammer Burn"
 //"DOTA_Tooltip_modifier_item_meteor_hammer_burn_Description"                     "Slowed and taking %dMODIFIER_PROPERTY_TOOLTIP% damage every %dMODIFIER_PROPERTY_TOOLTIP2% second."
@@ -21,7 +20,6 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_agility"                       "+$agi"
 "DOTA_Tooltip_ability_item_meteor_hammer_1_spell_amp"                           "%+Spell Amplification"
 "DOTA_Tooltip_ability_item_meteor_hammer_1_mana_regen_multiplier"               "%+Mana Regen Amplification"
-"DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp"                 "%+Spell Lifesteal Amplification"
 
 "DOTA_Tooltip_Ability_item_meteor_hammer_2"                                     "#{DOTA_Tooltip_Ability_item_meteor_hammer}"
 "DOTA_Tooltip_Ability_item_recipe_meteor_hammer_2"                              "#{DOTA_Tooltip_Ability_item_recipe_meteor_hammer}"
@@ -32,7 +30,6 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_agility"                       "#{DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_agility}"
 "DOTA_Tooltip_ability_item_meteor_hammer_2_spell_amp"                           "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_amp}"
 "DOTA_Tooltip_ability_item_meteor_hammer_2_mana_regen_multiplier"               "#{DOTA_Tooltip_ability_item_meteor_hammer_1_mana_regen_multiplier}"
-"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_lifesteal_amp"                 "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_Ability_item_meteor_hammer_3"                                     "#{DOTA_Tooltip_Ability_item_meteor_hammer}"
 "DOTA_Tooltip_Ability_item_recipe_meteor_hammer_3"                              "#{DOTA_Tooltip_Ability_item_recipe_meteor_hammer}"
@@ -43,7 +40,6 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_3_bonus_agility"                       "#{DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_agility}"
 "DOTA_Tooltip_ability_item_meteor_hammer_3_spell_amp"                           "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_amp}"
 "DOTA_Tooltip_ability_item_meteor_hammer_3_mana_regen_multiplier"               "#{DOTA_Tooltip_ability_item_meteor_hammer_1_mana_regen_multiplier}"
-"DOTA_Tooltip_ability_item_meteor_hammer_3_spell_lifesteal_amp"                 "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_Ability_item_meteor_hammer_4"                                     "#{DOTA_Tooltip_Ability_item_meteor_hammer}"
 "DOTA_Tooltip_Ability_item_recipe_meteor_hammer_4"                              "#{DOTA_Tooltip_Ability_item_recipe_meteor_hammer}"
@@ -54,7 +50,6 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_4_bonus_agility"                       "#{DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_agility}"
 "DOTA_Tooltip_ability_item_meteor_hammer_4_spell_amp"                           "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_amp}"
 "DOTA_Tooltip_ability_item_meteor_hammer_4_mana_regen_multiplier"               "#{DOTA_Tooltip_ability_item_meteor_hammer_1_mana_regen_multiplier}"
-"DOTA_Tooltip_ability_item_meteor_hammer_4_spell_lifesteal_amp"                 "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_Ability_item_meteor_hammer_5"                                     "#{DOTA_Tooltip_Ability_item_meteor_hammer}"
 "DOTA_Tooltip_Ability_item_recipe_meteor_hammer_5"                              "#{DOTA_Tooltip_Ability_item_recipe_meteor_hammer}"
@@ -65,7 +60,6 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_5_bonus_agility"                       "#{DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_agility}"
 "DOTA_Tooltip_ability_item_meteor_hammer_5_spell_amp"                           "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_amp}"
 "DOTA_Tooltip_ability_item_meteor_hammer_5_mana_regen_multiplier"               "#{DOTA_Tooltip_ability_item_meteor_hammer_1_mana_regen_multiplier}"
-"DOTA_Tooltip_ability_item_meteor_hammer_5_spell_lifesteal_amp"                 "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_modifier_item_meteor_hammer_oaa_dot"                              "#{DOTA_Tooltip_modifier_item_meteor_hammer_burn}"
 "DOTA_Tooltip_modifier_item_meteor_hammer_oaa_dot_Description"                  "Taking magical damage, move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."

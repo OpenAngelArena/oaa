@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -22,44 +22,46 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "200"
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_attack_range"                               "225"
-      "katana_base_attack_time"                           "2.0"
-      "katana_bonus_damage"                               "12"
-      "katana_bleed_duration"                             "5.0 6.0 7.0 8.0 8.5 9.0"
+      "katana_bleed_duration"                             "7"
       "katana_bleed_attack_damage_pct" //OAA
       {
-        "value"                                           "6 7 8 9 9.5 10"
+        "value"                                           "6 7 8 9 10 11"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4.0"
+        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4"
       }
-      "heal_reduction_pct"                                "20 24 28 32 36 40" //OAA
-      "shard_cooldown"
-      {
-        "special_bonus_shard"                             "20 15 10 5 5 5"
-      }
-      "AbilityManaCost"
-      {
-        "special_bonus_shard"                             "50"
-      }
-      "stun_duration"
-      {
-        "special_bonus_shard"                             "0.6"
-      }
+      "impale_duration"                                   "0.5"
       "bleed_as_rupture_pct"
       {
-        "special_bonus_shard"                             "100"
+        "value"                                           "50"
+        "special_bonus_shard"                             "+50"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "katana_swap_bonus_damage"
+      "lifesteal_pct"
       {
-        "special_bonus_facet_kez_flutter"                 "12"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+100"
+      }
+      "creep_lifesteal_reduction_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+40"
+      }
+      "backstab_angle"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+105"
+      }
+      "max_stacks"
+      {
+        "value"                                           "500"
+        "special_bonus_shard"                             "+500"
       }
     }
   }

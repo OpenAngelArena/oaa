@@ -43,15 +43,16 @@
 
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "lotus"
-    "AbilityCastRange"                                    "900 1000 1100 1200 1300"
+    "AbilityCastRange"                                    "900 950 1000 1050 1100"
     "AbilityManaCost"                                     "175"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33854"
+    "ItemCost"                                            "33850"
     "ItemShopTags"                                        "armor;regen_health;regen_mana;mana_pool;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 5;lotus orb 5"

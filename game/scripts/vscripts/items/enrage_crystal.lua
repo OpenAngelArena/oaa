@@ -128,12 +128,7 @@ if IsServer() then
 
     if block_amount > 0 and (parent:IsStunned() or parent:IsHexed() or parent:IsOutOfGame()) then
       -- Visual effect
-      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
-      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
-        alert_type = OVERHEAD_ALERT_BLOCK
-      end
-
-      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
 
       return block_amount
     end

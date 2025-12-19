@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14003"
+    "ItemCost"                                            "14000"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 3;boots of travel 3;greater boots of travel 3"
@@ -62,6 +62,7 @@
 
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_greater_travel_boots_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

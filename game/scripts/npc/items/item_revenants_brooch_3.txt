@@ -41,16 +41,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9602"
+    "ItemCost"                                            "9600"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 3;brooch 3;revenants brooch 3;rb 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "ItemBaseLevel"                                       "3"
     "MaxUpgradeLevel"                                     "5"
-    "UpgradesItems"                                       "item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_revenants_brooch_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

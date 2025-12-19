@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityType"                                         "ABILITY_TYPE_BASIC" //OAA
 
     "MaxLevel"                                            "3"
 
@@ -24,7 +24,7 @@
       }
       "attack_speed_reduction"
       {
-        "value"                                           "-30"
+        "value"                                           "-35"
         "special_bonus_unique_tiny_6"                     "+8"
       }
       "toss_bonus_damage" //OAA
@@ -32,7 +32,7 @@
         "value"                                           "75 300 525"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "move_speed"                                        "15 20 25" //OAA
+      "move_speed"                                        "10 15 20"
     }
   }
 }

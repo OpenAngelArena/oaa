@@ -10,7 +10,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_viper_strike.lua"
     "AbilityTextureName"                                  "viper_viper_strike"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -52,7 +52,7 @@
         "special_bonus_unique_viper_2"                    "+80"
       }
       "bonus_movement_speed"                              "-60 -70 -80 -80 -80"
-      "bonus_attack_speed"                                "-80 -120 -160 -200 -240"
+      "bonus_attack_speed"                                "-100 -140 -180 -220 -260"
       "talent_mana_cost_reduction"                        "50" // for talent: special_bonus_unique_viper_8
       "talent_cooldown_reduction"                         "50"// for talent: special_bonus_unique_viper_8
       "projectile_speed"                                  "1500"

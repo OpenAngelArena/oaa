@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+  "item_recipe_upgrade_core_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "1"
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_upgrade_core_5"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_upgrade_core_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Gods Soul
+  //=================================================================================================================
+  "item_upgrade_core_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    // "BaseClass"                                           "item_lua"
+    // "ScriptFile"                                          "items/upgrade_core.lua"
+    // "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "custom/gods_soul"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "32"
+    "ItemCost"                                            "1"
+    "ItemPurchasable"                                     "0"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "IsTempestDoubleClonable"                             "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    // "AbilityValues"
+    // {
+      // "channel_time"                                    "3.0"
+      // "core_count"                                      "2"
+    // }
+  }
+}

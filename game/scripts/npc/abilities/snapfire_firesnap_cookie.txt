@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Snapfire Firesnap Cookie
+  // Snapfire: Firesnap Cookie
   //=================================================================================================================
   "snapfire_firesnap_cookie"
   {
@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -20,18 +20,28 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 90 95 100 105 110"
+    "AbilityManaCost"                                     "105"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
+      {
+        "value"                                           "18 17 16 15 14 13"
+        "special_bonus_unique_snapfire_3"                 "-4"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_snapfire_firesnap_cookie_additional_charge"  "+2"
+      }
+      "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
       {
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_snapfire_3"                 "-4"
@@ -59,7 +69,7 @@
       }
       "impact_damage" //OAA
       {
-        "value"                                           "85 170 255 340 680 1020"
+        "value"                                           "90 160 230 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "impact_stun_duration"
@@ -72,7 +82,7 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+100 +150 +200 +250 +500 +750"
       }
-      "shard_damage_multiplier_tooltip"                   "50"
+      "shard_damage_multiplier_tooltip"                   "40"
     }
   }
 }

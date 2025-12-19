@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -20,10 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" // Valve forgot special_bonus_unique_silencer_7
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "300 450 600 750 900"
@@ -34,24 +30,29 @@
     {
       "AbilityDuration" //OAA
       {
-        "value"                                           "4 4.5 5.0 5.5 6.0"
+        "value"                                           "4.5 5.0 5.5 6.0 6.5"
         "special_bonus_facet_silencer_reverberating_silence"  "=0"
       }
       "apply_twice"
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1"
       }
-      "first_duration" //OAA
+      "first_duration" // unused
       {
-        "special_bonus_facet_silencer_reverberating_silence"  "2.75 3.25 3.75 4.25 4.75"
+        "special_bonus_facet_silencer_reverberating_silence"  "3 3.5 4"
       }
-      "second_duration" //OAA
+      "second_duration" // unused
       {
-        "special_bonus_facet_silencer_reverberating_silence"  "1.25"
+        "special_bonus_facet_silencer_reverberating_silence"  "1.5 1.75 2"
       }
       "applies_curse"
       {
         "special_bonus_scepter"                           "+1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "120"
+        "special_bonus_unique_silencer_7"                 "-20"
       }
     }
   }

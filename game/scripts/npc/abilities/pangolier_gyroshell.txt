@@ -11,7 +11,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -35,9 +35,9 @@
     "AbilityValues"
     {
       "damage_pct"                                        "100" // Pangolier's attack damage
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "80 75 70 65 60"
+        "value"                                           "90 85 80 75 70"
         "special_bonus_unique_pangolier_5"                "-15"
       }
       "cast_time_tooltip"                                 "1.2"
@@ -76,12 +76,12 @@
       }
       "duration"
       {
-        "value"                                           "10"
+        "value"                                           "9 10 11 12 13"
         "special_bonus_unique_pangolier_6"                "+2"
         "special_bonus_facet_pangolier_thunderbolt"       "-1"
       }
+      "move_speed_ramp_up_time"                           "1.0"
       "jump_recover_time"                                 "0.25"
-      "shield_crash_cooldown"                             "9 6 3 2.5 2"
       "magic_resistance"                                  "60"
     }
   }

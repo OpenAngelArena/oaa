@@ -20,10 +20,6 @@
     "AbilityCastRange"                                    "750 900 1050 1200 1350 1500"
     "AbilityCastPoint"                                    "0.3 0.25 0.2 0.15 0.1 0" //OAA
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 80 90 100 110 120"
@@ -43,6 +39,15 @@
       {
         "value"                                           "160"
         "affected_by_aoe_increase"                        "1"
+      }
+      "true_strike"
+      {
+        "special_bonus_unique_meepo_4"                    "1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "13 12 11 10 9 8"
+        "special_bonus_unique_meepo_3"                    "-2.5"
       }
       "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0" //OAA
     }

@@ -61,6 +61,17 @@ function modifier_ogre_seer_area_ignite_thinker:OnIntervalThink()
 	end
 end
 
+function modifier_ogre_seer_area_ignite_thinker:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
+    parent:ForceKillOAA(false)
+  end
+end
+
 ----------------------------------------------------------------------------------------
 
 modifier_ogre_seer_ignite_debuff = class(ModifierBaseClass)

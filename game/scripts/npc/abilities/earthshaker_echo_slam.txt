@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -53,7 +53,7 @@
       "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
       "AbilityCooldown" //OAA
       {
-        "value"                                           "110 105 100 95 90"
+        "value"                                           "110"
         "special_bonus_unique_earthshaker_echo_cd"        "-50%"
       }
     }

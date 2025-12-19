@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -36,6 +36,8 @@
       {
         "value"                                           "15 21 27 39 51"
         "special_bonus_unique_bristleback_3"              "+18"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "aspd_per_stack"
       {
@@ -63,7 +65,7 @@
       "active_view_angle_restriction"
       {
         "value"                                           "0"
-        "special_bonus_facet_bristleback_seeing_red"      "90"
+        "special_bonus_facet_bristleback_seeing_red"      "110"
       }
     }
   }

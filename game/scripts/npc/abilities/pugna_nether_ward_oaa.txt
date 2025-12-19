@@ -28,11 +28,11 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
-    "AbilityDuration"                                     "18 22 26 30 34 38"
+    "AbilityDuration"                                     "21 24 27 30 33 36"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "80 85 90 95 100 105"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -54,12 +54,12 @@
       "health_restore_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_pugna_siphoning_ward"        "+30"
+        "special_bonus_facet_pugna_siphoning_ward"        "+25"
       }
       "mana_restore_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_pugna_siphoning_ward"        "+40"
+        "special_bonus_facet_pugna_siphoning_ward"        "+30"
       }
       "attacks_to_destroy"
       {

@@ -303,14 +303,13 @@ if IsServer() then
     end
 
     local killer = event.attacker
-    local killer_team = killer:GetTeamNumber()
 
     -- Remove invulnerability so we can kill it
     if spawner:HasAbility("boss_out_of_game") then
       spawner:RemoveAbility("boss_out_of_game")
     end
 
-    if killer_team == DOTA_TEAM_NEUTRALS then
+    if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
       spawner:ForceKillOAA(false)
     else
       spawner:Kill(event.inflictor, killer) -- this will crash if the killer is on the neutral team

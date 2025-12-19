@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Wrath of Nature
+  // Nature's Prophet: Wrath of Nature
   //=================================================================================================================
   "furion_wrath_of_nature"
   {
@@ -11,7 +11,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -36,7 +36,7 @@
       "max_targets"                                       "16"
       "damage" //OAA, special_bonus_unique_furion_5 is not used
       {
-        "value"                                           "125 165 205 325 445"
+        "value"                                           "115 165 215 365 515"
         "special_bonus_unique_furion_5"                   "+25"
       }
       "damage_percent_add"

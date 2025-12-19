@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 75 70 70 70" //OAA
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA
+      "radius" //OAA, because of special_bonus_unique_disruptor_8
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
@@ -46,13 +46,15 @@
       "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
         "value"                                           "24"
-        "special_bonus_unique_disruptor_7"                "+6"
       }
-      "damage_max"                                        "200 350 500 950 1400" //OAA
+      "damage_max" //OAA
+      {
+        "value"                                           "200 350 500 950 1400"
+        "special_bonus_unique_disruptor"                  "+60"
+      }
       "duration"
       {
         "value"                                           "6.0"
-        "special_bonus_unique_disruptor_7"                "+1.5"
       }
     }
   }

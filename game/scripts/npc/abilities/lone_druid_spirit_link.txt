@@ -8,8 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    // Inherit vanilla target filters
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // OAA, Valve has it wrong
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
@@ -22,26 +21,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"
+      "bonus_movement_speed_druid"
       {
-        "value"                                           "20 35 50 65 70 75"
-        "special_bonus_unique_lone_druid_spirit_link_attack_speed"  "+45"
+        "value"                                           "10 20 30 40"
+      }
+      "bonus_movement_speed_bear"
+      {
+        "value"                                           "20 40 60 80"
       }
       "lifesteal_percent" //OAA, change it back if scepter is different
       {
-        "value"                                           "15 30 45 60 65 70"
+        "value"                                           "15 30 45 60"
         "special_bonus_scepter"                           "=40"
       }
-      "armor_sharing"
-      {
-        "value"                                           "8 12 16 20 22 24"
-        "special_bonus_facet_lone_druid_bear_with_me"     "+25%"
-      }
-      "lifesteal_both_ways" // shared lifesteal is both ways always between Lone Druid and the scepter target
-      {
-        "value"                                           "0"
-        "special_bonus_facet_lone_druid_bear_with_me"     "=1"
-      }
+      "lifesteal_both_ways"                               "1"
       "duration"                                          "20"
       "active_bonus"                                      "20" //OAA, additive bonus for armor_sharing (24+20) but percentage for bonus_attack_speed (75*1.2)
       "AbilityCooldown" //OAA, reduce cd and duration if it becomes dispellable

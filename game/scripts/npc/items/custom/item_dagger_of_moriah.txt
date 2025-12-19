@@ -38,7 +38,7 @@
     "ScriptFile"                                          "items/dagger_of_moriah.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/dagger_of_moriah_1"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -48,11 +48,11 @@
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_dagger_of_moriah_1;item_dagger_of_moriah_2"
+    "UpgradesItems"                                       "item_dagger_of_moriah_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16778"
+    "ItemCost"                                            "16775"
     "ItemShopTags"                                        "armor;agi;str;int;regen_health;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -67,20 +67,18 @@
       "bonus_armor"                                       "16 20"
       "bonus_health_regen"                                "14 17"
       "bonus_mana_regen"                                  "0"
-      "spell_amp_per_intellect"                           "0.05"
-      // Active stuff
-      "radius"
+      "aura_radius"
       {
-        "value"                                           "1200"
+        "value"                                           "800 850"
         "affected_by_aoe_increase"                        "1"
       }
-      "magic_dmg_amp"                                     "28"
+      "aura_magic_resistance"                             "13 15"
+      // Active stuff
+      "magic_dmg_amp"                                     "24 27"
       "heal_reduction_duration"                           "3"
-      "heal_reduction_percent"                            "45 50"
-      "duration"                                          "8.0"
-      //"sangromancy_spell_amp"                             "75 100"
-      //"sangromancy_self_damage"                           "100 75"
-      //"sangromancy_bonus_damage_from_others"              "50 25"
+      "heal_reduction_percent"                            "40 45" // reduces healing only
+      "health_restoration"                                "-40 -45" // reduces everything else
+      "duration"                                          "10.0"
     }
 
     // Precache

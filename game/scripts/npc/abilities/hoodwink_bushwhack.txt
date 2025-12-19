@@ -21,10 +21,6 @@
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "90 100 110 120 130 140"
@@ -38,7 +34,7 @@
         "value"                                           "265"
         "affected_by_aoe_increase"                        "1"
       }
-      "debuff_duration"                                   "1.4 1.6 1.8 2.0 2.2 2.4"
+      "debuff_duration"                                   "1.5 1.7 1.9 2.1 2.3 2.5"
       "projectile_speed"                                  "1300"
       "total_damage" //OAA
       {
@@ -48,6 +44,11 @@
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"
+      "AbilityCooldown"
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_hoodwink_bushwhack_cooldown"  "-2"
+      }
     }
   }
 }

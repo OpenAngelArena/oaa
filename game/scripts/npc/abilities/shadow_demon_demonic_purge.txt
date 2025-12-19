@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Demon: Shadow Demon Demonic Purge
+  // Shadow Demon: Demonic Purge
   //=================================================================================================================
   "shadow_demon_demonic_purge"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -23,7 +23,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "5.0"
-    "AbilityCooldown"                                     "70" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -47,13 +46,15 @@
       {
         "special_bonus_scepter"                           "2"
       }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "70"
+        "special_bonus_unique_shadow_demon_9"             "-30"
+      }
       "charge_restore_time" //OAA
       {
         "special_bonus_scepter"                           "70"
-      }
-      "charge_restore_time_tooltip_scepter" //OAA
-      {
-        "special_bonus_scepter"                           "70"
+        "special_bonus_unique_shadow_demon_9"             "-30"
       }
       "max_slow" //OAA
       {

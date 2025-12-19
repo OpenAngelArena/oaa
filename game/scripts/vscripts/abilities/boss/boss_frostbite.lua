@@ -36,7 +36,7 @@ function modifier_boss_frostbite_applier:OnCreated()
   if ability and not ability:IsNull() then
     self.heal_prevent_duration = ability:GetSpecialValueFor("heal_prevent_duration")
   else
-    self.heal_prevent_duration = 5
+    self.heal_prevent_duration = 3
   end
 end
 
@@ -44,12 +44,12 @@ modifier_boss_frostbite_applier.OnRefresh = modifier_boss_frostbite_applier.OnCr
 
 function modifier_boss_frostbite_applier:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
   }
 end
 
 if IsServer() then
-  function modifier_boss_frostbite_applier:OnAttackLanded(event)
+  function modifier_boss_frostbite_applier:GetModifierProcAttack_Feedback(event)
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
@@ -59,6 +59,7 @@ if IsServer() then
       return
     end
 
+    -- Check if attacked unit exists
     if attacker ~= parent then
       return
     end
@@ -68,7 +69,13 @@ if IsServer() then
       return
     end
 
+    -- Do nothing if attacker is an illusion, dead or affected by break
     if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
+      return
+    end
+
+    -- Don't continue if the attacked entity doesn't have IsMagicImmune method -> attacked entity is something weird
+    if target.IsMagicImmune == nil then
       return
     end
 
@@ -78,6 +85,7 @@ if IsServer() then
     end
 
     target:AddNewModifier(parent, self:GetAbility(), "modifier_boss_frostbite_effect", {duration = self.heal_prevent_duration})
+    target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
   end
 end
 
@@ -106,12 +114,30 @@ function modifier_boss_frostbite_effect:OnCreated()
   end
 end
 
-function modifier_boss_frostbite_effect:OnRefresh()
+modifier_boss_frostbite_effect.OnRefresh = modifier_boss_frostbite_effect.OnCreated
+
+function modifier_boss_frostbite_effect:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
   local ability = self:GetAbility()
-  if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-  else
-    self.heal_prevent_percent = -60
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
   end
 end
 
@@ -122,9 +148,9 @@ end
 function modifier_boss_frostbite_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -136,10 +162,12 @@ function modifier_boss_frostbite_effect:GetModifierHPRegenAmplify_Percentage()
   return self.heal_prevent_percent
 end
 
-function modifier_boss_frostbite_effect:GetModifierLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_boss_frostbite_effect:GetModifierLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end
 
-function modifier_boss_frostbite_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- Doesn't work, Thanks Valve!
+-- function modifier_boss_frostbite_effect:GetModifierSpellLifestealRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end

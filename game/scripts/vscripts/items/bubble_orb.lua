@@ -103,7 +103,7 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
       radius = ability:GetSpecialValueFor("radius")
       aura_stickiness = ability:GetSpecialValueFor("aura_stickiness")
     else
-      radius = 300
+      radius = 225
       aura_stickiness = 0.1
     end
 
@@ -161,6 +161,7 @@ function modifier_item_preemptive_bubble_aura_block:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    -- Kill the thinker entity if it exists
     parent:ForceKillOAA(false)
   end
 end

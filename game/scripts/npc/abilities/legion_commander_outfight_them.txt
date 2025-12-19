@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Legion Commander: Outfight Them! (Innate)
+  //=================================================================================================================
+  "legion_commander_outfight_them"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Duel) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "legion_commander_duel"
+
+    "AbilityValues"
+    {
+      "heal_bonus_pct"
+      {
+        "value"                                           "30 40 50 60 65 70"
+      }
+      "duration"                                          "4.0"
+    }
+  }
+}

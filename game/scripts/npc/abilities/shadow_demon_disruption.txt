@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Demon: Shadow Demon Disruption
+  // Shadow Demon: Disruption
   //=================================================================================================================
   "shadow_demon_disruption"
   {
@@ -24,7 +24,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650"
+    "AbilityCastRange"                                    "675"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -42,7 +42,12 @@
       "illusion_duration"                                 "11 12 13 14 16 18"
       "illusion_outgoing_damage"                          "-80.0 -70.0 -60.0 -50.0 -30.0 -10.0"
       "illusion_outgoing_tooltip"                         "20.0 30.0 40.0 50.0 70.0 90.0"
-      "illusion_flat_damage"                              "25 40 55 70 100 130"
+      "illusion_flat_damage"
+      {
+        "value"                                           "20 35 50 65 95 125"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
       "illusion_incoming_damage"                          "200 175 150 125 75 25" //OAA
       "tooltip_total_illusion_incoming_damage"            "300 275 250 225 175 125" //OAA
       "AbilityCooldown" //OAA
@@ -58,11 +63,6 @@
       "AbilityChargeRestoreTime"                          "23 22 21 20 19 18" //OAA
       "illusion_bounty_base"                              "0"
       "illusion_bounty_growth"                            "2"
-      "can_cast"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_shadow_demon_disruption_cast"  "+1"
-      }
     }
   }
 }

@@ -19,6 +19,9 @@ function Courier:Init ()
   else
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(Courier, 'OnNpcSpawned'), self)
+    --GameRules:GetGameModeEntity():SetCanSellAnywhere(true) -- does nothing?
+    --local global_shop = SpawnDOTAShopTriggerRadiusApproximate(Vector(0,0,0), 99999) -- randomly breaks
+    --global_shop:SetShopType(DOTA_SHOP_HOME)
   end
 end
 
@@ -39,14 +42,14 @@ function Courier.SpawnCourier(hero)
 
     local playerID = hero:GetPlayerOwnerID()
     -- Create a courier
-    local courier_unit = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin(), true, hero, hero, hero:GetTeamNumber())
+    local courier_unit = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin(), true, hero, hero:GetOwner(), hero:GetTeamNumber())
     courier_unit:SetOwner(hero)
     courier_unit:SetControllableByPlayer(playerID, true)
     courier_unit:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-    courier_unit:RemoveAbility("courier_burst")
-    courier_unit:RemoveAbility("courier_shield")
-    courier_unit:RemoveAbility("courier_go_to_sideshop")
-    courier_unit:RemoveAbility("courier_go_to_sideshop2")
+    --courier_unit:RemoveAbility("courier_burst")
+    --courier_unit:RemoveAbility("courier_shield")
+    --courier_unit:RemoveAbility("courier_go_to_sideshop")
+    --courier_unit:RemoveAbility("courier_go_to_sideshop2")
     --courier_unit:RemoveAbility("nothing")   -- it doesnt give an error even if it didnt find an ability with that name
     courier_unit:AddNewModifier(hero, nil, "modifier_custom_courier_stuff", {})
 
@@ -88,9 +91,9 @@ function modifier_custom_courier_stuff:DeclareFunctions()
   if Courier.enableCustomCourier then
     funcs = {
       MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
-      MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+      --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
       MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
-      MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
+      --MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
       MODIFIER_PROPERTY_MOVESPEED_LIMIT,
       MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
       MODIFIER_PROPERTY_VISUAL_Z_DELTA,

@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_crimson_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/crimson_guard_3"
 
     // Stats
@@ -48,11 +48,11 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
+    "UpgradesItems"                                       "item_crimson_guard_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8727"
+    "ItemCost"                                            "8725"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard 3"
@@ -64,7 +64,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "350 450 600 800 1050"
+      "bonus_health"                                      "300 400 550 750 1000"
       "bonus_health_regen"                                "12 15 18 21 24"
       "bonus_armor"                                       "7 8 10 13 17"
       "block_damage_melee"                                "75 125 175 225 275"

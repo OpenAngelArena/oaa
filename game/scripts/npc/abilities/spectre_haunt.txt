@@ -1,43 +1,76 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Haunt (scepter ability)
+  // Spectre: Haunt
   //=================================================================================================================
   "spectre_haunt"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "7.0"
-      "illusion_damage_outgoing"                          "-20"
-      "tooltip_outgoing"                                  "80"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "120"
+        "special_bonus_scepter"                           "-20"
+      }
+      "scepter_cooldown_reduction_tooltip"                "20"
+      "duration"                                          "5.0 6.0 7.0 8.0 9.0"
+      "illusion_damage_outgoing"
+      {
+        "value"                                           "-70 -45 -20 -15 -10"
+        "special_bonus_unique_spectre_4"                  "+20"
+      }
+      "tooltip_outgoing"
+      {
+        "value"                                           "30 55 80 85 90"
+        "special_bonus_unique_spectre_4"                  "+20"
+      }
       "illusion_damage_incoming"                          "100"
-      "tooltip_illusion_total_damage_incoming"            "200"
+      "tooltip_illusion_total_damage_incoming"
+      {
+        "value"                                           "200"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "attack_delay"                                      "0"
       "destroy_if_target_is_dead"
       {
         "value"                                           "1"
         "special_bonus_facet_spectre_twist_the_knife"     "=0"
+      }
+      "fear_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1.5"
+      }
+      "fear_aoe"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=400"
+      }
+      "fear_movespeed_slow"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "50"
       }
     }
   }

@@ -80,7 +80,7 @@ function modifier_spark_xp:OnDeath(event)
     -- bonus experience
     if bonus_xp > 0 then
       parent:AddExperience(bonus_xp, DOTA_ModifyXP_CreepKill, false, true)
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, parent, bonus_xp, player)
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, parent, bonus_xp, nil)
     end
   end
 end

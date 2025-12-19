@@ -46,14 +46,17 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5452"
+    "ItemCost"                                            "5460"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "urn of sorcery 2;melon 2"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_urn_of_sorcery_3"
+
     "ItemAlertable"                                       "1"
 
     //Parameters
