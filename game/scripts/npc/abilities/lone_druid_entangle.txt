@@ -2,18 +2,20 @@
 {
   "lone_druid_entangle"
   {
-    "MaxLevel"                                            "6"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilitySound"                                        "LoneDruid_SpiritBear.Entangle"
-    "HasScepterUpgrade"                                   "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
+
     "AbilityManaCost"                                     "60"
     "AbilityValues"
     {
@@ -53,12 +55,12 @@
       }
       "entangle_duration"
       {
-        "value"                                           "1.2 1.6 2.0 2.4 2.8 3.2"
+        "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
         "special_bonus_unique_lone_druid_entangle_duration"  "+0.6"
       }
       "damage"
       {
-        "value"                                           "60 70 80 90 100 110"
+        "value"                                           "60 70 80 90 180 270"
         "special_bonus_unique_lone_druid_1"               "+15"
       }
     }
