@@ -6,7 +6,7 @@
   "npc_dota_hero_treant"
   {
     "Ability10"                                           "special_bonus_unique_treant_13" // replaces special_bonus_unique_treant_8
-    //"Ability11"                                           "special_bonus_unique_treant_12"
+    //"Ability11"                                           "special_bonus_attack_base_damage_50"
 
     //"Ability12"                                           "special_bonus_unique_treant_3"
     //"Ability13"                                           "special_bonus_unique_treant_9"
@@ -17,18 +17,19 @@
     //"Ability16"                                           "special_bonus_unique_treant_14"
     //"Ability17"                                           "special_bonus_unique_treant_7"
 
-  // special_bonus_unique_treant - "+{s:value} Living Armor Block Instances"                       - doesn't work
-  // special_bonus_unique_treant_2 - "+{s:value} Leech Seed Damage/Heal"                           - lvl 20
-  // special_bonus_unique_treant_3 - "+{s:value}% Leech Seed Movement Slow"                        - lvl 15
-    // special_bonus_unique_treant_4 - "Nature's Guise Invisibility"                                 - useless
-  // special_bonus_unique_treant_5 - "+{s:value} Eyes and Overgrowth AoE"                          - probably overpowered
-    // special_bonus_unique_treant_6 - "Global Living Armor"                                         - probably overpowered
-  // special_bonus_unique_treant_7 - "{s:value} AoE Living Armor"                                  - ok
-  // special_bonus_unique_treant_8 - "+{s:bonus_heal_per_second} Living Armor Heal Per Second"     - 10 -> 20
-  // special_bonus_unique_treant_9 - "+{s:value} Nature's Grasp Damage"                            - garbage
-    // special_bonus_unique_treant_10 - "Gains Tree Walking"                                         - useless
-    // special_bonus_unique_treant_11 - "Overgrowth Undispellable"                                   - overpowered
-  // special_bonus_unique_treant_12 - "-{s:value}s Nature's Grasp Cooldown"                        - unused
-  // special_bonus_unique_treant_13 - "+{s:bonus_bonus_armor} Living Armor Bonus Armor"            - 20 -> 10
+    // special_bonus_unique_treant - Living Armor Block Instances                                    - doesn't work
+    // special_bonus_unique_treant_2 - Leech Seed Damage                                             - 20
+    // special_bonus_unique_treant_3 - Leech Seed Damage to Healing                                  - 15
+    // special_bonus_unique_treant_4 - Nature's Guise Invisibility                                   - useless
+    // special_bonus_unique_treant_5 - Eyes and Overgrowth AoE                                       - unused
+    // special_bonus_unique_treant_6 - Global Living Armor                                           - probably overpowered
+    // special_bonus_unique_treant_7 - AoE Living Armor                                              - 25
+    // special_bonus_unique_treant_8 - Living Armor Heal Per Second                                  - 10 -> 20
+    // special_bonus_unique_treant_9 - Nature's Grasp Damage                                         - 15
+    // special_bonus_unique_treant_10 - Gains Tree Walking                                           - useless
+    // special_bonus_unique_treant_11 - Overgrowth Undispellable                                     - overpowered
+    // special_bonus_unique_treant_12 - Nature's Guise Movement Speed                                - unused
+    // special_bonus_unique_treant_13 - Living Armor Damage Block                                    - 20 -> 10
+    // special_bonus_unique_treant_14 - Leech Seed Cooldown                                          - 25
   }
 }
