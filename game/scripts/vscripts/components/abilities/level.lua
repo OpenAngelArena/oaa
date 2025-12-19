@@ -69,7 +69,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     local talent = hero:FindAbilityByName(leveled_up_ability)
-    if IsTalentCustom(leveled_up_ability) then
+    if IsTalentCustom(leveled_up_ability) and talent then
       -- Ability is a talent
 
       -- Check for hero level

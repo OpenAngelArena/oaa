@@ -188,9 +188,9 @@ end
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
-    -- normal leveling up (attribute bonus is auto-leveled at levels 17,19,21,22,23,24,26 if you didn't lvl it up earlier)
-    local forbidden_levels = {17, 19, 21, 22, 23, 24}
-    if level < 25 then
+    -- normal leveling up
+    local forbidden_levels = {15, 16, 17, 19, 20, 21, 22, 23, 24, 25}
+    if level <= 25 then
       for i = 1, #forbidden_levels do
         if level == forbidden_levels[i] then
           return false
