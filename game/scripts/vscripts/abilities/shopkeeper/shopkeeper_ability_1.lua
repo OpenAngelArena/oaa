@@ -71,7 +71,6 @@ end
 
 function shopkeeper_ability_1:OnProjectileHit_ExtraData(htarget, vLocation, table)
     local duration = self:GetSpecialValueFor("duration")
-    local damage = self:GetSpecialValueFor("damage")
     local heal = self:GetSpecialValueFor("heal")
     local radius = self:GetSpecialValueFor("radius")
     if table.particle_fx then

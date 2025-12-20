@@ -89,9 +89,11 @@ function shopkeeper_ability_3:OnSpellStart()
     local damage = self:GetSpecialValueFor("damage")
 
     local units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local has_talent_5 = self:GetCaster():FindAbilityByName("special_bonus_unique_shopkeeper_5") and self:GetCaster():FindAbilityByName("special_bonus_unique_shopkeeper_5"):GetLevel() > 0
+
     for _, unit in pairs(units) do
         if unit ~= self:GetCaster() then
-            if unit:IsHero() then
+            if unit:IsHero() or has_talent_5 then
                 local buff_duration = duration
                 if unit:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
                     buff_duration = buff_duration * (1-unit:GetStatusResistance())

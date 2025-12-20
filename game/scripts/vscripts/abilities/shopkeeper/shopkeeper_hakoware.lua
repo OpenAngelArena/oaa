@@ -32,7 +32,13 @@ modifier_shopkeeper_hakoware_debt = class({})
 
 function modifier_shopkeeper_hakoware_debt:IsHidden() return false end
 function modifier_shopkeeper_hakoware_debt:IsDebuff() return true end
-function modifier_shopkeeper_hakoware_debt:IsPurgable() return false end
+function modifier_shopkeeper_hakoware_debt:IsPurgable()
+    local caster = self:GetCaster()
+    if caster:FindAbilityByName("special_bonus_unique_shopkeeper_6") and caster:FindAbilityByName("special_bonus_unique_shopkeeper_6"):GetLevel() > 0 then
+        return false
+    end
+    return true
+end
 
 -- Declare functions for the modifier
 function modifier_shopkeeper_hakoware_debt:DeclareFunctions()
@@ -68,6 +74,9 @@ end
 function modifier_shopkeeper_hakoware_debt:OnDestroy()
     if not IsServer() then return end
 
+    -- If dispelled early, don't apply effects
+    if self.dispelled then return end
+
     -- Calculate the final debt with interest
     local final_debt = self:GetStackCount()  -- Debt is stored in stack count
 
@@ -95,6 +104,14 @@ function modifier_shopkeeper_hakoware_debt:OnDestroy()
 
     -- Apply the mute modifier when the debt is settled
     self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_shopkeeper_hakoware_item_mute", {duration = mute_duration})
+end
+
+function modifier_shopkeeper_hakoware_debt:OnRemoved()
+    if not IsServer() then return end
+    -- Mark as dispelled if removed before duration expired
+    if self:GetRemainingTime() > 0 then
+        self.dispelled = true
+    end
 end
 
 if IsServer() then
