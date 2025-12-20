@@ -66,6 +66,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
 
   self:SetTalents(hero)
 
+  --[[
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     local talent = hero:FindAbilityByName(leveled_up_ability)
@@ -83,6 +84,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
       end
     end
   end
+  ]]
 end
 
 function AbilityLevels:SetTalents(hero)

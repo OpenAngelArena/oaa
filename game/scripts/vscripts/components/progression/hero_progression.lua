@@ -1,10 +1,10 @@
 if HeroProgression == nil then
-    HeroProgression = class({})
-    Debug.EnabledModules['progression:*'] = false
+  HeroProgression = class({})
+  Debug.EnabledModules['progression:*'] = false
+  Debug:EnableDebugging()
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
-  --Debug:EnableDebugging()
   -- dota_player_gained_level:
   --"player_id"
   --"level"
