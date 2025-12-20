@@ -1,0 +1,93 @@
+"npc_dota_hero_shopkeeper"                                                      "Shopkeeper"
+"npc_dota_hero_shopkeeper_hype"                                                 "The Keeper"
+"npc_dota_shopkeeper_krekker"                                                   "Cracker"
+"npc_dota_shopkeeper_item"                                                      "Item"
+
+// Facets
+"DOTA_Tooltip_Facet_facet_shop_keeper_1"                                        "Secret Shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_1_Description"                            "All heroes near you in 450 radius can purchase items from the secret shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_2"                                        "Regular Shop"
+"DOTA_Tooltip_Facet_facet_shop_keeper_2_Description"                            "All heroes near you in 450 radius can purchase items from the regular shop"
+
+// Innate Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_innate"                                "Wealthstrike"
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_description"                    "Hero's ranged attacks cost gold, each attack spends %gold_distance% gold but deals %distance_damage% additional magical damage.<br><br>Gains periodic gold every minute, increased by %percent%%%."
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_Lore"                           "There is no such thing as a free lunch. Or a free attack."
+
+// Ability 1
+// Ability 1
+"DOTA_Tooltip_ability_shopkeeper_ability_1"                                     "Healing Salve"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_description"                         "Throws a potion at target point that heals allied units in the explosion radius and increases their movement speed."
+"DOTA_Tooltip_ability_shopkeeper_ability_1_heal"                                "HEAL:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_bonus_movement_speed"                "%MOVE SPEED BONUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_duration"                            "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_ability_1_Lore"                                "A staple of the shop, this green concoction has saved countless heroes from certain death."
+
+// Ability 1 Modifiers
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_buff"                               "Healing Salve"
+"DOTA_Tooltip_modifier_shopkeeper_ability_1_buff_description"                   "Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+// Ability 2
+"DOTA_Tooltip_ability_shopkeeper_hakoware"                                      "Hakoware"
+"DOTA_Tooltip_ability_shopkeeper_hakoware_description"                          "Loans %gold_percentage%%% of your current gold to an enemy target. The debt grows over time. <br><br>When the duration ends, the target takes <b>Pure</b> damage equal to the debt, loses that amount of gold (paid to you), and is Muted. <br><br>If the target deals damage to Shopkeeper, they repay part of the debt immediately."
+"DOTA_Tooltip_ability_shopkeeper_hakoware_interest_rate"                        "%INTEREST RATE:"
+"DOTA_Tooltip_ability_shopkeeper_hakoware_gold_percentage"                      "%LOAN PERCENTAGE:"
+"DOTA_Tooltip_ability_shopkeeper_hakoware_mute_duration"                        "MUTE DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_hakoware_duration"                             "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_hakoware_Lore"                                 "Interest rates in the War of the Ancients are notoriously high."
+"DOTA_Tooltip_modifier_shopkeeper_hakoware_debt"                                "Hakoware Debt"
+"DOTA_Tooltip_modifier_shopkeeper_hakoware_debt_description"                    "Accumulating debt. Will take damage and lose gold when this expires. Dealing damage to Shopkeeper repays debt."
+"DOTA_Tooltip_modifier_shopkeeper_hakoware_item_mute"                           "Bankruptcy"
+"DOTA_Tooltip_modifier_shopkeeper_hakoware_item_mute_description"               "Cannot use items."
+
+// Ability 3
+"DOTA_Tooltip_ability_shopkeeper_ability_3"                                     "Just Business"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_description"                         "Turns all heroes in an area into random items, making them Stunned, Disarmed, Rooted, Untargetable and Pseudo-Invulnerable. Non-hero enemies take damage immediately. Enemy heroes take damage when the effect ends."
+"DOTA_Tooltip_ability_shopkeeper_ability_3_radius"                              "RADIUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_duration"                            "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_damage"                              "DAMAGE:"
+"DOTA_Tooltip_ability_shopkeeper_ability_3_Lore"                                "Sometimes the best way to handle an unruly customer is to turn them into merchandise."
+
+// Ability 3 Modifier
+"DOTA_Tooltip_modifier_shopkeeper_ability_3_debuff"                             "Just Business"
+"DOTA_Tooltip_modifier_shopkeeper_ability_3_debuff_description"                 "Turned into an item. Stunned"
+
+// Ultimate Ability
+"DOTA_Tooltip_ability_shopkeeper_all_in"                                        "All In"
+"DOTA_Tooltip_ability_shopkeeper_all_in_description"                            "Spends all your gold to apply a <b>Strong Dispel</b> and create a shield on a target ally. <br><br>The shield blocks damage based on %conversion_rate%%% of the gold spent, up to a maximum. Grants <b>Debuff Immunity</b> while the shield holds."
+"DOTA_Tooltip_ability_shopkeeper_all_in_duration"                               "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_all_in_conversion_rate"                        "%GOLD TO SHIELD:"
+"DOTA_Tooltip_ability_shopkeeper_all_in_shield_max_value"                       "MAX SHIELD:"
+"DOTA_Tooltip_ability_shopkeeper_all_in_Lore"                                   "When the stakes are highest, the Shopkeeper invests everything to protect his assets."
+
+// Ultimate Modifier
+"DOTA_Tooltip_modifier_shopkeeper_all_in_shield"                                "All In"
+"DOTA_Tooltip_modifier_shopkeeper_all_in_shield_description"                    "Absorbs damage and grants Debuff Immunity."
+
+// Scepter Ability (Vagabond)
+"DOTA_Tooltip_ability_shopkeeper_vagabond"                                      "Vagabond"
+"DOTA_Tooltip_ability_shopkeeper_vagabond_description"                          "For the next %duration% seconds, your gold cannot drop below %threshold_percent%%% of the gold you had when casting this ability."
+"DOTA_Tooltip_ability_shopkeeper_vagabond_duration"                             "DURATION:"
+"DOTA_Tooltip_ability_shopkeeper_vagabond_threshold_percent"                    "%GOLD THRESHOLD:"
+"DOTA_Tooltip_ability_shopkeeper_vagabond_Lore"                                 "Even when wandering the lanes, the Shopkeeper ensures his pockets are never truly empty."
+
+// Scepter Modifier
+"DOTA_Tooltip_modifier_shopkeeper_vagabond"                                     "Vagabond"
+"DOTA_Tooltip_modifier_shopkeeper_vagabond_description"                         "Gold cannot drop below %dMODIFIER_PROPERTY_TOOLTIP%."
+
+// Shard Ability
+"DOTA_Tooltip_ability_shopkeeper_ability_shard"                                 "Liquidation"
+"DOTA_Tooltip_ability_shopkeeper_ability_shard_description"                     "Whenever a hero within %radius% radius uses an active item, Shopkeeper's ability cooldowns are reduced by %cooldown_reduction% seconds."
+"DOTA_Tooltip_ability_shopkeeper_ability_shard_Lore"                            "Every transaction strengthens the Shopkeeper's hand."
+"DOTA_Tooltip_ability_shopkeeper_ability_shard_radius"                          "RADIUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_shard_cooldown_reduction"              "COOLDOWN REDUCTION:"
+
+// Talents
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_1"                        "-{s:bonus_AbilityChargeRestoreTime}s Healing Salve Charge Restore Time"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_2"                        "Wealthstrike Attacks Don't Cost Gold"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_3"                        "+{s:bonus_duration}s All In Duration"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_4"                        "+{s:bonus_heal} Healing Salve Heal"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_5"                        "-20s All In Cooldown"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_6"                        "Hakoware Undispellable"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_7"                        "+{s:bonus_distance_damage} Wealthstrike Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_8"                        "+{s:bonus_mute_duration}s Hakoware Mute Duration"
