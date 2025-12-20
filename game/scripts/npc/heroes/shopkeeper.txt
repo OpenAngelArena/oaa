@@ -8,7 +8,7 @@
         "include_keys_from" 				"npc_dota_hero_ringmaster"
 		"BaseClass" 						"npc_dota_hero"
         "HeroID"		                    "206"
-        "Model" "models/heroes/shopkeeper/shopkeeper_geometry.vmdl"
+        "Model" "models/heroes/shopkeeper/shopkeeper.vmdl"
         "DisableWearables"                  "1"
 
         "Ability1"                          "shopkeeper_ability_1"
@@ -23,12 +23,12 @@
 
         "Ability10"                         "special_bonus_unique_shopkeeper_1"
         "Ability11"                         "special_bonus_unique_shopkeeper_2"
-        "Ability12"                         "special_bonus_unique_shopkeeper_5"
+        "Ability12"                         "special_bonus_unique_shopkeeper_3"
         "Ability13"                         "special_bonus_unique_shopkeeper_4"
-        "Ability14"                         "special_bonus_unique_shopkeeper_3"
-        "Ability15"                         "special_bonus_all_stats_10"
+        "Ability14"                         "special_bonus_unique_shopkeeper_5"
+        "Ability15"                         "special_bonus_unique_shopkeeper_8"
         "Ability16"                         "special_bonus_unique_shopkeeper_7"
-        "Ability17"                         "special_bonus_cast_range_400"
+        "Ability17"                         "special_bonus_unique_shopkeeper_6"
 
 		"AttackCapabilities"				"DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttributePrimary"                  "DOTA_ATTRIBUTE_ALL"

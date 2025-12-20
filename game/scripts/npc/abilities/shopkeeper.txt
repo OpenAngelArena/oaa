@@ -26,11 +26,7 @@
                 "special_bonus_unique_shopkeeper_1"     "-3"
             }
             "radius"                                    "250"
-            "damage"
-            {
-                "value"                                 "100 160 220 280"
-                "special_bonus_unique_shopkeeper_4"     "+150"
-            }
+
             "heal"
             {
                 "value"                                 "160 220 280 340"
@@ -54,7 +50,7 @@
         "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-        "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+        "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
         "AbilityTextureName"                                  "custom/shopkeeper_hakoware"
 
         "MaxLevel"                                            "6"
@@ -79,7 +75,11 @@
             "duration"                                          "5"
             "interest_rate"                                     "0.1 0.2 0.3 0.4 0.5 0.6"
             "gold_percentage"                                   "10"
-            "mute_duration"                                     "3.0 3.5 4.0 4.5 5.0 5.5"  // Scales with ability level
+            "mute_duration"
+            {
+                "value"                                 "2.5 3.0 3.5 4.0 4.5 5.0"
+                "special_bonus_unique_shopkeeper_8"     "+2.0"
+            }
         }
 
         // Precache
@@ -131,13 +131,19 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityCastPoint"			    "0.4"
         "AbilityCastRange"              "700"
-        "AbilityCooldown"               "60 55 50 45 40"
+        "AbilityCastRange"              "700"
         "AbilityGoldCost"               "100%"  // Percent of Shopkeeper's net worth
         "AbilityValues"
         {
+            "AbilityCooldown"
+            {
+                "value"                         "60 55 50 45 40"
+                "special_bonus_unique_shopkeeper_5" "-20"
+            }
             "duration"
             {
                 "value"                         "5 8 11 12 15"  // Duration scales from 5 to 15 seconds
+                "special_bonus_unique_shopkeeper_3" "+3"
             }
             "conversion_rate"
             {
@@ -183,14 +189,13 @@
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_shard"
         "AbilityTextureName"            "custom/shopkeeper_ability_shard"
-        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_6"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                      "1"
-        "AbilityCooldown"               "360"
         "IsGrantedByShard"              "1"
         "AbilityValues"
 		{
-            "sale"                      "50"
+            "radius"                    "900"
+            "cooldown_reduction"        "0.25"
         }
     }
 
@@ -200,8 +205,8 @@
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"MaxLevel"						"1"
-		"Innate"						"4"
-        "DependentOnAbility"			"shopkeeper_ability_all_in"
+		"Innate"						"1"
+        "DependentOnAbility"			"shopkeeper_all_in"
 		"AbilityValues"
 		{
             "gold_timer"                "60"
@@ -214,7 +219,7 @@
             }
             "distance_damage"
             {
-                "value"                                 "10 30 50 70"
+                "value"                                 "10 35 60 100 150"
                 "special_bonus_unique_shopkeeper_7"     "+150"
             }
             "distance"                 "520"
