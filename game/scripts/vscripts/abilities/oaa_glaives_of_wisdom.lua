@@ -18,11 +18,7 @@ function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   --local caster = self:GetCaster()
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
-  local pierce_bkb = false
-  --local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  --if talent and talent:GetLevel() > 0 then
-    --pierce_bkb = true
-  --end
+  local pierce_bkb = self:GetSpecialValueFor("pierce_bkb") ~= 0
 
   if pierce_bkb and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     return UF_SUCCESS
@@ -72,11 +68,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   local do_silence = data.silence == 1
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
-  local pierce_bkb = false
-  --local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  --if talent2 and talent2:GetLevel() > 0 then
-    --pierce_bkb = true
-  --end
+  local pierce_bkb = self:GetSpecialValueFor("pierce_bkb") ~= 0
 
   -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
   if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
@@ -387,11 +379,7 @@ if IsServer() then
       --end
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity
-      local pierce_bkb = false
-      --local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-      --if talent2 and talent2:GetLevel() > 0 then
-        --pierce_bkb = true
-      --end
+      local pierce_bkb = ability:GetSpecialValueFor("pierce_bkb") ~= 0
 
       --if parent:HasScepter() and target:IsSilenced() then
         --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
