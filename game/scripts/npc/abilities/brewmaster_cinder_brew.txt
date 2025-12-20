@@ -39,7 +39,7 @@
       }
       "total_ignite_damage"
       {
-        "value"                                           "80 160 240 320 640 1280"
+        "value"                                           "80 160 240 320 640 960"
         "special_bonus_unique_brewmaster_5"               "+40%"
       }
       "movement_slow"                                     "24 28 32 36 40 44"
@@ -63,9 +63,9 @@
         "value"                                           "75"
         "affected_by_aoe_increase"                        "1"
       }
-      "barrel_impact_damage"
+      "barrel_impact_damage" //OAA
       {
-        "value"                                           "40 70 100 130"
+        "value"                                           "70 100 130 160 320 640"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"
