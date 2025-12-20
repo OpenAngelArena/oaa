@@ -19,14 +19,16 @@
     //"Ability16"                                           "special_bonus_unique_viper_nethertoxin_radius"
     "Ability17"                                           "special_bonus_unique_viper_3_oaa" // replaces special_bonus_unique_viper_8
 
-    // special_bonus_unique_viper_1 - "Corrosive Skin Damage Per Second"
-    // special_bonus_unique_viper_2 - "Viper Strike DPS"
-    // special_bonus_unique_viper_3 - "Nethertoxin Min/Max Damage"
-    // special_bonus_unique_viper_4 - "Viper Strike Duration"
-    // special_bonus_unique_viper_5 - "Become Universal"
-    // special_bonus_unique_viper_6 - "Corrosive Skin Attack Speed Slow"
-    // special_bonus_unique_viper_7 - "Poison Attack slow/damage"
-    // special_bonus_unique_viper_8 - "Viper Strike manacost/cooldown"
-    // special_bonus_unique_viper_3_oaa - Viper Strike Purges and Silences - custom
+    // special_bonus_unique_viper_1 - Corrosive Skin Damage Per Second               - 10
+    // special_bonus_unique_viper_2 - Viper Strike DPS                               - 20
+    // special_bonus_unique_viper_3 - Nethertoxin Min/Max Damage                     - 15
+    // special_bonus_unique_viper_4 - Viper Strike Duration                          - 10
+    // special_bonus_unique_viper_5 - Become Universal                               - unused
+    // special_bonus_unique_viper_6 - Corrosive Skin Attack Speed Slow               - unused
+    // special_bonus_unique_viper_7 - Poison Attack slow/damage                      - 15
+    // special_bonus_unique_viper_8 - Viper Strike manacost/cooldown                 - 25 -> 0, garbage
+    // special_bonus_unique_viper_predator_damage                                    - 20
+    // special_bonus_unique_viper_nethertoxin_radius                                 - 25
+    // special_bonus_unique_viper_3_oaa - Viper Strike Purges and Silences           - 25, custom
   }
 }
