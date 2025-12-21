@@ -1,7 +1,7 @@
 if HeroProgression == nil then
   HeroProgression = class({})
   Debug.EnabledModules['progression:*'] = false
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)

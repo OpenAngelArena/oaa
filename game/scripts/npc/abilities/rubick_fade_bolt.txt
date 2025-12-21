@@ -44,6 +44,7 @@
       "attack_damage_reduction" //OAA
       {
         "value"                                           "20 25 30 35 40 45"
+        "special_bonus_unique_rubick_7"                   "+20"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -58,6 +59,12 @@
       {
         "value"                                           "16 14 12 10 10 10"
         "special_bonus_unique_rubick_3"                   "-5"
+      }
+      "damage_reduction_bosses" //OAA
+      {
+        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }
