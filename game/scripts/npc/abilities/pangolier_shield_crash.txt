@@ -33,13 +33,12 @@
       {
         "value"                                           "75 150 225 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_pangolier_shield_crash_radius"  "+125"
       }
       "base_shield"                                       "0"
       "hero_shield" //OAA
       {
-        "value"                                           "100 150 200 250 350 650"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+90"
+        "value"                                           "90 140 190 240 480 720"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+125"
       }
       "duration"                                          "6"
       "radius"
@@ -80,7 +79,7 @@
       "jump_height"                                       "250"
       "jump_height_gyroshell"                             "350"
       "jump_horizontal_distance"                          "225"
-      "scepter_damage_outgoing_tooltip"                   "75"
+      "scepter_damage_outgoing_tooltip"                   "75" // If updating this, change damage_penalty in Swashbuckle
     }
   }
 }

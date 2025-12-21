@@ -30,8 +30,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
-        "special_bonus_unique_pangolier_4"                "-4"
+        "value"                                           "14 13 12 11 10 9"
+        "special_bonus_unique_pangolier_4"                "-2"
       }
       "dash_range"                                        "400 500 600 700 800 900"
       "range"
@@ -68,7 +68,7 @@
       "procs_onhit_effects"                               "1"
       "slow_duration"                                     "0.4"
       "slow_percent"                                      "100"
-      "damage_penalty"                                    "25"
+      "damage_penalty"                                    "25" // Aghanim's Scepter Swashbuckle damage, if changing this change scepter_damage_outgoing_tooltip in Shield Crash
     }
   }
 }
