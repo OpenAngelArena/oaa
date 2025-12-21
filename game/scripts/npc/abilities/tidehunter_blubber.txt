@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tidehunter: Blubber (Innate)
+  //=================================================================================================================
+  "tidehunter_blubber"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_cleanse" //OAA, intentional nerf
+      {
+        "value"                                           "600"
+      }
+      "smash_on_purge"
+      {
+        "special_bonus_unique_tidehunter_smash_on_blubber"  "1"
+      }
+      "damage_reset_interval"                             "7.0"
+    }
+  }
+}
