@@ -41,7 +41,7 @@ end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
   self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
-    if level <= 25 then
+    if level <= 20 then
       return true
     end
     if level >= 28 then
@@ -189,6 +189,7 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
     -- normal leveling up
+    -- 7.40 patch grants 1 ability point every level and talents do not need them
     local forbidden_levels = {15, 16, 17, 19, 20, 21, 22, 23, 24, 25}
     if level <= 25 then
       for i = 1, #forbidden_levels do
@@ -221,7 +222,7 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     return math.fmod(level, 3) == 1
   else
     -- Hero levelling up has a custom levelling pattern
-    -- (e.g. Invoker who gets all the skillpoints every level)
+    -- (e.g. Invoker)
     return pattern(level)
   end
 end
@@ -229,7 +230,8 @@ end
 function HeroProgression:ProcessAbilityPointGain(hero, level)
   DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
 
-  if not self:ShouldGetAnAbilityPoint(hero, level) then
+  -- If the hero should not get a skill point and he has at least 1 available, decrease the number of skill points by 1
+  if not self:ShouldGetAnAbilityPoint(hero, level) and hero:GetAbilityPoints() > 0 then
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
     DebugPrint('Ability points for ' .. hero:GetName() .. ' at level ' .. level .. ' after reducing: ' .. hero:GetAbilityPoints())
   end
