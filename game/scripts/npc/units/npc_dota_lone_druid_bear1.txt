@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Spirit Bear 1
+  // Spirit Bear
   //=================================================================================
   "npc_dota_lone_druid_bear1"
   {
@@ -11,17 +11,27 @@
     "BaseClass"                                           "npc_dota_lone_druid_bear"
     "SoundSet"                                            "LoneDruid_SpiritBear"
     "Level"                                               "1"
-    "ModelScale"                                          ".65"
+    "ModelScale"                                          ".8"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "spirit_bear"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "lone_druid_spirit_bear_return"        // Ability 1
-    "Ability2"                                            "lone_druid_spirit_bear_demolish"     // Ability 2
-    "Ability3"                                            "lone_druid_savage_roar_bear"         // Ability 3
-    "Ability4"                                            "lone_druid_spirit_bear_entangle"     // Ability 4
+    "Ability1"                                            "lone_druid_spirit_bear_return"
+    "Ability2"                                            "lone_druid_spirit_bear_entangle"
+    "Ability3"                                            "lone_druid_savage_roar_bear"      // Ability 3. IMPORTANT! Should be the same slot as Lone Druid's Savage Roar
+    "Ability4"                                            "lone_druid_spirit_bear_spirit_link"
     "Ability5"                                            "lone_druid_spirit_bear_fetch"
+    "Ability6"                                            "lone_druid_spirit_bear_demolish"
+
+    "Ability10"                                           "special_bonus_movement_speed_20"
+    "Ability11"                                           "special_bonus_magic_resistance_10"
+    "Ability12"                                           "special_bonus_unique_lone_druid_spirit_bear_return_cd"
+    "Ability13"                                           "special_bonus_armor_4"
+    "Ability14"                                           "special_bonus_attack_damage_30"
+    "Ability15"                                           "special_bonus_hp_500"
+    "Ability16"                                           "special_bonus_unique_lone_druid_spirit_bear_demolish"
+    "Ability17"                                           "special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled"
 
     // Armor
     //----------------------------------------------------------------
@@ -32,7 +42,8 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "28"        // Damage range min.
     "AttackDamageMax"                                     "28"        // Damage range max.
-    "AttackRate"                                          "1.7"      // Speed of attack.
+    "AttackRate"                                          "1.5"       // BAT
+    "BaseAttackSpeed"                                     "110"
     "AttackAnimationPoint"                                "0.43"      // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
     "AttackRange"                                         "150"       // Range within a target can be attacked.
@@ -54,19 +65,23 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "300"       // Speed.
+    "MovementSpeed"                                       "310"       // Speed.
     "MovementTurnRate"                                    "0.6"       // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1100"      // Base health.
-    "StatusHealthRegen"                                   "5"         // Health regeneration rate.
+    "StatusHealth"                                        "1500"      // Base health.
+    "StatusHealthRegen"                                   "3"         // Health regeneration rate.
     "StatusMana"                                          "300"       // Base mana.
     "StatusManaRegen"                                     "0.5"       // Mana regeneration rate.
 
+    "AttributeStrengthGain"                               "4.5"       // Strength bonus per level.
+    "AttributeAgilityGain"                                "4.5"       // Agility bonus per level.
+    "AttributeIntelligenceGain"                           "0.5"       // Intelligence bonus per level.
+
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"      // Range of vision during day light.
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
     "VisionNighttimeRange"                                "800"       // Range of vision at night time.
 
     // Team

@@ -40,10 +40,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   local caster = self:GetCaster()
 
   -- If the caster doesn't have talent, don't continue
-  local talent1 = caster:FindAbilityByName("special_bonus_unique_silencer_glaives_bounces")
-  if not talent1 then
-    return
-  elseif talent1:GetLevel() <= 0 then
+  if self:GetSpecialValueFor("glaives_bounces") == 0 then
     return
   end
 
@@ -373,10 +370,6 @@ if IsServer() then
       local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
 
       -- Talent that increases Glaives of Wisdom damage (done through kv)
-      --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
-      --if talent and talent:GetLevel() > 0 then
-        --bonusDamagePct = bonusDamagePct + 10
-      --end
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity
       local pierce_bkb = ability:GetSpecialValueFor("pierce_bkb") ~= 0
@@ -437,8 +430,7 @@ if IsServer() then
       -- Sound
       target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
 
-      local talent3 = parent:FindAbilityByName("special_bonus_unique_silencer_glaives_bounces")
-      if talent3 and talent3:GetLevel() > 0 then
+      if ability:GetSpecialValueFor("glaives_bounces") ~= 0 then
         local bounce_radius = ability:GetSpecialValueFor("bounce_range")
         local number_of_bounces = ability:GetSpecialValueFor("bounce_count")
         local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
