@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650 700 750 800 850 900" //OAA
+    "AbilityCastRange"                                    "600 675 750 825 900 975"
     "AbilityCastPoint"                                    "0.25"
 
     // Cost
@@ -32,7 +32,7 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "13 12 11 10 9 8"
+        "value"                                           "14 12 10 8 8 8"
         "special_bonus_unique_morphling_7"                "-3"
       }
       "damage_base" //OAA
@@ -47,7 +47,7 @@
       }
       "damage_max"
       {
-        "value"                                           "1.0 1.5 2.0 2.5 3.25 4.0"
+        "value"                                           "1.0 1.5 2.0 2.5 3.0 3.5"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "stun_min"
