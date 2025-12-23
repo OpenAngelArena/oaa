@@ -31,15 +31,15 @@
     "AbilityValues"
     {
       "chaos_bolt_speed"                                  "700"
-      "stun_min" //OAA
+      "stun_min"
       {
         "value"                                           "1.25 1.5 1.75 2 2.1 2.2"
-        "special_bonus_unique_chaos_knight_3"             "+0.8" // this is lvl 25 talent in OAA
+        "special_bonus_unique_chaos_knight_3"             "+0.6"
       }
-      "stun_max" //OAA
+      "stun_max"
       {
         "value"                                           "1.75 2.25 2.75 3.25 3.35 3.45"
-        "special_bonus_unique_chaos_knight_3"             "+0.8" // this is lvl 25 talent in OAA
+        "special_bonus_unique_chaos_knight_3"             "+0.6"
       }
       "damage_min"
       {

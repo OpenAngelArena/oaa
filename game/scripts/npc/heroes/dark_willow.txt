@@ -5,11 +5,11 @@
   //=================================================================================================================
   "npc_dota_hero_dark_willow"
   {
-    "Ability10"                                           "special_bonus_unique_dark_willow_7" // replaces special_bonus_unique_dark_willow_6
-    "Ability11"                                           "special_bonus_unique_dark_willow_1" // replaces special_bonus_intelligence_10
+    "Ability10"                                           "special_bonus_unique_dark_willow_1" // replaces special_bonus_unique_dark_willow_6
+    //"Ability11"                                           "special_bonus_intelligence_10"
 
     //"Ability12"                                           "special_bonus_unique_dark_willow_4"
-    "Ability13"                                           "special_bonus_attack_damage_30" // replaces special_bonus_unique_dark_willow_7
+    //"Ability13"                                           "special_bonus_unique_dark_willow_7"
 
     "Ability14"                                           "special_bonus_unique_dark_willow_6" // replaces special_bonus_unique_dark_willow_1
     //"Ability15"                                           "special_bonus_unique_dark_willow_3"
@@ -17,13 +17,12 @@
     //"Ability16"                                           "special_bonus_unique_dark_willow_2"
     //"Ability17"                                           "special_bonus_unique_dark_willow_bedlam_targets"
 
-  // special_bonus_unique_dark_willow_1 - "+{s:value} Shadow Realm Duration"
-  // special_bonus_unique_dark_willow_2 - "{s:bonus_impact_damage} Terrorize Impact Damage"
-  // special_bonus_unique_dark_willow_3 - "-{s:value}s Bramble Maze CD"
-  // special_bonus_unique_dark_willow_4 - "+{s:value} Bedlam Damage"
-  // special_bonus_unique_dark_willow_5 - "-{s:value}s Shadow Realm Cooldown" - unused
-  // special_bonus_unique_dark_willow_6 - "+{s:bonus_roaming_duration}s Bedlam Duration"
-  // special_bonus_unique_dark_willow_7 - "+{s:value} Cursed Crown AoE"
-    // special_bonus_spell_lifesteal_15
+    // special_bonus_unique_dark_willow_1 - Shadow Realm Duration                                    - 20 -> 10
+    // special_bonus_unique_dark_willow_2 - Terrorize Impact Damage
+    // special_bonus_unique_dark_willow_3 - Bramble Maze CD
+    // special_bonus_unique_dark_willow_4 - Bedlam Damage
+    // special_bonus_unique_dark_willow_5 - Shadow Realm Cooldown                                    - unused
+    // special_bonus_unique_dark_willow_6 - Bedlam Duration                                          - 10 -> 20
+    // special_bonus_unique_dark_willow_7 - Terrorize Cooldown
   }
 }
