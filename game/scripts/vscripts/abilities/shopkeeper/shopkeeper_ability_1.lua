@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_shopkeeper_ability_1_buff", "abilities/shopkeeper/shop
 shopkeeper_ability_1 = class({})
 
 function shopkeeper_ability_1:Precache(context)
-    PrecacheResource("particle", "particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_salve_projectile.vpcf", context)
+    PrecacheResource("particle", "particles/hero/shopkeeper/bottle_throw_oaa.vpcf", context)
     PrecacheResource("particle", "particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_salve_ground.vpcf", context)
     PrecacheResource("particle", "particles/items3_fx/fish_bones_active.vpcf", context)
     PrecacheResource("particle", "particles/econ/items/bristleback/ti7_head_nasal_goo/bristleback_ti7_crimson_nasal_goo_debuff.vpcf", context)
@@ -36,7 +36,7 @@ function shopkeeper_ability_1:OnSpellStart()
 
     caster:EmitSound("ShopKeeper.Hero_sound_3")
 
-    local flamebreak_particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_salve_projectile.vpcf", PATTACH_WORLDORIGIN, caster)
+    local flamebreak_particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/bottle_throw_oaa.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(flamebreak_particle, 0, attack_position)
     ParticleManager:SetParticleControl(flamebreak_particle, 1, Vector(projectile_speed, projectile_speed, projectile_speed))
     ParticleManager:SetParticleControl(flamebreak_particle, 5, point)
