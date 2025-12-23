@@ -1,71 +1,31 @@
 "DOTAUnits"
 {
+  //=================================================================================
+  // Brewmaster Fire 2
+  //=================================================================================
   "npc_dota_brewmaster_fire_2"
   {
-    // General
-    //----------------------------------------------------------------
-    "Model"                                               "models/heroes/brewmaster/brewmaster_firespirit.vmdl"
-    "BaseClass"                                           "npc_dota_brewmaster_fire"
-    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"
-    "SoundSet"                                            "Brewmaster_Fire"
-    "IdleSoundLoop"                                       "Brewmaster_Fire.Move_Loop"
+    "include_keys_from"                                   "npc_dota_brewmaster_fire_1"
+
     "Level"                                               "8"
     "ModelScale"                                          "0.9"
-    "IsSummoned"                                          "0"
-    "IsAncient"                                           "1"
-    "ConsideredHero"                                      "1"
-    "IgnoreAddSummonedToSelection"                        "1"
-    "UnitLabel"                                           "brewmaster_fire"
-
-    // Abilities
-    //----------------------------------------------------------------
-    "Ability1"                                            "brewmaster_fire_permanent_immolation"
-    "Ability2"                                            "brewmaster_fire_phase"
-    "Ability3"                                            "generic_hidden"
-    "Ability4"                                            "generic_hidden"
-    "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "16" //OAA
+    "ArmorPhysical"                                       "16"
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "175" //OAA
-    "AttackDamageMax"                                     "185" //OAA
-    "AttackRate"                                          "1.35"
-    "AttackAnimationPoint"                                "0.3"
-    "AttackAcquisitionRange"                              "600"
-    "AttackRange"                                         "150"
+    "AttackDamageMin"                                     "120"
+    "AttackDamageMax"                                     "120"
 
     // Bounds
     //----------------------------------------------------------------
     "HealthBarOffset"                                     "165"
 
-    // Movement
-    //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "550"
-
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"
-
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1600" //OAA
-    "StatusHealthRegen"                                   "6" //OAA
-    "StatusMana"                                          "750"
-    "StatusManaRegen"                                     "1.5"
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"
-    "VisionNighttimeRange"                                "800"
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "StatusHealth"                                        "1600"
+    "StatusHealthRegen"                                   "6"
   }
 }

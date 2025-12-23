@@ -1,36 +1,36 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Brewmaster Earth 3
+  // Brewmaster Earth 6
   //=================================================================================
-  "npc_dota_brewmaster_earth_3"
+  "npc_dota_brewmaster_earth_6"
   {
     "include_keys_from"                                   "npc_dota_brewmaster_earth_1"
 
     "Level"                                               "8"
-    "ModelScale"                                          "0.95"
+    "ModelScale"                                          "1.1"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "11"
+    "ArmorPhysical"                                       "23"
 
     // Attack
     //----------------------------------------------------------------
-    "AttackDamageMin"                                     "105"
-    "AttackDamageMax"                                     "105"
+    "AttackDamageMin"                                     "350"
+    "AttackDamageMax"                                     "350"
 
     // Bounds
     //----------------------------------------------------------------
-    "HealthBarOffset"                                     "175"
+    "HealthBarOffset"                                     "185"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementSpeed"                                       "380"
+    "MovementSpeed"                                       "410"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "5000"
-    "StatusHealthRegen"                                   "10"
-    "StatusMana"                                          "800"
+    "StatusHealth"                                        "15800"
+    "StatusHealthRegen"                                   "22"
+    "StatusMana"                                          "1400"
   }
 }

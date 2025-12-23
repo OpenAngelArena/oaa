@@ -1,23 +1,23 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Brewmaster Storm 5
+  // Brewmaster Storm 6
   //=================================================================================
-  "npc_dota_brewmaster_storm_5"
+  "npc_dota_brewmaster_storm_6"
   {
     "include_keys_from"                                   "npc_dota_brewmaster_storm_1"
 
     "Level"                                               "8"
-    "ModelScale"                                          "1.05"
+    "ModelScale"                                          "1.1"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "10"
+    "ArmorPhysical"                                       "12"
 
     // Attack
     //----------------------------------------------------------------
-    "AttackDamageMin"                                     "130"
-    "AttackDamageMax"                                     "130"
+    "AttackDamageMin"                                     "210"
+    "AttackDamageMax"                                     "210"
 
     // Bounds
     //----------------------------------------------------------------
@@ -25,7 +25,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "6000"
+    "StatusHealth"                                        "9000"
     "StatusHealthRegen"                                   "18"
   }
 }
