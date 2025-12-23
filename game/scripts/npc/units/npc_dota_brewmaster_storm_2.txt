@@ -1,74 +1,31 @@
 "DOTAUnits"
 {
+  //=================================================================================
+  // Brewmaster Storm 2
+  //=================================================================================
   "npc_dota_brewmaster_storm_2"
   {
-    // General
-    //----------------------------------------------------------------
-    "Model"                                               "models/heroes/brewmaster/brewmaster_windspirit.vmdl"
-    "BaseClass"                                           "npc_dota_brewmaster_storm"
-    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"
-    "SoundSet"                                            "Brewmaster_Storm"
-    "IdleSoundLoop"                                       "Brewmaster_Storm.Move_Loop"
+    "include_keys_from"                                   "npc_dota_brewmaster_storm_1"
+
     "Level"                                               "8"
     "ModelScale"                                          "0.9"
-    "IsSummoned"                                          "0"
-    "IsAncient"                                           "1"
-    "ConsideredHero"                                      "1"
-    "IgnoreAddSummonedToSelection"                        "1"
-    "UnitLabel"                                           "brewmaster_storm"
-
-    // Abilities
-    //----------------------------------------------------------------
-    "Ability1"                                            "brewmaster_storm_dispel_magic"
-    "Ability2"                                            "brewmaster_storm_cyclone"
-    "Ability3"                                            "brewmaster_storm_wind_walk"
-    "Ability4"                                            "generic_hidden"
-    "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "4" //OAA
-    "MagicalResistance"                                   "25"
+    "ArmorPhysical"                                       "4"
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "65" //OAA
-    "AttackDamageMax"                                     "75" //OAA
-    "AttackRate"                                          "1.5"
-    "AttackAnimationPoint"                                "0.4"
-    "AttackAcquisitionRange"                              "600"
-    "AttackRange"                                         "600"
-    "ProjectileModel"                                     "particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
-    "ProjectileSpeed"                                     "1200"
+    "AttackDamageMin"                                     "50"
+    "AttackDamageMax"                                     "50"
 
     // Bounds
     //----------------------------------------------------------------
     "HealthBarOffset"                                     "165"
 
-    // Movement
-    //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"
-
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"
-
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2000" //OAA
-    "StatusHealthRegen"                                   "6" //OAA
-    "StatusMana"                                          "900"
-    "StatusManaRegen"                                     "1.5"
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"
-    "VisionNighttimeRange"                                "800"
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "StatusHealth"                                        "2000"
+    "StatusHealthRegen"                                   "6"
   }
 }

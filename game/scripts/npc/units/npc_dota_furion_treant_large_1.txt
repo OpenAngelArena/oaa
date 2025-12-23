@@ -7,7 +7,7 @@
     "BaseClass"                                           "npc_dota_creep"  // Class of entity of link to.
     "Model"                                               "models/heroes/furion/treant.vmdl"  // Model.
     "SoundSet"                                            "Furion_Treant"         // Name of sound set.
-    "ModelScale"                                          "1.20"
+    "ModelScale"                                          "1.2"
     "Level"                                               "1"
     "IsSummoned"                                          "1"
     "SelectionGroup"                                      "Furion_Treants"
@@ -32,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "72"   // Damage range min.
-    "AttackDamageMax"                                     "72"   // Damage range max.
+    "AttackDamageMin"                                     "50"   // Damage range min.
+    "AttackDamageMax"                                     "50"   // Damage range max.
     "AttackRate"                                          "1.6"   // Speed of attack.
     "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
@@ -55,12 +55,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-    "MovementSpeed"                                       "300"   // Speed
+    "MovementSpeed"                                       "305"   // Speed
     "MovementTurnRate"                                    "0.5"   // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1650"    // Base health.
+    "StatusHealth"                                        "1100"    // Base health.
     "StatusHealthRegen"                                   "2.5"   // Health regeneration rate.
     "StatusMana"                                          "0"     // Base mana.
     "StatusManaRegen"                                     "0"     // Mana regeneration rate.
@@ -72,7 +72,7 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "500"   // Range of vision during day light.
-    "VisionNighttimeRange"                                "500"   // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1200"   // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"   // Range of vision at night time.
   }
 }

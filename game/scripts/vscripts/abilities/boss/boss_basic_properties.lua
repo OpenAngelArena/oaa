@@ -143,15 +143,10 @@ if IsServer() then
     if not inflictor then
       -- Damage was not done with an ability
       -- Lone Druid Bear Demolish bonus damage
-      if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") then
+      if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") or attacker:IsSpiritBearOAA() then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
-        if ability then
-          local damage_increase_pct
-          if attacker:IsSpiritBearOAA() then
-            damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          else
-            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
-          end
+        if ability and ability:GetLevel() > 0 then
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end
@@ -225,6 +220,7 @@ if IsServer() then
       enigma_midnight_pulse = true,           -- when it starts working against ancients
       huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
+      item_jidi_pollen_bag = true,
       item_serrated_shiv = true,              -- physical dmg
       kez_kazurai_katana = true,              -- physical dmg
       life_stealer_feast = true,              -- physical dmg; it does not work

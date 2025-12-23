@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 25 30 35 45 55 55" //OAA
+    "AbilityManaCost"                                     "20 25 30 35 45 55 60" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,18 +45,17 @@
       }
       "intellect_damage_pct" //OAA
       {
-        "value"                                           "35 40 45 50 55 60 60"
+        "value"                                           "35 40 45 50 55 60 65"
         "special_bonus_unique_silencer_3"                 "+25"
       }
       "int_steal" //OAA
       {
         "value"                                           "1"
-        "special_bonus_shard"                             "+1"
       }
       "int_steal_duration" //OAA
       {
         "value"                                           "10 15 20 25 30 35 40"
-        "special_bonus_unique_silencer_5"                 "+35"
+        "special_bonus_unique_silencer_5"                 "+30"
       }
       "bounce_range"
       {
@@ -77,11 +76,11 @@
       {
         "special_bonus_facet_silencer_spread_the_knowledge"  "+1"
       }
-      "stacks_for_silence"
+      "stacks_for_silence" // unused
       {
         "value"                                           "0"
       }
-      "silence_duration"
+      "silence_duration" // unused
       {
         "value"                                           "+2.5"
       }

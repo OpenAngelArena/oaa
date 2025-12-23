@@ -53,12 +53,10 @@
       "illusion_damage_out_pct" //OAA
       {
         "value"                                           "-85 -83 -81 -79 -77 -75"
-        "special_bonus_unique_phantom_lancer_lance_illusion_damage"  "+15"
       }
       "tooltip_illusion_damage" //OAA
       {
         "value"                                           "15 17 19 21 23 25"
-        "special_bonus_unique_phantom_lancer_lance_illusion_damage"  "+15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

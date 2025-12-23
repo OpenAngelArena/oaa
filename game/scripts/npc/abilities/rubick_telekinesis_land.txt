@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Rubick: Telekinesis
+  //=================================================================================================================
+  "rubick_telekinesis_land"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    "MaxLevel"                                            "1" // MaxLevel: 6 same as rubick_telekinesis
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "300 325 350 375 400 425"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

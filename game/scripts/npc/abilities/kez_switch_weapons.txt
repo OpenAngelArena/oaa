@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 
-    "Innate"                                              "1"
     "MaxLevel"                                            "1"
 
     // Casting
@@ -42,10 +41,10 @@
       {
         "special_bonus_facet_kez_flutter"                 "2"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "7.75"
-        "hero_levelup"                                    "-0.25"
+        "value"                                           "5.1"
+        "hero_levelup"                                    "-0.1"
       }
       "scepter_cooldown_timer"                            "3"
     }

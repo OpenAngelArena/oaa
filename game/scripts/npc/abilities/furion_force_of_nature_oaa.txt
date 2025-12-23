@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Force of Nature, Nature's Call (OAA Rework) - unused
+  // Nature's Prophet: Force of Nature, Nature's Call (OAA Rework) - unused
   // OAA version that spawns stronger treants
   //=================================================================================================================
   "furion_force_of_nature_oaa"
@@ -23,7 +23,7 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
 
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,15 +51,15 @@
       }
       "treant_damage"
       {
-        "value"                                           "24 32 40 48 148 248"
+        "value"                                           "20 30 40 50 150 250"
         "special_bonus_unique_furion"                     "x3"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "treant_armor"                                      "0"
       "treant_move_speed"
       {
-        "value"                                           "300 320 340 360 380 400"
-        "special_bonus_unique_furion_2"                   "+45"
+        "value"                                           "305 310 315 320 325 330"
+        "special_bonus_unique_furion_2"                   "+50"
       }
       "treant_large_health" // treant_health x 2
       {
@@ -68,7 +68,7 @@
       }
       "treant_large_damage" // treant_damage x 2.5
       {
-        "value"                                           "60 80 100 120 370 620"
+        "value"                                           "50 75 100 125 375 625"
         "special_bonus_unique_furion"                     "x3"
       }
     }

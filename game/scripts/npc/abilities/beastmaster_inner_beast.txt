@@ -22,9 +22,9 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_attack_speed" //OAA, affects only Beastmaster and his summons
+      "bonus_attack_speed" // affects only Beastmaster and his summons
       {
-        "value"                                           "15 30 45 60 75 90"
+        "value"                                           "10 30 50 70 90 110"
         "special_bonus_unique_beastmaster_4"              "+15"
       }
       "attack_speed_per_unit"

@@ -32,7 +32,7 @@
       }
       "lifesteal_both_ways"                               "1"
       "duration"                                          "20"
-      "active_bonus"                                      "35" // unused, additive bonus for armor_sharing (24+x) but percentage for bonus_attack_speed (75*x/100)
+      "active_bonus"                                      "35" // unused, additive bonus for armor_sharing (+x) but percentage for bonus_attack_speed (*x/100)
       "AbilityCooldown"
       {
         "value"                                           "0"

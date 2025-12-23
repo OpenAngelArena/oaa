@@ -33,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "24"    // Damage range min.
-    "AttackDamageMax"                                     "24"    // Damage range max.
+    "AttackDamageMin"                                     "20"    // Damage range min.
+    "AttackDamageMax"                                     "20"    // Damage range max.
     "AttackRate"                                          "1.6"    // Speed of attack.
     "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
@@ -56,7 +56,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-    "MovementSpeed"                                       "300"   // Speed
+    "MovementSpeed"                                       "305"   // Speed
     "MovementTurnRate"                                    "0.5"   // Turning rate.
 
     // Status

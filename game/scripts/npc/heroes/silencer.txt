@@ -7,18 +7,6 @@
   {
     //"Ability2"                                            "silencer_glaives_of_wisdom_oaa" // replaces silencer_glaives_of_wisdom
 
-  //special_bonus_unique_silencer - "+{s:bonus_damage} Arcane Curse Damage"
-    //special_bonus_unique_silencer_2 - "Last Word Mutes" - overpowered, unused
-  //special_bonus_unique_silencer_3 - "+{s:bonus_intellect_damage_pct}% Glaives of Wisdom Damage"
-  //special_bonus_unique_silencer_4 - "+{s:value}x Last Word Int Multiplier"
-  //special_bonus_unique_silencer_5 - "+{s:value}s Glaives Silence" - unused
-  //special_bonus_unique_silencer_6 - "+{s:value}% Arcane Curse Slow"
-  //special_bonus_unique_silencer_7 - "-{s:value}s Global Silence Cooldown"
-    //special_bonus_unique_silencer_arcane_curse_undispellable - "Arcane Curse Undispellable"
-  //special_bonus_unique_silencer_glaives_bounces - "{s:bonus_bounce_count} Glaives of Wisdom Bounces"
-  //special_bonus_unique_silencer_glaives_bounces_Description"  "Glaives of Wisdom Bounce to targets withing a {s:bonus_bounce_range} range."
-    //special_bonus_unique_silencer_3_oaa - "Glaives of Wisdom Pierces Spell Immunity." - custom, unused
-
-    "AttributeIntelligenceGain"                           "1.5" // 2.9
+    "AttributeIntelligenceGain"                           "2.2" // 2.9
   }
 }

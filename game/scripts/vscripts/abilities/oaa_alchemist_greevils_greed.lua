@@ -182,11 +182,7 @@ function modifier_alchemist_gold_corrosion_oaa_debuff:GetModifierPhysicalArmorBo
   local armor_cap = ability:GetSpecialValueFor("armor_reduction_cap")
   local stacks = self:GetStackCount()
 
-  -- Talent that increases armor reduction per hit
-  local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_alchemist_2_oaa")
-  if talent and talent:GetLevel() > 0 then
-    armor_per_stack = armor_per_stack + talent:GetSpecialValueFor("value")
-  end
+  -- Talent that increases armor reduction per hit - done through kv
 
   return math.max(0 - armor_per_stack * stacks, armor_cap)
 end

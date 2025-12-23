@@ -47,6 +47,9 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif ability_name == "tidehunter_anchor_smash" and modifier_name == "modifier_tidehunter_anchor_smash" and victim:IsOAABoss() then
     victim:AddNewModifier(caster, ability, "modifier_tidehunter_anchor_smash_oaa_boss", {duration = modifier_duration})
     return false
+  elseif ability_name == "rubick_fade_bolt" and modifier_name == "modifier_rubick_fade_bolt_debuff" and victim:IsOAABoss() then
+    victim:AddNewModifier(caster, ability, "modifier_rubick_fade_bolt_debuff_oaa_boss", {duration = modifier_duration})
+    return false
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
     victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false

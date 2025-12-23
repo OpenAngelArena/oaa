@@ -5,8 +5,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
-    "Innate"                                              "1"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Nothl Projection) + 1
+    "DependentOnAbility"                                  "dazzle_nothl_projection"
 
     "AbilityValues"
     {

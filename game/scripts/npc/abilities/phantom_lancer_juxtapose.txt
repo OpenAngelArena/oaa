@@ -40,35 +40,34 @@
       {
         "value"                                           "8"
       }
+      "illusion_from_illusion_duration"
+      {
+        "value"                                           "4"
+      }
       "illusion_damage_out_pct" //OAA
       {
-        "value"                                           "-65 -55 -45 -35 -25"
+        "value"                                           "-70 -60 -50 -40 -30"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_facet_phantom_lancer_divergence"   "+2"
-        "special_bonus_unique_phantom_lancer_6"           "+6"
       }
       "tooltip_illusion_damage" //OAA
       {
-        "value"                                           "35 45 55 65 75"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "30 40 50 60 70"
         "special_bonus_facet_phantom_lancer_divergence"   "+2"
-        "special_bonus_unique_phantom_lancer_6"           "+6"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "illusion_damage_in_pct" //OAA
       {
-        "value"                                           "400 375 350 300 250"
+        "value"                                           "400 375 350 325 300"
         "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_unique_phantom_lancer_juxtapose_damage_in"  "-70"
       }
       "tooltip_total_illusion_damage_in_pct" //OAA
       {
-        "value"                                           "500 475 450 400 350"
+        "value"                                           "500 475 450 425 400"
         "CalculateSpellDamageTooltip"                     "0"
-      }
-      "illusion_from_illusion_duration"
-      {
-        "value"                                           "4"
+        "special_bonus_unique_phantom_lancer_juxtapose_damage_in"  "-70"
       }
       "shard_bonus_illusions"
       {

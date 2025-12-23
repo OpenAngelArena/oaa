@@ -36,11 +36,11 @@
       }
       "debuff_duration"                                   "1.5 1.7 1.9 2.1 2.3 2.5"
       "projectile_speed"                                  "1300"
-      "total_damage" //OAA
+      "total_damage"
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_hoodwink_bushwhack_damage"  "+90"
+        "special_bonus_unique_hoodwink_bushwhack_damage"  "+50"
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"

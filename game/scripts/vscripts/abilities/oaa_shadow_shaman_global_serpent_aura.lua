@@ -94,7 +94,7 @@ end
 
 function modifier_serpent_ward_global_aura_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     -- talent is applied automatically to serpent wards that were created by mass_serpent_wards_vanilla
     -- so we must use bonus raw dmg instead of bonus base dmg to avoid 'race conditions' (what applies first ...)
     MODIFIER_EVENT_ON_ATTACK_LANDED,

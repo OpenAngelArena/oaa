@@ -35,7 +35,7 @@
     "AbilityValues"
     {
       "hp_cost_perc_per_second"                           "5"
-      "base_damage"                                       "26 28 30 32 64 128" //OAA
+      "base_damage"                                       "24 26 28 30 60 120" //OAA
       "hp_perc_damage" // this is max dmg, dmg increases over time
       {
         "value"                                           "1.5 3 4.5 6.0 6.75 7.5"
