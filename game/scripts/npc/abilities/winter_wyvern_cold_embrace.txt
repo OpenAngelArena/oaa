@@ -7,7 +7,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -36,7 +35,7 @@
       "heal_additive"
       {
         "value"                                           "40 45 50 55 110 220"
-        "special_bonus_unique_winter_wyvern_5"            "+25"
+        "special_bonus_unique_winter_wyvern_5"            "+20"
       }
       "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5" // special_bonus_unique_winter_wyvern_1_oaa
       "shard_cooldown_reduction"

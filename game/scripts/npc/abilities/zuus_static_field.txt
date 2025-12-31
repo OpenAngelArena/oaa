@@ -17,7 +17,7 @@
     {
       "damage_health_pct" // current hp pct
       {
-        "value"                                           "2.5 3.0 3.5 4.0 4.5 5.0"
+        "value"                                           "2.5 3.25 4 4.75 5.5 6.25"
         "special_bonus_unique_zeus_static_field_dmg"      "+2"
         "special_bonus_facet_zuus_livewire"               "=0"
       }
@@ -25,7 +25,7 @@
       {
         "special_bonus_facet_zuus_livewire"
         {
-          "value"                                         "=5 =6 =7 =8 =8 =8"
+          "value"                                         "=5 =6 =7 =8 =9 =10"
           "special_bonus_unique_zeus_static_field_dmg"    "+2"
         }
       }
@@ -33,7 +33,7 @@
       {
         "special_bonus_facet_zuus_livewire"
         {
-          "value"                                         "=2.5 =3.0 =3.5 =4.0 =4.5 =5.0"
+          "value"                                         "=2.5 =3.25 =4.0 =4.75 =5.5 =6.25" // Valve has it wrong, should be the same as damage_health_pct
           "special_bonus_unique_zeus_static_field_dmg"    "+2"
         }
       }

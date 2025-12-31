@@ -181,6 +181,11 @@ end
 
 if IsServer() then
   function modifier_spirit_vessel_oaa_passive:OnDeath(event)
+    -- Check if first item in inventory -> prevent the code below from executing multiple times for each Spirit Vessel/Urn of Shadows
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local caster = self:GetCaster()
     local dead = event.unit
     local killer = event.attacker
