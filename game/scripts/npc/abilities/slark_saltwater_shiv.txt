@@ -3,7 +3,6 @@
   "slark_saltwater_shiv"
   {
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -20,12 +19,12 @@
 
     "AbilityValues"
     {
-      "duration"                                          "6 8 10 12 14 16"
+      "duration"                                          "12"
       "agi_bonus_damage_factor"                           "0"
       "base_health_rest_steal"                            "0"
-      "health_rest_steal"                                 "3 4 5 6 6 6"
-      "regen_steal"                                       "3"
-      "ms_steal"                                          "3"
+      "health_rest_steal"                                 "2 3 4 5 6 7" //OAA
+      "regen_steal"                                       "2 3 4 5 6 7"
+      "ms_steal"                                          "2 3 4 5 6 7"
       "melee_range_buffer"                                "0"
     }
   }

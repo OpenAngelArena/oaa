@@ -48,13 +48,14 @@
       "knockback_damage" //OAA, reminder: this is physical damage
       {
         "value"                                           "90 180 270 360 720 1440"
+        "special_bonus_unique_primal_beast_onslaught_damage"  "+80" // unused
       }
       "knockback_duration"                                "0.2"
       "max_charge_time"                                   "1.7"
       "turn_rate"                                         "70"
       "base_power"                                        "0.05"
       "movement_turn_rate"                                "50"
-      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6 1.8"
+      "stun_duration"                                     "0.7 1 1.3 1.6 1.9 2.2"
     }
   }
 }

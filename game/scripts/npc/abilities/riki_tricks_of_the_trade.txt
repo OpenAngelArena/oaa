@@ -53,9 +53,9 @@
       "interval_targets"                                  "2"
       "attack_damage"
       {
-        "value"                                           "30 50 70 90 180 270"
+        "value"                                           "25 50 75 100 200 300"
       }
-      "base_attack_damage_pct"
+      "base_attack_damage_pct" // percentage of attack damage, not just base
       {
         "special_bonus_unique_riki_tricks_dmg"            "+15"
       }
