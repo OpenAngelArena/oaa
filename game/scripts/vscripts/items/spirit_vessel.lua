@@ -146,7 +146,7 @@ item_spirit_vessel_5 = item_spirit_vessel_oaa
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_spirit_vessel_oaa_passive = class({})
+modifier_spirit_vessel_oaa_passive = class(ModifierBaseClass)
 
 function modifier_spirit_vessel_oaa_passive:IsHidden()
   return true
