@@ -77,14 +77,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
-      "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
+      "ethereal_damage_bonus"                             "-30 -25 -20 -15 -10"
       "active_restore_per_charge"                         "17 27 37 47 57"
       "active_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "max_charges"                                       "22"
+      "max_charges"                                       "25"
       "charge_radius"
       {
         "value"                                           "1800"
