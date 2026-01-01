@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Jakiro's Liquid Fire
+  // Jakiro: Liquid Fire
   //=================================================================================================================
   "jakiro_liquid_fire"
   {
@@ -42,7 +42,7 @@
       }
       "damage"
       {
-        "value"                                           "20 30 40 50 100 200"
+        "value"                                           "15 25 35 45 90 180"
       }
       "pct_health_damage"
       {
@@ -51,7 +51,6 @@
       }
       "tick_rate"                                         "0.5"
       "building_dmg_pct"                                  "50" // OAA, percentage bonus damage against bosses
-
       "shares_cooldown"
       {
         "value"                                           "1"

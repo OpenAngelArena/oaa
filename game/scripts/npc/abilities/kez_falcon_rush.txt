@@ -34,21 +34,21 @@
     {
       "rush_range"                                        "525"
       "rush_speed"                                        "850"
-      "base_echo_damage"
+      "base_echo_damage" // percentage of Kez attack damage
       {
-        "value"                                           "35 40 45 50 100 150"
+        "value"                                           "30 35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "slow_resist"                                       "15 30 45 60 75 90"
       "duration"
       {
-        "value"                                           "3.75 4.5 5.25 6.0 6.25 6.5"
+        "value"                                           "3.75 4.5 5.25 6.0 6.75 7.5"
         "special_bonus_unique_kez_falcon_rush_duration"   "+2"
       }
       "break_range"                                       "825"
       "bonus_attack_speed"
       {
-        "special_bonus_unique_kez_falcon_rush_attack_speed"  "=60"
+        "special_bonus_unique_kez_falcon_rush_attack_speed"  "=40"
       }
       "echo_proc_chance_reduction"                        "50"
     }
