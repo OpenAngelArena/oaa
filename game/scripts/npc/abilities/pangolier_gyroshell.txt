@@ -28,7 +28,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 225 350 725 1350" //OAA
+    "AbilityDamage"                                       "100 300 500 900 1300" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -76,13 +76,13 @@
       }
       "duration"
       {
-        "value"                                           "9 10 11 12 13"
+        "value"                                           "10 11 12 13 14"
         "special_bonus_unique_pangolier_6"                "+2"
         "special_bonus_facet_pangolier_thunderbolt"       "-1"
       }
       "move_speed_ramp_up_time"                           "1.0"
       "jump_recover_time"                                 "0.25"
-      "magic_resistance"                                  "60"
+      "magic_resistance"                                  "80"
     }
   }
 }

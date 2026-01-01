@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -18,11 +17,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilitySound"                                        "Hero_Largo.CatchyLick.Target.Layer1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -45,11 +41,11 @@
       "damage"
       {
         "value"                                           "85 170 255 340 680 1360"
-        "special_bonus_unique_largo_5"                    "+140"
+        "special_bonus_unique_largo_5"                    "+170"
       }
       "pull_distance"
       {
-        "value"                                           "210 240 270 300 330 360"
+        "value"                                           "235 265 295 325 355 385"
         "special_bonus_unique_largo_4"                    "+50"
       }
       "pull_distance_ally"
@@ -64,7 +60,7 @@
       }
       "dispel_hp_regen"
       {
-        "value"                                           "4 6 8 10 14 18"
+        "value"                                           "4 7 10 13 16 19"
         "special_bonus_unique_largo_2"                    "x2.5"
       }
       "buff_duration"                                     "10"

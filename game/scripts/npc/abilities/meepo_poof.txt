@@ -33,10 +33,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_duration"
+      "cast_duration" //OAA
       {
         "value"                                           "1.5"
-        "special_bonus_unique_meepo_poof_cast_point"      "-1"
+        "special_bonus_unique_meepo_poof_cast_point"      "-0.75"
       }
       "radius"
       {
@@ -47,6 +47,10 @@
       {
         "value"                                           "50 80 110 140 280 560"
         "special_bonus_unique_meepo_2"                    "+50"
+      }
+      "megameepo_poof_scaling"
+      {
+        "special_bonus_scepter"                           "75"
       }
     }
   }

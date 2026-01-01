@@ -23,10 +23,10 @@
         "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
         "special_bonus_unique_lone_druid_entangle_duration"  "+0.6"
       }
-      "damage" //OAA, Valve has wrong value for special_bonus_unique_lone_druid_1
+      "damage"
       {
-        "value"                                           "60 70 80 90 180 270"
-        "special_bonus_unique_lone_druid_1"               "+15"
+        "value"                                           "90"
+        "special_bonus_unique_lone_druid_1"               "+20"
       }
       "spirit_bear_counters_applied_tooltip"              "1"
       "counter_duration"                                  "10"

@@ -215,6 +215,9 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
     -- Keep status resistance in mind
     ministun_duration = target:GetValueChangedByStatusResistance(ministun_duration)
 
+    -- Lightning Bolt damage
+    local lightning_bolt_dmg = lightning_bolt_ability:GetSpecialValueFor("damage")
+
     if target:IsAlive() and not target:IsMagicImmune() then
       -- Apply mini-stun modifier
       target:AddNewModifier(caster, lightning_bolt_ability, "modifier_stunned", {duration = ministun_duration})
@@ -223,7 +226,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       local damage_table = {
         attacker = parent,
         victim = target,
-        damage = lightning_bolt_ability:GetAbilityDamage(),
+        damage = lightning_bolt_dmg,
         damage_type = lightning_bolt_ability:GetAbilityDamageType(),
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         ability = lightning_bolt_ability,

@@ -277,8 +277,8 @@ if IsServer() then
 
     -- Jakiro special cases when his abilities do pct dmg
     local jakiro_abilities = {
-      jakiro_liquid_fire = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
-      jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") > 0, -- shard gives pct dmg
+      jakiro_liquid_fire = inflictor:GetSpecialValueFor("pct_health_damage") > 0,
+      jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") > 0,
     }
     if jakiro_abilities[name] then
       local ability = attacker:FindAbilityByName(name)

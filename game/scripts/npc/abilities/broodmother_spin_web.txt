@@ -44,7 +44,7 @@
       "bonus_movespeed"
       {
         "value"                                           "10 22 34 46 58 70"
-        "special_bonus_unique_broodmother_web_speed"      "+14"
+        "special_bonus_unique_broodmother_web_speed"      "+7" // unused
       }
       "AbilityChargeRestoreTime"
       {
@@ -60,7 +60,7 @@
       "break_move_cap"
       {
         "value"                                           "0"
-        "special_bonus_unique_broodmother_web_speed"      "1"
+        "special_bonus_unique_broodmother_web_speed"      "1" // unused
       }
     }
   }

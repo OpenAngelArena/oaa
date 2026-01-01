@@ -21,9 +21,13 @@
       {
         "value"                                           "25"
         "hero_levelup"                                    "+2"
-        "special_bonus_unique_spectre_2"                  "+10"
+        "special_bonus_unique_spectre_2"                  "+12"
       }
       "radius"                                            "350"
+      "illusion_damage_outgoing"
+      {
+        "special_bonus_unique_spectre_4"                  "+20"  //Note: This is adjusting all outgoing illusion damage that have the Desolate ability
+      }
     }
   }
 }
