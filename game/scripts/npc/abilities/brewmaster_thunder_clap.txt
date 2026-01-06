@@ -16,28 +16,33 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_brewmaster_thunderclap_cd"  "-3"
+      }
       "radius"
       {
-        "value"                                           "325 350 375 400 425 450"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "80 160 240 320 640 1280"
+      "damage"
+      {
+        "value"                                           "80 160 240 320 640 1280"
+        "special_bonus_unique_brewmaster_thunder_clap_damage"  "+160"
+      }
       "movement_slow"                                     "15 30 45 60 65 70"
       "attack_speed_slow"                                 "15 30 45 60 90 120"
       "duration"

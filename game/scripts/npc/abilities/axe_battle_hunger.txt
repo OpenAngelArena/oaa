@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -41,18 +41,13 @@
       "duration"                                          "12.0"
       "slow"
       {
-        "value"                                           "-18 -22 -26 -30 -34 -38"
-        "special_bonus_unique_axe_6"                      "-10"
+        "value"                                           "18 22 26 30 34 38"
       }
-      "damage_per_second" //OAA
+      "damage_per_second"
       {
-        "value"                                           "10 20 30 40 140 240"
+        "value"                                           "12 18 24 30 60 90"
+        "special_bonus_unique_axe"                        "+10"
         "CalculateSpellDamageTooltip"                     "1"
-      }
-      "armor_multiplier" //OAA, because of special_bonus_unique_axe
-      {
-        "value"                                           "1"
-        "special_bonus_unique_axe"                        "x3"
       }
       "speed_bonus"
       {

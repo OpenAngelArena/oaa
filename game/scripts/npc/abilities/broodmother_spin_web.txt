@@ -41,7 +41,11 @@
       {
         "value"                                           "0"
       }
-      "bonus_movespeed"                                   "10 22 34 46 58 70"
+      "bonus_movespeed"
+      {
+        "value"                                           "10 22 34 46 58 70"
+        "special_bonus_unique_broodmother_web_speed"      "+7" // unused
+      }
       "AbilityChargeRestoreTime"
       {
         "value"                                           "27"
@@ -50,7 +54,13 @@
       "bonus_turn_rate"                                   "0.2"
       "degen" //OAA
       {
+        "value"                                           "0"
         "special_bonus_facet_broodmother_necrotic_webs"   "=10 =14 =18 =22 =26 =30"
+      }
+      "break_move_cap"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_broodmother_web_speed"      "1" // unused
       }
     }
   }

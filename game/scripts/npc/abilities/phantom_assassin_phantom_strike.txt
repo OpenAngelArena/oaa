@@ -23,7 +23,9 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 11 10 9 7 5" //OAA
+    "AbilityCooldown"                                     "0.1"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "21 18 15 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +43,7 @@
       "duration"
       {
         "value"                                           "2.5"
-        "special_bonus_unique_phantom_assassin_4"         "+0.5"
+        "special_bonus_unique_phantom_assassin_4"         "+0.6"
       }
       "AbilityCastRange" //OAA
       {

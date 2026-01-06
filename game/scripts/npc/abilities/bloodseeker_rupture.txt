@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseeker's Rupture
+  // Bloodseeker: Rupture
   //=================================================================================================================
   "bloodseeker_rupture"
   {
@@ -35,14 +35,14 @@
       "duration"                                          "9 10 11 12 13"
       "movement_damage_pct" //OAA
       {
-        "value"                                           "35 55 75 135 195"
+        "value"                                           "35 55 75 115 175"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
       {
         "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_unique_bloodseeker_7"              "+8"
+        "special_bonus_scepter"                           "+3"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "damage_cap_amount"
@@ -68,18 +68,9 @@
       "AbilityCharges"
       {
         "value"                                           "0"
-        "special_bonus_unique_bloodseeker_rupture_charges"  "+2"
+        "special_bonus_scepter"                           "+2"
       }
-      "AbilityCooldown"
-      {
-        "value"                                           "75 70 65 60 55"
-        "special_bonus_unique_bloodseeker_rupture_charges"  "=0.25"
-      }
-      "AbilityChargeRestoreTime"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_bloodseeker_rupture_charges"  "=65"
-      }
+      "AbilityCooldown"                                   "75 70 65 60 55"
     }
   }
 }

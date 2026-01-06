@@ -18,22 +18,21 @@
     //"Ability14"                                           "special_bonus_unique_visage_4"
     "Ability15"                                           "special_bonus_unique_visage_oaa_1" // replaces special_bonus_unique_visage_1
 
-    "Ability16"                                           "special_bonus_unique_visage_oaa_5" // replaces special_bonus_unique_visage_5
+    //"Ability16"                                           "special_bonus_unique_visage_cloak_recovery_time"
     //"Ability17"                                           "special_bonus_unique_visage_6"
 
-  // special_bonus_unique_visage_1 - "+{s:value} Armor Corruption to Visage and Familiars"            - garbage and not coded in
-    // special_bonus_unique_visage_1_Description - "This effect can stack among multiple sources"
-  // special_bonus_unique_visage_2 - "+{s:value} Visage and Familiars Movement Speed"
-  // special_bonus_unique_visage_3 - "Soul Assumption Hits {s:value} Targets"
-    // special_bonus_unique_visage_3_Description - "A second Soul Assumption is launched towards a random enemy unit within the cast range, prioritizing Heroes."
-  // special_bonus_unique_visage_4 - "+{s:value} Soul Assumption Damage Per Charge"
-  // special_bonus_unique_visage_5 - "Gravekeeper's Cloak  grants +{s:value} Armor"                   - garbage if above level 20
-  // special_bonus_unique_visage_6 - "+{s:value} Familiar"
-  // special_bonus_unique_visage_7 - "+{s:value} Visage and Familiars Attack Damage"
-  // special_bonus_unique_visage_8 - "-{s:bonus_AbilityCooldown}s Grave Chill Cooldown"
-  // special_bonus_unique_visage_grave_chill_duration - "+{s:bonus_chill_duration}s Grave Chill Duration"
-    // special_bonus_unique_visage_oaa_1 - bonus Gravekeepers Cloak Minimum Damage                      - custom
-    // special_bonus_unique_visage_oaa_5 - decreases recovery time of Gravekeepers Cloak                - custom
-    // special_bonus_unique_visage_oaa_6 - bonus Gravekeepers Cloak max number of layers                - custom, unused
+    // special_bonus_unique_visage_1 - Armor Corruption to Visage and Familiars                        - 20 -> 0, garbage
+    // special_bonus_unique_visage_2 - Visage and Familiars Movement Speed                             - unused
+    // special_bonus_unique_visage_3 - Soul Assumption Hits Multiple Targets                           - 15
+    // special_bonus_unique_visage_4 - Soul Assumption Damage Per Charge                               - 20
+    // special_bonus_unique_visage_5 - Gravekeeper's Cloak grants Armor                                - unused, garbage if above level 20
+    // special_bonus_unique_visage_6 - Extra Familiar                                                  - 25
+    // special_bonus_unique_visage_7 - Visage and Familiars Attack Damage                              - 10
+    // special_bonus_unique_visage_8 - Lurker Max Stacks                                               - 10
+    // special_bonus_unique_visage_grave_chill_duration                                                - 15
+    // special_bonus_unique_visage_cloak_recovery_time                                                 - 25
+    // special_bonus_unique_visage_oaa_1 - bonus Gravekeepers Cloak Minimum Damage                     - 20, custom
+    // special_bonus_unique_visage_oaa_5 - decreases recovery time of Gravekeepers Cloak               - custom, unused
+    // special_bonus_unique_visage_oaa_6 - bonus Gravekeepers Cloak max number of layers               - custom, unused
   }
 }

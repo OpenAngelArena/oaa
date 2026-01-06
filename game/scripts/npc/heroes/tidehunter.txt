@@ -5,7 +5,29 @@
   //=================================================================================================================
   "npc_dota_hero_tidehunter"
   {
-    "Ability14"                                           "special_bonus_hp_350" // replaces special_bonus_unique_tidehunter_10
-    //"Ability15"                                           "special_bonus_unique_tidehunter_4"
+    //"Ability10"                                           "special_bonus_unique_tidehunter_3"
+    //"Ability11"                                           "special_bonus_unique_tidehunter_5"
+
+    //"Ability12"                                           "special_bonus_unique_tidehunter_2"
+    //"Ability13"                                           "special_bonus_unique_tidehunter_ravage_cooldown"
+
+    "Ability14"                                           "special_bonus_hp_350" // replaces special_bonus_unique_tidehunter_smash_on_blubber
+    //"Ability15"                                           "special_bonus_unique_tidehunter"
+
+    //"Ability16"                                           "special_bonus_unique_tidehunter_7"
+    "Ability17"                                           "special_bonus_unique_tidehunter_smash_on_blubber" // replaces special_bonus_unique_tidehunter_10
+
+    // special_bonus_unique_tidehunter - Gush Armor                                                         - 20
+    // special_bonus_unique_tidehunter_2 - Gush Damage                                                      - 15
+    // special_bonus_unique_tidehunter_3 - Anchor Smash Damage Reduction                                    - 10
+    // special_bonus_unique_tidehunter_4 - Kraken Shell Damage Block per Anchor Smash Kill                  - facet does this
+    // special_bonus_unique_tidehunter_5 - Gush Slow                                                        - 10
+    // special_bonus_unique_tidehunter_6 - Kraken Shell Damage Threshold                                    - useless
+    // special_bonus_unique_tidehunter_7 - Ravage Stun Duration                                             - 25
+    // special_bonus_unique_tidehunter_8 - 50% chance of Anchor Smash on attack                             - unused, overpowered
+    // special_bonus_unique_tidehunter_9 - Anchor Smash Damage                                              - unused
+    // special_bonus_unique_tidehunter_10 - Anchor Smash affects buildings                                  - 25 -> 0, useless
+    // special_bonus_unique_tidehunter_ravage_cooldown                                                      - 15
+    // special_bonus_unique_tidehunter_smash_on_blubber - Blubber effect triggers Anchor Smash              - 20 -> 25, overpowered
   }
 }

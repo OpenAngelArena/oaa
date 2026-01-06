@@ -17,19 +17,19 @@
     //"Ability16"                                           "special_bonus_unique_windranger_windrun_undispellable"
     "Ability17"                                           "special_bonus_unique_windranger_1_oaa" // replaces special_bonus_unique_windranger_2
 
-  // special_bonus_unique_windranger    - "+{s:bonus_radius} Windrun Radius"                 - garbage
-  // special_bonus_unique_windranger_2  - "Focus Fire Kills Advance Cooldown by {s:value}s   - garbage
-  // special_bonus_unique_windranger_3  - "-{s:value}% Powershot Damage Reduction"           - garbage
-  // special_bonus_unique_windranger_4  - "-{s:value}s Windrun Cooldown"                     - according to some people, only this talent makes her playable ???
-  // special_bonus_unique_windranger_5  - "+{s:value} Shackleshot Target"                    - maybe overpowered
-  // special_bonus_unique_windranger_6  - "+{s:value}s Shackleshot Duration"
-    // special_bonus_unique_windranger_7  - "Windrun Grants Invisibility"                      - scepter does this
-  // special_bonus_unique_windranger_8  - "-{s:value}% Focus Fire Damage Reduction"
-  // special_bonus_unique_windranger_9  - "-{s:value}s Shackleshot Cooldown"
-  // special_bonus_unique_windranger_10 - "+{s:value} Windrun HP Regen"                      - unused
-    // special_bonus_unique_windranger_powershot_slow
-    // special_bonus_unique_windranger_windrun_undispellable - "Windrun Cannot Be Dispelled"   - overpowered
-    // special_bonus_30_crit_2
-    // special_bonus_unique_windranger_1_oaa - bonus Powershot damage                          - custom
+    // special_bonus_unique_windranger    - Windrun Radius                                       - unused, garbage
+    // special_bonus_unique_windranger_2  - Focus Fire Kills Advance Cooldown                    - 25 -> 0, garbage
+    // special_bonus_unique_windranger_3  - Powershot Reduction                                  - 15
+    // special_bonus_unique_windranger_4  - Windrun Cooldown                                     - 15, according to some people: essential talent
+    // special_bonus_unique_windranger_5  - Shackleshot Target                                   - facet does this
+    // special_bonus_unique_windranger_6  - Shackleshot Duration                                 - 20
+    // special_bonus_unique_windranger_7  - Windrun Grants Invisibility                          - scepter does this
+    // special_bonus_unique_windranger_8  - Focus Fire Damage Reduction                          - 20
+    // special_bonus_unique_windranger_9  - Easy Breezy Min/Max Movespeed                        - unused
+    // special_bonus_unique_windranger_10 - Windrun HP Regen                                     - unused
+    // special_bonus_unique_windranger_powershot_slow                                            - 10
+    // special_bonus_unique_windranger_powershot_dmg                                             - unused
+    // special_bonus_unique_windranger_windrun_undispellable - Windrun Cannot Be Dispelled       - 25, overpowered
+    // special_bonus_unique_windranger_1_oaa - bonus Powershot damage                            - 25, custom
   }
 }

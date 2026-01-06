@@ -35,7 +35,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "16 14 12 10 10 10"
-        "special_bonus_unique_earth_spirit_7"             "-3.0"
+        "special_bonus_unique_earth_spirit_7"             "-2"
       }
       "radius"
       {
@@ -67,6 +67,10 @@
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0"
       }
       "creep_multiplier"                                  "1.0"
     }

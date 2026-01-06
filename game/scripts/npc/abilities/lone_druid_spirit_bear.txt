@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Summon Spirit Bear
+  // Lone Druid: Summon Spirit Bear (Innate)
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
@@ -10,17 +10,11 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,44 +24,47 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bear_hp"                                           "1100 1500 1900 2300 3100 3900" //OAA
-      "bear_regen_tooltip"                                "5 6 7 8 10 13"
-      "bear_bat" //OAA
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "1.7 1.65 1.6 1.55 1.5 1.45"
-        //"special_bonus_unique_lone_druid_10"              "-0.1"
+        "value"                                           "75"
+        "special_bonus_unique_lone_druid_2"               "-25"
       }
-      "bear_armor"                                        "0 2 4 6 8 10"
+      "bear_hp"                                           "1500"
+      "bear_regen_tooltip"                                "3"
+      "bear_bat"
+      {
+        "value"                                           "1.5"
+      }
+      "bear_armor"                                        "0"
       "backlash_damage" //OAA
       {
         "value"                                           "40.0"
       }
       "bear_movespeed"
       {
-        "value"                                           "300 330 360 390 420 450"
-        "special_bonus_unique_lone_druid_11"              "+30"
+        "value"                                           "310"
       }
       "bear_magic_resistance"
       {
-        "value"                                           "0"
+        "value"                                           "25"
       }
       "bonus_bear_hp"
       {
         "value"                                           "0"
-        //"special_bonus_unique_lone_druid_7"               "+1000"
       }
       "bonus_bear_armor"
       {
         "value"                                           "0"
-        "special_bonus_unique_lone_druid_2"               "+7"
       }
-      "damage_gain_per_druid_level"                       "5"
-      "hp_gain_per_druid_level"                           "70" //OAA
+      "damage_gain_per_druid_level"                       "0"
+      "hp_gain_per_druid_level"                           "0"
       "bear_attack_leash_range"
       {
         "value"                                           "1100"
-        "special_bonus_facet_lone_druid_unbearable"       "+500"
       }
+      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
     }
   }
 }

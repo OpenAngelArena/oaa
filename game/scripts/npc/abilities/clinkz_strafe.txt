@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0"
 
     // Cost
@@ -33,7 +33,7 @@
     {
       "attack_speed_bonus" //OAA
       {
-        "value"                                           "120 140 160 180 200 220"
+        "value"                                           "140 160 180 200 220 240"
         "special_bonus_unique_clinkz_7"                   "+40"
       }
       "duration"
@@ -43,7 +43,7 @@
       }
       "attack_range_bonus"
       {
-        "value"                                           "200" 
+        "value"                                           "200"
       }
       "AbilityCooldown" //OAA
       {
@@ -55,7 +55,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "archer_attack_speed_pct"                           "60"
+      "archer_attack_speed_pct"                           "50"
       "debuff_duration"
       {
         "value"                                           "0"

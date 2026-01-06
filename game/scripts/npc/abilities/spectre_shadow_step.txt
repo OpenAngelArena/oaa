@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+  "spectre_shadow_step"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
+
+    "AbilityValues"
+    {
+      "AbilityCastRange"
+      {
+        "value"                                           "750 900 1050 1200 1350 1500"
+      }
+      "duration"
+      {
+        "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
+        "special_bonus_unique_spectre_shadow_step_duration"  "+1.0"
+      }
+      "illusion_damage_incoming"                          "100"
+      "tooltip_illusion_total_damage_incoming"
+      {
+        "value"                                           "200"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "illusion_outgoing_damage"
+      {
+        "value"                                           "32 38 44 50 62 74"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "move_speed"                                        "900"
+      "bonus_move_speed_illusion_pct"                     "35"
+    }
+  }
+}
+

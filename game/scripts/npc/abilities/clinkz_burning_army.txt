@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityType"                                         "ABILITY_TYPE_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "1"
@@ -31,8 +30,8 @@
     "AbilityValues"
     {
       "range"                                             "900"
-      "count"                                             "5"
-      "spawn_interval"                                    "0.15"
+      "count"                                             "6"
+      "spawn_interval"                                    "0.1"
     }
   }
 }

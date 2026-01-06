@@ -34,14 +34,13 @@
     {
       "attack_damage"
       {
-        "value"                                           "45 90 135 180 360 540"
-        "special_bonus_unique_tidehunter_9"               "+40"
+        "value"                                           "50 100 150 200 300 400"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "damage_reduction"
       {
         "value"                                           "-25 -30 -35 -40 -45 -50"
-        "special_bonus_unique_tidehunter_3"               "-30"
+        "special_bonus_unique_tidehunter_3"               "-10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -56,7 +55,7 @@
         "value"                                           "0"
         "special_bonus_unique_tidehunter_10"              "+1"
       }
-      "smash_on_attack" // still cant change chance to proc on attack, sad
+      "smash_on_attack"
       {
         "special_bonus_unique_tidehunter_8"               "1"
       }

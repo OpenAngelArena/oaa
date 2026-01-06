@@ -37,16 +37,29 @@
         "value"                                           "180"  // NOTE: This radius must match the radius for boulder smash
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage"                                       "75 150 225 300 600 900"
-      "duration"                                          "2 2.5 3 3.5 4 4.5"
-      "pull_units_per_second_heroes"                      "600"
+      "rock_damage"
+      {
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_unique_earth_spirit_5"             "+175"
+      }
       "pull_units_per_second"                             "900"
+      "duration"                                          "2 2.5 3 3.5 4 4.5"
+      "pull_units_per_second_heroes"
+      {
+        "value"                                           "600"
+        "special_bonus_shard"                             "+50%"
+      }
+      "cast_range_heroes"
+      {
+        "value"                                           "550 600 650 700 750 800"
+        "special_bonus_shard"                             "+50%"
+      }
       "speed"                                             "800"
       "total_pull_distance"                               "1400"
       "AbilityCooldown"
       {
         "value"                                           "13"
-        "special_bonus_unique_earth_spirit_5"             "-3"
+        "special_bonus_shard"                             "-3"
       }
     }
   }

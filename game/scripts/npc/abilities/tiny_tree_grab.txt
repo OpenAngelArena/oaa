@@ -42,7 +42,7 @@
       }
       "bonus_damage" // bonus base damage; not percentage!
       {
-        "value"                                           "10 20 30 40 80 120"
+        "value"                                           "10 20 30 40 60 80"
         "special_bonus_unique_tiny_7"                     "+60"
       }
       "bonus_damage_buildings" // percentage bonus damage against bosses
@@ -59,7 +59,7 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "splash_pct"                                        "55 70 85 100 115 130"
+      "splash_pct"                                        "70 80 90 100 110 120"
       "bat_increase"                                      "0.0"
       "speed_reduction"                                   "0"
     }

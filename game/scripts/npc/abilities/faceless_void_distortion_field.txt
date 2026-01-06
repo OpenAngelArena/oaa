@@ -9,8 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
-    "MaxLevel"                                            "7" // same as Dependent ability (Time Dilation) + 1
-    "Innate"                                              "1"
+    "MaxLevel"                                            "7" // OAA same as Dependent ability (Time Dilation) + 1
     "DependentOnAbility"                                  "faceless_void_time_dilation" // OAA
     // tests fail because FV now does not have an ultimate before choosing a facet.
     // Valve messed up here because this won't level up with Time Zone unless they hardcoded it, I will put Time Dilation until they fix this properly

@@ -15,7 +15,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575 600 625 650 675 700" //OAA
     "AbilityCastPoint"                                    "0.1"
 
     // Cost
@@ -57,7 +56,11 @@
         "value"                                           "16 15 14 13 12 11"
         "special_bonus_unique_phantom_lancer_4"           "-4"
       }
-      "cast_range_tooltip"                                "575 600 625 650 675 700" //OAA
+      "AbilityCastRange"
+      {
+        "value"                                           "575"
+        "special_bonus_unique_phantom_lancer_doppelwalk_cast_range"  "+125"
+      }
     }
   }
 }

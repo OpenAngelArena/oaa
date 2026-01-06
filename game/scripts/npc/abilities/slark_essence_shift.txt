@@ -1,19 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Slark: Essence Shift
+  // Slark: Essence Shift (Innate)
   //=================================================================================================================
   "slark_essence_shift"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,10 +22,11 @@
         "value"                                           "3"
         "special_bonus_unique_slark_5"                    "+1"
       }
-      "stat_loss"                                         "1 1 1 1 2 3" //OAA
+      "stat_loss"                                         "1"
       "duration"
       {
-        "value"                                           "15 35 55 75 95 115"
+        "value"                                           "15"
+        "hero_levelup"                                    "+2.5"
         "special_bonus_unique_slark_4"                    "+35"
       }
       "steal_radius"

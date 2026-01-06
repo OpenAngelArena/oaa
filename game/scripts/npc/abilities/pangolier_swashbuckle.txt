@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.15"
-    "AbilityCastRange"                                    "400 500 600 700 800 900"
+    "AbilityCastRange"                                    "575 650 725 800 875 950"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,24 +30,24 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
-        "special_bonus_unique_pangolier_4"                "-4"
+        "value"                                           "14 13 12 11 10 9"
+        "special_bonus_unique_pangolier_4"                "-2"
       }
-      "dash_range"                                        "400 500 600 700 800 900"
+      "dash_range"                                        "575 650 725 800 875 950"
       "range"
       {
-        "value"                                           "700"
+        "value"                                           "850"
         "special_bonus_unique_pangolier"                  "+200"
       }
       "damage"
       {
-        "value"                                           "30 60 90 120 240 480"
+        "value"                                           "35 65 95 125 250 375"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_damage" // percentage of attack damage
       {
         "value"                                           "0"
-        "special_bonus_unique_pangolier_3"                "+15"
+        "special_bonus_unique_pangolier_3"                "+20"
       }
       "dash_speed"                                        "2000"
       "attack_interval"                                   "0.1"
@@ -66,6 +66,9 @@
         "value"                                           "3"
       }
       "procs_onhit_effects"                               "1"
+      "slow_duration"                                     "0.4"
+      "slow_percent"                                      "100"
+      "damage_penalty"                                    "25" // Aghanim's Scepter Swashbuckle damage, if changing this change scepter_damage_outgoing_tooltip in Shield Crash
     }
   }
 }

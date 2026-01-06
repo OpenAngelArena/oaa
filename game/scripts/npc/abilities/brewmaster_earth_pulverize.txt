@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@
     {
       "bonus_building_damage" // percentage bonus damage against bosses
       {
-        "value"                                           "50 100 150 250 350"
+        "value"                                           "40 80 120 160 200 240"
       }
     }
   }

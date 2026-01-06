@@ -39,13 +39,13 @@
       "damage"
       {
         "value"                                           "75 150 225 300 600 900"
-        "special_bonus_unique_mirana_7"                   "+250"
+        "special_bonus_unique_mirana_7"                   "+200"
       }
       "secondary_starfall_damage_percent"
       {
-        "value"                                           "60"
+        "value"                                           "70"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_facet_mirana_starstruck"           "+40"
+        "special_bonus_facet_mirana_starstruck"           "=70 =80 =90 =100 =105 =110"
       }
       "starfall_radius"
       {

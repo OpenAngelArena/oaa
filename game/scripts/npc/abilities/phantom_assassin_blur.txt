@@ -13,7 +13,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6" // same as Dependent ability (Coup De Grace) + 1
-    "Innate"                                              "1"
     "DependentOnAbility"                                  "phantom_assassin_coup_de_grace"
 
     "AbilityCastPoint"                                    "0.3"
@@ -44,7 +43,7 @@
         "value"                                           "0"
         "special_bonus_facet_phantom_assassin_veiled_one"  "100"
       }
-      "active_movespeed_bonus"                            "3 6 9 12 15 18"
+      "active_movespeed_bonus"                            "6 9 12 15 18 21"
       "immediate_cast"
       {
         "special_bonus_shard"                             "0"

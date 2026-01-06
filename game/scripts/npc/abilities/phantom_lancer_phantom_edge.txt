@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "15 11 7 3 3 3"
+      }
       "min_distance"                                      "275"
       "max_distance"
       {
@@ -29,16 +29,8 @@
         "special_bonus_scepter"                           "+625"
       }
       "bonus_speed"                                       "800"
-      "bonus_agility" //OAA, Valve forgot '+' on special_bonus_unique_phantom_lancer_phantom_rush_agility
-      {
-        "value"                                           "10 20 30 40 60 80"
-        "special_bonus_unique_phantom_lancer_phantom_rush_agility"  "+10"
-      }
-      "agility_duration"
-      {
-        "value"                                           "2"
-        "special_bonus_unique_phantom_lancer_2"           "+2.5"
-      }
+      "bonus_agility"                                     "0"
+      "agility_duration"                                  "0"
       "illusion_spawn_radius"
       {
         "special_bonus_scepter"                           "125"
@@ -47,6 +39,7 @@
       {
         "special_bonus_scepter"                           "600"
       }
+      "evasion"                                           "20 30 40 50 60 70"
     }
   }
 }

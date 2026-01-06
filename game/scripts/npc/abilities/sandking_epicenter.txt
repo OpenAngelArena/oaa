@@ -37,7 +37,7 @@
       "epicenter_pulses"
       {
         "value"                                           "12 16 20 24 28"
-        "special_bonus_unique_sand_king"                  "+10"
+        "special_bonus_unique_sand_king"                  "+8"
       }
       "epicenter_damage"
       {
@@ -45,13 +45,13 @@
         "special_bonus_shard"                             "+5"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "epicenter_radius_base" //OAA
+      "epicenter_radius_base" //OAA, intentional nerf
       {
         "value"                                           "425"
         "special_bonus_unique_sand_king_5"                "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "epicenter_radius_increment" //OAA
+      "epicenter_radius_increment" //OAA, intentional nerf
       {
         "value"                                           "10"
         "special_bonus_unique_sand_king_5"                "+7"
@@ -64,7 +64,7 @@
       {
         "value"                                           "-50 -70 -90 -110 -130"
       }
-      "shard_radius" //OAA
+      "shard_radius" //OAA, Valve has it wrong, they put +100 for special_bonus_unique_sand_king_5
       {
         "special_bonus_shard"                             "425"
         "special_bonus_unique_sand_king_5"                "+75"

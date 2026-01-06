@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Catchy Lick
+  //=================================================================================================================
+  "largo_catchy_lick"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13 11 9 7 6 5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 85 90 95 100 105"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCastRange"
+      {
+        "value"                                           "700"
+        "special_bonus_unique_largo_4"                    "+100"
+      }
+      "damage"
+      {
+        "value"                                           "85 170 255 340 680 1360"
+        "special_bonus_unique_largo_5"                    "+170"
+      }
+      "pull_distance"
+      {
+        "value"                                           "235 265 295 325 355 385"
+        "special_bonus_unique_largo_4"                    "+50"
+      }
+      "pull_distance_ally"
+      {
+        "value"                                           "375"
+        "special_bonus_unique_largo_4"                    "+50"
+      }
+      "pull_duration"                                     "0.3"
+      "strong_dispel"
+      {
+        "value"                                           "0"
+      }
+      "dispel_hp_regen"
+      {
+        "value"                                           "4 7 10 13 16 19"
+        "special_bonus_unique_largo_2"                    "x2.5"
+      }
+      "buff_duration"                                     "10"
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_8"                    "=2"
+      }
+    }
+  }
+}

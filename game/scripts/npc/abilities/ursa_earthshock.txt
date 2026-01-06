@@ -41,7 +41,7 @@
       {
         "value"                                           "385"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_ursa_2"                     "+400"
+        "special_bonus_unique_ursa_2"                     "+300"
       }
       "movement_slow"                                     "-22 -28 -34 -40 -45 -50"
       "hop_distance"
@@ -52,11 +52,11 @@
       "hop_height"                                        "83"
       "shard_enrage_duration"
       {
-        "special_bonus_shard"                             "1.2"
+
       }
       "fury_swipe_stacks_on_hit"
       {
-        "special_bonus_unique_ursa_earthshock_furyswipes"  "+2"
+        "special_bonus_shard"                             "+3"
       }
       "AbilityCooldown" //OAA
       {

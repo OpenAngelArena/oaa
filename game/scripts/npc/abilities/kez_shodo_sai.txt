@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 20 10 0 0 0"
+    "AbilityManaCost"                                     "30" //OAA
     "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA
 
     // Special
@@ -47,7 +47,11 @@
         "value"                                           "3"
         "special_bonus_unique_kez_mark_damage"            "+0"
       }
-      "parry_stun_duration"                               "0.5"
+      "parry_stun_duration"                               "0.4"
+      "sai_swap_bonus_movement_speed"
+      {
+        "value"                                           "12"
+      }
     }
   }
 }

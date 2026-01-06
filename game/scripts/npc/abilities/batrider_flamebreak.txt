@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 115 120 125 130 135"
+    "AbilityManaCost"                                     "110 115 120 125 130 135" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,8 +75,8 @@
         "value"                                           "16 15 14 13 12 11"
         "special_bonus_unique_batrider_5"                 "-6"
       }
-      "slow"                                              "8 16 24 32 40 48"
-      "damage_total_tooltip"                              "75 140 215 300 600 900" //OAA, damage_impact + damage_per_second x damage_duration, dont' delete this
+      "slow"                                              "6 12 18 24 30 36"
+      "damage_total_tooltip"                              "75 140 215 300 600 900" //OAA, damage_impact + damage_per_second x damage_duration, don't delete this
     }
   }
 }

@@ -8,7 +8,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "MaxLevel"                                            "6" // same as Dependent ability (Corrosive Haze) + 1
-    "Innate"                                              "1"
     "DependentOnAbility"                                  "slardar_amplify_damage"
 
     "AbilityValues"
@@ -31,9 +30,9 @@
       "river_damage"
       {
         "value"                                           "8 16 24 32 64 128"
-        "special_bonus_unique_slardar_6"                  "+12"
+        "special_bonus_unique_slardar_6"                  "+14"
       }
-      "scepter_puddle_radius_tooltip"                     "80"
+      "scepter_puddle_radius_tooltip"                     "75"
       "scepter_puddle_duration_increase_tooltip"          "5"
     }
   }

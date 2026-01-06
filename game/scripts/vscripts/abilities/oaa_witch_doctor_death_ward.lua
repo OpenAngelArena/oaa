@@ -345,7 +345,7 @@ if IsServer() then
         local owner = self:GetCaster()
         local neverMiss = owner and not owner:IsNull() and owner:HasScepter()
 
-        -- fortunately this doesn't then call OnAttackStart
+        -- fortunately this doesn't trigger OnAttackStart
         -- so we don't need to worry about recursion
         attacker:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 

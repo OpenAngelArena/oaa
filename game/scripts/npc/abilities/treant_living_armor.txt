@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -36,17 +35,23 @@
         "value"                                           "10 15 20 25 50 100"
         "special_bonus_unique_treant_8"                   "+30"
       }
-      "bonus_armor" //OAA
-      {
-        "value"                                           "4 7 10 13 16 19"
-        "special_bonus_unique_treant_13"                  "+4"
-      }
-      "duration"                                          "18 19 20 21 22 23" //OAA
+      "duration"                                          "12"
       "aoe_radius"
       {
         "special_bonus_unique_treant_7"                   "450"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_block_base"
+      {
+        "value"                                           "120"
+        "special_bonus_unique_treant_13"                  "+20"
+      }
+      "passive_reset_cd"
+      {
+        "special_bonus_shard"                             "0"
+      }
+      "damage_block_loss"                                 "35 30 25 20 15 10"
+      "damage_block_threshold"                            "20"
     }
   }
 }

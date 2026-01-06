@@ -40,7 +40,7 @@
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityTextureName"                                  "custom/bloodstone"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4400"
+    "ItemCost"                                            "4350"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs;bloodstone"

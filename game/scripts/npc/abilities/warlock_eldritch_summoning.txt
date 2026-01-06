@@ -10,8 +10,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6" // 7 with Aghanim Shard
-    "Innate"                                              "1"
+    "MaxLevel"                                            "6" // MaxLevel: 7 with Aghanim Shard
     "DependentOnAbility"                                  "warlock_rain_of_chaos"
 
     "AbilityValues"
@@ -19,7 +18,7 @@
       "minor_imp_duration"                                "15"
       "imp_level"
       {
-        "value"                                           "1 2 3 4 5 6"
+        "value"                                           "1 2 3 4 5 6 6"
         "special_bonus_shard"                             "+1"
       }
 
@@ -32,7 +31,7 @@
       // bonus_hp from warlock_imp_explode *plus 50*
       "tooltip_imp_health"                                "50 130 210 290 370 690 1330"
       // exactly explosion_dmg from warlock_imp_explode
-      "tooltip_imp_explode"                               "25 70 115 160 205 340 565"
+      "tooltip_imp_explode"                               "20 65 110 155 200 335 560"
       "tooltip_imp_explode_radius"
       {
         "value"                                           "400"

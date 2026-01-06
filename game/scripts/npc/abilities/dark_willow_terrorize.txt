@@ -22,8 +22,6 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "1.0"
 
-    "AbilityCooldown"                                     "100 90 80 70 60"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
@@ -39,7 +37,12 @@
         "affected_by_aoe_increase"                        "1"
       }
       "destination_status_duration"                       "2.8 3.0 3.2 3.4 3.6"
-      "return_travel_speed"                               "600"
+      "return_travel_speed"                               "800"
+      "AbilityCooldown"
+      {
+        "value"                                           "100 90 80 70 60"
+        "special_bonus_unique_dark_willow_7"              "-15"
+      }
       "starting_height"                                   "300"
       "telegraph_to_enemies"                              "0"
       "impact_damage"

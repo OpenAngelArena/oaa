@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "1"
-    "Innate"                                              "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,35 +22,22 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_night_vision_self"
-      {
-        "value"                                           "250"
-      }
-      "bonus_night_vision_per_level"
-      {
-        "value"                                           "25"
-      }
-      "bonus_damage_per_level"
+      "bonus_damage"
       {
         "value"                                           "1"
-        "special_bonus_unique_luna_3"                     "+1"
+        "hero_levelup"                                    "+1"
+        "special_bonus_unique_luna_3"                     "+30"
       }
-      "allied_bonus_damage_tooltip"
-      {
-        "dynamic_value"                                   "true"
-      }
-      "self_bonus_damage_per_level"
+      "self_bonus_damage"
       {
         "value"                                           "2"
-        "special_bonus_unique_luna_3"                     "+2"
+        "hero_levelup"                                    "+2"
+        "special_bonus_unique_luna_3"                     "+60"
       }
-      "self_bonus_damage_tooltip"
+      "bonus_night_vision"
       {
-        "dynamic_value"                                   "true"
-      }
-      "self_bonus_night_vision_tooltip"
-      {
-        "dynamic_value"                                   "true"
+        "value"                                           "250"
+        "hero_levelup"                                    "+25"
       }
     }
   }

@@ -49,10 +49,10 @@
         "special_bonus_scepter"                           "+650"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "90 75 60 60 60"
-        "special_bonus_unique_batrider_6"                 "-7"
+        "value"                                           "65"
+        "special_bonus_unique_batrider_6"                 "-8"
       }
       "tick_rate"                                         "0.5"
     }

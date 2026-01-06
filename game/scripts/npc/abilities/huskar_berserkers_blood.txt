@@ -31,8 +31,8 @@
       {
         "value"                                           "0"
       }
-      "maximum_magic_resist"                              "15 20 25 30 30 30"
-      "hp_threshold_max"                                  "12"
+      "maximum_magic_resist"                              "15 20 25 30 35 40"
+      "hp_threshold_max"                                  "10"
       "activatable"
       {
         "value"                                           "0"
@@ -56,7 +56,7 @@
       "activation_heal_pct_per_debuff"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+5.0"
+        "special_bonus_facet_huskar_cauterize"            "+4.0"
       }
     }
   }

@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // LARGO: Amphibian Rhapsody — Double Time
+  //=================================================================================================================
+  "largo_song_double_time"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "double_song"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1"
+      }
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
+      "radius"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "movespeed_bonus_burst"
+      {
+        "value"                                           "16 22 28 34 40"
+        "special_bonus_unique_largo_7"                    "+35%"
+      }
+      "slow_resistance"
+      {
+        "value"                                           "70 80 90 95 100"
+      }
+      "movement_burst_duration"
+      {
+        "value"                                           "1"
+      }
+      "slow_resistance_burst_duration"
+      {
+        "value"                                           "0.3"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "20 32 44 56 68"
+      }
+    }
+  }
+}

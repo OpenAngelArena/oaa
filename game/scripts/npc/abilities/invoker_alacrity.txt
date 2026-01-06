@@ -8,23 +8,21 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "MaxLevel"                                            "1"
-    "HotKeyOverride"                                      "Z"
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650"
+    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "15"
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +32,13 @@
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_5"                  "+35"
+        "special_bonus_unique_invoker_5"                  "+50"
       }
       "bonus_damage"
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_5"                  "+35"
+        "special_bonus_unique_invoker_5"                  "+50"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_attack_range"

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "6" // 7 with Aghanim Shard
+    "MaxLevel"                                            "6" // MaxLevel: 7 with Aghanim Shard
 
     "AbilityValues"
     {
@@ -19,7 +19,7 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "explosion_dmg"                                     "25 70 115 160 205 340 565"
+      "explosion_dmg"                                     "20 65 110 155 200 335 560"
       "explosion_nonhero_reduce"                          "50"
 
       "bonus_hp"                                          "0 80 160 240 320 640 1280"

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-    "MaxLevel"                                            "10" // OAA, ability auto-levels every 5 Earth Spirit levels
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -22,8 +22,7 @@
     {
       "duration" //OAA
       {
-        "value"                                           "40.0"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=20.0"
+        "value"                                           "40"
       }
       "polarization_distance"
       {
@@ -35,30 +34,30 @@
       }
       "AbilityCharges"
       {
-        "value"                                           "7 8 9 10 11 12 13 14 15 16"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=0 =0 =0 =0 =0 =0 =0 =0 =0 =0"
+        "value"                                           "7"
+        "hero_levelup"                                    "+1"
+        "levelup_interval"                                "4"
       }
       "rolling_offset_distance"                           "150"
-      "hero_level_increment"                              "5"
       "AbilityManaCost"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "0"
       }
       "AbilityCooldown"
       {
         "value"                                           "0.0"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=4.0"
       }
       "AbilityChargeRestoreTime"
       {
         "value"                                           "18"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=4"
       }
       "is_stepping_stone"
       {
-        "special_bonus_facet_earth_spirit_stepping_stone"  "=1"
+        "value"                                           "=0"
       }
+      "attack_damage_per_stone"                           "2.5"
+      "attack_damage_per_stone_used"                      "7.5"
+      "buff_duration"                                     "10"
     }
   }
 }
