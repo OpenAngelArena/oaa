@@ -765,8 +765,9 @@ if IsServer() then
     -- Attack particle
     local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
 
-    -- Get instant attack proc chance
+    -- Get instant attack proc chance and attack interval
     local chance = ability:GetSpecialValueFor("proc_chance")
+    local attack_interval = ability:GetSpecialValueFor("attack_interval")
 
     -- Talent that increases proc chance
     local talent = caster:FindAbilityByName("special_bonus_unique_monkey_king_1_oaa")
@@ -786,12 +787,14 @@ if IsServer() then
       -- Reset failure count
       parent.failure_count = 0
       -- Apply no-lifesteal modifier
-      local mod1 = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
-      local mod2 = caster:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", -1)
+      local mod1 = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {duration = attack_interval-0.1})
+      local mod2 = caster:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", attack_interval-0.1)
       -- Apply caster's attack that cannot miss
       caster:PerformAttack(target, true, true, true, false, false, false, true)
       -- Remove no-lifesteal modifier
-      mod1:Destroy()
+      if mod1 then
+        mod1:Destroy()
+      end
       if mod2 then
         mod2:Destroy()
       end
@@ -799,8 +802,6 @@ if IsServer() then
       -- Increment failure count
       parent.failure_count = pseudo_rng_mult
     end
-
-    local attack_interval = ability:GetSpecialValueFor("attack_interval")
 
     Timers:CreateTimer(attack_interval + 0.3, function()
       if castHandle then
@@ -927,16 +928,41 @@ function modifier_wukongs_command_oaa_no_lifesteal:IsPurgable()
   return false
 end
 
-function modifier_wukongs_command_oaa_no_lifesteal:DeclareFunctions()
-  return {
-    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-  }
-end
+-- function modifier_wukongs_command_oaa_no_lifesteal:DeclareFunctions()
+  -- return {
+    -- MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+  -- }
+-- end
 
 -- Doesn't work, I hate you Valve!
 -- function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
   -- return -200
 -- end
+
+function modifier_wukongs_command_oaa_no_lifesteal:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
 
 ---------------------------------------------------------------------------------------------------
 
