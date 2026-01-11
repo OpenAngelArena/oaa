@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_pull_staff_4;item_upgrade_core_4"
-      //"03"                                                "item_heavens_halberd_4;item_upgrade_core_4"
     }
   }
 
@@ -50,18 +49,19 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    //"CastFilterRejectCaster"                              "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "CastFilterRejectCaster"                              "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650 750 850 950 1050"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCooldown"                                     "18 17 16 15 14"
-    "AbilitySharedCooldown"                               "pull"
+    "AbilitySharedCooldown"                               "harpoon_pull"
     "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33775"
+    "ItemCost"                                            "34700"
 
     "ItemPurchasable"                                     "1"
     "ItemDroppable"                                       "1"
@@ -84,19 +84,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "15 35 65 105 155"
-      "bonus_strength"                                    "15 25 40 60 85"
+      "bonus_damage"                                      "20 30 50 80 120"
+      "bonus_strength"                                    "25 30 40 55 75"
       "bonus_intellect"                                   "10 15 25 40 60"
-      "bonus_attack_speed"                                "10 20 30 40 50"
-      "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_health_regen"                                "6 9 12 15 18"
-      "bonus_armor"                                       "6 7 9 12 16"
+      "bonus_attack_speed"                                "0"
+      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
+      "bonus_health_regen"                                "4 7 10 13 16"
+      "bonus_armor"                                       "4 5 7 10 14"
       "speed"                                             "1200"
-      "tooltip_range"                                     "650 750 850 950 1050" // distance + 50
-      "distance"                                          "600 700 800 900 1000" // first level same as force staff
+      "tooltip_range"                                     "700 750 800 850 900" // distance + 50
+      "distance"                                          "650 700 750 800 850"
       "cooldown_tooltip"                                  "18 17 16 15 14"
-      "echo_strike_cooldown"                              "5.0 3.5 2.5 1.75 1.5"
-      "echo_strike_slow_duration"                         "0.8"
+      "echo_strike_cooldown"                              "5.0"
+      "echo_strike_slow_duration"                         "1.0"
     }
   }
 }

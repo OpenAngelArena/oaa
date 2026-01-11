@@ -24,7 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_desolator;item_upgrade_core"
+      "01"                                                "item_desolator_oaa;item_upgrade_core"
     }
   }
 
@@ -50,7 +50,7 @@
     "AbilityCastRange"                                    "700 750 800 850 900"
 
     "AbilitySharedCooldown"                               "devastator"
-    "AbilityCooldown"                                     "11 10 9 8 7"
+    "AbilityCooldown"                                     "10"
     "AbilityManaCost"                                     "125"
 
     // Stats
@@ -78,7 +78,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "50 80 110 140 170"
+      "bonus_damage"                                      "48 68 98 138 188"
       "corruption_armor"                                  "-6 -9 -13 -18 -24"
       "corruption_duration"                               "7.0"
       "devastator_speed"                                  "1800"

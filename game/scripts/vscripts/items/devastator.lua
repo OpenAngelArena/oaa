@@ -121,6 +121,14 @@ item_devastator_oaa_5 = item_devastator_oaa_1
 
 ---------------------------------------------------------------------------------------------------
 
+item_desolator_oaa = class(ItemBaseClass)
+
+function item_desolator_oaa:GetIntrinsicModifierName()
+  return "modifier_item_devastator_oaa_desolator"
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_item_devastator_oaa_desolator = class(ModifierBaseClass)
 
 function modifier_item_devastator_oaa_desolator:IsHidden()
@@ -214,8 +222,9 @@ if IsServer() then
 
     -- If the target has Devastator active debuff
     if target:HasModifier("modifier_item_devastator_oaa_reduce_armor") then
-      -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction) then do nothing
-      if math.abs(armor_reduction) > math.abs(corruption_armor) then
+      -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction) 
+      -- or desolator passive OnAttackLanded is triggered on our custom desolator then do nothing
+      if math.abs(armor_reduction) > math.abs(corruption_armor) or ability:GetAbilityName() == "item_desolator_oaa" then
         return
       end
       -- If devastator_armor_reduction is lower than corruption_armor then remove the Devastator active debuff

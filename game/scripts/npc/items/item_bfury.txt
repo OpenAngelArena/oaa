@@ -8,7 +8,7 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "200" //OAA
+    "ItemCost"                                            "100" //OAA
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
@@ -44,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4000" //OAA
+    "ItemCost"                                            "3900"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf;battle fury;cleaver"
@@ -55,13 +55,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "60 80 120 180 260" //OAA
+      "bonus_damage"                                      "45 65 95 135 185" //OAA, Small Cleaver (35) + Cornucopia (7);
       "bonus_health_regen"                                "7.5 11 14 17 20"
       "bonus_mana_regen"                                  "2.75 3.0 3.5 4.25 5.25"
       "cleave_damage_percent"                             "60 65 70 75 80" // Cleave against heroes
       "cleave_damage_percent_creep"                       "40 45 50 55 60"
-      "quelling_bonus"                                    "10"
-      "quelling_bonus_ranged"                             "10" //OAA
+      "quelling_bonus"                                    "15 25 45 75 115" // OAA
+      "quelling_bonus_ranged"                             "5"
       "cleave_starting_width"
       {
         "value"                                           "150"
