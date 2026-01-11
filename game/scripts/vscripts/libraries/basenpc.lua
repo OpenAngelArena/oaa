@@ -151,7 +151,7 @@ if IsServer() then
       "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
       "modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff
       "modifier_item_dispel_orb_active",             -- Dispel Orb buff
-      "modifier_item_heart_oaa_active",              -- Heart active buff
+      "modifier_item_havoc_hammer_active",           -- Havoc Hammer active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
       --"modifier_item_reduction_orb_active",          -- Reduction Orb buff

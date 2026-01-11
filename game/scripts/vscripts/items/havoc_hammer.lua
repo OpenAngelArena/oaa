@@ -1,19 +1,19 @@
-LinkLuaModifier("modifier_item_heart_oaa_passive", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_heart_oaa_active", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_heart_oaa_active_illusions", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_havoc_hammer_passive", "items/havoc_hammer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_havoc_hammer_active", "items/havoc_hammer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_havoc_hammer_active_illusions", "items/havoc_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_heart_oaa_1 = class(ItemBaseClass)
+item_havoc_hammer_1 = class(ItemBaseClass)
 
-function item_heart_oaa_1:GetIntrinsicModifierName()
-  return "modifier_item_heart_oaa_passive"
+function item_havoc_hammer_1:GetIntrinsicModifierName()
+  return "modifier_item_havoc_hammer_passive"
 end
 
-function item_heart_oaa_1:OnSpellStart()
+function item_havoc_hammer_1:OnSpellStart()
   local caster = self:GetCaster()
   local buff_duration = self:GetSpecialValueFor("buff_duration")
 
-  -- Apply a Heart special buff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_heart_oaa_active", {duration = buff_duration})
+  -- Apply a buff to the caster
+  caster:AddNewModifier(caster, self, "modifier_item_havoc_hammer_active", {duration = buff_duration})
 
   -- Find enemies
   local center = caster:GetAbsOrigin()
@@ -76,132 +76,95 @@ function item_heart_oaa_1:OnSpellStart()
   end
 end
 
-item_heart_oaa_2 = item_heart_oaa_1
-item_heart_oaa_3 = item_heart_oaa_1
-item_heart_oaa_4 = item_heart_oaa_1
-item_heart_oaa_5 = item_heart_oaa_1
+item_havoc_hammer_2 = item_havoc_hammer_1
+item_havoc_hammer_3 = item_havoc_hammer_1
+item_havoc_hammer_4 = item_havoc_hammer_1
+item_havoc_hammer_5 = item_havoc_hammer_1
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_heart_oaa_passive = class(ModifierBaseClass)
+modifier_item_havoc_hammer_passive = class(ModifierBaseClass)
 
-function modifier_item_heart_oaa_passive:IsHidden()
+function modifier_item_havoc_hammer_passive:IsHidden()
   return true
 end
 
-function modifier_item_heart_oaa_passive:IsDebuff()
+function modifier_item_havoc_hammer_passive:IsDebuff()
   return false
 end
 
-function modifier_item_heart_oaa_passive:IsPurgable()
+function modifier_item_havoc_hammer_passive:IsPurgable()
   return false
 end
 
-function modifier_item_heart_oaa_passive:GetAttributes()
+function modifier_item_havoc_hammer_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_heart_oaa_passive:OnCreated()
+function modifier_item_havoc_hammer_passive:OnCreated()
   self:OnRefresh()
-  if IsServer() then
-    self:StartIntervalThink(0.1)
-  end
 end
 
-function modifier_item_heart_oaa_passive:OnRefresh()
+function modifier_item_havoc_hammer_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-    self.regen = ability:GetSpecialValueFor("health_regen_pct")
-  end
-
-  if IsServer() then
-    self:OnIntervalThink()
+    self.dmg = ability:GetSpecialValueFor("bonus_base_damage")
   end
 end
 
-function modifier_item_heart_oaa_passive:OnIntervalThink()
-  if self:IsFirstItemInInventory() then
-    self:SetStackCount(2)
-  else
-    self:SetStackCount(1)
-  end
-end
-
-function modifier_item_heart_oaa_passive:DeclareFunctions()
+function modifier_item_havoc_hammer_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
-    --MODIFIER_EVENT_ON_TAKEDAMAGE
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
   }
 end
 
-function modifier_item_heart_oaa_passive:GetModifierBonusStats_Strength()
+function modifier_item_havoc_hammer_passive:GetModifierBonusStats_Strength()
   return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
-function modifier_item_heart_oaa_passive:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+function modifier_item_havoc_hammer_passive:GetModifierBaseAttack_BonusDamage()
+  return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_base_damage")
 end
-
-function modifier_item_heart_oaa_passive:GetModifierHealthRegenPercentage()
-  if self:GetStackCount() == 2 then
-    return self.regen or self:GetAbility():GetSpecialValueFor("health_regen_pct")
-  else
-    return 0
-  end
-end
-
--- if IsServer() then
-  -- function modifier_item_heart_oaa_passive:OnTakeDamage(event)
-    -- local parent = self:GetParent()
-    -- local ability = self:GetAbility()
-
-    -- if event.damage > 0 and event.unit == parent and event.attacker ~= parent and not event.attacker:IsNeutralUnitType() and not event.attacker:IsOAABoss() then
-    -- -- Whatever is the effect when taking player-controlled damage
-    -- end
-  -- end
--- end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_heart_oaa_active = class(ModifierBaseClass)
+modifier_item_havoc_hammer_active = class(ModifierBaseClass)
 
-function modifier_item_heart_oaa_active:IsHidden()
+function modifier_item_havoc_hammer_active:IsHidden()
   return false
 end
 
-function modifier_item_heart_oaa_active:IsDebuff()
+function modifier_item_havoc_hammer_active:IsDebuff()
   return false
 end
 
-function modifier_item_heart_oaa_active:IsPurgable()
+function modifier_item_havoc_hammer_active:IsPurgable()
   return false
 end
 
-function modifier_item_heart_oaa_active:IsAura()
+function modifier_item_havoc_hammer_active:IsAura()
   return true
 end
 
-function modifier_item_heart_oaa_active:GetModifierAura()
-  return "modifier_item_heart_oaa_active_illusions"
+function modifier_item_havoc_hammer_active:GetModifierAura()
+  return "modifier_item_havoc_hammer_active_illusions"
 end
 
-function modifier_item_heart_oaa_active:GetAuraRadius()
+function modifier_item_havoc_hammer_active:GetAuraRadius()
   return 50000
 end
 
-function modifier_item_heart_oaa_active:GetAuraSearchTeam()
+function modifier_item_havoc_hammer_active:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
-function modifier_item_heart_oaa_active:GetAuraSearchType()
+function modifier_item_havoc_hammer_active:GetAuraSearchType()
   return DOTA_UNIT_TARGET_HERO
 end
 
-function modifier_item_heart_oaa_active:GetAuraEntityReject(hEntity)
+function modifier_item_havoc_hammer_active:GetAuraEntityReject(hEntity)
   local caster = self:GetCaster()
   if hEntity ~= caster then
     if IsServer() then
@@ -222,7 +185,7 @@ function modifier_item_heart_oaa_active:GetAuraEntityReject(hEntity)
   return false
 end
 
-function modifier_item_heart_oaa_active:OnCreated()
+function modifier_item_havoc_hammer_active:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -235,52 +198,52 @@ function modifier_item_heart_oaa_active:OnCreated()
   end
 end
 
-modifier_item_heart_oaa_active.OnRefresh = modifier_item_heart_oaa_active.OnCreated
+modifier_item_havoc_hammer_active.OnRefresh = modifier_item_havoc_hammer_active.OnCreated
 
-function modifier_item_heart_oaa_active:DeclareFunctions()
+function modifier_item_havoc_hammer_active:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE     -- this is bonus base damage (white)
   }
 end
 
-function modifier_item_heart_oaa_active:GetModifierBonusStats_Strength()
+function modifier_item_havoc_hammer_active:GetModifierBonusStats_Strength()
   return self.str
 end
 
-function modifier_item_heart_oaa_active:GetModifierBaseAttack_BonusDamage()
+function modifier_item_havoc_hammer_active:GetModifierBaseAttack_BonusDamage()
   return self.bonus_damage
 end
 
-function modifier_item_heart_oaa_active:GetEffectName()
+function modifier_item_havoc_hammer_active:GetEffectName()
   return "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
 end
 
-function modifier_item_heart_oaa_active:GetEffectAttachType()
+function modifier_item_havoc_hammer_active:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_item_heart_oaa_active:GetTexture()
+function modifier_item_havoc_hammer_active:GetTexture()
   return "item_heart"
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_heart_oaa_active_illusions = class(ModifierBaseClass)
+modifier_item_havoc_hammer_active_illusions = class(ModifierBaseClass)
 
-function modifier_item_heart_oaa_active_illusions:IsHidden()
+function modifier_item_havoc_hammer_active_illusions:IsHidden()
   return false
 end
 
-function modifier_item_heart_oaa_active_illusions:IsDebuff()
+function modifier_item_havoc_hammer_active_illusions:IsDebuff()
   return false
 end
 
-function modifier_item_heart_oaa_active_illusions:IsPurgable()
+function modifier_item_havoc_hammer_active_illusions:IsPurgable()
   return false
 end
 
-function modifier_item_heart_oaa_active_illusions:OnCreated()
+function modifier_item_havoc_hammer_active_illusions:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -293,29 +256,29 @@ function modifier_item_heart_oaa_active_illusions:OnCreated()
   end
 end
 
-function modifier_item_heart_oaa_active_illusions:DeclareFunctions()
+function modifier_item_havoc_hammer_active_illusions:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE     -- this is bonus base damage (white)
   }
 end
 
-function modifier_item_heart_oaa_active_illusions:GetModifierBonusStats_Strength()
+function modifier_item_havoc_hammer_active_illusions:GetModifierBonusStats_Strength()
   return self.str
 end
 
-function modifier_item_heart_oaa_active_illusions:GetModifierBaseAttack_BonusDamage()
+function modifier_item_havoc_hammer_active_illusions:GetModifierBaseAttack_BonusDamage()
   return self.bonus_damage
 end
 
-function modifier_item_heart_oaa_active_illusions:GetEffectName()
+function modifier_item_havoc_hammer_active_illusions:GetEffectName()
   return "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
 end
 
-function modifier_item_heart_oaa_active_illusions:GetEffectAttachType()
+function modifier_item_havoc_hammer_active_illusions:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_item_heart_oaa_active_illusions:GetTexture()
+function modifier_item_havoc_hammer_active_illusions:GetTexture()
   return "item_heart"
 end

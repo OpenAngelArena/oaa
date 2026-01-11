@@ -1,6 +1,20 @@
 //==================================================================+
 // Devastator
 //==================================================================+
+//"DOTA_Tooltip_Ability_item_desolator"                                           "Desolator"
+//"DOTA_Tooltip_ability_item_desolator_Description"                               "<h1>Passive: Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.\n\n<h1>Passive: Soul Stealer</h1> Desolator gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
+//"DOTA_Tooltip_ability_item_desolator_Lore"                                      "A wicked weapon, used in torturing political criminals."
+//"DOTA_Tooltip_ability_item_desolator_Note0"                                     "Armor reduction works on buildings."
+//"DOTA_Tooltip_ability_item_desolator_bonus_damage"                              "+$damage"
+
+//"DOTA_Tooltip_modifier_desolator_buff"                                          "Desolator"
+//"DOTA_Tooltip_modifier_desolator_buff_Description"                              "Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+
+"DOTA_Tooltip_Ability_item_desolator_oaa"                                       "#{DOTA_Tooltip_Ability_item_desolator}"
+"DOTA_Tooltip_Ability_item_recipe_desolator_oaa"                                "Desolator Recipe"
+"DOTA_Tooltip_Ability_item_desolator_oaa_Description"                           "<h1>Passive: Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
+"DOTA_Tooltip_Ability_item_desolator_oaa_Lore"                                  "#{DOTA_Tooltip_ability_item_desolator_Lore}"
+"DOTA_Tooltip_Ability_item_desolator_oaa_bonus_damage"                          "+$damage"
 
 "Dota_Tooltip_Modifier_item_devastator_oaa_corruption_armor"                    "Corrupted Armor"
 "Dota_Tooltip_Modifier_item_devastator_oaa_corruption_armor_Description"        "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."

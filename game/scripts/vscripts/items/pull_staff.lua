@@ -18,12 +18,12 @@ function item_pull_staff:GetIntrinsicModifierNames()
 end
 
 function item_pull_staff:CastFilterResultTarget(target)
-  --local caster = self:GetCaster()
+  local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
-  --if target == caster then
-    --return UF_FAIL_CUSTOM
-  --end
+  if target == caster then
+    return UF_FAIL_CUSTOM
+  end
 
   local forbidden_modifiers = {
     "modifier_enigma_black_hole_pull",
@@ -42,10 +42,10 @@ function item_pull_staff:CastFilterResultTarget(target)
 end
 
 function item_pull_staff:GetCustomCastErrorTarget(target)
-  --local caster = self:GetCaster()
-  --if target == caster then
-    --return "#dota_hud_error_cant_cast_on_self"
-  --end
+  local caster = self:GetCaster()
+  if target == caster then
+    return "#dota_hud_error_cant_cast_on_self"
+  end
   if target:HasModifier("modifier_enigma_black_hole_pull") then
     return "#oaa_hud_error_pull_staff_black_hole"
   end
@@ -85,7 +85,7 @@ function item_pull_staff:OnSpellStart()
     end
 
     -- Interrupt
-    target:Stop()
+    --target:Stop()
   end
 
   -- Remove particles of the previous pull staff instance in case of refresher
@@ -288,8 +288,8 @@ if IsServer() then
   function modifier_pull_staff_echo_strike_passive:TriggerEchoStrike(target, slow)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local echo_strike_cd = 6
-    local echo_strike_slow_duration = 0.8
+    local echo_strike_cd = 5
+    local echo_strike_slow_duration = 1
     if ability and not ability:IsNull() then
       echo_strike_cd = ability:GetSpecialValueFor("echo_strike_cooldown")
       echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
@@ -336,7 +336,7 @@ if IsServer() then
       return
     end
 
-    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") then
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") then
       return
     end
 
@@ -368,7 +368,7 @@ if IsServer() then
       return
     end
 
-    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") then
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") then
       return
     end
 
@@ -394,7 +394,7 @@ function modifier_pull_staff_echo_strike_cd:RemoveOnDeath()
 end
 
 function modifier_pull_staff_echo_strike_cd:IsDebuff()
-  return true
+  return false
 end
 
 ---------------------------------------------------------------------------------------------------
