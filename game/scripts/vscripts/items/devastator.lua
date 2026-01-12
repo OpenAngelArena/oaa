@@ -222,7 +222,7 @@ if IsServer() then
 
     -- If the target has Devastator active debuff
     if target:HasModifier("modifier_item_devastator_oaa_reduce_armor") then
-      -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction) 
+      -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction)
       -- or desolator passive OnAttackLanded is triggered on our custom desolator then do nothing
       if math.abs(armor_reduction) > math.abs(corruption_armor) or ability:GetAbilityName() == "item_desolator_oaa" then
         return
@@ -257,11 +257,18 @@ function modifier_item_devastator_oaa_corruption_armor:IsPurgable()
 end
 
 function modifier_item_devastator_oaa_corruption_armor:OnCreated()
-  if IsServer() then
-    self:StartIntervalThink(0.1)
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.armor_reduction = ability:GetSpecialValueFor("corruption_armor")
   end
+  --if IsServer() then
+    --self:StartIntervalThink(0.1)
+  --end
 end
 
+modifier_item_devastator_oaa_corruption_armor.OnRefresh = modifier_item_devastator_oaa_corruption_armor.OnCreated
+
+--[[
 function modifier_item_devastator_oaa_corruption_armor:OnIntervalThink()
   local parent = self:GetParent()
 
@@ -271,6 +278,7 @@ function modifier_item_devastator_oaa_corruption_armor:OnIntervalThink()
     --self:SetDuration(0.01, false)
   end
 end
+]]
 
 function modifier_item_devastator_oaa_corruption_armor:DeclareFunctions()
   return {
@@ -279,7 +287,7 @@ function modifier_item_devastator_oaa_corruption_armor:DeclareFunctions()
 end
 
 function modifier_item_devastator_oaa_corruption_armor:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("corruption_armor")
+  return 0 - math.abs(self.armor_reduction)
 end
 
 function modifier_item_devastator_oaa_corruption_armor:GetTexture()
@@ -377,11 +385,18 @@ function modifier_item_devastator_oaa_reduce_armor:IsPurgable()
 end
 
 function modifier_item_devastator_oaa_reduce_armor:OnCreated()
-  if IsServer() then
-    self:StartIntervalThink(0.1)
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.armor_reduction = ability:GetSpecialValueFor("devastator_armor_reduction")
   end
+  --if IsServer() then
+    --self:StartIntervalThink(0.1)
+  --end
 end
 
+modifier_item_devastator_oaa_reduce_armor.OnRefresh = modifier_item_devastator_oaa_reduce_armor.OnCreated
+
+--[[
 function modifier_item_devastator_oaa_reduce_armor:OnIntervalThink()
   local parent = self:GetParent()
   -- We assume that devastator active has a better armor reduction than the desolator armor reduction
@@ -390,6 +405,7 @@ function modifier_item_devastator_oaa_reduce_armor:OnIntervalThink()
     parent:RemoveModifierByName("modifier_desolator_buff")
   end
 end
+]]
 
 function modifier_item_devastator_oaa_reduce_armor:DeclareFunctions()
   return {
@@ -398,7 +414,7 @@ function modifier_item_devastator_oaa_reduce_armor:DeclareFunctions()
 end
 
 function modifier_item_devastator_oaa_reduce_armor:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("devastator_armor_reduction")
+  return 0 - math.abs(self.armor_reduction)
 end
 
 function modifier_item_devastator_oaa_reduce_armor:GetTexture()
