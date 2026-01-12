@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_item_sacred_skull_passives", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_sacred_skull_armor_reduction_debuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_sacred_skull_buff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
@@ -10,6 +11,15 @@ end
 -- function item_sacred_skull:GetHealthCost()
   -- return self:GetCaster():GetMaxHealth() * self:GetSpecialValueFor("health_cost") * 0.01
 -- end
+
+function item_sacred_skull:OnSpellStart()
+  local caster = self:GetCaster()
+
+  local buff_duration = self:GetSpecialValueFor("buff_duration")
+
+  -- Apply the buff to the caster
+  caster:AddNewModifier(caster, self, "modifier_item_sacred_skull_buff", {duration = buff_duration})
+end
 
 item_sacred_skull_2 = item_sacred_skull
 item_sacred_skull_3 = item_sacred_skull
@@ -150,7 +160,7 @@ if IsServer() then
     end
 
     -- Check damage if 0 or negative
-    if event.damage <= 0 then
+    if event.damage <= 0 and not parent:HasModifier("modifier_item_sacred_skull_buff") then
       return
     end
 
@@ -193,5 +203,101 @@ function modifier_item_sacred_skull_armor_reduction_debuff:GetModifierPhysicalAr
 end
 
 function modifier_item_sacred_skull_armor_reduction_debuff:GetTexture()
+  return "custom/sacred_skull"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_sacred_skull_buff = class(ModifierBaseClass)
+
+function modifier_item_sacred_skull_buff:IsHidden()
+  return false
+end
+
+function modifier_item_sacred_skull_buff:IsDebuff()
+  return false
+end
+
+function modifier_item_sacred_skull_buff:IsPurgable()
+  return true
+end
+
+function modifier_item_sacred_skull_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+  }
+end
+
+if IsServer() then
+  function modifier_item_sacred_skull_buff:GetModifierTotalDamageOutgoing_Percentage(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local inflictor = event.inflictor
+    local dmg_flags = event.damage_flags
+    local damaged_unit = event.target
+
+    -- Check if parent is dead
+    if not parent:IsAlive() then
+      return 0
+    end
+
+    if parent ~= event.attacker then
+      return 0
+    end
+
+    if not ability or ability:IsNull() then
+      return 0
+    end
+
+    -- Ignore damage that has the no-reflect flag
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      return 0
+    end
+
+    -- Ignore damage that has hp removal flag
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+      return 0
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return 0
+    end
+
+    -- Check if damaged entity is an item, rune or something weird
+    -- if damaged_unit.HasModifier == nil then
+      -- return 0
+    -- end
+
+    if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+      return 0
+    end
+
+    -- Ignore item damage
+    --if inflictor and inflictor:IsItem() then
+      --return 0
+    --end
+
+    local original_dmg = event.original_damage
+    local dmg = event.damage
+    local better_dmg = math.max(original_dmg, dmg)
+
+    -- "Convert" to physical
+    local damage_table = {
+      victim = damaged_unit,
+      attacker = parent,
+      damage = better_dmg,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      damage_flags = dmg_flags,
+      ability = inflictor,
+    }
+
+    ApplyDamage(damage_table)
+
+    return -200
+  end
+end
+
+function modifier_item_sacred_skull_buff:GetTexture()
   return "custom/sacred_skull"
 end
