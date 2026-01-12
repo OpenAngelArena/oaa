@@ -157,6 +157,8 @@ if IsServer() then
       --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff
+      "modifier_item_shade_staff_trees_caster_buff", -- Shade Staff caster buff
+      "modifier_item_shade_staff_trees_buff",        -- Shade Staff ally buff
       "modifier_item_spiked_mail_active_return",     -- Spiked Mail active buff
       "modifier_item_stoneskin_stone_armor",         -- Stoneskin Armor buff
       "modifier_item_vampire_active",                -- Vampire Fang active buff

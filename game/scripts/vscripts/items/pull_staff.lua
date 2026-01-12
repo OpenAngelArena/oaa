@@ -165,7 +165,7 @@ function modifier_pull_staff_active_buff:IsDebuff()
 end
 
 function modifier_pull_staff_active_buff:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_pull_staff_active_buff:GetPriority()
@@ -222,7 +222,7 @@ if IsServer() then
       ResolveNPCPositions(parent_origin, 128)
 
       local ability = self:GetAbility()
-      local echo_strike_slow_duration = 0.8
+      local echo_strike_slow_duration = 1
       if ability and not ability:IsNull() then
         echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
       end
