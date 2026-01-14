@@ -3,6 +3,8 @@
 //=====================================================================================
 //"DOTA_Tooltip_modifier_echo_sabre_debuff"                                       "Echo Sabre Slow"
 //"DOTA_Tooltip_modifier_echo_sabre_debuff_Description"                           "Movement speed reduced by 100%%."
+//"DOTA_Tooltip_modifier_item_harpoon_internal_cd"                                "Harpoon Echo Strike"
+//"DOTA_Tooltip_modifier_item_harpoon_internal_cd_Description"                    "Echo Strike is on cooldown."
 
 "DOTA_Tooltip_Ability_item_pull_staff"                                          "Pull Staff"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff"                                   "Pull Staff Recipe"
@@ -77,3 +79,6 @@
 
 "DOTA_Tooltip_modifier_pull_staff_echo_strike_slow"                             "Echo Slow"
 "DOTA_Tooltip_modifier_pull_staff_echo_strike_slow_Description"                 "#{DOTA_Tooltip_modifier_echo_sabre_debuff_Description}"
+
+"DOTA_Tooltip_modifier_pull_staff_echo_strike_cd"                               "Pull Staff Echo Strike"
+"DOTA_Tooltip_modifier_pull_staff_echo_strike_cd_Description"                   "#{DOTA_Tooltip_modifier_item_harpoon_internal_cd_Description}"

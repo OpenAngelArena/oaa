@@ -485,5 +485,5 @@ function modifier_shield_staff_barrier_buff:GetEffectAttachType()
 end
 
 function modifier_shield_staff_barrier_buff:GetTexture()
-  return "item_force_staff"
+  return "custom/infuser"
 end

@@ -382,7 +382,7 @@ end
 modifier_pull_staff_echo_strike_cd = class({})
 
 function modifier_pull_staff_echo_strike_cd:IsHidden()
-  return true
+  return false
 end
 
 function modifier_pull_staff_echo_strike_cd:IsPurgable()
@@ -395,6 +395,10 @@ end
 
 function modifier_pull_staff_echo_strike_cd:IsDebuff()
   return false
+end
+
+function modifier_pull_staff_echo_strike_cd:GetTexture()
+  return "custom/pull_staff"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -517,5 +521,5 @@ end
 --end
 
 function modifier_pull_staff_echo_strike_slow:GetTexture()
-  return "item_echo_sabre"
+  return "custom/pull_staff"
 end

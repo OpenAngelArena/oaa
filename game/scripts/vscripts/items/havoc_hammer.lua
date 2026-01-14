@@ -224,7 +224,7 @@ function modifier_item_havoc_hammer_active:GetEffectAttachType()
 end
 
 function modifier_item_havoc_hammer_active:GetTexture()
-  return "item_heart"
+  return "custom/havoc"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -280,5 +280,5 @@ function modifier_item_havoc_hammer_active_illusions:GetEffectAttachType()
 end
 
 function modifier_item_havoc_hammer_active_illusions:GetTexture()
-  return "item_heart"
+  return "custom/havoc"
 end

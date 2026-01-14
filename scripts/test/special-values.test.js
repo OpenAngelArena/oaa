@@ -282,9 +282,6 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
         t.fail('AbilityTextureName should not contain file extension');
       }
       const iconParts = icon.split('/');
-      if (iconParts[0] === 'item_custom') {
-        iconParts[0] = 'custom';
-      }
       if (iconParts[iconParts.length - 1].substr(0, 5) === 'item_') {
         t.fail('AbilityTextureName should not start with item_');
       }
