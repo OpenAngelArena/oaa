@@ -91,6 +91,43 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     victim:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff_oaa", {duration = modifier_duration})
   end
 
+  local real_caster = caster
+  if caster.IsRealHero == nil then
+    -- Caster is something weird
+    -- try to find the real caster
+    local owner = caster:GetOwner()
+    local playerID = UnitVarToPlayerID(caster)
+    local ownerID = UnitVarToPlayerID(owner)
+    if playerID ~= -1 then
+      real_caster = PlayerResource:GetSelectedHeroEntity(playerID)
+    elseif ownerID ~= -1 then
+      real_caster = PlayerResource:GetSelectedHeroEntity(ownerID)
+    end
+  elseif caster:IsPhantom() or caster:IsPhantomBlocker() or caster:IsIllusion() or caster:IsOther() then
+    local playerID = UnitVarToPlayerID(caster)
+    if playerID ~= -1 then
+      real_caster = PlayerResource:GetSelectedHeroEntity(playerID)
+    end
+  end
+
+  if real_caster:HasModifier("modifier_item_nether_core") and modifier_duration ~= -1 and modifier_duration > 0.5 then
+    local nether_core_mod = real_caster:FindModifierByNameAndCaster("modifier_item_nether_core", real_caster)
+    if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
+      local nether_core_item = nether_core_mod:GetAbility()
+      if nether_core_item then
+        local duration_decrease = nether_core_item:GetSpecialValueFor("modifier_duration_decrease")
+        local exceptions = {
+          modifier_phoenix_sun = true,
+          modifier_dark_willow_cursed_crown = true,
+          modifier_manta = true,
+        }
+        if not exceptions[modifier_name] then
+          keys.duration = modifier_duration * (100 - duration_decrease) / 100
+        end
+      end
+    end
+  end
+
   return true
 end
 
