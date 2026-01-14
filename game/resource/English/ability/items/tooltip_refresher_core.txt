@@ -3,10 +3,9 @@
 //======================================================================
 "DOTA_Tooltip_Ability_item_refresher_core"                                      "Refresher Core"
 "DOTA_Tooltip_Ability_item_recipe_refresher_core"                               "Refresher Core Recipe"
-"DOTA_Tooltip_Ability_item_refresher_core_Description"                          "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%.\n<h1>Passive: Spell Lifesteal</h1>%hero_lifesteal%%% of spell damage dealt to enemy heroes is returned to the caster as health, regardless of spell damage type.  <br><br>Lifesteal reduced to %creep_lifesteal%%% against creeps."
+"DOTA_Tooltip_Ability_item_refresher_core_Description"                          "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items."
 "DOTA_Tooltip_Ability_item_refresher_core_Lore"                                 "This long lost artifact is said to grant its wielder unfathomable power."
-"DOTA_Tooltip_Ability_item_refresher_core_bonus_health_regen"                   "+$hp_regen"
 "DOTA_Tooltip_Ability_item_refresher_core_bonus_mana_regen"                     "+$mana_regen"
-"DOTA_Tooltip_Ability_item_refresher_core_bonus_intelligence"                   "+$int"
 "DOTA_Tooltip_Ability_item_refresher_core_bonus_health"                         "+$health"
 "DOTA_Tooltip_Ability_item_refresher_core_bonus_mana"                           "+$mana"
+"DOTA_Tooltip_Ability_item_refresher_core_cooldown_reduction"                   "%+$cooldown_reduction"
