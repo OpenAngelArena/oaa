@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_heart_transplant"
     "ItemRequirements"
     {
-      "01"                                                "item_heart_oaa_3;item_upgrade_core_3"
+      "01"                                                "item_heart_3;item_upgrade_core_3"
     }
   }
 
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18500"
+    "ItemCost"                                            "18100"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "transplant;heart transplant"
@@ -77,11 +77,11 @@
     "AbilityValues"
     {
       "bonus_strength"                                    "55 75" // same as Heart lvls 4-5
-      "bonus_health"                                      "700 950" // same as Heart lvls 4-5
-      "health_regen_pct"                                  "1.4" // same as Heart lvls 4-5
+      "bonus_health"                                      "300 550" // same as Heart lvls 4-5
+      "health_regen_pct"                                  "1.5" // same as Heart lvls 4-5
       "cooldown"                                          "5"
       "transplant_bonus_strength"                         "50 70"
-      "transplant_bonus_health"                           "650 900"
+      "transplant_bonus_health"                           "300 550"
       "transplant_health_regen_pct"                       "1.3"
       "transplant_max_range"                              "1000" // this is affected by cast range bonuses, not aoe increase
       "transplant_max_duration"                           "12"

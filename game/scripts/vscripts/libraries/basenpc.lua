@@ -151,12 +151,14 @@ if IsServer() then
       "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
       "modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff
       "modifier_item_dispel_orb_active",             -- Dispel Orb buff
-      "modifier_item_heart_oaa_active",              -- Heart active buff
+      "modifier_item_havoc_hammer_active",           -- Havoc Hammer active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
       --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff
+      "modifier_item_shade_staff_trees_caster_buff", -- Shade Staff caster buff
+      "modifier_item_shade_staff_trees_buff",        -- Shade Staff ally buff
       "modifier_item_spiked_mail_active_return",     -- Spiked Mail active buff
       "modifier_item_stoneskin_stone_armor",         -- Stoneskin Armor buff
       "modifier_item_vampire_active",                -- Vampire Fang active buff

@@ -41,6 +41,8 @@ function modifier_item_aeon_disk_oaa_passive:OnCreated()
   if ability and not ability:IsNull() then
     self.hp = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
   end
 end
 
@@ -50,6 +52,8 @@ function modifier_item_aeon_disk_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     --MODIFIER_PROPERTY_AVOID_DAMAGE,
     MODIFIER_PROPERTY_AVOID_DAMAGE_AFTER_REDUCTIONS,
   }
@@ -61,6 +65,14 @@ end
 
 function modifier_item_aeon_disk_oaa_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
+function modifier_item_aeon_disk_oaa_passive:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_aeon_disk_oaa_passive:GetModifierConstantManaRegen()
+  return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 -- Things we need to mimic:

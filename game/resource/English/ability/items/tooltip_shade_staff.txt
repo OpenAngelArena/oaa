@@ -3,10 +3,10 @@
 //================================================================================
 "DOTA_Tooltip_Ability_item_shade_staff_1"                                       "Shade Staff"
 "DOTA_Tooltip_Ability_item_recipe_shade_staff_1"                                "Shade Staff Recipe"
-"DOTA_Tooltip_Ability_item_shade_staff_1_Description"                           "<h1>Active: Naturalize</h1> Sprouts a ring of trees around a unit. Sprouted allies gain Tree Protection for %tree_protection_duration% seconds. Sprouted enemies are trapped and have their attack speed slowed by %attack_speed_slow% if they are near any tree. <br><br>Max slow duration: %slow_duration% seconds. <br>Sprout duration: %sprout_duration% seconds. <br>Projectile Speed: %projectile_speed%<br>Cooldown: %cooldown_tooltip% seconds\n<h1>Passive: Tree Protection</h1> Tree-Walking and when within %tree_radius% range of a tree, you take %tree_damage_reduction%%% less damage."
+"DOTA_Tooltip_Ability_item_shade_staff_1_Description"                           "<h1>Active: Naturalize</h1> Sprouts a ring of trees around a unit. Sprouted allies gain Tree-Walking, Unobstructed Vision and Tree Protection for %tree_protection_duration% seconds. Sprouted enemies are trapped and have their attack speed slowed by %attack_speed_slow% if they are near any tree. <br><br>Max slow duration: %slow_duration% seconds. <br>Sprout duration: %sprout_duration% seconds. <br>Projectile Speed: %projectile_speed%<br>Cooldown: %cooldown_tooltip% seconds\n<h1>Passive: Tree Protection</h1> When within %tree_radius% range of a tree, you take %tree_damage_reduction%%% less damage."
 "DOTA_Tooltip_Ability_item_shade_staff_1_Lore"                                  "Pacifying enemies using nature was never so easy."
 "DOTA_Tooltip_Ability_item_shade_staff_1_Note0"                                 "Attack speed slow doesn't work on bosses."
-"DOTA_Tooltip_Ability_item_shade_staff_1_Note1"                                 "Self-casting will not apply a Tree Protection buff because you already have it passively."
+"DOTA_Tooltip_Ability_item_shade_staff_1_Note1"                                 "Caster will always gain Tree-Walking and Unobstructed Vision when trees are created with this item."
 "DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health"                          "+$health"
 "DOTA_Tooltip_Ability_item_shade_staff_1_bonus_all_stats"                       "+$all"
 "DOTA_Tooltip_Ability_item_shade_staff_1_bonus_health_regen"                    "+$hp_regen"
@@ -50,3 +50,6 @@
 
 "DOTA_Tooltip_modifier_item_shade_staff_trees_buff"                             "Tree Protection"
 "DOTA_Tooltip_modifier_item_shade_staff_trees_buff_Description"                 "Tree-Walking and taking less damage if near a tree."
+
+"DOTA_Tooltip_modifier_item_shade_staff_trees_caster_buff"                      "#{DOTA_Tooltip_Ability_item_shade_staff_1}"
+"DOTA_Tooltip_modifier_item_shade_staff_trees_caster_buff_Description"          "Tree-Walking and Unobstructed Vision."

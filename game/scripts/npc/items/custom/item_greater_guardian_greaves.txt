@@ -78,10 +78,10 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "aura_health_regen_bonus"                           "18 21 24 27" // aura_health_regen + 12.5
-      "aura_mana_regen_bonus"                             "5.25 5.75 6.5 7.5" // aura_mana_regen + 3.5
-      "aura_armor_bonus"                                  "9 11 14 18" // aura_armor + 5
-      "aura_bonus_threshold"                              "25"
+      "low_hp_health_regen_bonus"                         "12 15 18 21"
+      "low_hp_mana_regen_bonus"                           "3.5"
+      "low_hp_armor_bonus"                                "5"
+      "hp_threshold"                                      "25"
       "replenish_health"                                  "425 625 925 1325"
       "replenish_mana"                                    "300 425 575 750"
       "replenish_radius"

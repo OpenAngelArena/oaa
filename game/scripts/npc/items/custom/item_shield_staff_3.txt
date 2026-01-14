@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/shield_staff.lua"
-    "AbilityTextureName"                                  "custom/force_staff_3"
+    "AbilityTextureName"                                  "custom/infuser_3"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -75,7 +75,7 @@
     "AbilityValues"
     {
       "bonus_intellect"                                   "10 15 25 40 60"
-      "bonus_health"                                      "425 675 925 1175 1425"
+      "bonus_health"                                      "425 525 675 875 1125"
       "bonus_health_regen"                                "5 8 11 14 17"
       "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5"
       "bonus_armor"                                       "0"
@@ -85,7 +85,7 @@
       "passive_attack_damage_block_chance"                "60"
       "passive_spell_damage_block"                        "60 90 130 180 240"
       "passive_spell_damage_block_chance"                 "30"
-      "push_length"                                       "600"
+      "push_length"                                       "600 650 700 750 800"
       "push_speed"                                        "1200"
       "damage_to_enemies"                                 "50"
       "active_duration"                                   "12"

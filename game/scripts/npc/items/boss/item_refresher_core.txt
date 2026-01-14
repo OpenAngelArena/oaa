@@ -41,32 +41,32 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
-    "AbilitySharedCooldown"                               "refresher"
-    "AbilityManaCost"                                     "350"
+    "AbilityCooldown"                                     "180" // 180
+    "AbilitySharedCooldown"                               "refresher_oaa"
+    "AbilityManaCost"                                     "500" // 500
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "89800"
-    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "refresher core;refresher 3"
+    "ItemAliases"                                         "refresher core"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "5250"
-      "bonus_mana"                                        "2650"
-      "bonus_damage"                                      "25"
-      "bonus_intelligence"                                "25"
-      "bonus_health_regen"                                "25"
-      "bonus_mana_regen"                                  "17"
-      "cooldown_reduction"                                "33"
-      "bonus_cast_range"                                  "250"
-      "hero_spell_lifesteal"                              "30"
-      "creep_spell_lifesteal"                             "10"
+      "bonus_health"                                      "2550" // 1125 + 1125 + 300
+      "bonus_mana"                                        "2550" // 1125 + 1125 + 300
+      "bonus_damage"                                      "0"
+      "bonus_intelligence"                                "0"
+      "bonus_health_regen"                                "0"
+      "bonus_mana_regen"                                  "18.5" // 8.5 + 8.5 + 1.5
+      "cooldown_reduction"                                "30" // 25 + 5
+      "bonus_cast_range"                                  "0"
+      "hero_spell_lifesteal"                              "0"
+      "creep_spell_lifesteal"                             "0"
     }
   }
 }

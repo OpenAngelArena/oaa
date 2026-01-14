@@ -129,7 +129,7 @@ end
 -- Prevent stacking with other heart transplants and other hearts
 function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
-  local parentHasHeart = parent:HasModifier("modifier_item_heart_oaa_passive")
+  local parentHasHeart = parent:HasModifier("modifier_item_heart")
 
   if IsServer() then
     if not parent:IsIllusion() and not parentHasHeart and self:IsFirstItemInInventory() then

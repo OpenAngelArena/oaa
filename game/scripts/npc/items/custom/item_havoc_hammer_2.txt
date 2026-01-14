@@ -1,0 +1,84 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Havoc Hammer 2
+  //=================================================================================================================
+  "item_recipe_havoc_hammer_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_havoc_hammer_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_havoc_hammer_1;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Havoc Hammer 2
+  //=================================================================================================================
+  "item_havoc_hammer_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/havoc_hammer.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/havoc_2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "havoc_hammer"
+    "AbilityManaCost"                                     "0"
+    "AbilityCastRange"                                    "400"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_havoc_hammer_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "7000"
+    "ItemShopTags"                                        "str"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "havoc hammer 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_strength"                                    "25 30 40 55 75"
+      "bonus_base_damage"                                 "15 20 30 45 65"
+      "buff_bonus_strength"                               "25 30 40 55 75"
+      "buff_bonus_base_damage"                            "15 20 30 45 65"
+      "buff_duration"                                     "8.0"
+      "radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "nuke_base_dmg"                                     "175 275 375 475 575"
+      "nuke_str_dmg"                                      "1.75"
+    }
+  }
+}
