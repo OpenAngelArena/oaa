@@ -78,7 +78,8 @@
       }
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-30 -25 -20 -15 -10"
-      "active_restore_per_charge"                         "17 27 37 47 57" // hp and mana restore
+      "health_restore_per_charge"                         "17 21 27 35 45" // Holy Locket (17) 425/525/675/875/1125
+      "mana_restore_per_charge"                           "15 19 24 30 37" // Holy Locket (15) 375/475/600/750/925
       "active_radius"
       {
         "value"                                           "1200"
@@ -94,6 +95,7 @@
       "buff_magic_resistance"                             "0"
       "buff_status_resistance"                            "18 20 22 24 26"
       "buff_move_speed"                                   "18 20 22 24 26"
+      "buff_heal_increase"                                "10"
       "buff_duration"                                     "3.0"
     }
   }

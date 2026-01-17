@@ -76,9 +76,14 @@ function modifier_item_nether_core:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
-function modifier_item_nether_core:GetModifierPercentageCooldown()
+function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
   -- Prevent stacking with Octarine Core and other Nether Cores
   if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
+    return 0
+  end
+
+  local ability = keys.ability
+  if ability and ability:IsItem() then
     return 0
   end
 

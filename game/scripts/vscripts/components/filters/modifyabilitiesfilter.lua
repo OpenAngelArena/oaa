@@ -27,7 +27,10 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   local modifier_name = keys.name_const
   local modifier_duration = keys.duration
 
-  local ability_name = ability:GetName()
+  local ability_name
+  if ability then
+    ability_name = ability:GetName()
+  end
 
   if ability_name == "nevermore_requiem" and (modifier_name == "modifier_nevermore_requiem_slow" or modifier_name == "modifier_nevermore_requiem_fear") then
     if victim:HasModifier("modifier_oaa_requiem_not_allowed") then
@@ -103,7 +106,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     elseif ownerID ~= -1 then
       real_caster = PlayerResource:GetSelectedHeroEntity(ownerID)
     end
-  elseif caster:IsPhantom() or caster:IsPhantomBlocker() or caster:IsIllusion() or caster:IsOther() then
+  elseif caster:IsPhantom() or caster:IsPhantomBlocker() or caster:IsOther() then
     local playerID = UnitVarToPlayerID(caster)
     if playerID ~= -1 then
       real_caster = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -117,11 +120,51 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       if nether_core_item then
         local duration_decrease = nether_core_item:GetSpecialValueFor("modifier_duration_decrease")
         local exceptions = {
-          modifier_phoenix_sun = true,
+          modifier_battlemage_cooldown_oaa = true,
+          modifier_bloodseeker_bloodbath_thinker = true,
           modifier_dark_willow_cursed_crown = true,
+          modifier_dawnbreaker_solar_guardian_air_time = true,
+          modifier_echo_strike_cooldown_oaa = true,
+          modifier_elder_titan_earth_splitter_thinker = true,
+          modifier_invoker_sun_strike = true,
+          modifier_invoker_sun_strike_cataclysm = true,
+          modifier_item_bubble_orb_effect_cd = true,
+          modifier_item_crimson_guard_nostack = true,
+          modifier_item_harpoon_internal_cd = true,
+          modifier_item_mekansm_noheal = true,
+          modifier_item_reflex_core_cooldown = true,
+          modifier_item_sphere_target = true,
+          modifier_item_ward_true_sight = true,
+          modifier_keeper_of_the_light_illuminate = true,
+          modifier_magnataur_skewer_movement = true,
+          modifier_magus_cooldown_oaa = true,
           modifier_manta = true,
+          modifier_marci_unleash_flurry_cooldown = true,
+          modifier_observer_ward_recharger = true,
+          modifier_phoenix_sun = true,
+          modifier_primal_beast_onslaught_movement_adjustable = true,
+          modifier_primal_beast_onslaught_windup = true,
+          modifier_pull_staff_echo_strike_cd = true,
+          modifier_roshan_bash_cooldown_oaa = true,
+          modifier_sentry_ward_recharger = true,
+          modifier_shredder_reactive_armor = true,
+          modifier_spell_block_cooldown_oaa = true,
+          modifier_techies_sticky_bomb_countdown = true,
+          modifier_teleporting = true,
+          modifier_ui_custom_observer_ward_charges = true,
+          modifier_ui_custom_sentry_ward_charges = true,
         }
-        if not exceptions[modifier_name] then
+        local allowed
+        if not ability then
+          allowed = true
+        else
+          if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
+            allowed = false
+          else
+            allowed = true
+          end
+        end
+        if not exceptions[modifier_name] and allowed then
           keys.duration = modifier_duration * (100 - duration_decrease) / 100
         end
       end
