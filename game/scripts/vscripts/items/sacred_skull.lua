@@ -91,7 +91,7 @@ end
 
 function modifier_item_sacred_skull_passives:GetModifierPercentageCooldown()
   -- Prevent stacking with Octarine Core and other Sacred Skulls
-  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
+  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetParent():HasModifier("modifier_item_nether_core") or self:GetStackCount() ~= 2 then
     return 0
   end
 
