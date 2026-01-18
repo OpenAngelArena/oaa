@@ -43,7 +43,9 @@ function modifier_item_nether_core:OnRefresh()
     self.health = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
     self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.cdr = ability:GetSpecialValueFor("cooldown_reduction")
+    self.ability_cdr = ability:GetSpecialValueFor("ability_cooldown_reduction")
+    self.item_cdr = ability:GetSpecialValueFor("item_cooldown_reduction")
+    self.debuff_reduction = ability:GetSpecialValueFor("modifier_duration_decrease")
   end
 
   if IsServer() then
@@ -65,6 +67,7 @@ function modifier_item_nether_core:DeclareFunctions()
     MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER, -- GetModifierStatusResistanceCaster
   }
 end
 
@@ -84,12 +87,21 @@ function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
 
   local ability = keys.ability
   if ability and ability:IsItem() then
-    return 0
+    return self.item_cdr or self:GetAbility():GetSpecialValueFor("item_cooldown_reduction")
   end
 
-  return self.cdr or self:GetAbility():GetSpecialValueFor("cooldown_reduction")
+  return self.cdr or self:GetAbility():GetSpecialValueFor("ability_cooldown_reduction")
 end
 
 function modifier_item_nether_core:GetModifierConstantManaRegen()
   return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
+  if keys.inflictor then
+    if keys.inflictor:IsItem() then
+      return 0
+    end
+  end
+  return self.debuff_reduction
 end

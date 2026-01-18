@@ -50,8 +50,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cooldown_reduction"                                "28 30 32"
-      "modifier_duration_decrease"                        "24 26 28"
+      "ability_cooldown_reduction"                        "29 31 33"
+      "item_cooldown_reduction"                           "25"
+      "modifier_duration_decrease"                        "20 25 30"
+      "modifier_duration_decrease_tooltip"                "20 25 30"
       "bonus_health"                                      "675 875 1125"
       "bonus_mana"                                        "675 875 1125"
       "bonus_mana_regen"                                  "6.75 7.5 8.5"

@@ -154,6 +154,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
           modifier_ui_custom_observer_ward_charges = true,
           modifier_ui_custom_sentry_ward_charges = true,
         }
+        local isDebuff = victim:GetTeamNumber() ~= caster:GetTeamNumber()
         local allowed
         if not ability then
           allowed = true
@@ -164,7 +165,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
             allowed = true
           end
         end
-        if not exceptions[modifier_name] and allowed then
+        if not exceptions[modifier_name] and allowed and not isDebuff then
           keys.duration = modifier_duration * (100 - duration_decrease) / 100
         end
       end
