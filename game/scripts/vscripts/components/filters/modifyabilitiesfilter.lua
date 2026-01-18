@@ -107,6 +107,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       real_caster = PlayerResource:GetSelectedHeroEntity(ownerID)
     end
   elseif caster:IsPhantom() or caster:IsPhantomBlocker() or caster:IsOther() then
+    -- Caster is a thinker, a ward-like unit or a phantom blocker
     local playerID = UnitVarToPlayerID(caster)
     if playerID ~= -1 then
       real_caster = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -156,15 +157,19 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
         }
         local isDebuff = victim:GetTeamNumber() ~= caster:GetTeamNumber()
         local allowed
+        -- Enable buff duration decrease if we cannot determine if the buff is applied by an ability or item, check if debuff later
         if not ability then
           allowed = true
         else
+          -- Disable buff duration decrease for items and passive abilities without cooldown
           if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
             allowed = false
           else
             allowed = true
           end
         end
+        -- Disable buff duration increase for debuffs and buffs on the exception list
+        -- Exception list should contain 'internal cd buffs', delays and stuff that looks unnatural and scuffed
         if not exceptions[modifier_name] and allowed and not isDebuff then
           keys.duration = modifier_duration * (100 - duration_decrease) / 100
         end

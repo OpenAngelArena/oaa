@@ -80,7 +80,7 @@ function modifier_item_nether_core:GetModifierManaBonus()
 end
 
 function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
-  -- Prevent stacking with Octarine Core and other Nether Cores
+  -- Prevent stacking with Octarine Core and other Nether Cores -> Octarine Core has higher priority
   if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
     return 0
   end
@@ -98,10 +98,16 @@ function modifier_item_nether_core:GetModifierConstantManaRegen()
 end
 
 function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
-  if keys.inflictor then
-    if keys.inflictor:IsItem() then
+  -- Prevent multiple Nether Cores stacking the debuff duration decrease
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+  local ability = keys.inflictor
+  if ability then
+    -- Disable debuff duration decrease for items and passive abilities without cooldown
+    if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
       return 0
     end
   end
-  return self.debuff_reduction
+  return self.debuff_reduction -- positive values reduce debuff durations, negative values improve debuff durations (aka debuff amplification)
 end
