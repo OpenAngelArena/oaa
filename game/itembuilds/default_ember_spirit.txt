@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37e"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_ember_spirit"
   "Title"         "Recommended items for Ember Spirit"
 
@@ -17,6 +17,7 @@
     {
       "item"      "item_small_cleaver_oaa"
       "item"      "item_maelstrom"
+      "item"      "item_radiance"
     }
 
     "#DOTA_Item_Build_Physical_Core"
@@ -24,15 +25,15 @@
       "item"      "item_desolator_oaa"
       "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
+      "item"      "item_black_king_bar_1"
       "item"      "item_giant_form"
-      "item"      "item_rapier"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_spirit_vessel_oaa"
       "item"      "item_mage_slayer"
-      "item"      "item_mjollnir"
-      "item"      "item_radiance"
+      "item"      "item_kaya"
       "item"      "item_shivas_guard"
       "item"      "item_ultimate_scepter"
     }
@@ -44,20 +45,20 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
       "item"      "item_blink"
       "item"      "item_devastator"
       "item"      "item_octarine_core"
       "item"      "item_satanic"
       "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_spirit_vessel_oaa"
       "item"      "item_aeon_disk_oaa_2"
       "item"      "item_greater_power_treads"
+      "item"      "item_nether_core_1"
       "item"      "item_dagger_of_moriah_1"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"
       "item"      "item_trumps_fists_1"
+      "item"      "item_rapier"
     }
   }
 }

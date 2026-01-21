@@ -1,0 +1,66 @@
+"itembuilds"
+{
+  "author"        "OAA 7.40b"
+  "hero"          "npc_dota_hero_largo"
+  "Title"         "Recommended items for Largo"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_boots"
+      "item"      "item_wind_lace"
+      "item"      "item_flask"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_guardian_greaves"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_shield_staff"
+      "item"      "item_solar_crest"
+      "item"      "item_glimmer_cape"
+      "item"      "item_lotus_orb"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_phylactery"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_kaya"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_dagger_of_moriah_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_aether_lens"
+      "item"      "item_angels_demise"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_bloodstone_1"
+      "item"      "item_disperser"
+      "item"      "item_pull_staff"
+      "item"      "item_radiance"
+      "item"      "item_sphere"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_vladmirs_grimoire_1"
+      "item"      "item_ward_stack"
+      "item"      "item_wind_waker"
+      "item"      "item_aeon_disk_oaa_2"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_lucience"
+      "item"      "item_nether_core_1"
+      "item"      "item_shade_staff_1"
+      "item"      "item_bubble_orb_1"
+      "item"      "item_heart_transplant"
+      "item"      "item_sheepstick_4"
+    }
+  }
+}

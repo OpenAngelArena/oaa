@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b"
   "hero"          "npc_dota_hero_tiny"
   "Title"         "Recommended items for Tiny"
 
@@ -9,6 +9,7 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_boots"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Physical_Core" // Aghanim Scepter oriented
@@ -32,8 +33,8 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_phylactery"
       "item"      "item_overwhelming_blink"
-      "item"      "item_angels_demise"
       "item"      "item_ethereal_blade"
       "item"      "item_shivas_guard"
       "item"      "item_havoc_hammer_1"

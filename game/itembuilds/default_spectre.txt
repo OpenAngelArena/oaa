@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_spectre"
   "Title"         "Recommended items for Spectre"
 
@@ -20,9 +20,11 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
+      //"item"      "item_phylactery" // this is situational in OAA
       "item"      "item_manta"
       "item"      "item_bloodthorn"
-      "item"      "item_disperser"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_greater_crit"
       "item"      "item_abyssal_blade_2"
     }
 
@@ -42,15 +44,14 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
-      "item"      "item_butterfly_oaa"
-      "item"      "item_greater_crit"
+      "item"      "item_disperser"
+      "item"      "item_havoc_hammer_1"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
       "item"      "item_skadi"
       "item"      "item_ultimate_scepter"
-      "item"      "item_devastator_oaa_2"
-      "item"      "item_greater_power_treads"
       "item"      "item_refresher_4"
       "item"      "item_trumps_fists_1"
     }

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_magnataur"
   "Title"         "Recommended items for Magnus"
 
@@ -16,7 +16,6 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_disperser"
       "item"      "item_harpoon"
       "item"      "item_black_king_bar_1"
       "item"      "item_greater_crit"
@@ -40,6 +39,7 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_aether_lens"
+      "item"      "item_disperser"
       "item"      "item_manta"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"

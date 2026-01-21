@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37e (Darkonius)"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_bloodseeker"
   "Title"         "Recommended items for Bloodseeker"
 
@@ -30,12 +30,12 @@
       "item"      "item_devastator_oaa_2"
     }
 
-    "#DOTA_Item_Build_Magical_Core"
+    "#DOTA_Item_Build_Support_Core" // Old Blood support
     {
-      "item"      "item_radiance"
-      "item"      "item_black_king_bar_1"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_rod_of_atos"
       "item"      "item_ultimate_scepter"
-      "item"      "item_kaya_and_sange"
+      "item"      "item_octarine_core"
       "item"      "item_shivas_guard"
     }
 
@@ -54,7 +54,6 @@
       "item"      "item_swift_blink"
       "item"      "item_abyssal_blade_2"
       "item"      "item_greater_travel_boots"
-      "item"      "item_dagger_of_moriah_1"
       "item"      "item_refresher_4"
       "item"      "item_trumps_fists_1"
     }

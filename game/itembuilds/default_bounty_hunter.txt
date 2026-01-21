@@ -9,7 +9,7 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_boots"
-      "item"      "item_orb_of_venom"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -23,9 +23,9 @@
 
     "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
     {
+      "item"      "item_phylactery"
       "item"      "item_kaya" // ethereal blade is self-grief
       "item"      "item_ultimate_scepter"
-      "item"      "item_angels_demise"
       "item"      "item_shivas_guard"
       "item"      "item_greater_travel_boots"
       "item"      "item_sacred_skull"

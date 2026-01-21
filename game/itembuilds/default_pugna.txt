@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37e + Frost"
+  "author"        "OAA 7.40b + Frost"
   "hero"          "npc_dota_hero_pugna"
   "Title"         "Recommended items for Pugna"
 
@@ -8,9 +8,9 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
+      "item"      "item_boots"
       "item"      "item_enchanted_mango"
       "item"      "item_flask"
-      "item"      "item_boots"
       "item"      "item_magic_stick"
     }
 
@@ -23,11 +23,11 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_ultimate_scepter"
+      "item"      "item_kaya"
       "item"      "item_dagon_oaa_1"
-      "item"      "item_ethereal_blade"
-      "item"      "item_kaya_and_sange"
+      "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
+      "item"      "item_ethereal_blade"
       "item"      "item_dagger_of_moriah_1"
     }
 
@@ -40,6 +40,14 @@
       "item"      "item_greater_power_treads"
     }
 
+    //"#DOTA_Item_Build_Boss_Killer"
+    //{
+      //"item"      "item_meteor_hammer_1"
+      //"item"      "item_shivas_guard"
+      //"item"      "item_greater_travel_boots"
+      //"item"      "item_dagger_of_moriah_1"
+    //}
+
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -47,10 +55,10 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
       "item"      "item_lotus_orb"
       "item"      "item_sphere"
-      "item"      "item_greater_travel_boots"
       "item"      "item_dispel_orb_1"
       "item"      "item_bubble_orb_1"
       "item"      "item_sheepstick_4"

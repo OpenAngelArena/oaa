@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37x"
+  "author"        "OAA 7.40b"
   "hero"          "npc_dota_hero_nevermore"
   "Title"         "Recommended items for Shadow Fiend"
 
@@ -28,12 +28,12 @@
       "item"      "item_greater_crit"
     }
 
-    "#DOTA_Item_Build_Support_Core"
-    {
-      "item"      "item_cyclone"
-      "item"      "item_shield_staff"
-      "item"      "item_refresher_4"
-    }
+    //"#DOTA_Item_Build_Support_Core"
+    //{
+      //"item"      "item_cyclone"
+      //"item"      "item_shield_staff"
+      //"item"      "item_refresher_4"
+    //}
 
     "#DOTA_Item_Build_Magical_Core"
     {
@@ -42,6 +42,7 @@
       "item"      "item_shivas_guard"
       "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
+      "item"      "item_sacred_skull"
     }
 
     "#DOTA_Item_Build_Shard"

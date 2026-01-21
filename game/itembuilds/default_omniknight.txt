@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37x"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_omniknight"
   "Title"         "Recommended items for Omniknight"
 
@@ -18,17 +18,25 @@
       "item"      "item_harpoon"
       "item"      "item_kaya_and_sange"
       "item"      "item_havoc_hammer_1"
-      "item"      "item_black_king_bar_1"
-      "item"      "item_satanic"
+      "item"      "item_heart"
     }
 
     "#DOTA_Item_Build_Support_Core" // scepter + healing build
     {
       "item"      "item_guardian_greaves"
+      "item"      "item_ghost_king_bar_1"
       "item"      "item_ultimate_scepter"
       "item"      "item_aether_lens"
       "item"      "item_shield_staff"
-      "item"      "item_ghost_king_bar_1"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_kaya_and_sange"
+      "item"      "item_overwhelming_blink"
+      "item"      "item_shivas_guard"
+      "item"      "item_havoc_hammer_1"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -38,13 +46,14 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_black_king_bar_1"
       "item"      "item_glimmer_cape"
       "item"      "item_lotus_orb"
       "item"      "item_octarine_core"
-      "item"      "item_overwhelming_blink"
       "item"      "item_pipe"
-      "item"      "item_shivas_guard"
+      "item"      "item_satanic"
       "item"      "item_solar_crest"
+      "item"      "item_greater_travel_boots"
       "item"      "item_aeon_disk_oaa_2"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"
