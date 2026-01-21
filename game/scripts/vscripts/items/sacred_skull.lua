@@ -90,8 +90,8 @@ function modifier_item_sacred_skull_passives:GetModifierPhysicalArmorBonus()
 end
 
 function modifier_item_sacred_skull_passives:GetModifierPercentageCooldown()
-  -- Prevent stacking with Octarine Core and other Sacred Skulls
-  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
+  -- Prevent stacking with Octarine Core, Nether Core and other Sacred Skulls -> Octarine Core and Nether Core have higher priority, Octarine Core is highest priority
+  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetParent():HasModifier("modifier_item_nether_core") or self:GetStackCount() ~= 2 then
     return 0
   end
 

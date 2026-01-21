@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37x"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_dragon_knight"
   "Title"         "Recommended items for Dragon Knight"
 
@@ -14,23 +14,31 @@
 
     "#DOTA_Item_Build_For_Farming"
     {
-      "item"      "item_hand_of_midas_1"
-      "item"      "item_vanguard"
+      "item"      "item_mask_of_madness"
+      "item"      "item_lesser_crit"
     }
 
-    "#DOTA_Item_Build_Utility_Initiation" // Standard dota item progression
+    "#DOTA_Item_Build_Utility_Initiation" // always good, any facet
     {
-      "item"      "item_mage_slayer"
       "item"      "item_blink"
       "item"      "item_orchid"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
+    "#DOTA_Item_Build_Physical_Core" // Standard dota carry Corrosive Dragon facet
     {
-      "item"      "item_mjollnir"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_armlet"
+      "item"      "item_black_king_bar_1"
       "item"      "item_greater_crit"
+      "item"      "item_satanic"
       "item"      "item_devastator_oaa_2"
+    }
+
+    "#DOTA_Item_Build_Support_Core" // Fire or Frost Dragon facet
+    {
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_shivas_guard"
+      "item"      "item_far_sight"
+      "item"      "item_sheepstick_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -40,15 +48,21 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
+      "item"      "item_assault"
       "item"      "item_heart"
-      "item"      "item_pipe"
+      "item"      "item_hurricane_pike"
+      "item"      "item_mage_slayer"
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_pull_staff"
       "item"      "item_sange_and_yasha"
-      "item"      "item_satanic"
-      "item"      "item_shield_staff"
-      "item"      "item_octarine_core"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
+      "item"      "item_ultimate_scepter"
       "item"      "item_abyssal_blade_2"
       "item"      "item_greater_power_treads"
+      "item"      "item_sacred_skull"
+      "item"      "item_siege_mode"
     }
   }
 }

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37e + Frost"
+  "author"        "OAA 7.40b + Frost"
   "hero"          "npc_dota_hero_disruptor"
   "Title"         "Recommended items for Disruptor"
 
@@ -38,13 +38,13 @@
       "item"      "item_bubble_orb_1"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
-    {
-      "item"      "item_devastator"
-      "item"      "item_hurricane_pike"
-      "item"      "item_bloodthorn"
-      "item"      "item_greater_power_treads"
-    }
+    //"#DOTA_Item_Build_Physical_Core"
+    //{
+      //"item"      "item_devastator"
+      //"item"      "item_hurricane_pike"
+      //"item"      "item_bloodthorn"
+      //"item"      "item_greater_power_treads"
+    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -55,7 +55,6 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
-      "item"      ""
       "item"      "item_guardian_greaves"
       "item"      "item_kaya_and_sange"
       "item"      "item_pipe"

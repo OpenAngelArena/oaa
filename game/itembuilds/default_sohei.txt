@@ -1,6 +1,6 @@
 "itembuilds/default_sohei.txt"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_sohei"
   "Title"         "Recommended items for Sohei"
 
@@ -10,12 +10,12 @@
     {
       "item"      "item_boots"
       "item"      "item_flask"
-      "item"      "item_clarity"
+      "item"      "item_wind_lace"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_harpoon"
+      "item"      "item_pull_staff"
       "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
       "item"      "item_abyssal_blade_2"

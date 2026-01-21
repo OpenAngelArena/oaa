@@ -1,36 +1,34 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b (Darkonius)"
-  "hero"          "npc_dota_hero_phantom_assassin"
-  "Title"         "Recommended items for Phantom Assassin"
+  "author"        "OAA 7.40b"
+  "hero"          "npc_dota_hero_kez"
+  "Title"         "Recommended items for Kez"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_flask"
       "item"      "item_blight_stone"
-      "item"      "item_enchanted_mango"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_For_Farming"
     {
+      "item"      "item_maelstrom"
       "item"      "item_small_cleaver_oaa"
     }
 
-    "#DOTA_Item_Build_Physical_Core" // Standard PA build
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_desolator_oaa"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_ultimate_scepter"
       "item"      "item_black_king_bar_1"
+      "item"      "item_greater_crit"
       "item"      "item_satanic"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
     {
-      "item"      "item_phylactery"
       "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
       "item"      "item_assault"
@@ -45,13 +43,21 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_angels_demise"
+      "item"      "item_bfury"
       "item"      "item_bloodthorn"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_disperser"
+      "item"      "item_far_sight"
+      "item"      "item_manta"
+      "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_spell_breaker_1"
       "item"      "item_sphere"
-      "item"      "item_greater_power_treads"
+      "item"      "item_swift_blink"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_giant_form"
       "item"      "item_trumps_fists_1"
-      "item"      "item_rapier"
     }
   }
 }

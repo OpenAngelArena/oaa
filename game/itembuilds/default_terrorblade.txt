@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_terrorblade"
   "Title"         "Recommended items for Terrorblade"
 
@@ -18,8 +18,8 @@
       "item"      "item_manta"
       "item"      "item_vladmirs_grimoire_1"
       "item"      "item_skadi"
-      "item"      "item_greater_crit"
       "item"      "item_butterfly_oaa"
+      "item"      "item_greater_crit"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -39,6 +39,7 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise" // possible with custom facet
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
       "item"      "item_disperser"

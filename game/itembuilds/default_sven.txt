@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_sven"
   "Title"         "Recommended items for Sven"
 
@@ -30,11 +30,11 @@
     "#DOTA_Item_Build_Sven_Gigachad"
     {
       "item"      "item_havoc_hammer_1"
+      "item"      "item_heart"
       "item"      "item_armlet"
       "item"      "item_ultimate_scepter"
       "item"      "item_greater_phase_boots"
       "item"      "item_greater_crit"
-      "item"      "item_devastator_oaa_2"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -48,7 +48,6 @@
       "item"      "item_assault"
       "item"      "item_blink"
       "item"      "item_bloodthorn"
-      "item"      "item_heart"
       "item"      "item_monkey_king_bar"
       "item"      "item_sange_and_yasha"
       "item"      "item_abyssal_blade_2"

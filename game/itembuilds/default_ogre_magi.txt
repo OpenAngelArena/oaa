@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_ogre_magi"
   "Title"         "Recommended items for Ogre Magi"
 
@@ -20,13 +20,34 @@
       "item"      "item_hand_of_midas_1"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_guardian_greaves"
+      "item"      "item_aether_lens"
+      "item"      "item_solar_crest"
+      "item"      "item_glimmer_cape"
+      "item"      "item_lotus_orb"
+      "item"      "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_phylactery"
+      "item"      "item_kaya"
+      "item"      "item_dagon_oaa_1"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_ultimate_scepter"
+      //"item"      "item_dagger_of_moriah_1"
+    }
+
+    "#DOTA_Item_Build_Physical_Core" // Rightclick focused on lvl 25 talent fireblast on attack
     {
       "item"      "item_bloodthorn"
-      "item"      "item_ethereal_blade"
-      "item"      "item_octarine_core"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_sheepstick_4"
+      "item"      "item_mjollnir"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -37,16 +58,15 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_angels_demise"
-      "item"      "item_black_king_bar_1"
-      "item"      "item_dagon_oaa_1"
       "item"      "item_eternal_shroud"
+      "item"      "item_havoc_hammer_1"
+      "item"      "item_heart"
       "item"      "item_heavens_halberd"
-      "item"      "item_lotus_orb"
       "item"      "item_nullifier"
+      "item"      "item_octarine_core"
       "item"      "item_shield_staff"
       "item"      "item_sphere"
       "item"      "item_wind_waker"
-      "item"      "item_abyssal_blade_2"
       "item"      "item_shade_staff_1"
       "item"      "item_trumps_fists_1"
     }

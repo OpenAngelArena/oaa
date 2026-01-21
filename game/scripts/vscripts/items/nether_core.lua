@@ -43,7 +43,9 @@ function modifier_item_nether_core:OnRefresh()
     self.health = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
     self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.cdr = ability:GetSpecialValueFor("cooldown_reduction")
+    self.ability_cdr = ability:GetSpecialValueFor("ability_cooldown_reduction")
+    self.item_cdr = ability:GetSpecialValueFor("item_cooldown_reduction")
+    self.debuff_reduction = ability:GetSpecialValueFor("modifier_duration_decrease")
   end
 
   if IsServer() then
@@ -65,6 +67,7 @@ function modifier_item_nether_core:DeclareFunctions()
     MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER, -- GetModifierStatusResistanceCaster
   }
 end
 
@@ -76,15 +79,35 @@ function modifier_item_nether_core:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
-function modifier_item_nether_core:GetModifierPercentageCooldown()
-  -- Prevent stacking with Octarine Core and other Nether Cores
+function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
+  -- Prevent stacking with Octarine Core and other Nether Cores -> Octarine Core has higher priority
   if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
     return 0
   end
 
-  return self.cdr or self:GetAbility():GetSpecialValueFor("cooldown_reduction")
+  local ability = keys.ability
+  if ability and ability:IsItem() then
+    return self.item_cdr or self:GetAbility():GetSpecialValueFor("item_cooldown_reduction")
+  end
+
+  return self.cdr or self:GetAbility():GetSpecialValueFor("ability_cooldown_reduction")
 end
 
 function modifier_item_nether_core:GetModifierConstantManaRegen()
   return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
+  -- Prevent multiple Nether Cores stacking the debuff duration decrease
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+  local ability = keys.inflictor
+  if ability then
+    -- Disable debuff duration decrease for items and passive abilities without cooldown
+    if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
+      return 0
+    end
+  end
+  return self.debuff_reduction -- positive values reduce debuff durations, negative values improve debuff durations (aka debuff amplification)
 end
