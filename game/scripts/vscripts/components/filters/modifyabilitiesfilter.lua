@@ -146,6 +146,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
           modifier_primal_beast_onslaught_movement_adjustable = true,
           modifier_primal_beast_onslaught_windup = true,
           modifier_pull_staff_echo_strike_cd = true,
+          modifier_pugna_nether_blast_thinker = true,
           modifier_roshan_bash_cooldown_oaa = true,
           modifier_sentry_ward_recharger = true,
           modifier_shredder_reactive_armor = true,
