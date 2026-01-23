@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 900 1000"
+    "AbilityCastRange"                                    "650 700 750 800 850 900"
     "AbilityCastPoint"                                    "0.15"
 
     // Cost
@@ -39,7 +39,7 @@
       "movespeed_bonus_pct"
       {
         "value"                                           "20"
-        "special_bonus_unique_grimstroke_6"               "+12"
+        "special_bonus_unique_grimstroke_6"               "+15"
       }
       "radius"
       {

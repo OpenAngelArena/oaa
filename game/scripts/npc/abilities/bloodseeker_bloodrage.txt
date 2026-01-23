@@ -43,13 +43,13 @@
       }
       "damage_pct"
       {
-        "value"                                           "1.4" // NOTE: if changing this, change damage_pct_enemies
+        "value"                                           "1.2" // NOTE: if changing this, change damage_pct_enemies
         "special_bonus_unique_bloodseeker"                "-0.7"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "damage_pct_enemies"  // NOTE: Separate value here so that the talent doesn't buff it for enemies
       {
-        "value"                                           "1.4"
+        "value"                                           "1.2"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "max_health_dmg_pct"
