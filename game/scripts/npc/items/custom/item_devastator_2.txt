@@ -93,13 +93,13 @@
         "affected_by_aoe_increase"                        "1"
       }
       "devastator_distance"                               "700 750 800 850 900"
-      "devastator_damage"                                 "0 200 300 500 800"
+      "devastator_damage"                                 "0 100 250 450 700"
       "devastator_movespeed_reduction"                    "-15 -20 -25 -30 -35"
       "devastator_movespeed_reduction_duration"           "7"
       "devastator_armor_reduction"                        "-8 -11 -15 -20 -26"
       "devastator_armor_reduction_duration"               "7"
-      "interval"                                          "2"
-      "damage_per_interval"                               "50"
+      "interval"                                          "1"
+      "damage_per_interval"                               "25"
     }
   }
 }
