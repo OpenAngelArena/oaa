@@ -20,47 +20,53 @@ local forbidden_modifiers = {
   "modifier_faceless_void_chronosphere_freeze",
   "modifier_legion_commander_duel",
   "modifier_batrider_flaming_lasso",
-  "modifier_disruptor_kinetic_field",
+  --"modifier_disruptor_kinetic_field",
 }
 
---function item_shield_staff:CastFilterResultTarget(target)
-  --local caster = self:GetCaster()
-  --local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+function item_shield_staff:CastFilterResultTarget(target)
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
-  --if target == caster then
-    --return UF_FAIL_CUSTOM
-  --end
+  -- Show only error when targetting allies if conditions are met
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    for _, modifier in pairs(forbidden_modifiers) do
+      if target:HasModifier(modifier) then
+        return UF_FAIL_CUSTOM
+      end
+    end
 
-  -- for _, modifier in pairs(forbidden_modifiers) do
-    -- if target:HasModifier(modifier) then
-      -- return UF_FAIL_CUSTOM
-    -- end
-  -- end
+    if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+      return UF_FAIL_CUSTOM
+    end
 
-  -- return defaultFilterResult
--- end
+    if target:IsLeashedOAA() then
+      return UF_FAIL_CUSTOM
+    end
+  end
 
---function item_shield_staff:GetCustomCastErrorTarget(target)
-  --local caster = self:GetCaster()
-  --if target == caster then
-    --return "#dota_hud_error_cant_cast_on_self"
-  --end
-  -- if target:HasModifier("modifier_enigma_black_hole_pull") then
-    -- return "#oaa_hud_error_pull_staff_black_hole"
-  -- end
-  -- if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
-    -- return "#oaa_hud_error_pull_staff_chronosphere"
-  -- end
-  -- if target:HasModifier("modifier_legion_commander_duel") then
-    -- return "#oaa_hud_error_pull_staff_duel"
-  -- end
-  -- if target:HasModifier("modifier_batrider_flaming_lasso") then
-    -- return "#oaa_hud_error_pull_staff_lasso"
-  -- end
-  -- if target:HasModifier("modifier_disruptor_kinetic_field") then
-    -- return "#oaa_hud_error_pull_staff_kinetic_field"
-  -- end
--- end
+  return defaultFilterResult
+end
+
+function item_shield_staff:GetCustomCastErrorTarget(target)
+  if target:HasModifier("modifier_enigma_black_hole_pull") then
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_black_hole"
+  end
+  if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_chronosphere"
+  end
+  if target:HasModifier("modifier_legion_commander_duel") then
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_duel"
+  end
+  if target:HasModifier("modifier_batrider_flaming_lasso") then
+    return "#oaa_hud_error_pull_staff_lasso"
+  end
+  if target:HasModifier("modifier_disruptor_kinetic_field") then
+    return "#oaa_hud_error_pull_staff_kinetic_field"
+  end
+  if target:IsLeashedOAA() then
+    return "#dota_hud_error_cant_cast_on_tethered_target" --"#dota_hud_error_target_cannot_be_moved"
+  end
+end
 
 function item_shield_staff:GetCooldown(level)
   local cooldown = self.BaseClass.GetCooldown(self, level)
@@ -69,17 +75,47 @@ function item_shield_staff:GetCooldown(level)
     local target = self:GetCursorTarget()
     for _, modifier in pairs(forbidden_modifiers) do
       if target:HasModifier(modifier) then
-        return 0.1 -- cooldown / 2
+        return 0.1
       end
+    end
+
+    if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+      return 0.1
     end
 
     -- If target is leashed, reduce cd
     if target:IsLeashedOAA() then
-      return 0.1 -- cooldown / 2
+      return 0.1
     end
   end
 
   return cooldown
+end
+
+function item_shield_staff:GetManaCost(level)
+  local mana_cost = self.BaseClass.GetManaCost(self, level)
+
+  if IsServer() then
+    local target = self:GetCursorTarget()
+    if target then
+      for _, modifier in pairs(forbidden_modifiers) do
+        if target:HasModifier(modifier) then
+          return 0
+        end
+      end
+
+      if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+        return 0
+      end
+
+      -- If target is leashed, refund mana cost
+      if target:IsLeashedOAA() then
+        return 0
+      end
+    end
+  end
+
+  return mana_cost
 end
 
 function item_shield_staff:OnSpellStart()
@@ -96,13 +132,38 @@ function item_shield_staff:OnSpellStart()
     return
   end
 
-  -- Interrupt and damage enemies
-  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+  local target_team = target:GetTeamNumber()
+  local caster_team = caster:GetTeamNumber()
+
+  -- Check if the enemy has spell block or spell immunity
+  if target_team ~= caster_team then
     -- Don't do anything if target has Linken's effect or it's spell-immune
     if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
       return
     end
+  end
 
+  -- If target has any of these debuffs, don't continue
+  for _, modifier in pairs(forbidden_modifiers) do
+    if target:HasModifier(modifier) then
+      return
+    end
+  end
+
+  -- If target is affected by Kinetic Field, don't continue
+  if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+    return
+  end
+
+  -- If target is leashed, don't continue
+  if target:IsLeashedOAA() then
+    return
+  end
+
+  -- Apply buff to allies, damage and interrupt enemies
+  if target_team == caster_team then
+    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = self:GetSpecialValueFor("active_duration")})
+  else
     -- Interrupt
     target:Stop()
 
@@ -117,23 +178,6 @@ function item_shield_staff:OnSpellStart()
     }
 
     ApplyDamage(damage_table)
-  end
-
-  -- If target has any of these debuffs, don't continue
-  for _, modifier in pairs(forbidden_modifiers) do
-    if target:HasModifier(modifier) then
-      return
-    end
-  end
-
-  -- If target is leashed, don't continue
-  if target:IsLeashedOAA() then
-    return
-  end
-
-  -- Apply buff to allies
-  if target:GetTeamNumber() == caster:GetTeamNumber() then
-    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = self:GetSpecialValueFor("active_duration")})
   end
 
   -- Remove particles of the previous shield staff instance in case of refresher
@@ -171,7 +215,6 @@ function item_shield_staff:OnSpellStart()
     direction_x = direction.x,
     direction_y = direction.y,
   })
-
 end
 
 item_shield_staff_2 = item_shield_staff
