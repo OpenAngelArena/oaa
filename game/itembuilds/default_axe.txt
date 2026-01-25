@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_axe"
   "Title"         "Recommended items for Axe"
 
@@ -35,6 +35,14 @@
       "item"      "item_greater_travel_boots"
     }
 
+    "#DOTA_Item_Build_Physical_Core" // focused on Aghanim Scepter
+    {
+      "item"      "item_pull_staff"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_mjollnir"
+      "item"      "item_swift_blink"
+    }
+
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -46,7 +54,6 @@
       "item"      "item_heart"
       "item"      "item_guardian_greaves"
       "item"      "item_lotus_orb"
-      "item"      "item_ultimate_scepter"
       "item"      "item_sacred_skull"
       "item"      "item_sheepstick_4"
       "item"      "item_stoneskin"

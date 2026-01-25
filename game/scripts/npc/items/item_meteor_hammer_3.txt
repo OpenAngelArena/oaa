@@ -55,8 +55,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilitySharedCooldown"                               "meteor"
-    "AbilityCooldown"                                     "25 23 21 19 17"
-    "AbilityManaCost"                                     "125"
+    "AbilityCooldown"                                     "24 23 22 21 20"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -77,20 +77,20 @@
       "mana_regen_multiplier"                             "50 60 70 80 90"
 
       "burn_dps_boss"                                     "150 300 450 600 750"
-      "burn_dps"                                          "60 150 240 330 420"
+      "burn_dps"                                          "55 145 235 325 415"
       "burn_duration"                                     "6"
       "stun_duration"                                     "1.5"
       "burn_interval"                                     "1.0"
       "land_time"                                         "0.5"
       "impact_radius"
       {
-        "value"                                           "380"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "130 260 455 715 1040"
+      "impact_damage"                                     "150 250 400 600 850"
       "move_speed_slow_pct"                               "20 25 30 35 40"
-      "cooldown_tooltip"                                  "24 22 20 18 16"
+      "cooldown_tooltip"                                  "24 23 22 21 20"
     }
 
     "precache"

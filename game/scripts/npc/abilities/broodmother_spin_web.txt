@@ -20,7 +20,7 @@
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "4 6 8 10 12 14"
+    "AbilityCharges"                                      "3 5 7 9 11 13"
 
     "AbilityManaCost"                                     "40"
 
@@ -33,9 +33,9 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "count" //OAA, same as AbilityCharges
+      "count" // should be same as AbilityCharges
       {
-        "value"                                           "4 6 8 10 12 14"
+        "value"                                           "3 5 7 9 11 13"
       }
       "health_regen"
       {
