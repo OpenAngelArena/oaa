@@ -90,7 +90,7 @@ function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
     return self.item_cdr or self:GetAbility():GetSpecialValueFor("item_cooldown_reduction")
   end
 
-  return self.cdr or self:GetAbility():GetSpecialValueFor("ability_cooldown_reduction")
+  return self.ability_cdr or self:GetAbility():GetSpecialValueFor("ability_cooldown_reduction")
 end
 
 function modifier_item_nether_core:GetModifierConstantManaRegen()
