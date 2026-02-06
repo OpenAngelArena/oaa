@@ -80,7 +80,7 @@ function listAllAbilities (cb) {
   });
 }
 
-function listAllLuaFiles (cb) {
+function listAllLuaFiles () {
   const luaFileRegex = /\.lua$/;
   const luaFileFilter = function (fileName) {
     return luaFileRegex.test(fileName);
