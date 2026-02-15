@@ -50,7 +50,7 @@
       }
       "damage_max" //OAA, Valve has it wrong, 4x damage_min
       {
-        "value"                                           "200 300 400 500 1000 1500" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+        "value"                                           "200 300 400 500 1000 1500" // Real max damage is 4x damage_min. Adjusting this only affects tooltips.
         "special_bonus_unique_ringmaster_whip_damage"     "+300"
       }
       "crack_duration"                                    "0.2"

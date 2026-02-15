@@ -174,7 +174,6 @@ function dotaAbilities (cb) {
       if (err) {
         cb(err);
       }
-      // god damn it valve
       // body = body.replace('value "3"', '"value" "3"');
       // body = body.replace('"value"\t\t\t\t\t\t600', '"value"           "600"');
 

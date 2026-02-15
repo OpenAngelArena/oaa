@@ -52,7 +52,7 @@
         "special_bonus_unique_warlock_3"                  "=45"
       }
       "damage_per_second"                                 "10" // min dps
-      "max_damage" // OAA, Valve has the wrong value for special_bonus_unique_warlock_3
+      "max_damage" // OAA, Valve has the wrong value for special_bonus_unique_warlock_3 since 7.40b
       {
         "value"                                           "35 60 85 110 220 330" // max dps
         "special_bonus_unique_warlock_3"                  "+45"

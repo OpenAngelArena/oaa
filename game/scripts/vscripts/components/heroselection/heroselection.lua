@@ -230,6 +230,7 @@ function HeroSelection:Init ()
     end
   end)
 
+  -- To prevent regaining old heroes after swapping and reconnecting
   GameEvents:OnHeroSwapped(function (keys)
     local p1 = tonumber(keys.playerid1)
     local p2 = tonumber(keys.playerid2)

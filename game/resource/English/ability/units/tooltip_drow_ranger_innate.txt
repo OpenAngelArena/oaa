@@ -7,10 +7,10 @@
 // "DOTA_Tooltip_ability_drow_ranger_trueshot_radius"                             "RADIUS:"
 
 "DOTA_Tooltip_ability_drow_ranger_innate_oaa"                                   "#{DOTA_Tooltip_ability_drow_ranger_trueshot}"
-"DOTA_Tooltip_ability_drow_ranger_innate_oaa_Description"                       "Grants Drow bonus agility based on Drow's current agility and level."
+"DOTA_Tooltip_ability_drow_ranger_innate_oaa_Description"                       "Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes also receive bonus agility based on Drow's current agility and level but slightly less."
 "DOTA_Tooltip_ability_drow_ranger_innate_oaa_Lore"                              "#{DOTA_Tooltip_ability_drow_ranger_trueshot_Lore}"
 "DOTA_Tooltip_ability_drow_ranger_innate_oaa_trueshot_agi_bonus_self"           "#{DOTA_Tooltip_ability_drow_ranger_trueshot_trueshot_agi_bonus_per_level}"
-"DOTA_Tooltip_ability_drow_ranger_innate_oaa_trueshot_agi_bonus_allies"         "%ALLY AGILITY BONUS PER LEVEL:"
+"DOTA_Tooltip_ability_drow_ranger_innate_oaa_trueshot_agi_bonus_allies"         "%AGILITY BONUS PER LEVEL (ALLIES):"
 "DOTA_Tooltip_ability_drow_ranger_innate_oaa_radius"                            "#{DOTA_Tooltip_ability_drow_ranger_trueshot_radius}"
 
 "DOTA_Tooltip_modifier_drow_ranger_innate_oaa_aura_effect"                      "#{DOTA_Tooltip_ability_drow_ranger_trueshot}"
