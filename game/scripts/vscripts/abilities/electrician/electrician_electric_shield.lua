@@ -61,21 +61,20 @@ end
 
 function electrician_electric_shield:OnSpellStart()
   local caster = self:GetCaster()
-  local max_mana_cost = self:GetSpecialValueFor("max_mana_cost")
   local shield_duration = self:GetSpecialValueFor("duration")
+  local spent_mana = self.usedCost
 
-  if max_mana_cost > 0 then
-    local spent_mana = self.usedCost
-
-    local magic_shield = self:GetSpecialValueFor("magical_shield_damage_block") ~= 0
-    if magic_shield then
-      caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_dc", {duration = shield_duration, spent_mana = spent_mana})
-    else
-      caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc", {duration = shield_duration, spent_mana = spent_mana})
-      caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = shield_duration})
-    end
-  else
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_ac", {duration = shield_duration})
+  local magic_shield = self:GetSpecialValueFor("magical_shield_damage_block") ~= 0
+  local physical_shield = self:GetSpecialValueFor("physical_shield_damage_block") ~= 0
+  if magic_shield then
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_dc", {duration = shield_duration, spent_mana = spent_mana})
+  end
+  if physical_shield then
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc", {duration = shield_duration, spent_mana = spent_mana})
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = shield_duration})
+  end
+  if not magic_shield and not physical_shield then
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_ac", {duration = shield_duration, spent_mana = spent_mana})
   end
 
   -- Cast Sound
@@ -297,7 +296,7 @@ function modifier_electrician_electric_shield_ac:IsPurgable()
   return true
 end
 
-function modifier_electrician_electric_shield_ac:OnCreated()
+function modifier_electrician_electric_shield_ac:OnCreated(event)
   local ability = self:GetAbility()
   local parent = self:GetParent()
 
@@ -306,10 +305,15 @@ function modifier_electrician_electric_shield_ac:OnCreated()
   end
 
   -- Shield stuff
-  self.dmg_block = ability:GetSpecialValueFor("attack_damage_block")
+  local base_dmg_block = ability:GetSpecialValueFor("attack_damage_block")
+  local dmg_block_per_mana = ability:GetSpecialValueFor("attack_damage_block_per_mana")
   self.magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
 
   if IsServer() then
+    local spent_mana = event.spent_mana -- only visible on the server
+    local total_dmg_block = base_dmg_block + spent_mana * dmg_block_per_mana * 0.01
+    self:SetStackCount(total_dmg_block)
+
     -- create the shield particles
     self.particle = ParticleManager:CreateParticle("particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
@@ -327,7 +331,7 @@ function modifier_electrician_electric_shield_ac:OnCreated()
   end
 end
 
-function modifier_electrician_electric_shield_ac:OnRefresh()
+function modifier_electrician_electric_shield_ac:OnRefresh(event)
   -- Destroy the old (previous) instance of shield particle
   if self.particle then
     ParticleManager:DestroyParticle(self.particle, false)
@@ -340,7 +344,7 @@ function modifier_electrician_electric_shield_ac:OnRefresh()
     self:StartIntervalThink(-1)
   end
 
-  self:OnCreated()
+  self:OnCreated(event)
 end
 
 function modifier_electrician_electric_shield_ac:OnIntervalThink()
@@ -409,7 +413,7 @@ function modifier_electrician_electric_shield_ac:DeclareFunctions()
 end
 
 function modifier_electrician_electric_shield_ac:GetModifierPhysical_ConstantBlock()
-  return self.dmg_block
+  return math.abs(self:GetStackCount())
 end
 
 function modifier_electrician_electric_shield_ac:GetModifierMagicalResistanceBonus()
