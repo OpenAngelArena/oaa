@@ -144,7 +144,7 @@ function getUnchangedStrings (languageName, cb) {
       throw err;
     }
 
-    console.log('Parsing valves', languageName, 'translations');
+    console.log('Parsing values', languageName, 'translations');
     const dotaKVs = parseKV(cleanLanguageFile(result.body));
 
     const translatedKeys = {};

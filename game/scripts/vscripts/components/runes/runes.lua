@@ -21,7 +21,7 @@ function Runes:Init()
   --FilterManager:AddFilter(FilterManager.RuneSpawn, self, Dynamic_Wrap(Runes, "Filter")) -- works only for power-up runes
 
   -- dota_item_rune entities are some special entities, they are not items or npcs !!!
-  -- GetName() works on rune entities but returns nothing, thanks Valve
+  -- GetName() works on rune entities but returns nothing (empty string), thanks Valve
   -- with GetModelName() you can find out what rune it is (model names can be found in assets browser)
   -- GetOrigin() and SetOrigin() work on rune entities, at least something
   -- Spawning rune entity with SpawnEntityFromTableSynchronous("dota_item_rune", { model = "", origin =}) works partially and only for double damage

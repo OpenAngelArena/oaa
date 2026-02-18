@@ -162,7 +162,7 @@ function GameMode:OnGameInProgress()
   InitModule(SaveLoadState)
   InitModule(PassiveExperience)
 
-  -- valve is a really great company that totally cares about custom game mode creators and it's a breath of fresh air
+  -- Fix day-night cycle not changing when timer hits 0:00
   GameRules:SetTimeOfDay( 0.251 )
 end
 

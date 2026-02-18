@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS for some reason
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS because of Roshan maybe
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

@@ -8,7 +8,6 @@ function item_vladmirs_grimoire_1:OnSpellStart()
   local caster = self:GetCaster()
   local ability = self
 
-  --local valid_caster = not caster:IsSpiritBearOAA() and not caster:IsTempestDouble()
   local playerID = UnitVarToPlayerID(caster)
   local real_hero
   if playerID ~= -1 then
@@ -375,7 +374,7 @@ function modifier_item_vladmirs_grimoire_aura_effect:OnTooltip2()
     return 0
   end
   local parent = self:GetParent()
-  if parent:IsHero() or parent:IsSpiritBearOAA() then
+  if parent:IsHero() or parent:IsSpiritBearOAA() then -- IsTempestDouble() and IsClone() are server-only so we cant use them here
     return ability:GetSpecialValueFor("damage_reduction_against_bosses")
   else
     return ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
