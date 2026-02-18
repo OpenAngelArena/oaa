@@ -145,10 +145,12 @@ if IsServer() then
       -- Lone Druid Bear Demolish bonus damage
       if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") or attacker:IsSpiritBearOAA() then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
-        if ability and ability:GetLevel() > 0 then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
+        if ability then
+          if ability:GetLevel() > 0 then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
@@ -157,9 +159,11 @@ if IsServer() then
       if attacker:HasModifier("modifier_tiny_tree_grab") then
         local ability = attacker:FindAbilityByName("tiny_tree_grab")
         if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_damage_buildings")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
+          if ability:GetLevel() > 0 then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_damage_buildings")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
@@ -168,9 +172,11 @@ if IsServer() then
       if attacker:HasModifier("modifier_brewmaster_earth_pulverize") then
         local ability = attacker:FindAbilityByName("brewmaster_earth_pulverize")
         if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
+          if ability:GetLevel() > 0 then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
@@ -179,30 +185,24 @@ if IsServer() then
       if attacker:HasModifier("modifier_creep_siege") then
         local ability = attacker:FindAbilityByName("creep_siege")
         if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
+          if ability:GetLevel() > 0 then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
-
-      -- if attacker:HasModifier("modifier_creep_piercing") then
-        -- local ability = attacker:FindAbilityByName("creep_piercing")
-        -- if ability then
-          -- local damage_increase_pct = ability:GetSpecialValueFor("creep_damage_bonus")
-          -- if damage_increase_pct and damage_increase_pct > 0 then
-            -- return damage_increase_pct
-          -- end
-        -- end
-      -- end
 
       -- Primal Beast innate: Primal Beast attacks do bonus damage
       if attacker:HasModifier("modifier_primal_beast_colossal") then
         local ability = attacker:FindAbilityByName("primal_beast_colossal")
         if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
+          if ability:GetLevel() > 0 then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
@@ -250,9 +250,11 @@ if IsServer() then
     if bonusBossDamageSpells[name] then
       local ability = attacker:FindAbilityByName(name)
       if ability then
-        local damage_increase_pct = math.max(ability:GetSpecialValueFor("building_dmg_pct"), ability:GetSpecialValueFor("building_damage_pct"), ability:GetSpecialValueFor("structure_damage_mod"))
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
+        if ability:GetLevel() > 0 then
+          local damage_increase_pct = math.max(ability:GetSpecialValueFor("building_dmg_pct"), ability:GetSpecialValueFor("building_damage_pct"), ability:GetSpecialValueFor("structure_damage_mod"))
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct
+          end
         end
       end
     end
@@ -268,9 +270,11 @@ if IsServer() then
     if attacker:HasModifier("modifier_primal_beast_colossal") and primal_beast_abilities[name] then
       local ability = attacker:FindAbilityByName("primal_beast_colossal")
       if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
+        if ability:GetLevel() > 0 then
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct
+          end
         end
       end
     end
@@ -283,9 +287,11 @@ if IsServer() then
     if jakiro_abilities[name] then
       local ability = attacker:FindAbilityByName(name)
       if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct - BOSS_DMG_RED_FOR_PCT_SPELLS
+        if ability:GetLevel() > 0 then
+          local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct - BOSS_DMG_RED_FOR_PCT_SPELLS
+          end
         end
       end
     end
