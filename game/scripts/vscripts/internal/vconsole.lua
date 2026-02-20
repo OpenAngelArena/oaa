@@ -25,6 +25,10 @@ end
 function error(...)
   local args = {...}
   local offset = args[2] or 2
+  if not debug then
+    print("debug not available!")
+    return
+  end
   local info = debug.getinfo(offset, "Sl")
   local data = {
     "Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. args[1],
