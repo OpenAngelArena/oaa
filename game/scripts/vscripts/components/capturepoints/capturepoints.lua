@@ -130,7 +130,6 @@ function CapturePoints:ScheduleCapture()
   end
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
-  Debug:EnableDebugging()
   -- DebugPrint('Capture number... ' .. self.NumCaptures)
   -- Chooses random zone
   --CurrentZones = Zones[RandomInt(1, NumZones)]

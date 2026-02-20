@@ -582,7 +582,6 @@ end
 
 -- Unused
 function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
-  Debug.EnableDebugging()
   if not unit or not playerID then
     print("CorePointsManager: Couldnt do GiveUpgradeCoreToHero for this unit and playerID")
     return

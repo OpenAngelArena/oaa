@@ -164,7 +164,6 @@ end
 
 function Sparks:CheckSparkOnHeroEntity(hero, playerid)
   if not hero then
-    Debug:EnableDebugging()
     DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has no hero!")
     return
   end
@@ -176,7 +175,6 @@ function Sparks:CheckSparkOnHeroEntity(hero, playerid)
 
   local spark = Sparks.data.hasSpark[playerid]
   if not spark then
-    Debug:EnableDebugging()
     DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has not selected a spark!") -- this will happen for disconnected players
     spark = Sparks:FindDefaultSparkForHero(hero)
   end
