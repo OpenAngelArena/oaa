@@ -827,9 +827,6 @@ function HeroSelection:CMManager (event)
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
 
-      --DebugPrint('--')
-      --DebugPrintTable(event)
-
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
         HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
       else
@@ -1217,7 +1214,6 @@ function HeroSelection:HeroSelected (event)
   DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random: " .. tostring(hero))
 
   if not hero or hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(hero)) then
-    Debug:EnableDebugging()
     DebugPrint('Cheater...')
     return
   end

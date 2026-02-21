@@ -16,8 +16,6 @@ CapturePoints.onStart = Start.listen
 CapturePoints.onEnd = CaptureFinished.listen
 
 function CapturePoints:Init ()
-  -- Debug.EnableDebugging()
-  DebugPrint('Init capture point')
   self.moduleName = "CapturePoints"
 
   self.currentCapture = nil
@@ -305,7 +303,7 @@ function CapturePoints:EndCapture()
     return
   end
   Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="100px"}})
-  DebugPrint('Capture Point has ended')
+  --DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
   self.currentCapture = nil
 

@@ -1,18 +1,15 @@
 
 if TeamVision == nil then
-  --Debug:EnableDebugging()
   DebugPrint('Creating new TeamVision object.')
   TeamVision = class({})
 end
 
 function TeamVision:Init()
   self.moduleName = "Team Vision"
-
   GameEvents:OnHeroSelection(partial(TeamVision.AddVision, TeamVision))
 end
 
 function TeamVision:AddVision()
-  --Debug:EnableDebugging()
   DebugPrint('Started Adding Vision.')
   -- Find all buildings on the map
   local buildings = FindUnitsInRadius(

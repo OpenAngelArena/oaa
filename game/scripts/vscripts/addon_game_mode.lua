@@ -37,7 +37,7 @@ function Precache( context )
   See GameMode:PostLoadPrecache() in gamemode.lua for more information
   ]]
 
-  DebugPrint("[BAREBONES] Performing pre-load precache")
+  print("Performing pre-load precache")
 
   for _,Item in pairs( g_ItemPrecache ) do
     PrecacheItemByNameAsync( Item, function( item ) end )

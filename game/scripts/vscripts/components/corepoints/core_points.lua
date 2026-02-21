@@ -391,7 +391,6 @@ function CorePointsManager:GetTierFromCorePointCost(number)
 end
 
 function CorePointsManager:GetCorePointsFullValue(item)
-  --Debug.EnableDebugging()
   if not item then
     print("CorePointsManager (GetCorePointsFullValue): item doesn't exist.")
     return 0
@@ -493,7 +492,7 @@ function CorePointsManager:GetCorePointsFullValue(item)
     end
   end
 
-  DebugPrint("Core point value of "..item_name.." is: "..tostring(full_value))
+  --DebugPrint("Core point value of "..item_name.." is: "..tostring(full_value))
 
   return full_value
 end
@@ -604,27 +603,27 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
 
   local item_name = ""
   if number == self:GetCorePointValueOfTier(1) then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 1 core")
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 1 core")
     item_name = "item_upgrade_core"
   elseif number == self:GetCorePointValueOfTier(2) then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 2 core")
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 2 core")
     item_name = "item_upgrade_core_2"
   elseif number == self:GetCorePointValueOfTier(3) then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 3 core")
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 3 core")
     item_name = "item_upgrade_core_3"
   elseif number == self:GetCorePointValueOfTier(4) then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 4 core")
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 4 core")
     item_name = "item_upgrade_core_4"
   elseif number == 0 then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Item has no core point value. Not giving a core.")
+    print("CorePointsManager (GiveUpgradeCoreToHero): Item has no core point value. Not giving a core.")
     return
   else
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
+    print("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
     return
   end
 
   if item_name ~= "" then
-    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
     if hero:HasRoomForItemOAA() then
       hero:AddItemByName(item_name)
     else

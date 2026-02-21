@@ -2,7 +2,7 @@
 -- from the Postactive 3c Reflex Item (Bubble Orb)
 
 if not BubbleOrbFilter then
-  DebugPrint("Creating filter for Preemptive 3c (Bubble Orb)")
+  DebugPrint("Creating filter for Bubble Orb")
   BubbleOrbFilter = class({})
 
   Debug.EnabledModules["reflexfilters:bubble"] = false

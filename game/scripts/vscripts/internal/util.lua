@@ -98,7 +98,7 @@ function DebugPrint(...)
 
   local trace, dir = GetCallingFile()
 
-  if (not trace or not dir) and spew == 1 then
+  if not trace or not dir then
     print(...)
     return
   end
@@ -131,7 +131,7 @@ function DebugPrintTable(...)
 
   local trace, dir = GetCallingFile()
 
-  if (not trace or not dir) and spew == 1 then
+  if not trace or not dir then
     PrintTable("[traceback not available]", ...)
     return
   end
@@ -145,6 +145,7 @@ function DebugPrintTable(...)
   end
 end
 
+-- unused
 function DevPrintTable(...)
   local trace, dir = GetCallingFile() --luacheck: ignore trace
   if not dir then

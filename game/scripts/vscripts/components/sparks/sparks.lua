@@ -2,9 +2,7 @@
 Sparks = Components:Register('Sparks', COMPONENT_STRATEGY)
 
 function Sparks:Init()
-  --Debug:EnableDebugging()
-  DebugPrint("Sparks:Init running!")
-
+  self.moduleName = "Sparks"
   Sparks.data = {
     [DOTA_TEAM_GOODGUYS] = {
       gpm = 0,

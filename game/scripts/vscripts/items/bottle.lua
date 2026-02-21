@@ -114,8 +114,6 @@ end
 
 --------------------------------------------------------------------------------
 
---Debug:EnableDebugging()
-
 modifier_bottle_texture_tracker = class(ModifierBaseClass)
 
 function modifier_bottle_texture_tracker:OnCreated()

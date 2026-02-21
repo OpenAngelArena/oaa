@@ -1,6 +1,5 @@
 
 if Doors == nil then
-  Debug.EnabledModules['doors:doors'] = true
   DebugPrint('Creating new Doors object.')
   Doors = class({})
 end

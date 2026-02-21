@@ -228,12 +228,12 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
 end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
-  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
+  --DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
 
   -- If the hero should not get a skill point and he has at least 1 available, decrease the number of skill points by 1
   if not self:ShouldGetAnAbilityPoint(hero, level) and hero:GetAbilityPoints() > 0 then
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
-    DebugPrint('Ability points for ' .. hero:GetName() .. ' at level ' .. level .. ' after reducing: ' .. hero:GetAbilityPoints())
+    --DebugPrint('Ability points for ' .. hero:GetName() .. ' at level ' .. level .. ' after reducing: ' .. hero:GetAbilityPoints())
   end
 end
 

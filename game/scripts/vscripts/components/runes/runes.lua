@@ -2,9 +2,7 @@
 Runes = Runes or class({})
 
 function Runes:Init()
-  --Debug.EnableDebugging()
-  --DebugPrint('Init runes module')
-
+  self.moduleName = "Vanilla Rune Control - report if you see this"
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
     if HudTimer and HudTimer:GetGameTime() then

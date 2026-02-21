@@ -20,8 +20,6 @@ function NGP:Init ()
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
-  DebugPrintTable(eventSourceIndex)
-  -- DebugPrintTable(args)
   local playerID = eventSourceIndex.PlayerID
   local id = eventSourceIndex.id
   local option = eventSourceIndex.option
