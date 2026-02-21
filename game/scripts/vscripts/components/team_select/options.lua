@@ -185,13 +185,12 @@ function OAAOptions:InitializeSettingsTable()
 end
 
 function OAAOptions:AdjustGameMode()
-  --Debug:EnableDebugging()
   DebugPrint("OAAOptions Lock game mode settings and rules.")
   CustomNetTables:SetTableValue("oaa_settings", "locked", OAAOptions.settings)
   DeepPrintTable(self.settings)
   DebugPrint("OAAOptions Adjusting game mode settings and rules that were set by the host.")
   if self.settings.GAME_MODE == "ARDM" then
-    DebugPrint("Initializing ARDM")
+    --DebugPrint("Initializing ARDM")
     if ARDMMode then
       ARDMMode:Init()
     end

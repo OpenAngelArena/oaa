@@ -2,9 +2,7 @@
 Sparks = Components:Register('Sparks', COMPONENT_STRATEGY)
 
 function Sparks:Init()
-  --Debug:EnableDebugging()
-  DebugPrint("Sparks:Init running!")
-
+  self.moduleName = "Sparks"
   Sparks.data = {
     [DOTA_TEAM_GOODGUYS] = {
       gpm = 0,
@@ -164,7 +162,6 @@ end
 
 function Sparks:CheckSparkOnHeroEntity(hero, playerid)
   if not hero then
-    Debug:EnableDebugging()
     DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has no hero!")
     return
   end
@@ -176,7 +173,6 @@ function Sparks:CheckSparkOnHeroEntity(hero, playerid)
 
   local spark = Sparks.data.hasSpark[playerid]
   if not spark then
-    Debug:EnableDebugging()
     DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has not selected a spark!") -- this will happen for disconnected players
     spark = Sparks:FindDefaultSparkForHero(hero)
   end

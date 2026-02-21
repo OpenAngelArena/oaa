@@ -25,7 +25,7 @@ if not VectorTarget then
 end
 
 function VectorTarget:Init()
-  DebugPrint("Initializing Vector Targeting library...")
+  self.moduleName = "VectorTarget - report if you see this"
   CustomGameEventManager:RegisterListener("send_vector_position", Dynamic_Wrap(VectorTarget, "StartVectorCast"))
   --FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(VectorTarget, "OrderFilter"))
 end

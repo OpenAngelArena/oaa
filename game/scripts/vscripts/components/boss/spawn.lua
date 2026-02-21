@@ -131,7 +131,7 @@ function BossSpawner:SpawnBossAtPit (pit)
   end
   local isProtected = false --bossList == 1 and pit.killCount == 1
 
-  DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
+  --DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
   BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)
 end
 
@@ -139,8 +139,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
   bossHandle.BossTier = bossTier
 
-  DebugPrint(pit:GetAbsOrigin().x)
-  DebugPrint(pit:GetAbsOrigin().y)
+  --DebugPrint(pit:GetAbsOrigin().x)
+  --DebugPrint(pit:GetAbsOrigin().y)
 
   local team = DOTA_TEAM_GOODGUYS
   if pit:GetAbsOrigin().x > 0 then
@@ -154,10 +154,10 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     team = DOTA_TEAM_BADGUYS
   end
 
-  DebugPrint('Boss natively belongs to ' .. team)
+  --DebugPrint('Boss natively belongs to ' .. team)
 
   local bossPrefix = string.sub(boss, 0, 19)
-  DebugPrint('boss name ' .. bossPrefix)
+  --DebugPrint('boss name ' .. bossPrefix)
 
   if bossHandle == nil then
     return
@@ -188,7 +188,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   Minimap:SpawnBossIcon(pit, bossTier)
 
   bossAI.onDeath(function ()
-    DebugPrint('Boss has died ' .. pit.killCount .. ' times')
+    --DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
 
     if not BossSpawner.hasKilledTiers[bossTier] then

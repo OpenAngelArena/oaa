@@ -39,7 +39,7 @@ end
 -- j = end number from list
 function Music:PlayBackground(start, stop)
   local itemnumber = RandomInt(start, stop)
-  DebugPrint('Playing' .. itemnumber)
+  --DebugPrint('Playing' .. itemnumber)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     local muteTable = CustomNetTables:GetTableValue('music', 'mute')
@@ -67,7 +67,7 @@ end
 -- match has ended, set music for winners/losers
 function Music:FinishMatch(teamID)
   local itemnumber = 10
-  DebugPrint('Playing' .. itemnumber)
+  --DebugPrint('Playing' .. itemnumber)
   if backgroundTimer then
     Timers:RemoveTimer(backgroundTimer)
     backgroundTimer = nil
@@ -93,7 +93,6 @@ end
 -- Receives mute requests
 function Music:MuteHandler(keys)
   local playerID = keys.PlayerID
-  DebugPrintTable(keys)
   --sets his state
   local muteTable = CustomNetTables:GetTableValue('music', 'mute')
   muteTable[tostring(playerID)] = keys.mute
@@ -110,7 +109,7 @@ end
 -- Receives mute requests
 function Music:Recompile(keys)
   for key,value in pairs(MusicList) do
-    DebugPrint('Playing' .. key)
+    --DebugPrint('Playing' .. key)
     EmitSoundOnClient(MusicList[key][2], PlayerResource:GetPlayer(0))
   end
 end

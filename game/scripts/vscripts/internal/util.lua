@@ -68,12 +68,17 @@ end
 
 function Debug:EnableDebugging()
   local trace, dir = GetCallingFile() --luacheck: ignore dir
-  Debug.EnabledModules[trace[#trace]] = true
+  if trace then
+    Debug.EnabledModules[trace[#trace]] = true
+  end
 end
 
 -- written by yeahbuddy, taken from https://github.com/OpenAngelArena/oaa/pull/80
 -- modified for clarity
 function GetCallingFile (offset)
+  if not debug then
+    return nil, nil
+  end
   offset = offset or 4
 
   local functionInfo = debug.getinfo(offset - 1, "Sl")
@@ -93,8 +98,9 @@ function DebugPrint(...)
 
   local trace, dir = GetCallingFile()
 
-  if IsAnyTraceEnabled(trace) then
-    spew = 1
+  if not trace or not dir then
+    print(...)
+    return
   end
 
   local output = {...}
@@ -106,6 +112,10 @@ function DebugPrint(...)
 
   if prefix ~= nil then
     output[1] = msg
+  end
+
+  if IsAnyTraceEnabled(trace) then
+    spew = 1
   end
 
   if spew == 1 then
@@ -121,6 +131,11 @@ function DebugPrintTable(...)
 
   local trace, dir = GetCallingFile()
 
+  if not trace or not dir then
+    PrintTable("[traceback not available]", ...)
+    return
+  end
+
   if IsAnyTraceEnabled(trace) then
     spew = 1
   end
@@ -130,9 +145,14 @@ function DebugPrintTable(...)
   end
 end
 
+-- unused
 function DevPrintTable(...)
   local trace, dir = GetCallingFile() --luacheck: ignore trace
-  PrintTable("[" .. dir .. "]", ...)
+  if not dir then
+    PrintTable("[traceback not available]", ...)
+  else
+    PrintTable("[" .. dir .. "]", ...)
+  end
 end
 
 function PrintTable(prefix, t, indent, done)
@@ -147,7 +167,11 @@ function PrintTable(prefix, t, indent, done)
     -- set prefix
     trace, prefix = GetCallingFile()
 
-    prefix = "[" .. prefix .. "] "
+    if not prefix then
+      prefix = "[no prefix] "
+    else
+      prefix = "[" .. prefix .. "] "
+    end
   end
   if type(t) ~= "table" then return end
 
@@ -209,23 +233,27 @@ COLOR_GOLD = '\x1D'
 
 
 function DebugAllCalls()
-    if not GameRules.DebugCalls then
-        print("Starting DebugCalls")
-        GameRules.DebugCalls = true
+  if not debug then
+    print("debug not available!")
+    return
+  end
+  if not GameRules.DebugCalls then
+    print("Starting DebugCalls")
+    GameRules.DebugCalls = true
 
-        debug.sethook(function(...)
-            local info = debug.getinfo(2)
-            local src = tostring(info.short_src)
-            local name = tostring(info.name)
-            if name ~= "__index" then
-                print("Call: ".. src .. " -- " .. name .. " -- " .. info.currentline)
-            end
-        end, "c")
-    else
-        print("Stopped DebugCalls")
-        GameRules.DebugCalls = false
-        debug.sethook(nil, "c")
-    end
+    debug.sethook(function(...)
+      local info = debug.getinfo(2)
+      local src = tostring(info.short_src)
+      local name = tostring(info.name)
+      if name ~= "__index" then
+          print("Call: ".. src .. " -- " .. name .. " -- " .. info.currentline)
+      end
+    end, "c")
+  else
+    print("Stopped DebugCalls")
+    GameRules.DebugCalls = false
+    debug.sethook(nil, "c")
+  end
 end
 
 --[[

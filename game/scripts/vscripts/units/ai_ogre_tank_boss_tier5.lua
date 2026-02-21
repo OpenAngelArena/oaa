@@ -88,12 +88,10 @@ function OgreTankBossThink()
 
   --Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
-    DebugPrint("Ogre Boss Deagro")
     thisEntity.bHasAgro = false
     return 2
   elseif (hasDamageThreshold and #enemies > 0) or FrendlyHasAgro() then
     if not thisEntity.bHasAgro then
-      DebugPrint("Ogre Boss Agro")
       thisEntity.bHasAgro = true
     end
   end

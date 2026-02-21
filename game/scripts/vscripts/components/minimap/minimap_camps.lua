@@ -6,6 +6,7 @@
 
 if not Minimap then
   Minimap = class({})
+  --Debug:EnableDebugging()
 end
 
 -- Called when game starts
@@ -16,15 +17,13 @@ function Minimap:InitializeCampIcons()
   local camps = Entities:FindAllByName('creep_camp')
   for _,camp in pairs(camps) do
     for _,teamID in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
-      DebugPrint("creating Minimap spawn for team " .. teamID .. " at " .. camp:GetAbsOrigin().x .. "|" .. camp:GetAbsOrigin().y)
+      --DebugPrint("creating Minimap spawn for team " .. teamID .. " at " .. camp:GetAbsOrigin().x .. "|" .. camp:GetAbsOrigin().y)
       if not minimap_camps[camp:GetIntAttr('CreepType')] then
-        Debug:EnableDebugging()
         DebugPrint("Invalid creep camp type " .. camp:GetIntAttr('CreepType'))
       else
         local dummy = CreateUnitByName(minimap_camps[camp:GetIntAttr('CreepType')], camp:GetAbsOrigin(), false, nil, nil, teamID)
 
         if not dummy then
-          Debug:EnableDebugging()
           DebugPrint("Failed to create camp minimap icon " .. minimap_camps[camp:GetIntAttr('CreepType')])
         end
 

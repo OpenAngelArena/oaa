@@ -87,7 +87,7 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
   else
     bossKills[tostring(teamId)] = 1
   end
-  DebugPrint("Setting team " .. teamId .. " boss kills to " .. bossKills[tostring(teamId)])
+  --DebugPrint("Setting team " .. teamId .. " boss kills to " .. bossKills[tostring(teamId)])
   CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
   local tier = state.tier
@@ -118,7 +118,7 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
 end
 
 function BossAI:DeathHandler (state, keys)
-  DebugPrint('Handling death of boss ' .. state.tier)
+  --DebugPrint('Handling death of boss ' .. state.tier)
   state.state = BossAI.DEAD
 
   if state.isProtected then

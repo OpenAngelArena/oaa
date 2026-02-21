@@ -1,7 +1,6 @@
 
 if PassiveExperience == nil then
-  --Debug:EnableDebugging()
-  --DebugPrint('Creating new PassiveExperience object.')
+  DebugPrint('Creating new PassiveExperience object.')
   PassiveExperience = class({})
 end
 
