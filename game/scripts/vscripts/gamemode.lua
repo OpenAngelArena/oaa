@@ -177,10 +177,12 @@ function InitModule(myModule)
       myModule.initialized = true
     end)
     if err then
-      local info = debug.getinfo(2, "Sl")
-      print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
-      print(debug.traceback())
-      print('Failed to init module!!!')
+      if debug then
+        local info = debug.getinfo(2, "Sl")
+        print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
+        print(debug.traceback())
+      end
+      print('Failed to init module '..tostring(myModule.moduleName))
     end
   end
 end
