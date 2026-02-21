@@ -98,6 +98,11 @@ function DebugPrint(...)
 
   local trace, dir = GetCallingFile()
 
+  if (not trace or not dir) and spew == 1 then
+    print(...)
+    return
+  end
+
   local output = {...}
   if not output[1] then
     return
@@ -107,11 +112,6 @@ function DebugPrint(...)
 
   if prefix ~= nil then
     output[1] = msg
-  end
-
-  if (not trace or not dir) and spew == 1 then
-    print("[traceback not available]", unpack(output))
-    return
   end
 
   if IsAnyTraceEnabled(trace) then
