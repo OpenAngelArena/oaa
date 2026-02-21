@@ -182,7 +182,7 @@ function InitModule(myModule)
         print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
         print(debug.traceback())
       end
-      print('Failed to init module!!!')
+      print('Failed to init module '..tostring(myModule.moduleName))
     end
   end
 end
