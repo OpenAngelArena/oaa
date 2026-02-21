@@ -131,7 +131,7 @@ function Timers:Think()
       if v.context then
         status, nextCall = xpcall(
           function() return v.callback(v.context, v) end,
-          function (msg) 
+          function (msg)
             if debug then
               return msg..'\n'..debug.traceback()..'\n'
             else
@@ -142,7 +142,7 @@ function Timers:Think()
       else
         status, nextCall = xpcall(
           function() return v.callback(v) end,
-          function (msg) 
+          function (msg)
             if debug then
               return msg..'\n'..debug.traceback()..'\n'
             else
