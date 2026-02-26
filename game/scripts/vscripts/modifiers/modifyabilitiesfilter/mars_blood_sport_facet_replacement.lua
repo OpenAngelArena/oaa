@@ -6,11 +6,11 @@ function modifier_mars_arena_of_blood_leash_oaa:IsHidden()
 end
 
 function modifier_mars_arena_of_blood_leash_oaa:IsDebuff()
-  return false
+  return true
 end
 
 function modifier_mars_arena_of_blood_leash_oaa:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_mars_arena_of_blood_leash_oaa:OnCreated()
@@ -22,7 +22,7 @@ end
 function modifier_mars_arena_of_blood_leash_oaa:OnIntervalThink()
   local parent = self:GetParent()
   -- Remove this debuff if parent is not affected by Arena anymore
-  if not parent:HasModifier("modifier_mars_arena_of_blood_leash") then
+  if not parent:HasModifier("modifier_mars_arena_of_blood_animation") then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
@@ -50,6 +50,9 @@ end
 -- end
 
 function modifier_mars_arena_of_blood_leash_oaa:CheckState()
+  if self:GetParent():IsDebuffImmune() then
+    return {}
+  end
   return {
     [MODIFIER_STATE_TETHERED] = true, -- leash
   }
