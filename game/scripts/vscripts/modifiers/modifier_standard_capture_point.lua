@@ -106,7 +106,7 @@ function modifier_standard_capture_point:OnIntervalThink()
     false
   )
 
-  -- Remove heroes with Wraith King buff, Meepo Clones and Arc Warden Tempest Doubles
+  -- Remove heroes with Wraith King buff, Meepo Clones, Arc Warden Tempest Doubles and Spirit Bear
   local function filter_heroes(heroes)
     local new_heroes = {}
     for _, h in pairs(heroes) do

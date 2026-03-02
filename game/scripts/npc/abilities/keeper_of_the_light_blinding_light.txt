@@ -46,11 +46,14 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "90 160 230 300 600 1200" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "90 160 230 300 600 1200"
+        "special_bonus_unique_keeper_of_the_light_5"      "+90"
+      }
       "AbilityCooldown" //OAA
       {
         "value"                                           "18 17 16 15 14 13"
-        "special_bonus_unique_keeper_of_the_light_5"      "-5"
       }
     }
   }

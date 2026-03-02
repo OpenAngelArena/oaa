@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -24,6 +24,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
+						name = "bubble_witch_body"
 						children = 
 						[
 							{
@@ -67,7 +68,7 @@
 				[
 					{
 						_class = "HitboxSet"
-						name = "bubble_witch_hitboxes"
+						name = "default"
 						children = 
 						[
 							{
@@ -209,6 +210,38 @@
 								group_id = 3
 								hitbox_mins = [ -10.0, -10.0, -10.0 ]
 								hitbox_maxs = [ 10.0, 10.0, 10.0 ]
+							},
+						]
+					},
+					{
+						_class = "HitboxSet"
+						name = "select_high"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 11
+								hitbox_mins = [ -40.0, 20.0, -40.0 ]
+								hitbox_maxs = [ 40.0, 105.0, 40.0 ]
+							},
+						]
+					},
+					{
+						_class = "HitboxSet"
+						name = "select_low"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 11
+								hitbox_mins = [ -60.0, -20.0, -60.0 ]
+								hitbox_maxs = [ 60.0, 80.0, 60.0 ]
 							},
 						]
 					},
@@ -697,28 +730,12 @@
 				default_root_bone_name = ""
 			},
 			{
-				_class = "BoneMarkupList"
-				children = 
-				[
-					{
-						_class = "BoneMarkup"
-						target_bone = "Root_0"
-						ignore_Translation = false
-						ignore_rotation = false
-						ignore_scale = false
-						do_not_discard = true
-					},
-				]
-				bone_cull_type = "Aggressive"
-				primary_root_bone = ""
-			},
-			{
 				_class = "PhysicsJointList"
 				children = 
 				[
 					{
 						_class = "PhysicsJointConical"
-						parent_body = "Root_0"
+						parent_body = "root"
 						child_body = "pelvis"
 						anchor_origin = [ -3.330281, -16.382614, 0.0 ]
 						anchor_angles = [ -0.0, 90.0, -0.000003 ]
@@ -1129,7 +1146,7 @@
 				[
 					{
 						_class = "PhysicsShapeCapsule"
-						parent_bone = "Root_0"
+						parent_bone = "root"
 						surface_prop = "default"
 						collision_prop = "default"
 						tool_material = ""
@@ -1448,6 +1465,15 @@
 						_class = "Attachment"
 						name = "attach_foot_r"
 						parent_bone = "foot_r"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "hand_l"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0

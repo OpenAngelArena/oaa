@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Heart of Tarrasque 3
   //=================================================================================================================
-  "item_recipe_heart_oaa_3"
+  "item_recipe_heart_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,43 +20,33 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_heart_oaa_3"
+    "ItemResult"                                          "item_heart_3"
     "ItemRequirements"
     {
-      "01"                                                "item_heart_oaa_2;item_upgrade_core_2"
+      "01"                                                "item_heart_2;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
   // Heart of Tarrasque 3
   //=================================================================================================================
-  "item_heart_oaa_3"
+  "item_heart_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/heart.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "BaseClass"                                           "item_heart"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/heart_3"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "heart_of_tarrasque"
-    "AbilityManaCost"                                     "0"
-    "AbilityCastRange"                                    "400"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_heart_oaa_4"
+    "UpgradesItems"                                       "item_heart_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10500"
+    "ItemCost"                                            "10100"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot 3;heart of tarrasque 3;heart 3"
@@ -67,19 +57,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "25 30 40 55 75"
-      "bonus_health"                                      "250 350 500 700 950"
-      "health_regen_pct"                                  "1"
-      "buff_bonus_strength"                               "25 30 40 55 75"
-      "buff_bonus_base_damage"                            "20 30 50 80 120"
-      "buff_duration"                                     "8.0"
-      "radius"
-      {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "nuke_base_dmg"                                     "175 275 375 475 575"
-      "nuke_str_dmg"                                      "1.75"
+      "bonus_strength"                                    "40 45 55 70 90"
+      "hp_regen"                                          "1"
+      "missing_health_regen"                              "1.5"
     }
   }
 }

@@ -20,7 +20,7 @@
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "4 6 8 10 12 14"
+    "AbilityCharges"                                      "3 5 7 9 11 13"
 
     "AbilityManaCost"                                     "40"
 
@@ -33,7 +33,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "count" //OAA, same as AbilityCharges
+      "count" // should be same as AbilityCharges
       {
         "value"                                           "3 5 7 9 11 13"
       }
@@ -44,12 +44,7 @@
       "bonus_movespeed"
       {
         "value"                                           "10 22 34 46 58 70"
-        "special_bonus_unique_broodmother_web_speed"      "+14"
-      }
-      "break_move_cap"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_broodmother_web_speed"      "1"
+        "special_bonus_unique_broodmother_web_speed"      "+7" // unused
       }
       "AbilityChargeRestoreTime"
       {
@@ -61,6 +56,11 @@
       {
         "value"                                           "0"
         "special_bonus_facet_broodmother_necrotic_webs"   "=10 =14 =18 =22 =26 =30"
+      }
+      "break_move_cap"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_broodmother_web_speed"      "1" // unused
       }
     }
   }

@@ -5,7 +5,6 @@ if HeroCosmetics == nil then
 end
 
 function HeroCosmetics:Init()
-  DebugPrint('HeroCosmetics module Initialization started!')
   self.moduleName = "OAA hero cosmetics"
   ChatCommand:LinkDevCommand("-testheroarcana", Dynamic_Wrap(HeroCosmetics, "TestHeroArcana"), HeroCosmetics)
 end

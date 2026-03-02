@@ -12,7 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     {
       "damage" //OAA
       {
-        "value"                                           "25 75 125 275 425"
+        "value"                                           "25 75 125 175 275 425"
       }
       "radius" //OAA
       {

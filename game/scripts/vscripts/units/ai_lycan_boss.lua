@@ -46,7 +46,6 @@ function LycanBossThink()
 
   if hasDamageThreshold then
     if not thisEntity.bHasAgro then
-      DebugPrint("Lycan Boss Agro")
       thisEntity.bHasAgro = true
       thisEntity:SetIdleAcquire(true)
       thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
@@ -87,11 +86,10 @@ function LycanBossThink()
         false
       )
       if #snipers == 0 then
-        DebugPrint("Lycan Boss Deagro")
         thisEntity.bHasAgro = false
         thisEntity:SetIdleAcquire(false)
         thisEntity:SetAcquisitionRange(0)
-	  end
+      end
     end
   end
 

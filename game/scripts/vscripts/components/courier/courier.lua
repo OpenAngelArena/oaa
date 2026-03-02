@@ -38,7 +38,7 @@ function Courier.SpawnCourier(hero)
   end
 
   Timers:CreateTimer(1, function ()
-    DebugPrint("Creating Courier for Hero " .. hero:GetUnitName())
+    --DebugPrint("Creating Courier for Hero " .. hero:GetUnitName())
 
     local playerID = hero:GetPlayerOwnerID()
     -- Create a courier

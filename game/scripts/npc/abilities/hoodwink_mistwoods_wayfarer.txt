@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 
     "DependentOnAbility"                                  "hoodwink_sharpshooter"
-    "Innate"                                              "1"
     "MaxLevel"                                            "6" // same as Dependent ability (Sharpshooter) + 1
 
     "AbilityValues"

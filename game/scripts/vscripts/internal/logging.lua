@@ -126,11 +126,10 @@ if (D2CustomLogging == nil) then
         end
 
         -- Anything above an error needs to include a stack automatically
-        if eventSeverity == D2CustomLogging.LOG_LEVEL_EXCEPTION or
-            eventSeverity == D2CustomLogging.LOG_LEVEL_ERROR or
-            eventSeverity == D2CustomLogging.LOG_LEVEL_FATAL
-          then
-            eventPayload.__STACK = debug.traceback()
+        if eventSeverity == D2CustomLogging.LOG_LEVEL_EXCEPTION or eventSeverity == D2CustomLogging.LOG_LEVEL_ERROR or eventSeverity == D2CustomLogging.LOG_LEVEL_FATAL then
+            if debug then
+                eventPayload.__STACK = debug.traceback()
+            end
         end
 
         -- Start the HTTP request

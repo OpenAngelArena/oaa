@@ -24,7 +24,6 @@ local NEUTRAL_ABILITIES_UPGRADE_TIME = 7*60 -- every 7 minutes
 -- profit
 
 function CreepCamps:Init ()
-  DebugPrint ( 'Initializing CreepCamps' )
   self.moduleName = "CreepCamps Spawner"
 
   self.CampPRDCounters = {}
@@ -59,8 +58,6 @@ end
 
 function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
-  DebugPrint('CreepCamps Spawning creeps')
-  --DeepPrintTable(self.creep_upgrade_table)
   self.creep_upgrade_table = nil
 
   local camps = Entities:FindAllByName('creep_camp')
@@ -133,7 +130,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
         found = true
         -- Upgrade only if that unit was not upgraded already in the previous instance of SpawnCreepInCamp
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
-          DebugPrint("Standard Upgrade for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel))
+          --DebugPrint("Standard Upgrade for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel))
           if unitProperties[NAME_ENUM] == "npc_dota_neutral_custom_black_dragon" then
             -- Change stats of the dragons in a unique way
             unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, newCreepProperties, distributedScale)
@@ -143,8 +140,8 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
           end
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, true)
-          DebugPrint("XP bounty for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel).." : ")
-          DebugPrint("Is "..tostring(unitProperties[EXP_BOUNTY_ENUM]).." equal to "..tostring(unit:GetDeathXP()))
+          --DebugPrint("XP bounty for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel).." : ")
+          --DebugPrint("Is "..tostring(unitProperties[EXP_BOUNTY_ENUM]).." equal to "..tostring(unit:GetDeathXP()))
         end
       end
     end
@@ -156,12 +153,12 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
       for _, unit in pairs(units) do
         local unitProperties = self:GetCreepProperties(unit)
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) and not self:AlreadyDidDistributedScaleUpgrade(unit, CreepPowerLevel) then
-          DebugPrint("Distributed Upgrade for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel))
+          --DebugPrint("Distributed Upgrade for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel))
           unitProperties = self:UpgradeCreepProperties(unitProperties, unitProperties, scale)
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, false)
-          DebugPrint("XP bounty for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel).." : ")
-          DebugPrint("Is "..tostring(unitProperties[EXP_BOUNTY_ENUM]).." equal to "..tostring(unit:GetDeathXP()))
+          --DebugPrint("XP bounty for "..tostring(unitProperties[NAME_ENUM]).." with index "..tostring(unit:GetEntityIndex()).." at minute "..tostring(CreepPowerLevel).." : ")
+          --DebugPrint("Is "..tostring(unitProperties[EXP_BOUNTY_ENUM]).." equal to "..tostring(unit:GetDeathXP()))
         end
       end
     end
@@ -220,7 +217,7 @@ function CreepCamps:AddCreepPropertiesWithScale( propertiesOne, scaleOne, proper
   local addedCreepProperties = {}
 
   if propertiesOne[NAME_ENUM] ~= propertiesTwo[NAME_ENUM] then
-    DebugPrint("Upgrading a creep with stats of a different creep")
+    --DebugPrint("Upgrading a creep with stats of a different creep")
     return
   end
 
@@ -248,7 +245,7 @@ function CreepCamps:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
   local upgradedCreepProperties = {}
 
   if propertiesOne[NAME_ENUM] ~= propertiesTwo[NAME_ENUM] then
-    DebugPrint("Upgrading a creep with stats of a different creep.")
+    --DebugPrint("Upgrading a creep with stats of a different creep.")
     return
   end
 

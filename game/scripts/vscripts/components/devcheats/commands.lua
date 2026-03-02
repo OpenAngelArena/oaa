@@ -93,21 +93,8 @@ function DevCheats:AddBots(keys)
   -- GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
   -- GameRules:GetGameModeEntity():SetBotsInLateGame(true)
 
-  -- This applies the simple bot controller ability, which shouldn't be necessary since bots have a semi-proper AI by RamonNZ.
+  -- bots have a semi-proper AI by RamonNZ.
   -- The AI probably doesn't quite work right due to all the map changes though. Don't think the bots know where all the camps are now.
-  -- Timers:CreateTimer(5,function()
-  --   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-  --     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-  --     if hero ~= nil and IsValidEntity(hero) and PlayerResource:GetSteamAccountID(playerID) == 0 then
-  --       hero:AddAbility("dev_bot_control")
-  --       local controller = hero:FindAbilityByName("dev_bot_control")
-  --       if controller then
-  --         controller:UpgradeAbility(false)
-  --         controller:SetHidden(true)
-  --       end
-  --     end
-  --   end)
-  -- end)
 end
 
 -- Remove fog of war on the map, revealing everything
@@ -252,7 +239,7 @@ end
 -- Set player inventory to pre-defined loadouts
 function DevCheats:GiveLoadout(keys)
   local loadouts = {
-    ['tank'] = {"item_heart_oaa_5", "item_stoneskin_2", "item_eternal_shroud_5", "item_pipe_5"},
+    ['tank'] = {"item_heart_5", "item_stoneskin_2", "item_eternal_shroud_5", "item_pipe_5"},
     ['damage'] = {"item_greater_crit_5", "item_devastator_oaa_5", "item_mjollnir_5", "item_monkey_king_bar_5"},
   }
   local text = string.lower(keys.text)

@@ -19,15 +19,11 @@ function item_shade_staff_1:OnSpellStart()
     if target ~= caster then
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
       target:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_buff", {duration = tree_buff_duration})
-    else
-      -- Apply Tree-vision or flying vision to the caster to allow the caster to see beyond the trees
-      caster:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_caster_buff", {duration = self:GetSpecialValueFor("sprout_duration")})
     end
 
     -- Create trees around the target
     self:Sprout(target)
   else
-
     -- Create the projectile
     local info = {
       Target = target,
@@ -58,6 +54,9 @@ function item_shade_staff_1:Sprout(target)
   --dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
   --dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
   --dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
+
+  -- Apply Tree-vision or flying vision and Tree-walking to the caster to allow the caster to see beyond the trees
+  caster:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_caster_buff", {duration = duration})
 
   local r = 150
   local c = math.sqrt(2) * 0.5 * r
@@ -233,11 +232,11 @@ function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage(
   return 0 - math.abs(self.dmg_reduction)
 end
 
-function modifier_item_shade_staff_passive:CheckState()
-  return {
-    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true, -- Tree-Walking
-  }
-end
+-- function modifier_item_shade_staff_passive:CheckState()
+  -- return {
+    -- [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true, -- Tree-Walking
+  -- }
+-- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -322,7 +321,7 @@ end
 modifier_item_shade_staff_trees_caster_buff = class(ModifierBaseClass)
 
 function modifier_item_shade_staff_trees_caster_buff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_item_shade_staff_trees_caster_buff:IsDebuff()
@@ -337,6 +336,7 @@ end
 function modifier_item_shade_staff_trees_caster_buff:CheckState()
   return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true, -- Tree-Walking
   }
 end
 

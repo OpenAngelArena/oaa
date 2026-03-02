@@ -7,9 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
 
-    "Innate"                                              "1"
     "MaxLevel"                                            "1"
 
     // Casting
@@ -21,10 +20,10 @@
     "AbilityValues"
     {
       "katana_attack_range"                               "225"
-      "katana_base_attack_time"                           "1.8"
+      "katana_base_attack_time"                           "1.9"
       "katana_agility_bonus_base_damage"
       {
-        "value"                                           "12"
+        "value"                                           "16"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -42,10 +41,10 @@
       {
         "special_bonus_facet_kez_flutter"                 "2"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "7.75"
-        "hero_levelup"                                    "-0.25"
+        "value"                                           "5.1"
+        "hero_levelup"                                    "-0.1"
       }
       "scepter_cooldown_timer"                            "3"
     }

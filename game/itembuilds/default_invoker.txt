@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_invoker"
   "Title"         "Recommended items for Invoker"
 
@@ -8,10 +8,9 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_boots"
-      "item"      "item_clarity"
+      "item"      "item_gloves"
+      "item"      "item_wind_lace"
       "item"      "item_flask"
-      "item"      "item_mango"
       "item"      "item_mango"
     }
 
@@ -29,13 +28,13 @@
       "item"      "item_sheepstick_4"
     }
 
-    "#DOTA_Item_Build_Magical_Core" // Aghanim Scepter oriented
+    "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_kaya"
       "item"      "item_gungir"
       "item"      "item_ultimate_scepter"
-      "item"      "item_greater_travel_boots"
-      "item"      "item_dagger_of_moriah_1"
+      "item"      "item_octarine_core"
+      "item"      "item_shivas_guard"
+      "item"      "item_kaya"
       "item"      "item_refresher_4"
     }
 
@@ -57,13 +56,10 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
-      "item"      "item_disperser"
-      "item"      "item_manta"
-      "item"      "item_nullifier"
-      "item"      "item_shivas_guard"
-      "item"      "item_spell_breaker_1"
       "item"      "item_sphere"
       "item"      "item_greater_power_treads"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah_1"
       "item"      "item_siege_mode"
     }
   }

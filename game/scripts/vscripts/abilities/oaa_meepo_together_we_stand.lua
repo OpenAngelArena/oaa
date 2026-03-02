@@ -204,8 +204,8 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:OnIntervalThink()
     "item_greater_travel_boots_2",
     "item_greater_travel_boots_3",
     "item_greater_travel_boots_4",
-    "item_sonic",
-    "item_sonic_2",
+    --"item_sonic",
+    --"item_sonic_2",
     "item_travel_boots_oaa",
   }
 

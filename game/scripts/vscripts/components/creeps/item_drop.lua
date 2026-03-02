@@ -34,7 +34,6 @@ ItemPowerTable = {
 }
 
 function CreepItemDrop:Init ()
-  DebugPrint ( '[creeps/item_drop] Initialize' )
   self.moduleName = "CreepItemDrop (Bottle Drop)"
 
   Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)

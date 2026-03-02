@@ -17,17 +17,16 @@
     //"Ability16"                                           "special_bonus_unique_storm_spirit_7"
     "Ability17"                                           "special_bonus_unique_storm_spirit_1_oaa" // replaces special_bonus_unique_storm_spirit_4
 
-    // special_bonus_unique_storm_spirit - Electric Vortex duration
-    // special_bonus_unique_storm_spirit_2 - Ball Lightning damage           - probably doesnt work
-    // special_bonus_unique_storm_spirit_3 - Overload pierces spell immunity - probably doesnt work
-    // special_bonus_unique_storm_spirit_4 - Ball Lightning Auto Remnant     - cancer
-    // special_bonus_unique_storm_spirit_5 - Static Remnant Damage
-    // special_bonus_unique_storm_spirit_6 - Overload Damage                 - doesnt work
-    // special_bonus_unique_storm_spirit_7 - Overload bouncing
-    // special_bonus_unique_storm_spirit_8 - Static Remnant cooldown
-    // special_bonus_unique_storm_spirit_overload_aspd - Overload Damage
-    // special_bonus_unique_storm_spirit_1_oaa - Overload damage             - custom
-    // special_bonus_unique_storm_spirit_2_oaa - Electric Vortex Cooldown    - custom
-    // special_bonus_hp_250
+    // special_bonus_unique_storm_spirit - Electric Vortex duration                           - 20
+    // special_bonus_unique_storm_spirit_2 - Ball Lightning damage                            - probably doesnt work
+    // special_bonus_unique_storm_spirit_3 - Overload pierces spell immunity                  - probably doesnt work
+    // special_bonus_unique_storm_spirit_4 - Ball Lightning Auto Remnant                      - 25 -> 0, cancer
+    // special_bonus_unique_storm_spirit_5 - Static Remnant Damage                            - 15
+    // special_bonus_unique_storm_spirit_6 - Overload Damage                                  - doesnt work
+    // special_bonus_unique_storm_spirit_7 - Overload Attack Bounce                           - 25
+    // special_bonus_unique_storm_spirit_8 - Static Remnant cooldown                          - 20
+    // special_bonus_unique_storm_spirit_overload_aspd - Overload Attack/Movement Speed Slow  - 10
+    // special_bonus_unique_storm_spirit_1_oaa - Overload damage                              - 25, custom
+    // special_bonus_unique_storm_spirit_2_oaa - Electric Vortex Cooldown                     - 15, custom
   }
 }

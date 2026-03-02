@@ -30,7 +30,7 @@
       }
       "damage"
       {
-        "value"                                           "8 16 24 32 64 96"
+        "value"                                           "10 15 20 25 50 75"
         "special_bonus_unique_viper_1"                    "+20"
       }
       "max_range"
@@ -50,7 +50,7 @@
       }
       "nethertoxin_bonus_pct"
       {
-        "special_bonus_facet_viper_caustic_bath"          "=100"
+        "special_bonus_facet_viper_caustic_bath"          "=75"
       }
       "nethertoxin_bonus_pct_max_duration_tooltip"
       {

@@ -199,7 +199,7 @@ function HeroKillGold:HeroDeathHandler (keys)
 
       Gold:ModifyGold(hero, specific_base_gold, true, DOTA_ModifyGold_RoshanKill)
 
-      DebugPrint("Base gold bounty that "..hero:GetUnitName().." gained is: "..specific_base_gold)
+      --DebugPrint("Base gold bounty that "..hero:GetUnitName().." gained is: "..specific_base_gold)
 
       local killerPlayer = hero:GetPlayerOwner()
       if killerPlayer then
@@ -252,13 +252,13 @@ function HeroKillGold:HeroDeathHandler (keys)
     killedNWRanking = #entireKilledTeamNW
   end
 
-  DebugPrint('Killed hero networth is: '..killedNetworth .. '. This hero is in ' .. killedNWRanking .. 'th place in the enemy networth table: ')
-  DebugPrintTable(entireKilledTeamNW)
+  --DebugPrint('Killed hero networth is: '..killedNetworth .. '. This hero is in ' .. killedNWRanking .. 'th place in the enemy networth table: ')
+  --DebugPrintTable(entireKilledTeamNW)
 
   -- Modify the kill toast message for non-player kills (assist gold is not shown for non-player kills)
   -- rewardPlayerIDs is nil for player kills
   if rewardPlayerIDs then
-    DebugPrint("Overriding kill toast message for non-player kills")
+    --DebugPrint("Overriding kill toast message for non-player kills")
     CustomGameEventManager:Send_ServerToAllClients(
       "override_hero_bounty_toast",
       {
@@ -284,7 +284,7 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   table.sort(assist_table, sortByNetworth)
 
-  DebugPrint(assist_count .. ' heroes getting assist gold')
+  --DebugPrint(assist_count .. ' heroes getting assist gold')
 
   local parameters = AssistGoldTable[math.min(AssistGoldTable.max, assist_count)]
 
@@ -293,19 +293,19 @@ function HeroKillGold:HeroDeathHandler (keys)
     if hero then
       -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
       local assistGold = parameters.base + 0.9*(killedHeroLevelFactor/assist_count) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
-      DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - assist_count) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
+      --DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - assist_count) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
       local assistComebackGold = 0
       if killedTeamNW > killerTeamNW then
         assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/assist_count
-        DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. assist_count .. ' = ' .. assistComebackGold)
+        --DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. assist_count .. ' = ' .. assistComebackGold)
       end
       assistGold = assistGold + assistComebackGold
       assistGold = math.floor(assistGold)
-      DebugPrint("Total assist gold for "..hero:GetUnitName().." is: "..assistGold)
+      --DebugPrint("Total assist gold for "..hero:GetUnitName().." is: "..assistGold)
 
       -- Modify gold displayed in kill toast message for player last hits
       if hero:GetPlayerOwnerID() == killerPlayerID then
-        DebugPrint("Overriding kill toast message for the player kill")
+        --DebugPrint("Overriding kill toast message for the player kill")
         CustomGameEventManager:Send_ServerToAllClients(
           "override_hero_bounty_toast",
           {

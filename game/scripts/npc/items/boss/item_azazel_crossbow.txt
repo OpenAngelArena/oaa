@@ -49,33 +49,44 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "89050"
-    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
+    "ItemShopTags"                                        "damage;crit;agi;str;int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "azazels;azazels crossbow;crossbow"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "70"
-      "bonus_strength"                                    "65"
-      "bonus_intellect"                                   "70"
-      "bonus_health"                                      "1000"
-      "bonus_health_regen"                                "15"
-      "bonus_attack_range"                                "200"
-      "bonus_damage"                                      "450"
+      "bonus_agility"                                     "92" // 67 + 25
+      "bonus_strength"                                    "37" // 32 + 5
+      "bonus_intellect"                                   "37" // 32 + 5
+      "bonus_health"                                      "0"
+      "bonus_health_regen"                                "0"
+      "bonus_attack_range"                                "190" // 180 + 10
+      "bonus_damage"                                      "392" // 120 + 212 + 60
 
-      "passive_splash_radius"                             "250"
-      "passive_splash_percent"                            "40"
-      "crit_chance"                                       "30"
-      "crit_multiplier"                                   "300"
+      "passive_splash_radius"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "passive_splash_percent"                            "40" // 40
+      "crit_chance"                                       "30" // 30
+      "crit_multiplier"                                   "300" // 275 + 25
 
-      "active_damage"                                     "1000"
-      "active_radius"                                     "600"
-      "active_splash_percent"                             "200"
-      "active_crit_chance"                                "100"
-      "knockback_distance"                                "300"
+      "active_damage"                                     "1400" // 1000 + 400
+      "active_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "active_splash_percent"                             "300" // 250
+      "knockback_distance"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "knockback_duration"                                "0.5"
       "projectile_speed"                                  "1800"
     }

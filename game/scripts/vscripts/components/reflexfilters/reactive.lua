@@ -9,6 +9,7 @@ if not ReactiveFilter then
 end
 
 function ReactiveFilter:Init()
+  self.moduleName = "Reflex Filter - report if you see this"
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
 end
 

@@ -176,11 +176,9 @@ function SpidersThink()
     if math.random(0, 1) == 0 then
       ability = thisEntity.SpidershotAbility
       target1, target2 = FindSpidershotLocations(thisEntity)
-      DebugPrint('Trying to cast spider shot')
     else
       ability = thisEntity.CannonshotAbility
       target1, target2 = FindCannonshotLocations(thisEntity)
-      DebugPrint('Trying to cast cannon')
     end
 
     if ability:IsCooldownReady() then

@@ -29,10 +29,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"
+      "AbilityCastRange" // OAA, because of special_bonus_unique_riki_9
       {
         "value"                                           "600 700 800 900 1000 1100"
-        "special_bonus_unique_riki_9"                     "+500"
+        "special_bonus_unique_riki_9"                     "+400"
       }
       "AbilityCooldown"
       {

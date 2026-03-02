@@ -67,8 +67,8 @@ function ZoneControl:CreateEmptyState (options)
 end
 
 function ZoneControl.onTrigger (state, eventName, zoneHandle, event)
-  DebugPrint('Trigger is firing! ' .. eventName)
-  DebugPrintTable(event)
+  --DebugPrint('Trigger is firing! ' .. eventName)
+  --DebugPrintTable(event)
   --[[
 [   VScript  ]: activator:
 [   VScript  ]:     __self: userdata: 0x002e20a8
@@ -304,7 +304,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   if shouldBeLockedOut then
     -- the player should be locked out, but there's an entity touching us!
     if isTouching then
-      DebugPrint('Player is touching, but should be locked out')
+      --DebugPrint('Player is touching, but should be locked out')
       --[[
       we want to find the spot outside of the zone that the entity should be placed
       potential for FindPlaceWhatever to infinite loop rounding a player back into a zone?
@@ -347,7 +347,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
     end
   elseif shouldBeLockedIn then
     if not isTouching then
-      DebugPrint('Player is not touching, but should be!')
+      --DebugPrint('Player is not touching, but should be!')
       local x = origin.x
       local y = origin.y
       local topWall = state.origin.y + state.bounds.Maxs.y - state.padding

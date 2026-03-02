@@ -30,13 +30,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityTextureName"                                  "custom/purpleskull_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0"
+    "AbilityCooldown"                                     "20"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "sacred_skull"
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18125"
+    "ItemCost"                                            "17900"
     "ItemShopTags"                                        "health_pool;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 2;sacred skull 2"
@@ -65,6 +65,7 @@
       "cooldown_reduction"                                "15"
       "passive_armor_reduction"                           "-8 -11 -15"
       "armor_reduction_duration"                          "7"
+      "buff_duration"                                     "10"
     }
   }
 }

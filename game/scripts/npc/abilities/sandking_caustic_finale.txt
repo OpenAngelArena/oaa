@@ -12,9 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "Innate"                                              "1"
-    "DependentOnAbility"                                  "sandking_epicenter"
     "MaxLevel"                                            "6" // same as Dependent ability (Epicenter) + 1
+    "DependentOnAbility"                                  "sandking_epicenter"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

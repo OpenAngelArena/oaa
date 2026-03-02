@@ -2,9 +2,7 @@
 Runes = Runes or class({})
 
 function Runes:Init()
-  --Debug.EnableDebugging()
-  --DebugPrint('Init runes module')
-
+  self.moduleName = "Vanilla Rune Control - report if you see this"
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
     if HudTimer and HudTimer:GetGameTime() then
@@ -21,7 +19,7 @@ function Runes:Init()
   --FilterManager:AddFilter(FilterManager.RuneSpawn, self, Dynamic_Wrap(Runes, "Filter")) -- works only for power-up runes
 
   -- dota_item_rune entities are some special entities, they are not items or npcs !!!
-  -- GetName() works on rune entities but returns nothing, thanks Valve
+  -- GetName() works on rune entities but returns nothing (empty string), thanks Valve
   -- with GetModelName() you can find out what rune it is (model names can be found in assets browser)
   -- GetOrigin() and SetOrigin() work on rune entities, at least something
   -- Spawning rune entity with SpawnEntityFromTableSynchronous("dota_item_rune", { model = "", origin =}) works partially and only for double damage

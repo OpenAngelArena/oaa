@@ -23,7 +23,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 150 220 360 500" //OAA, applies magic resist reduction
+    "AbilityDamage"                                       "80 160 240 400 560" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
-      "requiem_reduction_mres"                            "-5 -10 -15 -20 -25"
+      "requiem_reduction_mres"                            "-10"
       "requiem_slow_duration"
       {
         "value"                                           "0.6"

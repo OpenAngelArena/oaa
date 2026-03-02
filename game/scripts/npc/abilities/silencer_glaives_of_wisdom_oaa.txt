@@ -51,6 +51,11 @@
       }
       "int_steal"                                         "1 1 2 3 4 5" // INT steal on enemy hit
       "int_steal_duration"                                "20 25 30 35 40 45"
+      "glaives_bounces"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_silencer_glaives_bounces"   "+1"
+      }
       "bounce_range"                                      "600" // for the talent: special_bonus_unique_silencer_glaives_bounces
       "bounce_count"                                      "1" // for the talent: special_bonus_unique_silencer_glaives_bounces
       "bounce_damage_reduction"                           "50" // for the talent: special_bonus_unique_silencer_glaives_bounces
@@ -63,6 +68,10 @@
         "value"                                           "1.75"
       }
       "scepter_damage_multiplier"                         "1" // unused
+      "pierce_bkb"
+      {
+        "value"                                           "0"
+      }
     }
   }
 }

@@ -13,7 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
 
     "AbilityCastRange"                                    "600"
 
@@ -30,9 +30,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration_hero"                                     "3 4 5 6 6"
+      "duration_hero"                                     "3 4 5 5.5 6 6.5" //OAA
       "duration_unit"                                     "16"
-      "landing_damage"                                    "75"
+      "landing_damage"                                    "75 80 85 90 100 115" //OAA
     }
   }
 }

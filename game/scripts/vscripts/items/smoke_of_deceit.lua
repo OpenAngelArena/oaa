@@ -61,3 +61,7 @@ function item_smoke_of_deceit_oaa:OnSpellStart()
 
   self:SpendCharge(0.1)
 end
+
+function item_smoke_of_deceit_oaa:IsMuted()
+  return false
+end

@@ -64,7 +64,7 @@ function BlinkBlock:CheckBlink(startLoc, endLoc)
   -- really, radius should even be halved...
   local blocks = Entities:FindAllByNameWithin('blink_block', spellCenter, radius + 1000)
 
-  DebugPrint('Found ' .. #blocks)
+  --DebugPrint('Found ' .. #blocks)
 
   for _, block in pairs(blocks) do
     local blockOrigin = block:GetAbsOrigin()
@@ -115,7 +115,7 @@ function BlinkBlock:CheckBlink(startLoc, endLoc)
     end
 
     if didHit then
-      DebugPrint('did hit blink blocker: result ' .. tostring(hitResult and (hitResult.x .. '/' .. hitResult.y) or '--'))
+      --DebugPrint('did hit blink blocker: result ' .. tostring(hitResult and (hitResult.x .. '/' .. hitResult.y) or '--'))
 
       endLoc.x = hitResult.x - xSideOffset
       endLoc.y = hitResult.y - ySideOffset

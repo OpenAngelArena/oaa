@@ -11,7 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
 
     "AbilityCastRange"                                    "500"
 
@@ -30,7 +30,7 @@
     {
       "damage" //OAA
       {
-        "value"                                           "1000 1200 1400 2000 2600"
+        "value"                                           "1000 1200 1400 1600 1800 2000"
       }
       "radius"
       {

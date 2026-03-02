@@ -18,8 +18,6 @@ local OnPreGameEvent = CreateGameEvent('OnPreGame')
 local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
   OnGameRulesStateChangeEvent(keys)
-  DebugPrint("[BAREBONES] GameRules State Changed")
-  DebugPrintTable(keys)
   local newState = GameRules:State_Get()
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
     OnStrategyEvent()
@@ -50,8 +48,8 @@ local function DecorateNPC(npc)
 end
 function GameMode:OnNPCSpawned(keys)
   OnNPCSpawnedEvent(keys)
-  DebugPrint("[BAREBONES] NPC Spawned")
-  DebugPrintTable(keys)
+  --DebugPrint("[BAREBONES] NPC Spawned")
+  --DebugPrintTable(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
   DecorateNPC(npc)
@@ -129,8 +127,6 @@ local OnEntityFatalDamage = CreateGameEvent('OnEntityFatalDamage')
 local OnEntityHurtEvent = CreateGameEvent('OnEntityHurt')
 function GameMode:OnEntityHurt(keys)
   OnEntityHurtEvent(keys)
-  --DebugPrint("[BAREBONES] Entity Hurt")
-  --DebugPrintTable(keys)
 
   if keys.entindex_attacker and keys.entindex_killed then
     --local entCause = EntIndexToHScript(keys.entindex_attacker)
@@ -167,8 +163,6 @@ end
 local OnPlayerLearnedAbilityEvent = CreateGameEvent('OnPlayerLearnedAbility')
 function GameMode:OnPlayerLearnedAbility(keys)
   OnPlayerLearnedAbilityEvent(keys)
-  DebugPrint('[BAREBONES] OnPlayerLearnedAbility')
-  DebugPrintTable(keys)
 
   --local playerID = keys.PlayerID
   --local abilityname = keys.abilityname
@@ -179,8 +173,6 @@ end
 local OnPlayerLevelUpEvent = CreateGameEvent('OnPlayerLevelUp')
 function GameMode:OnPlayerLevelUp(keys)
   OnPlayerLevelUpEvent(keys)
-  DebugPrint('[BAREBONES] OnPlayerLevelUp')
-  DebugPrintTable(keys)
 end
 
 -- A rune was activated by a player
@@ -188,8 +180,6 @@ end
 local OnRuneActivatedEvent = CreateGameEvent('OnRuneActivated')
 function GameMode:OnRuneActivated(keys)
   OnRuneActivatedEvent(keys)
-  DebugPrint('[BAREBONES] OnRuneActivated')
-  DebugPrintTable(keys)
 
   --local playerID = keys.PlayerID
   --local rune = keys.rune
@@ -207,8 +197,8 @@ local OnEntityKilledEvent = CreateGameEvent('OnEntityKilled')
 local OnHeroDiedEvent = CreateGameEvent('OnHeroDied')
 function GameMode:OnEntityKilled(keys)
   OnEntityKilledEvent(keys)
-  DebugPrint( '[BAREBONES] OnEntityKilled Called' )
-  DebugPrintTable( keys )
+  --DebugPrint( '[BAREBONES] OnEntityKilled Called' )
+  --DebugPrintTable( keys )
 
   -- Indexes:
   local killed_entity_index = keys.entindex_killed
@@ -257,8 +247,6 @@ end
 local OnItemCombinedEvent = CreateGameEvent('OnItemCombined')
 function GameMode:OnItemCombined(keys)
   OnItemCombinedEvent(keys)
-  DebugPrint('[BAREBONES] OnItemCombined')
-  DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
   --local playerID = keys.PlayerID

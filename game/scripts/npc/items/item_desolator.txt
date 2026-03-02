@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+  "item_recipe_desolator"                                 "REMOVE"
+  "item_desolator"                                        "REMOVE"
+
+  //=================================================================================================================
+  // Recipe: Desolator
+  //=================================================================================================================
+  "item_recipe_desolator_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_desolator_oaa"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_mithril_hammer;item_mithril_hammer;item_blight_stone"
+    }
+  }
+
+  //=================================================================================================================
+  // Desolator
+  //=================================================================================================================
+  "item_desolator_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/devastator.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "item_desolator"
+
+    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                     "0"
+
+    "UpgradesItems"                                       "item_devastator_oaa_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "desolator"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_damage"                                      "48"
+      "corruption_armor"                                  "-6"
+      "corruption_duration"                               "7.0"
+    }
+  }
+}

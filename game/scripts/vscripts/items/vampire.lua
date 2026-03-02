@@ -482,9 +482,6 @@ if IsServer() then
           bProvidesVision = false,
         } )
       end
-
-    else
-      DebugPrint('Not lifestealing from ' .. tostring(damaged_unit:GetName()))
     end
   end
 end

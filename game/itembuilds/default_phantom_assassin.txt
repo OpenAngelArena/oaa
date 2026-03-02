@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37e"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_phantom_assassin"
   "Title"         "Recommended items for Phantom Assassin"
 
@@ -20,7 +20,7 @@
 
     "#DOTA_Item_Build_Physical_Core" // Standard PA build
     {
-      "item"      "item_desolator"
+      "item"      "item_desolator_oaa"
       "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
       "item"      "item_satanic"
@@ -28,13 +28,14 @@
       "item"      "item_giant_form"
     }
 
-    "#DOTA_Item_Build_Magical_Core" // Dagger build
+    "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
     {
-      "item"      "item_spell_breaker_1"
-      "item"      "item_angels_demise"
-      "item"      "item_devastator"
-      "item"      "item_greater_power_treads"
-      "item"      "item_rapier"
+      "item"      "item_phylactery"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_shivas_guard"
+      "item"      "item_assault"
+      "item"      "item_devastator_oaa_2"
+      "item"      "item_sacred_skull"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -44,11 +45,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_bloodthorn"
       "item"      "item_nullifier"
       "item"      "item_sphere"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_greater_power_treads"
       "item"      "item_trumps_fists_1"
+      "item"      "item_rapier"
     }
   }
 }

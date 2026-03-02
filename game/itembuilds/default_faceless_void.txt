@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35e (Darkonius)"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_faceless_void"
   "Title"         "Recommended items for Faceless Void"
 
@@ -22,10 +22,10 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_mjollnir"
-      "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
+      "item"      "item_monkey_king_bar"
       "item"      "item_greater_crit"
-      "item"      "item_devastator_oaa_2"
+      "item"      "item_disperser"
     }
 
     "#DOTA_Item_Build_Magical_Core" // Aghanim Scepter oriented
@@ -56,8 +56,8 @@
       "item"      "item_bloodthorn"
       "item"      "item_bfury"
       "item"      "item_butterfly_oaa"
-      "item"      "item_disperser"
       "item"      "item_manta"
+      "item"      "item_nullifier"
       "item"      "item_satanic"
       "item"      "item_skadi"
       "item"      "item_sphere"

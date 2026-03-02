@@ -37,7 +37,6 @@
       "illusion_duration" //OAA
       {
         "value"                                           "35"
-        "special_bonus_unique_chaos_knight_4"             "+10" // we don't use this talent
       }
       "outgoing_damage"                                   "-50 -25 0 25 50" //OAA
       "outgoing_damage_tooltip" //OAA
@@ -48,11 +47,13 @@
       }
       "incoming_damage" //OAA
       {
-        "value"                                           "225 200 175 125 25"
+        "value"                                           "225 200 175 150 125"
+        "special_bonus_unique_chaos_knight_7"             "-125"
       }
       "incoming_damage_tooltip" //OAA
       {
-        "value"                                           "325 300 275 225 125"
+        "value"                                           "325 300 275 250 225"
+        "special_bonus_unique_chaos_knight_7"             "-125"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

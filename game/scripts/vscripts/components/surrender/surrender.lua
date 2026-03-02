@@ -12,7 +12,6 @@ local numberOfVotesExpected = 0
 local teamIdToSurrender
 
 function SurrenderManager:Init ()
-  DebugPrint ('Init SurrenderManager')
   self.moduleName = "SurrenderManager"
   -- Register chat commands
   ChatCommand:LinkCommand("-surrender", Dynamic_Wrap(SurrenderManager, "CheckSurrenderConditions"), self)
@@ -125,7 +124,7 @@ function SurrenderManager:CalculateVotes()
     numberOfVotesExpected = 0
     DebugPrint("requiredNumberOfYesVotes = " .. requiredNumberOfYesVotes)
     if requiredNumberOfYesVotes <= yesVotesCast then
-      DebugPrint("End game")
+      --DebugPrint("End game")
       local teamText = nil
       if teamIdToSurrender == DOTA_TEAM_GOODGUYS then
         teamText = "Radiant"
@@ -138,7 +137,7 @@ function SurrenderManager:CalculateVotes()
         Timers:CreateTimer(5, Dynamic_Wrap(SurrenderManager, 'EndGame'))
       end
     else
-      DebugPrint("Do not end game")
+      DebugPrint("Surrender failed, somebody thinks they can still win.")
     end
   else
     DebugPrint("Error: numberOfVotesCast = " .. numberOfVotesCast .. " Needed: " .. table.getn{SURRENDER_REQUIRED_YES_VOTES})

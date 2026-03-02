@@ -1,6 +1,5 @@
 
 if BottleCounter == nil then
-  -- Debug:EnableDebugging()
   DebugPrint('Creating new BottleCounter object')
   BottleCounter = class({})
 end
@@ -12,7 +11,6 @@ function BottleCounter:Init()
 end
 
 function BottleCounter:Filter(filterTable)
-  --DebugPrintTable(filterTable)
   local itemEntIndex = filterTable.item_entindex_const
   local item = EntIndexToHScript(itemEntIndex)
   local parentEntIndex = filterTable.inventory_parent_entindex_const

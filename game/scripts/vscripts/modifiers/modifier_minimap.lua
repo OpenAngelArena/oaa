@@ -16,7 +16,6 @@ if IsServer() then
 
   function modifier_minimap:SetHiddenState( bIsHidden )
     if self.hidden ~= bIsHidden then
-      DebugPrint("Camp Hidden State Changed")
       self.hidden = bIsHidden
       self:CheckState()
     end

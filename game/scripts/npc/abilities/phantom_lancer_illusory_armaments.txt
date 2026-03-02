@@ -6,14 +6,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
-    "Innate"                                              "1"
     "MaxLevel"                                            "1"
 
     "AbilityValues"
     {
       "outgoing_floor"
       {
-        "value"                                           "18"
+        "value"                                           "17"
         "hero_levelup"                                    "2"
         "levelup_interval"                                "3"
       }

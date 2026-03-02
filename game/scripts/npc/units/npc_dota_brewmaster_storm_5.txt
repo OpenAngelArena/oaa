@@ -5,73 +5,27 @@
   //=================================================================================
   "npc_dota_brewmaster_storm_5"
   {
-    // General
-    //----------------------------------------------------------------
-    "Model"                                               "models/heroes/brewmaster/brewmaster_windspirit.vmdl"  // Model.
-    "BaseClass"                                           "npc_dota_brewmaster_storm"
-    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"    // custom facial animation idle
-    "SoundSet"                                            "Brewmaster_Storm"      // Name of sound set.
-    "IdleSoundLoop"                                       "Brewmaster_Storm.Move_Loop"
-    "Level"                                               "8"
-    "ModelScale"                                          "1.1"
-    "IsSummoned"                                          "0"
-    "IsAncient"                                           "1"
-    "ConsideredHero"                                      "1"
-    "IgnoreAddSummonedToSelection"                        "1"
-    "UnitLabel"                                           "brewmaster_storm"
+    "include_keys_from"                                   "npc_dota_brewmaster_storm_1"
 
-    // Abilities
-    //----------------------------------------------------------------
-    "Ability1"                                            "brewmaster_storm_dispel_magic"    // Ability 1
-    "Ability2"                                            "brewmaster_storm_cyclone"      // Ability 2
-    "Ability3"                                            "brewmaster_storm_wind_walk"    // Ability 3
-    "Ability4"                                            "generic_hidden"
-    "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "brewmaster_primal_split_cancel"
+    "Level"                                               "8"
+    "ModelScale"                                          "1.05"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "18"      // lvl 3 + 2 x 6
-    "MagicalResistance"                                   "25"
+    "ArmorPhysical"                                       "10"
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "345"    // lvl 3 + 40 x 6
-    "AttackDamageMax"                                     "355"    // lvl 3 + 40 x 6
-    "AttackRate"                                          "1.5"    // BAT
-    "AttackAnimationPoint"                                "0.4"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
-    "AttackRange"                                         "600"    // Range within a target can be attacked.
-    "ProjectileModel"                                     "particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                                     "1200"    // Speed of projectile.
+    "AttackDamageMin"                                     "130"
+    "AttackDamageMax"                                     "130"
 
     // Bounds
     //----------------------------------------------------------------
     "HealthBarOffset"                                     "185"
 
-    // Movement
-    //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
-
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
-
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "9000"    // lvl 3 + 1000 x 6
-    "StatusHealthRegen"                                   "18"      // Health regeneration rate.
-    "StatusMana"                                          "900"    // Base mana.
-    "StatusManaRegen"                                     "1.5"    // Mana regeneration rate.
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "StatusHealth"                                        "6000"
+    "StatusHealthRegen"                                   "18"
   }
 }

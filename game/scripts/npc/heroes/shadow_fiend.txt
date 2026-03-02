@@ -19,13 +19,16 @@
     //"Ability16"                                           "special_bonus_unique_nevermore_frenzy_castspeed"
     //"Ability17"                                           "special_bonus_unique_nevermore_raze_procsattacks"
 
-    // special_bonus_unique_nevermore_1 - Damage Per Soul
-    // special_bonus_unique_nevermore_2 - Shadowraze Damage
-    // special_bonus_unique_nevermore_3 - Presence Armor Reduction - unused
-    // special_bonus_unique_nevermore_4 - Feast of Souls Attack Speed
-    // special_bonus_unique_nevermore_5 - Presence Aura Armor - unused, does not work
-    // special_bonus_unique_nevermore_6 - Requiem Fear per line
-    // special_bonus_unique_nevermore_7 - Shadowraze Stack Damage
-    // special_bonus_unique_nevermore_1_oaa - Presence Aura Armor Reduction - custom, using this one as precaution
+    // special_bonus_unique_nevermore_1 - Damage Per Soul                                   - 20
+    // special_bonus_unique_nevermore_2 - Shadowraze Damage                                 - 15
+    // special_bonus_unique_nevermore_3 - Presence Armor Reduction                          - unused
+    // special_bonus_unique_nevermore_4 - Feast of Souls Attack Speed                       - 10
+    // special_bonus_unique_nevermore_5 - Presence Aura Armor                               - unused, does not work
+    // special_bonus_unique_nevermore_6 - Requiem Fear per line                             - 20
+    // special_bonus_unique_nevermore_7 - Shadowraze Stack Damage                           - 10
+    // special_bonus_unique_nevermore_frenzy_castspeed                                      - 25
+    // special_bonus_unique_nevermore_raze_procsattacks                                     - 25
+    // special_bonus_unique_nevermore_shadowraze_cooldown                                   - unused
+    // special_bonus_unique_nevermore_1_oaa - Presence Aura Armor Reduction                 - 15, custom, using this one as precaution
   }
 }

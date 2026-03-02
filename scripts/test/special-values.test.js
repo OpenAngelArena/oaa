@@ -16,14 +16,16 @@ const allowedIconNames = [
   'item_recipe'
 ];
 const ignoredBaseClasses = [
-  'special_bonus_undefined',
-  'special_bonus_base',
   'item_abyssal_blade',
+  'item_angels_demise',
+  'item_arcane_blink',
   'item_armlet',
   'item_assault',
   'item_bfury',
+  'item_blink',
   'item_bloodthorn',
   'item_crimson_guard',
+  'item_devastator',
   'item_disperser',
   'item_eternal_shroud',
   'item_ethereal_blade',
@@ -31,6 +33,7 @@ const ignoredBaseClasses = [
   'item_greater_crit',
   'item_gungir',
   'item_harpoon',
+  'item_heart',
   'item_heavens_halberd',
   'item_helm_of_the_overlord',
   'item_hurricane_pike',
@@ -41,9 +44,9 @@ const ignoredBaseClasses = [
   'item_monkey_king_bar',
   'item_nullifier',
   'item_octarine_core',
+  'item_overwhelming_blink',
   'item_pipe',
   'item_radiance',
-  'item_revenants_brooch',
   'item_sange_and_yasha',
   'item_satanic',
   'item_sheepstick',
@@ -52,14 +55,11 @@ const ignoredBaseClasses = [
   'item_skadi',
   'item_solar_crest',
   'item_sphere',
+  'item_swift_blink',
   'item_wind_waker',
   'item_yasha_and_kaya',
-  'item_arcane_blink',
-  'item_overwhelming_blink',
-  'item_swift_blink',
-  'item_blink',
-  'item_devastator',
-  'item_angels_demise'
+  'special_bonus_base',
+  'special_bonus_undefined'
 ];
 let itemsFound = {};
 // const idsFound = {};
@@ -282,9 +282,6 @@ function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
         t.fail('AbilityTextureName should not contain file extension');
       }
       const iconParts = icon.split('/');
-      if (iconParts[0] === 'item_custom') {
-        iconParts[0] = 'custom';
-      }
       if (iconParts[iconParts.length - 1].substr(0, 5) === 'item_') {
         t.fail('AbilityTextureName should not start with item_');
       }

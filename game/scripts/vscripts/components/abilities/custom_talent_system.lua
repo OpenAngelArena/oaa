@@ -36,15 +36,9 @@ local abilities_with_custom_talents = {
   abyssal_underlord_pit_of_malice = {
     pit_damage = {"special_bonus_unique_underlord_7_oaa", "%"},
   },
-  chaos_knight_reality_rift = {
-    armor_reduction = {"special_bonus_unique_chaos_knight_1_oaa", "+"},
-  },
   death_prophet_spirit_siphon = {
     damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
     AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
-  },
-  dragon_knight_breathe_fire = {
-    damage = {"special_bonus_unique_dragon_knight_1_oaa", "+"},
   },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},

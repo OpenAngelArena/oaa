@@ -25,8 +25,7 @@ modifier_item_aghanims_talents = class(ModifierBaseClass)
 function modifier_item_aghanims_talents:OnCreated()
   if IsServer () then
     local parent = self:GetParent()
-    local noDropHeroes = {
-    }
+    local noDropHeroes = {}
     self.isRunning = true
 
     self.aghsPower = 0

@@ -15,10 +15,6 @@ function abaddon_borrowed_time_oaa:GetCooldown(level)
   local base_cd = self.BaseClass.GetCooldown(self, level)
 
   -- Talent that reduces cooldown - done through kv
-  local talent = caster:FindAbilityByName("special_bonus_unique_abaddon_5")
-  if talent and talent:GetLevel() > 0 then
-    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
-  end
 
   return base_cd
 end

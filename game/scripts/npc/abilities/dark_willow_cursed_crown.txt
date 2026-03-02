@@ -33,13 +33,12 @@
       "delay"                                             "4"
       "stun_duration"
       {
-        "value"                                           "1.5 1.8 2.1 2.4 2.6 2.8"
+        "value"                                           "1.5 1.8 2.1 2.4 2.5 2.6"
       }
-      "stun_radius" //OAA
+      "stun_radius"
       {
         "value"                                           "360"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_dark_willow_7"              "+100"
       }
       "shard_delay_reduction"
       {

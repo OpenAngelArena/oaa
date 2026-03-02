@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_morphling"
   "Title"         "Recommended items for Morphling"
 
@@ -19,6 +19,17 @@
       "item"      "item_disperser"
       "item"      "item_butterfly_oaa"
       "item"      "item_greater_crit"
+    }
+
+    "#DOTA_Item_Build_Magical_Core" // Flow facet
+    {
+      "item"      "item_phylactery"
+      "item"      "item_dagon_oaa_1"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_greater_power_treads"
+      //"item"      "item_dagger_of_moriah_1"
     }
 
     "#DOTA_Item_Build_Shard"

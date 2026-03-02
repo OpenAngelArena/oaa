@@ -44,7 +44,7 @@ function checkLuaItemFile (path) {
       continue;
     }
 
-    if (data[item].values.BaseClass === undefined) {
+    if (data[item].values.ScriptFile === undefined) {
       console.error(chalk.red('ERR') + ' Missing Key: "' + chalk.bold('ScriptFile') + '"\n  in Item "' + chalk.bold(item) + '"\n    in Path "' + chalk.bold(path) + '"\n');
       continue;
     }
@@ -125,7 +125,7 @@ function checkLuaAbilityFile (path) {
       continue;
     }
 
-    if (data[item].values.BaseClass === undefined) {
+    if (data[item].values.ScriptFile === undefined) {
       console.error(chalk.red('ERR') + ' Missing Key: "' + chalk.bold('ScriptFile') + '"\n  in Ability "' + chalk.bold(item) + '"\n    in Path "' + chalk.bold(path) + '"\n');
       continue;
     }

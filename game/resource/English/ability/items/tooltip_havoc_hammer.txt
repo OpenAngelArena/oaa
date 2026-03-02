@@ -1,0 +1,51 @@
+//========================================================================+
+// Havoc Hammer (OAA version)
+//========================================================================+
+//"DOTA_Tooltip_Ability_item_havoc_hammer"                                        "Havoc Hammer"
+//"DOTA_Tooltip_Ability_item_havoc_hammer_Description"                            "<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+//"DOTA_Tooltip_Ability_item_havoc_hammer_bonus_damage"                           "+$damage"
+//"DOTA_Tooltip_Ability_item_havoc_hammer_bonus_strength"                         "+$str"
+
+//"DOTA_Tooltip_modifier_havoc_hammer_slow"                                       "Havoc"
+//"DOTA_Tooltip_modifier_havoc_hammer_slow_Description"                           "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+"DOTA_Tooltip_Ability_item_havoc_hammer_1"                                      "#{DOTA_Tooltip_Ability_item_havoc_hammer}"
+"DOTA_Tooltip_Ability_item_recipe_havoc_hammer_1"                               "Havoc Hammer Recipe"
+"DOTA_Tooltip_Ability_item_havoc_hammer_1_Description"                          "<h1>Active: Havoc</h1> Grants %buff_bonus_strength% Strength and %buff_bonus_base_damage% base damage to yourself and your illusions for %buff_duration% seconds. Upon activation, deals magic damage to enemies in %radius% range around you. Damage is equal to %nuke_base_dmg% + %nuke_str_dmg%x your STR."
+"DOTA_Tooltip_Ability_item_havoc_hammer_1_Lore"                                 "Hammer that creates havoc."
+"DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_strength"                       "+$str"
+"DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_base_damage"                    "+Base Damage"
+
+"DOTA_Tooltip_Ability_item_havoc_hammer_2"                                      "#{DOTA_Tooltip_Ability_item_havoc_hammer}"
+"DOTA_Tooltip_Ability_item_recipe_havoc_hammer_2"                               "#{DOTA_Tooltip_Ability_item_recipe_havoc_hammer_1}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_2_Description"                          "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Description}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_2_Lore"                                 "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Lore}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_2_bonus_strength"                       "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_strength}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_2_bonus_base_damage"                    "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_base_damage}"
+
+"DOTA_Tooltip_Ability_item_havoc_hammer_3"                                      "#{DOTA_Tooltip_Ability_item_havoc_hammer}"
+"DOTA_Tooltip_Ability_item_recipe_havoc_hammer_3"                               "#{DOTA_Tooltip_Ability_item_recipe_havoc_hammer_1}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_3_Description"                          "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Description}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_3_Lore"                                 "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Lore}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_3_bonus_strength"                       "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_strength}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_3_bonus_base_damage"                    "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_base_damage}"
+
+"DOTA_Tooltip_Ability_item_havoc_hammer_4"                                      "#{DOTA_Tooltip_Ability_item_havoc_hammer}"
+"DOTA_Tooltip_Ability_item_recipe_havoc_hammer_4"                               "#{DOTA_Tooltip_Ability_item_recipe_havoc_hammer_1}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_4_Description"                          "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Description}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_4_Lore"                                 "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Lore}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_4_bonus_strength"                       "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_strength}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_4_bonus_base_damage"                    "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_base_damage}"
+
+"DOTA_Tooltip_Ability_item_havoc_hammer_5"                                      "#{DOTA_Tooltip_Ability_item_havoc_hammer}"
+"DOTA_Tooltip_Ability_item_recipe_havoc_hammer_5"                               "#{DOTA_Tooltip_Ability_item_recipe_havoc_hammer_1}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_5_Description"                          "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Description}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_5_Lore"                                 "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_Lore}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_5_bonus_strength"                       "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_strength}"
+"DOTA_Tooltip_Ability_item_havoc_hammer_5_bonus_base_damage"                    "#{DOTA_Tooltip_Ability_item_havoc_hammer_1_bonus_base_damage}"
+
+"DOTA_Tooltip_modifier_item_havoc_hammer_active"                                "Full Potential"
+"DOTA_Tooltip_modifier_item_havoc_hammer_active_Description"                    "Bonus strength and bonus base damage."
+
+"DOTA_Tooltip_modifier_item_havoc_hammer_active_illusions"                      "#{DOTA_Tooltip_modifier_item_havoc_hammer_active}"
+"DOTA_Tooltip_modifier_item_havoc_hammer_active_illusions_Description"          "#{DOTA_Tooltip_modifier_item_havoc_hammer_active_Description}"

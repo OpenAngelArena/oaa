@@ -99,9 +99,14 @@ function modifier_item_greater_guardian_greaves:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_ms = ability:GetSpecialValueFor("bonus_movement")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.mana_regen = ability:GetSpecialValueFor("mana_regen")
+    self.armor = ability:GetSpecialValueFor("bonus_armor") + ability:GetSpecialValueFor("aura_armor")
+    self.mana_regen = ability:GetSpecialValueFor("mana_regen") + ability:GetSpecialValueFor("aura_mana_regen")
+    self.hp_regen = ability:GetSpecialValueFor("aura_health_regen")
     self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+    self.threshold = ability:GetSpecialValueFor("hp_threshold")
+    self.hp_regen_bonus = ability:GetSpecialValueFor("low_hp_health_regen_bonus")
+    self.armor_bonus = ability:GetSpecialValueFor("low_hp_armor_bonus")
+    self.mana_regen_bonus = ability:GetSpecialValueFor("low_hp_mana_regen_bonus")
   end
   if IsServer() then
     local parent = self:GetParent()
@@ -133,6 +138,7 @@ function modifier_item_greater_guardian_greaves:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
   }
 end
 
@@ -141,11 +147,30 @@ function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Specia
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
-  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+  local parent = self:GetParent()
+  local hpPercent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
+  if hpPercent <= self.threshold then
+    return self.armor + self.armor_bonus
+  end
+  return self.armor
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierConstantManaRegen()
-  return self.mana_regen or self:GetAbility():GetSpecialValueFor("mana_regen")
+  local parent = self:GetParent()
+  local hpPercent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
+  if hpPercent <= self.threshold then
+    return self.mana_regen + self.mana_regen_bonus
+  end
+  return self.mana_regen
+end
+
+function modifier_item_greater_guardian_greaves:GetModifierConstantHealthRegen()
+  local parent = self:GetParent()
+  local hpPercent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
+  if hpPercent <= self.threshold then
+    return self.hp_regen + self.hp_regen_bonus
+  end
+  return self.hp_regen
 end
 
 --------------------------------------------------------------------------
@@ -171,9 +196,24 @@ function modifier_item_greater_guardian_greaves:GetModifierAura()
   return "modifier_item_greater_guardian_greaves_aura" -- modifier_item_guardian_greaves_aura
 end
 
+function modifier_item_greater_guardian_greaves:GetAuraEntityReject( hEntity )
+  return self:GetCaster() == hEntity
+end
+
 ------------------------------------------------------------------------------
--- Custom Greaves aura effect, unused
+-- Custom Greaves aura effect
 modifier_item_greater_guardian_greaves_aura = class({})
+
+function modifier_item_greater_guardian_greaves_aura:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.hp_regen = ability:GetSpecialValueFor("aura_health_regen")
+    self.armor = ability:GetSpecialValueFor("aura_armor")
+    self.mana_regen = ability:GetSpecialValueFor("aura_mana_regen")
+  end
+end
+
+modifier_item_greater_guardian_greaves_aura.OnRefresh = modifier_item_greater_guardian_greaves_aura.OnCreated
 
 function modifier_item_greater_guardian_greaves_aura:DeclareFunctions()
   return {
@@ -184,55 +224,13 @@ function modifier_item_greater_guardian_greaves_aura:DeclareFunctions()
 end
 
 function modifier_item_greater_guardian_greaves_aura:GetModifierConstantHealthRegen()
-  local hero = self:GetParent()
-  if not hero or not hero.GetHealth then
-    return 0
-  end
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return 0
-  end
-  local default = ability:GetSpecialValueFor("aura_health_regen")
-  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
-  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
-    return ability:GetSpecialValueFor("aura_health_regen_bonus")
-  else
-    return default
-  end
+  return self.hp_regen
 end
 
 function modifier_item_greater_guardian_greaves_aura:GetModifierPhysicalArmorBonus()
-  local hero = self:GetParent()
-  if not hero or not hero.GetHealth then
-    return 0
-  end
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return 0
-  end
-  local default = ability:GetSpecialValueFor("aura_armor")
-  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
-  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
-    return ability:GetSpecialValueFor("aura_armor_bonus")
-  else
-    return default
-  end
+  return self.armor
 end
 
 function modifier_item_greater_guardian_greaves_aura:GetModifierConstantManaRegen()
-  local hero = self:GetParent()
-  if not hero or not hero.GetHealth then
-    return 0
-  end
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return 0
-  end
-  local default = ability:GetSpecialValueFor("aura_mana_regen")
-  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
-  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
-    return ability:GetSpecialValueFor("aura_mana_regen_bonus")
-  else
-    return default
-  end
+  return self.mana_regen
 end

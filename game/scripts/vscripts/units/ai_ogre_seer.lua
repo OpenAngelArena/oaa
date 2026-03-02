@@ -87,14 +87,12 @@ function OgreSeerThink()
 
   -- Agro
   if thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() and thisEntity.hOgreBoss:IsAlive() and not thisEntity.hOgreBoss.bHasAgro and thisEntity.bHasAgro and #enemies == 0 then
-    DebugPrint("Ogre Seer Deagro")
     thisEntity.bHasAgro = false
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
   elseif not thisEntity.hOgreBoss or thisEntity.hOgreBoss:IsNull() or not thisEntity.hOgreBoss:IsAlive() or (hasDamageThreshold and #enemies > 0) or (thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() and thisEntity.hOgreBoss.bHasAgro) then
     if not thisEntity.bHasAgro then
-      DebugPrint("Ogre Seer Agro")
       thisEntity.bHasAgro = true
       thisEntity:SetIdleAcquire(true)
       thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)

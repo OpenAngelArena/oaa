@@ -119,8 +119,11 @@ function modifier_drow_ranger_innate_oaa_aura_effect:OnIntervalThink()
     -- Get ally multiplier
     local ally_mult = ability:GetSpecialValueFor("trueshot_agi_bonus_allies")
 
+    -- Calculate agility multiplier for the ally (should be the same format as self.agi_mult above)
+    local agi_mult_ally = lvl * ally_mult / 100
+
     -- Calculate bonus agility for the parent
-    self.agi = math.ceil(lvl * unmodified_agility * ally_mult / 100)
+    self.agi = math.ceil(unmodified_agility * agi_mult_ally)
   else
     -- Parent is the caster (aura owner)
     -- We need to avoid recursion
@@ -140,6 +143,9 @@ end
 function modifier_drow_ranger_innate_oaa_aura_effect:GetModifierBonusStats_Agility()
   local parent = self:GetParent()
   local caster = self:GetCaster()
+  --if not caster or caster:IsNull() or caster:PassivesDisabled() then
+    --return 0
+  --end
   if parent ~= caster then
     return self.agi
   else
@@ -148,9 +154,9 @@ function modifier_drow_ranger_innate_oaa_aura_effect:GetModifierBonusStats_Agili
     else
       -- To avoid recursion we lock right before getting AGI to get the unmodified value
       self.lock = true
-      local agility = caster:GetAgility()
+      local unmodified_agility = caster:GetAgility()
       self.lock = false
-      return math.ceil(self.agi_mult * agility)
+      return math.ceil(self.agi_mult * unmodified_agility)
     end
   end
 end

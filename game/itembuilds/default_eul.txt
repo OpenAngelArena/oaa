@@ -1,6 +1,6 @@
 "itembuilds/default_eul.txt"
 {
-  "author"        "OAA 7.37e (Darkonius)"
+  "author"        "OAA 7.40b (Darkonius)"
   "hero"          "npc_dota_hero_eul"
   "Title"         "Recommended items for Eul"
 
@@ -8,9 +8,8 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
+      "item"      "item_ring_of_health"
       "item"      "item_flask"
-      "item"      "item_enchanted_mango"
-      "item"      "item_quelling_blade"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -49,9 +48,10 @@
       "item"      "item_devastator"
       "item"      "item_eternal_shroud"
       "item"      "item_greater_phase_boots"
-      "item"      "item_heart_oaa_1"
+      "item"      "item_heart"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
+      "item"      "item_pull_staff"
       "item"      "item_skadi"
       "item"      "item_sphere"
       "item"      "item_ultimate_scepter"

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.40b"
   "hero"          "npc_dota_hero_dazzle"
   "Title"         "Recommended items for Dazzle"
 
@@ -16,11 +16,11 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_guardian_greaves"
+      "item"      "item_ghost_king_bar_1"
       "item"      "item_shield_staff"
       "item"      "item_solar_crest"
       "item"      "item_glimmer_cape"
       "item"      "item_far_sight"
-      "item"      "item_ghost_king_bar_1"
     }
 
     "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
@@ -45,6 +45,7 @@
       "item"      "item_lotus_orb"
       "item"      "item_wind_waker"
       "item"      "item_greater_power_treads"
+      "item"      "item_nether_core_1"
       "item"      "item_bubble_orb_1"
       "item"      "item_sheepstick_4"
     }

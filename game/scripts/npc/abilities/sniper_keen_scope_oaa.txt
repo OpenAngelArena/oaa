@@ -13,9 +13,9 @@
     "IsBreakable"                                         "1"
 
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "sniper_assassinate"
     "RequiredLevel"                                       "-1" // maybe not needed
     "MaxLevel"                                            "6" // same as Dependent ability (Assassinate) + 1
+    "DependentOnAbility"                                  "sniper_assassinate"
 
     "AbilityValues"
     {

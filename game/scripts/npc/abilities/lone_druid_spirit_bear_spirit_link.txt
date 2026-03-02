@@ -3,6 +3,7 @@
   "lone_druid_spirit_bear_spirit_link"
   {
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // OAA, Valve forgot
 
     "MaxLevel"                                            "6"
 
@@ -22,7 +23,7 @@
       }
       "lifesteal_both_ways"                               "1"
       "duration"                                          "20"
-      "active_bonus"                                      "35"
+      "active_bonus"                                      "35" // unused, additive bonus for armor_sharing (+x) but percentage for bonus_attack_speed (*x/100)
       "AbilityCooldown"
       {
         "value"                                           "0"

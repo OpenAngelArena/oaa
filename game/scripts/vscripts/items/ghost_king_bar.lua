@@ -24,7 +24,8 @@ function item_ghost_king_bar_1:OnSpellStart()
 
   -- Restore hp and mana to all allies including the caster
   if current_charges > 0 then
-    local amount_to_restore = current_charges * self:GetSpecialValueFor("active_restore_per_charge")
+    local health_to_restore = current_charges * self:GetSpecialValueFor("health_restore_per_charge")
+    local mana_to_restore = current_charges * self:GetSpecialValueFor("mana_restore_per_charge")
     local allies = FindUnitsInRadius(
       caster:GetTeamNumber(),
       caster:GetAbsOrigin(),
@@ -39,10 +40,10 @@ function item_ghost_king_bar_1:OnSpellStart()
     for _, unit in pairs(allies) do
       if unit and not unit:IsNull() then
         -- Restore health (it should work with heal amp)
-        --unit:Heal(amount_to_restore, self)
-        unit:HealWithParams(amount_to_restore, self, false, true, caster, false)
+        --unit:Heal(health_to_restore, self)
+        unit:HealWithParams(health_to_restore, self, false, true, caster, false)
         -- Restore mana
-        unit:GiveMana(amount_to_restore)
+        unit:GiveMana(mana_to_restore)
         -- Particle
         local particle = ParticleManager:CreateParticle("particles/items2_fx/magic_stick.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
@@ -551,6 +552,7 @@ function modifier_item_ghost_king_bar_buff:OnCreated()
     self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
     self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
     self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
+    self.heal_amp = ability:GetSpecialValueFor("buff_heal_increase")
   end
 end
 
@@ -560,7 +562,8 @@ function modifier_item_ghost_king_bar_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, -- GetModifierMoveSpeedBonus_Percentage
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, -- GetModifierHealAmplify_PercentageTarget
   }
 end
 
@@ -574,6 +577,13 @@ end
 
 function modifier_item_ghost_king_bar_buff:GetModifierMoveSpeedBonus_Percentage()
   return self.move_speed or self:GetAbility():GetSpecialValueFor("buff_move_speed")
+end
+
+function modifier_item_ghost_king_bar_buff:GetModifierHealAmplify_PercentageTarget()
+  if not self:GetParent():HasModifier("modifier_item_ghost_king_bar_passives") then
+    return self.heal_amp or self:GetAbility():GetSpecialValueFor("buff_heal_increase")
+  end
+  return 0
 end
 
 function modifier_item_ghost_king_bar_buff:GetTexture()

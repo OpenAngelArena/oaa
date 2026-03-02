@@ -56,8 +56,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "1250"
-      "bonus_mana"                                        "1000"
+      "bonus_health"                                      "1125"
+      "bonus_mana"                                        "1125"
+      "bonus_health_regen"                                "18.5"
+      "bonus_mana_regen"                                  "6.75"
       "heal_pct"                                          "50"
       "health_threshold"                                  "1"
     }

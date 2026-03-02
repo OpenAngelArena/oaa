@@ -1,5 +1,4 @@
 if Glyph == nil then
-  -- Debug:EnableDebugging()
   Glyph = class({})
 end
 

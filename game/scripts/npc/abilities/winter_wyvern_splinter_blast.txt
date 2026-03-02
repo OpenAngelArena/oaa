@@ -7,7 +7,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -35,7 +34,7 @@
     {
       "projectile_speed"                                  "1200"
       "projectile_max_time"                               "1.0"
-      "split_radius" //OAA
+      "split_radius" //OAA, because of special_bonus_unique_winter_wyvern_2 nerf
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
@@ -45,15 +44,15 @@
       "movespeed_slow_tooltip"                            "28 32 36 40 44 48"
       "slow_duration"                                     "4.0"
       "secondary_projectile_speed"                        "1000"
-      "damage" //OAA
+      "damage" //OAA, because of special_bonus_unique_winter_wyvern_7 buff
       {
         "value"                                           "80 160 240 320 640 960"
         "special_bonus_unique_winter_wyvern_7"            "+240"
       }
-      "stun_duration" //OAA
+      "stun_duration"
       {
         "value"                                           "0"
-        "special_bonus_unique_winter_wyvern_4"            "+1.25"
+        "special_bonus_unique_winter_wyvern_4"            "+1"
       }
     }
   }

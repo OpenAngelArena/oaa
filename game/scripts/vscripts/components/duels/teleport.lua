@@ -6,7 +6,7 @@ local export = {}
 local function SafeTeleport(unit, location, maxDistance)
   unit:Stop()
   if unit:FindModifierByName("modifier_life_stealer_infest") then
-    DebugPrint("Found Lifestealer infesting")
+    --DebugPrint("Found Lifestealer infesting")
     local ability = unit:FindAbilityByName("life_stealer_consume")
     if ability and ability:IsActivated() then
       unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
@@ -15,7 +15,7 @@ local function SafeTeleport(unit, location, maxDistance)
     end
   end
   if unit:FindModifierByName("modifier_life_stealer_assimilate_effect") then
-    DebugPrint("Found Lifestealer with assimilated unit")
+    --DebugPrint("Found Lifestealer with assimilated unit")
     local ability = unit:FindAbilityByName("life_stealer_assimilate_eject")
     if ability and ability:IsActivated() then
       unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())

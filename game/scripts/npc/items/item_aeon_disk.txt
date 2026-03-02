@@ -68,8 +68,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 750 1000 1250"
-      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_mana"                                        "425 525 675 875 1125"
+      "bonus_health_regen"                                "6.5 9.5 12.5 15.5 18.5"
+      "bonus_mana_regen"                                  "4.25 4.5 5 5.75 6.75"
       "health_threshold_pct"                              "70"
       "status_resistance"                                 "75"
       "buff_duration"                                     "2.5"

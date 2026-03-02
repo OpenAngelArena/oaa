@@ -38,12 +38,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "custom/heavens_halberd_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14"
+    "AbilityCooldown"                                     "20 19 18 17 16"
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
@@ -72,9 +72,9 @@
       "block_damage_ranged"                               "30 60 90 120 150"
       "block_chance"                                      "60"
       "bonus_all_stats"                                   "5 10 15 20 25"
-      "disarm_range"                                      "3.0"
-      "disarm_melee"                                      "3.0"
-      "cooldown_tooltip"                                  "18 17 16 15 14"
+      "disarm_range"                                      "3.0 3.25 3.5 3.75 4.0"
+      "disarm_melee"                                      "3.0 3.25 3.5 3.75 4.0"
+      "cooldown_tooltip"                                  "20 19 18 17 16"
     }
   }
 }

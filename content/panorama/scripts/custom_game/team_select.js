@@ -34,8 +34,7 @@ const mapName = Game.GetMapInfo().map_display_name;
 // to the unssigned players team
 // --------------------------------------------------------------------------------------------------
 function OnLeaveTeamPressed () {
-  Game.PlayerJoinTeam(DOTATeam_t.DOTA_TEAM_NOTEAM); // essential to be commented out until Valve fixes it
-  // Game.ServerCmd(`say ${'LEAVING TEAMS DISABLED, VALVE BROKE COURIERS AND QUICK BUY'}`);
+  Game.PlayerJoinTeam(DOTATeam_t.DOTA_TEAM_NOTEAM);
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -53,9 +52,6 @@ function OnLockAndStartPressed () {
 
   // Set the remaining time before the game starts
   Game.SetRemainingSetupTime(4);
-
-  // $.GetContextPanel().SetHasClass('teams_locked', true); // essential until Valve fixes it
-  // $.GetContextPanel().SetHasClass('teams_unlocked', false); // essential until Valve fixes it
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -63,13 +59,10 @@ function OnLockAndStartPressed () {
 // --------------------------------------------------------------------------------------------------
 function OnCancelAndUnlockPressed () {
   // Unlock the team selection, allowing the players to change teams again
-  Game.SetTeamSelectionLocked(false); // essential to be disabled until Valve fixes it
+  Game.SetTeamSelectionLocked(false);
 
   // Stop the countdown timer
   Game.SetRemainingSetupTime(-1);
-
-  // $.GetContextPanel().SetHasClass('teams_locked', false); // essential until Valve fixes it
-  // $.GetContextPanel().SetHasClass('teams_unlocked', true); // essential until Valve fixes it
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -82,8 +75,7 @@ function OnAutoAssignPressed () {
     return;
   }
 
-  Game.AutoAssignPlayersToTeams(); // essential to be disabled until Valve fixes it
-  // Game.ServerCmd(`say ${'AUTO ASSIGN DISABLED, VALVE BROKE COURIERS AND QUICK BUY'}`);
+  Game.AutoAssignPlayersToTeams();
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -98,8 +90,7 @@ function OnShufflePlayersPressed () {
     return;
   }
 
-  Game.ShufflePlayerTeamAssignments(); // essential to be disabled until Valve fixes it
-  // Game.ServerCmd(`say ${'SHUFFLE DISABLED, VALVE BROKE COURIERS AND QUICK BUY'}`);
+  Game.ShufflePlayerTeamAssignments();
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -264,7 +255,6 @@ function OnPlayerSelectedTeam (nPlayerId, nTeamId, bSuccess) {
       Game.EmitSound('ui_team_select_pick_team_failed');
     }
   }
-  // Game.ServerCmd(`say ${'CHANGING TEAMS DISABLED, VALVE BROKE COURIERS AND QUICK BUY'}`);
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -305,8 +295,8 @@ function UpdateTimer () {
   $('#StartGameCountdownTimer').SetHasClass('forced_start', (autoLaunch === false));
 
   // Allow the ui to update its state based on team selection being locked or unlocked
-  $.GetContextPanel().SetHasClass('teams_locked', Game.GetTeamSelectionLocked()); // essential to be commented out until Valve fixes it
-  $.GetContextPanel().SetHasClass('teams_unlocked', Game.GetTeamSelectionLocked() === false); // essential to be commented out until Valve fixes it
+  $.GetContextPanel().SetHasClass('teams_locked', Game.GetTeamSelectionLocked());
+  $.GetContextPanel().SetHasClass('teams_unlocked', Game.GetTeamSelectionLocked() === false);
 
   $.Schedule(0.1, UpdateTimer);
 }
@@ -351,8 +341,7 @@ function MMRShuffle () {
   if (!IsHost) {
     return;
   }
-  GameEvents.SendCustomGameEventToServer('mmrShuffle', { shuffle: true }); // essential to be disabled until Valve fixes it
-  // Game.ServerCmd(`say ${'SHUFFLE DISABLED, VALVE BROKE COURIERS AND QUICK BUY'}`);
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', { shuffle: true });
 }
 
 function hostTitle () {
@@ -523,9 +512,4 @@ function onFocus (name) {
   handleOAASettingsChange(null, 'player_mmr', CustomNetTables.GetTableValue('oaa_settings', 'player_mmr'));
 
   GameEvents.SendCustomGameEventToServer('updateAverageMMR', {});
-
-  // Game.SetTeamSelectionLocked(true); // essential until Valve fixes it
-  // Game.SetRemainingSetupTime(60); // temporary until Valve fixes it
-  // $.GetContextPanel().SetHasClass('teams_locked', false); // essential until Valve fixes it
-  // $.GetContextPanel().SetHasClass('teams_unlocked', true); // essential until Valve fixes it
 }());

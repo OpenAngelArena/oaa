@@ -61,7 +61,7 @@
       "bonus_armor"
       {
         "value"                                           "15 20 25 30 35"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "attack_interval"                                   "1.1"
       "base_damage_percent"
@@ -76,10 +76,9 @@
       }
       "duration"
       {
-        "value"                                           "13"
-        "special_bonus_facet_monkey_king_wukongs_faithful"  "+3.0"
+        "value"                                           "14"
+        "special_bonus_facet_monkey_king_wukongs_faithful"  "+2.0"
       }
-      "cast_range_tooltip"                                "625"
       "ring_spawn_interval"                               "0.7"
       "AbilityCooldown"
       {
