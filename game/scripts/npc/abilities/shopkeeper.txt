@@ -22,18 +22,17 @@
 		{
             "AbilityChargeRestoreTime"
             {
-                "value"                                 "28 24 20 16"
+                "value"                                 "28 24 20 16 12 8"
                 "special_bonus_unique_shopkeeper_1"     "-3"
             }
             "radius"                                    "250"
 
             "heal"
             {
-                "value"                                 "160 220 280 340"
+                "value"                                 "160 220 280 340 400 460"
                 "special_bonus_unique_shopkeeper_4"     "+150"
             }
-            "slow_movement_speed"                       "-22 -26 -30 -34"
-            "bonus_movement_speed"                      "22 26 30 34"
+            "bonus_movement_speed"                      "22 26 30 34 38 42"
             "duration"                                  "5"
             "projectile_speed"                          "1400"
 		}
@@ -48,7 +47,7 @@
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-        "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
         "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
         "AbilityTextureName"                                  "custom/shopkeeper_hakoware"
@@ -73,7 +72,7 @@
         {
             "AbilityCooldown"                                   "20 18 16 14 12 10"
             "duration"                                          "5"
-            "interest_rate"                                     "0.1 0.2 0.3 0.4 0.5 0.6"
+            "interest_rate"                                     "10 20 30 40 50 60"
             "gold_percentage"                                   "10"
             "mute_duration"
             {
@@ -104,14 +103,19 @@
         "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-        "AbilityManaCost"               "100 110 120 130"
-		"AbilityCooldown"				"27 24 21 18"
+        "AbilityManaCost"               "100 110 120 130 140 150"
+		"AbilityCooldown"				"27 24 21 18 15 12"
         "AbilityCastPoint"              "1"
 		"AbilityValues"
 		{
-            "radius"                    "700 800 900 1000"
-            "duration"                  "1.8 2.4 3 3.6"
-            "damage"                    "90 180 270 360"
+            "radius"                    "700 800 900 1000 1100 1200"
+            "duration"                  "1.8 2.4 3 3.6 4.2 4.8"
+            "damage"                    "90 180 270 360 450 540"
+            "affects_non_heroes"
+            {
+                "value"                             "0"
+                "special_bonus_unique_shopkeeper_9"  "=1"
+            }
 		}
     }
 
@@ -131,7 +135,6 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityCastPoint"			    "0.4"
         "AbilityCastRange"              "700"
-        "AbilityCastRange"              "700"
         "AbilityGoldCost"               "100%"  // Percent of Shopkeeper's net worth
         "AbilityValues"
         {
@@ -142,12 +145,11 @@
             }
             "duration"
             {
-                "value"                         "5 8 11 12 15"  // Duration scales from 5 to 15 seconds
-                "special_bonus_unique_shopkeeper_3" "+3"
+                "value"                         "5 8 11 14 18"  // Duration scales from 5 to 18 seconds
             }
             "conversion_rate"
             {
-                "value"                         "0.10 0.12 0.14 0.16 0.18"  // Gold to shield conversion scales for 5 levels
+                "value"                         "10 12 14 16 18"  // Gold to shield conversion scales for 5 levels
             }
             "shield_max_value"
             {
@@ -204,7 +206,7 @@
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"MaxLevel"						"1"
+		"MaxLevel"						"6"
 		"Innate"						"1"
         "DependentOnAbility"			"shopkeeper_all_in"
 		"AbilityValues"
@@ -219,27 +221,12 @@
             }
             "distance_damage"
             {
-                "value"                                 "10 35 60 100 150"
+                "value"                                 "10 35 60 100 150 200"
                 "special_bonus_unique_shopkeeper_7"     "+150"
             }
             "distance"                 "520"
 		}
     }
-
-    "special_bonus_cast_range_400"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "600"
-			}
-		}
-	}
 
     "special_bonus_unique_shopkeeper_1"
 	{
@@ -292,7 +279,14 @@
 
     "special_bonus_unique_shopkeeper_8"
 	{
-        "BaseClass"						"special_bonus_base"														
+        "BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+    "special_bonus_unique_shopkeeper_9"
+	{
+        "BaseClass"						"special_bonus_base"
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}

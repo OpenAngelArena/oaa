@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_shopkeeper_ability_innate", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shopkeeper_ability_innate_shop_buff", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_ability_innate = class({})
+shopkeeper_ability_innate = class(AbilityBaseClass)
 
 function shopkeeper_ability_innate:Precache(context)
     PrecacheResource("particle", "particles/blink/blink_dagger_end.vpcf", context)
@@ -72,7 +72,7 @@ function shopkeeper_ability_innate:GetIntrinsicModifierName()
     return "modifier_shopkeeper_ability_innate"
 end
 
-modifier_shopkeeper_ability_innate = class({})
+modifier_shopkeeper_ability_innate = class(ModifierBaseClass)
 function modifier_shopkeeper_ability_innate:IsHidden() return true end
 function modifier_shopkeeper_ability_innate:IsPurgable() return false end
 function modifier_shopkeeper_ability_innate:IsPurgeException() return false end
@@ -246,6 +246,7 @@ function modifier_shopkeeper_ability_innate:OnAttackLanded(params)
     if self.ranged_attacks[params.record] then
         params.target:EmitSound("Hero_Invoker.ProjectileImpact")
         params.target:EmitSound("ShopKeeper.Hero_sound_15")
+        self.ranged_attacks[params.record] = nil
     end
 end
 
@@ -265,7 +266,7 @@ function modifier_shopkeeper_ability_innate:GetModifierProjectileName()
     end
 end
 
-modifier_shopkeeper_ability_innate_shop_buff = class({})
+modifier_shopkeeper_ability_innate_shop_buff = class(ModifierBaseClass)
 function modifier_shopkeeper_ability_innate_shop_buff:IsPurgable() return false end
 function modifier_shopkeeper_ability_innate_shop_buff:IsPurgeException() return false end
 function modifier_shopkeeper_ability_innate_shop_buff:IsHidden() return true end
@@ -309,7 +310,6 @@ function modifier_shopkeeper_ability_innate_shop_buff:OnIntervalThink()
     end
     if self.trigger and not self.trigger:IsNull() then
         self.trigger:SetAbsOrigin(self:GetParent():GetAbsOrigin())
-        local distance = (self:GetParent():GetAbsOrigin() - self.trigger:GetAbsOrigin()):Length2D()
     end
     self:StartIntervalThink(FrameTime())
 end

@@ -1,7 +1,7 @@
 -- Link the new modifier
 LinkLuaModifier("modifier_shopkeeper_all_in_shield", "abilities/shopkeeper/shopkeeper_all_in", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_all_in = class({})
+shopkeeper_all_in = class(AbilityBaseClass)
 
 function shopkeeper_all_in:OnSpellStart()
     local caster = self:GetCaster()
@@ -15,7 +15,7 @@ function shopkeeper_all_in:OnSpellStart()
     target:Purge(true, true, false, true, true)
 
     -- Get scaling values from the KV
-    local conversion_rate = self:GetSpecialValueFor("conversion_rate")
+    local conversion_rate = self:GetSpecialValueFor("conversion_rate") / 100
     local shield_max_value = self:GetSpecialValueFor("shield_max_value")
     local shield_value = math.floor(gold_cost * conversion_rate)
     shield_value = math.min(shield_value, shield_max_value)
@@ -31,12 +31,12 @@ function shopkeeper_all_in:OnSpellStart()
 end
 
 
-modifier_shopkeeper_all_in_shield = class({})
+modifier_shopkeeper_all_in_shield = class(ModifierBaseClass)
 
 function modifier_shopkeeper_all_in_shield:IsHidden() return false end
 function modifier_shopkeeper_all_in_shield:IsDebuff() return false end
 function modifier_shopkeeper_all_in_shield:IsPurgable() return false end
-function modifier_shopkeeper_all_in_shield:IsPermanent() return true end
+function modifier_shopkeeper_all_in_shield:IsPermanent() return false end
 
 -- This modifier provides a damage shield and debuff immunity
 function modifier_shopkeeper_all_in_shield:CheckState()
