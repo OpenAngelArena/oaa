@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_shopkeeper_ability_1_debuff", "abilities/shopkeeper/shopkeeper_ability_1", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shopkeeper_ability_1_buff", "abilities/shopkeeper/shopkeeper_ability_1", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_ability_1 = class({})
+shopkeeper_ability_1 = class(AbilityBaseClass)
 
 function shopkeeper_ability_1:Precache(context)
     PrecacheResource("particle", "particles/hero/shopkeeper/bottle_throw_oaa.vpcf", context)
@@ -93,7 +93,7 @@ function shopkeeper_ability_1:OnProjectileHit_ExtraData(htarget, vLocation, tabl
     end
 end
 
-modifier_shopkeeper_ability_1_buff = class({})
+modifier_shopkeeper_ability_1_buff = class(ModifierBaseClass)
 
 function modifier_shopkeeper_ability_1_buff:OnCreated()
     self.bonus_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed")

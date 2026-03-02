@@ -2,7 +2,7 @@
 LinkLuaModifier("modifier_shopkeeper_hakoware_debt", "abilities/shopkeeper/shopkeeper_hakoware", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shopkeeper_hakoware_item_mute", "abilities/shopkeeper/shopkeeper_hakoware", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_hakoware = class({})
+shopkeeper_hakoware = class(AbilityBaseClass)
 
 function shopkeeper_hakoware:OnSpellStart()
     if not IsServer() then return end
@@ -28,7 +28,7 @@ function shopkeeper_hakoware:OnSpellStart()
     EmitSoundOn("Hero_Alchemist.ChemicalRage.Start", target)
 end
 
-modifier_shopkeeper_hakoware_debt = class({})
+modifier_shopkeeper_hakoware_debt = class(ModifierBaseClass)
 
 function modifier_shopkeeper_hakoware_debt:IsHidden() return false end
 function modifier_shopkeeper_hakoware_debt:IsDebuff() return true end
@@ -58,7 +58,7 @@ function modifier_shopkeeper_hakoware_debt:OnCreated(kv)
     if not IsServer() then return end
 
     self.debt = kv.loan_amount or 0
-    self.interest_rate = self:GetAbility():GetSpecialValueFor("interest_rate")
+    self.interest_rate = self:GetAbility():GetSpecialValueFor("interest_rate") / 100
     self:StartIntervalThink(1.0)
 
     -- Set the initial debt as the stack count
@@ -157,7 +157,7 @@ if IsServer() then
 end
 
 -- Mute Modifier for Item Use
-modifier_shopkeeper_hakoware_item_mute = class({})
+modifier_shopkeeper_hakoware_item_mute = class(ModifierBaseClass)
 
 function modifier_shopkeeper_hakoware_item_mute:IsHidden() return false end
 function modifier_shopkeeper_hakoware_item_mute:IsDebuff() return true end

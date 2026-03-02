@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_shopkeeper_ability_3_debuff", "abilities/shopkeeper/shopkeeper_ability_3", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_ability_3 = class({})
+shopkeeper_ability_3 = class(AbilityBaseClass)
 
 function shopkeeper_ability_3:Precache(context)
     PrecacheResource("particle", "particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", context)
@@ -89,11 +89,11 @@ function shopkeeper_ability_3:OnSpellStart()
     local damage = self:GetSpecialValueFor("damage")
 
     local units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-    local has_talent_5 = self:GetCaster():FindAbilityByName("special_bonus_unique_shopkeeper_5") and self:GetCaster():FindAbilityByName("special_bonus_unique_shopkeeper_5"):GetLevel() > 0
+    local affects_non_heroes = self:GetSpecialValueFor("affects_non_heroes") ~= 0
 
     for _, unit in pairs(units) do
         if unit ~= self:GetCaster() then
-            if unit:IsHero() or has_talent_5 then
+            if unit:IsHero() or affects_non_heroes then
                 local buff_duration = duration
                 if unit:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
                     buff_duration = buff_duration * (1-unit:GetStatusResistance())
@@ -116,7 +116,7 @@ function shopkeeper_ability_3:OnSpellStart()
     end
 end
 
-modifier_shopkeeper_ability_3_debuff = class({})
+modifier_shopkeeper_ability_3_debuff = class(ModifierBaseClass)
 function modifier_shopkeeper_ability_3_debuff:IsPurgable() return false end
 function modifier_shopkeeper_ability_3_debuff:IsPurgeException() return false end
 function modifier_shopkeeper_ability_3_debuff:OnCreated()
@@ -192,7 +192,6 @@ end
 
 function modifier_shopkeeper_ability_3_debuff:GetModifierModelChange()
     if self:GetParent():IsDebuffImmune() then
-        print(self:GetParent():GetModelName())
         return self:GetParent():GetModelName()
     end
     return self.model

@@ -1,12 +1,12 @@
 LinkLuaModifier("modifier_shopkeeper_ability_shard", "abilities/shopkeeper/shopkeeper_ability_shard", LUA_MODIFIER_MOTION_NONE)
 
-shopkeeper_ability_shard = class({})
+shopkeeper_ability_shard = class(AbilityBaseClass)
 
 function shopkeeper_ability_shard:GetIntrinsicModifierName()
     return "modifier_shopkeeper_ability_shard"
 end
 
-modifier_shopkeeper_ability_shard = class({})
+modifier_shopkeeper_ability_shard = class(ModifierBaseClass)
 
 -- Blacklist of items that should NOT trigger the cooldown reduction
 -- Add item names here to exclude them (e.g., consumables, TPs)
