@@ -38,7 +38,7 @@
       "transform_duration"                                "0.35"
       "base_damage_pct"                                   "100" // this kv does nothing atm
       "modelscale"                                        "30"
-      "bonus_damage"                                      "70 85 100 115 130" //OAA
+      "bonus_damage"                                      "10 20 30 40 50" //OAA
       "spell_lifesteal"
       {
         "special_bonus_shard"                             "30"
@@ -54,7 +54,7 @@
         "RequiresShard"                                   "1"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_penalty"                                    "50 45 40 35 30" //OAA
+      "damage_penalty"                                    "38 36 34 32 30" //OAA
       "damage_penalty_bosses"                             "50" //OAA
     }
   }

@@ -32,9 +32,9 @@
       }
       "counter_duration"                                  "10"
       "lone_druid_counters_applied_tooltip"               "1"
-      "hits_required"
+      "hits_required" //OAA, intentional nerf
       {
-        "value"                                           "5"
+        "value"                                           "6"
       }
       "hits_incremented_on_active"
       {

@@ -42,10 +42,10 @@
       {
         "value"                                           "30 55 80 85 90"
       }
-      "illusion_damage_incoming"                          "100"
-      "tooltip_illusion_total_damage_incoming"
+      "illusion_damage_incoming"                          "100 90 80 70 60" //OAA
+      "tooltip_illusion_total_damage_incoming" //OAA
       {
-        "value"                                           "200"
+        "value"                                           "200 190 180 170 160"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
