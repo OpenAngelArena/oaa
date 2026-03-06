@@ -1,0 +1,247 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 10
+	m_flCullRadius = -1.000000
+	m_flConstantRadius = 48.000000
+	m_bShouldSort = false
+	m_bScreenSpaceEffect = true
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderSprites"
+			m_flAnimationRate = 0.350000
+			m_bRefract = true
+			m_flRefractAmount = 0.800000
+			m_nRefractBlurType = "BLURFILTER_BOX"
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/glass_crack.vtex"
+				},
+			]
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_Decay"
+		},
+		
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.150000
+		},
+		
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartTime = 0.800000
+			m_flEndScale = 0.000000
+			m_flBias = 0.100000
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_CreateSequentialPathV2"
+			m_bCPPairs = true
+			m_flNumToAssign = 7.000000
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 7
+				m_nStartControlPointNumber = 2
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.650000
+				m_flRandomMax = 1.200000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 1
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_BIASED"
+				m_flRandomMin = 50.000000
+				m_flRandomMax = 80.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_nBiasType = "PF_BIAS_TYPE_EXPONENTIAL"
+				m_flBiasParameter = -0.052632
+			}
+		},
+		
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = 
+			[
+				151,
+				151,
+				151,
+				255,
+			]
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 90.000000
+				m_flRandomMax = 135.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
+		},
+		
+		{
+			_class = "C_INIT_RandomSequence"
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 6.000000
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.000000
+				m_flRandomMax = 1.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flMultFactor = 1.000000
+				m_flInput0 = 0.000000
+				m_flInput1 = 1.000000
+				m_flOutput0 = 0.000000
+				m_flOutput1 = 1.000000
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.000000
+				m_Curve = 
+				{
+					m_spline = 
+					[
+					]
+					m_tangents = 
+					[
+					]
+					m_vDomainMins = 
+					[
+						0.000000,
+						0.000000,
+					]
+					m_vDomainMaxs = 
+					[
+						0.000000,
+						0.000000,
+					]
+				}
+			}
+		},
+	]
+	m_flConstantLifespan = 6.000000
+	m_PreEmissionOperators = 
+	[
+		
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_bUseWorldLocation = true
+			m_vecCP4Pos = 
+			[
+				90.000000,
+				-90.000000,
+				10.000000,
+			]
+			m_nCP4 = 5
+			m_vecCP3Pos = 
+			[
+				90.000000,
+				90.000000,
+				10.000000,
+			]
+			m_nCP3 = 4
+			m_vecCP2Pos = 
+			[
+				-90.000000,
+				90.000000,
+				10.000000,
+			]
+			m_nCP2 = 3
+			m_vecCP1Pos = 
+			[
+				-90.000000,
+				-90.000000,
+				10.000000,
+			]
+			m_nCP1 = 2
+			m_flOpEndFadeOutTime = 0.100000
+			m_flOpStartFadeOutTime = 0.100000
+		},
+		
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_bUseWorldLocation = true
+			m_nCP4 = 7
+			m_vecCP3Pos = 
+			[
+				-90.000000,
+				-90.000000,
+				10.000000,
+			]
+			m_nCP3 = 7
+			m_vecCP2Pos = 
+			[
+				-90.000000,
+				-90.000000,
+				10.000000,
+			]
+			m_nCP2 = 7
+			m_vecCP1Pos = 
+			[
+				-90.000000,
+				-90.000000,
+				10.000000,
+			]
+			m_nCP1 = 6
+			m_flOpEndFadeOutTime = 0.100000
+			m_flOpStartFadeOutTime = 0.100000
+		},
+	]
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+		},
+	]
+	m_Children = 
+	[
+		
+		{
+			m_ChildRef = resource:"particles/hero/shopkeeper/shopkeeper_ui_golda0.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/hero/shopkeeper/shopkeeper_ui_golda1.vpcf"
+		},
+	]
+}
