@@ -141,6 +141,7 @@ function modifier_bubble_witch_innate_buff_oaa:OnCreated(kv)
     self.dmg = ability:GetSpecialValueFor("base_dmg")
     self.radius = ability:GetSpecialValueFor("explode_dmg_radius")
     self.immune_time = ability:GetSpecialValueFor("immune_time")
+    self.explode_on_caster = ability:GetSpecialValueFor("always_explode_on_owner")
   else
     self.dmg = 50
     self.radius = 675
@@ -214,6 +215,45 @@ if IsServer() then
       parent:EmitSound("Bubble_Witch.Bubble.Pop")
     else
       EmitSoundOnLocationWithCaster(parent_pos, "Bubble_Witch.Bubble.Pop", caster)
+    end
+
+    if self.explode_on_caster > 0 and parent ~= caster then
+      local caster_pos = caster:GetAbsOrigin()
+      local enemies_near_caster = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        caster_pos,
+        nil,
+        self.radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+        FIND_ANY_ORDER,
+        false
+      )
+
+      for _, enemy in pairs(enemies_near_caster) do
+        if enemy and not enemy:IsNull() then
+          if not enemy:HasModifier("modifier_bubble_witch_innate_immune_oaa") then
+            if self.immune_time > 0 then
+              enemy:AddNewModifier(enemy, nil, "modifier_bubble_witch_innate_immune_oaa", {duration = self.immune_time})
+            end
+            damage_table.victim = enemy
+            ApplyDamage(damage_table)
+          end
+        end
+      end
+
+      -- Bubble pop particle
+      local pfx = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
+      ParticleManager:SetParticleControl(pfx, 0, caster_pos)
+      ParticleManager:ReleaseParticleIndex(pfx)
+
+      -- Bubble pop sound
+      if caster:IsAlive() then
+        caster:EmitSound("Bubble_Witch.Bubble.Pop")
+      else
+        EmitSoundOnLocationWithCaster(caster_pos, "Bubble_Witch.Bubble.Pop", caster)
+      end
     end
   end
 end
