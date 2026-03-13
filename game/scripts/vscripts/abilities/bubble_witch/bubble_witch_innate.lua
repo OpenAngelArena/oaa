@@ -205,12 +205,12 @@ if IsServer() then
       end
     end
 
-    -- Bubble pop particle
+    -- Bubble pop particle on ally
     local pfx = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, parent)
     ParticleManager:SetParticleControl(pfx, 0, parent_pos)
     ParticleManager:ReleaseParticleIndex(pfx)
 
-    -- Bubble pop sound
+    -- Bubble pop sound on ally
     if parent:IsAlive() then
       parent:EmitSound("Bubble_Witch.Bubble.Pop")
     else
@@ -243,12 +243,12 @@ if IsServer() then
         end
       end
 
-      -- Bubble pop particle
-      local pfx = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
-      ParticleManager:SetParticleControl(pfx, 0, caster_pos)
-      ParticleManager:ReleaseParticleIndex(pfx)
+      -- Bubble pop particle on caster
+      local pfx2 = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
+      ParticleManager:SetParticleControl(pfx2, 0, caster_pos)
+      ParticleManager:ReleaseParticleIndex(pfx2)
 
-      -- Bubble pop sound
+      -- Bubble pop sound on caster
       if caster:IsAlive() then
         caster:EmitSound("Bubble_Witch.Bubble.Pop")
       else
