@@ -40,10 +40,10 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "special_bonus_unique_winter_wyvern_6"            "+3"
       }
-      "move_slow"
+      "move_slow" // OAA, because of special_bonus_unique_winter_wyvern_1 nerf
       {
         "value"                                           "16 24 32 40 45 50"
-        "special_bonus_unique_winter_wyvern_1"            "+17"
+        "special_bonus_unique_winter_wyvern_1"            "+10"
       }
       "projectile_speed_bonus"                            "500"
       "tree_destruction_radius"
