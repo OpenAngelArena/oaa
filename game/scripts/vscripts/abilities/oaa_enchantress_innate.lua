@@ -13,7 +13,7 @@ end
 modifier_enchantress_innate_oaa = class(ModifierBaseClass)
 
 function modifier_enchantress_innate_oaa:IsHidden()
-  return true
+  return self:GetStackCount() == 0
 end
 
 function modifier_enchantress_innate_oaa:IsDebuff()
@@ -46,14 +46,36 @@ function modifier_enchantress_innate_oaa:OnIntervalThink()
     return
   end
 
+  -- Stop thinking for illusions
+  if parent:IsIllusion() then
+    self:SetStackCount(0)
+    self:StartIntervalThink(-1)
+    return
+  end
+
+  local parent_team = parent:GetTeamNumber()
+  local parent_loc = parent:GetAbsOrigin()
+
   local enemies = FindUnitsInRadius(
-    parent:GetTeamNumber(),
-    parent:GetAbsOrigin(),
+    parent_team,
+    parent_loc,
     nil,
     self.radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  local allied_summons = FindUnitsInRadius(
+    parent_team,
+    parent_loc,
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
     FIND_ANY_ORDER,
     false
   )
@@ -68,7 +90,30 @@ function modifier_enchantress_innate_oaa:OnIntervalThink()
     end
   end
 
-  if near_neutrals then
+  local function CheckIfValid(unit)
+    if not unit or unit:IsNull() then
+      return false
+    end
+    if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+      return false
+    end
+    local name = unit:GetUnitName()
+    local valid_name = name ~= "npc_dota_custom_dummy_unit" and name ~= "npc_dota_elder_titan_ancestral_spirit" and name ~= "aghsfort_mars_bulwark_soldier" and name ~= "npc_dota_monkey_clone_oaa"
+    local not_thinker = not unit:HasModifier("modifier_oaa_thinker") and not unit:IsPhantomBlocker()
+    return not unit:IsCourier() and unit:HasMovementCapability() and not_thinker and valid_name -- and not unit:IsZombie()
+  end
+
+  local near_enchanted = false
+  for _, ally in pairs(allied_summons) do
+    if ally and not ally:IsNull() then
+      if CheckIfValid(ally) and ally:GetPlayerOwnerID() == parent:GetPlayerOwnerID() and ally ~= parent and not ally:IsIllusion() then
+        near_enchanted = true
+        break
+      end
+    end
+  end
+
+  if near_neutrals or near_enchanted then
     self:SetStackCount(-1)
   else
     self:SetStackCount(0)
