@@ -52,7 +52,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilityValues" // do not forget voodoo switcheroo if you change anything here
     {
       "damage"
       {
@@ -63,7 +63,7 @@
       }
       "attack_range_tooltip"
       {
-        "value"                                           "600"
+        "value"                                           "600" // if you change this, it needs to be changed on the unit npc_dota_witch_doctor_death_ward_oaa as well
         "special_bonus_unique_witch_doctor_1"             "+75"
       }
       "bonus_attack_range"

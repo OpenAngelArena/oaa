@@ -183,11 +183,11 @@ function modifier_death_ward_oaa:OnCreated()
 
   if IsServer() then
     -- Change Acquisition range if there is an attack range bonus
-    parent:SetAcquisitionRange(parent:GetAcquisitionRange() + attack_range_bonus)
+    --parent:SetAcquisitionRange(parent:GetAcquisitionRange() + attack_range_bonus)
 
     -- Change Night Vision
-    local night_vision = math.max(800, parent:GetAttackRange() + attack_range_bonus)
-    parent:SetNightTimeVisionRange(night_vision)
+    --local night_vision = math.max(800, parent:GetAttackRange() + attack_range_bonus)
+    --parent:SetNightTimeVisionRange(night_vision)
 
     -- Start attacking AI (which targets are allowed to be attacked)
     self:StartIntervalThink(0)
