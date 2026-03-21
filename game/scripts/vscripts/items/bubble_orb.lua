@@ -40,7 +40,7 @@ function item_bubble_orb_1:OnSpellStart()
     false
   )
   local knockback_table = {
-    should_stun = 1,
+    should_stun = 0,
     center_x = targetPoint.x,
     center_y = targetPoint.y,
     center_z = targetPoint.z,

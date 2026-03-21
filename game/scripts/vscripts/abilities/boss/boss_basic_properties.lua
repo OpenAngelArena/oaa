@@ -246,6 +246,11 @@ if IsServer() then
       jakiro_liquid_ice = inflictor:GetSpecialValueFor("pct_health_damage") == 0, -- Jakiro Liquid Ice
       pugna_nether_blast = true, -- Pugna Nether Blast
       shredder_flamethrower = true, -- Timbersaw Flamethrower
+      item_radiance = true,
+      item_radiance_2 = true,
+      item_radiance_3 = true,
+      item_radiance_4 = true,
+      item_radiance_5 = true,
     }
     if bonusBossDamageSpells[name] then
       local ability = attacker:FindAbilityByName(name)

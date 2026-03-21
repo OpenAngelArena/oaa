@@ -31,7 +31,7 @@ if not BossProtectionFilter then
     lone_druid_savage_roar_bear = true,
     magnataur_reverse_polarity = true, -- pierces bkb
     magnataur_skewer = true, -- to prevent weird interactions
-    medusa_stone_gaze = true, -- pierces bkb
+    --medusa_stone_gaze = true, -- pierces bkb (not in OAA)
     naga_siren_ensnare = true, -- pierces bkb with scepter
     naga_siren_song_of_the_siren = true, -- applied constantly in aoe
     night_stalker_crippling_fear = true, -- applied constantly in aoe
@@ -51,13 +51,11 @@ if not BossProtectionFilter then
     spirit_breaker_charge_of_darkness = true, -- pierces bkb
     spirit_breaker_greater_bash = true, -- pierces bkb
     spirit_breaker_nether_strike = true, -- pierces bkb
-    storm_spirit_electric_vortex = true,
     tiny_toss = true, -- to prevent weird interactions
     treant_overgrowth = true, -- pierces bkb
     troll_warlord_berserkers_rage = true, -- pierces bkb
     tusk_walrus_kick = true, -- pierces bkb
     tusk_walrus_punch = true, -- pierces bkb
-    vengefulspirit_nether_swap = true, -- pierces bkb
     venomancer_latent_poison = true, -- pierces bkb
     warlock_rain_of_chaos = true, -- pierces bkb
     winter_wyvern_winters_curse = true, -- pierces bkb
@@ -81,8 +79,6 @@ if not BossProtectionFilter then
     item_bloodthorn_3 = true,
     item_bloodthorn_4 = true,
     item_bloodthorn_5 = true,
-    item_bubble_orb_1 = true, -- pierces bkb
-    item_bubble_orb_2 = true, -- pierces bkb
     item_orchid = true,
     item_sheepstick = true,
     item_sheepstick_2 = true,
@@ -100,17 +96,19 @@ if not BossProtectionFilter then
   }
 
   BossProtectionFilter.ModifierBlockAlwaysList = {
-    modifier_bane_enfeeble_effect = true,
+    modifier_bane_enfeeble_effect = true, -- cast range reduction
     modifier_brewmaster_fear = true, -- fear
+    modifier_dark_willow_debuff_fear = true, -- fear
     modifier_death_prophet_spirit_siphon_fear = true, -- fear
-    modifier_faceless_void_time_zone_effect = true,
-    modifier_medusa_venomed_volley_slow = true,
+    modifier_faceless_void_time_zone_effect = true, -- cast speed reduction
+    modifier_lone_druid_savage_roar = true, -- fear
+    --modifier_medusa_venomed_volley_slow = true, -- cast speed reduction
     modifier_muerta_dead_shot_fear = true, -- fear
     modifier_nevermore_requiem_fear = true, -- fear
-    modifier_ringmaster_tame_the_beasts_fear = true, -- fear
     modifier_queenofpain_scream_of_pain_fear = true, -- fear
+    modifier_ringmaster_tame_the_beasts_fear = true, -- fear
     modifier_terrorblade_fear = true, -- fear
-    modifier_tinker_warp_grenade = true,
+    modifier_tinker_warp_grenade = true, -- cast range reduction
   }
 end
 
