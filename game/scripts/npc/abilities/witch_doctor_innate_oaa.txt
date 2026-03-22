@@ -13,14 +13,15 @@
     "IsBreakable"                                         "1"
 
     "Innate"                                              "1"
-    "MaxLevel"                                            "1"
+    "DependentOnAbility"                                  "witch_doctor_death_ward_oaa"
+    "MaxLevel"                                            "6" // same as Dependent ability + 1
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_prevent_percent"                              "-13" // reduces only healing
-      "health_restoration"                                "-13" // reduces everything else
+      "heal_prevent_percent"                              "-10 -11 -12 -13 -14 -15" // reduces only healing
+      "health_restoration"                                "-10 -11 -12 -13 -14 -15" // reduces everything else
       "duration"                                          "3"
     }
   }

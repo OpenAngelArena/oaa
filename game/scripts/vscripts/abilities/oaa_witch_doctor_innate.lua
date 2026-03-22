@@ -47,6 +47,11 @@ if IsServer() then
     local damaged_unit = event.unit
     -- local inflictor = event.inflictor
 
+    -- Check if parent is affected by break
+    if parent:PassivesDisabled() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -134,11 +139,10 @@ function modifier_witch_doctor_innate_oaa_effect:IsPurgable()
 end
 
 function modifier_witch_doctor_innate_oaa_effect:OnCreated()
+  self.heal_prevent_percent = -10
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-  else
-    self.heal_prevent_percent = -15
   end
 end
 
