@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Static Remnant
+  // Storm Spirit: Static Remnant
   //=================================================================================================================
   "storm_spirit_static_remnant"
   {
@@ -50,7 +50,7 @@
       }
       "static_remnant_damage" //OAA
       {
-        "value"                                           "100 160 220 280 560 1120"
+        "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_storm_spirit_5"             "+80"
       }
       "is_point_targeted"
