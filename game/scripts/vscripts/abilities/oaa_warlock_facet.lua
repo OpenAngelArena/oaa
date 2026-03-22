@@ -58,7 +58,7 @@ if IsServer() then
   function modifier_warlock_facet_oaa:GetModifierIgnoreCastAngle()
     local parent = self:GetParent()
     local current_ability = parent:GetCurrentActiveAbility()
-    if (current_ability and current_ability:IsChanneling()) or parent:IsChanneling() then
+    if ((current_ability and current_ability:IsChanneling()) or parent:IsChanneling()) and not parent:PassivesDisabled() then
       return 1
     end
   end
@@ -66,6 +66,10 @@ if IsServer() then
   function modifier_warlock_facet_oaa:GetModifierTotal_ConstantBlock(event)
     local attacker = event.attacker
     local parent = self:GetParent()
+
+    if parent:PassivesDisabled() then
+      return 0
+    end
 
     if not attacker or attacker:IsNull() then
       return 0
@@ -89,6 +93,9 @@ if IsServer() then
 end
 
 function modifier_warlock_facet_oaa:CheckState()
+  if self:GetParent():PassivesDisabled() then
+    return {}
+  end
   return {
     [MODIFIER_STATE_CASTS_IGNORE_CHANNELING] = true,
   }
