@@ -95,7 +95,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
       if hasScepter then
-        local actual_root_duration = enemy:GetValueChangedByStatusResistance(root_duration)
+        local actual_root_duration = enemy:GetValueChangedByStatusResistance(root_duration, caster)
         enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_root", {duration = actual_root_duration})
       end
     end

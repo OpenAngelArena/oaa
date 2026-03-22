@@ -213,7 +213,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
     local ministun_duration = self.ability:GetSpecialValueFor("ministun_duration")
 
     -- Keep status resistance in mind
-    ministun_duration = target:GetValueChangedByStatusResistance(ministun_duration)
+    ministun_duration = target:GetValueChangedByStatusResistance(ministun_duration, caster)
 
     -- Lightning Bolt damage
     local lightning_bolt_dmg = lightning_bolt_ability:GetSpecialValueFor("damage")

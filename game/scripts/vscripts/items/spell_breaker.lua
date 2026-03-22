@@ -37,8 +37,8 @@ function item_spell_breaker_1:OnSpellStart()
   -- Sound
   target:EmitSound("n_creep_SatyrSoulstealer.ManaBurn")
 
-  local silence_duration = self:GetSpecialValueFor("silence_duration")
-  local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("debuff_duration"))
+  local silence_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("silence_duration"), caster, true)
+  local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("debuff_duration"), caster, true)
 
   -- Apply mini-silence
   target:AddNewModifier(caster, self, "modifier_item_spell_breaker_silence", {duration = silence_duration})

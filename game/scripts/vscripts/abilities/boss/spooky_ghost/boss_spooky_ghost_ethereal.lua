@@ -84,7 +84,7 @@ if IsServer() then
     end
 
     -- Apply debuff
-    local actual_duration = attacker:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("silence_duration"))
+    local actual_duration = attacker:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("silence_duration"), parent)
     attacker:AddNewModifier(parent, ability, "modifier_boss_spooky_ghost_silence_debuff", {duration = actual_duration})
   end
 end

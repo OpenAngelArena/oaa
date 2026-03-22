@@ -93,7 +93,7 @@ if IsServer() then
       end
 
       -- apply the stun modifier
-      duration = target:GetValueChangedByStatusResistance(duration)
+      duration = target:GetValueChangedByStatusResistance(duration, parent)
       target:AddNewModifier( parent, spell, "modifier_faceless_void_timelock_freeze", { duration = duration } )
       target:EmitSound( "Hero_FacelessVoid.TimeLockImpact" )
 
@@ -207,7 +207,7 @@ if IsServer() then
     end
 
     -- Duration with status resistance in mind
-    duration = target:GetValueChangedByStatusResistance(duration)
+    duration = target:GetValueChangedByStatusResistance(duration, parent)
 
     -- Apply built-in stun modifier
     target:AddNewModifier(parent, ability, "modifier_faceless_void_timelock_freeze", {duration = duration})

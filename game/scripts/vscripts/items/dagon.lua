@@ -72,7 +72,7 @@ function item_dagon_oaa_1:OnSpellStart()
 
   -- Add debuff
   if level > 5 then
-    local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("blind_duration"))
+    local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("blind_duration"), caster, true)
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = debuff_duration})
   end
 

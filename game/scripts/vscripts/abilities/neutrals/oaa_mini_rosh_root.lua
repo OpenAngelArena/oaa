@@ -107,7 +107,7 @@ if IsServer() then
       self:SetStackCount(0)
 
       -- Apply root
-      local actual_duration = target:GetValueChangedByStatusResistance(self.duration)
+      local actual_duration = target:GetValueChangedByStatusResistance(self.duration, attacker)
       target:AddNewModifier(attacker, self:GetAbility(), "modifier_mini_rosh_root_effect", {duration = actual_duration})
 
       -- Sound

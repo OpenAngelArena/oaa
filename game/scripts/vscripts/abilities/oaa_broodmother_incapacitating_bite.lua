@@ -50,7 +50,7 @@ function broodmother_incapacitating_bite_oaa:OnProjectileHit(target, location)
   local max_hp_damage_percent = self:GetSpecialValueFor("max_hp_percent_dmg")
 
   -- Calculate duration (duration is affected by status resistance)
-  local debuff_duration = target:GetValueChangedByStatusResistance(duration)
+  local debuff_duration = target:GetValueChangedByStatusResistance(duration, caster)
 
   -- Apply debuff
   target:AddNewModifier(caster, self, "modifier_broodmother_incapacitating_bite_debuff_oaa", {duration = debuff_duration})

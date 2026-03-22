@@ -245,7 +245,7 @@ if IsServer() then
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
     -- Duration is reduced with Status Resistance
-    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
+    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration, caster)
 
     -- Apply stun debuff
     unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_strike_stun", {duration = stun_duration})

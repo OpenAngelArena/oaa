@@ -198,7 +198,7 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   -- Find all enemies and apply effects of the spell: stun them and damage them
   for _, unit in pairs(units_in_portal) do
     -- Status Resistance Fix
-    local actual_duration = unit:GetValueChangedByStatusResistance(stun_duration)
+    local actual_duration = unit:GetValueChangedByStatusResistance(stun_duration, caster)
     unit:AddNewModifier(caster, self, "modifier_underlord_dark_rift_oaa_stun", {duration = actual_duration} )
     -- Apply damage
     damageTable.victim = unit

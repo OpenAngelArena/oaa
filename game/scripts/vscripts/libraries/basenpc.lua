@@ -16,16 +16,73 @@ if IsServer() then
     return false
   end
 
-  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value)
+  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, isItem)
     if self and value then
-      local reduction = self:GetStatusResistance()
+      local status_resist = self:GetStatusResistance()
+      local other_debuff_duration_decrease = 0
+      local debuff_amplifications = 0
+      if caster and not caster:IsNull() then
+        if caster:HasModifier("modifier_item_nether_core") and not isItem then
+          local nether_core_mod = caster:FindModifierByNameAndCaster("modifier_item_nether_core", caster)
+          if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
+            local nether_core_item = nether_core_mod:GetAbility()
+            if nether_core_item then
+              local duration_decrease = nether_core_item:GetSpecialValueFor("modifier_duration_decrease")
+              other_debuff_duration_decrease = 1 - (1 - duration_decrease / 100) * (1 - other_debuff_duration_decrease)
+            end
+          end
+        end
+        local ursa_debuff_amp = caster:FindAbilityByName("ursa_bear_down")
+        local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
+        local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
+        if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
+          if ursa_debuff_amp:GetLevel() > 0 then
+            local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
+            debuff_amplifications = (1 + debuff_amplifications) * (1 + bear_down_debuff_amp / 100) - 1
+          end
+        end
+        if lion_debuff_amp then
+          local to_hell_and_back_mod = caster:FindModifierByNameAndCaster("modifier_lion_to_hell_and_back_buff", caster)
+          if to_hell_and_back_mod then
+            local to_hell_and_back_ability = to_hell_and_back_mod:GetAbility()
+            if to_hell_and_back_ability and not to_hell_and_back_ability:IsNull() then
+              if to_hell_and_back_ability:GetLevel() > 0 then
+                local to_hell_and_back_debuff_amp = to_hell_and_back_ability:GetSpecialValueFor("debuff_amp")
+                debuff_amplifications = (1 + debuff_amplifications) * (1 + to_hell_and_back_debuff_amp / 100) - 1
+              end
+            end
+          end
+        end
+        if bristle_debuff_amp and not bristle_debuff_amp:IsNull() then
+          if bristle_debuff_amp:GetLevel() > 0 then
+            local prickly_debuff_amp = bristle_debuff_amp:GetSpecialValueFor("amp_pct")
+            local angle = bristle_debuff_amp:GetSpecialValueFor("angle")
+            -- The y value of the angles vector contains the angle we actually want: where units are directionally facing in the world.
+            local bristle_angle = caster:GetAnglesAsVector().y
+            local origin_difference = caster:GetAbsOrigin() - self:GetAbsOrigin()
+            -- Get the radian of the origin difference between the victim and Bristleback. We use this to figure out at what angle the victim is at relative to Bristleback.
+            local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
+            -- Convert the radian to degrees.
+            origin_difference_radian = origin_difference_radian * 180
+            local victim_angle = origin_difference_radian / math.pi
+            victim_angle = victim_angle + 180.0
+            -- Finally, get the angle at which Bristleback is facing the attacker.
+            local result_angle = victim_angle - bristle_angle
+            result_angle = math.abs(result_angle)
+            if result_angle >= (180 - (angle / 2)) and result_angle <= (180 + (angle / 2)) then
+              debuff_amplifications = (1 + debuff_amplifications) * (1 + prickly_debuff_amp / 100) - 1
+            end
+          end
+        end
+      end
 
       -- Capping max status resistance
-      if reduction >= 1 then
+      local new_value = value * (1 - status_resist) * (1 - other_debuff_duration_decrease) * (1 + debuff_amplifications)
+      if new_value <= 0.01 or status_resist >= 1 or other_debuff_duration_decrease >= 1 or debuff_amplifications < 0 then
         return value*0.01
       end
 
-      return value*(1-reduction)
+      return new_value
     end
   end
 
