@@ -25,8 +25,8 @@
       "speed"                                             "20 25 35"
       "debuff_duration"                                   "5.0 4.0 3.0" // debuff duration on charger when charger hits a pillar without striking a hero
       "hero_stun_duration"                                "2.0 2.75 3.5" // hero stun duration when charger drags a hero into a pillar
-      "hero_pillar_damage"                                "8000 9000 10000"
-      "glancing_damage"                                   "1000 1500 2000"
+      "hero_pillar_damage"                                "6000 8000 10000" // physical
+      "glancing_damage"                                   "1000 1500 2000" // physical
       "glancing_slow"                                     "-30 -40 -50"
       "glancing_duration"                                 "1 2 3"
       "glancing_width"                                    "200 250 300"
