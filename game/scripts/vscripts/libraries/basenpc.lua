@@ -16,11 +16,17 @@ if IsServer() then
     return false
   end
 
-  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, isItem)
+  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, ability)
     if self and value then
       local status_resist = self:GetStatusResistance()
       local other_debuff_duration_decrease = 0
       local debuff_amplifications = 0
+      local isItem = false
+      local isStolen = false
+      if ability and not ability:IsNull() then
+        isItem = ability:IsItem()
+        isStolen = ability:IsStolen()
+      end
       if caster and not caster:IsNull() then
         if caster:HasModifier("modifier_item_nether_core") and not isItem then
           local nether_core_mod = caster:FindModifierByNameAndCaster("modifier_item_nether_core", caster)
@@ -35,6 +41,7 @@ if IsServer() then
         local ursa_debuff_amp = caster:FindAbilityByName("ursa_bear_down")
         local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
         local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
+        local rubick_debuff_amp = caster:FindAbilityByName("rubick_spell_steal")
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
             local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
@@ -72,6 +79,12 @@ if IsServer() then
             if result_angle >= (180 - (angle / 2)) and result_angle <= (180 + (angle / 2)) then
               debuff_amplifications = (1 + debuff_amplifications) * (1 + prickly_debuff_amp / 100) - 1
             end
+          end
+        end
+        if rubick_debuff_amp and not rubick_debuff_amp:IsNull() then
+          if rubick_debuff_amp:GetLevel() > 0 and isStolen then
+            local spell_steal_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("stolen_debuff_amp")
+            debuff_amplifications = (1 + debuff_amplifications) * (1 + spell_steal_debuff_amp / 100) - 1
           end
         end
       end

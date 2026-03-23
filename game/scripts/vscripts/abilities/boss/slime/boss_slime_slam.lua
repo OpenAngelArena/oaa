@@ -111,7 +111,7 @@ function boss_slime_slam:OnSpellStart()
       knockbackModifierTable.center_x = point.x
       knockbackModifierTable.center_y = point.y
       knockbackModifierTable.center_z = point.z
-      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0, nil, nil)
       knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
       v:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )

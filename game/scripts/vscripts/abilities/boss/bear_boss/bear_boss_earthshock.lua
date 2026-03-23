@@ -86,7 +86,7 @@ function bear_boss_earthshock:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Knockback table variables
-      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5)
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5, nil, nil)
       knockback_table.duration = knockback_table.knockback_duration
       -- Apply knockback
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)

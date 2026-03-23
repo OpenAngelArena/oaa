@@ -219,7 +219,7 @@ function modifier_item_meteor_hammer_oaa_thinker:OnIntervalThink()
       -- Apply damage-over-time debuff (duration is not affected by status resistance)
       enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_oaa_dot", {duration = self.burn_duration})
       -- Apply stun debuff (duration is affected by status resistance)
-      local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration, caster, true)
+      local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration, caster, ability)
       enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_oaa_stun", {duration = stun_duration})
 
       -- Is the enemy a boss?

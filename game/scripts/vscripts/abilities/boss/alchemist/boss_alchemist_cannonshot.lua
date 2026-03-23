@@ -91,7 +91,7 @@ function boss_alchemist_cannonshot:Explode(explosive)
   for _, v in pairs(units) do
     if v and not v:IsNull() and not v:IsMagicImmune() and not v:IsDebuffImmune() then
       knockbackModifierTable.knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D()
-      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0, nil, nil)
       knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
       v:AddNewModifier( explosive, self, "modifier_knockback", knockbackModifierTable )

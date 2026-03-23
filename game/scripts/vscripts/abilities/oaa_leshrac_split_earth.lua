@@ -106,7 +106,7 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsInvulnerable() then
       -- Apply stun first
-      local duration = enemy:GetValueChangedByStatusResistance(stun_duration, caster)
+      local duration = enemy:GetValueChangedByStatusResistance(stun_duration, caster, ability)
       enemy:AddNewModifier(caster, ability, "modifier_leshrac_split_earth_oaa_debuff", {duration = duration})
 
       -- Apply damage

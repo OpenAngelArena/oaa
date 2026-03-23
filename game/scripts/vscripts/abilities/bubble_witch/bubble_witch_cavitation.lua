@@ -11,10 +11,8 @@ function bubble_witch_cavitation:OnSpellStart()
     return
   end
 
-  local duration = self:GetSpecialValueFor("debuff_duration")
-
   -- Duration is reduced with Status Resistance
-  duration = target:GetValueChangedByStatusResistance(duration, caster)
+  local duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("debuff_duration"), caster, self)
 
   -- Bubble Form Sound
   target:EmitSound("Bubble_Witch.Bubble_Snare.Target")

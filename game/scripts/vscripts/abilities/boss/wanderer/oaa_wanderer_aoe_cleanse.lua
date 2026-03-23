@@ -98,7 +98,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
       -- Purge - Offensive Basic Dispel - removes buffs
       enemy:Purge(true, false, false, false, false)
       -- Knockback table variables
-      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0)
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0, nil, nil)
       knockback_table.duration = knockback_table.knockback_duration
       -- Apply knockback
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)

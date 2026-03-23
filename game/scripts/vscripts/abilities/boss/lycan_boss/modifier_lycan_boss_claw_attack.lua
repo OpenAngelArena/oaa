@@ -139,7 +139,7 @@ function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
 
     if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Stun first
-      local actual_duration = enemy:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("stun_duration"), parent)
+      local actual_duration = enemy:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("stun_duration"), nil, nil)
       enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = actual_duration})
 
       -- Damage table

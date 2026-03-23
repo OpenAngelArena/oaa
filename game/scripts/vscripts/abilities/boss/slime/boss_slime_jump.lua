@@ -109,7 +109,7 @@ function boss_slime_jump:OnSpellStart()
       local units = self:FindTargets(point)
 
       for _, v in pairs(units) do
-        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0, nil, nil)
         knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
         v:AddNewModifier(caster, self, "modifier_knockback", knockbackModifierTable)

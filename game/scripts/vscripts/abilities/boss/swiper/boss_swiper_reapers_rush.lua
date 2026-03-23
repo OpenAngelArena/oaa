@@ -282,7 +282,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 
       if not v:IsMagicImmune() and not v:IsDebuffImmune() then
         knockbackModifierTable.knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D()
-        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0, nil, nil)
         knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
         v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )

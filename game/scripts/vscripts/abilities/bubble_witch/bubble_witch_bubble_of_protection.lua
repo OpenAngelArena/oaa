@@ -42,14 +42,12 @@ function bubble_witch_bubble_of_protection:OnSpellStart()
       center_z = target_pos.z,
       knockback_distance = radius + 100,
       knockback_height = 25,
-      knockback_duration = 0.1,
-      duration = 0.1,
     }
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() then
         --knockback_table.knockback_distance = radius - (target_pos - enemy:GetAbsOrigin()):Length2D()
-        --knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1)
-        --knockback_table.duration = knockback_table.knockback_duration
+        knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1, caster, self)
+        knockback_table.duration = knockback_table.knockback_duration
 
         enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
         enemy:AddNewModifier(caster, self, "modifier_bubble_witch_bubble_of_protection_debuff", {duration = 0.5})

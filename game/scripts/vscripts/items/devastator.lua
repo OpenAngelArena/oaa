@@ -59,7 +59,7 @@ end
 function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
   if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) and ( not hTarget:IsAttackImmune() ) then
     local caster = self:GetCaster()
-    local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration, caster, true)
+    local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration, caster, self)
 
     -- Apply the slow debuff always
     hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
@@ -234,9 +234,9 @@ if IsServer() then
     -- Calculate duration of the debuff
     local corruption_duration = ability:GetSpecialValueFor("corruption_duration")
     -- Calculate duration while keeping status resistance in mind
-    local armor_reduction_duration = target:GetValueChangedByStatusResistance(corruption_duration, parent, true)
+    local armor_reduction_duration = target:GetValueChangedByStatusResistance(corruption_duration, parent, ability)
     -- Apply Devastator passive debuff
-    target:AddNewModifier( parent, ability, "modifier_item_devastator_oaa_corruption_armor", {duration = armor_reduction_duration})
+    target:AddNewModifier(parent, ability, "modifier_item_devastator_oaa_corruption_armor", {duration = armor_reduction_duration})
   end
 end
 

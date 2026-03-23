@@ -140,7 +140,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   local duration = self:GetSpecialValueFor("root_duration")
 
   -- Duration with status resistance in mind
-  duration = target:GetValueChangedByStatusResistance(duration, caster)
+  duration = target:GetValueChangedByStatusResistance(duration, caster, self)
 
   target:AddNewModifier(caster, self, "modifier_hawk_dive_stun", {duration = duration})
 
