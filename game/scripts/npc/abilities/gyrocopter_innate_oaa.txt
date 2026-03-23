@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Morphling: Accumulation (Innate) - custom ability
+  // Gyrocopter: Gyro Scope (Innate) - custom ability
   // Notes: Not breakable
   //=================================================================================================================
-  "morphling_innate_oaa"
+  "gyrocopter_innate_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_morphling_innate.lua"
+    "ScriptFile"                                          "abilities/oaa_gyrocopter_innate.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
     "Innate"                                              "1"
@@ -20,8 +20,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_primary_stat_per_level"                      "0.75"
-      "bonus_morphed_secondary_stats_per_level"           "0.5"
+      "knockback_reduction"                               "50"
+      "bonus_accuracy"                                    "25"
     }
   }
 }
