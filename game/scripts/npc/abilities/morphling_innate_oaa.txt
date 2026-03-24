@@ -1,7 +1,8 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Morphling: Accumulation (Innate)
+  // Morphling: Accumulation (Innate) - custom ability
+  // Notes: Not breakable
   //=================================================================================================================
   "morphling_innate_oaa"
   {
@@ -19,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_primary_stat_per_level"                      "0.7"
+      "bonus_primary_stat_per_level"                      "0.75"
       "bonus_morphed_secondary_stats_per_level"           "0.5"
     }
   }

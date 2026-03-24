@@ -189,7 +189,7 @@ function modifier_wanderer_sticky_blood_debuff:OnCreated()
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
     self.turn_speed_slow = ability:GetSpecialValueFor("turn_rate_pct")
   else
-    self.bonus_damage = 100
+    self.bonus_damage = 60
     self.move_speed_slow = -5
     self.turn_speed_slow = -70
   end
@@ -206,7 +206,7 @@ function modifier_wanderer_sticky_blood_debuff:OnRefresh()
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
     self.turn_speed_slow = ability:GetSpecialValueFor("turn_rate_pct")
   else
-    self.bonus_damage = 100
+    self.bonus_damage = 60
     self.move_speed_slow = -5
     self.turn_speed_slow = -70
   end

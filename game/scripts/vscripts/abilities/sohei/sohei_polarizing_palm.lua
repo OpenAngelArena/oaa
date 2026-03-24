@@ -120,6 +120,8 @@ function sohei_polarizing_palm:OnSpellStart()
     target:EmitSound("Sohei.Dash")
   else
     target:EmitSound("Sohei.Momentum")
+    -- Distance for enemies is reduced with Knockback resistance
+    distance = target:GetValueChangedByKnockbackResistance(distance)
   end
 
   -- Apply motion controller
@@ -356,7 +358,7 @@ if IsServer() then
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
     -- Duration is reduced with Status Resistance
-    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
+    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration, caster, ability)
 
     -- Apply stun debuff
     unit:AddNewModifier(caster, ability, "modifier_sohei_polarizing_palm_stun", {duration = stun_duration})

@@ -27,10 +27,10 @@
         "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
         "special_bonus_unique_spectre_shadow_step_duration"  "+1.0"
       }
-      "illusion_damage_incoming"                          "100"
-      "tooltip_illusion_total_damage_incoming"
+      "illusion_damage_incoming"                          "100 90 80 70 60 50" // OAA
+      "tooltip_illusion_total_damage_incoming" // OAA
       {
-        "value"                                           "200"
+        "value"                                           "200 190 180 170 160 150"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

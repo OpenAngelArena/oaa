@@ -41,7 +41,7 @@
 
     "AbilityCooldown"                                     "10.0"
     "AbilitySharedCooldown"                               "nullify"
-    "AbilityCastRange"                                    "500 600 700 800 900" //OAA
+    "AbilityCastRange"                                    "700 750 800 850 900" //OAA
     "AbilityManaCost"                                     "0"
 
     // Item Info
@@ -67,7 +67,7 @@
       "bonus_armor"                                       "7 8 10 13 17" //OAA
       "bonus_regen"                                       "6 9 12 15 18"
       "mute_duration"                                     "4.0"
-      "projectile_speed"                                  "700 900 1100 1300 1500" //OAA
+      "projectile_speed"                                  "1000 1200 1400 1600 1800" //OAA
       "slow_pct"                                          "10 15 20 25 30"
       "slow_interval_duration"                            "0.5"
     }

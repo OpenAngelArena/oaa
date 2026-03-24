@@ -41,7 +41,7 @@ function electrician_static_grip:OnSpellStart()
   end
 
   local durationMax = self:GetSpecialValueFor( "max_stun_duration" )
-  durationMax = target:GetValueChangedByStatusResistance( durationMax )
+  durationMax = target:GetValueChangedByStatusResistance(durationMax, caster, self)
 
   -- Apply the stun modifier on target
   target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )

@@ -52,7 +52,6 @@ end
 function modifier_tormentor_reflect_oaa:OnCreated()
   if not IsServer() then return end
 
-  self.parent = self:GetParent()
   self.ability = self:GetAbility()
 
   self.radius = self.ability:GetSpecialValueFor("radius")
@@ -89,8 +88,12 @@ function modifier_tormentor_reflect_oaa:OnIntervalThink()
     local team = parent.tormentorTeam
     if team and self.pfx_name[team] then
       local particle_name = self.pfx_name[team].shield
-      self.shield_pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CENTER_FOLLOW, parent)
+      self.shield_pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.shield_pfx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
       self:StartIntervalThink(-1)
+    end
+    if not team then
+      parent.tormentorTeam = DOTA_TEAM_GOODGUYS
     end
   else
     self:StartIntervalThink(-1)
@@ -111,6 +114,7 @@ end
 
 if IsServer() then
   function modifier_tormentor_reflect_oaa:OnTakeDamage(event)
+    local parent = self:GetParent()
     local damage = event.original_damage
     local damageType = event.damage_type
     local damageFlags = event.damage_flags
@@ -122,10 +126,10 @@ if IsServer() then
     end
 
     -- Check if damaged unit has this modifier
-    if event.unit ~= self.parent then return end
+    if event.unit ~= parent then return end
 
     -- Ignore self damage
-    if attacker == self.parent then
+    if attacker == parent then
       return
     end
 
@@ -150,8 +154,8 @@ if IsServer() then
     end
 
     local enemies = FindUnitsInRadius(
-      self.parent:GetTeamNumber(),
-      self.parent:GetAbsOrigin(),
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
       nil,
       self.radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -163,29 +167,11 @@ if IsServer() then
 
     -- Parts of damage table that are always the same
     local damageTable = {
-      attacker = self.parent,
+      attacker = parent,
       damage_type = damageType,
       ability = self.ability,
       damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
     }
-
-    if #enemies == 0 then
-      -- Always affect the attacker, doesn't matter where it is even if there are no enemies around
-      damageTable.victim = attacker
-      damageTable.damage = damage * self.reflection / 100
-
-      ApplyDamage(damageTable)
-
-      local pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].reflect, PATTACH_ABSORIGIN_FOLLOW, self.parent)
-      ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
-      ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-      -- ParticleManager:SetParticleControl(pfx, 1, attacker:GetAbsOrigin())
-      ParticleManager:ReleaseParticleIndex(pfx)
-
-      -- EmitSoundOnClient("Miniboss.Tormenter.Reflect", attacker)
-      attacker:EmitSound("Miniboss.Tormenter.Reflect")
-      return
-    end
 
     -- Count non-illusion enemies
     local number_of_valid_enemies = 0
@@ -195,8 +181,7 @@ if IsServer() then
       end
     end
 
-    -- When attacker is damaging Tormentor from far away and only ilussions are around
-    -- to prevent division by 0
+    -- When only illusions or creeps are around prevent division by 0
     if number_of_valid_enemies == 0 then
       number_of_valid_enemies = 1
     end
@@ -214,8 +199,8 @@ if IsServer() then
 
         ApplyDamage(damageTable)
 
-        local pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].reflect, PATTACH_ABSORIGIN_FOLLOW, self.parent)
-        ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
+        local pfx = ParticleManager:CreateParticle(self.pfx_name[parent.tormentorTeam].reflect, PATTACH_ABSORIGIN_FOLLOW, parent)
+        ParticleManager:SetParticleControl(pfx, 0, parent:GetAbsOrigin())
         ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
         -- ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(pfx)
@@ -235,8 +220,8 @@ if IsServer() then
 
     ApplyDamage(damageTable)
 
-    local pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].reflect, PATTACH_ABSORIGIN_FOLLOW, self.parent)
-    ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
+    local pfx = ParticleManager:CreateParticle(self.pfx_name[parent.tormentorTeam].reflect, PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControl(pfx, 0, parent:GetAbsOrigin())
     ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
     -- ParticleManager:SetParticleControl(pfx, 1, attacker:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pfx)
@@ -246,17 +231,18 @@ if IsServer() then
   end
 
   function modifier_tormentor_reflect_oaa:OnDeath(event)
+    local parent = self:GetParent()
     local unit = event.unit
 
-    if unit ~= self.parent then return end
+    if unit ~= parent then return end
 
     if self.shield_pfx then
       ParticleManager:DestroyParticle(self.shield_pfx, true)
       ParticleManager:ReleaseParticleIndex(self.shield_pfx)
     end
 
-    local pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].death, PATTACH_ABSORIGIN_FOLLOW, self.parent)
-    ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
+    local pfx = ParticleManager:CreateParticle(self.pfx_name[parent.tormentorTeam].death, PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControl(pfx, 0, parent:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pfx)
   end
 end

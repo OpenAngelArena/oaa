@@ -226,7 +226,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
     local number_of_bounces = self.max_targets or 18
     local increase_per_bounce = (max_duration - min_duration) / number_of_bounces
     local root_duration = math.min(min_duration + increase_per_bounce * nTargetsHit, max_duration)
-    local actual_duration = hTarget:GetValueChangedByStatusResistance(root_duration)
+    local actual_duration = hTarget:GetValueChangedByStatusResistance(root_duration, caster, ability)
     --print("[WRATH OF NATURE OAA] Root duration is: "..actual_duration)
 
     -- Apply root
@@ -318,7 +318,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitUnhitHeroes()
         if force_of_nature_ability and force_of_nature_ability:GetLevel() > 0 then
           enemy:AddNewModifier(caster, force_of_nature_ability, "modifier_furion_wrath_of_nature_scepter_debuff", {duration = self.scepter_debuff_duration})
         end
-        local actual_root_duration = enemy:GetValueChangedByStatusResistance(self.min_duration)
+        local actual_root_duration = enemy:GetValueChangedByStatusResistance(self.min_duration, caster, ability)
         -- Apply root
         enemy:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_scepter_root_oaa", {duration = actual_root_duration})
       end

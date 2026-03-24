@@ -140,7 +140,7 @@ if IsServer() then
       local duration = self.bash_duration
       local damage = self.bash_damage
 
-      duration = target:GetValueChangedByStatusResistance(duration)
+      duration = target:GetValueChangedByStatusResistance(duration, parent)
 
       target:AddNewModifier(parent, nil, "modifier_roshan_bash_oaa", {duration = duration})
 

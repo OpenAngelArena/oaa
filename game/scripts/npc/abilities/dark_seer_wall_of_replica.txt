@@ -42,10 +42,10 @@
         "value"                                           "70 90 110 150 190"
         "special_bonus_unique_dark_seer_7"                "+15"
       }
-      "replica_damage_incoming"                           "100 90 80 50 20" // OAA, also affects Normal Punch illusion
+      "replica_damage_incoming"                           "100 90 80 70 60" // OAA, also affects Normal Punch illusion
       "tooltip_replica_total_damage_incoming" // OAA, also affects Normal Punch illusion
       {
-        "value"                                           "200 190 180 150 120"
+        "value"                                           "200 190 180 170 160"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -64,7 +64,7 @@
       {
         "special_bonus_scepter"                           "2"
       }
-      "wall_damage"                                       "25 50 75 150 225" //OAA
+      "wall_damage"                                       "25 55 85 145 205" //OAA
       "cooldown_reduction" // Valve not using AbilityCooldown lmao
       {
         "special_bonus_unique_dark_seer_13"               "40"

@@ -106,6 +106,7 @@ if IsServer() then
     local damaged_unit = event.unit
     local inflictor = event.inflictor
     local flags = event.damage_flags
+    local dmg_type = event.damage_type
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -150,7 +151,7 @@ if IsServer() then
     end
 
     -- Ignore pure damage
-    if event.damage_type == DAMAGE_TYPE_PURE then
+    if dmg_type == DAMAGE_TYPE_PURE then
       if not isSuccubus then
         return
       end
@@ -158,6 +159,10 @@ if IsServer() then
 
     -- Ignore damage that has the no-reflect flag
     if bit.band(flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+      if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+        return
+      end
       if not spellLifestealReflected then
         return
       end
@@ -165,6 +170,10 @@ if IsServer() then
 
     -- Ignore damage that has the no-spell-lifesteal flag
     if bit.band(flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+      -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+      if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+        return
+      end
       if not spellLifestealReflected then
         return
       end

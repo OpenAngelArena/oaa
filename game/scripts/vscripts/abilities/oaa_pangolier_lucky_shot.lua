@@ -87,7 +87,7 @@ if IsServer() then
       end
 
       -- Armor reduction and disarm duration with status resistance in mind
-      local disarm_duration = target:GetValueChangedByStatusResistance(duration)
+      local disarm_duration = target:GetValueChangedByStatusResistance(duration, parent)
 
       -- Apply slow debuff
       --target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
@@ -199,7 +199,7 @@ if IsServer() then
       end
 
       -- Armor reduction and disarm duration with status resistance in mind
-      local disarm_duration = damaged_unit:GetValueChangedByStatusResistance(duration)
+      local disarm_duration = damaged_unit:GetValueChangedByStatusResistance(duration, caster)
 
       -- Apply slow debuff
       --damaged_unit:AddNewModifier(caster, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})

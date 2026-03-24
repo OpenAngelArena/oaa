@@ -118,7 +118,7 @@ if IsServer() then
         self.last_stun_duration[pid] = stun_duration
 
         -- Status resistance fix
-        stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
+        stun_duration = target:GetValueChangedByStatusResistance(stun_duration, caster, self)
 
         -- Apply Stun before damage (Applying stun after damage is bad)
         target:AddNewModifier(caster, self, "modifier_mirana_arrow_stun_oaa", {duration = stun_duration})

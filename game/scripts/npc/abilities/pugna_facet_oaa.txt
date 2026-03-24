@@ -2,6 +2,7 @@
 {
   //=================================================================================================================
   // Pugna: Undead Nature (Facet) - custom ability
+  // Notes: Not breakable
   //=================================================================================================================
   "pugna_facet_oaa"
   {
@@ -10,7 +11,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_pugna_facet.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "IsBreakable"                                         "1"
+    //"IsBreakable"                                         "1"
 
     "RequiredLevel"                                       "-1" // maybe not needed
     "MaxLevel"                                            "1"

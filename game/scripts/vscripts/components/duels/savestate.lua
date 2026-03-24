@@ -103,7 +103,7 @@ local function RestoreState(hero, state)
   -- Restore ability cooldowns
   for name, abilityState in pairs(state.abilities) do
     local ability = hero:FindAbilityByName(name)
-    if ability then
+    if ability and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
       if abilityState.cooldown then
         if abilityState.cooldown > 0 then
@@ -119,8 +119,18 @@ local function RestoreState(hero, state)
   end
 
   -- Restore item cooldowns
+  local exempt_item_table = {
+    item_ex_machina = true,
+    item_hand_of_midas_1 = true,
+    item_refresher = true,
+    item_refresher_2 = true,
+    item_refresher_3 = true,
+    item_refresher_4 = true,
+    item_refresher_5 = true,
+    item_refresher_shard_oaa = true,
+  }
   for item, itemState in pairs(state.items) do
-    if IsValidEntity(item) then
+    if IsValidEntity(item) and not exempt_item_table[item:GetAbilityName()] then
       item:EndCooldown()
       item:StartCooldown(itemState.cooldown)
     end

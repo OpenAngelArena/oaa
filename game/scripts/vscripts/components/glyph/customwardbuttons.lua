@@ -70,7 +70,7 @@ function CustomWardButtons:CastWard(event)
   local position = hero:GetAbsOrigin()
 
   local ward = CreateUnitByName(ward_name, position, true, nil, hero, hero:GetTeam())
-  ward:AddNewModifier(ward, nil, "modifier_kill", {duration = ward_duration })
+  ward:AddNewModifier(ward, nil, "modifier_kill", {duration = ward_duration})
   ward:AddNewModifier(ward, nil, "modifier_generic_dead_tracker_oaa", {duration = ward_duration + MANUAL_GARBAGE_CLEANING_TIME})
   ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", {})
 
@@ -80,7 +80,7 @@ function CustomWardButtons:CastWard(event)
       duration = ward_duration
     })
   else
-    local visionRadius = 1400
+    local visionRadius = 1200
 
     -- Io/Wisp Innate
     local sightseer = hero:FindAbilityByName("wisp_sight_seer")

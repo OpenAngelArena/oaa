@@ -61,13 +61,13 @@
       }
     }
 
-    "ArmorPhysical"                                       "3"
+    "ArmorPhysical"                                       "2"
     "MagicalResistance"                                   "25"
 
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "BaseAttackSpeed"                                     "100"
-    "AttackDamageMin"                                     "27"
-    "AttackDamageMax"                                     "33"
+    "AttackDamageMin"                                     "27" // tinker + 5
+    "AttackDamageMax"                                     "33" // tinker + 5
     "AttackRate"                                          "1.7"
     "AttackAnimationPoint"                                "0.35"
     "AttackAcquisitionRange"                              "800"

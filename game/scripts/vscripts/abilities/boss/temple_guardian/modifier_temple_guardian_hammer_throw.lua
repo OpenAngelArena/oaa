@@ -103,7 +103,7 @@ function modifier_temple_guardian_hammer_throw:OnIntervalThink()
       enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
 
       if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
-        local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+        local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration, nil, nil)
         enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = actual_duration})
 
         local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )

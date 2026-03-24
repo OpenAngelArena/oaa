@@ -77,7 +77,7 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
 
             caster:EmitSound("Dungeon.BloodSplatterImpact")
           else
-            local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+            local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration, nil, nil)
             enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = actual_duration})
           end
         end

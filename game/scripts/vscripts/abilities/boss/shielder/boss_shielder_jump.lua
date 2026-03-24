@@ -296,7 +296,7 @@ function modifier_boss_shielder_jump:OnDestroy()
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
         -- Apply debuff
-        local actual_duration = enemy:GetValueChangedByStatusResistance(debuff_duration)
+        local actual_duration = enemy:GetValueChangedByStatusResistance(debuff_duration, nil, nil)
         enemy:AddNewModifier(parent, ability, "modifier_boss_shielder_shield_crash_debuff", {duration = actual_duration})
 
         -- Particle (on hit enemies)

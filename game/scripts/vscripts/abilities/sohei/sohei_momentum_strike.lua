@@ -63,12 +63,14 @@ function sohei_momentum_strike:OnSpellStart()
       if not enemy:IsMagicImmune() then
         -- Impact sound
         --enemy:EmitSound("Sohei.Momentum")
+        -- Distance is reduced with Knockback resistance
+        local enemy_knockback_distance = enemy:GetValueChangedByKnockbackResistance(knockback_distance)
         -- Remove previous instance of knockback
         enemy:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
         -- Apply new knockback
         enemy:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_knockback", {
           duration = knockback_duration,
-          distance = knockback_distance,
+          distance = enemy_knockback_distance,
           speed = knockback_speed,
           direction_x = direction.x,
           direction_y = direction.y,
@@ -245,7 +247,7 @@ if IsServer() then
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
     -- Duration is reduced with Status Resistance
-    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
+    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration, caster, ability)
 
     -- Apply stun debuff
     unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_strike_stun", {duration = stun_duration})

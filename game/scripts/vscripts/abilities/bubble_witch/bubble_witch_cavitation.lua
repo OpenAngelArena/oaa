@@ -11,10 +11,8 @@ function bubble_witch_cavitation:OnSpellStart()
     return
   end
 
-  local duration = self:GetSpecialValueFor("debuff_duration")
-
   -- Duration is reduced with Status Resistance
-  duration = target:GetValueChangedByStatusResistance(duration)
+  local duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("debuff_duration"), caster, self)
 
   -- Bubble Form Sound
   target:EmitSound("Bubble_Witch.Bubble_Snare.Target")
@@ -34,6 +32,9 @@ function bubble_witch_cavitation:OnSpellStart()
   if target:IsCurrentlyHorizontalMotionControlled() then
     target:InterruptMotionControllers(false)
   end
+
+  -- Distance is reduced with Knockback resistance
+  distance = target:GetValueChangedByKnockbackResistance(distance)
 
   -- Apply modifier to attacked unit
   target:AddNewModifier(caster, self, "modifier_bubble_witch_cavitation_movement", {

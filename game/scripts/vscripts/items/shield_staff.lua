@@ -208,6 +208,11 @@ function item_shield_staff:OnSpellStart()
     target:InterruptMotionControllers(false)
   end
 
+  -- Distance for enemies is reduced with Knockback resistance
+  if target_team ~= caster_team then
+    distance = target:GetValueChangedByKnockbackResistance(distance)
+  end
+
   -- Actual effect
   target:AddNewModifier(caster, self, "modifier_shield_staff_active_buff", {
     distance = distance,

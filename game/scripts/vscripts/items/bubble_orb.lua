@@ -40,7 +40,7 @@ function item_bubble_orb_1:OnSpellStart()
     false
   )
   local knockback_table = {
-    should_stun = 1,
+    should_stun = 0,
     center_x = targetPoint.x,
     center_y = targetPoint.y,
     center_z = targetPoint.z,
@@ -50,7 +50,7 @@ function item_bubble_orb_1:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       --knockback_table.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
-      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1)
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.1, caster, self)
       knockback_table.duration = knockback_table.knockback_duration
 
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)

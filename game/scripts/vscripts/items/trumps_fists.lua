@@ -46,7 +46,7 @@ function item_trumps_fists_1:OnProjectileHit(target, location)
   end
 
   -- Apply Brand of Judecca debuff (duration IS affected by status resistance)
-  local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("mute_duration"))
+  local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("mute_duration"), caster, self)
   target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
 
   -- Apply Frostburn debuff (duration is NOT affected by status resistance)
