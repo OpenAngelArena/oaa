@@ -16,6 +16,8 @@ if IsServer() then
     return false
   end
 
+  -- caster is needed for debuff amplification (bosses and creeps dont have that for now)
+  -- ability is needed to check if it's an item (because Nether Core does not affect items) and if it's stolen (because Rubick Spell Steal has debuff amp for stolen abilities)
   function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, ability)
     if self and value then
       local status_resist = self:GetStatusResistance()
@@ -95,6 +97,36 @@ if IsServer() then
         return value*0.01
       end
 
+      return new_value
+    end
+  end
+
+  function CDOTA_BaseNPC:GetValueChangedByKnockbackResistance(value)
+    if self and value then
+      local total_knockback_resistance = 0
+      local solid_core = self:FindAbilityByName("magnataur_solid_core")
+      local gyro_scope = self:FindAbilityByName("gyrocopter_innate_oaa")
+      local tough_mod = self:FindModifierByNameAndCaster("modifier_item_enhancement_tough", self)
+      if solid_core and not solid_core:IsNull() then
+        if solid_core:GetLevel() > 0 then
+          local knockback_resist = solid_core:GetSpecialValueFor("knockback_reduction")
+          total_knockback_resistance = 1 - (1 - knockback_resist / 100) * (1 - total_knockback_resistance)
+        end
+      end
+      if gyro_scope and not gyro_scope:IsNull() then
+        if gyro_scope:GetLevel() > 0 then
+          local knockback_resist = gyro_scope:GetSpecialValueFor("knockback_reduction")
+          total_knockback_resistance = 1 - (1 - knockback_resist / 100) * (1 - total_knockback_resistance)
+        end
+      end
+      if tough_mod and not tough_mod:IsNull() then
+        local tough_enchantment = tough_mod:GetAbility()
+        if tough_enchantment and not tough_enchantment:IsNull() then
+          local knockback_resist = tough_enchantment:GetSpecialValueFor("knockback_resist")
+          total_knockback_resistance = 1 - (1 - knockback_resist / 100) * (1 - total_knockback_resistance)
+        end
+      end
+      local new_value = value * (1 - total_knockback_resistance)
       return new_value
     end
   end

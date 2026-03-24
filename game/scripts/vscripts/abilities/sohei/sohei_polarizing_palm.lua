@@ -120,6 +120,8 @@ function sohei_polarizing_palm:OnSpellStart()
     target:EmitSound("Sohei.Dash")
   else
     target:EmitSound("Sohei.Momentum")
+    -- Distance for enemies is reduced with Knockback resistance
+    distance = target:GetValueChangedByKnockbackResistance(distance)
   end
 
   -- Apply motion controller

@@ -33,6 +33,9 @@ function bubble_witch_cavitation:OnSpellStart()
     target:InterruptMotionControllers(false)
   end
 
+  -- Distance is reduced with Knockback resistance
+  distance = target:GetValueChangedByKnockbackResistance(distance)
+
   -- Apply modifier to attacked unit
   target:AddNewModifier(caster, self, "modifier_bubble_witch_cavitation_movement", {
     distance = distance,
