@@ -264,7 +264,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
   local point = caster:GetAbsOrigin()
 
   local knockbackModifierTable = {
-    should_stun = 1,
+    should_stun = 0,
     knockback_height = ability:GetSpecialValueFor("push_length"),
     center_x = point.x,
     center_y = point.y,

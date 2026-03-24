@@ -91,9 +91,9 @@ function boss_slime_jump:OnSpellStart()
       local point = caster:GetAbsOrigin() or target
 
       local knockbackModifierTable = {
-        should_stun = 1,
+        should_stun = 0,
         knockback_distance = self:GetSpecialValueFor("knockback"),
-        knockback_height = 80,
+        knockback_height = 100,
         center_x = point.x,
         center_y = point.y,
         center_z = point.z

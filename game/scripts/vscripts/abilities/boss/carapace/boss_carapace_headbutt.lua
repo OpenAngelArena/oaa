@@ -84,9 +84,9 @@ function boss_carapace_headbutt:OnSpellStart()
   local enemies = self:GetEnemies()
 
   local knockbackModifierTable = {
-    should_stun = 1,
+    should_stun = 0,
     knockback_distance = range,
-    knockback_height = 80,
+    knockback_height = 100,
     center_x = target.x,
     center_y = target.y,
     center_z = target.z
@@ -109,7 +109,7 @@ function boss_carapace_headbutt:OnSpellStart()
       local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, enemy)
       ParticleManager:ReleaseParticleIndex(impact)
 
-      knockbackModifierTable.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5, nil, nil)
+      knockbackModifierTable.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0, nil, nil)
       knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
       enemy:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )

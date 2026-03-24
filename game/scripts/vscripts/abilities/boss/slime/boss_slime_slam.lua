@@ -92,7 +92,7 @@ function boss_slime_slam:OnSpellStart()
   local knockbackModifierTable = {
     should_stun = 1,
     knockback_distance = self:GetSpecialValueFor("knockback"),
-    knockback_height = 80,
+    knockback_height = 100,
   }
 
   for _, v in pairs(units) do

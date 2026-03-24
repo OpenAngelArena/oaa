@@ -75,7 +75,7 @@ function boss_alchemist_cannonshot:Explode(explosive)
 
   local knockbackModifierTable = {
     should_stun = 1,
-    knockback_height = 80,
+    knockback_height = 100,
     center_x = point.x,
     center_y = point.y,
     center_z = point.z
