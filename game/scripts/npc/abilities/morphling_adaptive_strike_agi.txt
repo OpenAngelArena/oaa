@@ -8,72 +8,72 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "600 675 750 825 900 975"
-    "AbilityCastPoint"                                "0.25"
+    "AbilityCastRange"                                    "600 675 750 825 900 975"
+    "AbilityCastPoint"                                    "0.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "40 50 60 70 80 90"
+    "AbilityManaCost"                                     "40 50 60 70 80 90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "1150"
+      "projectile_speed"                                  "1150"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "17 14 11 8 8 8"
-        "special_bonus_unique_morphling_7"            "-3"
+        "value"                                           "17 14 11 8 8 8"
+        "special_bonus_unique_morphling_7"                "-3"
       }
       "damage_base" //OAA
       {
-        "value"                                       "50 70 90 110 110 110"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "50 70 90 110 110 110"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_min"
       {
-        "value"                                       "0.5"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "0.5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "damage_max"
       {
-        "value"                                       "1.0 1.5 2.0 2.5 3.0 3.5"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "1.0 1.5 2.0 2.5 3.0 3.5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "stun_min"
       {
-        "value"                                       "0.5"
+        "value"                                           "0.5"
       }
       "stun_max"
       {
-        "value"                                       "1.4 1.8 2.2 2.6 2.6 2.6"
+        "value"                                           "1.4 1.8 2.2 2.6 2.6 2.6"
       }
       "knockback_min"
       {
-        "value"                                       "50"
+        "value"                                           "50"
       }
       "knockback_max"
       {
-        "value"                                       "350"
+        "value"                                           "350"
       }
       "knockback_duration"
       {
-        "value"                                       "0.5"
+        "value"                                           "0.5"
       }
       "extra_targets"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

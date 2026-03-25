@@ -8,64 +8,64 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE" //OAA, Valve added DOTA_UNIT_TARGET_FLAG_NO_INVIS for some reason
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE" //OAA, Valve added DOTA_UNIT_TARGET_FLAG_NO_INVIS for some reason
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "850"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
-    "AbilityChannelTime"                              "5.1"
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityChannelTime"                                  "5.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "9 8 7 6 6 6" //OAA
+    "AbilityCooldown"                                     "9 8 7 6 6 6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "5.0"
-      "tick_interval"                                 "0.1"
-      "movespeed_bonus_when_empty_pct"                "15"
-      "ally_pct"                                      "50"
+      "duration"                                          "5.0"
+      "tick_interval"                                     "0.1"
+      "movespeed_bonus_when_empty_pct"                    "15"
+      "ally_pct"                                          "50"
       "mana_per_second" //OAA
       {
-        "value"                                       "20 40 60 120 120 120"
+        "value"                                           "20 40 60 120 120 120"
       }
       "break_distance"
       {
-        "value"                                       "1100"
-        "special_bonus_shard"                         "+200"
+        "value"                                           "1100"
+        "special_bonus_shard"                             "+200"
       }
       "movespeed" //OAA
       {
-        "value"                                       "15 20 25 30 30 30"
-        "special_bonus_unique_lion_6"                 "+10"
+        "value"                                           "15 20 25 30 30 30"
+        "special_bonus_unique_lion_6"                     "+10"
       }
       "shard_bonus_targets"
       {
-        "special_bonus_shard"                         "2"
+        "special_bonus_shard"                             "2"
       }
       "damage_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "magic_resist" //OAA
       {
-        "special_bonus_shard"                         "+60"
+        "special_bonus_shard"                             "+60"
       }
     }
   }

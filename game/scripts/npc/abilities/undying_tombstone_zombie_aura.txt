@@ -8,12 +8,12 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,16 +21,16 @@
     {
       "radius" //OAA, Valve has it wrong, not applied during 7.07
       {
-        "value"                                       "600 800 1000 1200 1200 1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "600 800 1000 1200 1200 1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "health_threshold"
       {
-        "value"                                       "100 200 300 400 500 600"
+        "value"                                           "100 200 300 400 500 600"
       }
       "zombie_interval" //OAA, Valve has it wrong, not applied during 7.31c
       {
-        "value"                                       "3"
+        "value"                                           "3"
       }
     }
   }

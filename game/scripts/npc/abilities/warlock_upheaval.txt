@@ -8,60 +8,60 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "800"
-    "AbilityCastPoint"                                "0.4"
-    "AbilityChannelTime"                              "10 12 14 16 18 20"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityChannelTime"                                  "10 12 14 16 18 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
-    "AbilityDamage"                                   "0 0 0 0 0 0"
+    "AbilityManaCost"                                     "100"
+    "AbilityDamage"                                       "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_per_second"                               "11 14 17 20 23 26"
-      "duration"                                      "1.0"
-      "max_slow"                                      "70 80 90 100 100 100" //OAA
-      "damage_per_second"                             "10"
-      "AbilityCooldown"                               "30 29 28 27 26 25" //OAA
-      "imps_interval"                                 "3 2.5 2 2 1.5 1" //OAA
-      "minor_imp_duration"                            "15"
+      "slow_per_second"                                   "11 14 17 20 23 26"
+      "duration"                                          "1.0"
+      "max_slow"                                          "70 80 90 100 100 100" //OAA
+      "damage_per_second"                                 "10"
+      "AbilityCooldown"                                   "30 29 28 27 26 25" //OAA
+      "imps_interval"                                     "3 2.5 2 2 1.5 1" //OAA
+      "minor_imp_duration"                                "15"
       "aoe"
       {
-        "value"                                       "575 600 625 650 650 650"
-        "special_bonus_unique_warlock_upheaval_aoe"   "+50"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "575 600 625 650 650 650"
+        "special_bonus_unique_warlock_upheaval_aoe"       "+50"
+        "affected_by_aoe_increase"                        "1"
       }
       "aspd_per_second"
       {
-        "special_bonus_unique_warlock_10"             "8"
+        "special_bonus_unique_warlock_10"                 "8"
       }
       "base_damage"
       {
-        "special_bonus_unique_warlock_3"              "=45"
+        "special_bonus_unique_warlock_3"                  "=45"
       }
       "max_damage" //OAA, Valve has the wrong value for special_bonus_unique_warlock_3 since 7.40b
       {
-        "value"                                       "35 60 85 110 110 110"
-        "special_bonus_unique_warlock_3"              "+40"
+        "value"                                           "35 60 85 110 110 110"
+        "special_bonus_unique_warlock_3"                  "+40"
       }
       "damage_tick_interval"
       {
-        "value"                                       "1"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }

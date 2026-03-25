@@ -8,79 +8,79 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "625"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "625"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.0 0.0 0.0 0.0 0.0 0.0"
-    "AbilityDuration"                                 "1.5"
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityDuration"                                     "1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                   "0 0 0 0 0 0"
+    "AbilityDamage"                                       "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "frost_arrows_movement_speed"                   "-15 -25 -35 -45 -50 -55"
+      "frost_arrows_movement_speed"                       "-15 -25 -35 -45 -50 -55"
       "damage"
       {
-        "value"                                       "10 15 20 25 50 75"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "10 15 20 25 50 75"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "shard_regen_reduction_pct_per_stack" //OAA
       {
-        "special_bonus_scepter"                       "+10"
+        "special_bonus_scepter"                           "+10"
       }
       "shard_bonus_damage_per_stack"
       {
-        "special_bonus_scepter"                       "+18"
+        "special_bonus_scepter"                           "+18"
       }
       "shard_stack_duration"
       {
-        "special_bonus_scepter"                       "+7.0"
+        "special_bonus_scepter"                           "+7.0"
       }
       "shard_burst_radius"
       {
-        "special_bonus_scepter"                       "+650"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "+650"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_burst_damage_per_stack"
       {
-        "special_bonus_scepter"                       "+60"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_scepter"                           "+60"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "shard_burst_move_slow_pct"
       {
-        "special_bonus_scepter"                       "+40"
+        "special_bonus_scepter"                           "+40"
       }
       "shard_burst_slow_duration"
       {
-        "special_bonus_scepter"                       "+2.0"
+        "special_bonus_scepter"                           "+2.0"
       }
       "shard_max_stacks" //OAA
       {
-        "special_bonus_scepter"                       "+9"
+        "special_bonus_scepter"                           "+9"
       }
       "AbilityManaCost" //OAA
       {
-        "value"                                       "9 10 11 12 12 12"
-        "special_bonus_unique_drow_ranger_7"          "-18%"
+        "value"                                           "9 10 11 12 12 12"
+        "special_bonus_unique_drow_ranger_7"              "-18%"
       }
     }
   }

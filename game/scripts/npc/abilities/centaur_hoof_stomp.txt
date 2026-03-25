@@ -8,45 +8,45 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15 14 13 12 11 10" //OAA
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 110 120 130 140 150"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "windup_time"                                   "0.5"
+      "windup_time"                                       "0.5"
       "radius"
       {
-        "value"                                       "325"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
       "stomp_damage" //OAA
       {
-        "value"                                       "70 140 210 280 280 280"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "70 140 210 280 280 280"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "stun_duration"
       {
-        "value"                                       "1.6 1.8 2.0 2.2 2.4 2.6"
-        "special_bonus_unique_centaur_2"              "+0.8"
+        "value"                                           "1.6 1.8 2.0 2.2 2.4 2.6"
+        "special_bonus_unique_centaur_2"                  "+0.8"
       }
     }
   }

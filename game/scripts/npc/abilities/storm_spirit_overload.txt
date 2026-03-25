@@ -8,18 +8,18 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                 "0.8"
+    "AbilityDuration"                                     "0.8"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,59 +27,59 @@
     {
       "overload_aoe"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "overload_move_slow"
       {
-        "value"                                       "-80"
-        "special_bonus_unique_storm_spirit_overload_aspd" "-20.0"
+        "value"                                           "-80"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "-20.0"
       }
       "overload_attack_slow"
       {
-        "value"                                       "-90"
-        "special_bonus_unique_storm_spirit_overload_aspd" "-20.0"
+        "value"                                           "-90"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "-20.0"
       }
       "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
       {
-        "value"                                       "25 50 75 100 100 100"
+        "value"                                           "25 50 75 100 100 100"
       }
       "shard_activation_radius"
       {
-        "special_bonus_shard"                         "750"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_shard"                             "750"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_activation_charges" //OAA, intentional nerf
       {
-        "special_bonus_shard"                         "3"
+        "special_bonus_shard"                             "3"
       }
       "shard_activation_duration"
       {
-        "special_bonus_shard"                         "12"
+        "special_bonus_shard"                             "12"
       }
       "shard_manacost"
       {
-        "special_bonus_shard"                         "100"
+        "special_bonus_shard"                             "100"
       }
       "shard_cooldown"
       {
-        "special_bonus_shard"                         "30"
+        "special_bonus_shard"                             "30"
       }
       "shard_attack_speed_bonus"
       {
-        "special_bonus_shard"                         "40"
+        "special_bonus_shard"                             "40"
       }
       "overload_cast_range"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "overload_bounces"
       {
-        "special_bonus_unique_storm_spirit_7"         "=2"
+        "special_bonus_unique_storm_spirit_7"             "=2"
       }
       "overload_damage_pct"
       {
-        "special_bonus_unique_storm_spirit_7"         "=65"
+        "special_bonus_unique_storm_spirit_7"             "=65"
       }
     }
   }

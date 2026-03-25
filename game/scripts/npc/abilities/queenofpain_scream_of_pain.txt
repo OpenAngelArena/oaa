@@ -8,41 +8,41 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "120"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "900"
-      "damage_reflected_to_self"                      "25.0"
+      "projectile_speed"                                  "900"
+      "damage_reflected_to_self"                          "25.0"
       "AbilityCooldown"
       {
-        "value"                                       "7.5 7 6.5 6 6 6"
+        "value"                                           "7.5 7 6.5 6 6 6"
       }
       "area_of_effect"
       {
-        "value"                                       "600"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                       "90 175 260 345 345 345"
-        "special_bonus_unique_queen_of_pain_2"        "+115"
+        "value"                                           "90 175 260 345 345 345"
+        "special_bonus_unique_queen_of_pain_2"            "+115"
       }
     }
   }

@@ -8,84 +8,84 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "20 19 18 17 16 15" //OAA
+    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "900"
-      "move_pct_creeps"                               "1.5"
-      "armor_creeps"                                  "0"
-      "armor_heroes"                                  "0"
-      "move_pct_cap"                                  "40"
-      "immunity_resist"                               "50"
+      "speed"                                             "900"
+      "move_pct_creeps"                                   "1.5"
+      "armor_creeps"                                      "0"
+      "armor_heroes"                                      "0"
+      "move_pct_cap"                                      "40"
+      "immunity_resist"                                   "50"
       "AbilityCastRange"
       {
-        "value"                                       "1200"
+        "value"                                           "1200"
       }
       "radius"
       {
-        "value"                                       "275"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
       "pass_damage" //OAA
       {
-        "value"                                       "50"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "spirit_duration"
       {
-        "value"                                       "10.0"
+        "value"                                           "10.0"
       }
       "buff_duration"
       {
-        "value"                                       "10.0"
+        "value"                                           "10.0"
       }
       "controllable"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "move_pct_heroes"
       {
-        "value"                                       "4 5 6 7 8 9"
-        "special_bonus_unique_elder_titan_bonus_spirit_speed" "+2.5"
+        "value"                                           "4 5 6 7 8 9"
+        "special_bonus_unique_elder_titan_bonus_spirit_speed"  "+2.5"
       }
       "damage_creeps"
       {
-        "value"                                       "3 7 11 15 19 23"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "3 7 11 15 19 23"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage_heroes" //OAA
       {
-        "value"                                       "17 38 59 80 80 80"
-        "special_bonus_unique_elder_titan"            "+30"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "17 38 59 80 80 80"
+        "special_bonus_unique_elder_titan"                "+30"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "scepter_magic_immune_per_hero" //OAA
       {
-        "special_bonus_scepter"                       "2"
+        "special_bonus_scepter"                           "2"
       }
     }
   }

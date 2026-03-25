@@ -8,46 +8,46 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "60" //OAA
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "30.0"
-      "damage"                                        "60 90 120 210 360" //OAA
+      "duration"                                          "30.0"
+      "damage"                                            "60 90 120 210 360" //OAA
       "radius"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "strike_interval"
       {
-        "value"                                       "0.7 0.6 0.5 0.4 0.4"
-        "special_bonus_unique_razor_2"                "+-0.1"
+        "value"                                           "0.7 0.6 0.5 0.4 0.4"
+        "special_bonus_unique_razor_2"                    "+-0.1"
       }
       "armor_reduction"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
     }
   }

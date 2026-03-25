@@ -8,37 +8,37 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strength_bonus"                                "00"
+      "strength_bonus"                                    "00"
       "cleave_starting_width"
       {
-        "value"                                       "150"
+        "value"                                           "150"
       }
       "cleave_ending_width"
       {
-        "value"                                       "270 300 330 360 390 420"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "270 300 330 360 390 420"
+        "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance"
       {
-        "value"                                       "400 500 600 700 750 800"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400 500 600 700 750 800"
+        "affected_by_aoe_increase"                        "1"
       }
       "great_cleave_damage"
       {
-        "value"                                       "60 70 80 90 100 110"
-        "special_bonus_unique_sven_8"                 "+25"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "60 70 80 90 100 110"
+        "special_bonus_unique_sven_8"                     "+25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }

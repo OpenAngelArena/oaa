@@ -8,10 +8,10 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,8 +19,8 @@
     {
       "gold_steal" //OAA
       {
-        "value"                                       "4"
-        "hero_levelup"                                "+1"
+        "value"                                           "4"
+        "hero_levelup"                                    "+1"
       }
     }
   }

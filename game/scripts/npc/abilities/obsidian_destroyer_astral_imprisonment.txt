@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "140 150 160 170 180 190" //OAA
+    "AbilityManaCost"                                     "140 150 160 170 180 190" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,55 +34,55 @@
     {
       "AbilityCooldown"
       {
-        "value"                                       "18 16 14 12 12 12"
+        "value"                                           "18 16 14 12 12 12"
       }
       "prison_duration"
       {
-        "value"                                       "1.75 2.5 3.25 4 4 4"
+        "value"                                           "1.75 2.5 3.25 4 4 4"
       }
       "damage"
       {
-        "value"                                       "90 180 270 360 720 1440"
+        "value"                                           "90 180 270 360 720 1440"
       }
       "has_mana_steal"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "mana_capacity_steal"
       {
-        "value"                                       "16 19 22 25 28 31"
-        "special_bonus_unique_outworld_devourer_4"    "+10"
+        "value"                                           "16 19 22 25 28 31"
+        "special_bonus_unique_outworld_devourer_4"        "+10"
       }
       "mana_capacity_duration"
       {
-        "value"                                       "30 40 50 60 70 80"
+        "value"                                           "30 40 50 60 70 80"
       }
       "allied_movement_speed_pct"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+70"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+70"
       }
       "damage_radius"
       {
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_shard"                         "+300"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_shard"                             "+300"
       }
       "AbilityCastRange"
       {
-        "value"                                       "650"
-        "special_bonus_unique_outworld_devourer_astral_castrange" "+100"
+        "value"                                           "650"
+        "special_bonus_unique_outworld_devourer_astral_castrange"  "+100"
       }
       "debuff_duration"
       {
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "+5"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+5"
       }
       "percentage_damage"
       {
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"
       }
       "percentage_heal"
       {
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "+100"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
       }
     }
   }

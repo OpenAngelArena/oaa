@@ -8,17 +8,17 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,25 +26,25 @@
     {
       "hits"
       {
-        "value"                                       "6"
+        "value"                                           "6"
       }
       "armor_reduction"
       {
-        "value"                                       "-2 -4 -6 -8 -12 -16"
+        "value"                                           "-2 -4 -6 -8 -12 -16"
       }
       "damage"
       {
-        "value"                                       "30 40 50 60 120 180"
-        "special_bonus_unique_naga_siren_2"           "+30%"
+        "value"                                           "30 40 50 60 120 180"
+        "special_bonus_unique_naga_siren_2"               "+30%"
       }
       "radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"
       {
-        "value"                                       "4.0"
+        "value"                                           "4.0"
       }
     }
   }

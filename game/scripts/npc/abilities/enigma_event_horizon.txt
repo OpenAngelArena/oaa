@@ -8,26 +8,26 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vision_cone"                                   "0.08715"
+      "vision_cone"                                       "0.08715"
       "radius"
       {
-        "value"                                       "600"
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_unique_enigma_5"               "+100"
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_enigma_5"                   "+100"
       }
       "speed_bonus" //OAA
       {
-        "value"                                       "4"
-        "hero_levelup"                                "+1"
+        "value"                                           "4"
+        "hero_levelup"                                    "+1"
       }
     }
   }

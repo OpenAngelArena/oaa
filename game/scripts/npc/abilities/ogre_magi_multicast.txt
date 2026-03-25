@@ -8,42 +8,42 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "one_tooltip"                                   "1"
+      "one_tooltip"                                       "1"
       "multicast_2_times"
       {
-        "value"                                       "75"
-        "special_bonus_unique_ogre_magi_multicast_chance" "+10"
-        "dynamic_value"                               "true"
+        "value"                                           "75"
+        "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
+        "dynamic_value"                                   "true"
       }
       "multicast_3_times" //OAA
       {
-        "value"                                       "0 30 30 30 30"
-        "special_bonus_unique_ogre_magi_multicast_chance" "+10"
-        "dynamic_value"                               "true"
+        "value"                                           "0 30 30 30 30"
+        "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
+        "dynamic_value"                                   "true"
       }
       "multicast_4_times" //OAA
       {
-        "value"                                       "0 0 15 15 15"
-        "special_bonus_unique_ogre_magi_multicast_chance" "+10"
-        "dynamic_value"                               "true"
+        "value"                                           "0 0 15 15 15"
+        "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
+        "dynamic_value"                                   "true"
       }
       "strength_for_one_pct"
       {
-        "value"                                       "16"
+        "value"                                           "16"
       }
       "strength_mult" //OAA
       {
-        "value"                                       "0"
-        "special_bonus_facet_ogre_magi_fat_chance"    "=0.03"
+        "value"                                           "0"
+        "special_bonus_facet_ogre_magi_fat_chance"        "=0.03"
       }
     }
   }

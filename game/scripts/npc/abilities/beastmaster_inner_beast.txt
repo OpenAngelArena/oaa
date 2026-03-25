@@ -8,15 +8,15 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,21 +24,21 @@
     {
       "radius"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "bonus_attack_speed"
       {
-        "value"                                       "7"
-        "hero_levelup"                                "+3"
+        "value"                                           "7"
+        "hero_levelup"                                    "+3"
       }
       "attack_speed_per_unit"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "bonus_damage" //OAA
       {
-        "special_bonus_unique_beastmaster_2"          "+30"
+        "special_bonus_unique_beastmaster_2"              "+30"
       }
     }
   }

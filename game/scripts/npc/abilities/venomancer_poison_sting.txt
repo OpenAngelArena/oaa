@@ -8,38 +8,38 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "debuff_dmg"                                    "0"
+      "debuff_dmg"                                        "0"
       "duration"
       {
-        "value"                                       "4.5"
-        "hero_levelup"                                "+0.5"
+        "value"                                           "4.5"
+        "hero_levelup"                                    "+0.5"
       }
       "damage" //OAA
       {
-        "value"                                       "9"
-        "hero_levelup"                                "+1"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "9"
+        "hero_levelup"                                    "+1"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "movement_speed"
       {
-        "value"                                       "10"
-        "special_bonus_unique_venomancer_2"           "7"
+        "value"                                           "10"
+        "special_bonus_unique_venomancer_2"               "7"
       }
       "hp_regen_reduction"
       {
-        "value"                                       "0"
-        "special_bonus_unique_venomancer_poisonsting_regen_reduction" "+15"
+        "value"                                           "0"
+        "special_bonus_unique_venomancer_poisonsting_regen_reduction"  "+15"
       }
     }
   }

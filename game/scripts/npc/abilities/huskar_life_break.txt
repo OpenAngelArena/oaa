@@ -8,90 +8,90 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "550"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0 0 0 0 0"
+    "AbilityManaCost"                                     "0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_cost_percent"                           "0.32 0.38 0.44 0.5 0.56"
-      "charge_speed"                                  "1200"
-      "movespeed"                                     "-60 -60 -60 -60 -60"
-      "attack_speed"                                  "60 100 140 180 220"
-      "immunity_resist"                               "60"
+      "health_cost_percent"                               "0.32 0.38 0.44 0.5 0.56"
+      "charge_speed"                                      "1200"
+      "movespeed"                                         "-60 -60 -60 -60 -60"
+      "attack_speed"                                      "60 100 140 180 220"
+      "immunity_resist"                                   "60"
       "health_damage"
       {
-        "value"                                       "0.32 0.38 0.44 0.5 0.56"
-        "special_bonus_unique_huskar"                 "+0.22"
+        "value"                                           "0.32 0.38 0.44 0.5 0.56"
+        "special_bonus_unique_huskar"                     "+0.22"
       }
       "tooltip_health_damage"
       {
-        "value"                                       "32 38 44 50 56"
-        "special_bonus_unique_huskar"                 "+22"
+        "value"                                           "32 38 44 50 56"
+        "special_bonus_unique_huskar"                     "+22"
       }
       "tooltip_health_cost_percent"
       {
-        "value"                                       "32 38 44 50 56"
-        "CalculateSpellDamageTooltip"                 "1"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "value"                                           "32 38 44 50 56"
+        "CalculateSpellDamageTooltip"                     "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "AbilityDuration"
       {
-        "value"                                       "3 4 5 6 7"
-        "special_bonus_unique_huskar_4"               "+2"
+        "value"                                           "3 4 5 6 7"
+        "special_bonus_unique_huskar_4"                   "+2"
       }
       "slow_duration_tooltip"
       {
-        "value"                                       "3 4 5 6 7"
-        "special_bonus_unique_huskar_4"               "+2"
+        "value"                                           "3 4 5 6 7"
+        "special_bonus_unique_huskar_4"                   "+2"
       }
       "taunt_duration"
       {
-        "value"                                       "0.0"
-        "special_bonus_scepter"                       "+3.0"
+        "value"                                           "0.0"
+        "special_bonus_scepter"                           "+3.0"
       }
       "cast_range_bonus"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "+250"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+250"
       }
       "splash_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "life_break_heal_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "life_break_heal_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "AbilityCooldown"
       {
-        "value"                                       "16 14 12 12 12"
-        "special_bonus_unique_huskar_7"               "-5"
+        "value"                                           "16 14 12 12 12"
+        "special_bonus_unique_huskar_7"                   "-5"
       }
     }
   }

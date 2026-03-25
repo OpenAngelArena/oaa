@@ -8,59 +8,59 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "22 21 20 19 18 17"
+    "AbilityCooldown"                                     "22 21 20 19 18 17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "90 120 150 180 210 240"
+    "AbilityManaCost"                                     "90 120 150 180 210 240"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tower_bonus"                                   "0"
+      "tower_bonus"                                       "0"
       "num_explosions"
       {
-        "value"                                       "40"
-        "special_bonus_unique_leshrac_1"              "+20"
+        "value"                                           "40"
+        "special_bonus_unique_leshrac_1"                  "+20"
       }
       "radius"
       {
-        "value"                                       "450"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
       "affects_buildings"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "damage"
       {
-        "value"                                       "10 18 26 34 50 66"
+        "value"                                           "10 18 26 34 50 66"
       }
       "targets"
       {
-        "value"                                       "1"
-        "special_bonus_unique_leshrac_7"              "+1"
+        "value"                                           "1"
+        "special_bonus_unique_leshrac_7"                  "+1"
       }
       "AbilityDuration"
       {
-        "value"                                       "8"
+        "value"                                           "8"
       }
     }
   }

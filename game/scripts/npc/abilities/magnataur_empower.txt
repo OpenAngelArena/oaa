@@ -8,77 +8,77 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, because of Duel start
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, because of Duel start
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "8"
+    "AbilityCooldown"                                     "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "45 50 55 60 65 70" //OAA
+    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "self_multiplier"                               "30"
-      "always_on"                                     "1"
-      "self_multiplier_bonus_stack_duration"          "0"
-      "self_multiplier_bonus_max_stacks"              "25 30 35 40 40 40"
-      "self_multiplier_bonus_per_stack"               "5 6 7 8 8 8"
+      "self_multiplier"                                   "30"
+      "always_on"                                         "1"
+      "self_multiplier_bonus_stack_duration"              "0"
+      "self_multiplier_bonus_max_stacks"                  "25 30 35 40 40 40"
+      "self_multiplier_bonus_per_stack"                   "5 6 7 8 8 8"
       "AbilityCastRange"
       {
-        "value"                                       "800"
+        "value"                                           "800"
       }
       "should_self_cast"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "empower_duration"
       {
-        "value"                                       "30 33 36 39 42 45"
-        "special_bonus_unique_magnus_4"               "+10"
+        "value"                                           "30 33 36 39 42 45"
+        "special_bonus_unique_magnus_4"                   "+10"
       }
       "bonus_damage_pct"
       {
-        "value"                                       "16 24 32 40 48 56"
+        "value"                                           "16 24 32 40 48 56"
       }
       "cleave_damage_pct" //OAA
       {
-        "value"                                       "16 24 32 40 40 40"
-        "special_bonus_unique_magnus_2"               "+10"
+        "value"                                           "16 24 32 40 40 40"
+        "special_bonus_unique_magnus_2"                   "+10"
       }
       "cleave_starting_width"
       {
-        "value"                                       "150"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
       "cleave_ending_width"
       {
-        "value"                                       "360"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance"
       {
-        "value"                                       "650"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
       }
       "secondary_cleave_distance"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

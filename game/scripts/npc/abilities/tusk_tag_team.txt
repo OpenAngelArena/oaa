@@ -8,47 +8,47 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "70 75 80 85 90 95" //OAA
+    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                 "75"
-      "slow_duration"                                 "0.5"
+      "movement_slow"                                     "75"
+      "slow_duration"                                     "0.5"
       "bonus_damage"
       {
-        "value"                                       "25 50 75 100 150 200"
+        "value"                                           "25 50 75 100 150 200"
       }
       "debuff_duration"
       {
-        "value"                                       "6"
-        "special_bonus_unique_tusk_3"                 "+2"
+        "value"                                           "6"
+        "special_bonus_unique_tusk_3"                     "+2"
       }
       "radius"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

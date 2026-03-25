@@ -8,57 +8,57 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "900"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "range"                                         "900"
-      "speed"                                         "1100 1100 1100 1100 1100 1100"
+      "range"                                             "900"
+      "speed"                                             "1100 1100 1100 1100 1100 1100"
       "damage"
       {
-        "value"                                       "100 175 250 325 650 975"
-        "special_bonus_unique_death_prophet_crypt_swarm_damage" "+50"
+        "value"                                           "100 175 250 325 650 975"
+        "special_bonus_unique_death_prophet_crypt_swarm_damage"  "+50"
       }
       "AbilityCooldown"
       {
-        "value"                                       "9 8 7 6 6 6"
-        "special_bonus_unique_death_prophet_2"        "-2.5"
+        "value"                                           "9 8 7 6 6 6"
+        "special_bonus_unique_death_prophet_2"            "-2.5"
       }
       "start_radius"
       {
-        "value"                                       "110"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "110"
+        "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "slow_percent"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "slow_duration"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

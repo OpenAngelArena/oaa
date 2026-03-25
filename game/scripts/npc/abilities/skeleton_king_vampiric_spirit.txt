@@ -8,10 +8,10 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,33 +19,33 @@
     {
       "vampiric_aura" //OAA
       {
-        "value"                                       "14"
-        "hero_levelup"                                "+1"
-        "special_bonus_unique_wraith_king_2"          "+10"
+        "value"                                           "14"
+        "hero_levelup"                                    "+1"
+        "special_bonus_unique_wraith_king_2"              "+10"
       }
       "duration" //OAA
       {
-        "value"                                       "4.25"
-        "hero_levelup"                                "+0.25"
-        "levelup_interval"                            "6"
-        "special_bonus_scepter"                       "+1"
+        "value"                                           "4.25"
+        "hero_levelup"                                    "+0.25"
+        "levelup_interval"                                "6"
+        "special_bonus_scepter"                           "+1"
       }
       "scepter_attack_speed"
       {
-        "value"                                       "55"
+        "value"                                           "55"
       }
       "scepter_move_speed_pct"
       {
-        "value"                                       "20"
+        "value"                                           "20"
       }
       "scepter_aura_radius" //OAA
       {
-        "special_bonus_scepter"                       "+1200"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "+1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "wraith_damage_penalty" //OAA
       {
-        "value"                                       "25"
+        "value"                                           "25"
       }
     }
   }

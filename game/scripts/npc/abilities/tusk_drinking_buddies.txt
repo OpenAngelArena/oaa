@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" //OAA, Valve is missing some space
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "IsGrantedByShard"                                "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" //OAA, Valve is missing some space
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "IsGrantedByShard"                                    "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.1"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "65 70 75 80 85 90" //OAA
+    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"                              "1000"
-      "alt_cast_castrange_pct"                        "50"
-      "pull_duration"                                 "0.2"
-      "min_distance"                                  "250"
-      "max_distance"                                  "1300"
-      "movespeed_bonus"                               "25"
+      "AbilityCastRange"                                  "1000"
+      "alt_cast_castrange_pct"                            "50"
+      "pull_duration"                                     "0.2"
+      "min_distance"                                      "250"
+      "max_distance"                                      "1300"
+      "movespeed_bonus"                                   "25"
       "buff_duration"
       {
-        "value"                                       "6.0"
+        "value"                                           "6.0"
       }
       "armor_bonus"
       {
-        "value"                                       "10"
+        "value"                                           "10"
       }
     }
   }

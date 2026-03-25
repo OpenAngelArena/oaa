@@ -8,11 +8,11 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "DependentOnAbility"                              "skywrath_mage_mystic_flare"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "skywrath_mage_mystic_flare"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,8 +20,8 @@
     {
       "spell_lifesteal"
       {
-        "value"                                       "25 30 35 40 45 50"
-        "special_bonus_unique_skywrath_arcane_bolt_lifesteal" "+20"
+        "value"                                           "25 30 35 40 45 50"
+        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+20"
       }
     }
   }

@@ -8,51 +8,51 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_pct"                                      "35 40 45 50 55 60"
-      "heal_from_creeps"                              "40"
-      "proc_cooldown"                                 "0.00"
-      "allied_healing_pct"                            "90" //OAA
+      "heal_pct"                                          "35 40 45 50 55 60"
+      "heal_from_creeps"                                  "40"
+      "proc_cooldown"                                     "0.00"
+      "allied_healing_pct"                                "90" //OAA
       "attack_count"
       {
-        "value"                                       "3"
-        "special_bonus_unique_dawnbreaker_luminosity_attack_count" "-1"
+        "value"                                           "3"
+        "special_bonus_unique_dawnbreaker_luminosity_attack_count"  "-1"
       }
       "heal_radius" //OAA
       {
-        "value"                                       "650"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage"
       {
-        "value"                                       "125 150 175 200 225 250"
-        "special_bonus_unique_dawnbreaker_luminosity_crit" "+25"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "125 150 175 200 225 250"
+        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "cooldown_reduction"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_solar_charged" "0.8"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_solar_charged"   "0.8"
       }
       "triggered_by_celestial_hammer"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_brightmaul_wake" "1"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_brightmaul_wake"  "1"
       }
     }
   }

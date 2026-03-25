@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "90 110 130 150 170 190"
+    "AbilityManaCost"                                     "90 110 130 150 170 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"                               "14 13 12 11 11 11"
-      "duration"                                      "1.3 1.6 1.9 2.2 2.3 2.4"
-      "length_buffer"                                 "275"
-      "speed"                                         "2800"
+      "AbilityCooldown"                                   "14 13 12 11 11 11"
+      "duration"                                          "1.3 1.6 1.9 2.2 2.3 2.4"
+      "length_buffer"                                     "275"
+      "speed"                                             "2800"
       "AbilityCastRange" //OAA
       {
-        "value"                                       "650"
-        "special_bonus_unique_lion_2"                 "+600"
+        "value"                                           "650"
+        "special_bonus_unique_lion_2"                     "+600"
       }
       "damage"
       {
-        "value"                                       "105 170 235 300 600 1200"
+        "value"                                           "105 170 235 300 600 1200"
       }
       "width"
       {
-        "value"                                       "140"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "140"
+        "affected_by_aoe_increase"                        "1"
       }
       "pierces_immunity"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "cone_shaped"
       {
-        "value"                                       "0"
-        "special_bonus_unique_lion_10"                "+1"
+        "value"                                           "0"
+        "special_bonus_unique_lion_10"                    "+1"
       }
     }
   }

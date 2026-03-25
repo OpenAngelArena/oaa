@@ -8,36 +8,36 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stat_loss"                                     "1"
+      "stat_loss"                                         "1"
       "agi_gain"
       {
-        "value"                                       "3"
-        "special_bonus_unique_slark_5"                "+1"
+        "value"                                           "3"
+        "special_bonus_unique_slark_5"                    "+1"
       }
       "duration"
       {
-        "value"                                       "12.5"
-        "hero_levelup"                                "+2.5"
-        "special_bonus_unique_slark_4"                "+35"
+        "value"                                           "12.5"
+        "hero_levelup"                                    "+2.5"
+        "special_bonus_unique_slark_4"                    "+35"
       }
       "steal_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "max_stacks_per_hero"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

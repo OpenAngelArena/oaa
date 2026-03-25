@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "850"
-    "AbilityCastPoint"                                "0.10"
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 85 95 105 115 125" //OAA
+    "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                        "90 180 270 360 720 1080"
-      "heal_per_second"                               "15 25 35 45 90 135"
-      "total_heal_tooltip"                            "150 250 350 450 900 1350"
-      "duration"                                      "10"
-      "tick_rate"                                     "0.1"
+      "damage"                                            "90 180 270 360 720 1080"
+      "heal_per_second"                                   "15 25 35 45 90 135"
+      "total_heal_tooltip"                                "150 250 350 450 900 1350"
+      "duration"                                          "10"
+      "tick_rate"                                         "0.1"
       "damage_modifier"
       {
-        "value"                                       "1"
-        "special_bonus_unique_oracle_8"               "+25%"
+        "value"                                           "1"
+        "special_bonus_unique_oracle_8"                   "+25%"
       }
       "AbilityCooldown"
       {
-        "value"                                       "2.5"
-        "special_bonus_unique_oracle_5"               "-1"
+        "value"                                           "2.5"
+        "special_bonus_unique_oracle_5"                   "-1"
       }
     }
   }

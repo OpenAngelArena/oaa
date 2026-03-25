@@ -8,42 +8,42 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_TREE"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA, Valve has a typo: AbilityUnitTargetFlag
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "LinkedAbility"                                   "kez_talon_toss"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_TREE"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA, Valve has a typo: AbilityUnitTargetFlag
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "kez_talon_toss"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "650 750 850 950 1050 1150"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "650 750 850 950 1050 1150"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "13 11 9 7 6 5"
+    "AbilityCooldown"                                     "13 11 9 7 6 5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "40"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "land_distance"                                 "75"
-      "projectile_speed"                              "3000"
-      "grapple_speed"                                 "1800"
-      "max_distance_break"                            "2000"
-      "debuff_duration"                               "0.7 0.8 0.9 1.0 1.1 1.2"
-      "katana_ms_slow_pct"                            "70 80 90 100 100 100"
+      "land_distance"                                     "75"
+      "projectile_speed"                                  "3000"
+      "grapple_speed"                                     "1800"
+      "max_distance_break"                                "2000"
+      "debuff_duration"                                   "0.7 0.8 0.9 1.0 1.1 1.2"
+      "katana_ms_slow_pct"                                "70 80 90 100 100 100"
       "lifesteal_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

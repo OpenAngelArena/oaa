@@ -8,88 +8,88 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "30 29 28 27 26 25" //OAA
+    "AbilityCooldown"                                     "30 29 28 27 26 25" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "wolf_index"                                    "1 2 3 4 5 6"
-      "bash_chance"                                   "15"
-      "bash_duration"                                 "1.0"
-      "bonus_levels"                                  "2"
+      "wolf_index"                                        "1 2 3 4 5 6"
+      "bash_chance"                                       "15"
+      "bash_duration"                                     "1.0"
+      "bonus_levels"                                      "2"
       "AbilityManaCost" //OAA
       {
-        "value"                                       "115 120 125 130 130 130"
+        "value"                                           "115 120 125 130 130 130"
       }
       "wolf_duration"
       {
-        "value"                                       "50"
+        "value"                                           "50"
       }
       "wolf_bat" //OAA
       {
-        "value"                                       "1.2 1.1 1.0 0.9 0.9 0.9"
-        "special_bonus_facet_lycan_spirit_wolves"     "=0 =0 =0 =0 =0 =0"
-        "special_bonus_unique_lycan_2"                "-25%"
+        "value"                                           "1.2 1.1 1.0 0.9 0.9 0.9"
+        "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0"
+        "special_bonus_unique_lycan_2"                    "-25%"
       }
       "wolf_damage" //OAA
       {
-        "value"                                       "22 28 34 40 46 52"
-        "special_bonus_unique_lycan_3"                "+10"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "22 28 34 40 46 52"
+        "special_bonus_unique_lycan_3"                    "+10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "wolf_hp" //OAA
       {
-        "value"                                       "325 375 425 475 525 575"
-        "special_bonus_unique_lycan_7"                "+350"
+        "value"                                           "325 375 425 475 525 575"
+        "special_bonus_unique_lycan_7"                    "+350"
       }
       "bonus_health"
       {
-        "value"                                       "0"
-        "special_bonus_unique_lycan_7"                "+350"
+        "value"                                           "0"
+        "special_bonus_unique_lycan_7"                    "+350"
       }
       "bonus_damage"
       {
-        "value"                                       "0"
-        "special_bonus_unique_lycan_3"                "+10"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "0"
+        "special_bonus_unique_lycan_3"                    "+10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "bonus_armor"
       {
-        "value"                                       "0 0 0 0 5 10"
+        "value"                                           "0 0 0 0 5 10"
       }
       "wolf_count"
       {
-        "value"                                       "2"
-        "special_bonus_shard"                         "+1"
+        "value"                                           "2"
+        "special_bonus_shard"                             "+1"
       }
       "give_wolves_hightail"
       {
-        "special_bonus_shard"                         "1"
+        "special_bonus_shard"                             "1"
       }
       "damage_per_wolf" //OAA
       {
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "max_level" //OAA
       {
-        "value"                                       "6"
-        "special_bonus_facet_lycan_alpha_wolves"      "+2"
+        "value"                                           "6"
+        "special_bonus_facet_lycan_alpha_wolves"          "+2"
       }
     }
   }

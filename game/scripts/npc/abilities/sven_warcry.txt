@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "23 22 21 20 19 18" //OAA
+    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "30 35 40 45 50 55"
+    "AbilityManaCost"                                     "30 35 40 45 50 55"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,51 +34,51 @@
     {
       "movespeed"
       {
-        "value"                                       "6 9 12 15 18 21"
-        "special_bonus_shard"                         "+3"
+        "value"                                           "6 9 12 15 18 21"
+        "special_bonus_shard"                             "+3"
       }
       "bonus_armor"
       {
-        "value"                                       "5 8 11 14 16 18"
-        "special_bonus_unique_sven_7"                 "+8"
+        "value"                                           "5 8 11 14 16 18"
+        "special_bonus_unique_sven_7"                     "+8"
       }
       "radius"
       {
-        "value"                                       "700"
-        "special_bonus_shard"                         "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "700"
+        "special_bonus_shard"                             "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"
       {
-        "value"                                       "8"
-        "special_bonus_unique_sven_5"                 "+5"
+        "value"                                           "8"
+        "special_bonus_unique_sven_5"                     "+5"
       }
       "shard_passive_armor" //OAA
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "shard_passive_movespeed"
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "undispellable"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "1"
       }
       "shard_radius"
       {
-        "special_bonus_shard"                         "0"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_shard"                             "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "base_barrier_amount" //OAA
       {
-        "special_bonus_shard"                         "300"
-        "RequiresShard"                               "1"
+        "special_bonus_shard"                             "300"
+        "RequiresShard"                                   "1"
       }
       "barrier_per_strength"
       {
-        "special_bonus_shard"                         "=0"
+        "special_bonus_shard"                             "=0"
       }
     }
   }

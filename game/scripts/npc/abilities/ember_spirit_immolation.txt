@@ -8,30 +8,30 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                 "0.2"
+      "tick_interval"                                     "0.2"
       "radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_shard"                         "+150"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_shard"                             "+150"
       }
       "damage"
       {
-        "value"                                       "10"
-        "hero_levelup"                                "1"
-        "special_bonus_shard"                         "+10"
+        "value"                                           "10"
+        "hero_levelup"                                    "1"
+        "special_bonus_shard"                             "+10"
       }
     }
   }

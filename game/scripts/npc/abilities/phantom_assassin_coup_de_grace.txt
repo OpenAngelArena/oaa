@@ -8,33 +8,33 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "6 8 10 12 14"
+      "duration"                                          "6 8 10 12 14"
       "crit_chance" //OAA
       {
-        "value"                                       "17"
-        "special_bonus_unique_phantom_assassin_2"     "+10"
-        "special_bonus_facet_phantom_assassin_methodical" "=0"
+        "value"                                           "17"
+        "special_bonus_unique_phantom_assassin_2"         "+10"
+        "special_bonus_facet_phantom_assassin_methodical"  "=0"
       }
       "dagger_crit_chance" //OAA
       {
-        "value"                                       "34"
-        "special_bonus_unique_phantom_assassin_2"     "+10"
-        "special_bonus_facet_phantom_assassin_methodical" "=0"
+        "value"                                           "34"
+        "special_bonus_unique_phantom_assassin_2"         "+10"
+        "special_bonus_facet_phantom_assassin_methodical"  "=0"
       }
       "crit_bonus"
       {
-        "value"                                       "200 300 400 500 600"
-        "special_bonus_facet_phantom_assassin_methodical" "+100"
+        "value"                                           "200 300 400 500 600"
+        "special_bonus_facet_phantom_assassin_methodical"  "+100"
       }
       "attacks_to_proc"
       {
@@ -44,7 +44,7 @@
       }
       "two_tooltip"
       {
-        "special_bonus_facet_phantom_assassin_methodical" "+2"
+        "special_bonus_facet_phantom_assassin_methodical"  "+2"
       }
     }
   }

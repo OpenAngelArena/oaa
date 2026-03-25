@@ -8,77 +8,77 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "65 70 75 80 85 90" //OAA
+    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "skewer_speed"                                  "900"
-      "skewer_damage"                                 "80 160 240 320 640 960"
+      "skewer_speed"                                      "900"
+      "skewer_damage"                                     "80 160 240 320 640 960"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "22 20 18 16 16 16"
-        "special_bonus_unique_magnus_7"               "-5"
+        "value"                                           "22 20 18 16 16 16"
+        "special_bonus_unique_magnus_7"                   "-5"
       }
       "range"
       {
-        "value"                                       "800 900 1000 1100 1200 1300"
-        "special_bonus_shard"                         "+300"
+        "value"                                           "800 900 1000 1100 1200 1300"
+        "special_bonus_shard"                             "+300"
       }
       "slow_pct"
       {
-        "value"                                       "20 30 40 50 60 70"
+        "value"                                           "20 30 40 50 60 70"
       }
       "skewer_radius"
       {
-        "value"                                       "145"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "145"
+        "affected_by_aoe_increase"                        "1"
       }
       "slow_duration"
       {
-        "value"                                       "3.25"
-        "special_bonus_unique_magnus_6"               "+1.25"
+        "value"                                           "3.25"
+        "special_bonus_unique_magnus_6"                   "+1.25"
       }
       "damage_distance_pct"
       {
-        "value"                                       "6 9 12 15 30 45"
-        "special_bonus_unique_magnus_skewer_damage_distance" "+15"
+        "value"                                           "6 9 12 15 30 45"
+        "special_bonus_unique_magnus_skewer_damage_distance"  "+15"
       }
       "tree_radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "tree_hit_damage"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "40"
+        "value"                                           "0"
+        "special_bonus_shard"                             "40"
       }
       "cliff_hit_damage"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "150"
+        "value"                                           "0"
+        "special_bonus_shard"                             "150"
       }
       "terrain_hit_cooldown"
       {
-        "value"                                       "0.5"
+        "value"                                           "0.5"
       }
     }
   }

@@ -8,64 +8,64 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "500"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "50"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "20" //OAA
-      "radius"                                        "500"
-      "fade_duration"                                 "0.8"
-      "break_on_attack"                               "0"
+      "duration"                                          "20" //OAA
+      "radius"                                            "500"
+      "fade_duration"                                     "0.8"
+      "break_on_attack"                                   "0"
       "manacost_reduction_during_blur_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "buff_duration_after_break"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "manacost_reduction_after_blur_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "active_movespeed_bonus"
       {
-        "value"                                       "9.5"
-        "hero_levelup"                                "+0.5"
+        "value"                                           "9.5"
+        "hero_levelup"                                    "+0.5"
       }
       "immediate_cast"
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "purge_on_cast"
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "cooldown_refund_pct"
       {
-        "special_bonus_shard"                         "60"
+        "special_bonus_shard"                             "60"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "45"
-        "special_bonus_shard"                         "-10"
+        "value"                                           "45"
+        "special_bonus_shard"                             "-10"
       }
     }
   }

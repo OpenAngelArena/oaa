@@ -8,56 +8,56 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1000"
-    "AbilityCastPoint"                                "1.0"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 125 150 175 200 225"
+    "AbilityManaCost"                                     "100 125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_duration"                                 "0.8 1 1.2 1.4 1.6 1.8"
-      "duration"                                      "0.75"
+      "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
+      "duration"                                          "0.75"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "40 35 30 25 25 25"
-        "special_bonus_unique_techies_5"              "-15"
+        "value"                                           "40 35 30 25 25 25"
+        "special_bonus_unique_techies_5"                  "-15"
       }
       "radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage"
       {
-        "value"                                       "200 300 400 500 750 1250"
-        "special_bonus_unique_techies"                "+200"
+        "value"                                           "200 300 400 500 750 1250"
+        "special_bonus_unique_techies"                    "+200"
       }
       "hp_cost"
       {
-        "value"                                       "20"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_dmg"
       {
-        "value"                                       "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

@@ -8,62 +8,62 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1950"
-    "AbilityCastPoint"                                "0.1 0.1 0.1 0.1 0.1 0.1"
+    "AbilityCastRange"                                    "1950"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_distance"                                  "1950"
-      "vision_duration"                               "2.5"
-      "warning_sound_time"                            "0.25"
-      "curve_orb"                                     "1"
-      "curve_orb_duration_multiplier"                 "100"
-      "curve_orb_max_acceleration"                    "0.0015"
-      "curve_orb_pullback_bonus_launch_speed"         "0.25"
-      "curve_strength"                                "0.6"
-      "vector_reticle_distance"                       "200.0"
-      "vector_reticle_radius"                         "0.0"
-      "increase_per_sec"                              "0"
-      "damage_over_time_pct"                          "3"
-      "damage_interval"                               "0.5"
-      "max_orb_duration_tooltip"                      "5.2"
+      "max_distance"                                      "1950"
+      "vision_duration"                                   "2.5"
+      "warning_sound_time"                                "0.25"
+      "curve_orb"                                         "1"
+      "curve_orb_duration_multiplier"                     "100"
+      "curve_orb_max_acceleration"                        "0.0015"
+      "curve_orb_pullback_bonus_launch_speed"             "0.25"
+      "curve_strength"                                    "0.6"
+      "vector_reticle_distance"                           "200.0"
+      "vector_reticle_radius"                             "0.0"
+      "increase_per_sec"                                  "0"
+      "damage_over_time_pct"                              "3"
+      "damage_interval"                                   "0.5"
+      "max_orb_duration_tooltip"                          "5.2"
       "radius"
       {
-        "value"                                       "225"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "225"
+        "affected_by_aoe_increase"                        "1"
       }
       "orb_speed"
       {
-        "value"                                       "750"
+        "value"                                           "750"
       }
       "orb_vision"
       {
-        "value"                                       "450"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                       "75 150 225 300 300 300"
-        "special_bonus_unique_puck_orb_damage"        "+40"
+        "value"                                           "75 150 225 300 300 300"
+        "special_bonus_unique_puck_orb_damage"            "+40"
       }
       "AbilityCooldown"
       {
-        "value"                                       "11 10 9 8 7 6"
+        "value"                                           "11 10 9 8 7 6"
       }
     }
   }

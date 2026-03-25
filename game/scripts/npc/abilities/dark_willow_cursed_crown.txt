@@ -8,63 +8,63 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "600 625 650 675 700 725"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "600 625 650 675 700 725"
+    "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "delay"                                         "4"
+      "delay"                                             "4"
       "stun_duration"
       {
-        "value"                                       "1.5 1.8 2.1 2.4 2.5 2.6"
+        "value"                                           "1.5 1.8 2.1 2.4 2.5 2.6"
       }
       "stun_radius"
       {
-        "value"                                       "360"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_delay_reduction"
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "shard_bramble_amount"
       {
-        "special_bonus_shard"                         "4"
+        "special_bonus_shard"                             "4"
       }
       "shard_spawn_radius"
       {
-        "special_bonus_shard"                         "175"
+        "special_bonus_shard"                             "175"
       }
       "accumulated_damage_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "accumulated_damage_pct_ally"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "AbilityCooldown" //OAA, Calculated with values: 2.8s max stun duration (no talent), 0.2s cast point
       {
-        "value"                                       "17 15 13 11 11 11"
-        "special_bonus_shard"                         "-1.5"
+        "value"                                           "17 15 13 11 11 11"
+        "special_bonus_shard"                             "-1.5"
       }
     }
   }

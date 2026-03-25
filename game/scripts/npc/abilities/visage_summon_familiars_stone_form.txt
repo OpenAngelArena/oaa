@@ -8,37 +8,37 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "DependentOnAbility"                              "visage_summon_familiars"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "visage_summon_familiars"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "50"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "50"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "11.0"
+    "AbilityCooldown"                                     "11.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_delay"                                    "0.55"
-      "stun_damage"                                   "100 180 260 500 740" //OAA
-      "stun_duration"                                 "0.8 1.0 1.2 1.4 1.6"
-      "stone_duration"                                "6.0"
-      "hp_regen"                                      "150.0 175.0 200.0 300.0 400.0"
+      "stun_delay"                                        "0.55"
+      "stun_damage"                                       "100 180 260 500 740" //OAA
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "stone_duration"                                    "6.0"
+      "hp_regen"                                          "150.0 175.0 200.0 300.0 400.0"
       "stun_radius"
       {
-        "value"                                       "375"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

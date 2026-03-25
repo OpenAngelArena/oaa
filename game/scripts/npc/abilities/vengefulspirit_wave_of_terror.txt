@@ -8,58 +8,58 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1400"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "1400"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "16 14 12 10 10 10"
-    "AbilityDuration"                                 "8"
+    "AbilityCooldown"                                     "16 14 12 10 10 10"
+    "AbilityDuration"                                     "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "40 45 50 55 60 65" //OAA
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                        "60 80 100 120 240 360"
-      "wave_speed"                                    "2000.0"
-      "vision_duration"                               "4"
+      "damage"                                            "60 80 100 120 240 360"
+      "wave_speed"                                        "2000.0"
+      "vision_duration"                                   "4"
       "wave_width"
       {
-        "value"                                       "325"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
       "armor_reduction"
       {
-        "value"                                       "-3 -4 -5 -6 -8 -10"
-        "special_bonus_unique_vengeful_spirit_4"      "+-3"
+        "value"                                           "-3 -4 -5 -6 -8 -10"
+        "special_bonus_unique_vengeful_spirit_4"          "+-3"
       }
       "attack_reduction" //OAA, reducing total attack damage
       {
-        "value"                                       "10 15 20 25 25 25"
+        "value"                                           "10 15 20 25 25 25"
       }
       "vision_aoe"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
       "steal_pct"
       {
-        "value"                                       "0"
-        "special_bonus_unique_vengeful_spirit_wave_of_terror_steal" "+25"
+        "value"                                           "0"
+        "special_bonus_unique_vengeful_spirit_wave_of_terror_steal"  "+25"
       }
     }
   }

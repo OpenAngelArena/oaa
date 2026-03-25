@@ -7,39 +7,39 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
 
-    "MaxLevel"                                        "1"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_base_ms"                                "0"
-      "katana_attack_range"                           "225"
-      "katana_base_attack_time"                       "1.9"
+      "katana_base_ms"                                    "0"
+      "katana_attack_range"                               "225"
+      "katana_base_attack_time"                           "1.9"
       "katana_agility_bonus_base_damage"
       {
-        "value"                                       "16"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "16"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "katana_swap_bonus_damage"                      "12"
-      "sai_base_ms"                                   "0"
-      "sai_attack_range"                              "150"
-      "sai_base_attack_time"                          "1.5"
-      "sai_swap_bonus_movement_speed"                 "12"
-      "sai_swap_duration"                             "2"
+      "katana_swap_bonus_damage"                          "12"
+      "sai_base_ms"                                       "0"
+      "sai_attack_range"                                  "150"
+      "sai_base_attack_time"                              "1.5"
+      "sai_swap_bonus_movement_speed"                     "12"
+      "sai_swap_duration"                                 "2"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "5.1"
-        "hero_levelup"                                "-0.1"
+        "value"                                           "5.1"
+        "hero_levelup"                                    "-0.1"
       }
-      "scepter_cooldown_timer"                        "3"
+      "scepter_cooldown_timer"                            "3"
     }
   }
 }

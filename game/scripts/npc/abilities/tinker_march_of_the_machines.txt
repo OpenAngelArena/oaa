@@ -8,62 +8,62 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "300"
-    "AbilityCastPoint"                                "0.53"
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.53"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "35.0 33.0 31.0 29.0 29.0 29.0"
+    "AbilityCooldown"                                     "35.0 33.0 31.0 29.0 29.0 29.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 120 140 160 180 200"
-    "AbilityDamage"                                   "0"
+    "AbilityManaCost"                                     "100 120 140 160 180 200"
+    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "collision_radius"                              "50 55 60 65 70 75" //OAA
-      "splash_radius"                                 "150"
-      "speed"                                         "400"
-      "machines_per_sec"                              "24 26 28 30 32 34" //OAA
-      "distance"                                      "1800"
-      "damage"                                        "13 22 31 40" //OAA
+      "collision_radius"                                  "50 55 60 65 70 75" //OAA
+      "splash_radius"                                     "150"
+      "speed"                                             "400"
+      "machines_per_sec"                                  "24 26 28 30 32 34" //OAA
+      "distance"                                          "1800"
+      "damage"                                            "13 22 31 40" //OAA
       "radius"
       {
-        "value"                                       "900"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration" //OAA
       {
-        "value"                                       "6.0"
-        "special_bonus_unique_tinker_march_duration"  "+1.0"
+        "value"                                           "6.0"
+        "special_bonus_unique_tinker_march_duration"      "+1.0"
       }
       "heal_per_second"
       {
-        "special_bonus_scepter"                       "35"
+        "special_bonus_scepter"                           "35"
       }
       "heal_duration" //OAA
       {
-        "special_bonus_scepter"                       "4"
-        "value"                                       "0"
-        "special_bonus_unique_tinkerer_5"             "+1.0"
+        "special_bonus_scepter"                           "4"
+        "value"                                           "0"
+        "special_bonus_unique_tinkerer_5"                 "+1.0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "25 23 21 19 17 15"
-        "special_bonus_unique_tinkerer_6"             "-6"
+        "value"                                           "25 23 21 19 17 15"
+        "special_bonus_unique_tinkerer_6"                 "-6"
       }
     }
   }

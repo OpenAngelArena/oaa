@@ -8,56 +8,56 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "0"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1100"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "1100"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "rolling_offset_distance"                       "150"
-      "attack_damage_per_stone"                       "2.5"
-      "attack_damage_per_stone_used"                  "7.5"
-      "buff_duration"                                 "10"
+      "rolling_offset_distance"                           "150"
+      "attack_damage_per_stone"                           "2.5"
+      "attack_damage_per_stone_used"                      "7.5"
+      "buff_duration"                                     "10"
       "duration" //OAA
       {
-        "value"                                       "60.0"
+        "value"                                           "60.0"
       }
       "polarization_distance"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "vision_radius"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "AbilityCharges"
       {
-        "value"                                       "7"
-        "hero_levelup"                                "+1"
-        "levelup_interval"                            "4"
+        "value"                                           "7"
+        "hero_levelup"                                    "+1"
+        "levelup_interval"                                "4"
       }
       "AbilityManaCost"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "AbilityCooldown"
       {
-        "value"                                       "0.0"
+        "value"                                           "0.0"
       }
       "AbilityChargeRestoreTime"
       {
-        "value"                                       "18"
+        "value"                                           "18"
       }
       "is_stepping_stone"
       {
-        "value"                                       "=0"
+        "value"                                           "=0"
       }
     }
   }

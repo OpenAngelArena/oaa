@@ -8,10 +8,10 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,42 +19,42 @@
     {
       "bonus_movement_speed_pct_night" //OAA, 5 vanilla levels
       {
-        "value"                                       "24"
-        "hero_levelup"                                "2"
-        "levelup_interval"                            "3"
-        "special_bonus_scepter"                       "+15"
+        "value"                                           "24"
+        "hero_levelup"                                    "2"
+        "levelup_interval"                                "3"
+        "special_bonus_scepter"                           "+15"
       }
       "bonus_attack_speed_night" //OAA, 5 vanilla levels
       {
-        "value"                                       "38"
-        "hero_levelup"                                "2"
-        "special_bonus_scepter"                       "+50"
-        "special_bonus_unique_night_stalker_2"        "+100"
+        "value"                                           "38"
+        "hero_levelup"                                    "2"
+        "special_bonus_scepter"                           "+50"
+        "special_bonus_unique_night_stalker_2"            "+100"
       }
       "reset_cooldowns"
       {
-        "special_bonus_scepter"                       "1"
+        "special_bonus_scepter"                           "1"
       }
       "bonus_status_resist_night"
       {
-        "special_bonus_unique_night_stalker_hunter_status_resist" "+20"
+        "special_bonus_unique_night_stalker_hunter_status_resist"  "+20"
       }
       "shard_cooldown" //OAA
       {
-        "special_bonus_shard"                         "20"
+        "special_bonus_shard"                             "20"
       }
       "shard_cast_range" //OAA
       {
-        "special_bonus_shard"                         "200"
+        "special_bonus_shard"                             "200"
       }
       "max_level" //OAA
       {
-        "value"                                       "6"
-        "special_bonus_facet_night_stalker_dayswap"   "+1"
+        "value"                                           "6"
+        "special_bonus_facet_night_stalker_dayswap"       "+1"
       }
       "max_level_tooltip" //OAA
       {
-        "special_bonus_facet_night_stalker_dayswap"   "=7"
+        "special_bonus_facet_night_stalker_dayswap"       "=7"
       }
     }
   }

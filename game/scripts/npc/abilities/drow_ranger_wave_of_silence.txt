@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "900"
-    "AbilityCastPoint"                                "0.25"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "wave_speed"                                    "2000.0"
-      "silence_duration"                              "3 4 5 6 6.5 7"
-      "knockback_distance_max"                        "450"
-      "knockback_duration"                            "0.6 0.7 0.8 0.9 1.0 1.1"
-      "knockback_duration_min"                        "0.4"
-      "knockback_height"                              "0"
-      "wave_length"                                   "900"
+      "wave_speed"                                        "2000.0"
+      "silence_duration"                                  "3 4 5 6 6.5 7"
+      "knockback_distance_max"                            "450"
+      "knockback_duration"                                "0.6 0.7 0.8 0.9 1.0 1.1"
+      "knockback_duration_min"                            "0.4"
+      "knockback_height"                                  "0"
+      "wave_length"                                       "900"
       "wave_width"
       {
-        "value"                                       "250"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
       }
       "bonus_movespeed"
       {
-        "value"                                       "0"
-        "special_bonus_unique_drow_ranger_gust_selfmovespeed" "+50"
+        "value"                                           "0"
+        "special_bonus_unique_drow_ranger_gust_selfmovespeed"  "+50"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "19 17 15 13 13 13"
+        "value"                                           "19 17 15 13 13 13"
       }
       "AbilityManaCost"
       {
-        "value"                                       "70"
+        "value"                                           "70"
       }
       "miss_chance"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "gust_reveals_invis"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
     }
   }

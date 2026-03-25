@@ -8,109 +8,109 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "850"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 80 85 90 95 100"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "900"
-      "activation_delay"                              "0.4"
-      "pull_duration"                                 "1.0 1.2 1.4 1.6 1.8 2.0"
-      "pull_destination"                              "44 50 56 62 68 74"
-      "duration"                                      "17.0"
-      "think_interval"                                "0.1"
+      "projectile_speed"                                  "900"
+      "activation_delay"                                  "0.4"
+      "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
+      "pull_destination"                                  "44 50 56 62 68 74"
+      "duration"                                          "17.0"
+      "think_interval"                                    "0.1"
       "start_radius"
       {
-        "value"                                       "90"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                       "90"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
       }
       "radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "remnant_watch_distance"
       {
-        "value"                                       "450"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
       "remnant_watch_radius"
       {
-        "value"                                       "130"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "130"
+        "affected_by_aoe_increase"                        "1"
       }
       "watch_path_vision_radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "impact_damage"
       {
-        "value"                                       "90 140 190 240 480 960"
-        "special_bonus_unique_void_spirit_2"          "+65"
+        "value"                                           "90 140 190 240 480 960"
+        "special_bonus_unique_void_spirit_2"              "+65"
       }
       "pierces_creeps"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "17.0 15.0 13.0 11.0 11.0 11.0"
+        "value"                                           "17.0 15.0 13.0 11.0 11.0 11.0"
       }
       "damage_tick_rate"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+0.5"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+0.5"
       }
       "creep_damage_pct"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+50"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
       "artifice_duration_override"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+4.0"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+4.0"
       }
       "artifice_pct_effectiveness"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+70.0"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+70.0"
       }
       "truesight_range"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "475"
+        "value"                                           "0"
+        "special_bonus_shard"                             "475"
       }
       "rotation_speed"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "1.5"
+        "value"                                           "0"
+        "special_bonus_shard"                             "1.5"
       }
     }
   }

@@ -8,70 +8,70 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "675 700 725 750 750 750"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "675 700 725 750 750 750"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "13 12 11 10 9 8" //OAA
+    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_range"                                   "100"
-      "debuff_duration"                               "0.3"
-      "slow"                                          "100"
-      "bounce_delay"                                  "0.1"
-      "projectile_speed"                              "2200"
+      "bonus_range"                                       "100"
+      "debuff_duration"                                   "0.3"
+      "slow"                                              "100"
+      "bounce_delay"                                      "0.1"
+      "projectile_speed"                                  "2200"
       "acorn_shot_damage"
       {
-        "value"                                       "45 90 135 180 360 540"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "45 90 135 180 360 540"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "base_damage_pct"
       {
-        "value"                                       "80"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "80"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "bounce_count"
       {
-        "value"                                       "2 3 4 5 6 7"
-        "special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_hoodwink_acorn_shot_bounces"  "+2"
       }
       "bounce_range"
       {
-        "value"                                       "525"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "525"
+        "affected_by_aoe_increase"                        "1"
       }
       "can_bounce_off_of_trees"
       {
-        "value"                                       "0"
-        "special_bonus_facet_hoodwink_treebounce_trickshot" "+1"
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
       }
       "bounces_after_tree_bounce"
       {
-        "value"                                       "0"
-        "special_bonus_facet_hoodwink_treebounce_trickshot" "+1"
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
       }
       "AbilityCharges"
       {
-        "special_bonus_unique_hoodwink_acorn_shot_charges" "2"
+        "special_bonus_unique_hoodwink_acorn_shot_charges"  "2"
       }
     }
   }

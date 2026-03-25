@@ -8,10 +8,10 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,48 +19,48 @@
     {
       "projectile_body_on_kill"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "projectile_body_initial_impact_radius"
       {
-        "value"                                       "225"
+        "value"                                           "225"
       }
       "projectile_body_speed"
       {
-        "value"                                       "1600"
+        "value"                                           "1600"
       }
       "projectile_body_distance"
       {
-        "value"                                       "1200"
+        "value"                                           "1200"
       }
       "projectile_body_width_creep"
       {
-        "value"                                       "175"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_width_hero"
       {
-        "value"                                       "175"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_vision"
       {
-        "value"                                       "175"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_body_damage_creep"
       {
-        "value"                                       "27"
-        "hero_levelup"                                "3"
+        "value"                                           "27"
+        "hero_levelup"                                    "3"
       }
       "projectile_body_damage_hero"
       {
-        "value"                                       "135"
-        "hero_levelup"                                "15"
+        "value"                                           "135"
+        "hero_levelup"                                    "15"
       }
       "projectile_body_damage_additional_percent_health"
       {
-        "value"                                       "7"
+        "value"                                           "7"
       }
     }
   }

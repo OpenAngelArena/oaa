@@ -8,82 +8,82 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "3000"
-    "AbilityCastPoint"                                "0.5"
+    "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "100 95 90 85 80" //OAA
-    "AbilityDuration"                                 "5.5"
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
+    "AbilityDuration"                                     "5.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 150 175 200 225"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "1300"
-      "duration_tooltip"                              "5.5"
-      "turn_rate"                                     "75"
-      "burn_interval"                                 "0.5"
-      "burn_ground_duration"                          "3.5"
-      "dist_change_speed"                             "75"
-      "min_range"                                     "600"
-      "min_lob_travel_time"                           "0.8"
-      "max_lob_travel_time"                           "2.0"
-      "delay_after_last_projectile"                   "0.5"
-      "burn_linger_duration"                          "1.0"
+      "projectile_speed"                                  "1300"
+      "duration_tooltip"                                  "5.5"
+      "turn_rate"                                         "75"
+      "burn_interval"                                     "0.5"
+      "burn_ground_duration"                              "3.5"
+      "dist_change_speed"                                 "75"
+      "min_range"                                         "600"
+      "min_lob_travel_time"                               "0.8"
+      "max_lob_travel_time"                               "2.0"
+      "delay_after_last_projectile"                       "0.5"
+      "burn_linger_duration"                              "1.0"
       "projectile_count"
       {
-        "value"                                       "8"
-        "special_bonus_unique_snapfire_1"             "+8"
+        "value"                                           "8"
+        "special_bonus_unique_snapfire_1"                 "+8"
       }
       "has_bonus_projectile"
       {
-        "special_bonus_unique_snapfire_1"             "1"
+        "special_bonus_unique_snapfire_1"                 "1"
       }
       "projectile_width"
       {
-        "value"                                       "130"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "130"
+        "affected_by_aoe_increase"                        "1"
       }
       "impact_radius"
       {
-        "value"                                       "275"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_impact" //OAA
       {
-        "value"                                       "180 270 360 360 360"
+        "value"                                           "180 270 360 360 360"
       }
       "projectile_vision"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "burn_damage" //OAA
       {
-        "value"                                       "60 80 100 100 100"
-        "special_bonus_unique_snapfire_5"             "+35"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "60 80 100 100 100"
+        "special_bonus_unique_snapfire_5"                 "+35"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct" //OAA
       {
-        "value"                                       "15 20 25 25 25"
+        "value"                                           "15 20 25 25 25"
       }
     }
   }

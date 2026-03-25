@@ -8,45 +8,45 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "IsGrantedByScepter"                              "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "IsGrantedByScepter"                                  "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15" //OAA
+    "AbilityCooldown"                                     "15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                        "300"
-      "air_duration"                                  "0.6"
-      "air_height"                                    "300"
-      "slow_duration"                                 "2"
-      "pull_offset"                                   "75"
-      "destination_offset"                            "175"
-      "pull_angle"                                    "230"
-      "horn_toss_slow_pct"                            "100"
-      "stun_duration"                                 "0.75"
+      "damage"                                            "300"
+      "air_duration"                                      "0.6"
+      "air_height"                                        "300"
+      "slow_duration"                                     "2"
+      "pull_offset"                                       "75"
+      "destination_offset"                                "175"
+      "pull_angle"                                        "230"
+      "horn_toss_slow_pct"                                "100"
+      "stun_duration"                                     "0.75"
       "radius"
       {
-        "value"                                       "325"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

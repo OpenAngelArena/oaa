@@ -8,20 +8,20 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_range"                                    "60 120 180 240 290 340"
+      "cast_range"                                        "60 120 180 240 290 340"
       "spell_amp"
       {
-        "value"                                       "11 16 21 26 26 26"
-        "special_bonus_unique_rubick_arcane_supremacy" "+7"
+        "value"                                           "11 16 21 26 26 26"
+        "special_bonus_unique_rubick_arcane_supremacy"    "+7"
       }
     }
   }

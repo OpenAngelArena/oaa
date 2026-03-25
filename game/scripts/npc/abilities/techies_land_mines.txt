@@ -8,61 +8,61 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "450"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "450"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0"
+    "AbilityCooldown"                                     "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "110 140 170 200 230"
-    "AbilityCharges"                                  "3"
+    "AbilityManaCost"                                     "110 140 170 200 230"
+    "AbilityCharges"                                      "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proximity_threshold"                           "1.0"
-      "building_damage_pct"                           "30"
-      "outer_damage"                                  "60"
-      "min_distance"                                  "150"
-      "placement_radius"                              "350"
-      "mres_reduction"                                "15 20 25 30 35"
-      "burn_duration"                                 "5"
+      "proximity_threshold"                               "1.0"
+      "building_damage_pct"                               "30"
+      "outer_damage"                                      "60"
+      "min_distance"                                      "150"
+      "placement_radius"                                  "350"
+      "mres_reduction"                                    "15 20 25 30 35"
+      "burn_duration"                                     "5"
       "radius"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                       "400 575 750 750 750"
+        "value"                                           "400 575 750 750 750"
       }
       "activation_delay"
       {
-        "value"                                       "1"
-        "special_bonus_unique_techies_4"              "-0.8"
+        "value"                                           "1"
+        "special_bonus_unique_techies_4"                  "-0.8"
       }
       "cast_range_scepter_bonus"
       {
-        "special_bonus_scepter"                       "300"
+        "special_bonus_scepter"                           "300"
       }
       "AbilityChargeRestoreTime"
       {
-        "value"                                       "15"
-        "special_bonus_unique_techies_3"              "-3"
+        "value"                                           "15"
+        "special_bonus_unique_techies_3"                  "-3"
       }
     }
   }

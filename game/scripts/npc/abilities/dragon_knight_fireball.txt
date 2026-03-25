@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "IsGrantedByShard"                                "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "IsGrantedByShard"                                    "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "600"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "20"
+    "AbilityCooldown"                                     "20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80"
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "6.0"
-      "burn_interval"                                 "0.5"
-      "linger_duration"                               "2"
+      "duration"                                          "6.0"
+      "burn_interval"                                     "0.5"
+      "linger_duration"                                   "2"
       "radius"
       {
-        "value"                                       "275"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage"
       {
-        "value"                                       "85"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "85"
+        "CalculateSpellDamageTooltip"                     "1"
       }
-      "max_hp_damage"                                 "4" //OAA, unique to OAA
+      "max_hp_damage"                                     "4" //OAA, unique to OAA
     }
   }
 }

@@ -8,114 +8,114 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "3000"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "arrow_range"                                   "3000"
-      "recoil_height"                                 "75"
-      "recoil_duration"                               "0.4"
-      "base_power"                                    "0.2"
+      "arrow_range"                                       "3000"
+      "recoil_height"                                     "75"
+      "recoil_duration"                                   "0.4"
+      "base_power"                                        "0.2"
       "AbilityCooldown"
       {
-        "value"                                       "45"
-        "special_bonus_facet_hoodwink_hipshot"        "x0.5"
+        "value"                                           "45"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.5"
       }
       "arrow_speed"
       {
-        "value"                                       "2200"
-        "special_bonus_scepter"                       "+25%"
+        "value"                                           "2200"
+        "special_bonus_scepter"                           "+25%"
       }
       "arrow_width"
       {
-        "value"                                       "125"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "125"
+        "affected_by_aoe_increase"                        "1"
       }
       "arrow_vision"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
       "max_charge_time"
       {
-        "value"                                       "3.0"
-        "special_bonus_facet_hoodwink_hipshot"        "x0.75"
+        "value"                                           "3.0"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "max_damage" //OAA
       {
-        "value"                                       "600 975 1350 1350 1350"
-        "special_bonus_unique_hoodwink_sharpshooter_damage" "+400"
-        "special_bonus_facet_hoodwink_hipshot"        "x0.75"
+        "value"                                           "600 975 1350 1350 1350"
+        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+400"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "recoil_distance"
       {
-        "value"                                       "350"
+        "value"                                           "350"
       }
       "max_slow_debuff_duration"
       {
-        "value"                                       "5.0"
-        "special_bonus_facet_hoodwink_hipshot"        "x0.75"
+        "value"                                           "5.0"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "misfire_time"
       {
-        "value"                                       "5.0"
-        "special_bonus_facet_hoodwink_hipshot"        "x0.75"
+        "value"                                           "5.0"
+        "special_bonus_facet_hoodwink_hipshot"            "x0.75"
       }
       "slow_move_pct"
       {
-        "value"                                       "30 40 50 60 70"
-        "special_bonus_scepter"                       "+20"
+        "value"                                           "30 40 50 60 70"
+        "special_bonus_scepter"                           "+20"
       }
       "turn_rate"
       {
-        "value"                                       "60"
-        "special_bonus_facet_hoodwink_hipshot"        "x1.33"
+        "value"                                           "60"
+        "special_bonus_facet_hoodwink_hipshot"            "x1.33"
       }
       "turn_rate_tooltip"
       {
-        "special_bonus_facet_hoodwink_hipshot"        "33"
+        "special_bonus_facet_hoodwink_hipshot"            "33"
       }
       "vision_along_indicator"
       {
-        "value"                                       "0"
-        "special_bonus_unique_hoodwink_sharpshooter_vision" "=1"
+        "value"                                           "0"
+        "special_bonus_unique_hoodwink_sharpshooter_vision"  "=1"
       }
       "vision_radius_buffer"
       {
-        "value"                                       "0"
-        "special_bonus_unique_hoodwink_sharpshooter_vision" "+35"
+        "value"                                           "0"
+        "special_bonus_unique_hoodwink_sharpshooter_vision"  "+35"
       }
       "quick_draw_tooltip_pct_cooldown_reduction"
       {
-        "value"                                       "0"
-        "special_bonus_facet_hoodwink_hipshot"        "50"
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_hipshot"            "50"
       }
       "quick_draw_tooltip_efficacy_pct"
       {
-        "value"                                       "0"
-        "special_bonus_facet_hoodwink_hipshot"        "25"
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_hipshot"            "25"
       }
       "pierce_debuff_immunity"
       {
-        "special_bonus_unique_hoodwink_sharpshooter_pure_damage" "1"
+        "special_bonus_unique_hoodwink_sharpshooter_pure_damage"  "1"
       }
     }
   }

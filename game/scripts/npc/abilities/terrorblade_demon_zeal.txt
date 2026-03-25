@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "IsGrantedByShard"                                "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "IsGrantedByShard"                                    "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "35" //OAA
+    "AbilityCooldown"                                     "35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "berserk_bonus_attack_speed"                    "100"
-      "berserk_bonus_movement_speed"                  "60"
-      "duration"                                      "20" //OAA
-      "hp_regen"                                      "20"
-      "reflection_pct"                                "0"
+      "berserk_bonus_attack_speed"                        "100"
+      "berserk_bonus_movement_speed"                      "60"
+      "duration"                                          "20" //OAA
+      "hp_regen"                                          "20"
+      "reflection_pct"                                    "0"
       "radius"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "health_cost_pct"
       {
-        "value"                                       "20"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
+        "value"                                           "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
     }
   }

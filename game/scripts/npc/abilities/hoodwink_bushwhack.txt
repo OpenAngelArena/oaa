@@ -8,46 +8,46 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1100"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "1100"
+    "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "debuff_duration"                               "1.5 1.7 1.9 2.1 2.3 2.5"
-      "projectile_speed"                              "1300"
-      "animation_rate"                                "0.3"
-      "visual_height"                                 "50"
+      "debuff_duration"                                   "1.5 1.7 1.9 2.1 2.3 2.5"
+      "projectile_speed"                                  "1300"
+      "animation_rate"                                    "0.3"
+      "visual_height"                                     "50"
       "trap_radius"
       {
-        "value"                                       "265"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "265"
+        "affected_by_aoe_increase"                        "1"
       }
       "total_damage"
       {
-        "value"                                       "90 180 270 360 720 1440"
-        "CalculateSpellDamageTooltip"                 "1"
-        "special_bonus_unique_hoodwink_bushwhack_damage" "+50"
+        "value"                                           "90 180 270 360 720 1440"
+        "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_unique_hoodwink_bushwhack_damage"  "+50"
       }
       "AbilityCooldown"
       {
-        "value"                                       "15 14 13 12 11 10"
-        "special_bonus_unique_hoodwink_bushwhack_cooldown" "-2"
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_hoodwink_bushwhack_cooldown"  "-2"
       }
     }
   }

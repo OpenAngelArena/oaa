@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "75 70 65 60 55" //OAA, special_bonus_unique_muerta_2_oaa
+    "AbilityCooldown"                                     "75 70 65 60 55" //OAA, special_bonus_unique_muerta_2_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "150 200 250 300 350" //OAA
+    "AbilityManaCost"                                     "150 200 250 300 350" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "transform_duration"                            "0.35"
-      "base_damage_percent"                           "75"
-      "modelscale"                                    "30"
+      "transform_duration"                                "0.35"
+      "base_damage_percent"                               "75"
+      "modelscale"                                        "30"
       "duration"
       {
-        "value"                                       "8"
-        "special_bonus_unique_muerta_pierce_the_veil_duration" "+2"
+        "value"                                           "8"
+        "special_bonus_unique_muerta_pierce_the_veil_duration"  "+2"
       }
-      "bonus_damage"                                  "10 20 30 40 50" //OAA
-      "damage_penalty"                                "35" //OAA
-      "damage_penalty_bosses"                         "50" //OAA
+      "bonus_damage"                                      "10 20 30 40 50" //OAA
+      "damage_penalty"                                    "35" //OAA
+      "damage_penalty_bosses"                             "50" //OAA
       "spell_amp_steal" //OAA
       {
-        "value"                                       "1"
-        "RequiresShard"                               "1"
+        "value"                                           "1"
+        "RequiresShard"                                   "1"
       }
     }
   }

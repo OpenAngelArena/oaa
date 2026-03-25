@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blade_dance_crit_chance"                       "35"
+      "blade_dance_crit_chance"                           "35"
       "blade_dance_crit_mult"
       {
-        "value"                                       "130 150 170 190 210 230"
-        "special_bonus_unique_juggernaut_4"           "+15"
+        "value"                                           "130 150 170 190 210 230"
+        "special_bonus_unique_juggernaut_4"               "+15"
       }
       "blade_dance_lifesteal"
       {
-        "value"                                       "0"
-        "special_bonus_unique_juggernaut_blade_dance_lifesteal" "+40"
+        "value"                                           "0"
+        "special_bonus_unique_juggernaut_blade_dance_lifesteal"  "+40"
       }
     }
   }

@@ -8,50 +8,50 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "800"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15 14 13 12 11 10" //OAA
-    "AbilityDuration"                                 "6"
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityDuration"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                        "20 35 50 65 95 125"
-      "attack_speed_bonus"                            "300"
-      "attack_range_bonus"                            "160 240 320 400 410 420"
-      "buff_duration_tooltip"                         "6"
-      "base_attack_time"                              "1.0"
-      "armor_reduction_per_attack"                    "0.5"
-      "armor_duration"                                "5.0"
+      "damage"                                            "20 35 50 65 95 125"
+      "attack_speed_bonus"                                "300"
+      "attack_range_bonus"                                "160 240 320 400 410 420"
+      "buff_duration_tooltip"                             "6"
+      "base_attack_time"                                  "1.0"
+      "armor_reduction_per_attack"                        "0.5"
+      "armor_duration"                                    "5.0"
       "buffed_attacks"
       {
-        "value"                                       "5"
-        "special_bonus_unique_snapfire_2"             "+2"
+        "value"                                           "5"
+        "special_bonus_unique_snapfire_2"                 "+2"
       }
       "damage_pct"
       {
-        "value"                                       "35"
-        "special_bonus_unique_snapfire_6"             "+60"
+        "value"                                           "35"
+        "special_bonus_unique_snapfire_6"                 "+60"
       }
       "extra_targets"
       {
-        "special_bonus_unique_snapfire_8"             "=2"
+        "special_bonus_unique_snapfire_8"                 "=2"
       }
     }
   }

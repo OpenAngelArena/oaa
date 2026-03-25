@@ -8,59 +8,59 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "700"
-    "AbilityCastPoint"                                "1.0"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "1.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "50 45 40 35 30" //OAA
+    "AbilityCooldown"                                     "50 45 40 35 30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 150 175 200 225"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                     "1.0 1.0 1.0 1.0 1.0"
+      "fade_time"                                         "1.0 1.0 1.0 1.0 1.0"
       "damage" //OAA
       {
-        "value"                                       "150 250 350 350 350"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "150 250 350 350 350"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "shard_bonus_damage"
       {
-        "special_bonus_shard"                         "0"
+        "special_bonus_shard"                             "0"
       }
       "shard_break_duration"
       {
-        "special_bonus_shard"                         "0.0"
+        "special_bonus_shard"                             "0.0"
       }
       "shard_spell_immune_duration"
       {
-        "special_bonus_shard"                         "0.0"
+        "special_bonus_shard"                             "0.0"
       }
       "knockback_amp"
       {
-        "special_bonus_facet_spirit_breaker_imbalanced" "+100"
+        "special_bonus_facet_spirit_breaker_imbalanced"   "+100"
       }
       "knockback_amp_duration"
       {
-        "special_bonus_facet_spirit_breaker_imbalanced" "+6"
+        "special_bonus_facet_spirit_breaker_imbalanced"   "+6"
       }
     }
   }

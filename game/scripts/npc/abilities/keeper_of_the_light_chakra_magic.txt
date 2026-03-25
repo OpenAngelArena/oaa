@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "900 900 900 900 900 900"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "900 900 900 900 900 900"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cooldown_reduction"                            "3 4 5 6 7 8"
-      "mana_leak_pct"                                 "4.5 5 5.5 6.0 6.0 6.0"
-      "duration"                                      "5"
-      "self_bonus"                                    "30"
+      "cooldown_reduction"                                "3 4 5 6 7 8"
+      "mana_leak_pct"                                     "4.5 5 5.5 6.0 6.0 6.0"
+      "duration"                                          "5"
+      "self_bonus"                                        "30"
       "mana_restore"
       {
-        "value"                                       "105 170 235 300 600 900"
+        "value"                                           "105 170 235 300 600 900"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "19 16 13 10 10 10"
-        "special_bonus_unique_keeper_of_the_light_7"  "-2"
+        "value"                                           "19 16 13 10 10 10"
+        "special_bonus_unique_keeper_of_the_light_7"      "-2"
       }
       "strong_dispel"
       {
-        "special_bonus_unique_keeper_of_the_light_14" "1"
+        "special_bonus_unique_keeper_of_the_light_14"     "1"
       }
     }
   }

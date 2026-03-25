@@ -8,33 +8,33 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "caustic_finale_duration"                       "4.5"
+      "caustic_finale_duration"                           "4.5"
       "caustic_finale_radius"
       {
-        "value"                                       "400"
-        "special_bonus_unique_sand_king_caustic_finale_radius" "+100"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "special_bonus_unique_sand_king_caustic_finale_radius"  "+100"
+        "affected_by_aoe_increase"                        "1"
       }
       "caustic_finale_damage_flat"
       {
-        "value"                                       "17"
-        "hero_levelup"                                "+3"
+        "value"                                           "17"
+        "hero_levelup"                                    "+3"
       }
       "caustic_finale_damage_pct"
       {
-        "value"                                       "2.5"
-        "hero_levelup"                                "+0.5"
+        "value"                                           "2.5"
+        "hero_levelup"                                    "+0.5"
       }
     }
   }

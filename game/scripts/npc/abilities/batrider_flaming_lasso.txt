@@ -8,53 +8,53 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "200"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "200"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 150 175 200 225"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "drag_distance"                                 "300 300 300 300 300"
-      "break_distance"                                "425"
-      "tick_rate"                                     "0.5"
+      "drag_distance"                                     "300 300 300 300 300"
+      "break_distance"                                    "425"
+      "tick_rate"                                         "0.5"
       "duration"
       {
-        "value"                                       "2.25 2.75 3.25 3.25 3.25"
-        "special_bonus_unique_batrider_1"             "+0.75"
+        "value"                                           "2.25 2.75 3.25 3.25 3.25"
+        "special_bonus_unique_batrider_1"                 "+0.75"
       }
       "damage" //OAA, total damage
       {
-        "value"                                       "200 350 500 500 500"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "200 350 500 500 500"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "grab_radius_scepter"
       {
-        "special_bonus_scepter"                       "+650"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "+650"
+        "affected_by_aoe_increase"                        "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "90 75 60 60 60"
-        "special_bonus_unique_batrider_6"             "-8"
+        "value"                                           "90 75 60 60 60"
+        "special_bonus_unique_batrider_6"                 "-8"
       }
     }
   }

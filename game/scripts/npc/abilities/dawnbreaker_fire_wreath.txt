@@ -8,97 +8,97 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.1"
+    "AbilityCastPoint"                                    "0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 110 120 130 140 150" //OAA
+    "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "1.1"
-      "movement_speed"                                "215"
-      "total_attacks"                                 "3"
-      "sweep_stun_duration"                           "0.12"
-      "self_stun_duration"                            "0.2"
-      "swipe_slow"                                    "-100"
-      "smash_distance_from_hero"                      "120"
-      "animation_rate"                                "0"
-      "turn_rate"                                     "90"
+      "duration"                                          "1.1"
+      "movement_speed"                                    "215"
+      "total_attacks"                                     "3"
+      "sweep_stun_duration"                               "0.12"
+      "self_stun_duration"                                "0.2"
+      "swipe_slow"                                        "-100"
+      "smash_distance_from_hero"                          "120"
+      "animation_rate"                                    "0"
+      "turn_rate"                                         "90"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "17 15 13 11 11 11"
-        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown" "-4"
+        "value"                                           "17 15 13 11 11 11"
+        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-4"
       }
       "swipe_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "swipe_damage"
       {
-        "value"                                       "25 40 55 70 140 210"
+        "value"                                           "25 40 55 70 140 210"
       }
       "smash_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "smash_damage"
       {
-        "value"                                       "25 40 55 70 140 210"
+        "value"                                           "25 40 55 70 140 210"
       }
       "smash_stun_duration"
       {
-        "value"                                       "0.6 0.8 1.0 1.2 1.2 1.2"
-        "special_bonus_unique_dawnbreaker_fire_wreath_stun_duration" "+0.5"
+        "value"                                           "0.6 0.8 1.0 1.2 1.2 1.2"
+        "special_bonus_unique_dawnbreaker_fire_wreath_stun_duration"  "+0.5"
       }
       "shard_cast_point"
       {
-        "value"                                       "0.1"
+        "value"                                           "0.1"
       }
       "shard_movement_penalty"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+35"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+35"
       }
       "movespeed_bonus_radius"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_blaze"       "700"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "700"
       }
       "movespeed_bonus_self_max"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_blaze"       "+15 +21 +27 +33 +33 +33"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+15 +21 +27 +33 +33 +33"
       }
       "movespeed_bonus_ally_max"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_blaze"       "+9 +12 +15 +18 +18 +18"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+9 +12 +15 +18 +18 +18"
       }
       "movespeed_bonus_duration"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dawnbreaker_blaze"       "+4"
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_blaze"           "+4"
       }
       "immunity_resist"
       {
-        "special_bonus_shard"                         "50"
+        "special_bonus_shard"                             "50"
       }
     }
   }

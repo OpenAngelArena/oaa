@@ -8,59 +8,59 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "625"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "625"
+    "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "200 300 400 500 600"
+    "AbilityManaCost"                                     "200 300 400 500 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fiend_grip_tick_interval"                      "0.5"
+      "fiend_grip_tick_interval"                          "0.5"
       "fiend_grip_mana_drain"
       {
-        "value"                                       "5"
-        "special_bonus_unique_bane_9"                 "+5"
+        "value"                                           "5"
+        "special_bonus_unique_bane_9"                     "+5"
       }
       "AbilityChannelTime"
       {
-        "value"                                       "4.75 5.25 5.75 6.0 6.25"
-        "special_bonus_unique_bane_3"                 "+3"
+        "value"                                           "4.75 5.25 5.75 6.0 6.25"
+        "special_bonus_unique_bane_3"                     "+3"
       }
       "fiend_grip_damage" //OAA
       {
-        "value"                                       "70 110 150 150 150"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "70 110 150 150 150"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "120 110 100 100 100"
-        "special_bonus_scepter"                       "-45"
+        "value"                                           "120 110 100 100 100"
+        "special_bonus_scepter"                           "-45"
       }
       "illusion_count"
       {
-        "special_bonus_scepter"                       "+2"
+        "special_bonus_scepter"                           "+2"
       }
       "scepter_incoming_illusion_damage"
       {
-        "special_bonus_scepter"                       "+225"
+        "special_bonus_scepter"                           "+225"
       }
     }
   }

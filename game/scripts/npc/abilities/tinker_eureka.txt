@@ -8,20 +8,20 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "int_per_one_cdr"                               "6" //OAA
-      "one_percent_tooltip"                           "1"
-      "max_cdr"                                       "30" //OAA
+      "int_per_one_cdr"                                   "6" //OAA
+      "one_percent_tooltip"                               "1"
+      "max_cdr"                                           "30" //OAA
       "item_cooldown_tooltip"
       {
-        "dynamic_value"                               "true"
+        "dynamic_value"                                   "true"
       }
     }
   }

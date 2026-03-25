@@ -8,13 +8,13 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,44 +22,44 @@
     {
       "damage"
       {
-        "value"                                       "100 120 140 160 320 480"
-        "special_bonus_unique_axe_4"                  "+40"
+        "value"                                           "100 120 140 160 320 480"
+        "special_bonus_unique_axe_4"                      "+40"
       }
       "radius"
       {
-        "value"                                       "275"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
       "trigger_attacks" //OAA
       {
-        "value"                                       "7 6 5 4 4 4"
+        "value"                                           "7 6 5 4 4 4"
       }
       "AbilityCooldown"
       {
-        "value"                                       "0.3"
-        "special_bonus_scepter"                       "-0.3"
+        "value"                                           "0.3"
+        "special_bonus_scepter"                           "-0.3"
       }
       "debuff_duration"
       {
-        "special_bonus_scepter"                       "+6.0"
+        "special_bonus_scepter"                           "+6.0"
       }
       "damage_reduction"
       {
-        "special_bonus_scepter"                       "+12"
-        "display_type"                                "kDebuffPercentage"
+        "special_bonus_scepter"                           "+12"
+        "display_type"                                    "kDebuffPercentage"
       }
       "max_stacks"
       {
-        "special_bonus_scepter"                       "+5"
+        "special_bonus_scepter"                           "+5"
       }
       "attacks_increase_counter"
       {
-        "special_bonus_scepter"                       "1"
+        "special_bonus_scepter"                           "1"
       }
       "helix_lifesteal"
       {
-        "value"                                       "0"
-        "special_bonus_unique_axe_helix_lifesteal"    "+30"
+        "value"                                           "0"
+        "special_bonus_unique_axe_helix_lifesteal"        "+30"
       }
     }
   }

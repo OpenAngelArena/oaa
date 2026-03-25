@@ -8,66 +8,66 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1000"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "100.0 100.0 100.0 100.0 100.0"
+    "AbilityCooldown"                                     "100.0 100.0 100.0 100.0 100.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 250 375 500 625"
+    "AbilityManaCost"                                     "125 250 375 500 625"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "30.0"
-      "replica_damage_incoming"                       "100 90 80 70 60" //OAA, also affects Normal Punch illusion
-      "replica_scale"                                 "0"
-      "movement_slow"                                 "40"
-      "wall_damage"                                   "25 55 85 145 205" //OAA
+      "duration"                                          "30.0"
+      "replica_damage_incoming"                           "100 90 80 70 60" //OAA, also affects Normal Punch illusion
+      "replica_scale"                                     "0"
+      "movement_slow"                                     "40"
+      "wall_damage"                                       "25 55 85 145 205" //OAA
       "replica_damage_outgoing" //OAA, also affects Normal Punch illusion
       {
-        "value"                                       "-30 -20 -10 -10 -10"
-        "special_bonus_unique_dark_seer_7"            "+15"
+        "value"                                           "-30 -20 -10 -10 -10"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
       "tooltip_outgoing" //OAA, also affects Normal Punch illusion
       {
-        "value"                                       "70 80 90 90 90"
-        "special_bonus_unique_dark_seer_7"            "+15"
+        "value"                                           "70 80 90 90 90"
+        "special_bonus_unique_dark_seer_7"                "+15"
       }
       "tooltip_replica_total_damage_incoming" //OAA, also affects Normal Punch illusion
       {
-        "value"                                       "200"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "200"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "width"
       {
-        "value"                                       "1300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1300"
+        "affected_by_aoe_increase"                        "1"
       }
       "slow_duration"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "scepter_length_multiplier"
       {
-        "special_bonus_scepter"                       "2"
+        "special_bonus_scepter"                           "2"
       }
       "cooldown_reduction"
       {
-        "special_bonus_unique_dark_seer_13"           "40"
+        "special_bonus_unique_dark_seer_13"               "40"
       }
     }
   }

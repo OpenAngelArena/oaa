@@ -8,31 +8,31 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "move_speed_per_stack"                          "2 2.5 3 3.5 4"
-      "stack_duration"                                "16.0 18.0 20.0 20.0 20.0"
-      "max_stacks"                                    "8 10 12 12 12"
+      "move_speed_per_stack"                              "2 2.5 3 3.5 4"
+      "stack_duration"                                    "16.0 18.0 20.0 20.0 20.0"
+      "max_stacks"                                        "8 10 12 12 12"
       "damage_per_stack" //OAA
       {
-        "value"                                       "15 20 25 25 25"
-        "special_bonus_facet_bristleback_berserk"     "=5"
-        "special_bonus_unique_bristleback_3"          "+18"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "15 20 25 25 25"
+        "special_bonus_facet_bristleback_berserk"         "=5"
+        "special_bonus_unique_bristleback_3"              "+18"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "aspd_per_stack"
       {
-        "value"                                       "0"
-        "special_bonus_facet_bristleback_berserk"     "=10 =15 =20 =20 =20"
+        "value"                                           "0"
+        "special_bonus_facet_bristleback_berserk"         "=10 =15 =20 =20 =20"
       }
     }
   }

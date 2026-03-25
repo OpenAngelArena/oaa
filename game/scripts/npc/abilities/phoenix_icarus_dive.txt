@@ -8,57 +8,57 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "16 15 14 13 12 11" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hp_cost_perc"                                  "15"
-      "burn_duration"                                 "4"
-      "burn_tick_interval"                            "0.2"
-      "dive_duration"                                 "2.0"
+      "hp_cost_perc"                                      "15"
+      "burn_duration"                                     "4"
+      "burn_tick_interval"                                "0.2"
+      "dive_duration"                                     "2.0"
       "dash_length"
       {
-        "value"                                       "1100 1200 1300 1400 1500 1600"
-        "special_bonus_unique_phoenix_4"              "+1000"
+        "value"                                           "1100 1200 1300 1400 1500 1600"
+        "special_bonus_unique_phoenix_4"                  "+1000"
       }
       "dash_width"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "hit_radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second"
       {
-        "value"                                       "20 40 60 80 160 240"
+        "value"                                           "20 40 60 80 160 240"
       }
       "slow_movement_speed_pct"
       {
-        "value"                                       "10 15 20 25 30 35"
-        "special_bonus_unique_phoenix_6"              "+25"
+        "value"                                           "10 15 20 25 30 35"
+        "special_bonus_unique_phoenix_6"                  "+25"
       }
     }
   }

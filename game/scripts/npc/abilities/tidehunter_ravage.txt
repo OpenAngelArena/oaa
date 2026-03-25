@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 225 325 425 525"
-    "AbilityDamage"                                   "275 475 675 1275 2275" //OAA
+    "AbilityManaCost"                                     "125 225 325 425 525"
+    "AbilityDamage"                                       "275 475 675 1275 2275" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "725"
+      "speed"                                             "725"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "150.0 145.0 140.0 140.0 140.0"
-        "special_bonus_unique_tidehunter_ravage_cooldown" "-15"
+        "value"                                           "150.0 145.0 140.0 140.0 140.0"
+        "special_bonus_unique_tidehunter_ravage_cooldown"  "-15"
       }
       "radius"
       {
-        "value"                                       "1250"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1250"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"
       {
-        "value"                                       "2.0 2.2 2.4 2.6 2.8"
-        "special_bonus_unique_tidehunter_7"           "+1.0"
+        "value"                                           "2.0 2.2 2.4 2.6 2.8"
+        "special_bonus_unique_tidehunter_7"               "+1.0"
       }
     }
   }

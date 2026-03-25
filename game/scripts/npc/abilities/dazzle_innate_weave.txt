@@ -8,46 +8,46 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "affects_allies"                                "1"
-      "affects_enemies"                               "1"
-      "ultimate_always_applies"                       "0"
+      "affects_allies"                                    "1"
+      "affects_enemies"                                   "1"
+      "ultimate_always_applies"                           "0"
       "armor_change"
       {
-        "value"                                       "1"
-        "special_bonus_unique_dazzle_4"               "+1"
+        "value"                                           "1"
+        "special_bonus_unique_dazzle_4"                   "+1"
       }
       "duration"
       {
-        "value"                                       "6.9"
-        "hero_levelup"                                "+0.1"
+        "value"                                           "6.9"
+        "hero_levelup"                                    "+0.1"
       }
       "heal_amplification_pct" //OAA
       {
-        "value"                                       "0"
-        "special_bonus_facet_dazzle_facet_nothl_boon" "=7.5"
+        "value"                                           "0"
+        "special_bonus_facet_dazzle_facet_nothl_boon"     "=7.5"
       }
       "ally_multiplier"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dazzle_facet_nothl_boon" "=2"
+        "value"                                           "0"
+        "special_bonus_facet_dazzle_facet_nothl_boon"     "=2"
       }
       "enemy_multiplier"
       {
-        "value"                                       "0"
-        "special_bonus_facet_dazzle_poison_bloom"     "=2"
+        "value"                                           "0"
+        "special_bonus_facet_dazzle_poison_bloom"         "=2"
       }
       "ally_heal"
       {
-        "special_bonus_shard"                         "60"
+        "special_bonus_shard"                             "60"
       }
     }
   }

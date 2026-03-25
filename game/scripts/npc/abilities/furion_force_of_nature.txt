@@ -8,61 +8,61 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "750"
-    "AbilityCastPoint"                                "0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_treants"                                   "2 3 4 5 6 7"
-      "treant_duration"                               "50"
-      "treant_vision_day"                             "500"
-      "treant_vision_night"                           "500"
-      "treant_gold_bounty_min"                        "18"
-      "treant_gold_bounty_max"                        "24"
-      "treant_xp_bounty"                              "30"
-      "treewalking"                                   "1"
+      "max_treants"                                       "2 3 4 5 6 7"
+      "treant_duration"                                   "50"
+      "treant_vision_day"                                 "500"
+      "treant_vision_night"                               "500"
+      "treant_gold_bounty_min"                            "18"
+      "treant_gold_bounty_max"                            "24"
+      "treant_xp_bounty"                                  "30"
+      "treewalking"                                       "1"
       "area_of_effect"
       {
-        "value"                                       "150 225 300 375 450 525"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "150 225 300 375 450 525"
+        "affected_by_aoe_increase"                        "1"
       }
       "treant_health" //OAA
       {
-        "value"                                       "450"
-        "special_bonus_unique_furion"                 "x3"
+        "value"                                           "450"
+        "special_bonus_unique_furion"                     "x3"
       }
       "treant_damage" //OAA
       {
-        "value"                                       "16 25 34 43 43 43"
-        "special_bonus_unique_furion"                 "x3"
+        "value"                                           "16 25 34 43 43 43"
+        "special_bonus_unique_furion"                     "x3"
       }
       "treant_bonus_hero_damage"
       {
-        "value"                                       "4 8 12 16 16 16"
-        "special_bonus_unique_furion"                 "x3"
+        "value"                                           "4 8 12 16 16 16"
+        "special_bonus_unique_furion"                     "x3"
       }
       "treant_movespeed"
       {
-        "value"                                       "300 315 330 345 325 330"
-        "special_bonus_unique_furion_2"               "+50"
+        "value"                                           "300 315 330 345 325 330"
+        "special_bonus_unique_furion_2"                   "+50"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "45 40 35 30 30 30"
-        "special_bonus_unique_furion_6"               "-10"
+        "value"                                           "45 40 35 30 30 30"
+        "special_bonus_unique_furion_6"                   "-10"
       }
     }
   }

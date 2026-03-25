@@ -8,46 +8,46 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "700 800 900 1000 1100 1200"
-    "AbilityCastPoint"                                "0.35"
+    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
+    "AbilityCastPoint"                                    "0.35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "5 6 7 8 9 10"
-      "slow_movement_speed_pct"                       "-25 -28 -31 -34 -37 -40" //OAA
-      "projectile_speed"                              "1000"
-      "multicast_delay"                               "0.6"
+      "duration"                                          "5 6 7 8 9 10"
+      "slow_movement_speed_pct"                           "-25 -28 -31 -34 -37 -40" //OAA
+      "projectile_speed"                                  "1000"
+      "multicast_delay"                                   "0.6"
       "burn_damage"
       {
-        "value"                                       "20 30 40 50 100 150"
-        "special_bonus_unique_ogre_magi_4"            "+10"
+        "value"                                           "20 30 40 50 100 150"
+        "special_bonus_unique_ogre_magi_4"                "+10"
       }
       "ignite_multicast_aoe"
       {
-        "value"                                       "1400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

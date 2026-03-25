@@ -8,69 +8,69 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
-    "LinkedAbility"                                   "dark_willow_terrorize"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+    "LinkedAbility"                                       "dark_willow_terrorize"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "900"
+    "AbilityCastRange"                                    "900"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "30"
+    "AbilityCooldown"                                     "30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_interval"                               "0.25"
-      "attack_targets"                                "1"
-      "roaming_seconds_per_rotation"                  "1.5"
-      "travel_speed"                                  "1800"
+      "attack_interval"                                   "0.25"
+      "attack_targets"                                    "1"
+      "roaming_seconds_per_rotation"                      "1.5"
+      "travel_speed"                                      "1800"
       "attack_damage" //OAA
       {
-        "value"                                       "70 120 170 170 170"
-        "special_bonus_unique_dark_willow_4"          "+30"
+        "value"                                           "70 120 170 170 170"
+        "special_bonus_unique_dark_willow_4"              "+30"
       }
       "attack_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "roaming_radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "roaming_duration"
       {
-        "value"                                       "5.5"
-        "special_bonus_unique_dark_willow_6"          "+1.0"
+        "value"                                           "5.5"
+        "special_bonus_unique_dark_willow_6"              "+1.0"
       }
       "target_count"
       {
-        "value"                                       "1"
-        "special_bonus_unique_dark_willow_bedlam_targets" "+2"
+        "value"                                           "1"
+        "special_bonus_unique_dark_willow_bedlam_targets"  "+2"
       }
       "unit_targetable"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "damage_reduction_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

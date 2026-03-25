@@ -8,26 +8,26 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bounces"                                       "3 4 5 6 7 8"
+      "bounces"                                           "3 4 5 6 7 8"
       "range"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_reduction_percent"
       {
-        "value"                                       "50 45 40 35 30 25"
-        "special_bonus_unique_luna_7"                 "-5"
+        "value"                                           "50 45 40 35 30 25"
+        "special_bonus_unique_luna_7"                     "-5"
       }
     }
   }

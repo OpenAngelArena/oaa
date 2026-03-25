@@ -8,28 +8,28 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "450"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "450"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0 0 0 0 0 0"
+    "AbilityManaCost"                                     "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,23 @@
     {
       "max_health_cost"
       {
-        "value"                                       "2.0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "value"                                           "2.0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "burn_damage"
       {
-        "value"                                       "5 10 15 20 40 60"
-        "special_bonus_unique_huskar_2"               "+5"
+        "value"                                           "5 10 15 20 40 60"
+        "special_bonus_unique_huskar_2"                   "+5"
       }
       "burn_damage_max_pct" //OAA
       {
-        "value"                                       "0.5"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "value"                                           "0.5"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "duration" //OAA
       {
-        "value"                                       "9"
-        "special_bonus_unique_huskar_5"               "+6"
+        "value"                                           "9"
+        "special_bonus_unique_huskar_5"                   "+6"
       }
     }
   }

@@ -8,35 +8,35 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "LinkedAbility"                                   "morphling_morph_str"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "morphling_morph_str"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.0"
+    "AbilityCooldown"                                     "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "points_per_tick"                               "1"
+      "points_per_tick"                                   "1"
       "morph_rate"
       {
-        "value"                                       "4 8 12 16 16 16"
+        "value"                                           "4 8 12 16 16 16"
       }
       "mana_cost" //OAA
       {
-        "value"                                       "10"
-        "special_bonus_shard"                         "-50%"
+        "value"                                           "10"
+        "special_bonus_shard"                             "-50%"
       }
       "castable_while_stunned"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
       }
     }
   }

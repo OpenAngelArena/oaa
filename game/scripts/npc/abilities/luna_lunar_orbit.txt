@@ -8,14 +8,14 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,58 +23,58 @@
     {
       "rotating_glaives_duration"
       {
-        "value"                                       "5 6 7 8 9 10"
+        "value"                                           "5 6 7 8 9 10"
       }
       "rotating_glaives"
       {
-        "value"                                       "4"
-        "special_bonus_unique_luna_lunar_orbit_glaive_count" "+1"
+        "value"                                           "4"
+        "special_bonus_unique_luna_lunar_orbit_glaive_count"  "+1"
       }
       "rotating_glaives_movement_radius"
       {
-        "value"                                       "225"
+        "value"                                           "225"
       }
       "rotating_glaives_movement_radius_expand_speed_scale"
       {
-        "value"                                       "4"
+        "value"                                           "4"
       }
       "rotating_glaives_hit_radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "rotating_glaives_collision_damage"
       {
-        "value"                                       "28 32 36 40 42 44"
-        "special_bonus_unique_luna_lunar_orbit_speed_damage" "+50%"
+        "value"                                           "28 32 36 40 42 44"
+        "special_bonus_unique_luna_lunar_orbit_speed_damage"  "+50%"
       }
       "rotating_glaives_speed"
       {
-        "value"                                       "160"
-        "special_bonus_unique_luna_lunar_orbit_speed_damage" "+50%"
+        "value"                                           "160"
+        "special_bonus_unique_luna_lunar_orbit_speed_damage"  "+50%"
       }
       "rotating_glaive_collision_speed_damage_tooltip"
       {
-        "value"                                       "0"
-        "special_bonus_unique_luna_lunar_orbit_speed_damage" "+1.5"
+        "value"                                           "0"
+        "special_bonus_unique_luna_lunar_orbit_speed_damage"  "+1.5"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "40 35 30 25 25 25"
+        "value"                                           "40 35 30 25 25 25"
       }
       "AbilityManaCost"
       {
-        "value"                                       "65 70 75 80 85 90"
+        "value"                                           "65 70 75 80 85 90"
       }
       "rotating_glaives_damage_reduction"
       {
-        "value"                                       "8 12 16 20 20 20"
-        "special_bonus_shard"                         "+10"
+        "value"                                           "8 12 16 20 20 20"
+        "special_bonus_shard"                             "+10"
       }
       "bonus_movement_speed"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+20"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+20"
       }
     }
   }

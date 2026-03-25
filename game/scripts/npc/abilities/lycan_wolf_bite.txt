@@ -8,41 +8,41 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                               "1"
-    "IsGrantedByScepter"                              "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "300"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "150"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lifesteal_percent"                             "32 34 36 38 40" //OAA, depends on Shapeshift lvl
-      "attack_range"                                  "150"
+      "lifesteal_percent"                                 "32 34 36 38 40" //OAA, depends on Shapeshift lvl
+      "attack_range"                                      "150"
       "lifesteal_range"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "AbilityCooldown"
       {
-        "value"                                       "110 100 90 85 80"
-        "special_bonus_unique_lycan_8"                "-15"
+        "value"                                           "110 100 90 85 80"
+        "special_bonus_unique_lycan_8"                    "-15"
       }
     }
   }

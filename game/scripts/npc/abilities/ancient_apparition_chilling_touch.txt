@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "3"
-      "slow_duration"                                 "0.5 0.6 0.7 0.8 0.9 1.0" //OAA, intentional nerf
-      "AbilityManaCost"                               "35" //OAA, intentional nerf
+      "duration"                                          "3"
+      "slow_duration"                                     "0.5 0.6 0.7 0.8 0.9 1.0" //OAA, intentional nerf
+      "AbilityManaCost"                                   "35" //OAA, intentional nerf
       "damage"
       {
-        "value"                                       "30 60 90 120 150 180"
-        "special_bonus_unique_ancient_apparition_2"   "+80"
+        "value"                                           "30 60 90 120 150 180"
+        "special_bonus_unique_ancient_apparition_2"       "+80"
       }
       "slow" //OAA, this + slow from death rime goes over 100% anyways
       {
-        "value"                                       "100"
-        "display_type"                                "kDebuffPercentage"
+        "value"                                           "100"
+        "display_type"                                    "kDebuffPercentage"
       }
       "attack_range_bonus" //OAA, because of special_bonus_unique_ancient_apparition_7 nerf
       {
-        "value"                                       "60 90 120 150 150 150"
-        "special_bonus_unique_ancient_apparition_7"   "+300"
+        "value"                                           "60 90 120 150 150 150"
+        "special_bonus_unique_ancient_apparition_7"       "+300"
       }
       "AbilityCooldown"
       {
-        "value"                                       "12 9 6 3 3 3"
-        "special_bonus_scepter"                       "-100%"
+        "value"                                           "12 9 6 3 3 3"
+        "special_bonus_scepter"                           "-100%"
       }
     }
   }

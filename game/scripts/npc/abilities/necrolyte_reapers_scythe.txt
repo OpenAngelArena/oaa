@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.45"
+    "AbilityCastPoint"                                    "0.45"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "100 95 90 85 80" //OAA
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "250 375 500 625 750"
+    "AbilityManaCost"                                     "250 375 500 625 750"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_duration"                                 "1.5 1.5 1.5 1.5 1.5"
-      "hp_per_kill"                                   "1 2 3 4 5"
-      "mana_per_kill"                                 "1 2 3 4 5"
+      "stun_duration"                                     "1.5 1.5 1.5 1.5 1.5"
+      "hp_per_kill"                                       "1 2 3 4 5"
+      "mana_per_kill"                                     "1 2 3 4 5"
       "damage_per_health"
       {
-        "value"                                       "0.7 0.8 0.9 0.9 0.9"
-        "special_bonus_unique_necrophos_reaper_scythe_damage_per_health" "+0.3"
+        "value"                                           "0.7 0.8 0.9 0.9 0.9"
+        "special_bonus_unique_necrophos_reaper_scythe_damage_per_health"  "+0.3"
       }
       "AbilityCastRange"
       {
-        "value"                                       "600"
+        "value"                                           "600"
       }
     }
   }

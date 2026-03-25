@@ -8,74 +8,74 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1300"
-    "AbilityCastPoint"                                "0.2 0.2 0.2 0.2 0.2 0.2"
+    "AbilityCastRange"                                    "1300"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "110 115 120 125 130 135" //OAA
+    "AbilityManaCost"                                     "110 115 120 125 130 135" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_duration"                                 "0.5 0.5 0.5 0.5 0.5 0.5"
-      "speed"                                         "1700"
-      "knockback_height"                              "100 100 100 100 100 100"
-      "knockback_duration"                            "0.35"
-      "slow"                                          "6 12 18 24 30 36"
+      "stun_duration"                                     "0.5 0.5 0.5 0.5 0.5 0.5"
+      "speed"                                             "1700"
+      "knockback_height"                                  "100 100 100 100 100 100"
+      "knockback_duration"                                "0.35"
+      "slow"                                              "6 12 18 24 30 36"
       "damage_impact"
       {
-        "value"                                       "25 50 75 100 200 300"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "25 50 75 100 200 300"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_per_second"
       {
-        "value"                                       "25 30 35 40 80 120"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "25 30 35 40 80 120"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_duration"
       {
-        "value"                                       "2 3 4 5 5 5"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "2 3 4 5 5 5"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "explosion_radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "collision_radius"
       {
-        "value"                                       "100 100 100 100 100 100"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "100 100 100 100 100 100"
+        "affected_by_aoe_increase"                        "1"
       }
       "knockback_distance"
       {
-        "value"                                       "250"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
       }
       "napalm_stacks"
       {
-        "value"                                       "0"
-        "special_bonus_unique_batrider_2"             "+4"
+        "value"                                           "0"
+        "special_bonus_unique_batrider_2"                 "+4"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "22 19 16 13 13 13"
-        "special_bonus_unique_batrider_5"             "-6"
+        "value"                                           "22 19 16 13 13 13"
+        "special_bonus_unique_batrider_5"                 "-6"
       }
-      "damage_total_tooltip"                          "75 140 215 300 600 900" //OAA, damage_impact + damage_per_second x damage_duration, don't delete this
+      "damage_total_tooltip"                              "75 140 215 300 600 900" //OAA, damage_impact + damage_per_second x damage_duration, don't delete this
     }
   }
 }

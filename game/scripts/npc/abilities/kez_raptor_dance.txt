@@ -8,60 +8,60 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
-    "LinkedAbility"                                   "kez_ravens_veil"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+    "LinkedAbility"                                       "kez_ravens_veil"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "1.0"
-    "AbilityChannelTime"                              "0.0"
+    "AbilityCastPoint"                                    "1.0"
+    "AbilityChannelTime"                                  "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 125 150 175 200"
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strike_interval"                               "0.25"
-      "lifesteal_pct"                                 "100"
-      "illusion_lifesteal_pct"                        "20"
-      "invuln_period"                                 "0.2"
-      "magic_resist"                                  "0"
-      "hard_dispel"                                   "0"
-      "basic_dispel"                                  "1"
+      "strike_interval"                                   "0.25"
+      "lifesteal_pct"                                     "100"
+      "illusion_lifesteal_pct"                            "20"
+      "invuln_period"                                     "0.2"
+      "magic_resist"                                      "0"
+      "hard_dispel"                                       "0"
+      "basic_dispel"                                      "1"
       "AbilityCooldown"
       {
-        "value"                                       "40 35 30 25 20"
+        "value"                                           "40 35 30 25 20"
       }
       "strikes"
       {
-        "value"                                       "4"
-        "special_bonus_unique_kez_raptor_dance_strikes" "+1"
+        "value"                                           "4"
+        "special_bonus_unique_kez_raptor_dance_strikes"   "+1"
       }
       "radius"
       {
-        "value"                                       "450"
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_unique_kez_raptor_dance_radius" "+50"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_kez_raptor_dance_radius"    "+50"
       }
       "base_damage"
       {
-        "value"                                       "30 60 90 150 210"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
+        "value"                                           "30 60 90 150 210"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "max_health_damage_pct"
       {
-        "value"                                       "2.5"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
+        "value"                                           "2.5"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
     }
   }

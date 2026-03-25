@@ -8,29 +8,29 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "mana_threshold"                                "50"
-      "slow_duration"                                 "0.75"
-      "zero_tooltip"                                  "0"
+      "mana_threshold"                                    "50"
+      "slow_duration"                                     "0.75"
+      "zero_tooltip"                                      "0"
       "move_slow_min"
       {
-        "value"                                       "12"
-        "hero_levelup"                                "+0.5"
-        "special_bonus_unique_antimage_5"             "+9"
+        "value"                                           "12"
+        "hero_levelup"                                    "+0.5"
+        "special_bonus_unique_antimage_5"                 "+9"
       }
       "move_slow_max"
       {
-        "value"                                       "24"
-        "hero_levelup"                                "+1"
-        "special_bonus_unique_antimage_5"             "+18"
+        "value"                                           "24"
+        "hero_levelup"                                    "+1"
+        "special_bonus_unique_antimage_5"                 "+18"
       }
     }
   }

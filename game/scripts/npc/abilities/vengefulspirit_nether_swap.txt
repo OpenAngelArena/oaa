@@ -8,24 +8,24 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_CUSTOM"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "800 950 1100 1250 1400" //OAA, undocumented change by Valve
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastRange"                                    "800 950 1100 1250 1400" //OAA, undocumented change by Valve
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,23 +33,23 @@
     {
       "damage_reduction"
       {
-        "value"                                       "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage_reduction_duration"
       {
-        "value"                                       "10"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "10"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage"
       {
-        "value"                                       "150 300 450 900 1350"
-        "special_bonus_unique_vengeful_spirit_swap_damage" "+150"
+        "value"                                           "150 300 450 900 1350"
+        "special_bonus_unique_vengeful_spirit_swap_damage"  "+150"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "46 38 30 30 30"
-        "special_bonus_unique_vengeful_spirit_9"      "-18"
+        "value"                                           "46 38 30 30 30"
+        "special_bonus_unique_vengeful_spirit_9"          "-18"
       }
     }
   }

@@ -8,62 +8,62 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "750"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "1500"
-      "max_charges"                                   "2"
-      "charge_restore_time"                           "30.0"
+      "projectile_speed"                                  "1500"
+      "max_charges"                                       "2"
+      "charge_restore_time"                               "30.0"
       "duration"
       {
-        "value"                                       "6"
-        "special_bonus_unique_viper_4"                "+1"
+        "value"                                           "6"
+        "special_bonus_unique_viper_4"                    "+1"
       }
       "damage" //OAA
       {
-        "value"                                       "70 110 150 150 150"
-        "special_bonus_unique_viper_2"                "+70"
+        "value"                                           "70 110 150 150 150"
+        "special_bonus_unique_viper_2"                    "+70"
       }
       "bonus_movement_speed"
       {
-        "value"                                       "60 70 80 80 80"
-        "display_type"                                "kDebuffPercentage"
+        "value"                                           "60 70 80 80 80"
+        "display_type"                                    "kDebuffPercentage"
       }
       "bonus_attack_speed"
       {
-        "value"                                       "100 140 180 220 260"
-        "display_type"                                "kDebuffValue"
+        "value"                                           "100 140 180 220 260"
+        "display_type"                                    "kDebuffValue"
       }
       "AbilityCooldown"
       {
-        "value"                                       "50 40 30 30 30"
-        "special_bonus_unique_viper_8"                "-50%"
+        "value"                                           "50 40 30 30 30"
+        "special_bonus_unique_viper_8"                    "-50%"
       }
       "AbilityManaCost"
       {
-        "value"                                       "100 150 200 250 300"
-        "special_bonus_unique_viper_8"                "-50%"
+        "value"                                           "100 150 200 250 300"
+        "special_bonus_unique_viper_8"                    "-50%"
       }
       "does_break"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
     }
   }

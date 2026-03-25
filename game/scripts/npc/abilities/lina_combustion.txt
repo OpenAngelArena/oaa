@@ -8,34 +8,34 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "DependentOnAbility"                              "lina_laguna_blade"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "lina_laguna_blade"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_threshold"                              "200" //OAA
-      "duration"                                      "6"
+      "damage_threshold"                                  "200" //OAA
+      "duration"                                          "6"
       "damage" //OAA
       {
-        "value"                                       "15 35 55 75 75 75"
-        "special_bonus_unique_lina_7"                 "+60%"
+        "value"                                           "15 35 55 75 75 75"
+        "special_bonus_unique_lina_7"                     "+60%"
       }
       "damage_illusions" //OAA
       {
-        "value"                                       "10 15 20 25 25 25"
-        "special_bonus_unique_lina_7"                 "+60%"
+        "value"                                           "10 15 20 25 25 25"
+        "special_bonus_unique_lina_7"                     "+60%"
       }
       "damage_aoe"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

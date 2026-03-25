@@ -8,40 +8,40 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "linger_duration"                               "1"
+      "linger_duration"                                   "1"
       "speed_bonus"
       {
-        "value"                                       "11"
-        "hero_levelup"                                "1"
+        "value"                                           "11"
+        "hero_levelup"                                    "1"
       }
       "radius"
       {
-        "value"                                       "325"
-        "special_bonus_unique_omniknight_degen_aura_radius" "+125"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "325"
+        "special_bonus_unique_omniknight_degen_aura_radius"  "+125"
+        "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage_per_stack"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "stack_interval"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "max_stacks"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

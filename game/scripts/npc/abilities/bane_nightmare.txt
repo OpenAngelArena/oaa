@@ -8,49 +8,49 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "550 600 650 700 750 800"
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastRange"                                    "550 600 650 700 750 800"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                 "3.5 4.5 5.5 6.5 6.6 6.7"
+    "AbilityDuration"                                     "3.5 4.5 5.5 6.5 6.6 6.7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "120 130 140 150 160 170"
+    "AbilityManaCost"                                     "120 130 140 150 160 170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "nightmare_invuln_time"                         "1.0"
-      "animation_rate"                                "0.2 0.2 0.2 0.2 0.2 0.2"
-      "vector_render_radius"                          "120"
-      "turn_rate"                                     "200"
+      "nightmare_invuln_time"                             "1.0"
+      "animation_rate"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
+      "vector_render_radius"                              "120"
+      "turn_rate"                                         "200"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "25 22 19 16 16 16"
-        "special_bonus_unique_bane_5"                 "-3"
+        "value"                                           "25 22 19 16 16 16"
+        "special_bonus_unique_bane_5"                     "-3"
       }
       "bonus_attack_speed"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "walk_speed"
       {
-        "value"                                       "110"
+        "value"                                           "110"
       }
     }
   }

@@ -8,66 +8,66 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "25"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_interval"                                 "0.33 0.33 0.33 0.33 0.33 0.33"
+      "heal_interval"                                     "0.33 0.33 0.33 0.33 0.33 0.33"
       "mana_per_second"
       {
-        "value"                                       "9 12 15 18 21 24"
-        "special_bonus_unique_witch_doctor_4"         "x0.75"
+        "value"                                           "9 12 15 18 21 24"
+        "special_bonus_unique_witch_doctor_4"             "x0.75"
       }
       "tooltip_mana_per_second"
       {
-        "special_bonus_unique_witch_doctor_4"         "+25"
+        "special_bonus_unique_witch_doctor_4"             "+25"
       }
       "radius"
       {
-        "value"                                       "500 550 600 650 700 750"
-        "special_bonus_facet_witch_doctor_voodoo_festeration" "+100"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500 550 600 650 700 750"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "+100"
+        "affected_by_aoe_increase"                        "1"
       }
       "heal"
       {
-        "value"                                       "20 30 40 50 100 200"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
-        "special_bonus_facet_witch_doctor_voodoo_festeration" "+10"
+        "value"                                           "20 30 40 50 100 200"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "+10"
       }
       "does_heal_all_allies"
       {
-        "value"                                       "1"
-        "special_bonus_facet_witch_doctor_voodoo_festeration" "=0"
+        "value"                                           "1"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "=0"
       }
       "does_damage"
       {
-        "value"                                       "0"
-        "special_bonus_facet_witch_doctor_voodoo_festeration" "+1"
+        "value"                                           "0"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "+1"
       }
       "self_only_heal_percentage"
       {
-        "value"                                       "0 0 0 0 0 0"
-        "special_bonus_facet_witch_doctor_voodoo_festeration" "=25 =30 =35 =40 =40 =40"
+        "value"                                           "0 0 0 0 0 0"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "=25 =30 =35 =40 =40 =40"
       }
       "bonus_heal_percent"
       {
-        "special_bonus_unique_witch_doctor_2"         "1"
+        "special_bonus_unique_witch_doctor_2"             "1"
       }
     }
   }

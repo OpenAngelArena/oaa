@@ -8,20 +8,20 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 175 225 275 325"
+    "AbilityManaCost"                                     "125 175 225 275 325"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,18 +29,18 @@
     {
       "duration"
       {
-        "value"                                       "30.0"
+        "value"                                           "30.0"
       }
       "bonus_damage" //OAA
       {
-        "value"                                       "50 100 150 150 150"
-        "special_bonus_unique_night_stalker_3"        "+25"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "50 100 150 150 150"
+        "special_bonus_unique_night_stalker_3"            "+25"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "140 135 130 130 130"
-        "special_bonus_unique_night_stalker"          "-40"
+        "value"                                           "140 135 130 130 130"
+        "special_bonus_unique_night_stalker"              "-40"
       }
     }
   }

@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.2"
+    "AbilityCooldown"                                     "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "song_cost_reduction_per_stack"                 "1 1.5 2 2.5 3"
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "double_song"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "=1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1"
       }
       "radius"
       {
-        "value"                                       "800"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
       }
       "movespeed_bonus_burst"
       {
-        "value"                                       "16 20 24 34 40"
-        "special_bonus_unique_largo_7"                "+30%"
+        "value"                                           "16 20 24 34 40"
+        "special_bonus_unique_largo_7"                    "+30%"
       }
       "slow_resistance"
       {
-        "value"                                       "70 75 80 95 100"
+        "value"                                           "70 75 80 95 100"
       }
       "movement_burst_duration"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "slow_resistance_burst_duration"
       {
-        "value"                                       "0.3"
+        "value"                                           "0.3"
       }
       "AbilityManaCost"
       {
-        "value"                                       "20 32 44 56 68"
+        "value"                                           "20 32 44 56 68"
       }
     }
   }

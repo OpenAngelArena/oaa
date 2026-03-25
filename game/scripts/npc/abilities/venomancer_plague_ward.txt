@@ -8,23 +8,23 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "850"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "24 26 28 30 32 34"
+    "AbilityManaCost"                                     "24 26 28 30 32 34"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,44 +32,44 @@
     {
       "AbilityCooldown"
       {
-        "value"                                       "5.0"
-        "special_bonus_unique_venomancer_8"           "-2"
+        "value"                                           "5.0"
+        "special_bonus_unique_venomancer_8"               "-2"
       }
       "can_target"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "gold_bounty_pct"
       {
-        "value"                                       "100"
+        "value"                                           "100"
       }
       "max_charges"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "duration"
       {
-        "value"                                       "40.0"
+        "value"                                           "40.0"
       }
       "ward_multiplier"
       {
-        "value"                                       "1.0"
-        "special_bonus_unique_venomancer"             "x2.5"
+        "value"                                           "1.0"
+        "special_bonus_unique_venomancer"                 "x2.5"
       }
       "ward_model_scale"
       {
-        "value"                                       "1.0"
-        "special_bonus_unique_venomancer"             "x1.5"
+        "value"                                           "1.0"
+        "special_bonus_unique_venomancer"                 "x1.5"
       }
       "ward_hp_tooltip"
       {
-        "value"                                       "150 250 350 450 900 1800"
-        "special_bonus_unique_venomancer"             "x2.5"
+        "value"                                           "150 250 350 450 900 1800"
+        "special_bonus_unique_venomancer"                 "x2.5"
       }
       "ward_damage_tooltip"
       {
-        "value"                                       "16 24 32 40 48 56"
-        "special_bonus_unique_venomancer"             "x2.5"
+        "value"                                           "16 24 32 40 48 56"
+        "special_bonus_unique_venomancer"                 "x2.5"
       }
     }
   }

@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "DependentOnAbility"                              "visage_summon_familiars"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "visage_summon_familiars"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.0"
+    "AbilityCooldown"                                     "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_delay"                                    "0.55"
-      "stun_damage"                                   "100 180 260 500 740" //OAA
-      "stun_duration"                                 "0.8 1.0 1.2 1.4 1.6"
-      "stone_duration"                                "6.0"
-      "hp_regen"                                      "150 175 200 300 400"
+      "stun_delay"                                        "0.55"
+      "stun_damage"                                       "100 180 260 500 740" //OAA
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "stone_duration"                                    "6.0"
+      "hp_regen"                                          "150 175 200 300 400"
       "stun_radius"
       {
-        "value"                                       "375"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
       }
       "AbilityCastRange"
       {
-        "value"                                       "0"
-        "special_bonus_facet_visage_faithful_followers" "=1200"
+        "value"                                           "0"
+        "special_bonus_facet_visage_faithful_followers"   "=1200"
       }
     }
   }

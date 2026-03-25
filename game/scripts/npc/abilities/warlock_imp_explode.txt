@@ -8,21 +8,21 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "explosion_delay"                               ".3"
-      "explosion_nonhero_reduce"                      "50"
+      "explosion_delay"                                   ".3"
+      "explosion_nonhero_reduce"                          "50"
       "explosion_radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

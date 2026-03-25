@@ -8,55 +8,55 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "775"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "775"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17"
+    "AbilityCooldown"                                     "17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "brew_time"                                     "5.0"
-      "brew_explosion"                                "5.5"
-      "min_stun"                                      "0.25"
-      "max_stun"                                      "1.7 2.2 2.7 3.2 3.3 3.4"
-      "min_damage"                                    "0"
+      "brew_time"                                         "5.0"
+      "brew_explosion"                                    "5.5"
+      "min_stun"                                          "0.25"
+      "max_stun"                                          "1.7 2.2 2.7 3.2 3.3 3.4"
+      "min_damage"                                        "0"
       "max_damage"
       {
-        "value"                                       "150 220 290 360 720 1440"
-        "special_bonus_unique_alchemist_2"            "+400"
+        "value"                                           "150 220 290 360 720 1440"
+        "special_bonus_unique_alchemist_2"                "+400"
       }
       "radius"
       {
-        "value"                                       "250"
-        "special_bonus_unique_alchemist"              "+150"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "250"
+        "special_bonus_unique_alchemist"                  "+150"
+        "affected_by_aoe_increase"                        "1"
       }
       "move_speed"
       {
-        "value"                                       "4 8 12 16 16 16"
-        "display_type"                                "kBuffPercentage"
+        "value"                                           "4 8 12 16 16 16"
+        "display_type"                                    "kBuffPercentage"
       }
       "chemical_rage_cooldown_reduction_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

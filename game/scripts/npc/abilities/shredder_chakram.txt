@@ -8,67 +8,67 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
-    "LinkedAbility"                                   "shredder_chakram_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+    "LinkedAbility"                                       "shredder_chakram_2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1200 1200 1200 1200 1200"
-    "AbilityCastPoint"                                "0.15"
+    "AbilityCastRange"                                    "1200 1200 1200 1200 1200"
+    "AbilityCastPoint"                                    "0.15"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "8.0 8.0 8.0 8.0 8.0"
+    "AbilityCooldown"                                     "8.0 8.0 8.0 8.0 8.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 140 180 220 260"
+    "AbilityManaCost"                                     "100 140 180 220 260"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "900.0"
-      "damage_interval"                               "0.5"
-      "mana_per_second"                               "14 22 30 38 46"
-      "pass_slow_duration"                            "0.5"
-      "slow_health_percentage"                        "5"
+      "speed"                                             "900.0"
+      "damage_interval"                                   "0.5"
+      "mana_per_second"                                   "14 22 30 38 46"
+      "pass_slow_duration"                                "0.5"
+      "slow_health_percentage"                            "5"
       "radius"
       {
-        "value"                                       "200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
       "pass_damage" //OAA
       {
-        "value"                                       "100 150 200 200 200"
+        "value"                                           "100 150 200 200 200"
       }
       "damage_per_second"
       {
-        "value"                                       "50 75 100 175 250"
+        "value"                                           "50 75 100 175 250"
       }
       "slow"
       {
-        "value"                                       "5"
-        "special_bonus_unique_timbersaw_4"            "+5"
+        "value"                                           "5"
+        "special_bonus_unique_timbersaw_4"                "+5"
       }
       "break_distance"
       {
-        "value"                                       "2000.0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "2000.0"
+        "affected_by_aoe_increase"                        "1"
       }
       "castpoint_scepter"
       {
-        "special_bonus_scepter"                       "0.15"
+        "special_bonus_scepter"                           "0.15"
       }
       "second_chakram"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

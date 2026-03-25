@@ -8,81 +8,81 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "16 15 14 13 12 11" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "50 60 70 80 90 100"
+    "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                 "24 28 32 36 40 44"
-      "extra_duration"                                "3"
+      "movement_slow"                                     "24 28 32 36 40 44"
+      "extra_duration"                                    "3"
       "duration"
       {
-        "value"                                       "5"
-        "special_bonus_unique_brewmaster_5"           "+40%"
+        "value"                                           "5"
+        "special_bonus_unique_brewmaster_5"               "+40%"
       }
       "total_ignite_damage"
       {
-        "value"                                       "80 160 240 320 640 960"
-        "special_bonus_unique_brewmaster_5"           "+40%"
+        "value"                                           "80 160 240 320 640 960"
+        "special_bonus_unique_brewmaster_5"               "+40%"
       }
       "radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_speed"
       {
-        "value"                                       "950"
+        "value"                                           "950"
       }
       "projectile_width"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
       "barrel_width"
       {
-        "value"                                       "75"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "75"
+        "affected_by_aoe_increase"                        "1"
       }
       "barrel_impact_damage" //OAA
       {
-        "value"                                       "40 70 100 130 130 130"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "40 70 100 130 130 130"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"
       {
-        "value"                                       "950"
+        "value"                                           "950"
       }
       "min_movement"
       {
-        "value"                                       "-15"
+        "value"                                           "-15"
       }
       "max_movement"
       {
-        "value"                                       "50"
+        "value"                                           "50"
       }
       "fear_duration"
       {
-        "special_bonus_unique_brewmaster_4"           "1.5"
+        "special_bonus_unique_brewmaster_4"               "1.5"
       }
     }
   }

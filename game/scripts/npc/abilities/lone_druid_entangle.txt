@@ -8,73 +8,73 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "700"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "60"
+    "AbilityManaCost"                                     "60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "counter_duration"                              "10"
-      "lone_druid_counters_applied_tooltip"           "1"
+      "counter_duration"                                  "10"
+      "lone_druid_counters_applied_tooltip"               "1"
       "AbilityCooldown"
       {
-        "value"                                       "20 19 18 17 16 15"
+        "value"                                           "20 19 18 17 16 15"
       }
       "active_radius"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_scepter"                       "+100"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                           "+100"
       }
       "hits_required" //OAA, intentional nerf
       {
-        "value"                                       "5"
+        "value"                                           "5"
       }
       "hits_incremented_on_active"
       {
-        "value"                                       "2"
+        "value"                                           "2"
       }
       "lone_druid_buff_duration"
       {
-        "value"                                       "10"
+        "value"                                           "10"
       }
       "nostack_protection"
       {
-        "value"                                       "1"
-        "special_bonus_scepter"                       "=0"
+        "value"                                           "1"
+        "special_bonus_scepter"                           "=0"
       }
       "root_heroes_on_cast"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "1"
       }
       "entangle_duration"
       {
-        "value"                                       "1.2 1.6 2.0 2.4 2.5 2.6"
-        "special_bonus_unique_lone_druid_entangle_duration" "+0.6"
+        "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
+        "special_bonus_unique_lone_druid_entangle_duration"  "+0.6"
       }
       "damage"
       {
-        "value"                                       "90"
-        "special_bonus_unique_lone_druid_1"           "+20"
+        "value"                                           "90"
+        "special_bonus_unique_lone_druid_1"               "+20"
       }
     }
   }

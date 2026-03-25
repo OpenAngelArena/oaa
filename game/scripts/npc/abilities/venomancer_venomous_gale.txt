@@ -8,87 +8,87 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "95 105 115 125 135 145"
+    "AbilityManaCost"                                     "95 105 115 125 135 145"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "15"
-      "tick_interval"                                 "3.0 3.0 3.0 3.0 3.0 3.0"
-      "movement_slow"                                 "-35 -40 -45 -50 -55 -60"
+      "duration"                                          "15"
+      "tick_interval"                                     "3.0 3.0 3.0 3.0 3.0 3.0"
+      "movement_slow"                                     "-35 -40 -45 -50 -55 -60"
       "AbilityCastRange"
       {
-        "value"                                       "800"
-        "special_bonus_shard"                         "200"
+        "value"                                           "800"
+        "special_bonus_shard"                             "200"
       }
       "strike_damage"
       {
-        "value"                                       "25 50 75 100 200 400"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "25 50 75 100 200 400"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "tick_damage" //OAA
       {
-        "value"                                       "10 40 70 100 100 100"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "10 40 70 100 100 100"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
       {
-        "value"                                       "125"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "125"
+        "affected_by_aoe_increase"                        "1"
       }
       "speed"
       {
-        "value"                                       "1200"
-        "special_bonus_shard"                         "+300"
+        "value"                                           "1200"
+        "special_bonus_shard"                             "+300"
       }
       "create_wards"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
       }
       "shard_travel_tooltip"
       {
-        "special_bonus_shard"                         "25"
+        "special_bonus_shard"                             "25"
       }
       "num_created_wards_tooltip"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+2"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+2"
       }
       "ward_hp_dmg_pct"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "=100"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=100"
       }
       "AbilityCooldown"
       {
-        "value"                                       "21 20 19 18 17 16"
-        "special_bonus_unique_venomancer_3"           "-5"
+        "value"                                           "21 20 19 18 17 16"
+        "special_bonus_unique_venomancer_3"               "-5"
       }
       "explosion_damage" //OAA
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "75 150 225 300 600 900"
+        "value"                                           "0"
+        "special_bonus_shard"                             "75 150 225 300 600 900"
       }
       "explosion_stun_duration"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

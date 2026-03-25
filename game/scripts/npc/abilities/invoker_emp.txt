@@ -8,59 +8,59 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "950"
-    "AbilityCastPoint"                                "0.05"
+    "AbilityCastRange"                                    "950"
+    "AbilityCastPoint"                                    "0.05"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "25" //OAA
+    "AbilityCooldown"                                     "25" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "self_mana_restore_pct"                         "25"
+      "self_mana_restore_pct"                             "25"
       "delay"
       {
-        "value"                                       "2.9"
-        "levelkey"                                    "wexlevel"
+        "value"                                           "2.9"
+        "levelkey"                                        "wexlevel"
       }
       "area_of_effect"
       {
-        "value"                                       "675"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
       }
       "mana_burned" //OAA
       {
-        "value"                                       "100 175 250 325 400 475 550 625 700 775 850"
-        "levelkey"                                    "wexlevel"
+        "value"                                           "100 175 250 325 400 475 550 625 700 775 850"
+        "levelkey"                                        "wexlevel"
       }
       "damage_per_mana_pct" //OAA
       {
-        "value"                                       "60"
-        "special_bonus_shard_2"                       "+50%"
+        "value"                                           "60"
+        "special_bonus_shard_2"                           "+50%"
       }
       "drag_speed"
       {
-        "value"                                       "0"
-        "special_bonus_shard_2"                       "+125"
+        "value"                                           "0"
+        "special_bonus_shard_2"                           "+125"
       }
       "damage_barriers"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

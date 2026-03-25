@@ -8,33 +8,33 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_aoe"                                     "0"
-      "hero_multiplier"                               "6"
+      "bonus_aoe"                                         "0"
+      "hero_multiplier"                                   "6"
       "regen"
       {
-        "value"                                       "3.7"
-        "hero_levelup"                                "0.3"
+        "value"                                           "3.7"
+        "hero_levelup"                                    "0.3"
       }
       "bonus_spell_amp"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "regen_duration"
       {
-        "value"                                       "8"
-        "special_bonus_unique_necrophos_heartstopper_regen_duration" "+2"
+        "value"                                           "8"
+        "special_bonus_unique_necrophos_heartstopper_regen_duration"  "+2"
       }
-      "health_regen"                                  "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
-      "mana_regen"                                    "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
+      "health_regen"                                      "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
+      "mana_regen"                                        "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
     }
   }
 }

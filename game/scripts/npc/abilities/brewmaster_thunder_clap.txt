@@ -8,47 +8,47 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                 "15 30 45 60 65 70"
-      "attack_speed_slow"                             "15 30 45 60 90 120"
+      "movement_slow"                                     "15 30 45 60 65 70"
+      "attack_speed_slow"                                 "15 30 45 60 90 120"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "18 16 14 12 12 12"
-        "special_bonus_unique_brewmaster_thunderclap_cd" "-3"
+        "value"                                           "18 16 14 12 12 12"
+        "special_bonus_unique_brewmaster_thunderclap_cd"  "-3"
       }
       "radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage"
       {
-        "value"                                       "80 160 240 320 640 1280"
-        "special_bonus_unique_brewmaster_thunder_clap_damage" "+160"
+        "value"                                           "80 160 240 320 640 1280"
+        "special_bonus_unique_brewmaster_thunder_clap_damage"  "+160"
       }
       "duration"
       {
-        "value"                                       "4.0"
-        "special_bonus_unique_brewmaster_7"           "+1.5"
+        "value"                                           "4.0"
+        "special_bonus_unique_brewmaster_7"               "+1.5"
       }
     }
   }

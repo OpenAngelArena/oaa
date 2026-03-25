@@ -8,68 +8,68 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "65"
+    "AbilityManaCost"                                     "65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                     "0.25"
-      "duration"                                      "4.0 4.0 4.0 4.0 4.0 4.0"
+      "fade_time"                                         "0.25"
+      "duration"                                          "4.0 4.0 4.0 4.0 4.0 4.0"
       "damage" //OAA
       {
-        "value"                                       "100 130 160 190 190 190"
-        "special_bonus_unique_weaver_1"               "+90"
+        "value"                                           "100 130 160 190 190 190"
+        "special_bonus_unique_weaver_1"                   "+90"
       }
       "speed"
       {
-        "value"                                       "200 230 260 290 300 310"
+        "value"                                           "200 230 260 290 300 310"
       }
       "radius"
       {
-        "value"                                       "175 175 175 175 175 175"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "175 175 175 175 175 175"
+        "affected_by_aoe_increase"                        "1"
       }
       "AbilityCooldown"
       {
-        "value"                                       "15 12 9 6 6 6"
-        "special_bonus_unique_weaver_6"               "-3"
+        "value"                                           "15 12 9 6 6 6"
+        "special_bonus_unique_weaver_6"                   "-3"
       }
       "geminate_attack_mark_duration"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+4.6"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+4.6"
       }
       "min_movespeed_override"
       {
-        "value"                                       "550"
-        "special_bonus_unique_weaver_shukuchi_movespeed" "+50"
+        "value"                                           "550"
+        "special_bonus_unique_weaver_shukuchi_movespeed"  "+50"
       }
       "shukuchi_attack_mark_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
-        "special_bonus_shard"                         "+1200"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_shard"                             "+1200"
       }
       "shukuchi_attack_delay"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+0.2"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+0.2"
       }
     }
   }

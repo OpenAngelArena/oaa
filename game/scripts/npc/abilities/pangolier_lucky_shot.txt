@@ -8,24 +8,24 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "chance_pct"                                    "17"
-      "duration"                                      "3.5 4 4.5 5 5.5 6"
-      "attack_slow"                                   "40 80 120 160 320 480"
+      "chance_pct"                                        "17"
+      "duration"                                          "3.5 4 4.5 5 5.5 6"
+      "attack_slow"                                       "40 80 120 160 320 480"
       "armor"
       {
-        "value"                                       "2 4 6 8 13 17"
-        "special_bonus_unique_pangolier_luckyshot_armor" "+3"
+        "value"                                           "2 4 6 8 13 17"
+        "special_bonus_unique_pangolier_luckyshot_armor"  "+3"
       }
     }
   }

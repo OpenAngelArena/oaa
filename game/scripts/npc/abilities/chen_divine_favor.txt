@@ -8,47 +8,47 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES" //OAA
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor"                                         "0"
-      "heal_rate"                                     "3 6 9 12 18 27" //OAA
-      "AbilityCastRange"                              "1200"
-      "duration"                                      "6"
-      "bonus_armor"                                   "5 10 15 20 25 30"
-      "creep_bonus"                                   "1"
+      "armor"                                             "0"
+      "heal_rate"                                         "3 6 9 12 18 27" //OAA
+      "AbilityCastRange"                                  "1200"
+      "duration"                                          "6"
+      "bonus_armor"                                       "5 10 15 20 25 30"
+      "creep_bonus"                                       "1"
       "aura_radius"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "heal_amp"
       {
-        "value"                                       "5 10 15 20 25 30"
-        "special_bonus_unique_chen_divine_favor_healing" "+15"
+        "value"                                           "5 10 15 20 25 30"
+        "special_bonus_unique_chen_divine_favor_healing"  "+15"
       }
     }
   }

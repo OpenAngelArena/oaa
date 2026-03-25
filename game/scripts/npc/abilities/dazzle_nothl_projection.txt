@@ -8,43 +8,43 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "450"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "450"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "65 60 55 50 45" //OAA
+    "AbilityCooldown"                                     "65 60 55 50 45" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_duration"                                  "5"
-      "initial_travel_speed"                          "1200"
-      "soul_return_time"                              "0.75"
-      "soul_return_min_speed"                         "500"
-      "leash_start"                                   "1600"
-      "base_leash_pull"                               "50"
-      "leash_increase"                                "1.5"
-      "poison_touch_hex"                              "1.0 1.2 1.4 1.6 1.8" //OAA
-      "shallow_grave_heal"                            "225 300 375 450 525"
-      "shadow_wave_cdr"                               "30 35 40 45 50" //OAA
+      "min_duration"                                      "5"
+      "initial_travel_speed"                              "1200"
+      "soul_return_time"                                  "0.75"
+      "soul_return_min_speed"                             "500"
+      "leash_start"                                       "1600"
+      "base_leash_pull"                                   "50"
+      "leash_increase"                                    "1.5"
+      "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA
+      "shallow_grave_heal"                                "225 300 375 450 525"
+      "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA
       "max_duration"
       {
-        "value"                                       "12"
-        "special_bonus_unique_dazzle_nothl_projection_duration" "+5"
+        "value"                                           "12"
+        "special_bonus_unique_dazzle_nothl_projection_duration"  "+5"
       }
     }
   }

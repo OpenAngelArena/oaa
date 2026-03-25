@@ -8,74 +8,74 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "400"
-    "AbilityCastPoint"                                "0.5"
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "150 200 250 300 350"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "deniable_pct"                                  "25 25 25 25 25"
+      "deniable_pct"                                      "25 25 25 25 25"
       "duration" //OAA, intentional nerf
       {
-        "value"                                       "12 14 16 16 16"
-        "special_bonus_unique_doom_11"                "+0"
-        "dynamic_value"                               "true"
+        "value"                                           "12 14 16 16 16"
+        "special_bonus_unique_doom_11"                    "+0"
+        "dynamic_value"                                   "true"
       }
       "damage"
       {
-        "value"                                       "25 45 66 105 145"
+        "value"                                           "25 45 66 105 145"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "140 130 120 120 120"
-        "special_bonus_unique_doom_9"                 "-10"
+        "value"                                           "140 130 120 120 120"
+        "special_bonus_unique_doom_9"                     "-10"
       }
       "does_break"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "+1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
       }
       "does_mute"
       {
-        "value"                                       "0"
-        "special_bonus_unique_doom_10"                "+1"
+        "value"                                           "0"
+        "special_bonus_unique_doom_10"                    "+1"
       }
       "scepter_aura_radius" //OAA, intentional nerf
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "+350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+350"
+        "affected_by_aoe_increase"                        "1"
       }
       "applies_dispel_to_self"
       {
-        "special_bonus_scepter"                       "0"
+        "special_bonus_scepter"                           "0"
       }
       "upgrade_interval"
       {
-        "value"                                       "0.0"
+        "value"                                           "0.0"
       }
       "upgrade_amount"
       {
-        "value"                                       "0.0"
+        "value"                                           "0.0"
       }
     }
   }

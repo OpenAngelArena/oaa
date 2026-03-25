@@ -8,48 +8,48 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_CUSTOM"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.25"
+    "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0.1"
+    "AbilityCooldown"                                     "0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "35 40 45 50 55 60"
-    "AbilityCharges"                                  "2"
-    "AbilityChargeRestoreTime"                        "21 18 15 12 12 12"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "21 18 15 12 12 12"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_lifesteal_penalty"                       "40"
+      "creep_lifesteal_penalty"                           "40"
       "bonus_attack_speed" //OAA
       {
-        "value"                                       "100 130 160 190 190 190"
-        "special_bonus_unique_phantom_assassin_strike_aspd" "+60"
+        "value"                                           "100 130 160 190 190 190"
+        "special_bonus_unique_phantom_assassin_strike_aspd"  "+60"
       }
       "duration"
       {
-        "value"                                       "2.5"
-        "special_bonus_unique_phantom_assassin_4"     "+0.6"
+        "value"                                           "2.5"
+        "special_bonus_unique_phantom_assassin_4"         "+0.6"
       }
       "AbilityCastRange" //OAA
       {
-        "value"                                       "650 750 850 950 950 950"
-        "special_bonus_unique_phantom_assassin_6"     "+200"
+        "value"                                           "650 750 850 950 950 950"
+        "special_bonus_unique_phantom_assassin_6"         "+200"
       }
     }
   }

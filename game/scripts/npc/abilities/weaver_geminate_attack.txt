@@ -8,23 +8,23 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "425"
+    "AbilityCastRange"                                    "425"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "9.0 7.0 5.0 3.0 2.5 2"
+    "AbilityCooldown"                                     "9.0 7.0 5.0 3.0 2.5 2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,22 +32,22 @@
     {
       "delay"
       {
-        "value"                                       "0.25"
+        "value"                                           "0.25"
       }
       "extra_attack"
       {
-        "value"                                       "1"
-        "special_bonus_unique_weaver_5"               "+1"
+        "value"                                           "1"
+        "special_bonus_unique_weaver_5"                   "+1"
       }
       "bonus_damage"
       {
-        "value"                                       "20 35 50 65 130 195"
-        "special_bonus_unique_weaver_2"               "+60"
+        "value"                                           "20 35 50 65 130 195"
+        "special_bonus_unique_weaver_2"                   "+60"
       }
       "shard_beetle_search_range"
       {
-        "special_bonus_shard"                         "1200"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_shard"                             "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

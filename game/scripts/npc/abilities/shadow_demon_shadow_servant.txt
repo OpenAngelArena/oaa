@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_lost"                                   "1"
-      "health_regain_pct"                             "50"
-      "debuff_duration"                               "10"
-      "illusion_outgoing_damage"                      "-60"
-      "illusion_outgoing_damage_tooltip"              "40"
-      "illusion_incoming_damage"                      "100"
-      "illusion_incoming_damage_tooltip"              "200"
+      "health_lost"                                       "1"
+      "health_regain_pct"                                 "50"
+      "debuff_duration"                                   "10"
+      "illusion_outgoing_damage"                          "-60"
+      "illusion_outgoing_damage_tooltip"                  "40"
+      "illusion_incoming_damage"                          "100"
+      "illusion_incoming_damage_tooltip"                  "200"
       "radius"
       {
-        "value"                                       "1500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1500"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

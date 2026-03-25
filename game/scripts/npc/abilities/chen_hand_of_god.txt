@@ -8,68 +8,68 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "200 300 400 500 600"
+    "AbilityManaCost"                                     "200 300 400 500 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hot_duration"                                  "10"
+      "hot_duration"                                      "10"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "150 130 110 110 110"
-        "special_bonus_scepter"                       "-40"
+        "value"                                           "150 130 110 110 110"
+        "special_bonus_scepter"                           "-40"
       }
       "heal_amount" //OAA
       {
-        "value"                                       "200 300 400 400 400"
+        "value"                                           "200 300 400 400 400"
       }
       "heal_per_second" //OAA
       {
-        "value"                                       "20 30 40 40 40"
+        "value"                                           "20 30 40 40 40"
       }
       "ancient_creeps_scepter"
       {
-        "special_bonus_shard"                         "1 2 3 3 3"
+        "special_bonus_shard"                             "1 2 3 3 3"
       }
       "does_purge"
       {
-        "special_bonus_unique_chen_12"                "+1"
+        "special_bonus_unique_chen_12"                    "+1"
       }
       "full_heal_on_chen_and_creeps"
       {
-        "special_bonus_unique_chen_2"                 "=1"
+        "special_bonus_unique_chen_2"                     "=1"
       }
       "AbilityChannelTime"
       {
-        "special_bonus_scepter"                       "=6"
+        "special_bonus_scepter"                           "=6"
       }
       "debuff_immune_radius"
       {
-        "special_bonus_scepter"                       "=800"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "=800"
+        "affected_by_aoe_increase"                        "1"
       }
       "debuff_immune_resist"
       {
-        "special_bonus_scepter"                       "60"
+        "special_bonus_scepter"                           "60"
       }
       "nearby_hot_boost"
       {
-        "special_bonus_scepter"                       "200"
+        "special_bonus_scepter"                           "200"
       }
     }
   }

@@ -8,34 +8,34 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proximity_bonus_factor"                        "3"
+      "proximity_bonus_factor"                            "3"
       "base_mana_regen" //OAA
       {
-        "value"                                       "0.4 0.6 0.8 1 1 1"
+        "value"                                           "0.4 0.6 0.8 1 1 1"
       }
       "proximity_mana_regen_tooltip" //OAA, base_mana_regen x proximity_bonus_factor
       {
-        "value"                                       "1.2 1.8 2.4 3.0 3.0 3.0"
+        "value"                                           "1.2 1.8 2.4 3.0 3.0 3.0"
       }
       "mana_regen_amp"
       {
-        "value"                                       "20 40 60 80 80 80"
+        "value"                                           "20 40 60 80 80 80"
       }
       "proximity_bonus_radius"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

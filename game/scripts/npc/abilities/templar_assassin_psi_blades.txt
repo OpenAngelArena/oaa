@@ -8,38 +8,38 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "6" //OAA
-    "RequiredLevel"                                   "-1" //OAA
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "6" //OAA
+    "RequiredLevel"                                       "-1" //OAA
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_spill_pct"                              "60 70 80 90 100 110 120" //OAA
+      "attack_spill_pct"                                  "60 70 80 90 100 110 120" //OAA
       "bonus_attack_range"
       {
-        "value"                                       "50 100 150 200 250 300"
+        "value"                                           "50 100 150 200 250 300"
       }
       "attack_spill_range" //OAA
       {
-        "value"                                       "400 500 600 700 700 700"
+        "value"                                           "400 500 600 700 700 700"
       }
       "attack_spill_width"
       {
-        "value"                                       "90"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
       }
       "meld_strike_spills"
       {
-        "value"                                       "1.0"
+        "value"                                           "1.0"
       }
       "spill_slow_duration"
       {
-        "value"                                       "0.0"
+        "value"                                           "0.0"
       }
     }
   }

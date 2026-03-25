@@ -8,60 +8,60 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                     "0.0"
-      "health_regen_rate_scepter"                     "3"
-      "mana_regen_rate_scepter"                       "3"
-      "attack_animation_bonus"                        "70"
-      "attack_range_bonus"                            "75"
+      "fade_time"                                         "0.0"
+      "health_regen_rate_scepter"                         "3"
+      "mana_regen_rate_scepter"                           "3"
+      "attack_animation_bonus"                            "70"
+      "attack_range_bonus"                                "75"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "80 70 60 60 60"
-        "special_bonus_shard"                         "-10"
+        "value"                                           "80 70 60 60 60"
+        "special_bonus_shard"                             "-10"
       }
       "AbilityManaCost"
       {
-        "value"                                       "180 240 300 360 420"
+        "value"                                           "180 240 300 360 420"
       }
       "duration"
       {
-        "value"                                       "60"
+        "value"                                           "60"
       }
       "movement_speed"
       {
-        "value"                                       "16 18 20 22 24"
+        "value"                                           "16 18 20 22 24"
       }
       "bonus_damage" //OAA
       {
-        "value"                                       "300 400 500 500 500"
-        "special_bonus_unique_nyx_vendetta_damage"    "+50"
-        "CalculateSpellDamageTooltip"                 "1"
+        "value"                                           "300 400 500 500 500"
+        "special_bonus_unique_nyx_vendetta_damage"        "+50"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "break_duration"
       {
-        "value"                                       "4"
+        "value"                                           "4"
       }
       "free_pathing_duration"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "+15"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+15"
       }
       "free_pathing_movement_speed_bonus"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "200"
+        "value"                                           "0"
+        "special_bonus_shard"                             "200"
       }
     }
   }

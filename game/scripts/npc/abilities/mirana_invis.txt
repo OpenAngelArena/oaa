@@ -8,39 +8,39 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_delay"                                    "2.5 2.25 2.0 1.75 1.5" //OAA
-      "duration"                                      "11" //OAA
-      "bonus_movement_speed"                          "9 12 15 18 21"
-      "bonus_outgoing_damage_pct"                     "9.0 12.0 15.0 18.0 21.0"
+      "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
+      "duration"                                          "11" //OAA
+      "bonus_movement_speed"                              "9 12 15 18 21"
+      "bonus_outgoing_damage_pct"                         "9.0 12.0 15.0 18.0 21.0"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "120 110 100 100 100"
-        "special_bonus_unique_mirana_4"               "-30"
+        "value"                                           "120 110 100 100 100"
+        "special_bonus_unique_mirana_4"                   "-30"
       }
       "evasion"
       {
-        "value"                                       "0"
-        "special_bonus_unique_mirana_5"               "+20"
+        "value"                                           "0"
+        "special_bonus_unique_mirana_5"                   "+20"
       }
     }
   }

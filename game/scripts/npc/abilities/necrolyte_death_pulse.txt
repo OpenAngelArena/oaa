@@ -8,42 +8,42 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "115 130 145 160 190 210"
-    "AbilityDamage"                                   "100 160 220 280 560 840"
+    "AbilityManaCost"                                     "115 130 145 160 190 210"
+    "AbilityDamage"                                       "100 160 220 280 560 840"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                              "400"
+      "projectile_speed"                                  "400"
       "area_of_effect"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "heal"
       {
-        "value"                                       "70 90 110 130 260 520"
-        "special_bonus_unique_necrophos_4"            "+60"
+        "value"                                           "70 90 110 130 260 520"
+        "special_bonus_unique_necrophos_4"                "+60"
       }
       "AbilityCooldown"
       {
-        "value"                                       "8 7 6 5 5 5"
-        "special_bonus_unique_necrophos"              "-2.5"
+        "value"                                           "8 7 6 5 5 5"
+        "special_bonus_unique_necrophos"                  "-2.5"
       }
     }
   }

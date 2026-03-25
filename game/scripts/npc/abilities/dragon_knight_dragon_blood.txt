@@ -8,10 +8,10 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE  |  DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE  |  DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,35 +19,35 @@
     {
       "health_regen"
       {
-        "value"                                       "2"
-        "hero_levelup"                                "+0.5"
-        "special_bonus_unique_dragon_knight"          "+12"
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.5"
+        "special_bonus_unique_dragon_knight"              "+12"
       }
       "armor"
       {
-        "value"                                       "2"
-        "hero_levelup"                                "+0.5"
-        "special_bonus_unique_dragon_knight"          "+12"
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.5"
+        "special_bonus_unique_dragon_knight"              "+12"
       }
       "regen_and_armor_multiplier_during_dragon_form"
       {
-        "value"                                       "50"
+        "value"                                           "50"
       }
       "corrosive_breath_damage" //OAA
       {
-        "special_bonus_facet_dragon_knight_corrosive_dragon" "10 15 20 25 50 75"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "10 15 20 25 50 75"
       }
       "corrosive_breath_armor_reduction" //OAA
       {
-        "special_bonus_facet_dragon_knight_corrosive_dragon" "1 2 3 4 6 8"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "1 2 3 4 6 8"
       }
       "magic_damage" //OAA
       {
-        "special_bonus_facet_dragon_knight_fire_dragon" "10 15 20 25 50 75"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "10 15 20 25 50 75"
       }
       "bonus_aoe" //OAA
       {
-        "special_bonus_facet_dragon_knight_fire_dragon" "30 45 60 75 90 105"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "30 45 60 75 90 105"
       }
     }
   }

@@ -8,30 +8,30 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aura_damage"                                   "30 45 60 105 150"
-      "health_bonus_pct"                              "0"
-      "share_damage"                                  "0"
-      "tick_interval"                                 "0.5"
-      "manaboost_scale_mult"                          ".25"
+      "aura_damage"                                       "30 45 60 105 150"
+      "health_bonus_pct"                                  "0"
+      "share_damage"                                      "0"
+      "tick_interval"                                     "0.5"
+      "manaboost_scale_mult"                              ".25"
       "aura_radius"
       {
-        "value"                                       "300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "manahealthboost" //OAA
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

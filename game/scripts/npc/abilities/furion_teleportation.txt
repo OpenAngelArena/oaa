@@ -8,38 +8,38 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "3 3 3 3 2.5 2"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "3 3 3 3 2.5 2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "50 60 70 80 90 100"
+    "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "buff_duration"                                 "15"
+      "buff_duration"                                     "15"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "65 50 35 20 20 20"
-        "special_bonus_unique_furion_3"               "-100%"
+        "value"                                           "65 50 35 20 20 20"
+        "special_bonus_unique_furion_3"                   "-100%"
       }
       "barrier" //OAA
       {
-        "value"                                       "70 130 190 250 250 250"
-        "special_bonus_unique_furion_teleportation_barrier" "+100"
+        "value"                                           "70 130 190 250 250 250"
+        "special_bonus_unique_furion_teleportation_barrier"  "+100"
       }
     }
   }

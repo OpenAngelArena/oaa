@@ -8,22 +8,22 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                        "7" //OAA same as Dependent ability (Time Dilation) + 1
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
-    "DependentOnAbility"                              "faceless_void_time_dilation" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "7" //OAA same as Dependent ability (Time Dilation) + 1
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "faceless_void_time_dilation" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_projectile_slow"                        "35 40 45 50 55 60 65" //OAA
-      "friendly_hero_distance"                        "1200"
+      "attack_projectile_slow"                            "35 40 45 50 55 60 65" //OAA
+      "friendly_hero_distance"                            "1200"
       "slow_distance_max"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 90 105 120 135 150"
+    "AbilityManaCost"                                     "75 90 105 120 135 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_duration"                             "26"
-      "invuln_duration"                               "0.5"
+      "illusion_duration"                                 "26"
+      "invuln_duration"                                   "0.5"
       "outgoing_damage"
       {
-        "value"                                       "-75 -70 -65 -60 -50 -40"
-        "special_bonus_unique_naga_siren_4"           "+10"
+        "value"                                           "-75 -70 -65 -60 -50 -40"
+        "special_bonus_unique_naga_siren_4"               "+10"
       }
       "outgoing_damage_tooltip"
       {
-        "value"                                       "25 30 35 40 50 60"
-        "special_bonus_unique_naga_siren_4"           "+10"
+        "value"                                           "25 30 35 40 50 60"
+        "special_bonus_unique_naga_siren_4"               "+10"
       }
       "incoming_damage" //OAA
       {
-        "value"                                       "250"
-        "special_bonus_unique_naga_siren_3"           "-75"
+        "value"                                           "250"
+        "special_bonus_unique_naga_siren_3"               "-75"
       }
       "tooltip_incoming_damage_total_pct" //OAA
       {
-        "value"                                       "350"
-        "special_bonus_unique_naga_siren_3"           "-75"
+        "value"                                           "350"
+        "special_bonus_unique_naga_siren_3"               "-75"
       }
       "images_count"
       {
-        "value"                                       "3"
-        "special_bonus_unique_naga_siren"             "+1"
+        "value"                                           "3"
+        "special_bonus_unique_naga_siren"                 "+1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "40 35 30 25 25 25"
-        "special_bonus_unique_naga_siren_6"           "-10"
+        "value"                                           "40 35 30 25 25 25"
+        "special_bonus_unique_naga_siren_6"               "-10"
       }
     }
   }

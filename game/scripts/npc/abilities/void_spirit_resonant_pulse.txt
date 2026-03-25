@@ -8,74 +8,74 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "18"
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "115 120 125 130 135 140"
+    "AbilityManaCost"                                     "115 120 125 130 135 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "1200"
-      "return_projectile_speed"                       "900"
+      "speed"                                             "1200"
+      "return_projectile_speed"                           "900"
       "radius"
       {
-        "value"                                       "500"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                       "60 110 160 210 210 210"
-        "special_bonus_unique_void_spirit_4"          "+40"
+        "value"                                           "60 110 160 210 210 210"
+        "special_bonus_unique_void_spirit_4"              "+40"
       }
       "buff_duration"
       {
-        "value"                                       "10"
+        "value"                                           "10"
       }
       "base_absorb_amount" //OAA
       {
-        "value"                                       "25 50 75 100 100 100"
-        "special_bonus_unique_void_spirit_resonant_pulse_barrier" "+20%"
+        "value"                                           "25 50 75 100 100 100"
+        "special_bonus_unique_void_spirit_resonant_pulse_barrier"  "+20%"
       }
       "absorb_per_hero_hit" //OAA
       {
-        "value"                                       "50 70 90 110 110 110"
-        "special_bonus_unique_void_spirit_resonant_pulse_barrier" "+20%"
+        "value"                                           "50 70 90 110 110 110"
+        "special_bonus_unique_void_spirit_resonant_pulse_barrier"  "+20%"
       }
       "is_all_barrier"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_sanctuary"   "+1"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_sanctuary"       "+1"
       }
       "max_charges"
       {
-        "special_bonus_scepter"                       "2"
+        "special_bonus_scepter"                           "2"
       }
       "charge_restore_time"
       {
-        "special_bonus_scepter"                       "18"
+        "special_bonus_scepter"                           "18"
       }
       "silence_duration_scepter"
       {
-        "special_bonus_scepter"                       "1.75"
+        "special_bonus_scepter"                           "1.75"
       }
     }
   }

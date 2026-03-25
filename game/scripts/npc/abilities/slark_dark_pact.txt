@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.001 0.001 0.001 0.001 0.001 0.001"
+    "AbilityCastPoint"                                    "0.001 0.001 0.001 0.001 0.001 0.001"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "65"
+    "AbilityManaCost"                                     "65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "delay"                                         "1.5"
-      "pulse_duration"                                "1.0"
-      "total_pulses"                                  "10"
-      "pulse_interval"                                "0.1"
-      "self_damage_pct"                               "30"
+      "delay"                                             "1.5"
+      "pulse_duration"                                    "1.0"
+      "total_pulses"                                      "10"
+      "pulse_interval"                                    "0.1"
+      "self_damage_pct"                                   "30"
       "radius"
       {
-        "value"                                       "325"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
       "total_damage" //OAA
       {
-        "value"                                       "75 150 225 300 300 300"
-        "special_bonus_unique_slark_2"                "+70"
+        "value"                                           "75 150 225 300 300 300"
+        "special_bonus_unique_slark_2"                    "+70"
       }
       "AbilityCooldown"
       {
-        "value"                                       "9.0 8.0 7.0 6.0 6.0 6.0"
-        "special_bonus_unique_slark_6"                "-0.75"
+        "value"                                           "9.0 8.0 7.0 6.0 6.0 6.0"
+        "special_bonus_unique_slark_6"                    "-0.75"
       }
     }
   }

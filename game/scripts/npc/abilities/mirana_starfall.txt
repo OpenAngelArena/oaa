@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "0"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "0"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                 "10.0 10.0 10.0 10.0 10.0 10.0"
+    "AbilityDuration"                                     "10.0 10.0 10.0 10.0 10.0 10.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,39 +34,39 @@
     {
       "AbilityCooldown"
       {
-        "value"                                       "12.0 12.0 12.0 12.0 12.0 12.0"
-        "special_bonus_unique_mirana_3"               "-2"
+        "value"                                           "12.0 12.0 12.0 12.0 12.0 12.0"
+        "special_bonus_unique_mirana_3"                   "-2"
       }
       "damage"
       {
-        "value"                                       "75 150 225 300 600 900"
-        "special_bonus_unique_mirana_7"               "+200"
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_unique_mirana_7"                   "+200"
       }
       "secondary_starfall_damage_percent"
       {
-        "value"                                       "70"
-        "CalculateSpellDamageTooltip"                 "0"
-        "special_bonus_facet_mirana_starstruck"       "=70 =80 =90 =100 =100 =100"
+        "value"                                           "70"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_facet_mirana_starstruck"           "=70 =80 =90 =100 =100 =100"
       }
       "starfall_radius"
       {
-        "value"                                       "675"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
       }
       "starfall_secondary_radius"
       {
-        "value"                                       "675"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
       }
       "starstruck_blind_pct"
       {
-        "value"                                       "0"
-        "special_bonus_facet_mirana_starstruck"       "+60.0"
+        "value"                                           "0"
+        "special_bonus_facet_mirana_starstruck"           "+60.0"
       }
       "starstruck_duration"
       {
-        "value"                                       "0"
-        "special_bonus_facet_mirana_starstruck"       "=3.0"
+        "value"                                           "0"
+        "special_bonus_facet_mirana_starstruck"           "=3.0"
       }
     }
   }

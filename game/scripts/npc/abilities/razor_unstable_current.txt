@@ -8,53 +8,53 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strike_pct_chance"                             "20"
-      "strike_target_count"                           "3"
-      "strike_slow_duration"                          "1.0"
+      "strike_pct_chance"                                 "20"
+      "strike_target_count"                               "3"
+      "strike_slow_duration"                              "1.0"
       "strike_damage"
       {
-        "value"                                       "50 90 130 170 340 510"
-        "special_bonus_unique_razor_storm_surge_damage_and_slow" "+30%"
+        "value"                                           "50 90 130 170 340 510"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+30%"
       }
       "strike_move_slow_pct"
       {
-        "value"                                       "25 30 35 40 45 50"
-        "special_bonus_unique_razor_storm_surge_damage_and_slow" "+30"
+        "value"                                           "25 30 35 40 45 50"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+30"
       }
       "strike_search_radius"
       {
-        "value"                                       "700"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
       "strike_internal_cd"
       {
-        "value"                                       "2.5"
+        "value"                                           "2.5"
       }
       "strike_cd_reduction_during_storm"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "=2.0"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=2.0"
       }
       "hit_targets_inside_eye_of_the_storm"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "=1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=1"
       }
       "eye_of_the_storm_chance_multiplier"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "=2"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=2"
       }
     }
   }

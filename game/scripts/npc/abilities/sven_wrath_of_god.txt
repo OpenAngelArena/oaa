@@ -8,9 +8,9 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,12 +18,12 @@
     {
       "bonus_damage_per_str"
       {
-        "value"                                       "0.08"
-        "hero_levelup"                                "0.02"
+        "value"                                           "0.08"
+        "hero_levelup"                                    "0.02"
       }
       "current_bonus_damage_tooltip"
       {
-        "dynamic_value"                               "true"
+        "dynamic_value"                                   "true"
       }
     }
   }

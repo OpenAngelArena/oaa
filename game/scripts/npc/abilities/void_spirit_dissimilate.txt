@@ -8,78 +8,78 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "14 13 12 11 10 9" //OAA
+    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "120"
-    "AbilityDamage"                                   "120 200 280 360 720 1440"
+    "AbilityManaCost"                                     "120"
+    "AbilityDamage"                                       "120 200 280 360 720 1440"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "phase_duration"                                "1.1"
-      "portals_per_ring"                              "6"
-      "angle_per_ring_portal"                         "60"
+      "phase_duration"                                    "1.1"
+      "portals_per_ring"                                  "6"
+      "angle_per_ring_portal"                             "60"
       "destination_fx_radius"
       {
-        "value"                                       "183"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "183"
+        "affected_by_aoe_increase"                        "1"
       }
       "first_ring_distance_offset"
       {
-        "value"                                       "520"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "520"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_radius"
       {
-        "value"                                       "275"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
       "has_outer_ring"
       {
-        "value"                                       "0"
-        "special_bonus_unique_void_spirit_dissimilate_outerring" "+1"
+        "value"                                           "0"
+        "special_bonus_unique_void_spirit_dissimilate_outerring"  "+1"
       }
       "aether_remnant_count"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+3"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+3"
       }
       "artifice_duration_override_tooltip"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+4.0"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+4.0"
       }
       "artifice_pct_effectiveness_tooltip"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+70.0"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+70.0"
       }
       "artifice_extra_offset"
       {
-        "value"                                       "0"
-        "special_bonus_facet_void_spirit_aether_artifice" "+125"
+        "value"                                           "0"
+        "special_bonus_facet_void_spirit_aether_artifice"  "+125"
       }
       "root_duration"
       {
-        "special_bonus_unique_void_spirit_3"          "2"
+        "special_bonus_unique_void_spirit_3"              "2"
       }
     }
   }

@@ -8,44 +8,44 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "HasScepterUpgrade"                               "1"
-    "IsGrantedByScepter"                              "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1000" //OAA
-    "AbilityCastPoint"                                "0.2"
-    "AbilityChannelTime"                              "2.5"
+    "AbilityCastRange"                                    "1000" //OAA
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityChannelTime"                                  "2.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17"
+    "AbilityCooldown"                                     "17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "200"
+    "AbilityManaCost"                                     "200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "1000.0"
-      "range"                                         "1000" //OAA
-      "interval"                                      "0.5"
+      "speed"                                             "1000.0"
+      "range"                                             "1000" //OAA
+      "interval"                                          "0.5"
       "splash_radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "tree_grab_radius"
       {
-        "value"                                       "700"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

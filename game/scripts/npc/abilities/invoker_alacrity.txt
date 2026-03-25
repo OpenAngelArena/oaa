@@ -8,50 +8,50 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "700"
-    "AbilityCastPoint"                                "0.05"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.05"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15"
+    "AbilityCooldown"                                     "15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "9"
+      "duration"                                          "9"
       "bonus_attack_speed"
       {
-        "value"                                       "10 22 34 46 58 70 82 94 106 118 130"
-        "levelkey"                                    "wexlevel"
-        "special_bonus_unique_invoker_5"              "+50"
+        "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
+        "levelkey"                                        "wexlevel"
+        "special_bonus_unique_invoker_5"                  "+50"
       }
       "bonus_damage"
       {
-        "value"                                       "10 22 34 46 58 70 82 94 106 118 130"
-        "levelkey"                                    "exortlevel"
-        "special_bonus_unique_invoker_5"              "+50"
-        "CalculateSpellDamageTooltip"                 "0"
+        "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
+        "levelkey"                                        "exortlevel"
+        "special_bonus_unique_invoker_5"                  "+50"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_attack_range"
       {
-        "value"                                       "0"
-        "levelkey"                                    "wexlevel"
+        "value"                                           "0"
+        "levelkey"                                        "wexlevel"
       }
     }
   }

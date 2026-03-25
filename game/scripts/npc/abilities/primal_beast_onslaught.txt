@@ -8,53 +8,53 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "19 18 17 16 15 14" //OAA
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "120"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "charge_speed"                                  "1200"
-      "chargeup_time"                                 "2.2"
-      "max_distance"                                  "2000"
-      "knockback_duration"                            "0.2"
-      "max_charge_time"                               "1.7"
-      "turn_rate"                                     "70"
-      "base_power"                                    "0.05"
-      "movement_turn_rate"                            "50"
-      "stun_duration"                                 "0.7 1 1.3 1.6 1.9 2.2"
+      "charge_speed"                                      "1200"
+      "chargeup_time"                                     "2.2"
+      "max_distance"                                      "2000"
+      "knockback_duration"                                "0.2"
+      "max_charge_time"                                   "1.7"
+      "turn_rate"                                         "70"
+      "base_power"                                        "0.05"
+      "movement_turn_rate"                                "50"
+      "stun_duration"                                     "0.7 1 1.3 1.6 1.9 2.2"
       "knockback_radius"
       {
-        "value"                                       "190"
+        "value"                                           "190"
       }
       "knockback_distance"
       {
-        "value"                                       "200"
+        "value"                                           "200"
       }
       "knockback_damage" //OAA, reminder: this is physical damage
       {
-        "value"                                       "75 170 265 360 360 360"
-        "special_bonus_unique_primal_beast_onslaught_damage" "+80"
+        "value"                                           "75 170 265 360 360 360"
+        "special_bonus_unique_primal_beast_onslaught_damage"  "+80"
       }
     }
   }

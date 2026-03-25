@@ -8,40 +8,40 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                         "550"
-      "bonus_night_vision"                            "1000"
-      "transformation_time"                           "1.1"
-      "crit_chance"                                   "40"
-      "crit_multiplier"                               "160 190 220 250 280" //OAA, intentional nerf
-      "health_bonus"                                  "225 325 425 725 1025"
-      "is_wolfpack"                                   "1"
+      "speed"                                             "550"
+      "bonus_night_vision"                                "1000"
+      "transformation_time"                               "1.1"
+      "crit_chance"                                       "40"
+      "crit_multiplier"                                   "160 190 220 250 280" //OAA, intentional nerf
+      "health_bonus"                                      "225 325 425 725 1025"
+      "is_wolfpack"                                       "1"
       "duration" //OAA, because of Bite
       {
-        "value"                                       "25"
-        "special_bonus_unique_lycan_1"                "+7"
+        "value"                                           "25"
+        "special_bonus_unique_lycan_1"                    "+7"
       }
       "kill_duration_extension"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "110 100 90 90 90"
-        "special_bonus_unique_lycan_8"                "-15"
+        "value"                                           "110 100 90 90 90"
+        "special_bonus_unique_lycan_8"                    "-15"
       }
     }
   }

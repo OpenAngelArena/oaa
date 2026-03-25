@@ -8,77 +8,77 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "IsGrantedByShard"                                "1"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsGrantedByShard"                                    "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1200"
-    "AbilityCastPoint"                                "0.05"
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.05"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0"
+    "AbilityCooldown"                                     "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "50 55 60 65 70 75" //OAA
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_rate"                                     "0.1"
+      "tick_rate"                                         "0.1"
       "wall_width"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "wall_thickness"
       {
-        "value"                                       "100"
+        "value"                                           "100"
       }
       "AbilityCooldown"
       {
-        "value"                                       "14"
-        "special_bonus_unique_disruptor_2"            "-3"
+        "value"                                           "14"
+        "special_bonus_unique_disruptor_2"                "-3"
       }
       "radius"
       {
-        "value"                                       "350"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
       "formation_time"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "duration"
       {
-        "value"                                       "4.4"
-        "special_bonus_unique_disruptor_5"            "+1"
+        "value"                                           "4.4"
+        "special_bonus_unique_disruptor_5"                "+1"
       }
       "damage_per_second"
       {
-        "value"                                       "0"
-        "special_bonus_unique_disruptor_kinetic_damage" "+60"
+        "value"                                           "0"
+        "special_bonus_unique_disruptor_kinetic_damage"   "+60"
       }
       "cooldown_share"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "=0"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=0"
       }
       "strike_on_touch"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "0"
+        "value"                                           "0"
+        "special_bonus_shard"                             "0"
       }
       "AbilityChargeRestoreTime" //OAA, special_bonus_unique_disruptor_2 is not used
       {
-        "value"                                       "14 13 12 11 10 9"
-        "special_bonus_unique_disruptor_2"            "-3"
+        "value"                                           "14 13 12 11 10 9"
+        "special_bonus_unique_disruptor_2"                "-3"
       }
     }
   }

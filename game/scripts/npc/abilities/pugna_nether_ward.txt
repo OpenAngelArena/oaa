@@ -8,72 +8,72 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "4"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "4"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "30" //OAA
-    "AbilityDuration"                                 "21 24 27 30"
+    "AbilityCooldown"                                     "30" //OAA
+    "AbilityDuration"                                     "21 24 27 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 85 90 95" //OAA
+    "AbilityManaCost"                                     "80 85 90 95" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                   "50 75 100 125" //OAA
-      "mana_regen"                                    "0"
-      "nether_ward_gold_bounty"                       "20 40 60 80"
+      "base_damage"                                       "50 75 100 125" //OAA
+      "mana_regen"                                        "0"
+      "nether_ward_gold_bounty"                           "20 40 60 80"
       "radius"
       {
-        "value"                                       "1400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
       }
       "mana_multiplier" //OAA
       {
-        "value"                                       "1 1.2 1.4 1.6"
-        "special_bonus_unique_pugna_3"                "+1.9"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "value"                                           "1 1.2 1.4 1.6"
+        "special_bonus_unique_pugna_3"                    "+1.9"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "health_restore_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "mana_restore_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "attacks_to_destroy"
       {
-        "value"                                       "4 4 4 4"
-        "special_bonus_unique_pugna_6"                "+2"
+        "value"                                           "4 4 4 4"
+        "special_bonus_unique_pugna_6"                    "+2"
       }
       "spell_damage_reduction"
       {
-        "value"                                       "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "AbilityCastRange"
       {
-        "value"                                       "150"
-        "special_bonus_shard"                         "=350"
+        "value"                                           "150"
+        "special_bonus_shard"                             "=350"
       }
       "self_restoration_range"
       {
-        "value"                                       "1200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

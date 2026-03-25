@@ -8,47 +8,47 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0 0 0 0 0 0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "45 50 55 60 65 70" //OAA
+    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_reduction_penalty_pct"                   "50.0"
-      "active_pct_effectiveness"                      "200.0"
-      "active_move_speed_penalty_pct"                 "40"
-      "active_duration"                               "4.0"
-      "damage_cleanse"                                "600 550 500 450 450 450"
-      "damage_reset_interval"                         "7.0"
+      "creep_reduction_penalty_pct"                       "50.0"
+      "active_pct_effectiveness"                          "200.0"
+      "active_move_speed_penalty_pct"                     "40"
+      "active_duration"                                   "4.0"
+      "damage_cleanse"                                    "600 550 500 450 450 450"
+      "damage_reset_interval"                             "7.0"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "30"
+        "value"                                           "30"
       }
       "damage_reduction"
       {
-        "value"                                       "15 35 55 75 150 225"
+        "value"                                           "15 35 55 75 150 225"
       }
       "bonus_reduction_per_kill"
       {
-        "value"                                       "0"
-        "special_bonus_facet_tidehunter_kraken_swell" "1 2 3 4 4 4"
+        "value"                                           "0"
+        "special_bonus_facet_tidehunter_kraken_swell"     "1 2 3 4 4 4"
       }
       "smash_on_purge"
       {
-        "special_bonus_unique_tidehunter_smash_on_blubber" "50"
+        "special_bonus_unique_tidehunter_smash_on_blubber"  "50"
       }
     }
   }

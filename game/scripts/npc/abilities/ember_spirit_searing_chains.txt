@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "400"
-    "AbilityCastPoint"                                "0"
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "13 12 11 10 9 8"
+    "AbilityCooldown"                                     "13 12 11 10 9 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 85 95 105 115 125" //OAA
+    "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                 "0.5"
+      "tick_interval"                                     "0.5"
       "duration"
       {
-        "value"                                       "1.25 1.75 2.25 2.75 3.25 3.75"
-        "special_bonus_unique_ember_spirit_2"         "+0.8"
+        "value"                                           "1.25 1.75 2.25 2.75 3.25 3.75"
+        "special_bonus_unique_ember_spirit_2"             "+0.8"
       }
       "radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second"
       {
-        "value"                                       "100"
-        "special_bonus_unique_ember_spirit_chains_dps" "+50"
+        "value"                                           "100"
+        "special_bonus_unique_ember_spirit_chains_dps"    "+50"
       }
       "unit_count"
       {
-        "value"                                       "2"
+        "value"                                           "2"
       }
       "remnant_chains"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

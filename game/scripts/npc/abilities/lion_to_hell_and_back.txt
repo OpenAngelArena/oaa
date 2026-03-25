@@ -8,26 +8,26 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "45" //OAA
-      "damage_window"                                 "3.0"
+      "duration"                                          "45" //OAA
+      "damage_window"                                     "3.0"
       "spell_amp"
       {
-        "value"                                       "20"
-        "special_bonus_unique_lion_11"                "+15"
+        "value"                                           "20"
+        "special_bonus_unique_lion_11"                    "+15"
       }
       "debuff_amp" //OAA
       {
-        "value"                                       "20"
-        "special_bonus_unique_lion_11"                "+15"
+        "value"                                           "20"
+        "special_bonus_unique_lion_11"                    "+15"
       }
     }
   }

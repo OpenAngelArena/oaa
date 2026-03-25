@@ -8,36 +8,36 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "25"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_speed"                                   "10 18 26 34 42 50"
-      "speed_burst_max_duration"                      "2.5"
-      "slow_resistance_tooltip"                       "100"
+      "bonus_speed"                                       "10 18 26 34 42 50"
+      "speed_burst_max_duration"                          "2.5"
+      "slow_resistance_tooltip"                           "100"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "29 25 21 17 17 17"
+        "value"                                           "29 25 21 17 17 17"
       }
       "duration"
       {
-        "value"                                       "10"
-        "special_bonus_unique_slardar_7"              "+2"
+        "value"                                           "10"
+        "special_bonus_unique_slardar_7"                  "+2"
       }
     }
   }

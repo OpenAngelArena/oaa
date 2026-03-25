@@ -8,26 +8,26 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES" //OAA
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "550"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,40 +35,40 @@
     {
       "AbilityCooldown"
       {
-        "value"                                       "12 10 8 6 6 6"
+        "value"                                           "12 10 8 6 6 6"
       }
       "duration"
       {
-        "value"                                       "12.0"
+        "value"                                           "12.0"
       }
       "radius"
       {
-        "value"                                       "675"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_absorb" //OAA, because of special_bonus_unique_abaddon
       {
-        "value"                                       "120 150 180 210 210 210"
-        "special_bonus_unique_abaddon"                "+80"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "120 150 180 210 210 210"
+        "special_bonus_unique_abaddon"                    "+80"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "regen"
       {
-        "value"                                       "0"
-        "special_bonus_unique_abaddon_7"              "+8"
+        "value"                                           "0"
+        "special_bonus_unique_abaddon_7"                  "+8"
       }
       "absorb_to_damage"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "75"
+        "value"                                           "0"
+        "special_bonus_shard"                             "75"
       }
       "absorb_damage_aoe"
       {
-        "value"                                       "0"
-        "special_bonus_shard"                         "675"
-        "affected_by_aoe_increase"                    "1"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "0"
+        "special_bonus_shard"                             "675"
+        "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }

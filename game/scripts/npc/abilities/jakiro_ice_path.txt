@@ -8,67 +8,67 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1100"
-    "AbilityCastPoint"                                "0.65"
+    "AbilityCastRange"                                    "1100"
+    "AbilityCastPoint"                                    "0.65"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
-    "AbilityDamage"                                   "0"
+    "AbilityManaCost"                                     "100"
+    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "path_delay"                                    "0.2"
+      "path_delay"                                        "0.2"
       "stun_duration"
       {
-        "value"                                       "1.25 1.50 1.75 2.0 2.25 2.5"
-        "special_bonus_unique_jakiro"                 "+0.4"
+        "value"                                           "1.25 1.50 1.75 2.0 2.25 2.5"
+        "special_bonus_unique_jakiro"                     "+0.4"
       }
       "path_duration"
       {
-        "value"                                       "3 3.5 4 4.5 4.2 4.3"
-        "special_bonus_unique_jakiro"                 "+0.4"
+        "value"                                           "3 3.5 4 4.5 4.2 4.3"
+        "special_bonus_unique_jakiro"                     "+0.4"
       }
       "path_radius"
       {
-        "value"                                       "150"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage"
       {
-        "value"                                       "50"
-        "CalculateSpellDamageTooltip"                 "1"
-        "special_bonus_unique_jakiro_6"               "+75"
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_unique_jakiro_6"                   "+75"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "20 17 14 11 11 11"
+        "value"                                           "20 17 14 11 11 11"
       }
       "detonate_damage"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "detonate_stun_duration"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "detonate_projectile_speed"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

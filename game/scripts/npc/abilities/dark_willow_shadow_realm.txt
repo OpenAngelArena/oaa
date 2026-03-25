@@ -8,58 +8,58 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                     "0.3"
-      "damage"                                        "120 200 280 360 440 520"
-      "attack_range_bonus"                            "600"
+      "fade_time"                                         "0.3"
+      "damage"                                            "120 200 280 360 440 520"
+      "attack_range_bonus"                                "600"
       "AbilityCooldown"
       {
-        "value"                                       "21 19 17 15 14 13"
-        "special_bonus_unique_dark_willow_5"          "-2"
+        "value"                                           "21 19 17 15 14 13"
+        "special_bonus_unique_dark_willow_5"              "-2"
       }
       "duration" //OAA
       {
-        "value"                                       "5"
-        "special_bonus_unique_dark_willow_1"          "+1.5"
+        "value"                                           "5"
+        "special_bonus_unique_dark_willow_1"              "+1.5"
       }
       "max_damage_duration"
       {
-        "value"                                       "3.0"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "3.0"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "aura_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "aura_linger"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "aura_damage_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

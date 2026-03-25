@@ -8,49 +8,49 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "750"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "length"                                        "750"
-      "speed"                                         "1600"
+      "length"                                            "750"
+      "speed"                                             "1600"
       "width"
       {
-        "value"                                       "140"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "140"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"
       {
-        "value"                                       "1.1 1.4 1.7 2.0 2.1 2.2"
-        "special_bonus_unique_nyx_3"                  "+0.2"
+        "value"                                           "1.1 1.4 1.7 2.0 2.1 2.2"
+        "special_bonus_unique_nyx_3"                      "+0.2"
       }
       "impale_damage" //OAA
       {
-        "value"                                       "100 160 220 280 280 280"
-        "special_bonus_unique_nyx_2"                  "+140"
+        "value"                                           "100 160 220 280 280 280"
+        "special_bonus_unique_nyx_2"                      "+140"
       }
     }
   }

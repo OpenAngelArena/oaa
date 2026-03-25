@@ -8,17 +8,17 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "700"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,49 +26,49 @@
     {
       "AbilityManaCost"
       {
-        "value"                                       "60 65 70 75 80 85"
+        "value"                                           "60 65 70 75 80 85"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "23 20 17 14 14 14"
+        "value"                                           "23 20 17 14 14 14"
       }
       "illusion_duration"
       {
-        "value"                                       "5"
-        "special_bonus_unique_terrorblade_2"          "+1"
+        "value"                                           "5"
+        "special_bonus_unique_terrorblade_2"              "+1"
       }
       "illusion_outgoing_damage"
       {
-        "value"                                       "-70 -55 -40 -25 -10 5"
-        "special_bonus_unique_terrorblade_6"          "+15"
+        "value"                                           "-70 -55 -40 -25 -10 5"
+        "special_bonus_unique_terrorblade_6"              "+15"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                       "30 45 60 75 90 105"
-        "special_bonus_unique_terrorblade_6"          "+15"
+        "value"                                           "30 45 60 75 90 105"
+        "special_bonus_unique_terrorblade_6"              "+15"
       }
       "move_slow"
       {
-        "value"                                       "15 20 25 30 35 40"
-        "special_bonus_unique_terrorblade_6"          "+15"
+        "value"                                           "15 20 25 30 35 40"
+        "special_bonus_unique_terrorblade_6"              "+15"
       }
       "attack_slow"
       {
-        "value"                                       "15 20 25 30 40 50"
-        "special_bonus_unique_terrorblade_6"          "+15"
+        "value"                                           "15 20 25 30 40 50"
+        "special_bonus_unique_terrorblade_6"              "+15"
       }
       "range"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "is_global"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "requires_vision"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

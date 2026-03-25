@@ -8,54 +8,54 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "1000"
-    "AbilityCastPoint"                                "0.05"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.05"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "freeze_duration"                               "0.4"
-      "damage_trigger"                                "10.0"
+      "freeze_duration"                                   "0.4"
+      "damage_trigger"                                    "10.0"
       "AbilityCooldown"
       {
-        "value"                                       "18"
-        "special_bonus_unique_invoker_9"              "-6"
+        "value"                                           "18"
+        "special_bonus_unique_invoker_9"                  "-6"
       }
       "duration"
       {
-        "value"                                       "3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8 6.2 6.6 7.0"
-        "levelkey"                                    "quaslevel"
+        "value"                                           "3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8 6.2 6.6 7.0"
+        "levelkey"                                        "quaslevel"
       }
       "freeze_cooldown"
       {
-        "value"                                       "0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.50"
-        "levelkey"                                    "quaslevel"
+        "value"                                           "0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.50"
+        "levelkey"                                        "quaslevel"
       }
       "freeze_damage"
       {
-        "value"                                       "28 36 44 52 60 68 76 84 92 100 108"
-        "levelkey"                                    "quaslevel"
+        "value"                                           "28 36 44 52 60 68 76 84 92 100 108"
+        "levelkey"                                        "quaslevel"
       }
       "freeze_heal"
       {
-        "value"                                       "0"
-        "special_bonus_unique_invoker_cold_snap_heal" "1"
+        "value"                                           "0"
+        "special_bonus_unique_invoker_cold_snap_heal"     "1"
       }
     }
   }

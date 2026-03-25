@@ -8,9 +8,9 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,14 +18,14 @@
     {
       "outgoing_floor"
       {
-        "value"                                       "17"
-        "hero_levelup"                                "2"
-        "levelup_interval"                            "3"
+        "value"                                           "17"
+        "hero_levelup"                                    "2"
+        "levelup_interval"                                "3"
       }
       "duration"
       {
-        "value"                                       "3"
-        "special_bonus_unique_phantom_lancer_illusory_armaments_duration" "+2"
+        "value"                                           "3"
+        "special_bonus_unique_phantom_lancer_illusory_armaments_duration"  "+2"
       }
     }
   }

@@ -8,25 +8,25 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "500 500 500 500 500 500"
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastRange"                                    "500 500 500 500 500 500"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "4"
+    "AbilityCooldown"                                     "4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 75 75 75 75 75"
+    "AbilityManaCost"                                     "75 75 75 75 75 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,11 +34,11 @@
     {
       "damage" //OAA
       {
-        "value"                                       "1000"
+        "value"                                           "1000"
       }
       "radius"
       {
-        "value"                                       "600"
+        "value"                                           "600"
       }
     }
   }

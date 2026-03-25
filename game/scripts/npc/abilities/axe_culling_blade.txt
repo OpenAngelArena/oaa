@@ -8,59 +8,59 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "175"
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastRange"                                    "175"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "30" //OAA
+    "AbilityCooldown"                                     "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "100 125 150 175 200"
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor_bonus"                                   "10 15 20 25 30"
-      "charge_speed"                                  "1200"
+      "armor_bonus"                                       "10 15 20 25 30"
+      "charge_speed"                                      "1200"
       "damage" //OAA
       {
-        "value"                                       "275 375 475 475 475"
-        "special_bonus_unique_axe_5"                  "+150"
+        "value"                                           "275 375 475 475 475"
+        "special_bonus_unique_axe_5"                      "+150"
       }
       "speed_bonus"
       {
-        "value"                                       "20 25 30 30 30"
-        "display_type"                                "kBuffPercentage"
+        "value"                                           "20 25 30 30 30"
+        "display_type"                                    "kBuffPercentage"
       }
       "speed_duration"
       {
-        "value"                                       "6"
-        "special_bonus_unique_axe_culling_blade_speed_duration" "+3"
+        "value"                                           "6"
+        "special_bonus_unique_axe_culling_blade_speed_duration"  "+3"
       }
       "speed_aoe"
       {
-        "value"                                       "900"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
       }
       "armor_per_stack"
       {
-        "value"                                       "1 1.5 2 2 2"
+        "value"                                           "1 1.5 2 2 2"
       }
     }
   }

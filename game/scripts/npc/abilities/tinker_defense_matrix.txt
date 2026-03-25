@@ -8,52 +8,52 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "600"
-    "AbilityCastPoint"                                "0.2"
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15" //OAA
+    "AbilityCooldown"                                     "15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "120"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "flicker_angle"                                 "90"
+      "flicker_angle"                                     "90"
       "damage_absorb" //OAA
       {
-        "value"                                       "240"
-        "special_bonus_unique_tinker_7"               "+60"
+        "value"                                           "240"
+        "special_bonus_unique_tinker_7"                   "+60"
       }
       "status_resistance"
       {
-        "value"                                       "30"
+        "value"                                           "30"
       }
       "barrier_duration"
       {
-        "value"                                       "15"
+        "value"                                           "15"
       }
       "cooldown_reduction"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "flicker_range"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

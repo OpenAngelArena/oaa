@@ -8,40 +8,40 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "85 80 75 70 65"
+    "AbilityCooldown"                                     "85 80 75 70 65"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "75 125 175 225 275"
+    "AbilityManaCost"                                     "75 125 175 225 275"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_range"                                    "100 200 300 400 500"
+      "cast_range"                                        "100 200 300 400 500"
       "duration"
       {
-        "value"                                       "40.0 45.0 50.0 55.0 55.0"
-        "special_bonus_unique_keeper_of_the_light_2"  "+15"
+        "value"                                           "40.0 45.0 50.0 55.0 55.0"
+        "special_bonus_unique_keeper_of_the_light_2"      "+15"
       }
       "movement_speed"
       {
-        "value"                                       "50"
-        "special_bonus_unique_keeper_of_the_light_11" "+30"
+        "value"                                           "50"
+        "special_bonus_unique_keeper_of_the_light_11"     "+30"
       }
       "illuminate_heal"
       {
-        "value"                                       "70"
-        "special_bonus_shard"                         "+30"
+        "value"                                           "70"
+        "special_bonus_shard"                             "+30"
       }
     }
   }

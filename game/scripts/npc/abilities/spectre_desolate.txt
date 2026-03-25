@@ -8,26 +8,26 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                        "350"
+      "radius"                                            "350"
       "bonus_damage"
       {
-        "value"                                       "23"
-        "hero_levelup"                                "+2"
-        "special_bonus_unique_spectre_2"              "+12"
+        "value"                                           "23"
+        "hero_levelup"                                    "+2"
+        "special_bonus_unique_spectre_2"                  "+12"
       }
       "illusion_damage_outgoing"
       {
-        "special_bonus_unique_spectre_4"              "+15"
+        "special_bonus_unique_spectre_4"                  "+15"
       }
     }
   }

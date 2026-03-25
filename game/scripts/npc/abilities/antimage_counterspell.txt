@@ -8,51 +8,51 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "HasShardUpgrade"                                 "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "0"
-    "AbilityCastPoint"                                "0 0 0 0 0 0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "50"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "1.3"
-      "duration_illusion"                             "4"
-      "outgoing_damage"                               "0"
-      "incoming_damage"                               "150" //OAA
+      "duration"                                          "1.3"
+      "duration_illusion"                                 "4"
+      "outgoing_damage"                                   "0"
+      "incoming_damage"                                   "150" //OAA
       "magic_resistance"
       {
-        "value"                                       "14 21 28 35 48 56"
-        "display_type"                                "kBuffPercentage"
+        "value"                                           "14 21 28 35 48 56"
+        "display_type"                                    "kBuffPercentage"
       }
       "does_reflect"
       {
-        "value"                                       "1"
+        "value"                                           "1"
       }
       "reflected_spell_amp"
       {
-        "value"                                       "0"
-        "display_type"                                "kBuffPercentage"
+        "value"                                           "0"
+        "display_type"                                    "kBuffPercentage"
       }
       "AbilityCooldown"
       {
-        "value"                                       "15 11 7 3 3 3"
+        "value"                                           "15 11 7 3 3 3"
       }
       "heal_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

@@ -8,32 +8,32 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "4"
-    "LevelsBetweenUpgrades"                           "7"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "4"
+    "LevelsBetweenUpgrades"                               "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                   "0"
+    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tooltip_clones"                                "1 2 3 4 4 4"
-      "dps_penalty_pct"                               "50 66 75 80 80 80"
+      "tooltip_clones"                                    "1 2 3 4 4 4"
+      "dps_penalty_pct"                                   "50 66 75 80 80 80"
       "required_level"
       {
-        "value"                                       "3"
+        "value"                                           "3"
       }
       "levels_between_upgrades"
       {
-        "value"                                       "7"
+        "value"                                           "7"
       }
       "max_level"
       {
-        "value"                                       "4"
+        "value"                                           "4"
       }
     }
   }

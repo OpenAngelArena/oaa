@@ -8,63 +8,63 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "200"
-    "AbilityCastPoint"                                "0.4"
+    "AbilityCastRange"                                    "200"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "15.0 12.0 9.0 6.0 5.0 4.0"
+    "AbilityCooldown"                                     "15.0 12.0 9.0 6.0 5.0 4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "35 40 45 50 55 60"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "debuff_duration"                               "4 5 6 7 8 9"
+      "debuff_duration"                                   "4 5 6 7 8 9"
       "radius"
       {
-        "value"                                       "230 250 270 290 310 330"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "230 250 270 290 310 330"
+        "affected_by_aoe_increase"                        "1"
       }
       "inner_radius"
       {
-        "value"                                       "125"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "125"
+        "affected_by_aoe_increase"                        "1"
       }
       "inner_radius_bonus_damage_pct" //OAA
       {
-        "value"                                       "40"
+        "value"                                           "40"
       }
       "inner_radius_procs_caustic"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "attack_damage"
       {
-        "value"                                       "50 75 100 125 250 375"
-        "special_bonus_unique_sand_king_scorpion_strike_damage" "+125"
+        "value"                                           "50 75 100 125 250 375"
+        "special_bonus_unique_sand_king_scorpion_strike_damage"  "+125"
       }
       "strike_slow"
       {
-        "value"                                       "10 12 14 16 18 20"
-        "special_bonus_unique_sand_king_3"            "+12"
+        "value"                                           "10 12 14 16 18 20"
+        "special_bonus_unique_sand_king_3"                "+12"
       }
       "caustic_damage_pct"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

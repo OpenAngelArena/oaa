@@ -8,65 +8,65 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "150 200 250 300 350"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_duration"                                 "4"
-      "slow"                                          "50"
-      "missile_delay_tooltip"                         "2"
-      "total_strikes"                                 "3"
-      "strike_separation"                             "500"
+      "slow_duration"                                     "4"
+      "slow"                                              "50"
+      "missile_delay_tooltip"                             "2"
+      "total_strikes"                                     "3"
+      "strike_separation"                                 "500"
       "AbilityCastRange"
       {
-        "value"                                       "1000"
+        "value"                                           "1000"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                       "90 75 60 60 60"
-        "special_bonus_unique_gyrocopter_5"           "-40"
+        "value"                                           "90 75 60 60 60"
+        "special_bonus_unique_gyrocopter_5"               "-40"
       }
       "damage" //OAA
       {
-        "value"                                       "200 350 500 500 500"
+        "value"                                           "200 350 500 500 500"
       }
       "radius"
       {
-        "value"                                       "400"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
       "tracking_strike_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "strike_delay"
       {
-        "value"                                       "1.0"
+        "value"                                           "1.0"
       }
       "tracking_strike_delay"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "tracking_missile_damage"
       {
-        "value"                                       "50"
+        "value"                                           "50"
       }
     }
   }

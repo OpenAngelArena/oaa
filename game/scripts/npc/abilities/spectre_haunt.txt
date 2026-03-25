@@ -8,67 +8,67 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "5"
-    "RequiredLevel"                                   "6"
-    "LevelsBetweenUpgrades"                           "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                "0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 150 175 200 225"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "scepter_cooldown_reduction_tooltip"            "20"
-      "duration"                                      "6.0"
-      "illusion_damage_incoming"                      "100 90 80 70 60" //OAA
-      "attack_delay"                                  "0"
+      "scepter_cooldown_reduction_tooltip"                "20"
+      "duration"                                          "6.0"
+      "illusion_damage_incoming"                          "100 90 80 70 60" //OAA
+      "attack_delay"                                      "0"
       "AbilityCooldown" //OAA
       {
-        "value"                                       "160 150 140 140 140"
-        "special_bonus_scepter"                       "-20"
+        "value"                                           "160 150 140 140 140"
+        "special_bonus_scepter"                           "-20"
       }
       "illusion_damage_outgoing"
       {
-        "value"                                       "-70 -50 -30 -15 -10"
+        "value"                                           "-70 -50 -30 -15 -10"
       }
       "tooltip_outgoing"
       {
-        "value"                                       "30 50 70 85 90"
+        "value"                                           "30 50 70 85 90"
       }
       "tooltip_illusion_total_damage_incoming" //OAA
       {
-        "value"                                       "200 200 200 200 200"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "value"                                           "200 200 200 200 200"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "destroy_if_target_is_dead"
       {
-        "value"                                       "1"
-        "special_bonus_facet_spectre_twist_the_knife" "=0"
+        "value"                                           "1"
+        "special_bonus_facet_spectre_twist_the_knife"     "=0"
       }
       "fear_duration"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "=1.5"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=1.5"
       }
       "fear_aoe"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "=400"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "=400"
       }
       "fear_movespeed_slow"
       {
-        "value"                                       "0"
-        "special_bonus_scepter"                       "50"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "50"
       }
     }
   }

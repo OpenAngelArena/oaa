@@ -8,57 +8,57 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "60 65 70 75 80 85"
+    "AbilityManaCost"                                     "60 65 70 75 80 85"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                      "8"
-      "soul_collection_per_interval"                  "2"
-      "soul_collection_radius"                        "600"
-      "soul_collection_interval"                      "0.5"
-      "soul_collection_per_creep"                     "1"
-      "linger_duration"                               "8"
+      "duration"                                          "8"
+      "soul_collection_per_interval"                      "2"
+      "soul_collection_radius"                            "600"
+      "soul_collection_interval"                          "0.5"
+      "soul_collection_per_creep"                         "1"
+      "linger_duration"                                   "8"
       "bonus_attack_speed"
       {
-        "value"                                       "35 50 65 80 100 115"
-        "special_bonus_unique_nevermore_4"            "+30"
+        "value"                                           "35 50 65 80 100 115"
+        "special_bonus_unique_nevermore_4"                "+30"
       }
       "bonus_move_speed"
       {
-        "value"                                       "4 6 8 10 13 15"
+        "value"                                           "4 6 8 10 13 15"
       }
       "cast_speed_pct" //OAA
       {
-        "value"                                       "100"
-        "special_bonus_unique_nevermore_frenzy_castspeed" "+30"
+        "value"                                           "100"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "+30"
       }
       "cast_speed_pct_tooltip" //OAA
       {
-        "value"                                       "0"
-        "special_bonus_unique_nevermore_frenzy_castspeed" "=140"
+        "value"                                           "0"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "=140"
       }
       "max_collection_count"
       {
-        "value"                                       "4 6 8 10 10 10"
+        "value"                                           "4 6 8 10 10 10"
       }
       "soul_collection_per_hero"
       {
-        "value"                                       "3"
-        "special_bonus_unique_nevermore_frenzy_max_collection_count" "+2"
+        "value"                                           "3"
+        "special_bonus_unique_nevermore_frenzy_max_collection_count"  "+2"
       }
     }
   }

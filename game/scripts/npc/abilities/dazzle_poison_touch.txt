@@ -8,79 +8,79 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                "500 600 700 800 900 1000"
-    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "500 600 700 800 900 1000"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "125 130 135 140 145 150"
+    "AbilityManaCost"                                     "125 130 135 140 145 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "targets"                                       "2 4 6 8 8 8"
-      "projectile_speed"                              "1300"
-      "duration"                                      "3.5 5 6.5 8 8.5 9"
-      "bonus_damage"                                  "0"
-      "bonus_slow"                                    "-2 -2.5 -3 -3.5 -4 -4.5"
+      "targets"                                           "2 4 6 8 8 8"
+      "projectile_speed"                                  "1300"
+      "duration"                                          "3.5 5 6.5 8 8.5 9"
+      "bonus_damage"                                      "0"
+      "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
       "start_radius"
       {
-        "value"                                       "200 200 200 200 200 200"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "200 200 200 200 200 200"
+        "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                       "300 300 300 300 300 300"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "300 300 300 300 300 300"
+        "affected_by_aoe_increase"                        "1"
       }
       "end_distance"
       {
-        "value"                                       "600 700 800 900 1000 1100"
+        "value"                                           "600 700 800 900 1000 1100"
       }
       "damage"
       {
-        "value"                                       "16 28 40 52 104 208"
-        "special_bonus_unique_dazzle_3"               "+75"
+        "value"                                           "16 28 40 52 104 208"
+        "special_bonus_unique_dazzle_3"                   "+75"
       }
       "slow"
       {
-        "value"                                       "-13 -16 -19 -22 -25 -28"
-        "special_bonus_unique_dazzle_1"               "-40"
+        "value"                                           "-13 -16 -19 -22 -25 -28"
+        "special_bonus_unique_dazzle_1"                   "-40"
       }
       "attack_range_bonus"
       {
-        "value"                                       "0"
-        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus" "+200"
+        "value"                                           "0"
+        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+200"
       }
       "split_radius"
       {
-        "value"                                       "0"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "split_damage"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
       "attacks_to_split"
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }

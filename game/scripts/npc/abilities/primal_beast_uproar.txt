@@ -8,95 +8,95 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "6"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0"
+    "AbilityCooldown"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stack_count_increase_on_disable"               "0"
-      "damage_limit"                                  "50"
-      "stack_duration"                                "20"
-      "move_slow_per_stack"                           "4 6 8 10 12 14"
-      "slow_duration"                                 "3.0"
-      "damage_min"                                    "20"
-      "damage_max"                                    "2000"
-      "roared_bonus_attack_speed"                     "0"
-      "roar_duration"                                 "7"
+      "stack_count_increase_on_disable"                   "0"
+      "damage_limit"                                      "50"
+      "stack_duration"                                    "20"
+      "move_slow_per_stack"                               "4 6 8 10 12 14"
+      "slow_duration"                                     "3.0"
+      "damage_min"                                        "20"
+      "damage_max"                                        "2000"
+      "roared_bonus_attack_speed"                         "0"
+      "roar_duration"                                     "7"
       "bonus_damage_per_stack" //OAA
       {
-        "value"                                       "10 20 30 40 40 40"
+        "value"                                           "10 20 30 40 40 40"
       }
       "stack_limit"
       {
-        "value"                                       "6"
+        "value"                                           "6"
       }
       "radius"
       {
-        "value"                                       "900"
-        "affected_by_aoe_increase"                    "1"
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
       }
       "roared_bonus_armor"
       {
-        "value"                                       "2 3 4 5 6 7"
-        "special_bonus_unique_primal_beast_uproar_armor" "+6"
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_primal_beast_uproar_armor"  "+6"
       }
       "should_dispell"
       {
-        "special_bonus_unique_primal_beast_roar_dispells" "+1"
+        "special_bonus_unique_primal_beast_roar_dispells"  "+1"
       }
       "projectiles_per_stack"
       {
-        "special_bonus_scepter"                       "2"
+        "special_bonus_scepter"                           "2"
       }
       "projectile_distance"
       {
-        "special_bonus_scepter"                       "1400"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "1400"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_width"
       {
-        "special_bonus_scepter"                       "75"
-        "affected_by_aoe_increase"                    "1"
+        "special_bonus_scepter"                           "75"
+        "affected_by_aoe_increase"                        "1"
       }
       "projectile_damage" //OAA
       {
-        "special_bonus_scepter"                       "85"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
-        "CalculateSpellDamageTooltip"                 "1"
+        "special_bonus_scepter"                           "85"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "projectile_speed"
       {
-        "special_bonus_scepter"                       "500"
+        "special_bonus_scepter"                           "500"
       }
       "splinter_angle"
       {
-        "special_bonus_scepter"                       "30"
+        "special_bonus_scepter"                           "30"
       }
       "max_split_amount"
       {
-        "special_bonus_scepter"                       "2"
+        "special_bonus_scepter"                           "2"
       }
       "split_delay"
       {
-        "special_bonus_scepter"                       "1.25"
+        "special_bonus_scepter"                           "1.25"
       }
       "projectile_break_duration"
       {
-        "special_bonus_scepter"                       "2.5"
+        "special_bonus_scepter"                           "2.5"
       }
       "projectile_waves"
       {
-        "special_bonus_scepter"                       "3"
+        "special_bonus_scepter"                           "3"
       }
     }
   }

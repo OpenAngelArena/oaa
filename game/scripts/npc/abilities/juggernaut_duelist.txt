@@ -8,19 +8,19 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-    "MaxLevel"                                        "1"
-    "RequiredLevel"                                   "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "front_angle"                                   "55"
+      "front_angle"                                       "55"
       "front_damage_increase" //OAA
       {
-        "value"                                       "12"
-        "special_bonus_unique_juggernaut_3"           "+4"
+        "value"                                           "12"
+        "special_bonus_unique_juggernaut_3"               "+4"
       }
     }
   }

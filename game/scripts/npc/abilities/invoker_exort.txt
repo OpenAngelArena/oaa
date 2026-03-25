@@ -8,53 +8,53 @@
 
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
-    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                               "1"
-    "MaxLevel"                                        "10"
-    "RequiredLevel"                                   "1"
-    "LevelsBetweenUpgrades"                           "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "10"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                 "0"
+    "AbilityCooldown"                                     "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                 "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "intelligence_bonus"                            "1"
+      "intelligence_bonus"                                "1"
       "max_level" //OAA
       {
-        "value"                                       "8"
-        "special_bonus_scepter_3"                     "+1"
-        "special_bonus_unique_invoker_orb_levels"     "+1"
-        "special_bonus_scepter"                       "+0"
+        "value"                                           "8"
+        "special_bonus_scepter_3"                         "+1"
+        "special_bonus_unique_invoker_orb_levels"         "+1"
+        "special_bonus_scepter"                           "+0"
       }
       "bonus_damage_per_instance"
       {
-        "value"                                       "2 4 6 8 10 12 14 16 18 20"
-        "special_bonus_unique_invoker_13"             "x2"
-        "CalculateSpellDamageTooltip"                 "0"
-        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "2 4 6 8 10 12 14 16 18 20"
+        "special_bonus_unique_invoker_13"                 "x2"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "upgrade_at_level"
       {
-        "value"                                       "0"
-        "special_bonus_facet_invoker_exort_focus"     "6"
+        "value"                                           "0"
+        "special_bonus_facet_invoker_exort_focus"         "6"
       }
       "scepter_bonus_levels" //OAA
       {
-        "value"                                       "0"
-        "special_bonus_scepter_3"                     "1"
+        "value"                                           "0"
+        "special_bonus_scepter_3"                         "1"
       }
       "facet_bonus_levels" //OAA
       {
-        "value"                                       "0"
+        "value"                                           "0"
       }
     }
   }
