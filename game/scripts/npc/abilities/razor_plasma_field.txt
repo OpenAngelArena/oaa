@@ -5,67 +5,68 @@
   //=================================================================================================================
   "razor_plasma_field"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0 0 0 0 0 0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 10 10"
+    "AbilityCooldown"                                 "13 12 11 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
+    "AbilityManaCost"                                 "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "total_ability_time"                            "2.2"
+      "slow_min"                                      "5"
       "damage_min"
       {
-        "value"                                           "35 40 45 50 100 200"
+        "value"                                       "35 40 45 50 100 200"
       }
       "damage_max"
       {
-        "value"                                           "80 115 150 185 370 740"
+        "value"                                       "80 115 150 185 370 740"
       }
       "radius"
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "700"
+        "affected_by_aoe_increase"                    "1"
       }
-      "total_ability_time"                                "2.2"
-      "slow_min"                                          "5"
       "slow_max"
       {
-        "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_razor_plasmafield_max_slow"  "+20"
+        "value"                                       "25 30 35 40 45 50"
+        "special_bonus_unique_razor_plasmafield_max_slow" "+20"
       }
       "slow_duration"
       {
-        "value"                                           "1.5"
-        "special_bonus_unique_razor_4"                    "+0.75"
+        "value"                                       "1.5"
+        "special_bonus_unique_razor_4"                "+0.75"
       }
       "second_ring_delay"
       {
-        "value"                                           "0"
-        "special_bonus_unique_razor_plasmafield_second_ring"  "+0.8"
+        "value"                                       "0"
+        "special_bonus_unique_razor_plasmafield_second_ring" "+0.8"
       }
       "second_ring_reduction"
       {
-        "value"                                           "0"
-        "special_bonus_unique_razor_plasmafield_second_ring"  "+30"
+        "value"                                       "0"
+        "special_bonus_unique_razor_plasmafield_second_ring" "+30"
       }
     }
   }

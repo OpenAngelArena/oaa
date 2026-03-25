@@ -5,30 +5,33 @@
   //=================================================================================================================
   "templar_assassin_trap_teleport"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong, casting while rooted only disabled internally
-
-    "MaxLevel"                                            "5"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong, casting while rooted only disabled internally
+    "IsGrantedByScepter"                              "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityChannelTime"                                  "2"
+    "AbilityCastPoint"                                "0.2"
+    "AbilityChannelTime"                              "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10"
+    "AbilityCooldown"                                 "10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                 "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "extra_damage"                                      "400"
+      "extra_damage"                                  "400"
     }
   }
 }

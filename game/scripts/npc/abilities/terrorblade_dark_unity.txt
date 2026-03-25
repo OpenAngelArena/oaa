@@ -5,21 +5,26 @@
   //=================================================================================================================
   "terrorblade_dark_unity"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-    "MaxLevel"                                            "1"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "inside_radius_bonus_damage_pct"                "60"
       "radius"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
-      "inside_radius_bonus_damage_pct"                    "60"
-      "outside_radius_bonus_damage_pct"  
+      "outside_radius_bonus_damage_pct"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
     }
   }

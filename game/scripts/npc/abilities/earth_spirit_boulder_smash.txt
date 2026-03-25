@@ -5,74 +5,74 @@
   //=================================================================================================================
   "earth_spirit_boulder_smash"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" // OAA, Valve has a typo: AbilityUnitTargetFlag
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has a typo: AbilityUnitTargetFlag
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                "150"
+    "AbilityCastPoint"                                "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                 "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "move_slow"                                     "50"
+      "duration"                                      "1.75 2.5 3.25 4 4.75 5.5"
+      "speed"                                         "900"
+      "creep_multiplier"                              "1.0"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "16 14 12 10 10 10"
-        "special_bonus_unique_earth_spirit_7"             "-2"
+        "value"                                       "20.0 17.0 14.0 11.0 11.0 11.0"
+        "special_bonus_unique_earth_spirit_7"         "-2.0"
       }
       "radius"
       {
-        "value"                                           "180"  // NOTE: This radius must match the radius for geomagnetic grip
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "180"
+        "affected_by_aoe_increase"                    "1"
       }
       "rock_search_aoe"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "200"
+        "affected_by_aoe_increase"                    "1"
       }
       "rock_damage" //OAA
       {
-        "value"                                           "110 180 250 320 640 960"
-        "special_bonus_unique_earth_spirit_6"             "+100"
+        "value"                                       "110 180 250 320 320 320"
+        "special_bonus_unique_earth_spirit_6"         "+80"
       }
-      "move_slow"                                         "50"
-      "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
-      "speed"                                             "900"
       "unit_distance"
       {
-        "value"                                           "500.0 600.0 700.0 800.0 900.0 1000.0"
+        "value"                                       "500.0 600.0 700.0 800.0 900.0 1000.0"
       }
       "rock_distance"
       {
-        "value"                                           "2000.0"
+        "value"                                       "2000.0"
       }
       "remnant_smash_radius_tooltip"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "200"
+        "affected_by_aoe_increase"                    "1"
       }
       "stun_duration"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
-      "creep_multiplier"                                  "1.0"
     }
   }
 }

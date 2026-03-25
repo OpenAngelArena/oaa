@@ -5,20 +5,22 @@
   //=================================================================================================================
   "phantom_assassin_immaterial"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "evasion"
       {
-        "value"                                           "25 35 45 55 60 65"
-        "special_bonus_unique_phantom_assassin_3"         "+20"
+        "value"                                       "25 35 45 55 60 65"
+        "special_bonus_unique_phantom_assassin_3"     "+20"
       }
     }
   }

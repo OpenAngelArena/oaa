@@ -5,63 +5,53 @@
   //=================================================================================================================
   "gyrocopter_flak_cannon"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                "0 0 0 0 0 0"
 
-    "AbilityCastPoint"                                    "0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                 "12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 90 100"
-
-    // Duration
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "12"
+    "AbilityManaCost"                                 "50 60 70 80 90 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                              "800"
+      "bonus_night_vision"                            "200"
       "AbilityCooldown" //OAA, special_bonus_unique_gyrocopter_1 is not used
       {
-        "value"                                           "20 19 18 17 16 15"
-        "special_bonus_unique_gyrocopter_1"               "-5"
+        "value"                                       "26 24 22 20 20 20"
+        "special_bonus_unique_gyrocopter_1"           "-4"
       }
       "radius"
       {
-        "value"                                           "1250" // special_bonus_unique_gyrocopter_1_oaa
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1250"
+        "affected_by_aoe_increase"                    "1"
       }
       "max_attacks"
       {
-        "value"                                           "4 5 6 7 8 9"
-        "special_bonus_unique_gyrocopter_2"               "+3"
+        "value"                                       "4 5 6 7 8 9"
+        "special_bonus_unique_gyrocopter_2"           "+3"
       }
-      "projectile_speed"                                  "800"
       "bonus_damage" //OAA
       {
-        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"  "+100"
-      }
-      "bonus_night_vision"                                "200"
-      "sidegunner_fire_rate"
-      {
-        "special_bonus_scepter"                           "1.3"
-      }
-      "sidegunner_radius"
-      {
-        "special_bonus_scepter"                           "700"
-      }
-      "double_target"
-      {
-        "special_bonus_scepter"                           "+1"
+        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage" "+25"
       }
     }
   }

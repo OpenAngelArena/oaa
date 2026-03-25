@@ -5,23 +5,23 @@
   //=================================================================================================================
   "arc_warden_magnetic_field"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                "900"
+    "AbilityCastPoint"                                "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 70 80 90 100 110"
+    "AbilityManaCost"                                 "60 70 80 90 100 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,59 +29,54 @@
     {
       "radius"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "300"
+        "affected_by_aoe_increase"                    "1"
       }
       "knockback_enemies"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "duration"
       {
-        "value"                                           "4 5 6 7 7 7"
+        "value"                                       "4 5 6 7 7 7"
       }
       "attack_speed_bonus"
       {
-        "value"                                           "30 60 90 120 130 140"
-        "special_bonus_unique_arc_warden_3"               "+25"
+        "value"                                       "30 60 90 120 130 140"
+        "special_bonus_unique_arc_warden_3"           "+25"
       }
       "evasion_chance"
       {
-        "value"                                           "100"
+        "value"                                       "100"
       }
       "AbilityCooldown"
       {
-        "value"                                           "20 19 18 17 16 15"
-        "special_bonus_unique_arc_warden_9"               "-5"
+        "value"                                       "20 19 18 17 16 15"
+        "special_bonus_unique_arc_warden_9"           "-5"
       }
       "affects_buildings"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "rune_pull_strength"
       {
-        "value"                                           "0"
-        "special_bonus_facet_arc_warden_power_capture"    "+150"  // If changing this, also update rune_pull_radius
+        "value"                                       "100"
       }
       "rune_pull_max_speed_as_multiplier_of_pull_strength"
       {
-        "value"                                           "0"
-        "special_bonus_facet_arc_warden_power_capture"    "+4.0"  // 0 is uncapped. If changing this, also update rune_pull_radius
+        "value"                                       "4.0"
       }
       "rune_pull_falloff_multiplier"
       {
-        "value"                                           "0.0"
-        "special_bonus_facet_arc_warden_power_capture"    "+3.0"
+        "value"                                       "3.0"
       }
       "rune_pull_radius"
       {
-        "value"                                           "0"
-        "special_bonus_facet_arc_warden_power_capture"    "=1200 =1800 =2400 =3000 =3600 =4200"   // 0 is global. If changing this, calc the max distance that runes can get pulled
+        "value"                                       "800 1200 1600 2000 2000 2000"
       }
       "rune_activate_radius_buffer"
       {
-        "value"                                           "0"
-        "special_bonus_facet_arc_warden_power_capture"    "+30"
+        "value"                                       "30"
       }
     }
   }

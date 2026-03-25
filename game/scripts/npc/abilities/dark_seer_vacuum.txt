@@ -5,49 +5,44 @@
   //=================================================================================================================
   "dark_seer_vacuum"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450 500 550 600 650 700"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                "450 500 550 600 650 700"
+    "AbilityCastPoint"                                "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                 "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 90 120 150 180 210"
+    "AbilityManaCost"                                 "60 90 120 150 180 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "0.3 0.4 0.5 0.6 0.7 0.8"
+      "damage"                                        "75 150 225 300 600 1200" //OAA
+      "radius_tree"                                   "150" //OAA
       "radius"
       {
-        "value"                                           "325 400 475 550 600 650"
-        "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_dark_seer_2"                "+75"
-      }
-      "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
-      "damage"                                            "75 150 225 300 600 1200" //OAA
-      "radius_tree" //OAA
-      {
-        "value"                                           "325 400 475 550 600 650"
-        "special_bonus_unique_dark_seer_2"                "+75"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "325 400 475 550 600 650"
+        "affected_by_aoe_increase"                    "1"
+        "special_bonus_unique_dark_seer_2"            "+75"
       }
     }
   }

@@ -5,31 +5,31 @@
   //=================================================================================================================
   "oracle_fates_edict"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                "700"
+    "AbilityCastPoint"                                "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 14 11 8 8 8"
+    "AbilityCooldown"                                 "17 14 11 8 8 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                 "70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +37,11 @@
     {
       "duration"
       {
-        "value"                                           "3.5 4.0 4.5 5.0 5.25 5.5"
+        "value"                                       "3.5 4.0 4.5 5.0 5.25 5.5"
       }
       "magic_damage_resistance_pct_tooltip"
       {
-        "value"                                           "100"
+        "value"                                       "100"
       }
     }
   }

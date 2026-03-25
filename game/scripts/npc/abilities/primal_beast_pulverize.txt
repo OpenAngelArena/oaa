@@ -5,75 +5,64 @@
   //=================================================================================================================
   "primal_beast_pulverize"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has an extra space
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has an extra space
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.25"
-    "AbilityCastRange"                                    "200"
+    "AbilityCastRange"                                "200"
+    "AbilityCastPoint"                                "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "34 32 30 28 26" //OAA
+    "AbilityCooldown"                                 "34 32 30 28 26" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 105 110 115 120" //OAA
+    "AbilityManaCost"                                 "100 105 110 115 120" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "interval"                                      "0.75"
+      "ministun"                                      "0.2"
+      "cast_range"                                    "200"
+      "animation_rate"                                "1.5"
+      "bonus_damage_per_hit"                          "20 60 100 220 340" //OAA
       "splash_radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "575"
+        "affected_by_aoe_increase"                    "1"
       }
-      "interval"                                          "0.75"
-      "ministun"                                          "0.2"
-      "cast_range"                                        "200"
-      "animation_rate"                                    "1.5" // FLAIL MULTIPLIER ON ENEMY UNITS
       "damage" //OAA
       {
-        "value"                                           "125 250 375 750 1125"
-      }
-      "bonus_aoe_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_primal_beast_ferocity"       "+15"
-      }
-      "bonus_aoe_pct_per_hit" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_primal_beast_ferocity"       "+15"
-      }
-      "max_stacks"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_primal_beast_ferocity"       "+10"       // 0 disables
+        "value"                                       "100 175 250 250 250"
       }
       "channel_time"
       {
-        "value"                                           "2.3"
-        "special_bonus_unique_primal_beast_pulverize_duration"  "+67%"
+        "value"                                       "2.3"
+        "special_bonus_unique_primal_beast_pulverize_duration" "+67%"
       }
       "pierce_immunity"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
-      "bonus_damage_per_hit"                              "20 60 100 220 340" //OAA
+      "bonus_aoe_pct_per_hit" //OAA
+      {
+        "value"                                       "0"
+        "special_bonus_facet_primal_beast_ferocity"   "+15"
+      }
     }
   }
 }

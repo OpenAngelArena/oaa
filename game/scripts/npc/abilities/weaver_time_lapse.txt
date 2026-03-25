@@ -1,37 +1,46 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "weaver_time_lapse"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "500"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.2 0.1" //OAA
 
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA
-    "AbilityCastRange"                                    "500"
-    "AbilityManaCost"                                     "150 75 0 0 0"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "150 75 0 0 0"
 
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "50 45 40 35 30"
-        "special_bonus_scepter"                           "-10"
+        "value"                                       "70 55 40 40 40"
+        "special_bonus_scepter"                       "-10"
       }
       "targets_allies"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+1"
+        "value"                                       "0"
+        "special_bonus_scepter"                       "+1"
       }
-      "cast_point_tooltip"                                "0.3 0.3 0.3 0.2 0.1" //OAA
+      "cast_point_tooltip"                            "0.3 0.3 0.3 0.2 0.1" //OAA
     }
   }
 }

@@ -5,53 +5,80 @@
   //=================================================================================================================
   "disruptor_kinetic_fence"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsGrantedByShard"                                "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastRange"                                "1200"
+    "AbilityCastPoint"                                "0.05"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
-    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                 "50 55 60 65 70 75" //OAA
 
-    // Cast Range
+    // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1050"
-
     "AbilityValues"
     {
-      "AbilityChargeRestoreTime" //OAA, special_bonus_unique_disruptor_2 is not used
+      "tick_rate"                                     "0.1"
+      "wall_width"
       {
-        "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_disruptor_2"                "-3"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
-      "radius"                                            "350"
-      "AbilityCharges"
+      "wall_thickness"
       {
-        "value"                                           "2"
-        "special_bonus_unique_disruptor_5"                "+1"
+        "value"                                       "100"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                       "14"
+        "special_bonus_unique_disruptor_2"            "-3"
+      }
+      "radius"
+      {
+        "value"                                       "350"
+        "affected_by_aoe_increase"                    "1"
       }
       "formation_time"
       {
-        "value"                                           "0.4"
+        "value"                                       "1"
       }
       "duration"
       {
-        "value"                                           "2.6 3.2 3.8 4.4 4.7 5.0"
+        "value"                                       "4.4"
+        "special_bonus_unique_disruptor_5"            "+1"
       }
-      "wall_width"
+      "damage_per_second"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "0"
+        "special_bonus_unique_disruptor_kinetic_damage" "+60"
+      }
+      "cooldown_share"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "=0"
+      }
+      "strike_on_touch"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "0"
+      }
+      "AbilityChargeRestoreTime" //OAA, special_bonus_unique_disruptor_2 is not used
+      {
+        "value"                                       "14 13 12 11 10 9"
+        "special_bonus_unique_disruptor_2"            "-3"
       }
     }
   }

@@ -5,66 +5,68 @@
   //=================================================================================================================
   "slark_pounce"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                 "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pounce_damage"                                     "0"
+      "pounce_damage"                                 "0"
+      "pounce_acceleration"                           "7000.0"
       "pounce_distance"
       {
-        "value"                                           "700"
+        "value"                                       "700"
       }
       "pounce_speed"
       {
-        "value"                                           "933.33"
+        "value"                                       "933.33"
       }
-      "pounce_acceleration"                               "7000.0"
       "pounce_radius"
       {
-        "value"                                           "120"
+        "value"                                       "120"
       }
       "leash_duration"
       {
-        "value"                                           "2.5 2.75 3 3.25 3.5 3.75"
-        "special_bonus_unique_slark"                      "+0.5"
+        "value"                                       "2.5 2.75 3 3.25 3.5 3.75"
+        "special_bonus_unique_slark"                  "+0.5"
       }
       "leash_radius"
       {
-        "value"                                           "400"
+        "value"                                       "400"
       }
       "max_charges"
       {
-        "special_bonus_scepter"                           "2"
+        "special_bonus_scepter"                       "2"
       }
       "charge_restore_time" //OAA
       {
-        "special_bonus_scepter"                           "18 16 14 12 11 10"
+        "special_bonus_scepter"                       "12"
       }
       "pounce_distance_scepter"
       {
-        "special_bonus_scepter"                           "900"
+        "special_bonus_scepter"                       "900"
       }
       "essence_stacks"
       {
-        "value"                                           "1 2 3 4 5 6"
+        "value"                                       "1 2 3 4 5 6"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 16 14 12 11 10"
+        "value"                                       "24 20 16 12 12 12"
       }
     }
   }

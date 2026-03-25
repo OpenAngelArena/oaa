@@ -5,80 +5,82 @@
   //=================================================================================================================
   "wisp_spirits"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "15"
+    "AbilityDuration"                                 "15"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "revolution_time"                               "5.0 5.0 5.0 5.0 5.0 5.0"
+      "min_range"                                     "200"
+      "hero_hit_radius"                               "110"
+      "spirit_movement_rate"                          "250"
+      "spirit_duration"                               "15"
+      "spirit_amount"                                 "5"
+      "spirit_spawn_time"                             "1.0"
       "creep_damage"
       {
-        "value"                                           "12 18 24 30 60 120"
-        "special_bonus_unique_wisp"                       "+50%"
+        "value"                                       "12 18 24 30 60 120"
+        "special_bonus_unique_wisp"                   "+50%"
       }
       "hero_damage"
       {
-        "value"                                           "30 50 70 90 180 360"
-        "special_bonus_unique_wisp"                       "+50%"
+        "value"                                       "30 50 70 90 180 360"
+        "special_bonus_unique_wisp"                   "+50%"
       }
-      "revolution_time"                                   "5.0"
-      "min_range"                                         "200"
       "max_range"
       {
-        "value"                                           "650"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "650"
+        "affected_by_aoe_increase"                    "1"
       }
-      "hero_hit_radius"                                   "110"
       "explode_radius"
       {
-        "value"                                           "360"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "360"
+        "affected_by_aoe_increase"                    "1"
       }
       "hit_radius"
       {
-        "value"                                           "150"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "150"
+        "affected_by_aoe_increase"                    "1"
       }
-      "spirit_movement_rate"                              "250"
-      "spirit_duration"                                   "15"
-      "spirit_amount"                                     "5"
       "scepter_slow_pct" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+10 15 20 25 30 35"
+        "value"                                       "0"
+        "special_bonus_scepter"                       "+25"
       }
       "scepter_slow_duration"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+0.3"
+        "value"                                       "0"
+        "special_bonus_scepter"                       "+0.3"
       }
       "AbilityManaCost"
       {
-        "value"                                           "90 100 110 120 130 140"
+        "value"                                       "90 100 110 120 130 140"
       }
       "AbilityCooldown"
       {
-        "value"                                           "15"
-        "special_bonus_scepter"                           "-50%"
+        "value"                                       "15"
+        "special_bonus_scepter"                       "-50%"
       }
     }
   }

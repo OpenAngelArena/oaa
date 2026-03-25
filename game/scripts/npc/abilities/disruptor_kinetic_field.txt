@@ -5,51 +5,67 @@
   //=================================================================================================================
   "disruptor_kinetic_field"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastRange"                                "900"
+    "AbilityCastPoint"                                "0.05"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                 "70 75 80 85 90 95" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" // special_bonus_unique_disruptor_2 is not used
+      "tick_rate"                                     "0.1"
+      "AbilityCooldown"
       {
-        "value"                                           "20 18 16 14 13 12"
-        "special_bonus_unique_disruptor_2"                "-3"
+        "value"                                       "20 18 16 14 13 12"
+        "special_bonus_unique_disruptor_2"            "-3"
       }
       "radius"
       {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "350"
+        "affected_by_aoe_increase"                    "1"
       }
       "formation_time"
       {
-        "value"                                           "1"
+        "value"                                       "1"
       }
       "duration"
       {
-        "value"                                           "2.6 3.2 3.8 4.4 4.7 5.0"
-        "special_bonus_unique_disruptor_5"                "+1"
+        "value"                                       "2.6 3.2 3.8 4.4 4.7 5.0"
+        "special_bonus_unique_disruptor_5"            "+1"
       }
-      "damage_per_second"                                 "0"
+      "damage_per_second"
+      {
+        "value"                                       "0"
+        "special_bonus_unique_disruptor_kinetic_damage" "+50"
+      }
+      "wall_thickness"
+      {
+        "value"                                       "100"
+      }
+      "cooldown_share"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "=0"
+      }
+      "strike_on_touch"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "0"
+      }
     }
   }
 }

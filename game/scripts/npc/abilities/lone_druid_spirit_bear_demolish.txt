@@ -5,22 +5,25 @@
   //=================================================================================================================
   "lone_druid_spirit_bear_demolish"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    "MaxLevel"                                            "1"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_building_damage" // bonus boss damage
+      "bonus_building_damage"
       {
-        "value"                                           "30"
-        "special_bonus_unique_lone_druid_spirit_bear_demolish"  "+20"
+        "value"                                       "30"
+        "special_bonus_unique_lone_druid_spirit_bear_demolish" "+20"
       }
       "bonus_damage_against_entangled"
       {
-        "special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled"  "15"
+        "special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled" "15"
       }
     }
   }

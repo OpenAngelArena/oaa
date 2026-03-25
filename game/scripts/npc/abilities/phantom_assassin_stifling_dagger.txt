@@ -5,62 +5,62 @@
   //=================================================================================================================
   "phantom_assassin_stifling_dagger"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 850 1000 1150 1300 1450"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                "700 850 1000 1150 1300 1450"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 35 40 45 50 55" //OAA
+    "AbilityManaCost"                                 "30 35 40 45 50 55" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "move_slow"                                     "-50"
+      "dagger_speed"                                  "1200"
+      "duration"                                      "2.1 2.4 2.7 3 3.3 3.6"
+      "base_damage"                                   "65 70 75 80 160 240"
       "AbilityCooldown"
       {
-        "value"                                           "6"
-        "special_bonus_unique_phantom_assassin_7"         "-2.0"
+        "value"                                       "6"
+        "special_bonus_unique_phantom_assassin_7"     "-2.0"
       }
-      "move_slow"                                         "-50"
-      "dagger_speed"                                      "1200"
-      "duration"                                          "2.1 2.4 2.7 3 3.3 3.6"
-      "base_damage"                                       "65 70 75 80 160 240"
       "attack_factor"
       {
-        "value"                                           "-70 -55 -40 -25 -15 -5"
-        "special_bonus_unique_phantom_assassin_5"         "+15"
+        "value"                                       "-70 -55 -40 -25 -15 -5"
+        "special_bonus_unique_phantom_assassin_5"     "+15"
       }
       "attack_factor_tooltip"
       {
-        "value"                                           "30 45 60 75 85 95"
-        "special_bonus_unique_phantom_assassin_5"         "+15"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "30 45 60 75 85 95"
+        "special_bonus_unique_phantom_assassin_5"     "+15"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "dagger_recast_time"
       {
-        "special_bonus_facet_phantom_assassin_sweet_release"  "6"
+        "special_bonus_shard"                         "0"
       }
       "dagger_secondary_reduce"
       {
-        "special_bonus_facet_phantom_assassin_sweet_release"  "50"
+        "special_bonus_shard"                         "0"
       }
       "extra_daggers"
       {
-        "special_bonus_unique_phantom_assassin"           "2"
+        "special_bonus_unique_phantom_assassin"       "2"
       }
     }
   }

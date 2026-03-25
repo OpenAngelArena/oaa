@@ -5,27 +5,27 @@
   //=================================================================================================================
   "drow_ranger_trueshot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS " // Valve has extra space
-
-    "MaxLevel"                                            "4"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "trueshot_agi_bonus_allies_pct"                 "50"
       "radius"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
-      "trueshot_agi_bonus_base"                           "4 8 12 16"
-      "trueshot_agi_bonus_per_level"                      "1"
-      "trueshot_agi_bonus_allies_pct"                     "50"
-      "agi_bonus_pct_tooltip"
+      "trueshot_agi_bonus"
       {
-        "dynamic_value"                                   "true"
+        "value"                                       "10"
+        "hero_levelup"                                "+1"
       }
     }
   }

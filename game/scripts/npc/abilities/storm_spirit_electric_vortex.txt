@@ -5,52 +5,53 @@
   //=================================================================================================================
   "storm_spirit_electric_vortex"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "300"
+    "AbilityCastRange"                                "300"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, special_bonus_unique_storm_spirit_2_oaa
+    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA, special_bonus_unique_storm_spirit_2_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 70 80 90 100 110"
+    "AbilityManaCost"                                 "60 70 80 90 100 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "electric_vortex_pull_distance"                     "180 220 260 300 340 380"
-      "electric_vortex_pull_tether_range"                 "1200.0"
-      "electric_vortex_self_slow"                         "-50"
-      "electric_vortex_self_slow_duration"                "1.1 1.4 1.7 2.0 2.1 2.2" //OAA, maybe unused
+      "electric_vortex_pull_distance"                 "180 220 260 300 340 380"
+      "electric_vortex_pull_tether_range"             "1200.0"
+      "electric_vortex_self_slow"                     "-50"
+      "electric_vortex_self_slow_duration"            "1.1 1.4 1.7 2.0 2.1 2.2" //OAA, maybe unused
       "AbilityDuration"
       {
-        "value"                                           "1.1 1.4 1.7 2.0 2.1 2.2"
-        "special_bonus_unique_storm_spirit"               "+0.2"
+        "value"                                       "1.1 1.4 1.7 2.0 2.1 2.2"
+        "special_bonus_unique_storm_spirit"           "+0.2"
       }
       "radius_scepter"
       {
-        "special_bonus_scepter"                           "475"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                       "475"
+        "affected_by_aoe_increase"                    "1"
       }
       "enemy_overload_duration"
       {
-        "special_bonus_facet_storm_spirit_shock_collar"   "=5"
+        "value"                                       "0"
       }
     }
   }

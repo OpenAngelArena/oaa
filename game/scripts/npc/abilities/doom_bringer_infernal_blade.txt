@@ -5,23 +5,31 @@
   //=================================================================================================================
   "doom_bringer_infernal_blade"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "200"
+    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
 
-    "AbilityCooldown"                                     "13 10 7 4 4 4"
-    "AbilityManaCost"                                     "35 45 55 65 75 85" //OAA, intentional nerf
-    "AbilityCastRange"                                    "200"
-    "AbilityCastPoint"                                    "0.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "13 10 7 4 4 4"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "35 45 55 65 75 85" //OAA, intentional nerf
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,33 +37,21 @@
     {
       "burn_damage"
       {
-        "value"                                           "15 30 45 60 120 180"
+        "value"                                       "15 30 45 60 120 180"
       }
       "burn_damage_pct"
       {
-        "value"                                           "1 2 3 4 4.5 5"
-        "special_bonus_unique_doom_1"                     "+2.5"
+        "value"                                       "1 2 3 4 4.5 5"
+        "special_bonus_unique_doom_1"                 "+2.5"
       }
       "burn_duration"
       {
-        "value"                                           "4"
+        "value"                                       "4"
       }
       "ministun_duration"
       {
-        "value"                                           "0.6"
-        "special_bonus_unique_doom_4"                     "+0.2"
-      }
-      "shard_ministun_duration" // unused
-      {
-        "special_bonus_shard"                             "1"
-      }
-      "shard_bonus_stun_duration" // unused
-      {
-        "special_bonus_shard"                             "1.45"
-      }
-      "shard_bonus_damage" // unused
-      {
-        "special_bonus_shard"                             "125"
+        "value"                                       "0.66"
+        "special_bonus_unique_doom_4"                 "+0.2"
       }
     }
   }

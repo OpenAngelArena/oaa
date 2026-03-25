@@ -5,74 +5,45 @@
   //=================================================================================================================
   "pudge_rot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "rot_tick"                                      "0.2"
       "rot_radius"
       {
-        "value"                                           "250"
-        "special_bonus_scepter"                           "+200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "250"
+        "special_bonus_scepter"                       "+200"
+        "affected_by_aoe_increase"                    "1"
       }
-      "rot_tick"                                          "0.2"
       "rot_slow"
       {
-        "value"                                           "-14 -20 -26 -32 -38 -44"
-        "special_bonus_unique_pudge_4"                    "+-10"
+        "value"                                       "-14 -20 -26 -32 -38 -44"
+        "special_bonus_unique_pudge_4"                "+-10"
       }
       "rot_damage"
       {
-        "value"                                           "30 60 90 120 240 480"
-        "special_bonus_scepter"                           "+90"
+        "value"                                       "30 60 90 120 240 480"
+        "special_bonus_scepter"                       "+90"
       }
       "scepter_rot_regen_reduction_pct" //OAA
       {
-        "special_bonus_scepter"                           "5 10 15 20 25 30"
-      }
-      "attack_damage_per_stack"
-      {
-        "special_bonus_facet_pudge_rotten_core"           "0.8 1.6 2.4 3.2 3.6 4.0"
-      }
-      "max_total_stacks"
-      {
-        "special_bonus_facet_pudge_rotten_core"           "=25"
-      }
-      "stacks_decrement_per_rot_off_tick"
-      {
-        "special_bonus_facet_pudge_rotten_core"           "=5"
-      }
-      "attack_damage_per_second_tooltip"          // attack_damage_per_stack * time_for_max_stacks_tooltip
-      {
-        "special_bonus_facet_pudge_rotten_core"           "4 8 12 16 18 20"
-      }
-      "max_bonus_damage_tooltip"                  // attack_damage_per_stack * max_total_stacks
-      {
-        "special_bonus_facet_pudge_rotten_core"           "20 40 60 80 90 100"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "time_for_max_stacks_tooltip"               // max_total_stacks * rot_tick
-      {
-        "special_bonus_facet_pudge_rotten_core"           "=5.0"
-      }
-      "time_for_decay_tooltip"                    // max_total_stacks * rot_tick / stacks_decrement_per_rot_off_tick
-      {
-        "special_bonus_facet_pudge_rotten_core"           "=1.0"
+        "special_bonus_scepter"                       "20"
       }
     }
   }

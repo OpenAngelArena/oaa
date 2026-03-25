@@ -5,54 +5,52 @@
   //=================================================================================================================
   "undying_flesh_golem"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 175 200"
+    "AbilityManaCost"                                 "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "slow"                                          "30 35 40 45 50"
+      "slow_duration"                                 "3"
+      "duration"                                      "40"
+      "movement_bonus"                                "20"
+      "zombie_spawn_padding"                          "36"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "120"
+        "value"                                       "140"
       }
-      "slow"                                              "30 35 40 45 50"
       "damage_amp"
       {
-        "value"                                           "25 30 35 35 35"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "25 30 35 35 35"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
-      "slow_duration"                                     "3"
       "str_percentage" //OAA
       {
-        "value"                                           "40 45 50 55 60"
-        "special_bonus_unique_undying_4"                  "+30"
+        "value"                                       "40 50 60 60 60"
+        "special_bonus_unique_undying_4"              "+50"
       }
-      "duration"                                          "40"
-      "movement_bonus"                                    "20"
       "spawn_zombie_on_attack"
       {
-        "value"                                           "0"
-        "special_bonus_facet_undying_rotting_mitts"       "+1"
+        "value"                                       "1"
       }
       "zombie_duration" //OAA, because of lag
       {
-        "value"                                           "0"
-        "special_bonus_facet_undying_rotting_mitts"       "+5"
+        "value"                                       "15"
       }
-      "zombie_spawn_padding"                              "36"
     }
   }
 }

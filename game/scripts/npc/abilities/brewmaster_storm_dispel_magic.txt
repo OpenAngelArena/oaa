@@ -5,24 +5,28 @@
   //=================================================================================================================
   "brewmaster_storm_dispel_magic"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
-
-    "AbilityCastRange"                                    "500"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "500 500 500 500 500 500"
+    "AbilityCastPoint"                                "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCooldown"                                 "4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                 "75 75 75 75 75 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,11 +34,11 @@
     {
       "damage" //OAA
       {
-        "value"                                           "1000 1200 1400 1600 1800 2000"
+        "value"                                       "1000"
       }
       "radius"
       {
-        "value"                                           "600"
+        "value"                                       "600"
       }
     }
   }

@@ -5,35 +5,36 @@
   //=================================================================================================================
   "centaur_return"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "return_damage_str"                             "16 24 32 40 44 48"
       "return_damage" //OAA
       {
-        "value"                                           "15 30 45 60 120 240"
-        "special_bonus_unique_centaur_3"                  "+90"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "15 25 35 45 45 45"
+        "special_bonus_unique_centaur_3"              "+45"
+        "CalculateSpellDamageTooltip"                 "1"
       }
-      "return_damage_str"                                 "16 24 32 40 44 48"
       "aura_radius"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
       "aura_enabled"
       {
-        "special_bonus_unique_centaur_1"                  "=1"
+        "special_bonus_unique_centaur_1"              "=1"
       }
     }
   }

@@ -5,60 +5,56 @@
   //=================================================================================================================
   "drow_ranger_multishot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityChannelTime"                                  "1.75"
+    "AbilityCastPoint"                                "0.0"
+    "AbilityChannelTime"                              "1.75"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 70 90 110 130 150"
+    "AbilityManaCost"                                 "50 70 90 110 130 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "arrow_width"                                   "90"
+      "arrow_speed"                                   "1300"
+      "arrow_range_multiplier"                        "1.75"
+      "arrow_angle"                                   "50"
+      "bypass_block"                                  "1"
+      "multishot_movespeed"                           "35"
       "wave_count" //OAA
       {
-        "value"                                           "3"
-        "special_bonus_unique_drow_ranger_8"              "+2"
+        "value"                                       "3"
+        "special_bonus_unique_drow_ranger_8"          "+1"
       }
       "arrow_count_per_wave"
       {
-        "value"                                           "4"
-        "special_bonus_unique_drow_ranger_2"              "+1"
+        "value"                                       "4"
+        "special_bonus_unique_drow_ranger_2"          "+1"
       }
-      "arrow_damage_pct" // OAA, this is multiplied with (Drow's base (white) damage + Frost Arrow damage)
+      "arrow_damage_pct" //OAA, this is multiplied with (Drow's base (white) damage + Frost Arrow damage)
       {
-        "value"                                           "100 120 140 160 180 200"
-        "special_bonus_unique_drow_ranger_1"              "+50"
+        "value"                                       "100 120 140 160 160 160"
+        "special_bonus_unique_drow_ranger_1"          "+25"
       }
-      "arrow_width"                                       "90"
-      "arrow_speed"                                       "1300"
-      "arrow_range_multiplier"                            "1.75"
-      "arrow_angle"                                       "50"
-      "bypass_block"                                      "1"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 14 13"
-        "special_bonus_unique_drow_ranger_6"              "-6"
-      }
-      "multishot_movespeed"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_drow_ranger_sidestep"        "35"
+        "value"                                       "24 21 18 15 15 15"
+        "special_bonus_unique_drow_ranger_6"          "-6"
       }
     }
   }

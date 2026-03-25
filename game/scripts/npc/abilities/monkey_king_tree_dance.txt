@@ -5,72 +5,77 @@
   //=================================================================================================================
   "monkey_king_tree_dance"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_TREE"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                "900"
+    "AbilityCastPoint"                                "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "0.9 0.6 0.3 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                 "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "1.4 1.2 1.0 0.8 0.8 0.8"
-        "special_bonus_facet_monkey_king_simian_stride"   "=0.0"
-      }
-      "leap_speed"                                        "700"
-      // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
-      "spring_leap_speed"                                 "1300"
-      "give_up_distance"                                  "1850"
+      "leap_speed"                                    "600"
+      "spring_leap_speed"                             "1300"
+      "give_up_distance"                              "1850"
+      "perched_day_vision"                            "700"
+      "perched_night_vision"                          "500"
+      "perched_spot_height"                           "192.0"
+      "unperched_stunned_duration"                    "3.0"
+      "top_level_height"                              "500"
+      "impact_movement_slow_tooltip"                  "35 50 65 80 90 100" //OAA, Valve has it wrong: wrong values but it's just a tooltip error, not fixed since 7.36
+      "range"                                         "900"
       "ground_jump_distance"
       {
-        "value"                                           "800"
-        "special_bonus_unique_monkey_king_7"              "+450"
+        "value"                                       "900"
+        "special_bonus_unique_monkey_king_7"          "+350"
       }
       "perched_jump_distance"
       {
-        "value"                                           "800"
-        "special_bonus_unique_monkey_king_7"              "+450"
+        "value"                                       "900"
+        "special_bonus_unique_monkey_king_7"          "+350"
       }
       "jump_damage_cooldown"
       {
-        "value"                                           "3.0"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "3.0"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
-      "perched_day_vision"                                "700"
-      "perched_night_vision"                              "500"
-      "perched_spot_height"                               "192.0"
-      "unperched_stunned_duration"                        "3.0"
-      "top_level_height"                                  "500"
       "impact_damage_tooltip" //OAA, Valve has it wrong: wrong values and missing talent but it's just a tooltip error, not fixed since 7.37
       {
-        "value"                                           "110 200 290 380 760 1520"
-        "special_bonus_unique_monkey_king_3"              "+90"
+        "value"                                       "140 210 280 350 350 350"
+        "special_bonus_unique_monkey_king_3"          "+90"
       }
-      "impact_movement_slow_tooltip"                      "35 50 65 80 90 100" // OAA, Valve has it wrong: wrong values but it's just a tooltip error, not fixed since 7.36
-      "range"                                             "800"
       "max_level" //OAA
       {
-        "value"                                           "6"
+        "value"                                       "4"
+        "special_bonus_facet_monkey_king_simian_stride" "+1"
       }
       "max_level_tooltip" //OAA
       {
-        "special_bonus_facet_monkey_king_simian_stride"   "=6"
+        "special_bonus_facet_monkey_king_simian_stride" "=5"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                       "1.4 1.2 1.0 0.8 0.8 0.8"
+        "special_bonus_facet_monkey_king_simian_stride" "=0.0"
       }
     }
   }

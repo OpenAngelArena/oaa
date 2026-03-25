@@ -5,61 +5,62 @@
   //=================================================================================================================
   "invoker_emp"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "1" // MaxLevel: 11
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "950"
-    "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "25" //OAA
-    "AbilityManaCost"                                     "125"
+    "AbilityCastRange"                                "950"
+    "AbilityCastPoint"                                "0.05"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "25" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "self_mana_restore_pct"                         "25"
       "delay"
       {
-        "value"                                           "2.9"
-        "levelkey"                                        "wexlevel"
+        "value"                                       "2.9"
+        "levelkey"                                    "wexlevel"
       }
       "area_of_effect"
       {
-        "value"                                           "675"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "675"
+        "affected_by_aoe_increase"                    "1"
       }
       "mana_burned" //OAA
       {
-        "value"                                           "100 175 250 325 400 475 550 700 850 1000 1300"
-        "levelkey"                                        "wexlevel"
+        "value"                                       "100 175 250 325 400 475 550 625 700 775 850"
+        "levelkey"                                    "wexlevel"
       }
       "damage_per_mana_pct" //OAA
       {
-        "value"                                           "80"
-        "special_bonus_facet_invoker_wex_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_shard"                           "+20"
-        }
+        "value"                                       "60"
+        "special_bonus_shard_2"                       "+50%"
       }
       "drag_speed"
       {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_wex_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_shard"                           "+125"
-        }
+        "value"                                       "0"
+        "special_bonus_shard_2"                       "+125"
       }
-      "self_mana_restore_pct"                             "25"
       "damage_barriers"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
     }
   }

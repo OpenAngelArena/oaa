@@ -5,46 +5,47 @@
   //=================================================================================================================
   "ember_spirit_activate_fire_remnant"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "5"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "99999"
-    "AbilityCastPoint"                                    "0.3" //OAA, intentional nerf
+    "AbilityCastRange"                                "99999"
+    "AbilityCastPoint"                                "0.3" //OAA, intentional nerf
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                 "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 175 200"
+    "AbilityManaCost"                                 "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed_multiplier"                                  "250"
-      "max_charges"                                       "3"
-      "charge_restore_time"                               "25.0" //OAA, Valve is missing special_bonus_unique_ember_spirit_5
-      "damage"                                            "100 250 400 850 1300" //OAA
+      "speed_multiplier"                              "250"
+      "max_charges"                                   "3"
+      "charge_restore_time"                           "25.0" //OAA, Valve is missing special_bonus_unique_ember_spirit_5
+      "damage"                                        "100 250 400 850 1300" //OAA
+      "speed"                                         "1300"
       "radius"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "450"
+        "affected_by_aoe_increase"                    "1"
       }
-      "speed"                                             "1300"
-      "scepter_mana_cost" // unused
+      "scepter_mana_cost"
       {
-        "special_bonus_scepter"                           "75"
+        "special_bonus_scepter"                       "75"
       }
-      "shard_remnant_speed_pct"                           "300" // unused
     }
   }
 }

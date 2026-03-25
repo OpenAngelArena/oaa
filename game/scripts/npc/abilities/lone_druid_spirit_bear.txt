@@ -5,66 +5,66 @@
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "DisplayAdditionalHeroes"                             "1"
-
-    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastPoint"                                "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                 "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bear_hp"                                       "1500"
+      "bear_regen_tooltip"                            "3"
+      "bear_armor"                                    "0"
+      "damage_gain_per_druid_level"                   "0"
+      "hp_gain_per_druid_level"                       "0"
+      "strength_gain_tooltip"                         "4.5"
+      "agility_gain_tooltip"                          "4.5"
+      "intelligence_gain_tooltip"                     "0.5"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "75"
-        "special_bonus_unique_lone_druid_2"               "-25"
+        "value"                                       "120.0"
+        "special_bonus_unique_lone_druid_2"           "-25"
       }
-      "bear_hp"                                           "1500"
-      "bear_regen_tooltip"                                "3"
       "bear_bat"
       {
-        "value"                                           "1.5"
+        "value"                                       "1.5"
       }
-      "bear_armor"                                        "0"
       "backlash_damage" //OAA
       {
-        "value"                                           "40.0"
+        "value"                                       "20.0"
       }
       "bear_movespeed"
       {
-        "value"                                           "310"
+        "value"                                       "310"
       }
       "bear_magic_resistance"
       {
-        "value"                                           "25"
+        "value"                                       "25"
       }
       "bonus_bear_hp"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "bonus_bear_armor"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
-      "damage_gain_per_druid_level"                       "0"
-      "hp_gain_per_druid_level"                           "0"
       "bear_attack_leash_range"
       {
-        "value"                                           "1100"
+        "value"                                       "1100"
       }
-      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
-      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
-      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
     }
   }
 }

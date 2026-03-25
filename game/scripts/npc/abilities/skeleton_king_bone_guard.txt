@@ -1,78 +1,83 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "skeleton_king_bone_guard"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1"
-    "AbilityManaCost"                                     "90" //OAA
+    "AbilityCastPoint"                                "0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "90" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_skeleton_charges"                          "6" //OAA, because of lag
+      "spawn_interval"                                "0.25"
+      "reincarnate_time"                              "3"
+      "gold_bounty"                                   "5"
+      "xp_bounty"                                     "5"
+      "skeleton_building_damage_reduction"            "35"
+      "skeleton_bonus_hero_damage"                    "25"
+      "skeleton_charges_per_hero_multiplier"          "4"
       "skeleton_duration" //OAA
       {
-        "value"                                           "30"
+        "value"                                       "46"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "40"
+        "value"                                       "42"
       }
-      "max_skeleton_charges"                              "6" //OAA, because of lag
       "min_skeleton_spawn"
       {
-        "value"                                           "0"
-        "special_bonus_unique_wraith_king_facet_3"        "+5"
+        "value"                                       "0"
+        "special_bonus_unique_wraith_king_facet_3"    "+5"
       }
-      "spawn_interval"                                    "0.25"
-      "reincarnate_time"                                  "3"
-      "gold_bounty"                                       "5"
-      "xp_bounty"                                         "5"
       "skeleton_damage_tooltip" //OAA
       {
-        "value"                                           "34 39 44 49 54 59"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "34 39 43 49 49 49"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "talent_skeleton_damage"
       {
-        "value"                                           "0 5 10 15 20 25"
-        //"special_bonus_unique_wraith_king_facet_2"        "+23"
+        "value"                                       "0 5 10 15 20 25"
       }
-      "skeleton_building_damage_reduction"                "35"
-      "skeleton_bonus_hero_damage"                        "25 25 25 25 30 40" // percentage increase
-      "skeleton_charges_per_hero_multiplier"              "4"
+      "skeleton_attack_speed_per_level"               "1" //OAA, tooltip only
       "skeleton_attack_damage_per_level" //OAA, tooltip only
       {
-        "value"                                           "2"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "2"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "skeleton_bonus_damage_against_creeps" //OAA, tooltip only
       {
-        "value"                                           "10"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "10"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "skeleton_bonus_damage_against_bosses" //OAA, tooltip only
       {
-        "value"                                           "25"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "value"                                       "25"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
       }
-      "skeleton_attack_speed_per_level"                   "1" //OAA, tooltip only
     }
   }
 }

@@ -5,26 +5,28 @@
   //=================================================================================================================
   "juggernaut_healing_ward"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                "350"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "18 20 22 24 26 28"
+    "AbilityDuration"                                 "18 20 22 24 26 28"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 115 120 125 130" //OAA
+    "AbilityManaCost"                                 "100 110 115 120 125 130" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,32 +34,32 @@
     {
       "healing_ward_heal_amount"
       {
-        "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_juggernaut_healing_ward_heal"  "+1"
+        "value"                                       "2 3 4 5 6 7"
+        "special_bonus_shard"                         "+1.5"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "35"
-        "special_bonus_unique_juggernaut_5"               "-12"
+        "value"                                       "60"
+        "special_bonus_unique_juggernaut_5"           "-12"
       }
       "healing_ward_aura_radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
       "healing_ward_movespeed_tooltip"
       {
-        "value"                                           "325"
+        "value"                                       "325"
       }
       "healing_ward_bonus_health"
       {
-        "value"                                           "0"
-        "special_bonus_unique_juggernaut_2"               "+1"
+        "value"                                       "0"
+        "special_bonus_shard"                         "+1"
       }
       "healing_ward_hits_to_kill_tooltip"
       {
-        "value"                                           "1"
-        "special_bonus_unique_juggernaut_2"               "+1"
+        "value"                                       "1"
+        "special_bonus_shard"                         "+1"
       }
     }
   }

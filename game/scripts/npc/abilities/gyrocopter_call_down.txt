@@ -5,73 +5,68 @@
   //=================================================================================================================
   "gyrocopter_call_down"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityManaCost"                                 "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "slow_duration"                                 "4"
+      "slow"                                          "50"
+      "missile_delay_tooltip"                         "2"
+      "total_strikes"                                 "3"
+      "strike_separation"                             "500"
       "AbilityCastRange"
       {
-        "value"                                           "1000"
+        "value"                                       "1000"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "80 75 70 65 60"
-        "special_bonus_unique_gyrocopter_5"               "-35"
+        "value"                                       "90 75 60 60 60"
+        "special_bonus_unique_gyrocopter_5"           "-40"
       }
-      "slow_duration"                                     "4"
-      "slow"                                              "50"
       "damage" //OAA
       {
-        "value"                                           "200 500 800 1400 2000"
+        "value"                                       "200 350 500 500 500"
       }
       "radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "missile_delay_tooltip"                             "2"
-      "strike_delay"
-      {
-        "value"                                           "1.0"
-        "special_bonus_facet_gyrocopter_secondary_strikes"  "-0.2"
-      }
-      "total_strikes"                                     "3"
-      "strike_separation"                                 "500"
       "tracking_strike_radius"
       {
-        "value"                                           "0"
-        "special_bonus_facet_gyrocopter_secondary_strikes"  "+200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "0"
+        "affected_by_aoe_increase"                    "1"
+      }
+      "strike_delay"
+      {
+        "value"                                       "1.0"
       }
       "tracking_strike_delay"
       {
-        "value"                                           "0"
-        "special_bonus_facet_gyrocopter_secondary_strikes"  "+0.0"
+        "value"                                       "0"
       }
       "tracking_missile_damage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_gyrocopter_secondary_strikes"  "=50"
+        "value"                                       "50"
       }
     }
   }

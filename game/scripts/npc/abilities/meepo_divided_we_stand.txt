@@ -5,77 +5,35 @@
   //=================================================================================================================
   "meepo_divided_we_stand"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "4"
+    "LevelsBetweenUpgrades"                           "7"
 
-    // Damage.
+    // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0"
+    "AbilityDamage"                                   "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tooltip_clones"
-      {
-        "value"                                           "1 2 3"
-        "special_bonus_facet_meepo_more_meepo"            "=0"
-      }
-      "tooltip_clones_multiplicity"
-      {
-        "special_bonus_facet_meepo_more_meepo"            "1 2 3 4"
-      }
-      "tooltip_share_percentage"                          "20"
-      "tooltip_share_percentage_scepter"                  "100" // unused
-      "respawn"                                           "0.0"
-      "tooltip_respawn"                                   "20" // unused
-      "magic_resist"
-      {
-        "value"                                           "10 15 20"
-      }
-      "tooltip_magic_resist"
-      {
-        "value"                                           "10 15 20"
-        "special_bonus_facet_meepo_more_meepo"            "=0"
-      }
-      "tooltip_magic_resist_multiplicity"
-      {
-        "value"                                           "10 15 20 20"
-        "special_bonus_facet_meepo_pack_rat"              "=0"
-      }
+      "tooltip_clones"                                "1 2 3 4 4 4"
+      "dps_penalty_pct"                               "50 66 75 80 80 80"
       "required_level"
       {
-        "value"                                           "4"
-        "special_bonus_facet_meepo_more_meepo"            "=3"
+        "value"                                       "3"
       }
       "levels_between_upgrades"
       {
-        "value"                                           "7"
-        "special_bonus_facet_meepo_more_meepo"            "=7"
+        "value"                                       "7"
       }
       "max_level"
       {
-        "value"                                           "3"
-        "special_bonus_facet_meepo_more_meepo"            "=4"
-      }
-      "main_meepo_stats_pct"
-      {
-        "value"                                           "100"
-        "special_bonus_facet_meepo_more_meepo"            "=90"
-      }
-      "support_radius"
-      {
-        "special_bonus_facet_meepo_codependent"           "600"
-      }
-      "support_group_attack_speed_pct"
-      {
-        "special_bonus_facet_meepo_codependent"           "5"
-      }
-      "support_group_armor"
-      {
-        "special_bonus_facet_meepo_codependent"           "1"
+        "value"                                       "4"
       }
     }
   }

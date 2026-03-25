@@ -5,62 +5,69 @@
   //=================================================================================================================
   "ancient_apparition_ice_vortex"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.01"
+    "AbilityCastRange"                                "1200 1200 1200 1200 1200 1200"
+    "AbilityCastPoint"                                "0.01 0.01 0.01 0.01 0.01 0.01"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "6 8 10 12 12 12"
+    "AbilityDuration"                                 "6 8 10 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 55 70 85 100 115"
+    "AbilityManaCost"                                 "40 55 70 85 100 115"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" // OAA, intentional nerf
+      "drag_speed"                                    "40 50 60 70 70 70"
+      "AbilityCooldown" //OAA, intentional nerf
       {
-        "value"                                           "9 8 7 6 5 4"
-        "special_bonus_unique_ancient_apparition_3"       "-2"
+        "value"                                       "10 8 6 4 4 4"
+        "special_bonus_unique_ancient_apparition_3"   "-2"
       }
       "radius"
       {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "275"
+        "affected_by_aoe_increase"                    "1"
       }
-      "drag_speed"                                        "40 50 60 70 70 70"
-      "movement_speed_pct" // OAA, Valve it says it doesnt slow on it's own, hmmmm
+      "movement_speed_pct" //OAA, Valve it says it doesnt slow on it's own, hmmmm
       {
-        "value"                                           "0"
+        "value"                                       "-8"
+        "display_type"                                "kDebuffPercentage"
       }
       "spell_resist_pct"
       {
-        "value"                                           "-16 -19 -22 -25 -28 -31"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "value"                                       "-16 -19 -22 -25 -28 -31"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+        "display_type"                                "kDebuffPercentage"
       }
       "vision_aoe" //OAA, same as radius
       {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "200 220 240 260 260 260"
+        "affected_by_aoe_increase"                    "1"
       }
-      "frost_stacks"                                      "1 2 3 4 6 8"
-      "vortex_duration" // same as AbilityDuration
+      "damage_per_second"
       {
-        "value"                                           "6 8 10 12 12 12"
+        "value"                                       "10 20 30 40 40 40"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
+      }
+      "vortex_duration"
+      {
+        "value"                                       "6 8 10 12 12 12"
       }
     }
   }

@@ -5,79 +5,76 @@
   //=================================================================================================================
   "muerta_the_calling"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                "600"
+    "AbilityCastPoint"                                "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 29 28 27 26 25" //OAA
+    "AbilityCooldown"                                 "30 29 28 27 26 25" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "135 150 165 180 195 210"
+    "AbilityManaCost"                                 "135 150 165 180 195 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "45 90 135 180 360 540"
-      "duration"                                          "5 6 7 8 9 10"
+      "damage"                                        "45 90 135 180 360 540"
+      "duration"                                      "5 6 7 8 9 10"
+      "speed_initial"                                 "0.2"
+      "speed_max"                                     "1.0"
+      "acceleration"                                  "0.75"
+      "rotation_initial"                              "0"
+      "debug_draw"                                    "0"
+      "aura_movespeed_slow"                           "-20"
+      "silence_duration"                              "1.5 2 2.5 3 3 3"
+      "rotation_direction"                            "-1"
       "hit_radius"
       {
-        "value"                                           "120"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "120"
+        "affected_by_aoe_increase"                    "1"
       }
       "dead_zone_distance"
       {
-        "value"                                           "340"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "340"
+        "affected_by_aoe_increase"                    "1"
       }
       "num_revenants"
       {
-        "value"                                           "4"
-        "special_bonus_unique_muerta_the_calling_num_revenants"  "+2"
+        "value"                                       "4"
+        "special_bonus_unique_muerta_the_calling_num_revenants" "+2"
       }
-      "speed_initial"                                     "0.2"
-      "speed_max"                                         "1.0"
-      "acceleration"                                      "0.75"
-      "rotation_initial"                                  "0"
-      "debug_draw"                                        "0"
-      "aura_movespeed_slow"                               "-20"
-      "silence_duration"                                  "1.5 2 2.5 3 3 3"
-      "rotation_direction"                                "-1"
       "kill_check_radius"
       {
-        "affected_by_aoe_increase"                        "1"
-        "value"                                           "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"    "+200"
+        "affected_by_aoe_increase"                    "1"
+        "value"                                       "0"
       }
       "kill_radius_expansion"
       {
-        "affected_by_aoe_increase"                        "1"
-        "value"                                           "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"    "+100"
+        "affected_by_aoe_increase"                    "1"
+        "value"                                       "0"
       }
       "kill_radius_expansion_speed"
       {
-        "value"                                           "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"    "+0.25"
+        "value"                                       "0"
       }
       "hp_regen_pct"
       {
-        "special_bonus_unique_muerta_calling_hp_regen"    "+3.0"
+        "special_bonus_unique_muerta_calling_hp_regen" "+3.0"
       }
     }
   }

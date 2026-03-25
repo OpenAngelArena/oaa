@@ -5,52 +5,67 @@
   //=================================================================================================================
   "largo_song_fight_song"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-
-    "MaxLevel"                                            "5"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.2"
+    "AbilityCooldown"                                 "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "song_cost_reduction_per_stack"                 "1 1.5 2 2.5 3"
       "double_song"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "=1"
+        "value"                                       "0"
+        "special_bonus_scepter"                       "=1"
       }
-      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "radius"
       {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "800"
+        "affected_by_aoe_increase"                    "1"
+      }
+      "burst_damage"
+      {
+        "value"                                       "20 30 40 40 40"
+        "special_bonus_unique_largo_7"                "+12"
+      }
+      "damage_per_stack"
+      {
+        "value"                                       "0"
+        "special_bonus_scepter"                       "+6 +12 +18 +18 +18"
+        "special_bonus_unique_largo_7"                "+6"
       }
       "magic_damage_bonus"
       {
-        "value"                                           "20 25 30 40 50"
-        "special_bonus_unique_largo_7"                    "+35%"
+        "value"                                       "20 25 30 40 50"
+        "special_bonus_unique_largo_7"                "+30%"
       }
       "spell_amp_bonus"
       {
-        "value"                                           "8 12 16 20 24"
-        "special_bonus_unique_largo_7"                    "+35%"
+        "value"                                       "8 12 16 20 24"
+        "special_bonus_unique_largo_7"                "+30%"
       }
       "battle_burst_duration"
       {
-        "value"                                           "1"
+        "value"                                       "1"
       }
       "AbilityManaCost"
       {
-        "value"                                           "20 32 44 56 68"
+        "value"                                       "20 32 44 56 68"
       }
     }
   }

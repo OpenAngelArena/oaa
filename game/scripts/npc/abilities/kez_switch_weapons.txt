@@ -5,48 +5,44 @@
   //=================================================================================================================
   "kez_switch_weapons"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
-
-    "MaxLevel"                                            "1"
+    "AbilityTextureName"                              "kez_switch_weapons_sai"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_attack_range"                               "225"
-      "katana_base_attack_time"                           "1.9"
+      "katana_base_ms"                                "0"
+      "katana_attack_range"                           "225"
+      "katana_base_attack_time"                       "1.9"
+      "katana_swap_bonus_damage"                      "12"
+      "sai_base_ms"                                   "0"
+      "sai_attack_range"                              "150"
+      "sai_base_attack_time"                          "1.5"
+      "sai_swap_bonus_movement_speed"                 "12"
+      "sai_swap_duration"                             "2"
+      "scepter_cooldown_timer"                        "3"
       "katana_agility_bonus_base_damage"
       {
-        "value"                                           "16"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "katana_swap_bonus_damage"
-      {
-        "special_bonus_facet_kez_flutter"                 "12"
-      }
-      "sai_attack_range"                                  "150"
-      "sai_base_attack_time"                              "1.5"
-      "sai_swap_bonus_movement_speed"
-      {
-        "special_bonus_facet_kez_flutter"                 "12"
-      }
-      "sai_swap_duration"
-      {
-        "special_bonus_facet_kez_flutter"                 "2"
+        "value"                                       "16"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                 "0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "5.1"
-        "hero_levelup"                                    "-0.1"
+        "value"                                       "8"
+        "hero_levelup"                                "-0.25"
       }
-      "scepter_cooldown_timer"                            "3"
     }
   }
 }

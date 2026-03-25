@@ -5,60 +5,60 @@
   //=================================================================================================================
   "marci_grapple"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "175"
+    "AbilityCastRange"                                "175"
+    "AbilityCastPoint"                                "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10"
+    "AbilityCooldown"                                 "16 14 12 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 85 90 95 100 105" //OAA
+    "AbilityManaCost"                                 "80 85 90 95 100 105" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "air_duration"                                  "0.5"
+      "air_height"                                    "150"
+      "pull_offset"                                   "75"
+      "pull_angle"                                    "230"
+      "movement_slow_pct"                             "20 30 40 50 55 60"
       "landing_radius"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "300"
+        "affected_by_aoe_increase"                    "1"
       }
-      "air_duration"                                      "0.5"
-      "air_height"                                        "150"
-      "pull_offset"                                       "75"
       "throw_distance_behind"
       {
-        "value"                                           "250"
+        "value"                                       "250"
       }
-      "pull_angle"                                        "230"
       "debuff_duration"
       {
-        "value"                                           "3"
-        "special_bonus_unique_marci_dispose_slow"         "+1.5"
+        "value"                                       "3"
+        "special_bonus_unique_marci_dispose_slow"     "+1.5"
       }
       "impact_damage"
       {
-        "value"                                           "60 150 240 330 660 1320"
-        "special_bonus_unique_marci_grapple_damage"       "+100"
+        "value"                                       "60 150 240 330 660 1320"
+        "special_bonus_unique_marci_grapple_damage"   "+100"
       }
-      "movement_slow_pct"                                 "20 30 40 50 55 60"
     }
   }
 }

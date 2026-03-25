@@ -5,58 +5,58 @@
   //=================================================================================================================
   "bane_enfeeble"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
+    "AbilityCastRange"                                "700 800 900 1000 1100 1200"
+    "AbilityCastPoint"                                "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 11 9 7 7 7" //OAA
+    "AbilityCooldown"                                 "13 11 9 7 7 7" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150"
+    "AbilityManaCost"                                 "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"                                  "45 50 55 60 65 70" //OAA
+      "damage_reduction"                              "45 50 55 60 65 70" //OAA
+      "duration"                                      "9"
+      "damage_tick_rate"                              "1.0"
       "heal_reduction"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "cast_reduction"
       {
-        "value"                                           "30"
-        "special_bonus_unique_bane_11"                    "+20"
+        "value"                                       "30"
+        "special_bonus_unique_bane_11"                "+20"
       }
-      "duration"                                          "9"
       "enfeeble_tick_damage"
       {
-        "value"                                           "12 18 24 30 60 90"
-        "special_bonus_unique_bane_10"                    "+13"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "12 18 24 30 60 90"
+        "special_bonus_unique_bane_10"                "+13"
+        "CalculateSpellDamageTooltip"                 "1"
       }
       "enfeeble_heal_pct"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
-      "damage_tick_rate"                                  "1.0"
     }
   }
 }

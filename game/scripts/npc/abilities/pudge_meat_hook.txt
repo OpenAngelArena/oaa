@@ -5,72 +5,73 @@
   //=================================================================================================================
   "pudge_meat_hook"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                 "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "hook_width"                                    "100"
+      "vision_radius"                                 "500 500 500 500 500 500"
+      "vision_duration"                               "4.0 4.0 4.0 4.0 4.0 4.0"
+      "reveal_duration"                               "00"
       "damage"
       {
-        "value"                                           "150 220 290 360 720 1440"
-        "special_bonus_facet_pudge_flayers_hook"          "=80 =120 =160 =200 =400 =800"
-        "special_bonus_unique_pudge_7"                    "+150"
+        "value"                                       "150 220 290 360 720 1440"
+        "special_bonus_facet_pudge_flayers_hook"      "=80 =120 =160 =200 =200 =200"
+        "special_bonus_unique_pudge_7"                "+150"
       }
       "hook_speed"
       {
-        "value"                                           "1600.0"
-        "special_bonus_facet_pudge_flayers_hook"          "+0"
+        "value"                                       "1600.0"
+        "special_bonus_facet_pudge_flayers_hook"      "+0"
       }
-      "hook_width"                                        "100"
       "AbilityCastRange"
       {
-        "value"                                           "1300"
-        "special_bonus_facet_pudge_flayers_hook"          "+15%"
+        "value"                                       "1300"
+        "special_bonus_facet_pudge_flayers_hook"      "+15%"
       }
-      "vision_radius"                                     "500"
-      "vision_duration"                                   "4.0"
-      "reveal_duration"                                   "00"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
-        "special_bonus_unique_pudge_5"                    "-4"
+        "value"                                       "18 16 14 12 12 12"
+        "special_bonus_unique_pudge_5"                "-4"
       }
       "vector_target_distance"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "distance_to_damage" //OAA
       {
-        "special_bonus_shard"                             "12 15 18 21 24 27"
+        "special_bonus_shard"                         "20"
       }
       "min_distance_damage"
       {
-        "special_bonus_shard"                             "10"
+        "special_bonus_shard"                         "10"
       }
       "cooldown_reduction_pct_allied_hook"
       {
-        "special_bonus_shard"                             "50"
+        "special_bonus_shard"                         "50"
       }
       "self_stun_duration_percent"
       {
-        "value"                                           "65"
+        "value"                                       "65"
       }
     }
   }

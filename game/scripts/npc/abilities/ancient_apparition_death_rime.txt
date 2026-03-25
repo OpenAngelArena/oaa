@@ -5,35 +5,38 @@
   //=================================================================================================================
   "ancient_apparition_death_rime"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Ice Blast) + 1
-    "DependentOnAbility"                                  "ancient_apparition_ice_blast"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "damage"
       {
-        "value"                                           "10 10 10 10 12 16"
-        "special_bonus_unique_ancient_apparition_6"       "+50%"
+        "value"                                       "10"
+        "special_bonus_unique_ancient_apparition_6"   "+50%"
       }
       "slow"
       {
-        "value"                                           "2"
-        "special_bonus_unique_ancient_apparition_6"       "+50%"
+        "value"                                       "2"
+        "special_bonus_unique_ancient_apparition_6"   "+50%"
+        "display_type"                                "kDebuffPercentage"
       }
       "cast_slow"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "strength_decrease"
       {
-        "value"                                           "0"
-        "special_bonus_facet_ancient_apparition_bone_chill"  "0.5 0.75 1 1.25 1.3 1.35"
+        "value"                                       "0"
+        "special_bonus_unique_ancient_apparition_8"   "+1.0"
       }
     }
   }

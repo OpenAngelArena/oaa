@@ -5,32 +5,36 @@
   //=================================================================================================================
   "necrolyte_sadist"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Reapers Scythe) + 1
-    "DependentOnAbility"                                  "necrolyte_reapers_scythe"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_regen"                                      "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
-      "mana_regen"                                        "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
-      "bonus_aoe"
+      "bonus_aoe"                                     "0"
+      "hero_multiplier"                               "6"
+      "regen"
       {
-        "value"                                           "0"
-        "special_bonus_facet_necrolyte_profane_potency"   "+35"
+        "value"                                       "3.7"
+        "hero_levelup"                                "0.3"
       }
       "bonus_spell_amp"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
-      "hero_multiplier"                                   "6"
       "regen_duration"
       {
-        "value"                                           "8"
-        "special_bonus_unique_necrophos_heartstopper_regen_duration"  "+2"
+        "value"                                       "8"
+        "special_bonus_unique_necrophos_heartstopper_regen_duration" "+2"
       }
+      "health_regen"                                  "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
+      "mana_regen"                                    "3.5 5.0 6.5 8.0 9.5 11.0" //OAA, for readability
     }
   }
 }

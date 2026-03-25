@@ -5,68 +5,74 @@
   //=================================================================================================================
   "chaos_knight_phantasm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                "0.4 0.4 0.4 0.4 0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75"
+    "AbilityCooldown"                                 "75"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 200 300 400 500"
+    "AbilityManaCost"                                 "100 200 300 400 500"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "images_count"                                      "2 3 3 4 4" //OAA
+      "images_count"                                  "2 3 3 4 4" //OAA
+      "outgoing_damage"                               "-50 -25 0 25 50" //OAA
+      "invuln_duration"                               "0.5"
+      "magic_resistance"                              "0"
       "illusion_duration" //OAA
       {
-        "value"                                           "35"
+        "value"                                       "30.0"
       }
-      "outgoing_damage"                                   "-50 -25 0 25 50" //OAA
       "outgoing_damage_tooltip" //OAA
       {
-        "value"                                           "50 75 100 125 150"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "100"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
       "incoming_damage" //OAA
       {
-        "value"                                           "225 200 175 150 125"
-        "special_bonus_unique_chaos_knight_7"             "-125"
+        "value"                                       "250"
+        "special_bonus_unique_chaos_knight_7"         "-125"
       }
       "incoming_damage_tooltip" //OAA
       {
-        "value"                                           "325 300 275 250 225"
-        "special_bonus_unique_chaos_knight_7"             "-125"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "350"
+        "special_bonus_unique_chaos_knight_7"         "-125"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
-      "invuln_duration"                                   "0.5"
       "vision_radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "magic_resistance"                                  "0"
-      "chance_for_extra_illusion"
+      "bonus_illusion_chance"
       {
-        "value"                                           "0"
+        "value"                                       "0"
+        "special_bonus_scepter"                       "50"
+      }
+      "bonus_illusion_count"
+      {
+        "value"                                       "0"
+        "special_bonus_scepter"                       "1"
       }
     }
   }

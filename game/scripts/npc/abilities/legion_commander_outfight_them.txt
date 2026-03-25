@@ -5,20 +5,26 @@
   //=================================================================================================================
   "legion_commander_outfight_them"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Duel) + 1
-    "DependentOnAbility"                                  "legion_commander_duel"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_bonus_pct"
+      "radius"                                        "1200"
+      "duration"                                      "6.0"
+      "ally_factor"                                   "50"
+      "armor"
       {
-        "value"                                           "30 40 50 60 65 70"
+        "value"                                       "1"
+        "hero_levelup"                                "+0.1"
+        "special_bonus_unique_legion_commander_outfight_them_armor" "+1"
       }
-      "duration"                                          "4.0"
     }
   }
 }

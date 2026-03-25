@@ -5,30 +5,33 @@
   //=================================================================================================================
   "ember_spirit_immolation"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Fire Remnant) + 1
-    "DependentOnAbility"                                  "ember_spirit_fire_remnant"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "tick_interval"                                 "0.2"
       "radius"
       {
-        "value"                                           "175"
-        "special_bonus_shard"                             "+175"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "200"
+        "affected_by_aoe_increase"                    "1"
+        "special_bonus_shard"                         "+150"
       }
-      "tick_interval"                                     "0.2"
       "damage"
       {
-        "value"                                           "10 18 26 34 68 136"
-        "special_bonus_shard"                             "+10"
+        "value"                                       "10"
+        "hero_levelup"                                "1"
+        "special_bonus_shard"                         "+10"
       }
     }
   }

@@ -5,62 +5,63 @@
   //=================================================================================================================
   "skywrath_mage_arcane_bolt"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5.0 4.0 3.0 2.0 2.0 2.0"
+    "AbilityCooldown"                                 "5.0 4.0 3.0 2.0 2.0 2.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 85 100 115 130 145" //OAA
+    "AbilityManaCost"                                 "70 85 100 115 130 145" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bolt_speed"                                    "500"
+      "bolt_vision"                                   "325"
+      "bolt_damage"                                   "60 90 120 150 300 450" //special_bonus_unique_skywrath_1_oaa
+      "vision_duration"                               "3.34"
       "AbilityCastRange"
       {
-        "value"                                           "875"
-        "special_bonus_unique_skywrath_6"                 "+125"
+        "value"                                       "875"
+        "special_bonus_unique_skywrath_6"             "+125"
       }
       "pierce_spell_immunity"
       {
-        "special_bonus_unique_skywrath_6"                 "1"
+        "special_bonus_unique_skywrath_6"             "1"
       }
-      "bolt_speed"                                        "500"
-      "bolt_vision"                                       "325"
-      "bolt_damage"                                       "60 90 120 150 300 450" // special_bonus_unique_skywrath_1_oaa
       "int_multiplier"
       {
-        "value"                                           "1.5"
-        "special_bonus_unique_skywrath_2"                 "+1.5"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "1.5"
+        "special_bonus_unique_skywrath_2"             "+1.5"
+        "CalculateSpellDamageTooltip"                 "1"
       }
-      "vision_duration"                                   "3.34"
       "extra_bolt_search_radius"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "500"
+        "affected_by_aoe_increase"                    "1"
       }
       "total_bolt_count"
       {
-        "value"                                           "1"
-        "special_bonus_shard"                             "+2"
+        "value"                                       "1"
+        "special_bonus_shard"                         "+2"
       }
     }
   }

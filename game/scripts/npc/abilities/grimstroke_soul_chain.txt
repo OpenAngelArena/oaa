@@ -5,46 +5,50 @@
   //=================================================================================================================
   "grimstroke_soul_chain"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 55 50"
-    "AbilityCastRange"                                    "700 800 900 1000 1100"
-    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastRange"                                "700 800 900 1000 1100"
+    "AbilityCastPoint"                                "0.15"
 
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "70 65 60 55 50"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "chain_duration"                                    "6.0 7.0 8.0 8.5 9.0"
+      "chain_duration"                                "6.0 7.0 8.0 8.5 9.0"
+      "chain_break_distance"                          "700"
+      "leash_limit_multiplier"                        "1.3"
+      "leash_radius_buffer"                           "50"
+      "creep_duration_pct"                            "50.0"
       "chain_latch_radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
-      "chain_break_distance"                              "700"
-      "leash_limit_multiplier"                            "1.3"
-      "leash_radius_buffer"                               "50"
-      "creep_duration_pct"                                "50.0"
       "bonus_reflected_spell_damage"
       {
-        "value"                                           "0"
-        "special_bonus_unique_grimstroke_soul_chain_reflect_damage"  "+25.0"
+        "value"                                       "0"
+        "special_bonus_unique_grimstroke_soul_chain_reflect_damage" "+25.0"
       }
     }
   }

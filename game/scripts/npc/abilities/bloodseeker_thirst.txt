@@ -5,59 +5,58 @@
   //=================================================================================================================
   "bloodseeker_thirst"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    // Time
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15.0"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                "0.3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "min_bonus_pct"                                 "100"
+      "max_bonus_pct"                                 "25"
+      "visibility_threshold_pct"                      "25"
+      "invis_threshold_pct"                           "25"
+      "linger_duration"                               "4.0"
       "AbilityManaCost"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "50"
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_bloodrush"   "50"
       }
-      "min_bonus_pct"                                     "100"
       "bonus_movement_speed"
       {
-        "value"                                           "10 20 30 40 45 50"
-        "special_bonus_unique_bloodseeker_4"              "+18"
+        "value"                                       "10 20 30 40 45 50"
+        "special_bonus_unique_bloodseeker_4"          "+18"
       }
       "active_movement_speed"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "6 12 18 24 30 36"
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_bloodrush"   "6 12 18 24 24 24"
       }
       "active_duration"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "5"
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_bloodrush"   "5"
       }
       "inactive_penalty_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "+50.0"     // NOTE: inactive bonuses are 100 - x
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_bloodrush"   "+50.0"
       }
       "sanguivore_multiplier"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "2"
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_bloodrush"   "2"
       }
-      "max_bonus_pct"                                     "25"
-      "visibility_threshold_pct"                          "25"
-      "invis_threshold_pct"                               "25"
-      "linger_duration"                                   "4.0"
     }
   }
 }

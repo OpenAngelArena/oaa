@@ -5,98 +5,101 @@
   //=================================================================================================================
   "undying_tombstone"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.6"
+    "AbilityCastRange"                                "500"
+    "AbilityCastPoint"                                "0.6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 150 175 200 225 250"
+    "AbilityManaCost"                                 "125 150 175 200 225 250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "30.0"
+      "health_threshold_pct_tooltip"                  "40"
+      "zombie_health"                                 "2"
+      "bunker_units"                                  "1"
+      "bunker_heal_pct"                               "0"
+      "tombstone_bunker_cd"                           "2"
+      "tombstone_stun_penalty"                        "2"
       "AbilityCooldown"
       {
-        "value"                                           "80"
-        "special_bonus_unique_undying_7"                  "-15"
+        "value"                                       "80"
+        "special_bonus_unique_undying_7"              "-15"
       }
       "tombstone_health"
       {
-        "value"                                           "20 24 28 32 36 40"
-        "special_bonus_unique_undying_5"                  "+16"
+        "value"                                       "20 24 28 32 36 40"
+        "special_bonus_unique_undying_5"              "+16"
       }
       "hits_to_destroy_tooltip"
       {
-        "value"                                           "5 6 7 8 9 10"
-        "special_bonus_unique_undying_5"                  "+4"
+        "value"                                       "5 6 7 8 9 10"
+        "special_bonus_unique_undying_5"              "+4"
       }
-      "duration"                                          "30.0"
       "radius"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
-      "health_threshold_pct_tooltip"                      "40"
       "zombie_interval"
       {
-        "value"                                           "4.0 3.6 3.2 2.8 2.8 2.8"
+        "value"                                       "4.0 3.6 3.2 2.8 2.8 2.8"
       }
       "zombie_damage_tooltip" //OAA
       {
-        "value"                                           "34"
-        "special_bonus_unique_undying"                    "+20"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "34"
+        "special_bonus_unique_undying"                "+20"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "zombie_bonus_damage"
       {
-        "special_bonus_unique_undying"                    "+20"
+        "special_bonus_unique_undying"                "+20"
+      }
+      "tombstone_grab_radius"
+      {
+        "value"                                       "350"
+        "affected_by_aoe_increase"                    "1"
+      }
+      "zombie_damage_interval"
+      {
+        "value"                                       "0"
       }
       "zombie_attack_damage_per_level" //OAA
       {
-        "value"                                           "2"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "2"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "zombie_bonus_damage_against_creeps" //OAA
       {
-        "value"                                           "10"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                       "10"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "zombie_bonus_damage_against_bosses" //OAA
       {
-        "value"                                           "24"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-      }
-      "zombie_health"                                     "2"
-      "bunker_units"                                      "1"
-      "bunker_heal_pct"                                   "0"
-      "tombstone_grab_radius"
-      {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "tombstone_bunker_cd"                               "2"
-      "tombstone_stun_penalty"                            "2"
-      "zombie_damage_interval"
-      {
-        "value"                                           "0"
+        "value"                                       "24"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
       }
     }
   }
-
 }

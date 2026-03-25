@@ -5,63 +5,64 @@
   //=================================================================================================================
   "huskar_inner_fire"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve forgot about this
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve forgot about this
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastRange"                                "500"
+    "AbilityCastPoint"                                "0.35"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_cost"                                       "75 100 125 150 175 200"
+      "health_cost"                                   "75 100 125 150 175 200"
+      "knockback_distance"                            "400"
+      "min_knockback_distance"                        "25"
+      "knockback_duration"                            "1"
+      "min_knockback_duration"                        "0.4"
       "damage"
       {
-        "value"                                           "105 170 235 300 600 900" // special_bonus_unique_huskar_1_oaa
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "110 180 250 320 600 900"
+        "CalculateSpellDamageTooltip"                 "1"
       }
       "radius"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "500"
+        "affected_by_aoe_increase"                    "1"
       }
-      "disarm_duration" // now silence duration
+      "disarm_duration"
       {
-        "value"                                           "1.5 2 2.5 3 3.5 4"
-        "special_bonus_unique_huskar_3"                   "+0.75"
+        "value"                                       "1.5 2 2.5 3 3.5 4"
+        "special_bonus_unique_huskar_3"               "+0.75"
       }
-      "knockback_distance"                                "400"
-      "knockback_duration"                                "1"
       "AbilityCooldown"
       {
-        "value"                                           "17 15 13 11 11 11"
-        "special_bonus_shard"                             "-3"
+        "value"                                       "17 15 13 11 11 11"
       }
       "movement_slow_pct"
       {
-        "special_bonus_shard"                             "+50"
+        "value"                                       "0"
       }
       "hero_damage_heal_pct"
       {
-        "special_bonus_shard"                             "+50"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
       "creep_damage_heal_pct"
       {
-        "special_bonus_shard"                             "+10"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value"                                       "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
     }
   }

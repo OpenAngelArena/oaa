@@ -5,57 +5,66 @@
   //=================================================================================================================
   "rattletrap_rocket_flare"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityManaCost"                                 "35 40 45 50 55 60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "6.0"
+      "speed"                                         "2250"
+      "slow_pct"                                      "100"
+      "projectile_vision_radius"                      "250"
+      "projectile_vision_duration"                    "1.0"
+      "projectile_vision_tick_rate"                   "0.15"
       "radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
-      "duration"                                          "6.0"
-      "speed"                                             "2250"
       "damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 840"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "80 120 160 200 200 200"
+        "CalculateSpellDamageTooltip"                 "1"
+      }
+      "slow_duration"
+      {
+        "value"                                       "0.4"
+        "special_bonus_unique_clockwerk_7"            "+0.4"
+      }
+      "true_sight"
+      {
+        "special_bonus_unique_clockwerk_4"            "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "17 16 15 14 13 12"
+        "value"                                       "20.0 18.0 16.0 14.0 14.0 14.0"
       }
-      "slow_pct"                                          "100"
-      "slow_duration"
+      "AbilityCharges"
       {
-        "value"                                           "0.4"
-        "special_bonus_unique_clockwerk_7"                "+0.4"
+        "value"                                       "0"
+        "special_bonus_unique_clockwerk_rocket_flare_charges" "+3"
       }
-      "projectile_vision_radius"                          "250"
-      "projectile_vision_duration"                        "1.0"
-      "projectile_vision_tick_rate"                       "0.15"
-      "true_sight"
+      "AbilityChargeRestoreTime"
       {
-        "special_bonus_unique_clockwerk_4"                "1"
+        "value"                                       "20.0 18.0 16.0 14.0 14.0 14.0"
       }
     }
   }

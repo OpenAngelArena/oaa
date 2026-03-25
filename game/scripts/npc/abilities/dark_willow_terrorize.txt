@@ -5,49 +5,50 @@
   //=================================================================================================================
   "dark_willow_terrorize"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
+    "LinkedAbility"                                   "dark_willow_bedlam"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "1.0"
+    "AbilityCastRange"                                "1200"
+    "AbilityCastPoint"                                "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                 "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "destination_travel_speed"                          "2000"
+      "destination_travel_speed"                      "2000"
+      "destination_status_duration"                   "2.8 3.0 3.2 3.4 3.6"
+      "return_travel_speed"                           "800"
+      "starting_height"                               "300"
+      "telegraph_to_enemies"                          "0"
       "destination_radius"
       {
-        "value"                                           "400 450 500 525 550"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400 450 500 525 550"
+        "affected_by_aoe_increase"                    "1"
       }
-      "destination_status_duration"                       "2.8 3.0 3.2 3.4 3.6"
-      "return_travel_speed"                               "800"
       "AbilityCooldown"
       {
-        "value"                                           "100 90 80 70 60"
-        "special_bonus_unique_dark_willow_7"              "-15"
+        "value"                                       "100 90 80 70 60"
+        "special_bonus_unique_dark_willow_7"          "-20"
       }
-      "starting_height"                                   "300"
-      "telegraph_to_enemies"                              "0"
       "impact_damage"
       {
-        "special_bonus_unique_dark_willow_2"              "+500"
+        "special_bonus_unique_dark_willow_2"          "+500"
       }
     }
   }

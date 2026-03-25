@@ -5,76 +5,69 @@
   //=================================================================================================================
   "phoenix_sun_ray"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.01"
+    "AbilityCastRange"                                "1200"
+    "AbilityCastPoint"                                "0.01"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 29 28 27 26 25" //OAA
-    "AbilityDuration"                                     "6.0"
+    "AbilityCooldown"                                 "30 29 28 27 26 25" //OAA
+    "AbilityDuration"                                 "6.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150"
+    "AbilityManaCost"                                 "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hp_cost_perc_per_second"                           "5"
-      "base_damage"                                       "24 26 28 30 60 120" //OAA
-      "hp_perc_damage" // this is max dmg, dmg increases over time
+      "hp_cost_perc_per_second"                       "5"
+      "base_damage"                                   "24 26 28 30 60 120" //OAA
+      "base_heal"                                     "7 10 13 16 32 64"
+      "hp_perc_heal"                                  "0.5 1.0 1.5 2.0 2.5 3.0"
+      "tick_interval"                                 "0.2"
+      "forward_move_speed"                            "250"
+      "turn_rate_initial"                             "250"
+      "turn_rate"                                     "25"
+      "hp_perc_damage"
       {
-        "value"                                           "1.5 3 4.5 6.0 6.75 7.5"
-        "special_bonus_unique_phoenix_5"                  "+1.5"
+        "value"                                       "1.5 3 4.5 6.0 6.75 7.5"
+        "special_bonus_unique_phoenix_5"              "+1.5"
       }
-      "base_heal"                                         "7 10 13 16 32 64"
-      "hp_perc_heal"                                      "0.5 1.0 1.5 2.0 2.5 3.0"
       "radius"
       {
-        "value"                                           "130"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "130"
+        "affected_by_aoe_increase"                    "1"
       }
-      "tick_interval"                                     "0.2"
-      "forward_move_speed"                                "250"
-      "turn_rate_initial"                                 "250"
-      "turn_rate"                                         "25"
       "shard_move_slow_pct"
       {
-        "special_bonus_shard"                             "10"
+        "special_bonus_shard"                         "10"
       }
       "focal_point_max_multiplier"
       {
-        "value"                                           "0"
-        "special_bonus_facet_phoenix_hotspot"             "160"
+        "value"                                       "0"
       }
       "focal_point_start_length_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_phoenix_hotspot"             "50"
+        "value"                                       "0"
       }
       "focal_point_full_length_tooltip_only"
       {
-        "value"                                           "0"
-        "special_bonus_facet_phoenix_hotspot"             "1200"
-      }
-      "focal_point_blind_stack_multiplier"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_phoenix_hotspot"             "+2"
+        "value"                                       "0"
       }
     }
   }

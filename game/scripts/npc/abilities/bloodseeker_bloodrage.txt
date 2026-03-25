@@ -5,81 +5,70 @@
   //=================================================================================================================
   "bloodseeker_bloodrage"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 12 10 8 8 8"
+    "AbilityCooldown"                                 "14 12 10 8 8 8"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration" //OAA, intentional nerf
-      {
-        "value"                                           "8"
-        "special_bonus_facet_bloodseeker_old_blood"       "-3"
-      }
+      "duration"                                      "8" //OAA, intentional nerf
       "attack_speed"
       {
-        "value"                                           "60 90 120 150 180 210"
-        "special_bonus_unique_bloodseeker_5"              "+30"
+        "value"                                       "60 90 120 150 180 210"
+        "special_bonus_unique_bloodseeker_5"          "+30"
       }
       "spell_amp"
       {
-        "value"                                           "15 20 25 30 35 40"
-        "special_bonus_facet_bloodseeker_old_blood"       "=0"
+        "value"                                       "15 20 25 30 35 40"
       }
       "damage_pct"
       {
-        "value"                                           "1.2" // NOTE: if changing this, change damage_pct_enemies
-        "special_bonus_unique_bloodseeker"                "-0.7"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
-      }
-      "damage_pct_enemies"  // NOTE: Separate value here so that the talent doesn't buff it for enemies
-      {
-        "value"                                           "1.2"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                       "1.2"
+        "special_bonus_unique_bloodseeker"            "-0.7"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
       }
       "max_health_dmg_pct"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+2"
+        "value"                                       "0"
+        "special_bonus_shard"                         "+2"
       }
       "thirst_threshold_bonus"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "can_silence"
       {
-        "special_bonus_facet_bloodseeker_old_blood"       "1"
+        "special_bonus_facet_bloodseeker_old_blood"   "1"
       }
       "base_damage_amp"
       {
-        "special_bonus_facet_bloodseeker_old_blood"       "=15 =20 =25 =30 =35 =40"
+        "value"                                       "0"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityManaCost"
       {
-        "value"                                           "0"
-        "special_bonus_facet_bloodseeker_old_blood"       "=60"
+        "value"                                       "0"
+        "special_bonus_facet_bloodseeker_old_blood"   "=60"
       }
-      "AbilityCastRange"
-      {
-        "value"                                           "800"
-        "special_bonus_facet_bloodseeker_old_blood"       "=400"
-      }
-      "enemy_castpoint"                                   "0.3"
     }
   }
 }

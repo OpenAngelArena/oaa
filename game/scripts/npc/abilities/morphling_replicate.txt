@@ -5,31 +5,31 @@
   //=================================================================================================================
   "morphling_replicate"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 850 1000 1150 1300"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastRange"                                "700 850 1000 1150 1300"
+    "AbilityCastPoint"                                "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 55 50" //OAA
+    "AbilityCooldown"                                 "70 65 60 55 50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                 "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,40 +37,36 @@
     {
       "duration"
       {
-        "value"                                           "24"
-        "special_bonus_unique_morphling_8"                "+12"
+        "value"                                       "24"
+        "special_bonus_unique_morphling_8"            "+12"
       }
-      "scepter_stat_steal" // unused
+      "scepter_stat_steal"
       {
-        "special_bonus_scepter"                           "20"
+        "special_bonus_scepter"                       "20"
       }
-      "scepter_spell_amplify" // unused
+      "scepter_spell_amplify"
       {
-        "special_bonus_scepter"                           "25"
+        "special_bonus_scepter"                       "25"
       }
-      "scepter_attack_speed" // unused
+      "scepter_attack_speed"
       {
-        "special_bonus_scepter"                           "70"
+        "special_bonus_scepter"                       "70"
       }
-      "scepter_status_resist" // unused
+      "scepter_status_resist"
       {
-        "special_bonus_scepter"                           "40"
+        "special_bonus_scepter"                       "40"
       }
-      "scepter_additional_stats" // unused
+      "scepter_additional_stats"
       {
-        "special_bonus_scepter"                           "20"
-      }
-      "scepter_cooldown_reduction" // unused
-      {
-        "special_bonus_scepter"                           "0"
+        "special_bonus_scepter"                       "20"
       }
       "scepter_illusion_outgoing"
       {
-        "special_bonus_scepter"                           "100"
+        "special_bonus_scepter"                       "100"
       }
       "scepter_illusion_incoming"
       {
-        "special_bonus_scepter"                           "300"
+        "special_bonus_scepter"                       "300"
       }
     }
   }

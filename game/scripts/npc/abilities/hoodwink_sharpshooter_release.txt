@@ -5,17 +5,18 @@
   //=================================================================================================================
   "hoodwink_sharpshooter_release"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
+    "DependentOnAbility"                              "hoodwink_sharpshooter"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCastRange"                                    "999999"
-
-    "MaxLevel"                                            "5"
-    "DependentOnAbility"                                  "hoodwink_sharpshooter"
+    "AbilityCastRange"                                "999999"
+    "AbilityCastPoint"                                "0.0"
   }
 }

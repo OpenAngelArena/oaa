@@ -5,63 +5,60 @@
   //=================================================================================================================
   "tiny_tree_grab"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
+    "LinkedAbility"                                   "tiny_toss_tree"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "165"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                "200"
+    "AbilityCastPoint"                                "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 12 11"
+    "AbilityCooldown"                                 "15 12 9 6 12 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40"
+    "AbilityManaCost"                                 "40 35 30 25 25 25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_count"
+      "attack_count"                                  "4 5 6 7 7 7"
+      "attack_range"                                  "300"
+      "splash_pct"                                    "70 80 90 100 110 120"
+      "bat_increase"                                  "0.0"
+      "speed_reduction"                               "0"
+      "bonus_damage"
       {
-        "value"                                           "5"
-        "special_bonus_shard"                             "=0"
+        "value"                                       "10 20 30 40 60 80"
+        "special_bonus_unique_tiny_7"                 "+60"
       }
-      "bonus_damage" // bonus base damage; not percentage!
+      "bonus_damage_buildings"
       {
-        "value"                                           "10 20 30 40 60 80"
-        "special_bonus_unique_tiny_7"                     "+60"
+        "value"                                       "30 40 50 60 70 80"
       }
-      "bonus_damage_buildings" // percentage bonus damage against bosses
-      {
-        "value"                                           "30 40 50 60 70 80"
-      }
-      "attack_range"                                      "300"
       "splash_width"
       {
-        "value"                                           "200"
+        "value"                                       "200"
       }
       "splash_range"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "splash_pct"                                        "70 80 90 100 110 120"
-      "bat_increase"                                      "0.0"
-      "speed_reduction"                                   "0"
     }
   }
 }

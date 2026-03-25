@@ -1,54 +1,57 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "skeleton_king_reincarnation"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "reincarnate_time"                                  "3.0"
+      "reincarnate_time"                              "3.0 3.0 3.0 3.0 3.0"
+      "movespeed"                                     "-75"
+      "attackslow"                                    "-75"
+      "slow_duration"                                 "4.0"
       "slow_radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
-      "movespeed"                                         "-75"
-      "attackslow"                                        "-75"
-      "slow_duration"                                     "4.0"
       "AbilityManaCost"
       {
-        "value"                                           "225"
-        "special_bonus_shard"                             "=0"
+        "value"                                       "220 110 0 0 0"
       }
       "clear_curse"
       {
-        "value"                                           "0"
-        "special_bonus_facet_skeleton_king_facet_cursed_blade"  "=1"
+        "value"                                       "0"
+        "special_bonus_facet_skeleton_king_facet_cursed_blade" "=1"
       }
       "shard_skeleton_count" //OAA, because of lag
       {
-        "value"                                           "0"
-        "special_bonus_facet_skeleton_king_facet_bone_guard"  "2"
+        "value"                                       "2 3 4 4 4"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_scepter"                           "-30"
+        "value"                                       "180 150 120 120 120"
+        "special_bonus_scepter"                       "-15"
       }
       "trigger_wraithfire_blast"
       {
-        "special_bonus_unique_wraith_king_4"              "=1"
+        "special_bonus_unique_wraith_king_4"          "=1"
       }
     }
   }

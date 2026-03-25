@@ -5,38 +5,45 @@
   //=================================================================================================================
   "meepo_megameepo"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "IsGrantedByScepter"                              "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
+    "LinkedAbility"                                   "meepo_megameepo_fling"
 
-    "MaxLevel"                                            "1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35" //OAA
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                 "35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                 "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                        
+      "duration"                                      "25"
+      "model_scale"                                   "0"
+      "damage_distribution_duration"                  "6"
+      "end_knockback_duration"                        "0.3"
+      "end_knockback_distance"                        "400"
+      "end_knockback_height"                          "0"
+      "stats_pct"                                     "40"
+      "poof_damage_factor"                            "50"
+      "radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
-      "duration"                                          "25"
-      "model_scale"                                       "0"
-      "damage_distribution_duration"                      "6" 
-      "end_knockback_duration"                            "0.3"
-      "end_knockback_distance"                            "400"
-      "end_knockback_height"                              "0"     
-      "stats_pct"                                         "40"
     }
   }
 }

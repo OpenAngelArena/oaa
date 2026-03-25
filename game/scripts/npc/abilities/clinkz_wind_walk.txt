@@ -5,59 +5,58 @@
   //=================================================================================================================
   "clinkz_wind_walk"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
-
-    // Time
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 105 130 155 180"
+    "AbilityManaCost"                                 "80 105 130 155 180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "35 40 45 45 45"
-      "fade_time"                                         "0.6"
-      "move_speed_bonus_pct"                              "25 35 45 55 65"
+      "duration"                                      "35 40 45 45 45"
+      "fade_time"                                     "0.6 0.6 0.6 0.6 0.6"
+      "move_speed_bonus_pct"                          "25 35 45 55 65"
+      "skeleton_offset"                               "250"
+      "skeleton_offset_min"                           "150"
+      "skeleton_building_damage_reduction"            "75"
+      "attack_rate"                                   "1.6"
       "skeleton_count"
       {
-        "value"                                           "2 3 4 5 6"
+        "value"                                       "2 3 4 5 6"
       }
       "AbilityCooldown"
       {
-        "value"                                           "24 21 18 17 16"
-        "special_bonus_unique_clinkz_10"                  "-4"
+        "value"                                       "24 21 18 17 16"
+        "special_bonus_unique_clinkz_10"              "-4"
       }
-      "skeleton_offset"                                   "250"
-      "skeleton_offset_min"                               "150"
       "skeleton_duration"
       {
-        "value"                                           "20 25 30 35 40"
+        "value"                                       "20 25 30 35 40"
       }
       "skeleton_health"
       {
-        "value"                                           "8"
+        "value"                                       "8"
       }
       "skeleton_health_tooltip"
       {
-        "value"                                           "2"
+        "value"                                       "2"
       }
-      "skeleton_building_damage_reduction"                "75"
-      "attack_rate"                                       "1.6"
       "damage_percent"
       {
-        "value"                                           "20"
+        "value"                                       "20"
       }
     }
   }

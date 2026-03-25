@@ -5,74 +5,72 @@
   //=================================================================================================================
   "oracle_fortunes_end"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "850"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                "850"
+    "AbilityCastPoint"                                "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 12 9 6 6 6" //OAA
+    "AbilityCooldown"                                 "15 12 9 6 6 6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                 "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "channel_time" // AbilityChannelTime
+      "bolt_speed"                                    "1200"
+      "channel_time"
       {
-        "value"                                           "2.5"
+        "value"                                       "2.5"
       }
       "damage"
       {
-        "value"                                           "100 160 220 280 560 1120"
+        "value"                                       "100 160 220 280 560 1120"
       }
-      "bolt_speed"                                        "1200"
       "minimum_purge_duration"
       {
-        "value"                                           "0.75"
-        "special_bonus_unique_oracle_2"                   "+0.5"
+        "value"                                       "0.75"
+        "special_bonus_unique_oracle_2"               "+0.5"
       }
       "maximum_purge_duration"
       {
-        "value"                                           "2.75"
-        "special_bonus_unique_oracle_2"                   "+0.5"
+        "value"                                       "2.75"
+        "special_bonus_unique_oracle_2"               "+0.5"
       }
       "radius"
       {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "350"
+        "affected_by_aoe_increase"                    "1"
+        "special_bonus_unique_oracle_3"               "+100"
       }
       "damage_per_buff"
       {
-        "value"                                           "0"
-        "special_bonus_unique_oracle_damage_per_purge"    "+80"
+        "value"                                       "0"
       }
       "heal_per_debuff"
       {
-        "value"                                           "0"
-        "special_bonus_unique_oracle_damage_per_purge"    "+80"
+        "value"                                       "0"
       }
       "purge_constantly"
       {
-        "special_bonus_unique_oracle_7"                   "=1"
+        "special_bonus_unique_oracle_7"               "=1"
       }
     }
   }

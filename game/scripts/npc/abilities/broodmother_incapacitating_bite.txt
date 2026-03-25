@@ -5,35 +5,35 @@
   //=================================================================================================================
   "broodmother_incapacitating_bite"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "2.0 2.0 2.0 2.0 2.0 2.0"
       "miss_chance"
       {
-        "value"                                           "30 40 50 60 65 70"
-        "special_bonus_unique_broodmother_4"              "+20"
+        "value"                                       "30 40 50 60 65 70"
+        "special_bonus_unique_broodmother_4"          "+20"
       }
       "bonus_movespeed" //OAA, Valve has the wrong value for special_bonus_unique_broodmother_4
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
-        "special_bonus_unique_broodmother_4"              "-20"
+        "value"                                       "-15 -20 -25 -30 -30 -30"
+        "special_bonus_unique_broodmother_4"          "-25"
       }
-      "duration"                                          "2.0"
-      "attack_damage" // reminder: also applies to spiders
+      "attack_damage"
       {
-        "value"                                           "3 6 9 12 18 24"
-        "special_bonus_unique_broodmother_2"              "+6"
+        "value"                                       "3 6 9 12 18 24"
+        "special_bonus_unique_broodmother_2"          "+5"
       }
     }
   }

@@ -5,72 +5,56 @@
   //=================================================================================================================
   "furion_sprout"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS because of Roshan maybe
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS because of Roshan maybe
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "625 700 775 850 925 1000"
-    "AbilityCastPoint"                                    "0.35"
-    "AbilityCooldown"                                     "14 12 10 8 7 6"
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityCastRange"                                "625 700 775 850 925 1000"
+    "AbilityCastPoint"                                "0.35"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "14 12 10 8 7 6"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "2.5 3 3.5 4 4.5 5"
       "vision_range"
       {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "duration"                                          "2.5 3 3.5 4 4.5 5"
-      "leash"
-      {
-        "value"                                           "0"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
       "sprout_damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_furion_4"                   "+200"
+        "value"                                       "70 130 190 250 250 250"
+        "special_bonus_unique_furion_4"               "+170"
       }
       "sprout_damage_radius"
       {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "sprout_heal_interval"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_furion_soothing_saplings"    "=0.5"
+        "value"                                       "275"
+        "affected_by_aoe_increase"                    "1"
       }
       "sprout_heal_per_second" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_facet_furion_soothing_saplings"    "=20 =25 =30 =35 =70 =140"
-        "special_bonus_unique_furion_8"                   "+20%"
-      }
-      "building_healing_pct"
-      {
-        "value"                                           "0"
-      }
-      "healing_tree_proximity"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_furion_soothing_saplings"    "+175"
-      }
-      "healing_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_furion_soothing_saplings"    "+900"
+        "value"                                       "0"
+        "special_bonus_facet_furion_soothing_saplings" "=20 =25 =30 =35 =70 =140"
+        "special_bonus_unique_furion_8"               "+20%"
       }
     }
   }

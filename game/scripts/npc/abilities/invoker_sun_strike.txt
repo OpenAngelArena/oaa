@@ -5,78 +5,77 @@
   //=================================================================================================================
   "invoker_sun_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "MaxLevel"                                            "1" // MaxLevel: 11
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
+    "HasShardUpgrade"                                 "1"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.05"
-    "AbilityManaCost"                                     "175"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0.05"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "175"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "delay"                                             "1.7"
+      "delay"                                         "1.7"
+      "vision_duration"                               "4.0"
       "area_of_effect"
       {
-        "value"                                           "175"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "175"
+        "affected_by_aoe_increase"                    "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "20"
+        "value"                                       "23"
+        "special_bonus_unique_invoker_11"             "-4"
       }
       "damage" //OAA
       {
-        "value"                                           "200 265 330 395 460 525 590 720 850 980 1240"
-        "levelkey"                                        "exortlevel"
+        "value"                                       "175 225 275 325 375 425 475 525 575 625 675"
+        "levelkey"                                    "exortlevel"
       }
       "vision_distance"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "vision_duration"                                   "4.0"
       "cataclysm_count"
       {
-        "value"                                           "0"
-        //"special_bonus_unique_invoker_cataclysm"          "+2"
-        "special_bonus_facet_invoker_exort_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_scepter"                         "+2"
-        }
+        "value"                                       "0"
+        "special_bonus_scepter_3"                     "+2"
       }
       "cataclysm_cooldown" //OAA
       {
-        "value"                                           "75"
+        "value"                                       "90"
       }
       "cataclysm_min_range"
       {
-        "value"                                           "90"
+        "value"                                       "90"
       }
       "cataclysm_max_range"
       {
-        "value"                                           "180"
+        "value"                                       "180"
       }
       "cataclysm_damage_pct"
       {
-        "value"                                           "75"
+        "value"                                       "75"
       }
       "create_forged_spirit_on_hero_damage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_exort_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_shard"                           "+1"
-        }
+        "value"                                       "0"
+        "special_bonus_shard_3"                       "1"
       }
     }
   }

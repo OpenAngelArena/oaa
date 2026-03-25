@@ -5,72 +5,63 @@
   //=================================================================================================================
   "dragon_knight_breathe_fire"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 95 100 105 110 115"
+    "AbilityManaCost"                                 "90 95 100 105 110 115"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "range"                                         "750"
+      "AbilityCastRange"                              "1000" //OAA, because of special_bonus_unique_dragon_knight_9
+      "speed"                                         "1050"
+      "duration"                                      "11"
       "start_radius"
       {
-        "value"                                           "150"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "150 150 150 150 150 150"
+        "affected_by_aoe_increase"                    "1"
       }
       "end_radius"
       {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "range"                                             "750"
-      "AbilityCastRange" //OAA, because of special_bonus_unique_dragon_knight_9
-      {
-        "value"                                           "600"
-        "special_bonus_unique_dragon_knight_9"            "+80%"
+        "value"                                       "250 250 250 250 250 250"
+        "affected_by_aoe_increase"                    "1"
       }
       "AbilityCooldown"
       {
-        "value"                                           "14 13 12 11 11 11"
-        "special_bonus_unique_dragon_knight_3"            "-2"
+        "value"                                       "14 13 12 11 11 11"
+        "special_bonus_unique_dragon_knight_3"        "-2"
       }
-      "speed"                                             "1050"
       "damage" //OAA
       {
-        "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_dragon_knight_9"            "+80%"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "80 160 240 320 320 320"
+        "special_bonus_unique_dragon_knight_9"        "+200"
+        "CalculateSpellDamageTooltip"                 "1"
       }
       "reduction"
       {
-        "value"                                           "-30"
+        "value"                                       "20 24 28 32 32 32"
       }
       "dragon_form_bonus_pct"
       {
-        "value"                                           "0"
-      }
-      "duration"                                          "11"
-      "physical_damage_type"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
+        "value"                                       "0"
       }
     }
   }

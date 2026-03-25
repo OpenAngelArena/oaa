@@ -5,68 +5,68 @@
   //=================================================================================================================
   "skywrath_mage_concussive_shot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCastRange"                                    "1600"
+    "AbilityCastRange"                                "1600"
+    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10"
+    "AbilityCooldown"                                 "15 14 13 12 11 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 85 90 95 100 105"
+    "AbilityManaCost"                                 "80 85 90 95 100 105"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "speed"                                         "800 800 800 800 800 800"
+      "damage"                                        "120 180 240 300 600 1200"
+      "slow_duration"                                 "4.0"
+      "vision_duration"                               "3.34"
       "launch_radius"
       {
-        "value"                                           "1600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1600"
+        "affected_by_aoe_increase"                    "1"
       }
       "launch_global"
       {
-        "special_bonus_unique_skywrath_4"                 "1"
+        "special_bonus_unique_skywrath_4"             "1"
       }
       "slow_radius"
       {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "250"
+        "affected_by_aoe_increase"                    "1"
       }
-      "speed"                                             "800"
-      "damage"                                            "120 180 240 300 600 1200"
-      "slow_duration"                                     "4.0"
       "movement_speed_pct"
       {
-        "value"                                           "40"
-        "special_bonus_unique_skywrath_concussive_shot_slow"  "+20"
+        "value"                                       "40"
+        "special_bonus_unique_skywrath_concussive_shot_slow" "+20"
       }
       "shot_vision"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "300"
+        "affected_by_aoe_increase"                    "1"
       }
-      "vision_duration"                                   "3.34"
       "scepter_radius"
       {
-        "special_bonus_scepter"                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                       "500"
+        "affected_by_aoe_increase"                    "1"
       }
     }
   }
-
 }

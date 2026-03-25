@@ -5,66 +5,64 @@
   //=================================================================================================================
   "invoker_ghost_walk"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "1" // MaxLevel: 11
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175"
-    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastPoint"                                "0.05"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "175"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "60"
+      "aura_fade_time"                                "2.0"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "30"
+        "value"                                       "32"
       }
-      "duration"                                          "60"
       "area_of_effect"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_invoker_quas_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_shard"                           "+150"
-        }
+        "value"                                       "450"
+        "special_bonus_shard_1"                       "+150"
       }
       "enemy_slow"
       {
-        "value"                                           "-20 -25 -30 -35 -40 -45 -50 -55 -60 -65 -70"
-        "levelkey"                                        "quaslevel"
+        "value"                                       "-20 -25 -30 -35 -40 -45 -50 -55 -60 -65 -70"
+        "levelkey"                                    "quaslevel"
       }
       "self_slow"
       {
-        "value"                                           "-20 -15 -10 -5 0 5 10 15 20 25 30"
-        "levelkey"                                        "wexlevel"
+        "value"                                       "-20 -15 -10 -5 0 5 10 15 20 25 30"
+        "levelkey"                                    "wexlevel"
+        "show_absolute_values"                        "0"
       }
-      "aura_fade_time"                                    "2.0"
       "health_regen"
       {
-        "value"                                           "2 4 6 8 10 12 14 16 18 20 22"
-        "levelkey"                                        "quaslevel"
+        "value"                                       "2 4 6 8 10 12 14 16 18 20 22"
+        "levelkey"                                    "quaslevel"
       }
       "mana_regen"
       {
-        "value"                                           "2 4 6 8 10 12 14 16 18 20 22"
-        "levelkey"                                        "wexlevel"
+        "value"                                       "2 4 6 8 10 12 14 16 18 20 22"
+        "levelkey"                                    "wexlevel"
       }
       "apply_ice_wall_debuff"
       {
-        "value"                                           "0"
-        "special_bonus_facet_invoker_quas_focus"
-        {
-          "value"                                         "0"
-          "special_bonus_shard"                           "+1"
-        }
+        "value"                                       "0"
+        "special_bonus_shard_1"                       "1"
       }
     }
   }

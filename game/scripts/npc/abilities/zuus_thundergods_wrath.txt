@@ -1,59 +1,51 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "zuus_thundergods_wrath"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                "0.4 0.4 0.4 0.4 0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130" // special_bonus_unique_zeus_1_oaa
+    "AbilityCooldown"                                 "130" //special_bonus_unique_zeus_1_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 375 500 625 750"
+    "AbilityManaCost"                                 "250 375 500 625 750"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "sight_duration"                                "3.0 3.0 3.0 3.0 3.0"
       "sight_radius_day"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
       "sight_radius_night"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "affected_by_aoe_increase"                    "1"
       }
-      "sight_duration"                                    "3.0"
       "damage" //OAA
       {
-        "value"                                           "300 550 800 1300 1800"
-        "special_bonus_unique_zeus_4"                     "+250"
-      }
-      "growing_delay"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_zuus_divine_rampage"         ".2"
-      }
-      "grow_kill_amp"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_zuus_divine_rampage"         "25"
+        "value"                                       "300 475 650 650 650"
+        "special_bonus_unique_zeus_4"                 "+75"
       }
     }
   }

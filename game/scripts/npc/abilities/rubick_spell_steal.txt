@@ -5,61 +5,63 @@
   //=================================================================================================================
   "rubick_spell_steal"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                "1000 1000 1000 1000 1000"
+    "AbilityCastPoint"                                "0.1 0.1 0.1 0.1 0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 4" //OAA
+    "AbilityCooldown"                                 "12 10 8 6 4" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityManaCost"                                 "25 25 25 25 25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "1500"
-      "stolen_debuff_amp"                                 "10 15 20 25 30" //OAA
+      "projectile_speed"                              "1500"
+      "stolen_debuff_amp"                             "10 15 20 25 30" //OAA
       "cast_range_scepter"
       {
-        "special_bonus_scepter"                           "1400"
-      }
-      "duration" //OAA
-      {
-        "value"                                           "300"
+        "special_bonus_scepter"                       "1400"
       }
       "stolen_mana_reduction"
       {
-        "special_bonus_facet_rubick_frugal_filch"         "50 65 80 85 90"
+        "value"                                       "0"
+        "special_bonus_unique_rubick_6"               "+50"
       }
       "stolen_spell_cooldown_percent"
       {
-        "special_bonus_unique_rubick_6"                   "25"
+        "value"                                       "10 20 30 30 30"
       }
       "spell_amp_percent"
       {
-        "special_bonus_unique_rubick_5"                   "40"
+        "special_bonus_unique_rubick_5"               "40"
+      }
+      "duration" //OAA
+      {
+        "value"                                       "180 240 300 300 300"
+      }
+      "curiosity_steal_factor"
+      {
+        "value"                                       "1"
       }
     }
   }

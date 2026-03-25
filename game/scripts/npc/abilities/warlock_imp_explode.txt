@@ -5,26 +5,25 @@
   //=================================================================================================================
   "warlock_imp_explode"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "6" // MaxLevel: 7 with Aghanim Shard
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "explosion_delay"                                   ".3"
+      "explosion_delay"                               ".3"
+      "explosion_nonhero_reduce"                      "50"
       "explosion_radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "explosion_dmg"                                     "20 65 110 155 200 335 560"
-      "explosion_nonhero_reduce"                          "50"
-
-      "bonus_hp"                                          "0 80 160 240 320 640 1280"
-      "bonus_dmg"                                         "0 4 8 12 16 32 64"
-      "bonus_movespeed"                                   "0 15 30 45 60 75 90"
     }
   }
 }

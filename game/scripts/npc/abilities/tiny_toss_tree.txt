@@ -5,42 +5,45 @@
   //=================================================================================================================
   "tiny_toss_tree"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
+    "LinkedAbility"                                   "tiny_tree_grab"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                "1200"
+    "AbilityCastPoint"                                "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "900.0"
-      "range"                                             "1200"
+      "speed"                                         "900.0"
+      "range"                                         "1200"
+      "movement_slow"                                 "0"
+      "slow_duration"                                 "0"
       "bonus_damage"
       {
-        "value"                                           "10 20 30 40 60 80"
-        "special_bonus_shard"                             "+100"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                       "10 20 30 40 60 80"
+        "special_bonus_unique_tiny_7"                 "+60"
+        "special_bonus_shard"                         "+50"
+        "CalculateSpellDamageTooltip"                 "0"
       }
       "splash_radius"
       {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "275"
+        "special_bonus_shard"                         "=400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "movement_slow"                                     "25"
-      "slow_duration"                                     "2.5"
     }
   }
 }

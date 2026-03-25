@@ -5,61 +5,61 @@
   //=================================================================================================================
   "obsidian_destroyer_sanity_eclipse"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
-
-    "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.25"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "700"
+    "AbilityCastPoint"                                "0.25 0.25 0.25 0.25 0.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 300 400 500 600"
+    "AbilityManaCost"                                 "200 300 400 500 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "200 400 600 900 1200" //OAA
+      "base_damage"                                   "200 400 600 900 1200" //OAA
+      "cast_range"                                    "700"
+      "illusion_bonus_damage"                         "0"
       "radius"
       {
-        "value"                                           "450 525 600 675 750"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "450 500 550 675 750"
+        "affected_by_aoe_increase"                    "1"
       }
-      "cast_range"                                        "700" // same as AbilityCastRange
       "damage_multiplier"
       {
-        "value"                                           "0.4"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "special_bonus_unique_outworld_devourer_4"        "+0.15"
+        "value"                                       "0.4"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
       }
-      "illusion_bonus_damage"                             "0"
       "debuff_duration"
       {
-        "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+7"
+        "value"                                       "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "+7"
       }
       "percentage_damage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"
+        "value"                                       "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "0"
       }
       "percentage_heal"
       {
-        "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
+        "value"                                       "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer" "+100"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "120"
-        "special_bonus_unique_outworld_devourer_5"        "-60"
+        "value"                                       "140 130 120 120 120"
+        "special_bonus_unique_outworld_devourer_5"    "-60"
       }
     }
   }

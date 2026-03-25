@@ -5,64 +5,63 @@
   //=================================================================================================================
   "sandking_sand_storm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                 "25 24 23 22 21 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 95 105 115 125 135" //OAA
+    "AbilityManaCost"                                 "85 95 105 115 125 135" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_tick_rate"                                  "0.2"
+      "damage_tick_rate"                              "0.2"
       "AbilityDuration"
       {
-        "value"                                           "16 20 24 28 30 32"
+        "value"                                       "16 20 24 28 30 32"
       }
       "sand_storm_radius"
       {
-        "value"                                           "475 550 625 700 750 800"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "475 550 625 700 750 800"
+        "affected_by_aoe_increase"                    "1"
       }
       "sand_storm_damage"
       {
-        "value"                                           "30 50 70 90 180 270"
-        "special_bonus_unique_sand_king_2"                "+25"
+        "value"                                       "30 50 70 90 180 270"
+        "special_bonus_unique_sand_king_2"            "+25"
       }
       "fade_delay" //OAA
       {
-        "value"                                           "1.0"
+        "value"                                       "0.7"
       }
       "blind_pct"
       {
-        "special_bonus_facet_sand_king_obscurity"         "20 30 40 50 55 60"
+        "special_bonus_unique_sand_king_4"            "35"
       }
       "blind_debuff_duration"
       {
-        "special_bonus_facet_sand_king_obscurity"         "5"
       }
       "sand_storm_slow"
       {
-        "special_bonus_unique_sand_king_4"                "50"
+        "special_bonus_unique_sand_king_4"            "35"
       }
     }
   }

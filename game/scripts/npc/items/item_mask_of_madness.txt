@@ -14,7 +14,7 @@
     "ItemResult"                                          "item_mask_of_madness"
     "ItemRequirements"
     {
-      "01"                                                "item_lifesteal;item_broadsword"
+      "01"                                                "item_broadsword;item_lifesteal"
     }
   }
 
@@ -55,8 +55,10 @@
       "bonus_damage"                                      "20"
       "lifesteal_percent"                                 "24"
       "berserk_bonus_attack_speed"                        "100"
-      "berserk_bonus_movement_speed"                      "25"
+      "berserk_bonus_movement_speed_melee"                "12"
+      "berserk_bonus_movement_speed"                      "8"
       "berserk_armor_reduction"                           "5" //OAA
+      "berserk_slow_resist"                               "30"
       "berserk_duration"                                  "6.0"
     }
   }

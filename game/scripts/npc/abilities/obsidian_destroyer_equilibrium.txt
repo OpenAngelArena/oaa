@@ -5,36 +5,42 @@
   //=================================================================================================================
   "obsidian_destroyer_equilibrium"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                "0.75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proc_chance"                                       "25" //OAA
-      "mana_restore"                                      "25 30 35 40 45 50" //OAA
-      "mana_increase"
+      "proc_chance"                                   "25" //OAA
+      "mana_restore" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_obsidian_decimator"  "5"
+        "value"                                       "40"
+        "hero_levelup"                                "+5"
+        "levelup_interval"                            "5"
+        "special_bonus_unique_outworld_devourer_flux_restore" "+5"
       }
-      "mana_increase_duration"
+      "mana_restore_attack"
       {
-        "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_obsidian_decimator"  "10"
+        "value"                                       "25"
+        "hero_levelup"                                "+5"
+        "levelup_interval"                            "5"
+        "special_bonus_unique_outworld_devourer_flux_restore" "+5"
       }
       "mana_as_ms"
       {
-        "special_bonus_unique_outworld_devourer_3"        "=0.8"
+        "special_bonus_unique_outworld_devourer_3"    "=0.8"
       }
-      "scepter_barrier_threshold"                         "20"
-      "scepter_barrier_duration"                          "12"
-      "scepter_barrier_cooldown"                          "60" //OAA
-      "scepter_max_mana_barrier_pct"                      "40" //OAA
+      "scepter_barrier_cooldown"                      "60" //OAA
+      "scepter_max_mana_barrier_pct"                  "40" //OAA
     }
   }
 }

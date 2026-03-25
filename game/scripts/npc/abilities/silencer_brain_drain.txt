@@ -1,24 +1,33 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "silencer_brain_drain"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    "MaxLevel"                                            "1"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "permanent_int_steal_amount"                    "1" //OAA
+      "silenced_bonus_int_steal_amount"               "1"
       "permanent_int_steal_range" //OAA
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "925"
+        "affected_by_aoe_increase"                    "1"
       }
-      "permanent_int_steal_amount" //OAA
+      "damage_pct"
       {
-        "value"                                           "1"
-        "special_bonus_shard"                             "+1"
+        "value"                                       "5"
+        "hero_levelup"                                "+0.5"
+        "special_bonus_unique_silencer_brain_drain_damage" "+7"
       }
     }
   }

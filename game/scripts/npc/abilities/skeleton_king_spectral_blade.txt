@@ -1,44 +1,46 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "skeleton_king_spectral_blade"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    // Cost
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "cursed_damage_pct"
       {
-        "value"                                           "50"
-        "special_bonus_unique_wraith_king_facet_1"        "+15"
+        "value"                                       "50"
+        "special_bonus_unique_wraith_king_facet_1"    "+15"
       }
       "cursed_damage"
       {
-        "value"                                           "10 25 40 55 85 115"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                       "10 25 40 55 85 115"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_PURE"
       }
       "curse_cooldown"
       {
-        "value"                                           "18 16 14 12 11 10"
-        "special_bonus_unique_wraith_king_facet_3"        "-25%"
+        "value"                                       "18 16 14 12 11 10"
+        "special_bonus_unique_wraith_king_facet_3"    "-25%"
       }
       "curse_cooldown_creep"
       {
-        "value"                                           "6"
-        "special_bonus_unique_wraith_king_facet_3"        "-25%"
+        "value"                                       "6"
+        "special_bonus_unique_wraith_king_facet_3"    "-25%"
       }
       "curse_delay"
       {
-        "value"                                           "3"
-        //"special_bonus_unique_wraith_king_facet_2"        "-1"
+        "value"                                       "3"
       }
     }
   }

@@ -5,50 +5,48 @@
   //=================================================================================================================
   "omniknight_martyr"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                 "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 105 120 135 150 165"
+    "AbilityManaCost"                                 "90 105 120 135 150 165"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_strength"                                     "6 12 18 24 36 60"
-      "base_hpregen"                                      "8 12 16 20 28 40"
-      "strength_bonus"
+      "base_hpregen"                                  "8 12 16 20 28 40"
+      "AbilityCastRange"
       {
-        "value"                                           "3 4 5 6 7 8"
-        "special_bonus_unique_omniknight_2"               "+5"
+        "value"                                       "700"
+        "special_bonus_unique_omniknight_2"           "+200"
       }
       "duration" //OAA
       {
-        "value"                                           "4"
-        "special_bonus_unique_omniknight_5"               "+1"
+        "value"                                       "5"
+        "special_bonus_unique_omniknight_5"           "+1"
       }
       "magic_resist"
       {
-        "value"                                           "60"
+        "value"                                       "60"
       }
     }
   }

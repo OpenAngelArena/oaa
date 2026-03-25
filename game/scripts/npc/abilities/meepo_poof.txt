@@ -5,29 +5,31 @@
   //=================================================================================================================
   "meepo_poof"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" //OAA, Valve has extra spaces and |
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE" //OAA, Valve has extra spaces and |
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "0.0"
+    "AbilityCastPoint"                                "1.5"
+    "AbilityChannelTime"                              "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 5 4" //OAA
+    "AbilityCooldown"                                 "9 8 7 6 5 4" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                 "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,22 +37,22 @@
     {
       "cast_duration" //OAA
       {
-        "value"                                           "1.5"
-        "special_bonus_unique_meepo_poof_cast_point"      "-0.75"
+        "value"                                       "1.5"
+        "special_bonus_unique_meepo_poof_cast_point"  "-.75"
       }
       "radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
       "poof_damage"
       {
-        "value"                                           "50 80 110 140 280 560"
-        "special_bonus_unique_meepo_2"                    "+40"
+        "value"                                       "50 80 110 140 280 560"
+        "special_bonus_unique_meepo_2"                "+40"
       }
       "megameepo_poof_scaling"
       {
-        "special_bonus_scepter"                           "50"
+        "special_bonus_scepter"                       "50"
       }
     }
   }

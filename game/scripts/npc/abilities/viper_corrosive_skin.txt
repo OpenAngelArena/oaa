@@ -1,60 +1,67 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "viper_corrosive_skin"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "4.0"
-      "bonus_attack_speed" // with scepter: multiplied by effect_multiplier within effect_multiplier_distance radius
+      "duration"
       {
-        "value"                                           "9 18 27 36 40 45"
-        "display_type"                                    "kDebuffValue"
+        "value"                                       "4.0"
+      }
+      "bonus_attack_speed"
+      {
+        "value"                                       "9 18 27 36 40 45"
+        "display_type"                                "kDebuffValue"
       }
       "bonus_magic_resistance"
       {
-        "value"                                           "10 15 20 25 30 35"
-        "display_type"                                    "kBuffPercentage"
+        "value"                                       "10 15 20 25 30 35"
+        "display_type"                                "kBuffPercentage"
       }
       "damage"
       {
-        "value"                                           "10 15 20 25 50 75"
-        "special_bonus_unique_viper_1"                    "+20"
+        "value"                                       "10 15 20 25 50 75"
+        "special_bonus_unique_viper_1"                "+15"
       }
       "max_range"
       {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "1200"
+        "affected_by_aoe_increase"                    "1"
       }
       "effect_multiplier_distance"
       {
-        "special_bonus_scepter"                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                       "500"
+        "affected_by_aoe_increase"                    "1"
       }
       "effect_multiplier"
       {
-        "special_bonus_scepter"                           "4"
-        "display_type"                                    "kBuffPercentage"
+        "special_bonus_scepter"                       "4"
+        "display_type"                                "kBuffPercentage"
       }
       "nethertoxin_bonus_pct"
       {
-        "special_bonus_facet_viper_caustic_bath"          "=75"
+        "special_bonus_scepter"                       "=50"
       }
       "nethertoxin_bonus_pct_max_duration_tooltip"
       {
-        "special_bonus_facet_viper_caustic_bath"          "=5.0"
+        "special_bonus_scepter"                       "=4.0"
       }
     }
   }

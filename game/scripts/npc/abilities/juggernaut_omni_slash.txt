@@ -5,55 +5,56 @@
   //=================================================================================================================
   "juggernaut_omni_slash"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                          "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "275" //OAA
+    "AbilityManaCost"                                 "275" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_rate_multiplier"                            "1.4"
-      "bonus_damage"                                      "10 20 30 40 50" //OAA
-      "bonus_attack_speed"                                "0" //OAA
+      "attack_rate_multiplier"                        "1.4"
+      "bonus_damage"                                  "10 20 30 40 50" //OAA
+      "bonus_attack_speed"                            "0" //OAA
       "duration" //OAA
       {
-        "value"                                           "3"
-        "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
+        "value"                                       "3 3.25 3.5 3.5 3.5"
+        "special_bonus_unique_juggernaut_omnislash_duration" "+1"
       }
       "omni_slash_radius" //OAA
       {
-        "value"                                           "400"
+        "value"                                       "425"
       }
       "AbilityCastRange"
       {
-        "value"                                           "450"
+        "value"                                       "450"
       }
       "dispel"
       {
-        "value"                                           "0"
+        "value"                                       "0"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                       "120"
+        "special_bonus_unique_juggernaut_omnislash_cooldown" "-15"
       }
     }
   }

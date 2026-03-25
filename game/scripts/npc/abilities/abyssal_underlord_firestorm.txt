@@ -5,67 +5,70 @@
   //=================================================================================================================
   "abyssal_underlord_firestorm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "AbilityCastRange"                                    "675"
-    "AbilityCastPoint"                                    "0.5"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "675"
+    "AbilityCastPoint"                                "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 125 140 155 170 185"
+    "AbilityManaCost"                                 "110 125 140 155 170 185"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "wave_count"                                    "6"
+      "wave_interval"                                 "1.0"
+      "burn_interval"                                 "1.0"
+      "burn_duration"                                 "2.0"
       "AbilityCooldown"
       {
-        "value"                                           "16 15 14 13 12 11"
-        "special_bonus_unique_underlord_5"                "-4"
+        "value"                                       "16 15 14 13 12 11"
+        "special_bonus_unique_underlord_5"            "-5"
       }
       "radius"
       {
-        "value"                                           "425"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "425"
+        "affected_by_aoe_increase"                    "1"
       }
       "wave_duration"
       {
-        "value"                                           "7.0"
+        "value"                                       "7.0"
       }
-      "wave_count"                                        "6"
       "wave_damage"
       {
-        "value"                                           "30 50 70 90 180 270"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "30 55 80 105 180 270"
+        "CalculateSpellDamageTooltip"                 "1"
       }
-      "wave_interval"                                     "1.0"
       "burn_damage" //OAA, because of special_bonus_unique_underlord_4 nerf
       {
-        "value"                                           "1.5 2 2.5 3 3.5 4"
-        "special_bonus_unique_underlord_4"                "+0.5"
+        "value"                                       "1.5 2 2.5 3 3 3"
+        "special_bonus_unique_underlord_4"            "+0.6"
       }
-      "burn_interval"                                     "1.0"
-      "burn_duration"                                     "2.0"
       "can_target_units"
       {
-        "special_bonus_shard"                             "+1"
+        "special_bonus_shard"                         "+1"
       }
       "shard_wave_count_bonus"
       {
-        "special_bonus_shard"                             "+3"
+        "special_bonus_shard"                         "+3"
       }
       "shard_wave_interval_reduction"
       {
-        "special_bonus_shard"                             "+25"
+        "special_bonus_shard"                         "+25"
       }
     }
   }

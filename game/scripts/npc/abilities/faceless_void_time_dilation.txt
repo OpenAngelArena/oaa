@@ -5,45 +5,73 @@
   //=================================================================================================================
   "faceless_void_time_dilation"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                "0.1"
 
-    "AbilityCastPoint"                                    "0.1"
-    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
-    "AbilityManaCost"                                     "90"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "19 18 17 16 15 14" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                      "7 8 9 10 11 12"
+      "cooldown_percentage"                           "35 40 45 50 55 60" //OAA
+      "base_damage"                                   "0"
       "radius"
       {
-        "value"                                           "775"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "775"
+        "affected_by_aoe_increase"                    "1"
       }
-      "duration"                                          "7 8 9 10 11 12"
       "slow"
       {
-        "value"                                           "4 5 6 7 8 9"
-        "special_bonus_unique_faceless_void_8"            "+8"
+        "value"                                       "4 5 6 7 8 9"
+        "special_bonus_shard"                         "+5"
       }
-      "cooldown_percentage"                               "35 40 45 50 55 60" //OAA
-      "base_damage"                                       "0"
+      "attack_slow_tooltip_only"
+      {
+        "value"                                       "4 5 6 7 7 7"
+        "special_bonus_shard"                         "+5"
+      }
       "damage_per_stack"
       {
-        "value"                                           "4 6 8 10 20 40"
-        "special_bonus_unique_faceless_void_6"            "+6"
+        "value"                                       "4 6 8 10 20 40"
+        "special_bonus_unique_faceless_void_6"        "+6"
       }
-      "heal_prevent_percent"                              "-25 -30 -35 -40 -45 -50" //OAA, reduces healing only
-      "health_restoration"                                "-25 -30 -35 -40 -45 -50" //OAA, reduces everything else
+      "self_movespeed_tooltip"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "=9 =10 =11 =12 =12 =12"
+      }
+      "self_attackspeed_tooltip"
+      {
+        "value"                                       "0"
+        "special_bonus_shard"                         "=9 =10 =11 =12 =12 =12"
+      }
+      "self_buff"
+      {
+        "special_bonus_shard"                         "+1"
+      }
+      "heal_prevent_percent"                          "-25 -30 -35 -40 -45 -50" //OAA, reduces healing only
+      "health_restoration"                            "-25 -30 -35 -40 -45 -50" //OAA, reduces everything else
     }
   }
 }

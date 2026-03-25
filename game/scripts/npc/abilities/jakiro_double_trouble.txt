@@ -5,19 +5,23 @@
   //=================================================================================================================
   "jakiro_double_trouble"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Macropyre) + 1
-    "DependentOnAbility"                                  "jakiro_macropyre"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "second_attack_delay"                               "0.2"
+      "second_attack_delay"                           "0.2"
       "attack_damage_reduction" //OAA
       {
-        "value"                                           "50"
-        "special_bonus_facet_jakiro_twin_terror"          "=40 =37 =34 =31 =28 =25"
+        "value"                                       "51"
+        "hero_levelup"                                "-1.0"
       }
     }
   }

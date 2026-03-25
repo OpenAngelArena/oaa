@@ -5,39 +5,40 @@
   //=================================================================================================================
   "puck_phase_shift"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.01"
-    "AbilityChannelTime"                                  "1 1.75 2.5 3.25 3.25 3.25"
+    "AbilityCastPoint"                                "0.01"
+    "AbilityChannelTime"                              "1 1.75 2.5 3.25 3.25 3.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                 "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "1 1.75 2.5 3.25 3.25 3.25"
-      "shard_attack_range_bonus" // unused
+      "duration"                                      "1 1.75 2.5 3.25 3.25 3.25"
+      "shard_attack_range_bonus"
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                         "0"
       }
       "shard_bonus_damage" //OAA, this applies to every attack, not just Phase Shift attack
       {
-        "special_bonus_shard"                             "5 10 15 20 40 60"
+        "special_bonus_shard"                         "20"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "7.25 7.0 6.75 6.5 6.25 6.0"
+        "value"                                       "8 7.5 7 6.5 6.5 6.5"
       }
     }
   }

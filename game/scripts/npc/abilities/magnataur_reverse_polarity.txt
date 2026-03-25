@@ -5,23 +5,25 @@
   //=================================================================================================================
   "magnataur_reverse_polarity"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityManaCost"                                     "150 225 300 375 450"
-    "AbilityCastRange"                                    "430" //OAA, same as pull_radius (Valve has it wrong)
+    "AbilityCastRange"                                "430" //OAA, same as pull_radius (Valve has it wrong)
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "150 225 300 375 450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,56 +31,56 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "-20"
+        "value"                                       "115"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "=100"
       }
       "pull_radius"
       {
-        "value"                                           "430"
-        "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "-100%"
+        "value"                                       "430"
+        "affected_by_aoe_increase"                    "1"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "-100%"
       }
       "push_radius"
       {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+700"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "0"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "+700"
+        "affected_by_aoe_increase"                    "1"
       }
       "max_knockback_distance"
       {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+850"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "0"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "+850"
+        "affected_by_aoe_increase"                    "1"
       }
       "knockback_height"
       {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+100"
+        "value"                                       "0"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "+100"
       }
       "polarity_damage" //OAA
       {
-        "value"                                           "250 450 650 1250 1850"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "100 200 300 300 300"
+        "CalculateSpellDamageTooltip"                 "1"
       }
       "hero_stun_duration"
       {
-        "value"                                           "2.5 3.0 3.5 3.75 4.0"
-        "special_bonus_unique_magnus_5"                   "+0.8"
+        "value"                                       "2.5 3.0 3.5 3.75 4.0"
+        "special_bonus_unique_magnus_5"               "+0.8"
       }
       "pull_duration"
       {
-        "value"                                           "0.0"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+0.2"
+        "value"                                       "0.0"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity" "+0.2"
       }
       "stat_buff_duration"
       {
-        "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+20"
+        "value"                                       "0"
+        "special_bonus_unique_magnus_reverse_polarity_stats" "+20"
       }
       "stats_per_stack" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+15"
+        "value"                                       "0"
+        "special_bonus_unique_magnus_reverse_polarity_stats" "+12"
       }
     }
   }

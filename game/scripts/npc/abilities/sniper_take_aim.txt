@@ -5,59 +5,72 @@
   //=================================================================================================================
   "sniper_take_aim"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0 0 0 0 0 0"
 
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "17 16 15 14 13 12" //OAA
 
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
-
-    "AbilityManaCost"                                     "50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "headshot_chance"                               "100"
+      "bonus_vision"                                  "250 500 750 1000 1250 1500" //OAA
+      "view_restrict"                                 "140"
       "duration"
       {
-        "value"                                           "3"
-        "special_bonus_unique_sniper_4"                   "+2"
+        "value"                                       "3"
+        "special_bonus_unique_sniper_4"               "+2"
       }
       "slow"
       {
-        "value"                                           "65"
+        "value"                                       "65"
       }
-      "headshot_chance"                                   "100"
       "active_attack_range_bonus" //OAA
       {
-        "value"                                           "100 150 200 250 300 350"
-        "special_bonus_unique_sniper_5"                   "+50"
+        "value"                                       "75 150 225 300 300 300"
+        "special_bonus_unique_sniper_5"               "+50"
       }
-      "bonus_vision"                                      "250 500 750 1000 1250 1500" //OAA
-      "view_restrict"                                     "140"
+      "passive_attack_range_bonus"
+      {
+        "value"                                       "160 240 320 400 400 400"
+        "special_bonus_unique_sniper_5"               "+50"
+      }
       "does_root"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "require_target"
       {
-        "value"                                           "0"
+        "value"                                       "0"
       }
       "no_reveal"
       {
-        "special_bonus_facet_sniper_ghillie_suit"         "1"
+        "value"                                       "0"
       }
       "attack_speed"
       {
-        "value"                                           "0"
-        "special_bonus_unique_sniper_6"                   "+45"
+        "value"                                       "0"
+        "special_bonus_unique_sniper_6"               "+45"
       }
     }
   }

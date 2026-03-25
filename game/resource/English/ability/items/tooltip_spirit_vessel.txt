@@ -1,10 +1,10 @@
 //===================================================================================
 // Spirit Vessel
 //===================================================================================
-// "DOTA_Tooltip_Ability_item_recipe_spirit_vessel"                               "Spirit Vessel Recipe"
-// "DOTA_Tooltip_Ability_item_spirit_vessel"                                      "Spirit Vessel"
+"DOTA_Tooltip_Ability_item_recipe_spirit_vessel"                               "Spirit Vessel Recipe"
+"DOTA_Tooltip_Ability_item_spirit_vessel"                                      "Spirit Vessel"
 // "DOTA_Tooltip_ability_item_spirit_vessel_Description"                          "<h1>Active: Soul Release</h1> When used against enemies, it reduces health by %enemy_hp_drain%%% of current health per second, and reduces HP regeneration, healing, lifesteal and spell lifesteal by %hp_regen_reduction_enemy%%%. Deals %soul_damage_amount% damage per second. <br><br>When used on allies, it provides %soul_heal_amount% health regeneration per second. <br><br>Lasts %duration% seconds.  <br><br>Gains charges every time an enemy hero dies within %soul_radius% units.  Only the closest Spirit Vessel to the dying hero will gain a charge.<br><br>Cast Range: %abilitycastrange%"
-// "DOTA_Tooltip_ability_item_spirit_vessel_lore"                                 "Forged by a god to entrap the soul of another."
+"DOTA_Tooltip_ability_item_spirit_vessel_lore"                                 "Forged by a god to entrap the soul of another."
 
 // "DOTA_Tooltip_modifier_item_spirit_vessel_heal"                                "Spirit Vessel Heal"
 // "DOTA_Tooltip_modifier_item_spirit_vessel_heal_Description"                    "Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."

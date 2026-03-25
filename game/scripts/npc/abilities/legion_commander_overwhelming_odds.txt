@@ -5,73 +5,69 @@
   //=================================================================================================================
   "legion_commander_overwhelming_odds"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 105 120 135 150 165"
+    "AbilityManaCost"                                 "90 105 120 135 150 165"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "40 70 100 130 260 520"
-      "damage_per_unit"                                   "14 16 18 20 40 80"
-      "damage_per_hero" //OAA
-      {
-        "value"                                           "40 70 100 130 260 520"
-        "special_bonus_unique_legion_commander_4"         "+100"
-      }
-      "bonus_attack_speed_creeps"                         "0"
-      "bonus_attack_speed"                                "65 90 115 140 165 190" //OAA
-      "duration"                                          "6.0"
+      "damage"                                        "40 70 100 130 260 520"
+      "damage_per_unit"                               "14 16 18 20 40 80"
+      "bonus_armor_heroes"                            "0"
+      "bonus_armor_creeps"                            "0"
+      "bonus_attack_speed_creeps"                     "0"
+      "bonus_attack_speed"                            "65 90 115 140 165 190" //OAA
+      "duration"                                      "6.0"
+      "slow_duration"                                 "0.3"
+      "movement_slow"                                 "100"
       "radius"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "600"
+        "special_bonus_shard"                         "+100"
+        "affected_by_aoe_increase"                    "1"
       }
-      "armor_per_creep" // unused?
+      "damage_per_hero" //OAA
       {
-        "special_bonus_shard"                             "1"
-      }
-      "armor_per_hero" // unused?
-      {
-        "special_bonus_shard"                             "5"
-      }
-      "shard_duration" // unused?
-      {
-        "special_bonus_shard"                             "8"
+        "value"                                       "40 70 100 130 130 130"
+        "special_bonus_unique_legion_commander_4"     "+35"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 14 13"
-        "special_bonus_unique_legion_commander_9"         "-2"
-      }
-      "duel_radius_bonus" //OAA
-      {
-        "special_bonus_shard"                             "+150"
+        "value"                                       "18"
+        "special_bonus_unique_legion_commander_9"     "-2"
       }
       "shield_per_damage_pct" //OAA
       {
-        "special_bonus_facet_legion_commander_stonehall_plate"  "+80"
+        "special_bonus_shard"                         "+50"
+        "RequiresShard"                               "1"
       }
       "shield_duration" //OAA
       {
-        "special_bonus_facet_legion_commander_stonehall_plate"  "+8"
+        "special_bonus_shard"                         "+6"
+        "RequiresShard"                               "1"
+      }
+      "duel_radius_bonus" //OAA
+      {
+        "special_bonus_shard"                         "+150"
       }
     }
   }

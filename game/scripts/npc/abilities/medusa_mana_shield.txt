@@ -5,61 +5,62 @@
   //=================================================================================================================
   "medusa_mana_shield"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_mana"                                   "2.0"
-      "damage_per_mana_per_level"                         "0.06" //OAA
-      "illusion_percentage"                               "60"
-      "absorption_pct"                                    "98"
-      "damage_per_mana_total"
+      "illusion_percentage"                           "60"
+      "absorption_pct"                                "98"
+      "aspd_increase_smoothness"                      "0.015"
+      "damage_per_mana"
       {
-        "dynamic_value"                                   "true"
+        "value"                                       "2"
+        "hero_levelup"                                "+0.1"
       }
-      "aspd_increase_smoothness"                          "0.015"
       "aspd_increase_rate_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=3.5"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=3.5"
       }
       "aspd_increase_max_tooltip"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=35"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=35"
       }
       "aspd_increase_buff_duration"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=15"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=15"
       }
       "aspd_increase_mana_cost_pct"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=3"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=3"
       }
       "aspd_increase_max_aspd_time"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=10"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=10"
       }
       "attack_buff_cooldown"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=35"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=35"
       }
       "min_duration"
       {
-        "value"                                           "0"
-        "special_bonus_facet_medusa_mana_pact"            "=3"
+        "value"                                       "0"
+        "special_bonus_facet_medusa_mana_pact"        "=3"
       }
+      "damage_per_mana_per_level"                     "0.06" //OAA
     }
   }
 }

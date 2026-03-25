@@ -5,56 +5,39 @@
   //=================================================================================================================
   "slardar_sprint"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                "0"
+    "AbilityCastPoint"                                "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                 "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_speed"                                   "10 18 26 34 42 50"
+      "speed_burst_max_duration"                      "2.5"
+      "slow_resistance_tooltip"                       "100"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "20 19 18 17 16 15"
+        "value"                                       "29 25 21 17 17 17"
       }
-      "bonus_speed"                                       "10 18 26 34 42 50"
       "duration"
       {
-        "value"                                           "10"
-        "special_bonus_unique_slardar_7"                  "+2"
-      }
-      "speed_burst_percent"
-      {
-        "special_bonus_facet_slardar_leg_day"             "+8"
-      }
-      "speed_burst_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "5.0"
-      }
-      "speed_burst_max_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "2.5"
-      }
-      "slow_resistance_tooltip"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_slardar_leg_day"             "=100"
+        "value"                                       "10"
+        "special_bonus_unique_slardar_7"              "+2"
       }
     }
   }

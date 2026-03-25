@@ -5,71 +5,70 @@
   //=================================================================================================================
   "sniper_assassinate"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "3000"
-    "AbilityCastRangeBuffer"                              "600"
-    "AbilityCastPoint"                                    "2"
+    "AbilityCastRange"                                "3000"
+    "AbilityCastPoint"                                "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 15 10 10 10"
+    "AbilityCooldown"                                 "20 15 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 185 195 205 215" //OAA
+    "AbilityManaCost"                                 "175 185 195 205 215" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                              "2500 2500 2500 2500 2500"
+      "cooldown_reduction_on_kill"                    "0 5 10 10 10"
+      "attack_factor"                                 "0 0 0 25 30"
+      "attack_factor_tooltip"                         "100 100 100 125 130"
       "damage" //OAA
       {
-        "value"                                           "300 450 600 1050 1500"
-        "special_bonus_unique_sniper_1"                   "+150"
+        "value"                                       "300 400 500 500 500"
+        "special_bonus_unique_sniper_1"               "+150"
       }
-      "projectile_speed"                                  "2500"
       "scepter_stun_duration"
       {
-        "special_bonus_scepter"                           "0.8 1.0 1.2 1.4 1.6"
+        "special_bonus_scepter"                       "0.8 1.0 1.2 1.2 1.2"
       }
-      "scepter_crit" // unused
+      "scepter_crit"
       {
-        "special_bonus_scepter"                           "0"
+        "special_bonus_scepter"                       "0"
       }
       "scepter_cast_point"
       {
-        "special_bonus_scepter"                           "0.5"
+        "special_bonus_scepter"                       "0.5"
       }
-      "scatter_range" // unused
+      "scatter_range"
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                         "0"
       }
-      "scatter_width" // unused
+      "scatter_width"
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                         "0"
       }
-      "scatter_damage_pct" // unused
+      "scatter_damage_pct"
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                         "0"
       }
-      "cooldown_reduction_on_kill"                        "0 5 10 10 10"
-      "attack_factor"                                     "0 10 20 25 30"
-      "attack_factor_tooltip"                             "100 110 120 125 130"
     }
   }
 }

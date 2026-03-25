@@ -5,62 +5,48 @@
   //=================================================================================================================
   "mirana_leap"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "30 25 20 15 14 13" //OAA
+    "AbilityCooldown"                                 "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
+    "AbilityManaCost"                                 "50 55 60 65 70 75" //OAA
+    "AbilityCharges"                                  "2"
+    "AbilityChargeRestoreTime"                        "30 25 20 15 14 13" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "leap_speed"                                    "1300.0"
+      "leap_acceleration"                             "6000.0"
+      "leap_speedbonus"                               "6 12 18 24 30 36"
+      "leap_bonus_duration"                           "5" //special_bonus_unique_mirana_3_oaa
       "leap_distance"
       {
-        "value"                                           "650"
-        "special_bonus_unique_mirana_6"                   "+150"
+        "value"                                       "650"
+        "special_bonus_unique_mirana_6"               "+150"
       }
-      "leap_speed"                                        "1300.0"
-      "leap_acceleration"                                 "6000.0"
-      "leap_speedbonus"                                   "6 12 18 24 30 36"
       "leap_speedbonus_as"
       {
-        "value"                                           "25 50 75 100 125 150"
-        "special_bonus_unique_mirana_1"                   "+90"
+        "value"                                       "25 50 75 100 125 150"
+        "special_bonus_unique_mirana_1"               "+90"
       }
-      "leap_bonus_duration"                               "5" // special_bonus_unique_mirana_3_oaa
       "additional_charges"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+1"
-      }
-      "crit_damage_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+150"
-      }
-      "root_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_mirana_leaps_and_bounds"     "+250"
-      }
-      "root_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_mirana_leaps_and_bounds"     "=1.5 =1.75 =2.0 =2.25 =2.5 =2.75"
+        "value"                                       "0"
+        "special_bonus_shard"                         "+1"
       }
     }
   }

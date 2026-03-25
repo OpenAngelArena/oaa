@@ -5,47 +5,48 @@
   //=================================================================================================================
   "skywrath_mage_ancient_seal"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 750 800 850 900 950"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                "700 750 800 850 900 950"
+    "AbilityCastPoint"                                "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 120 130"
+    "AbilityManaCost"                                 "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "seal_duration"                                 "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
       "resist_debuff"
       {
-        "value"                                           "-20 -25 -30 -35 -40 -45"
-        "special_bonus_unique_skywrath_3"                 "-10"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "value"                                       "-20 -25 -30 -35 -40 -45"
+        "special_bonus_unique_skywrath_3"             "-10"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_MAGICAL"
       }
-      "seal_duration"                                     "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
       "scepter_radius"
       {
-        "special_bonus_scepter"                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_scepter"                       "500"
+        "affected_by_aoe_increase"                    "1"
       }
       "AbilityCooldown"
       {
-        "value"                                           "14"
-        "special_bonus_unique_skywrath"                   "-6"
+        "value"                                       "14"
+        "special_bonus_unique_skywrath"               "-6"
       }
     }
   }

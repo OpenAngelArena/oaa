@@ -5,27 +5,26 @@
   //=================================================================================================================
   "oracle_false_promise"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 800 900 1000 1100"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                "700 800 900 1000 1100"
+    "AbilityCastPoint"                                "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 250 300"
+    "AbilityManaCost"                                 "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,38 +32,30 @@
     {
       "duration" //OAA
       {
-        "value"                                           "7.0 7.5 8.0 8.5 9.0"
-        "special_bonus_unique_oracle"                     "+1.5"
+        "value"                                       "7 8.5 10 10 10"
+        "special_bonus_unique_oracle"                 "+1.5"
       }
       "radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "shard_fade_time"
-      {
-        "special_bonus_scepter"                           "0.15"
-      }
-      "shard_spell_amp_bonus" //OAA
-      {
-        "special_bonus_scepter"                           "15 20 25 30 35"
-      }
-      "shard_bat_bonus"
-      {
-        "special_bonus_scepter"                           "0.25"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_unique_oracle_6"                   "-20"
+        "value"                                       "110 85 60 60 60"
+        "special_bonus_unique_oracle_6"               "-20"
       }
       "bonus_armor"
       {
-        "special_bonus_unique_oracle_9"                   "+8"
+        "special_bonus_unique_oracle_9"               "+8"
       }
       "heal_amp_pct"
       {
-        "value"                                           "100"
+        "value"                                       "100"
+      }
+      "shard_spell_amp_bonus" //OAA
+      {
+        "special_bonus_scepter"                       "15 20 25 30 35"
       }
     }
   }

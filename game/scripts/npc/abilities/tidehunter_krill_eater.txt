@@ -5,37 +5,56 @@
   //=================================================================================================================
   "tidehunter_krill_eater"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
-    "MaxLevel"                                            "1"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "model_scale_base"                                  "-25"
-      "model_scale_per_level"                             "2" //OAA
-
-      "attack_range_base"                                 "-50" //OAA
-      "attack_range_per_level"                            "2" //OAA
-
-      "anchor_smash_radius_base"                          "-50" //OAA
-      "anchor_smash_radius_per_level"                     "2" //OAA
-
-      "health_bar_offset_base"                            "160"
-      "health_bar_offset_per_level"                       "5"
-
-      "strength_gain_tooltip"                             "3.9"
-
-      "attack_range_tooltip"
+      "fish_duration"                                 "30"
+      "fish_strength_gain"                            "0"
+      "fish_attack_range"                             "2"
+      "fish_damage_block"                             "1"
+      "fish_health_bonus"                             "3"
+      "fish_model_scale"                              "1.1"
+      "max_fish_spawn_distance"                       "400"
+      "health_bar_offset_base"                        "160"
+      "health_bar_offset_per_level"                   "5"
+      "model_scale"
       {
-        "dynamic_value"                                   "true"
+        "value"                                       "0"
       }
-      "anchor_smash_range_tooltip"
+      "attack_range"
       {
-        "dynamic_value"                                   "true"
+        "value"                                       "0"
       }
+      "anchor_smash_radius"
+      {
+        "value"                                       "0"
+      }
+      "permanent_health_gain"
+      {
+        "dynamic_value"                               "true"
+      }
+      "permanent_attack_range_gain"
+      {
+        "dynamic_value"                               "true"
+      }
+      "permanent_damage_block_gain"
+      {
+        "dynamic_value"                               "true"
+      }
+      "model_scale_per_level"                         "2" //OAA
+      "attack_range_base"                             "-50" //OAA
+      "attack_range_per_level"                        "2" //OAA
+      "anchor_smash_radius_base"                      "-50" //OAA
+      "anchor_smash_radius_per_level"                 "2" //OAA
     }
   }
 }

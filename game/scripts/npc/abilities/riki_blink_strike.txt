@@ -5,45 +5,46 @@
   //=================================================================================================================
   "riki_blink_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75"
+    "AbilityManaCost"                                 "50 55 60 65 70 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange" // OAA, because of special_bonus_unique_riki_9
+      "slow"                                          "0.75"
+      "slow_pct_tooltip"                              "100"
+      "AbilityCastRange" //OAA, because of special_bonus_unique_riki_9
       {
-        "value"                                           "600 700 800 900 1000 1100"
-        "special_bonus_unique_riki_9"                     "+400"
-      }
-      "AbilityCooldown"
-      {
-        "value"                                           "13 10 7 4 4 4"
-        "special_bonus_unique_riki_5"                     "-1"
+        "value"                                       "600 700 800 900 900 900"
+        "special_bonus_unique_riki_9"                 "+500"
       }
       "bonus_damage"
       {
-        "value"                                           "15 30 45 60 120 180"
+        "value"                                       "15 30 45 60 120 180"
       }
-      "slow"                                              "0.5"
+      "AbilityCooldown"
+      {
+        "value"                                       "13 10 7 4 4 4"
+        "special_bonus_unique_riki_5"                 "-1"
+      }
     }
   }
 }

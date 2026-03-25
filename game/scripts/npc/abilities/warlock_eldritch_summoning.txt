@@ -5,37 +5,46 @@
   //=================================================================================================================
   "warlock_eldritch_summoning"
   {
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6" // MaxLevel: 7 with Aghanim Shard
-    "DependentOnAbility"                                  "warlock_rain_of_chaos"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                              "warlock_imp_explode"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "minor_imp_duration"                                "15"
-      "imp_level"
+      "minor_imp_duration"                            "15"
+      "golem_can_summon"                              "0"
+      "imp_health"
       {
-        "value"                                           "1 2 3 4 5 6 6"
-        "special_bonus_shard"                             "+1"
+        "value"                                       "5"
+        "hero_levelup"                                "+15"
+        "special_bonus_shard"                         "+80"
       }
-
-      "golem_can_summon"                                  "0"
-
-      // these values are defined in "warlock_imp_explode"
-      // the values here are only used in tooltips
-      // so update in warlock_imp_explode first, then update here for innate tooltip
-
-      // bonus_hp from warlock_imp_explode *plus 50*
-      "tooltip_imp_health"                                "50 130 210 290 370 690 1330"
-      // exactly explosion_dmg from warlock_imp_explode
-      "tooltip_imp_explode"                               "20 65 110 155 200 335 560"
+      "imp_explode"
+      {
+        "value"                                       "20"
+        "hero_levelup"                                "+20"
+        "levelup_interval"                            "3"
+        "special_bonus_shard"                         "+45"
+      }
+      "imp_speed"
+      {
+        "value"                                       "297"
+        "hero_levelup"                                "+3"
+      }
       "tooltip_imp_explode_radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
     }
   }

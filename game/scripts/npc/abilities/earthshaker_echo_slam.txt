@@ -5,56 +5,55 @@
   //=================================================================================================================
   "earthshaker_echo_slam"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                "0 0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityManaCost"                                 "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "echo_slam_initial_damage"                      "100 180 260 500 900" //OAA
       "echo_slam_damage_range" //OAA
       {
-        "value"                                           "750"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "700"
+        "CalculateSpellDamageTooltip"                 "0"
+        "DamageTypeTooltip"                           "DAMAGE_TYPE_NONE"
+        "affected_by_aoe_increase"                    "1"
       }
       "echo_slam_echo_search_range" //OAA
       {
-        "value"                                           "750"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "700"
+        "affected_by_aoe_increase"                    "1"
       }
       "echo_slam_echo_range" //OAA
       {
-        "value"                                           "750"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "700"
+        "affected_by_aoe_increase"                    "1"
       }
       "echo_slam_echo_damage" //OAA
       {
-        "value"                                           "70 110 150 270 470"
-        "special_bonus_unique_earthshaker_2"              "+100"
+        "value"                                       "70 90 110 110 110"
+        "special_bonus_unique_earthshaker_2"          "+50"
       }
-      "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
       "AbilityCooldown" //OAA
       {
-        "value"                                           "110"
-        "special_bonus_unique_earthshaker_echo_cd"        "-50%"
+        "value"                                       "130.0 120.0 110.0 110.0 110.0"
+        "special_bonus_unique_earthshaker_echo_cd"    "-50%"
       }
     }
   }

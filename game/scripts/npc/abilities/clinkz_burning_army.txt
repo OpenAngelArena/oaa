@@ -5,33 +5,35 @@
   //=================================================================================================================
   "clinkz_burning_army"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
-    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_PHYSICAL"
+    "IsGrantedByScepter"                              "1"
+    "MaxLevel"                                        "1"
+    "RequiredLevel"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                "600"
+    "AbilityCastPoint"                                "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                 "70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                 "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "range"                                             "900"
-      "count"                                             "6"
-      "spawn_interval"                                    "0.1"
+      "range"                                         "900"
+      "count"                                         "6"
+      "spawn_interval"                                "0.1"
     }
   }
 }

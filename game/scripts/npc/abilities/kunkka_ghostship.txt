@@ -5,96 +5,92 @@
   //=================================================================================================================
   "kunkka_ghostship"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                            "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                               "1"
+    "MaxLevel"                                        "5"
+    "RequiredLevel"                                   "6"
+    "LevelsBetweenUpgrades"                           "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.3"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "400 600 800 1200 2000" //OAA
+    "AbilityCastRange"                                "1000"
+    "AbilityCastPoint"                                "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 275 325"
+    "AbilityManaCost"                                 "125 175 225 275 325"
+    "AbilityDamage"                                   "400 600 800 1200 2000" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tooltip_delay"                                     "3.1"
-      "ghostship_distance"                                "2000"
+      "tooltip_delay"                                 "3.1"
+      "ghostship_distance"                            "2000"
+      "stun_duration"                                 "1.2"
+      "ghostship_speed"                               "650"
+      "rum_factor"                                    "2"
+      "num_cannon_volleys"                            "3"
+      "base_cannon_rotation"                          "20"
+      "rotation_per_cannon"                           "12"
+      "initial_cannon_offset"                         "-150"
+      "distance_between_cannons"                      "75"
       "ghostship_width"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "movespeed_bonus"                                   "15" // If changing this, update value in x marks for variant 1
-      "buff_duration"                                     "10"
-      "stun_duration"                                     "1.2"
-      "ghostship_speed"                                   "650"
-      "ghostship_absorb" //OAA
-      {
-        "value"                                           "30"  // If changing this, update value in x marks for variant 1
-        "special_bonus_unique_kunkka_rum"                 "+10"
+        "value"                                       "450"
+        "affected_by_aoe_increase"                    "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "70 65 60 55 50"
+        "value"                                       "90 80 70 70 70"
       }
       "fleet_interval"
       {
-        "special_bonus_scepter"                           "2.5"
+        "special_bonus_scepter"                       "2.5"
       }
       "fleet_count"
       {
-        "special_bonus_scepter"                           "2"
+        "special_bonus_scepter"                       "2"
       }
       "fire_cannons"
       {
-        "special_bonus_scepter"                           "1"
+        "special_bonus_scepter"                       "1"
       }
       "cannon_ball_damage_pct"
       {
-        "special_bonus_scepter"                           "40"
+        "special_bonus_scepter"                       "40"
       }
       "cannon_ball_distance"
       {
-        "special_bonus_scepter"                           "1200"
+        "special_bonus_scepter"                       "1200"
       }
       "cannon_ball_speed"
       {
-        "special_bonus_scepter"                           "1400"
+        "special_bonus_scepter"                       "1400"
       }
       "cannon_count"
       {
-        "special_bonus_scepter"                           "4"
+        "special_bonus_scepter"                       "4"
       }
       "cannon_ball_radius"
       {
-        "special_bonus_scepter"                           "100"
+        "special_bonus_scepter"                       "100"
       }
-      "num_cannon_volleys"                                "3"
       "cannon_fire_interval"
       {
-        "special_bonus_scepter"                           "0.78"
+        "special_bonus_scepter"                       "0.78"
       }
-      "base_cannon_rotation"                              "20"
-      "rotation_per_cannon"                               "12"
-      "initial_cannon_offset"                             "-150"
-      "distance_between_cannons"                          "75"
+      "ghostship_absorb" //OAA
+      {
+        "value"                                       "30"
+        "special_bonus_unique_kunkka_rum"             "+10"
+      }
     }
   }
 }

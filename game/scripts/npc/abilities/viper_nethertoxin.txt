@@ -1,62 +1,71 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "viper_nethertoxin"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                "900"
+    "AbilityCastPoint"                                "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14.0"
+    "AbilityCooldown"                                 "14.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
+    "AbilityManaCost"                                 "70 75 80 85 90 95" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "attack_slow"                                   "30 40 50 60 70 80"
+      "projectile_speed"                              "2400"
       "min_damage"
       {
-        "value"                                           "15 25 35 45 90 180"
-        "special_bonus_unique_viper_3"                    "+30"
+        "value"                                       "15 25 35 45 90 180"
+        "special_bonus_unique_viper_3"                "+20"
       }
       "max_damage"
       {
-        "value"                                           "35 65 95 125 250 500"
-        "special_bonus_unique_viper_3"                    "+30"
+        "value"                                       "35 65 95 125 250 500"
+        "special_bonus_unique_viper_3"                "+40"
       }
-      "max_duration"                                      "4"
+      "max_duration"
+      {
+        "value"                                       "4"
+      }
       "radius"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "400"
+        "affected_by_aoe_increase"                    "1"
       }
-      "attack_slow"                                       "30 40 50 60 70 80"
-      "duration"                                          "6.5 7 7.5 8 8.5 9"
-      "projectile_speed"                                  "2400"
+      "duration"
+      {
+        "value"                                       "6.5 7 7.5 8 8 8"
+      }
       "radius_increase"
       {
-        "value"                                           "0"
-        "special_bonus_unique_viper_nethertoxin_radius"   "+25"
+        "value"                                       "0"
+        "special_bonus_unique_viper_nethertoxin_radius" "+25"
       }
       "expand_interval"
       {
-        "value"                                           "0"
-        "special_bonus_unique_viper_nethertoxin_radius"   "+0.5"
+        "value"                                       "0"
+        "special_bonus_unique_viper_nethertoxin_radius" "+0.5"
       }
     }
   }

@@ -5,25 +5,31 @@
   //=================================================================================================================
   "centaur_double_edge"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                               "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                           "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                 "1"
+    "MaxLevel"                                        "6"
+    "RequiredLevel"                                   "1"
+    "LevelsBetweenUpgrades"                           "2"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.5"
-    "AbilityCastRange"                                    "175"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastRange"                                "175 175 175 175 175 175"
+    "AbilityCastPoint"                                "0.25"
 
-    "AbilityManaCost"                                     "0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                 "3.5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                 "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,53 +37,38 @@
     {
       "edge_damage"
       {
-        "value"                                           "120 180 240 300 600 900"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                       "120 180 240 300 600 900"
+        "CalculateSpellDamageTooltip"                 "1"
       }
       "strength_damage"
       {
-        "value"                                           "60 90 120 150 180 210"
-        "special_bonus_unique_centaur_4"                  "+30"
-      }
-      "stack_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_centaur_counter_strike"      "=6"
-      }
-      "pct_of_incoming_damage_as_bonus"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_centaur_counter_strike"      "=35"
-      }
-      "max_damage_increase_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_centaur_counter_strike"      "=100"
+        "value"                                       "60 90 120 150 180 210"
+        "special_bonus_unique_centaur_4"              "+30"
       }
       "radius"
       {
-        "value"                                           "220"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                       "220"
+        "affected_by_aoe_increase"                    "1"
       }
       "shard_str_pct"
       {
-        "special_bonus_shard"                             "+12"
+        "special_bonus_shard"                         "+12"
       }
       "shard_str_duration"
       {
-        "special_bonus_shard"                             "+15"
+        "special_bonus_shard"                         "+15"
       }
       "shard_max_stacks"
       {
-        "special_bonus_shard"                             "+5"
+        "special_bonus_shard"                         "+5"
       }
       "shard_movement_slow" //OAA
       {
-        "special_bonus_shard"                             "+30"
+        "special_bonus_shard"                         "+25"
       }
       "shard_movement_slow_duration"
       {
-        "special_bonus_shard"                             "+2"
+        "special_bonus_shard"                         "+2"
       }
     }
   }
