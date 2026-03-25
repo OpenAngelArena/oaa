@@ -5,21 +5,22 @@
   //=================================================================================================================
   "dazzle_shadow_wave"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,6 +34,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_targets"                                       "3 4 5 6 7 8"
+      "tooltip_max_targets_inc_dazzle"                    "4 5 6 7 8 9"
+      "scepter_heal_pct"                                  "100"
+      "scepter_cd_increase"                               "2"
       "AbilityCastRange"
       {
         "value"                                           "800"
@@ -47,15 +52,11 @@
         "value"                                           "185"
         "affected_by_aoe_increase"                        "1"
       }
-      "max_targets"                                       "3 4 5 6 7 8"
-      "tooltip_max_targets_inc_dazzle"                    "4 5 6 7 8 9"
       "damage" //OAA
       {
-        "value"                                           "85 110 135 160 320 640"
-        "special_bonus_unique_dazzle_2"                   "+90"
+        "value"                                           "85 105 125 145 145 145"
+        "special_bonus_unique_dazzle_2"                   "+45"
       }
-      "scepter_heal_pct"                                  "100"
-      "scepter_cd_increase"                               "2"
     }
   }
 }

@@ -5,21 +5,22 @@
   //=================================================================================================================
   "skywrath_mage_arcane_bolt"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,6 +34,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bolt_speed"                                        "500"
+      "bolt_vision"                                       "325"
+      "bolt_damage"                                       "60 90 120 150 300 450" //special_bonus_unique_skywrath_1_oaa
+      "vision_duration"                                   "3.34"
       "AbilityCastRange"
       {
         "value"                                           "875"
@@ -42,16 +47,12 @@
       {
         "special_bonus_unique_skywrath_6"                 "1"
       }
-      "bolt_speed"                                        "500"
-      "bolt_vision"                                       "325"
-      "bolt_damage"                                       "60 90 120 150 300 450" // special_bonus_unique_skywrath_1_oaa
       "int_multiplier"
       {
         "value"                                           "1.5"
         "special_bonus_unique_skywrath_2"                 "+1.5"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "vision_duration"                                   "3.34"
       "extra_bolt_search_radius"
       {
         "value"                                           "500"

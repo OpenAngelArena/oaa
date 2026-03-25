@@ -5,38 +5,39 @@
   //=================================================================================================================
   "riki_innate_backstab"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "ally_multiplier"                                   "25"
+      "backstab_angle"                                    "105"
       "damage_multiplier"
       {
-        "value"                                           "0.6"
+        "value"                                           "0.55"
         "hero_levelup"                                    "+0.05"
         "special_bonus_unique_riki_1"                     "+0.3"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "ally_multiplier"                                   "25"
-      "backstab_angle"                                    "105"
-      "bonus_xp_kill" // unused
+      "bonus_xp_kill"
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 150 250 350"
       }
-      "bonus_xp_assist" // unused
+      "bonus_xp_assist"
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 75 125 175"
       }
-      "bonus_xp_assist_other" // unused
+      "bonus_xp_assist_other"
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 75 125 175"

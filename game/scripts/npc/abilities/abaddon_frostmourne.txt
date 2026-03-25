@@ -5,13 +5,13 @@
   //=================================================================================================================
   "abaddon_frostmourne"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,11 +21,13 @@
     "AbilityValues"
     {
       "slow_duration"                                     "2"
+      "curse_duration"                                    "2.0"
+      "tower_dps_pct"                                     "100"
+      "curse_interval"                                    "0.5"
       "hit_count"
       {
         "value"                                           "1"
       }
-      "curse_duration"                                    "2.0"
       "curse_slow"
       {
         "value"                                           "10 15 20 25 30 35"
@@ -38,10 +40,8 @@
       "curse_dps"
       {
         "value"                                           "15 25 35 45 90 135"
-        "special_bonus_unique_abaddon_5"                  "+40"
+        "special_bonus_unique_abaddon_5"                  "+25"
       }
-      "tower_dps_pct"                                     "100"
-      "curse_interval"                                    "0.5"
     }
   }
 }

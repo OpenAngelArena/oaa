@@ -5,65 +5,68 @@
   //=================================================================================================================
   "legion_commander_duel"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 75 75 75 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"                                  "200" //OAA
+      "reward_damage"                                     "10 20 30" //OAA
+      "AbilityCooldown"                                   "60 55 50" //OAA
       "duration"
       {
         "value"                                           "4.0 4.5 5.0 5.75 6.5"
-        "special_bonus_scepter"                           "+1.0"
+        "special_bonus_unique_legion_commander_duel_duration"  "+1"
       }
-      "AbilityCastRange" //OAA
+      "trigger_pta_on_victory"
       {
-        "value"                                           "200 250 300 350 400"
-      }
-      "reward_damage" //OAA
-      {
-        "value"                                           "10 20 30 50 70"
-        "special_bonus_shard"                             "+10"
-      }
-      "assist_reward_damage"
-      {
-        "special_bonus_facet_legion_commander_spoils_of_war"  "5 10 15 20 25"
-      }
-      "assist_pta_duration_pct"
-      {
-        "special_bonus_facet_legion_commander_spoils_of_war"  "25"
-      }
-      "debuff_immunity"
-      {
+        "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
-      "damage_reduction_pct" // unused
+      "duel_refresh_on_victory"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_legion_commander_duel_refresh_on_victory"  "+1"
+      }
+      "damage_reduction_pct"
       {
         "value"                                           "0"
       }
-      "AbilityCooldown" //OAA
+      "team_duel"
       {
-        "value"                                           "50"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "team_duel_damage_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
+      }
+      "team_duel_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
       }
       "shard_duel_damage_bonus" //OAA
       {

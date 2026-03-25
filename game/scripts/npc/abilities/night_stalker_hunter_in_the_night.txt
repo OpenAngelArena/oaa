@@ -5,12 +5,13 @@
   //=================================================================================================================
   "night_stalker_hunter_in_the_night"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "1"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,30 +19,25 @@
     {
       "bonus_movement_speed_pct_night" //OAA, 5 vanilla levels
       {
-        "value"                                           "22 28 34 40 46 52"
-        "special_bonus_facet_night_stalker_dayswap"       "=10 =22 =28 =34 =40 =46 =52"
+        "value"                                           "24"
+        "hero_levelup"                                    "2"
+        "levelup_interval"                                "3"
+        "special_bonus_scepter"                           "+15"
       }
       "bonus_attack_speed_night" //OAA, 5 vanilla levels
       {
-        "value"                                           "20 40 60 80 100 120"
-        "special_bonus_facet_night_stalker_dayswap"       "=15 =35 =55 =75 =95 =115 =135"
+        "value"                                           "38"
+        "hero_levelup"                                    "2"
+        "special_bonus_scepter"                           "+50"
         "special_bonus_unique_night_stalker_2"            "+100"
+      }
+      "reset_cooldowns"
+      {
+        "special_bonus_scepter"                           "1"
       }
       "bonus_status_resist_night"
       {
         "special_bonus_unique_night_stalker_hunter_status_resist"  "+20"
-      }
-      "shard_hp_restore_pct"
-      {
-        "special_bonus_shard"                             "25"
-      }
-      "shard_mana_restore_pct"
-      {
-        "special_bonus_shard"                             "25"
-      }
-      "AbilityManaCost"
-      {
-        "special_bonus_shard"                             "+50"
       }
       "shard_cooldown" //OAA
       {
@@ -59,10 +55,6 @@
       "max_level_tooltip" //OAA
       {
         "special_bonus_facet_night_stalker_dayswap"       "=7"
-      }
-      "gives_free_level"
-      {
-        "special_bonus_facet_night_stalker_dayswap"       "+1"
       }
     }
   }

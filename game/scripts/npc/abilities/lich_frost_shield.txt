@@ -5,13 +5,16 @@
   //=================================================================================================================
   "lich_frost_shield"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,8 +32,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movement_slow"                                     "20 25 30 35 40 45"
+      "slow_duration"                                     "0.5"
+      "interval"                                          "1.0"
       "damage_reduction"
       {
         "value"                                           "45 50 55 60 65 70"
@@ -38,14 +46,11 @@
         "special_bonus_unique_lich_8"                     "+10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "movement_slow"                                     "20 25 30 35 40 45"
-      "slow_duration"                                     "0.5"
       "damage"
       {
         "value"                                           "18 32 46 60 120 240"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "interval"                                          "1.0"
       "radius"
       {
         "value"                                           "600"
@@ -53,22 +58,29 @@
       }
       "duration" //OAA
       {
-        "value"                                           "5.5 6 6.5 7 7.5 8"
+        "value"                                           "4 5 6 7 7 7"
         "special_bonus_unique_lich_4"                     "+4"
       }
       "health_regen" //OAA
       {
-        "special_bonus_unique_lich_1"                     "+75"
+        "special_bonus_unique_lich_1"                     "+50"
       }
       "bonus_duration_per_hero_killed"
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_growing_cold"           "+4"
       }
       "bonus_duration_per_creep_killed"
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_growing_cold"           "+1"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_lich_4"                     "+2"
+      }
+      "AbilityChargeRestoreTime"
+      {
+        "value"                                           "30 25 20 15 15 15"
       }
     }
   }

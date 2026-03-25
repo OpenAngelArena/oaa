@@ -5,13 +5,14 @@
   //=================================================================================================================
   "drow_ranger_marksmanship"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -20,13 +21,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "chance" //OAA
-      {
-        "value"                                           "22 24 26 28 30"
-        "special_bonus_unique_drow_ranger_3"              "+8"
-      }
       "bonus_damage"                                      "10 20 30 40 50" //OAA
       "disable_range"                                     "325"
+      "chance" //OAA
+      {
+        "value"                                           "30 35 40 40 40"
+        "special_bonus_unique_drow_ranger_3"              "+8"
+      }
     }
   }
 }

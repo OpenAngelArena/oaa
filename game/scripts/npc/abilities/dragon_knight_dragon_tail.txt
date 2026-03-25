@@ -5,15 +5,15 @@
   //=================================================================================================================
   "dragon_knight_dragon_tail"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,24 +35,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage"                                            "60 90 120 150 300 600"
+      "damage_pct"                                        "0"
+      "dragon_cast_range"                                 "150"
+      "projectile_speed"                                  "1600"
       "stun_duration"
       {
         "value"                                           "1.8 2.0 2.2 2.4 2.5 2.6"
         "special_bonus_unique_dragon_knight_2"            "+0.4"
       }
-      "damage"                                            "60 90 120 150 300 600"
-      "damage_pct"                                        "0"
-      "dragon_cast_range"                                 "450"
-      "projectile_speed"                                  "1600"
-      "dragon_aoe"
+      "aoe"
       {
-        "special_bonus_facet_dragon_knight_fire_dragon"   "100"
+        "value"                                           "25"
         "affected_by_aoe_increase"                        "1"
-      }
-      "physical_damage_type"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
       }
     }
   }

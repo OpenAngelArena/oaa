@@ -5,16 +5,18 @@
   //=================================================================================================================
   "shredder_twisted_chakram"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "shredder_chakram_2"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "DependentOnAbility"                                  "shredder_chakram"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "shredder_chakram"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,29 +36,28 @@
     "AbilityValues"
     {
       "speed"                                             "900"
+      "damage"                                            "100 165 230 360 490" //OAA
+      "min_throw_duration"                                "0.0"
+      "max_throw_duration"                                "0.5"
+      "min_target_distance"                               "600"
+      "max_target_distance"                               "600"
+      "pass_slow_duration"                                "2.0"
+      "slow_health_percentage"                            "5"
       "radius"
       {
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "100 165 230 360 490" //OAA
       "spread"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "min_throw_duration"                                "0.0"
-      "max_throw_duration"                                "0.5"
-      "min_target_distance"                               "600"
-      "max_target_distance"                               "600"
-
       "slow"
       {
         "value"                                           "5"
         "special_bonus_unique_timbersaw_4"                "+5"
       }
-      "pass_slow_duration"                                "2.0"
-      "slow_health_percentage"                            "5"
     }
   }
 }

@@ -5,12 +5,12 @@
   //=================================================================================================================
   "pugna_nether_blast"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,13 +28,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "structure_damage_mod"                              "65"
+      "delay"                                             "0.8"
       "AbilityCooldown" //OAA
       {
         "value"                                           "5"
-        "special_bonus_unique_pugna_4"                    "-2"
+        "special_bonus_unique_pugna_4"                    "-1"
       }
-      "structure_damage_mod"                              "65" // percentage bonus damage against bosses
-      "delay"                                             "0.8"
       "radius"
       {
         "value"                                           "400"
@@ -42,8 +42,8 @@
       }
       "blast_damage" //OAA
       {
-        "value"                                           "95 170 245 320 640 960"
-        "special_bonus_unique_pugna_2"                    "+320"
+        "value"                                           "95 170 245 320 320 320"
+        "special_bonus_unique_pugna_2"                    "+200"
       }
     }
   }

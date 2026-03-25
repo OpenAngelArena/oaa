@@ -5,22 +5,24 @@
   //=================================================================================================================
   "axe_battle_hunger"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "700 775 850 925 1000 1075"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -30,18 +32,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 60 70 80 90 100"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 775 850 925 1000 1075"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "12.0"
+      "duration"
+      {
+        "value"                                           "12.0"
+      }
       "slow"
       {
         "value"                                           "18 22 26 30 34 38"
+        "display_type"                                    "kDebuffPercentage"
       }
       "damage_per_second"
       {

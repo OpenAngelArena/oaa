@@ -5,14 +5,16 @@
   //=================================================================================================================
   "brewmaster_fire_permanent_immolation"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,11 +22,11 @@
     {
       "damage" //OAA
       {
-        "value"                                           "25 75 125 175 275 425"
+        "value"                                           "25 50 75 100 100 100"
       }
       "radius" //OAA
       {
-        "value"                                           "400"
+        "value"                                           "250 250 250 250 250 250"
       }
     }
   }

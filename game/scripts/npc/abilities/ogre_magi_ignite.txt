@@ -5,16 +5,18 @@
   //=================================================================================================================
   "ogre_magi_ignite"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,14 +36,14 @@
     "AbilityValues"
     {
       "duration"                                          "5 6 7 8 9 10"
-      "burn_damage"
-      {
-        "value"                                           "20 30 40 50 100 150"
-        "special_bonus_unique_ogre_magi_4"                "+12"
-      }
       "slow_movement_speed_pct"                           "-25 -28 -31 -34 -37 -40" //OAA
       "projectile_speed"                                  "1000"
       "multicast_delay"                                   "0.6"
+      "burn_damage"
+      {
+        "value"                                           "20 30 40 50 100 150"
+        "special_bonus_unique_ogre_magi_4"                "+10"
+      }
       "ignite_multicast_aoe"
       {
         "value"                                           "1400"

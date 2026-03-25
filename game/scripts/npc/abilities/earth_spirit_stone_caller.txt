@@ -5,11 +5,12 @@
   //=================================================================================================================
   "earth_spirit_stone_caller"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -20,9 +21,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "rolling_offset_distance"                           "150"
+      "attack_damage_per_stone"                           "2.5"
+      "attack_damage_per_stone_used"                      "7.5"
+      "buff_duration"                                     "10"
       "duration" //OAA
       {
-        "value"                                           "40"
+        "value"                                           "60.0"
       }
       "polarization_distance"
       {
@@ -38,7 +43,6 @@
         "hero_levelup"                                    "+1"
         "levelup_interval"                                "4"
       }
-      "rolling_offset_distance"                           "150"
       "AbilityManaCost"
       {
         "value"                                           "0"
@@ -55,9 +59,6 @@
       {
         "value"                                           "=0"
       }
-      "attack_damage_per_stone"                           "2.5"
-      "attack_damage_per_stone_used"                      "7.5"
-      "buff_duration"                                     "10"
     }
   }
 }

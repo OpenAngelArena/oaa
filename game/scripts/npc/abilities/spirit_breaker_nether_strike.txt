@@ -5,6 +5,7 @@
   //=================================================================================================================
   "spirit_breaker_nether_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -13,18 +14,15 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.0"
     "AbilityCastRange"                                    "700"
-    "AbilityCastRangeBuffer"                              "500"
+    "AbilityCastPoint"                                    "1.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,33 +36,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "fade_time"                                         "1.0 1.0 1.0 1.0 1.0"
       "damage" //OAA
       {
-        "value"                                           "150 350 550 1150 1750"
+        "value"                                           "150 250 350 350 350"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "fade_time"                                         "1.0"
-      "shard_bonus_damage" // unused
+      "shard_bonus_damage"
       {
         "special_bonus_shard"                             "0"
       }
-      "shard_break_duration" // unused
+      "shard_break_duration"
       {
         "special_bonus_shard"                             "0.0"
       }
-      "shard_spell_immune_duration" // unused
+      "shard_spell_immune_duration"
       {
         "special_bonus_shard"                             "0.0"
       }
-      "knockback_amp" // unused
+      "knockback_amp"
       {
         "special_bonus_facet_spirit_breaker_imbalanced"   "+100"
       }
-      "knockback_amp_duration" // unused
+      "knockback_amp_duration"
       {
         "special_bonus_facet_spirit_breaker_imbalanced"   "+6"
       }
     }
   }
-
 }

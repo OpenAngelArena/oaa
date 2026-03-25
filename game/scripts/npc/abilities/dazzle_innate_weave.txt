@@ -1,30 +1,40 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "dazzle_innate_weave"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Nothl Projection) + 1
-    "DependentOnAbility"                                  "dazzle_nothl_projection"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor_change"
-      {
-        "value"                                           "0.5 0.75 1.0 1.25 1.5 1.75"
-        "special_bonus_unique_dazzle_4"                   "+1"
-      }
-      "duration"                                          "8"
       "affects_allies"                                    "1"
       "affects_enemies"                                   "1"
+      "ultimate_always_applies"                           "0"
+      "armor_change"
+      {
+        "value"                                           "1"
+        "special_bonus_unique_dazzle_4"                   "+1"
+      }
+      "duration"
+      {
+        "value"                                           "6.9"
+        "hero_levelup"                                    "+0.1"
+      }
       "heal_amplification_pct" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_dazzle_facet_nothl_boon"     "=3"
+        "special_bonus_facet_dazzle_facet_nothl_boon"     "=7.5"
       }
-      "ultimate_always_applies"                           "0"
       "ally_multiplier"
       {
         "value"                                           "0"
@@ -34,6 +44,10 @@
       {
         "value"                                           "0"
         "special_bonus_facet_dazzle_poison_bloom"         "=2"
+      }
+      "ally_heal"
+      {
+        "special_bonus_shard"                             "60"
       }
     }
   }

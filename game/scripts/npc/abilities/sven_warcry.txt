@@ -5,18 +5,20 @@
   //=================================================================================================================
   "sven_warcry"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -43,6 +45,7 @@
       "radius"
       {
         "value"                                           "700"
+        "special_bonus_shard"                             "200"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"
@@ -52,24 +55,30 @@
       }
       "shard_passive_armor" //OAA
       {
-        "special_bonus_shard"                             "3 4 5 6 8 12"
+        "special_bonus_shard"                             "0"
       }
       "shard_passive_movespeed"
       {
         "special_bonus_shard"                             "0"
       }
+      "undispellable"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "1"
+      }
       "shard_radius"
       {
-        "special_bonus_shard"                             "1200"
+        "special_bonus_shard"                             "0"
         "affected_by_aoe_increase"                        "1"
       }
       "base_barrier_amount" //OAA
       {
-        "special_bonus_facet_sven_heavy_plate"            "=100 =170 =240 =310 =620 =930"
+        "special_bonus_shard"                             "300"
+        "RequiresShard"                                   "1"
       }
       "barrier_per_strength"
       {
-        "special_bonus_facet_sven_heavy_plate"            "=0"
+        "special_bonus_shard"                             "=0"
       }
     }
   }

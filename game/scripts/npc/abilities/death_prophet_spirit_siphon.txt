@@ -5,15 +5,16 @@
   //=================================================================================================================
   "death_prophet_spirit_siphon"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,28 +27,28 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "2 2 3 4 4 4" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
+    "AbilityCharges"                                      "2 2 3 4 4 4" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage_pct"                                        "0" //special_bonus_unique_death_prophet_1_oaa
+      "haunt_duration"                                    "6"
+      "siphon_buffer"                                     "250"
       "damage"
       {
         "value"                                           "25 50 75 100 200 300"
         "special_bonus_unique_death_prophet_3"            "+30"
       }
-      "damage_pct"                                        "0" // special_bonus_unique_death_prophet_1_oaa
-      "haunt_duration"                                    "6"
-      "siphon_buffer"                                     "250"
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "35" // special_bonus_unique_death_prophet_5_oaa
-        "special_bonus_unique_death_prophet_5"            "-15" // special_bonus_unique_death_prophet_5 is not used
+        "value"                                           "40"
+        "special_bonus_unique_death_prophet_5"            "-22"
       }
       "shard_bonus_charges"
       {

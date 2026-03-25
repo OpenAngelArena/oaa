@@ -5,17 +5,18 @@
   //=================================================================================================================
   "treant_natures_grasp"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.2"
@@ -32,17 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "creep_penalty"                                     "35"
+      "movement_slow"                                     "25 30 35 40 45 50"
+      "vines_duration"                                    "9 10 11 12 13 14"
+      "creation_interval"                                 "0.1"
+      "initial_latch_delay"                               "0.3"
+      "vine_spawn_interval"                               "175"
       "damage_per_second"
       {
         "value"                                           "35 50 65 80 160 320"
         "special_bonus_unique_treant_9"                   "+25"
       }
-      "movement_slow"                                     "25 30 35 40 45 50"
-      "creep_penalty"                                     "35"
-      "vines_duration"                                    "9 10 11 12 13 14"
-      "creation_interval"                                 "0.1"
-      "initial_latch_delay"                               "0.3"
-      "vine_spawn_interval"                               "175"
       "latch_range"
       {
         "value"                                           "135"

@@ -5,13 +5,13 @@
   //=================================================================================================================
   "crystal_maiden_freezing_field"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -25,32 +25,32 @@
       "AbilityCooldown"                                   "100 95 90 85 80"
       "AbilityDuration"                                   "10.0"
       "AbilityManaCost"                                   "200 400 600 800 1000"
-      "radius" //OAA
-      {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "explosion_radius" //OAA
-      {
-        "value"                                           "305"
-        "affected_by_aoe_increase"                        "1"
-      }
       "explosion_interval"                                "0.1"
       "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA
       "attack_slow"                                       "-80 -120 -160 -200 -240"
       "slow_duration"                                     "1.0"
       "explosion_min_dist"                                "195"
+      "radius" //OAA
+      {
+        "value"                                           "810"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "explosion_radius" //OAA
+      {
+        "value"                                           "320"
+        "affected_by_aoe_increase"                        "1"
+      }
       "explosion_max_dist" //OAA
       {
-        "value"                                           "770"
+        "value"                                           "785"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                           "110 185 260 410 560"
-        "special_bonus_unique_crystal_maiden_3"           "+75"
+        "value"                                           "110 180 250 250 250"
+        "special_bonus_unique_crystal_maiden_3"           "+50"
       }
-      "frostbite_delay" // negative means don't apply.
+      "frostbite_delay"
       {
         "value"                                           "-1"
         "special_bonus_scepter"                           "+3.0"
@@ -69,11 +69,11 @@
       }
       "self_cast_range_bonus"
       {
-        "special_bonus_facet_crystal_maiden_frozen_expanse"  "75 100 125 150 175"
+        "value"                                           "0"
       }
       "aoe_bonus"
       {
-        "special_bonus_facet_crystal_maiden_frozen_expanse"  "6 8 10 11 12"
+        "value"                                           "0"
       }
     }
   }

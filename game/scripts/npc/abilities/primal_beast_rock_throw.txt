@@ -5,30 +5,41 @@
   //=================================================================================================================
   "primal_beast_rock_throw"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has an extra space
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve has it wrong, it's not DOTA_UNIT_TARGET_TEAM_BOTH
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "IsGrantedByShard"                                    "1"
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1800"
+    "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12" //OAA
-    "AbilityManaCost"                                     "85"
 
-    // Casting
+    // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.25"
-    "AbilityCastRange"                                    "1800"
+    "AbilityManaCost"                                     "85"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "min_range"                                         "550"
+      "min_travel_time"                                   "0.65"
+      "max_travel_time"                                   "1.75"
+      "bounce_travel_time"                                "0.5"
+      "stun_duration"                                     "1.4"
+      "fragment_impact_distance"                          "525"
       "base_damage"
       {
         "value"                                           "325"
@@ -39,12 +50,6 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
-      "min_range"                                         "550"
-      "min_travel_time"                                   "0.65"
-      "max_travel_time"                                   "1.75"
-      "bounce_travel_time"                                "0.5"
-      "stun_duration"                                     "1.4"
-      "fragment_impact_distance"                          "525"
       "fragment_impact_radius"
       {
         "value"                                           "185"

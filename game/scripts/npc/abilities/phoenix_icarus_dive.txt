@@ -5,13 +5,13 @@
   //=================================================================================================================
   "phoenix_icarus_dive"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,6 +33,9 @@
     "AbilityValues"
     {
       "hp_cost_perc"                                      "15"
+      "burn_duration"                                     "4"
+      "burn_tick_interval"                                "0.2"
+      "dive_duration"                                     "2.0"
       "dash_length"
       {
         "value"                                           "1100 1200 1300 1400 1500 1600"
@@ -48,18 +51,15 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "burn_duration"                                     "4"
       "damage_per_second"
       {
         "value"                                           "20 40 60 80 160 240"
       }
-      "burn_tick_interval"                                "0.2"
       "slow_movement_speed_pct"
       {
         "value"                                           "10 15 20 25 30 35"
         "special_bonus_unique_phoenix_6"                  "+25"
       }
-      "dive_duration"                                     "2.0"
     }
   }
 }

@@ -5,6 +5,7 @@
   //=================================================================================================================
   "bounty_hunter_wind_walk_ally"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
@@ -12,14 +13,22 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "IsGrantedByShard"                                    "1"
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-    "AbilityManaCost"                                     "50"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

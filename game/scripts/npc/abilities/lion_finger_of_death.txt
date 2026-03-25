@@ -5,15 +5,15 @@
   //=================================================================================================================
   "lion_finger_of_death"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,74 +35,67 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "grace_period"                                      "3"
+      "punch_bonus_movespeed"                             "30"
+      "punch_attack_range"                                "250"
       "damage" //OAA
       {
-        "value"                                           "600 800 1000 1600 2200"
-        "special_bonus_scepter"                           "+100 +100 +100 +300 +600"
+        "value"                                           "600 725 850 850 850"
+        "special_bonus_scepter"                           "+100"
       }
       "damage_per_kill" //OAA
       {
-        "value"                                           "80"
-        "special_bonus_unique_lion_8"                     "+40"
+        "value"                                           "30"
+        "special_bonus_unique_lion_8"                     "+20"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "grace_period"                                      "3"
       "damage_delay"
       {
         "value"                                           "0.25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "cooldown_scepter" //OAA
-      {
-        "special_bonus_scepter"                           "40 35 30 25 20"
-      }
-      "splash_radius_scepter"
-      {
-        "special_bonus_scepter"                           "325"
-        "affected_by_aoe_increase"                        "1"
-      }
       "punch_duration"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+20"
-      }
-      "punch_attack_range"
-      {
-        "special_bonus_facet_lion_fist_of_death"          "=250"
+        "value"                                           "20"
+        "special_bonus_scepter"                           "+10"
       }
       "punch_bonus_damage_base"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+40"
+        "value"                                           "20 30 40 40 40"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "punch_bonus_damage_per_stack"
+      "cleave_damage"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+30"
-      }
-      "punch_grace_period"
-      {
-        "special_bonus_facet_lion_fist_of_death"          "+3"
+        "value"                                           "25"
+        "special_bonus_scepter"                           "+25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "cleave_starting_width"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+150"
+        "value"                                           "150"
         "affected_by_aoe_increase"                        "1"
       }
       "cleave_ending_width"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+360"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+650"
+        "value"                                           "650"
         "affected_by_aoe_increase"                        "1"
       }
-      "cleave_damage"
+      "splash_radius"
       {
-        "special_bonus_facet_lion_fist_of_death"          "+50"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "special_bonus_scepter"                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cooldown_scepter" //OAA
+      {
+        "special_bonus_scepter"                           "40 35 30 25 20"
       }
     }
   }
-
 }

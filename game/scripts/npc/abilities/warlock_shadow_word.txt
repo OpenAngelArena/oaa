@@ -1,36 +1,37 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "warlock_shadow_word"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650 700 750 800 850 900"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 120 130 140 150 160"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650 700 750 800 850 900"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "tick_interval"                                     "0.5"
       "damage"
       {
         "value"                                           "15 25 35 45 90 180"
@@ -39,14 +40,13 @@
       {
         "value"                                           "10.0"
       }
-      "tick_interval"                                     "0.5"
       "spell_aoe"
       {
         "value"                                           "225"
         "special_bonus_unique_warlock_7"                  "+150"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_movement_speed_pct" // unused
+      "shard_movement_speed_pct"
       {
         "special_bonus_shard"                             "0"
       }

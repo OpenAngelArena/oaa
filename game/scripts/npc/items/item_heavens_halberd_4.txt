@@ -43,15 +43,15 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 16"
+    "AbilityCooldown"                                     "16 15 14 13 12"
     "AbilitySharedCooldown"                               "halberd"
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "750 800 850 900 950"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "25"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15600"
+    "ItemCost"                                            "16400"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd 4;halberd 4"
@@ -66,15 +66,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "275 375 525 725 975"
+      "bonus_armor"                                       "9 10 12 15 19"
       "bonus_health_regen"                                "6 9 12 15 18"
-      "block_damage_melee"                                "60 120 180 240 300"
-      "block_damage_ranged"                               "30 60 90 120 150"
-      "block_chance"                                      "60"
-      "bonus_all_stats"                                   "5 10 15 20 25"
-      "disarm_range"                                      "3.0 3.25 3.5 3.75 4.0"
-      "disarm_melee"                                      "3.0 3.25 3.5 3.75 4.0"
-      "cooldown_tooltip"                                  "20 19 18 17 16"
+      "bonus_evasion"                                     "20 25 30 35 40"
+
+      "disarm_range"                                      "3.5 3.75 4.0 4.25 4.5"
+      "disarm_melee"                                      "3.5 3.75 4.0 4.25 4.5"
+      "cooldown_tooltip"                                  "16 15 14 13 12"
     }
   }
 }

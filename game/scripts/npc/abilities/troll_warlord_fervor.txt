@@ -5,39 +5,41 @@
   //=================================================================================================================
   "troll_warlord_fervor"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "attack_speed" //OAA, max oaa lvl should be the same as max vanilla lvl
       {
-        "value"                                           "5 10 15 20 25 30"
+        "value"                                           "15 20 25 30 30 30"
         "special_bonus_unique_troll_warlord_5"            "+4"
       }
       "max_stacks" //OAA
       {
-        "value"                                           "7"
+        "value"                                           "10"
       }
       "stack_limit_during_battle_trance" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_troll_warlord_bad_influence"  "+10" // BEHAVIOR ONLY, DOES NOT UPDATE TOOLTIP: Update stack_limit_tooltip for tooltip change
+        "special_bonus_facet_troll_warlord_bad_influence"  "+12"
       }
       "extra_attack_chance_per_stack" //OAA
       {
-        "special_bonus_shard"                             "2"
+        "special_bonus_shard"                             "3"
       }
       "base_chance" //OAA
       {
-        "special_bonus_shard"                             "10"
+        "special_bonus_shard"                             "16"
       }
       "armor_per_stack"
       {

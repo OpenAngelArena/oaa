@@ -5,30 +5,36 @@
   //=================================================================================================================
   "night_stalker_crippling_fear"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "mana_interval"                                     "1"
+      "tick_rate"                                         "0.1"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 14 13"
+        "value"                                           "30 25 20 15 15 15"
         "special_bonus_scepter"                           "-5"
       }
       "duration_day"
@@ -42,25 +48,22 @@
       "mana_pct_cost"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "6"
       }
-      "mana_interval"                                     "1"
       "toggled"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "1"
       }
       "radius"
       {
         "value"                                           "375"
+        "special_bonus_unique_night_stalker_crippling_fear_radius"  "+75"
         "affected_by_aoe_increase"                        "1"
       }
       "dps" //OAA
       {
-        "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_night_stalker_crippling_fear_damage"  "+100"
+        "value"                                           "25 30 35 40 40 40"
+        "special_bonus_unique_night_stalker_crippling_fear_damage"  "+10"
       }
-      "tick_rate"                                         "0.1"
       "death_refresh"
       {
         "value"                                           "0"

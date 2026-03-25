@@ -5,32 +5,33 @@
   //=================================================================================================================
   "dazzle_nothl_projection"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "65 60 55 50 45" //OAA
-    "AbilityManaCost"                                     "100 150 200 250 300"
     "AbilityCastRange"                                    "450"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "65 60 55 50 45" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "min_duration"                                      "5"
-      "max_duration"
-      {
-        "value"                                           "12"
-        "special_bonus_unique_dazzle_nothl_projection_duration"  "+5"
-      }
       "initial_travel_speed"                              "1200"
       "soul_return_time"                                  "0.75"
       "soul_return_min_speed"                             "500"
@@ -40,13 +41,10 @@
       "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA
       "shallow_grave_heal"                                "225 300 375 450 525"
       "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA
-      "castable_while_disabled"
+      "max_duration"
       {
-        "special_bonus_shard"                             "1"
-      }
-      "healing_amp"
-      {
-        "special_bonus_shard"                             "15"
+        "value"                                           "12"
+        "special_bonus_unique_dazzle_nothl_projection_duration"  "+5"
       }
     }
   }

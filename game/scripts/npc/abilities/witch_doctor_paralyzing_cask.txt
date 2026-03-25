@@ -1,16 +1,19 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "witch_doctor_paralyzing_cask"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -28,13 +31,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "17 16 15 14 13 12"
-        "special_bonus_unique_witch_doctor_6"             "-6"
-      }
       "hero_duration"                                     "0.8"
       "creep_duration"                                    "0.8"
+      "speed"                                             "1200"
+      "bounce_delay"                                      "0.1"
+      "creep_damage_pct"                                  "100"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "20.0 18.0 16.0 14.0 14.0 14.0"
+        "special_bonus_unique_witch_doctor_6"             "-3.0"
+      }
       "base_damage"
       {
         "value"                                           "55 70 85 100 200 300"
@@ -42,22 +48,19 @@
       }
       "bounce_range"
       {
-        "value"                                           "575"
+        "value"                                           "575 575 575 575 575 575"
         "affected_by_aoe_increase"                        "1"
       }
       "bounces"
       {
         "value"                                           "3 4 5 6 7 8"
-        "special_bonus_unique_witch_doctor_3"             "+2"
+        "special_bonus_unique_witch_doctor_3"             "+6"
       }
-      "speed"                                             "1200"
-      "bounce_delay"                                      "0.1"
       "bounce_bonus_damage"
       {
         "value"                                           "20"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "creep_damage_pct"                                  "100"
     }
   }
 }

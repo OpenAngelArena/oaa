@@ -5,13 +5,13 @@
   //=================================================================================================================
   "phoenix_fire_spirits"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -35,20 +35,20 @@
       "hp_cost_perc"                                      "20"
       "spirit_duration"                                   "20"
       "spirit_speed"                                      "1000"
+      "duration"                                          "4.0"
+      "attackspeed_slow"                                  "-50 -80 -110 -140 -170 -200"
+      "spirit_count"                                      "5"
+      "tick_interval"                                     "0.2"
       "radius"
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "4.0"
-      "attackspeed_slow"                                  "-50 -80 -110 -140 -170 -200"
       "damage_per_second" //OAA
       {
-        "value"                                           "20 40 60 80 160 240"
-        "special_bonus_unique_phoenix_3"                  "+30"
+        "value"                                           "20 40 60 80 80 80"
+        "special_bonus_unique_phoenix_3"                  "+20"
       }
-      "spirit_count"                                      "5"
-      "tick_interval"                                     "0.2"
     }
   }
 }

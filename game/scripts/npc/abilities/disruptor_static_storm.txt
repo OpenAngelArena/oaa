@@ -5,20 +5,21 @@
   //=================================================================================================================
   "disruptor_static_storm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.05"
 
     // Time
@@ -29,10 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125 175 225 325 425"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -41,15 +38,15 @@
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_disruptor_8"                "+100"
+        "special_bonus_unique_disruptor_8"                "+75"
       }
-      "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
+      "pulses" //OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
-        "value"                                           "24"
+        "value"                                           "20"
       }
       "damage_max" //OAA
       {
-        "value"                                           "200 350 500 950 1400"
+        "value"                                           "200 275 350 350 350"
         "special_bonus_unique_disruptor"                  "+60"
       }
       "duration"

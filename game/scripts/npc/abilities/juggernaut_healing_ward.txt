@@ -5,10 +5,12 @@
   //=================================================================================================================
   "juggernaut_healing_ward"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -16,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,11 +35,11 @@
       "healing_ward_heal_amount"
       {
         "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_juggernaut_healing_ward_heal"  "+1"
+        "special_bonus_shard"                             "+1.5"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "35"
+        "value"                                           "60"
         "special_bonus_unique_juggernaut_5"               "-12"
       }
       "healing_ward_aura_radius"
@@ -52,12 +54,12 @@
       "healing_ward_bonus_health"
       {
         "value"                                           "0"
-        "special_bonus_unique_juggernaut_2"               "+1"
+        "special_bonus_shard"                             "+1"
       }
       "healing_ward_hits_to_kill_tooltip"
       {
         "value"                                           "1"
-        "special_bonus_unique_juggernaut_2"               "+1"
+        "special_bonus_shard"                             "+1"
       }
     }
   }

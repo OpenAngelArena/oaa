@@ -5,13 +5,13 @@
   //=================================================================================================================
   "zuus_heavenly_jump"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,14 +24,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
-      {
-        "value"                                           "50 75 100 125 250 500"
-        "CalculateSpellDamageTooltip"                     "1"
-      }
       "hop_distance"                                      "375 450 525 600 600 600"
       "hop_duration"                                      "0.5"
       "hop_height"                                        "250"
+      "vision_duration"                                   "3.0"
+      "duration"                                          "1.4"
+      "damage" //OAA
+      {
+        "value"                                           "25 50 75 100 100 100"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "range"
       {
         "value"                                           "700 800 900 1000 1100 1200"
@@ -42,9 +44,11 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "vision_duration"                                   "3.0"
-      "duration"                                          "1.4"
-      "move_slow"                                         "80"
+      "move_slow"
+      {
+        "value"                                           "80"
+        "display_type"                                    "kDebuffPercentage"
+      }
       "aspd_slow"
       {
         "value"                                           "100"
@@ -56,18 +60,17 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "20 18 16 14 13 12"
+        "value"                                           "26 22 18 14 14 14"
         "special_bonus_unique_zeus_jump_cooldown"         "-4"
       }
-      "postjump_movespeed_duration"
+      "AbilityCharges"
       {
         "value"                                           "0"
-        "special_bonus_unique_zeus_jump_postjump_movespeed"  "+1.6"
+        "special_bonus_unique_zeus_jump_charges"          "+3"
       }
-      "postjump_movespeed"
+      "AbilityChargeRestoreTime"
       {
-        "value"                                           "0"
-        "special_bonus_unique_zeus_jump_postjump_movespeed"  "+25"
+        "value"                                           "26 22 18 14 14 14"
       }
     }
   }

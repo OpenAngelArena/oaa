@@ -5,6 +5,7 @@
   //=================================================================================================================
   "chaos_knight_reality_rift"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -12,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,13 +34,14 @@
     "AbilityValues"
     {
       "AbilityCastRange"                                  "600 650 700 750 800 850"
+      "armor_reduction"                                   "4 5 6 7 9 11"
+      "duration"                                          "6"
+      "additional_debuff_duration_tooltip"                "0"
       "pull_distance"
       {
         "value"                                           "300 350 400 450 500 550"
         "special_bonus_unique_chaos_knight_2"             "+225"
       }
-      "armor_reduction"                                   "4 5 6 7 9 11"
-      "duration"                                          "6"
       "pierces_immunity"
       {
         "value"                                           "0"
@@ -49,7 +50,6 @@
       "additional_debuff_duration_percent"
       {
         "value"                                           "0"
-        "special_bonus_facet_chaos_knight_irrationality"  "=50"
       }
     }
   }

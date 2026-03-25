@@ -5,26 +5,26 @@
   //=================================================================================================================
   "medusa_mana_shield"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_mana"                                   "2.0"
-      "damage_per_mana_per_level"                         "0.06" //OAA
       "illusion_percentage"                               "60"
       "absorption_pct"                                    "98"
-      "damage_per_mana_total"
-      {
-        "dynamic_value"                                   "true"
-      }
       "aspd_increase_smoothness"                          "0.015"
+      "damage_per_mana"
+      {
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.1"
+      }
       "aspd_increase_rate_pct"
       {
         "value"                                           "0"
@@ -60,6 +60,7 @@
         "value"                                           "0"
         "special_bonus_facet_medusa_mana_pact"            "=3"
       }
+      "damage_per_mana_per_level"                         "0.06" //OAA
     }
   }
 }

@@ -5,11 +5,11 @@
   //=================================================================================================================
   "lone_druid_spirit_link"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // OAA, Valve forgot
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,6 +18,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "lifesteal_both_ways"                               "1"
+      "duration"                                          "20"
+      "active_bonus"                                      "35"
       "bonus_movement_speed_druid"
       {
         "value"                                           "10 20 30 40 50 60"
@@ -30,9 +33,6 @@
       {
         "value"                                           "15 30 45 60 75 90"
       }
-      "lifesteal_both_ways"                               "1"
-      "duration"                                          "20"
-      "active_bonus"                                      "35" // unused, additive bonus for armor_sharing (+x) but percentage for bonus_attack_speed (*x/100)
       "AbilityCooldown"
       {
         "value"                                           "0"

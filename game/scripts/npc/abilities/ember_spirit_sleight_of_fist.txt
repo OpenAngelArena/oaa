@@ -5,18 +5,20 @@
   //=================================================================================================================
   "ember_spirit_sleight_of_fist"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "AbilityCastRange"                                    "650"
-    "AbilityCastPoint"                                    "0"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -26,6 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "attack_interval"                                   "0.25"
       "radius"
       {
         "value"                                           "250 350 450 550 600 650"
@@ -33,11 +36,10 @@
       }
       "bonus_hero_damage" //OAA
       {
-        "value"                                           "25 70 115 160 320 480"
-        "special_bonus_unique_ember_spirit_6"             "+100"
+        "value"                                           "50 90 130 170 170 170"
+        "special_bonus_unique_ember_spirit_6"             "+50"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "attack_interval"                                   "0.25"
       "creep_damage_penalty"
       {
         "value"                                           "0"
@@ -60,12 +62,10 @@
       "min_enemies_for_double_sleight"
       {
         "value"                                           "0"
-        "special_bonus_facet_ember_spirit_double_impact"  "=2"
       }
       "second_attack_damage_penalty"
       {
         "value"                                           "0"
-        "special_bonus_facet_ember_spirit_double_impact"  "=50"
       }
     }
   }

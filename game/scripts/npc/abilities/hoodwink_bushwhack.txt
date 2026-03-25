@@ -5,20 +5,20 @@
   //=================================================================================================================
   "hoodwink_bushwhack"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
@@ -29,21 +29,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "debuff_duration"                                   "1.5 1.7 1.9 2.1 2.3 2.5"
+      "projectile_speed"                                  "1300"
+      "animation_rate"                                    "0.3"
+      "visual_height"                                     "50"
       "trap_radius"
       {
         "value"                                           "265"
         "affected_by_aoe_increase"                        "1"
       }
-      "debuff_duration"                                   "1.5 1.7 1.9 2.1 2.3 2.5"
-      "projectile_speed"                                  "1300"
       "total_damage"
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
         "special_bonus_unique_hoodwink_bushwhack_damage"  "+50"
       }
-      "animation_rate"                                    "0.3"
-      "visual_height"                                     "50"
       "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 11 10"

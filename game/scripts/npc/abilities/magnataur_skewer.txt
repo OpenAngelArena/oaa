@@ -5,21 +5,22 @@
   //=================================================================================================================
   "magnataur_skewer"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,16 +30,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "skewer_speed"                                      "900"
+      "skewer_damage"                                     "80 160 240 320 640 960"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 18 17 16 15 14"
+        "value"                                           "22 20 18 16 16 16"
         "special_bonus_unique_magnus_7"                   "-5"
       }
-      "skewer_speed"                                      "900"
       "range"
       {
         "value"                                           "800 900 1000 1100 1200 1300"
-        "special_bonus_shard"                             "+275"
+        "special_bonus_shard"                             "+300"
       }
       "slow_pct"
       {
@@ -54,7 +56,6 @@
         "value"                                           "3.25"
         "special_bonus_unique_magnus_6"                   "+1.25"
       }
-      "skewer_damage"                                     "80 160 240 320 640 960"
       "damage_distance_pct"
       {
         "value"                                           "6 9 12 15 30 45"

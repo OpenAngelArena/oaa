@@ -5,14 +5,14 @@
   //=================================================================================================================
   "largo_catchy_lick"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,10 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "pull_duration"                                     "0.3"
+      "buff_duration"                                     "8"
       "AbilityCastRange"
       {
         "value"                                           "700"
         "special_bonus_unique_largo_4"                    "+100"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_largo_8"                    "=2"
       }
       "damage"
       {
@@ -53,7 +60,6 @@
         "value"                                           "375"
         "special_bonus_unique_largo_4"                    "+50"
       }
-      "pull_duration"                                     "0.3"
       "strong_dispel"
       {
         "value"                                           "0"
@@ -62,12 +68,6 @@
       {
         "value"                                           "4 7 10 13 16 19"
         "special_bonus_unique_largo_2"                    "x2.5"
-      }
-      "buff_duration"                                     "10"
-      "AbilityCharges"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_largo_8"                    "=2"
       }
     }
   }

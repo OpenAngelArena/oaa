@@ -5,34 +5,36 @@
   //=================================================================================================================
   "nevermore_requiem"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.67"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 160 240 400 560" //OAA
+    "AbilityCastPoint"                                    "1.67 1.67 1.67 1.67 1.67"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityDamage"                                       "80 160 240 400 560" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
+      "requiem_reduction_mres"                            "-5 -10 -15 -15 -15"
+      "requiem_soul_conversion"                           "1"
+      "requiem_line_speed"                                "700 700 700 700 700"
+      "soul_death_release"                                "0.5"
       "AbilityCooldown"
       {
         "value"                                           "120 110 100 90 80"
@@ -43,8 +45,6 @@
         "value"                                           "1000"
         "affected_by_aoe_increase"                        "1"
       }
-      "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
-      "requiem_reduction_mres"                            "-10"
       "requiem_slow_duration"
       {
         "value"                                           "0.6"
@@ -55,7 +55,6 @@
         "value"                                           "2.15"
         "special_bonus_unique_nevermore_6"                "+0.45"
       }
-      "requiem_soul_conversion"                           "1"
       "requiem_line_width_start"
       {
         "value"                                           "125"
@@ -66,18 +65,19 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "requiem_line_speed"                                "700"
-      "soul_death_release"                                "0.5"
       "requiem_heal_pct_scepter"
       {
         "special_bonus_scepter"                           "100"
       }
       "requiem_damage_pct_scepter"
       {
-        "special_bonus_scepter"                           "60"
+        "special_bonus_scepter"                           "100"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "max_soul_release"
+      {
+        "value"                                           "20"
       }
     }
   }
-
 }

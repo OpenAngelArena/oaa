@@ -5,14 +5,16 @@
   //=================================================================================================================
   "earthshaker_slugger"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Echo Slam) + 1
-    "DependentOnAbility"                                  "earthshaker_echo_slam"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "projectile_body_on_kill"
@@ -48,11 +50,13 @@
       }
       "projectile_body_damage_creep"
       {
-        "value"                                           "30 45 60 75 150 300"
+        "value"                                           "27"
+        "hero_levelup"                                    "3"
       }
       "projectile_body_damage_hero"
       {
-        "value"                                           "150 250 350 450 900 1350"
+        "value"                                           "135"
+        "hero_levelup"                                    "15"
       }
       "projectile_body_damage_additional_percent_health"
       {

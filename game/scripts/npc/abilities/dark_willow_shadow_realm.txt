@@ -5,13 +5,14 @@
   //=================================================================================================================
   "dark_willow_shadow_realm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -28,6 +29,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "fade_time"                                         "0.3"
+      "damage"                                            "120 200 280 360 440 520"
+      "attack_range_bonus"                                "600"
       "AbilityCooldown"
       {
         "value"                                           "21 19 17 15 14 13"
@@ -36,11 +40,8 @@
       "duration" //OAA
       {
         "value"                                           "5"
-        "special_bonus_unique_dark_willow_1"              "+0.5"
+        "special_bonus_unique_dark_willow_1"              "+1.5"
       }
-      "fade_time"                                         "0.3"
-      "damage"                                            "120 200 280 360 440 520"
-      "attack_range_bonus"                                "600"
       "max_damage_duration"
       {
         "value"                                           "3.0"
@@ -50,18 +51,15 @@
       "aura_radius"
       {
         "value"                                           "0"
-        "special_bonus_facet_dark_willow_throwing_shade"  "=700"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_linger"
       {
         "value"                                           "0"
-        "special_bonus_facet_dark_willow_throwing_shade"  "=0.75"
       }
       "aura_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_dark_willow_throwing_shade"  "=30"
       }
     }
   }

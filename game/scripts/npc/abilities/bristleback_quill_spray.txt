@@ -5,47 +5,47 @@
   //=================================================================================================================
   "bristleback_quill_spray"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.0"
+    "AbilityCooldown"                                     "3.0 3.0 3.0 3.0 3.0 3.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35"
+    "AbilityManaCost"                                     "35 35 35 35 35 35"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "quill_base_damage"                                 "25 45 65 85 170 340"
+      "quill_stack_duration"                              "14.0"
+      "max_damage"                                        "2000" //OAA
+      "projectile_speed"                                  "2400"
       "radius"
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "quill_base_damage"                                 "25 45 65 85 170 340"
       "quill_stack_damage" //OAA
       {
-        "value"                                           "30 35 40 45 90 180"
-        "special_bonus_unique_bristleback_2"              "+40"
+        "value"                                           "30"
+        "special_bonus_unique_bristleback_2"              "+20"
       }
-      "quill_stack_duration"                              "14.0"
-      "max_damage"                                        "2000" //OAA
-      "projectile_speed"                                  "2400"
     }
   }
 }

@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "500" //OAA
+    "ItemCost"                                            "400" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_glimmer_cape"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_shadow_amulet;item_cloak"
+      "01"                                                "item_shadow_amulet;item_shawl"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2200" //OAA
+    "ItemCost"                                            "1750" //OAA
     "ItemShopTags"                                        ""
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "glimmer cape;glimmer"

@@ -5,15 +5,15 @@
   //=================================================================================================================
   "tusk_snowball"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // SPELL_DISPELLABLE_YES_STRONG
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1150"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,21 +31,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "snowball_speed"                                    "575 600 625 650 675 700"
+      "snowball_damage_bonus"                             "40 65 90 115 230 345"
+      "stun_duration"                                     "0.6 0.8 1.0 1.2 1.3 1.4"
+      "stun_duration_bonus"                               "0.2"
+      "snowball_duration"                                 "3.0"
+      "snowball_windup"                                   "3.0"
+      "snowball_speed_bonus"                              "50"
       "snowball_damage"
       {
         "value"                                           "80 140 200 260 520 1040"
         "special_bonus_unique_tusk_2"                     "+120"
       }
-      "snowball_speed"                                    "575 600 625 650 675 700"
-      "snowball_damage_bonus"                             "40 65 90 115 230 345"
-      "stun_duration"                                     "0.6 0.8 1.0 1.2 1.3 1.4"
-      "stun_duration_bonus"                               "0.2"
       "snowball_windup_radius"
       {
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
-      "snowball_duration"                                 "3.0"
       "snowball_radius"
       {
         "value"                                           "200"
@@ -56,17 +58,15 @@
         "value"                                           "40"
         "affected_by_aoe_increase"                        "1"
       }
-      "snowball_windup"                                   "3.0"
       "snowball_grab_radius"
       {
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "snowball_speed_bonus"                              "50"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 17 16 15 15 15"
-        "special_bonus_unique_tusk_6"                     "-8"
+        "value"                                           "21 19 17 15 15 15"
+        "special_bonus_unique_tusk_6"                     "-6"
       }
     }
   }

@@ -5,17 +5,18 @@
   //=================================================================================================================
   "life_stealer_infest"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,18 +35,18 @@
     {
       "radius"
       {
-        "value"                                           "700"
+        "value"                                           "700 700 700 700 700"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                           "150 350 550 950 1350"
-        "special_bonus_unique_lifestealer_infest_damage"  "+150"
+        "value"                                           "150 275 400 400 400"
+        "special_bonus_unique_lifestealer_infest_damage"  "+175"
       }
       "bonus_movement_speed"
       {
         "value"                                           "15 20 25 30 35"
-        "special_bonus_unique_lifestealer_infest_target_bonus"  "+15"
+        "special_bonus_unique_lifestealer_infest_target_bonus"  "+12"
       }
       "bonus_health"
       {
@@ -74,13 +75,12 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "60 55 50 45 40"
+        "value"                                           "80 65 50 50 50"
         "special_bonus_scepter"                           "=20"
       }
       "open_wounds_duration_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+50"
       }
       "creep_max_hp_drain_pct_per_second"
       {
@@ -90,23 +90,23 @@
       }
       "can_target_ancients"
       {
-        "value"                                           "0"
-        "special_bonus_facet_life_stealer_gorestorm"      "+1"
+        "value"                                           "1"
       }
       "dot_damage_as_pct_of_damage_dealt"
       {
         "value"                                           "0"
-        "special_bonus_facet_life_stealer_gorestorm"      "+30.0"
+        "special_bonus_shard"                             "+30.0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "dot_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_life_stealer_gorestorm"      "+3.0"
+        "special_bonus_shard"                             "+3.0"
       }
       "dot_tick_interval"
       {
         "value"                                           "0"
-        "special_bonus_facet_life_stealer_gorestorm"      "+1.0"      // if changing this, update DOTA_Tooltip_modifier_life_stealer_infest_dot_Description
+        "special_bonus_shard"                             "+1.0"
       }
     }
   }

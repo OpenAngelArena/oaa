@@ -5,12 +5,12 @@
   //=================================================================================================================
   "morphling_waveform"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,13 +19,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.25"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 150 225 300 600 900"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "115 120 125 130 135 140" //OAA
+    "AbilityDamage"                                       "75 150 225 300 600 900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,21 +40,13 @@
       }
       "AbilityCastRange"
       {
-        "value"                                           "700 800 900 1000 1000 1000"
+        "value"                                           "700 775 850 925 1000 1000"
         "special_bonus_unique_morphling_1"                "+250"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 12 12"
+        "value"                                           "21 18 15 12 12 12"
         "special_bonus_unique_morphling_waveform_cooldown"  "-40%"
-      }
-      "pct_damage"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_morphling_agi"               "+50"
-        "special_bonus_unique_morphling_4"                "+75"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "process_procs"
       {

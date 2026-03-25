@@ -5,63 +5,63 @@
   //=================================================================================================================
   "lycan_summon_wolves"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasShardUpgrade"                                     "1" // needed because of the custom shard
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 29 28 27 26 25 24 23" //OAA
+    "AbilityCooldown"                                     "30 29 28 27 26 25" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "wolf_index"                                        "1 2 3 4 5 6"
+      "bash_chance"                                       "15"
+      "bash_duration"                                     "1.0"
+      "bonus_levels"                                      "2"
       "AbilityManaCost" //OAA
       {
-        "value"                                           "115 120 125 130 135 140 145 150"
-        "special_bonus_facet_lycan_spirit_wolves"         "-50"
+        "value"                                           "115 120 125 130 130 130"
       }
-      "wolf_index"                                        "1 2 3 4 5 6 7 8"
       "wolf_duration"
       {
         "value"                                           "50"
-        "special_bonus_facet_lycan_spirit_wolves"         "=25"
       }
       "wolf_bat" //OAA
       {
-        "value"                                           "1.2 1.1 1.0 0.9 0.85 0.8 0.75 0.7"
-        "special_bonus_facet_lycan_spirit_wolves"         "=0"
+        "value"                                           "1.2 1.1 1.0 0.9 0.9 0.9"
+        "special_bonus_facet_lycan_spirit_wolves"         "=0 =0 =0 =0 =0 =0"
+        "special_bonus_unique_lycan_2"                    "-25%"
       }
       "wolf_damage" //OAA
       {
-        "value"                                           "20 40 60 80 120 180 260 360"
+        "value"                                           "22 28 34 40 46 52"
         "special_bonus_unique_lycan_3"                    "+10"
-        "special_bonus_facet_lycan_spirit_wolves"         "=0"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "wolf_hp" //OAA
       {
-        "value"                                           "325 425 525 625 1250 1875 2500 3125"
-        "special_bonus_facet_lycan_spirit_wolves"         "=0"
+        "value"                                           "325 375 425 475 525 575"
         "special_bonus_unique_lycan_7"                    "+350"
       }
-      "bonus_health" // Valve is dumb
+      "bonus_health"
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_7"                    "+350"
       }
-      "bonus_damage" // Valve is dumb
+      "bonus_damage"
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_3"                    "+10"
@@ -70,56 +70,21 @@
       }
       "bonus_armor"
       {
-        "value"                                           "0 0 0 0 5 10 10 10"
+        "value"                                           "0 0 0 0 5 10"
       }
-      "bash_chance"                                       "15" // slow chance
-      "bash_duration"                                     "1.0" // slow duration
       "wolf_count"
       {
         "value"                                           "2"
-        "special_bonus_unique_lycan_2"                    "+2"
+        "special_bonus_shard"                             "+1"
       }
-      "is_lone_wolf"
+      "give_wolves_hightail"
       {
-        "special_bonus_facet_lycan_spirit_wolves"         "+1"
-      }
-      "back_distance"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"         "+150"
-      }
-      "side_distance"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"         "+75"
-      }
-      "model_scale"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"         "-15"
-      }
-      "invis_level"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"         "0.05"
-      }
-      "health_per_wolf"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"
-        {
-          "value"                                         "60 120 180 240 300 360"
-          "special_bonus_unique_lycan_7"                  "+250"
-        }
+        "special_bonus_shard"                             "1"
       }
       "damage_per_wolf" //OAA
       {
-        "special_bonus_facet_lycan_spirit_wolves"
-        {
-          "value"                                         "6 11 16 21 26 31"
-          "special_bonus_unique_lycan_3"                  "+5"
-        }
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "death_fx_time"
-      {
-        "special_bonus_facet_lycan_spirit_wolves"         "1.0"
       }
       "max_level" //OAA
       {

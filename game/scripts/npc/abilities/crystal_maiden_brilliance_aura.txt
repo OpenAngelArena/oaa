@@ -5,64 +5,37 @@
   //=================================================================================================================
   "crystal_maiden_brilliance_aura"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "proximity_bonus_factor"                            "3"
       "base_mana_regen" //OAA
       {
-        "value"                                           "0.5 0.75 1.0 1.25 1.75 2.5"
+        "value"                                           "0.4 0.6 0.8 1 1 1"
       }
       "proximity_mana_regen_tooltip" //OAA, base_mana_regen x proximity_bonus_factor
       {
-        "value"                                           "1.5 2.25 3.0 3.75 5.25 7.5"
+        "value"                                           "1.2 1.8 2.4 3.0 3.0 3.0"
       }
-      "proximity_bonus_factor"                            "3"
+      "mana_regen_amp"
+      {
+        "value"                                           "20 40 60 80 80 80"
+      }
       "proximity_bonus_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
-      }
-      "activatable"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+1"
-      }
-      "activation_spell_amp_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+35.0"
-      }
-      "activation_mana_cost_increase_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+50.0"
-      }
-      "mana_battery_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "=1200"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "mana_battery_mana_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "20"
-      }
-      "activation_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+10.0"
-      }
-      "activation_cooldown"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+30.0"
       }
     }
   }

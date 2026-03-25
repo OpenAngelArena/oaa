@@ -5,22 +5,23 @@
   //=================================================================================================================
   "vengefulspirit_magic_missile"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,6 +32,7 @@
     "AbilityValues"
     {
       "magic_missile_speed"                               "1350"
+      "bounce_range_pct"                                  "75"
       "magic_missile_stun"
       {
         "value"                                           "1.2 1.4 1.6 1.8 1.9 2.0"
@@ -45,7 +47,6 @@
         "value"                                           "650"
         "special_bonus_unique_vengeful_spirit_missile_castrange"  "+100"
       }
-      "bounce_range_pct"                                  "75"
       "damage_per_lasthit"
       {
         "value"                                           "0"

@@ -5,6 +5,7 @@
   //=================================================================================================================
   "silencer_last_word"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,19 +14,21 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 105 110 115 120 125"
 
     // Special
@@ -33,6 +36,7 @@
     "AbilityValues"
     {
       "damage"                                            "120 160 200 240 480 720"
+      "duration"                                          "3 4 5 6 6.5 7"
       "int_multiplier"
       {
         "value"                                           "1 1.5 2 2.5 3 3.5"
@@ -41,7 +45,6 @@
       {
         "value"                                           "4"
       }
-      "duration"                                          "3 4 5 6 6.5 7"
       "radius"
       {
         "value"                                           "0"

@@ -5,17 +5,20 @@
   //=================================================================================================================
   "rubick_might_and_magus"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "one_tooltip"                                       "1"
+      "aoe_bonus"                                         "15"
+      "magic_resist_bonus"                                "0"
+      "aoe_bonus_duration"                                "20"
       "bonus_damage_pct" //OAA
       {
         "value"                                           "40"
@@ -38,5 +41,4 @@
       }
     }
   }
-
 }

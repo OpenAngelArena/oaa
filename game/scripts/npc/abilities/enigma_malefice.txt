@@ -5,15 +5,16 @@
   //=================================================================================================================
   "enigma_malefice"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "450 500 550 600 650 700"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_rate"                                         "2.0"
+      "tick_rate"                                         "2.0 2.0 2.0 2.0 2.0 2.0"
       "stun_duration"
       {
         "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
@@ -43,16 +44,15 @@
       }
       "shard_bonus_stun_duration_tooltip"
       {
-        "value"                                           "0.30"      // if updating this, update stun_duration
+        "value"                                           "0.30"
       }
       "damage"
       {
         "value"                                           "55 70 85 100 200 300"
-        "special_bonus_unique_enigma_5"                   "+60"
       }
       "stun_instances"
       {
-        "value"                                           "3"
+        "value"                                           "3 3 3 3 3 3"
         "special_bonus_unique_enigma_2"                   "+4"
       }
       "eidolon_spawns_per_tick"

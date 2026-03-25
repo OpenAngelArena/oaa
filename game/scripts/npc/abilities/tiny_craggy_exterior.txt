@@ -5,12 +5,15 @@
   //=================================================================================================================
   "tiny_craggy_exterior"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve has extra space
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Grow) + 1
-    "DependentOnAbility"                                  "tiny_grow_oaa" // OAA
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "tiny_grow" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

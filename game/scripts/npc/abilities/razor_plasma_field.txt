@@ -5,12 +5,13 @@
   //=================================================================================================================
   "razor_plasma_field"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -32,6 +33,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "total_ability_time"                                "2.2"
+      "slow_min"                                          "5"
       "damage_min"
       {
         "value"                                           "35 40 45 50 100 200"
@@ -45,8 +48,6 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "total_ability_time"                                "2.2"
-      "slow_min"                                          "5"
       "slow_max"
       {
         "value"                                           "25 30 35 40 45 50"

@@ -5,44 +5,41 @@
   //=================================================================================================================
   "disruptor_glimpse"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastRange"                                    "600 1000 1400 1800 2200 2600"
+    "AbilityCastPoint"                                    "0.05 0.05 0.05 0.05 0.05 0.05"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 85 100 115 130 145"
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 1000 1400 1800 2200 2600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "backtrack_time"                                    "4.0"
-      "cast_range"                                        "600 1000 1400 1800 2200 2600" // same as AbilityCastRange
+      "cast_range"                                        "600 1000 1400 1800 2200 2600"
       "silence_duration"                                  "0"
+      "min_damage"                                        "25 50 75 100 125 150" //OAA
       "AbilityCooldown" //OAA
       {
-        "value"                                           "21 20 19 18 17 16"
+        "value"                                           "24 22 20 18 18 18"
         "special_bonus_unique_disruptor_4"                "-10"
       }
-      "min_damage"                                        "25 50 75 100 125 150" //OAA
       "max_damage"
       {
         "value"                                           "100 160 220 280 560 1120"
@@ -51,7 +48,12 @@
       "damage_to_distance_pct"
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_disruptor_9"                "+10"
+        "special_bonus_unique_disruptor_9"                "+15"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_disruptor_4"                "+2"
       }
     }
   }

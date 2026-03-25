@@ -5,12 +5,11 @@
   //=================================================================================================================
   "phantom_assassin_coup_de_grace"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -19,15 +18,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                          "6 8 10 12 14"
       "crit_chance" //OAA
       {
-        "value"                                           "12"
+        "value"                                           "17"
         "special_bonus_unique_phantom_assassin_2"         "+10"
         "special_bonus_facet_phantom_assassin_methodical"  "=0"
       }
       "dagger_crit_chance" //OAA
       {
-        "value"                                           "24"
+        "value"                                           "34"
         "special_bonus_unique_phantom_assassin_2"         "+10"
         "special_bonus_facet_phantom_assassin_methodical"  "=0"
       }
@@ -38,21 +38,10 @@
       }
       "attacks_to_proc"
       {
-        "special_bonus_facet_phantom_assassin_methodical"
-        {
-          "value"                                         "6"
-          "special_bonus_unique_phantom_assassin_2"       "-1"
-        }
       }
       "attacks_to_proc_creeps"
       {
-        "special_bonus_facet_phantom_assassin_methodical"
-        {
-          "value"                                         "4"
-          "special_bonus_unique_phantom_assassin_2"       "-1"
-        }
       }
-      "duration"                                          "6 8 10 12 14"
       "two_tooltip"
       {
         "special_bonus_facet_phantom_assassin_methodical"  "+2"

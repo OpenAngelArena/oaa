@@ -5,10 +5,10 @@
   //=================================================================================================================
   "muerta_gunslinger"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -17,12 +17,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "target_search_bonus_range"                         "175"
       "double_shot_chance" //OAA
       {
-        "value"                                           "20 25 30 35 40 45"
+        "value"                                           "18 27 36 45 45 45"
         "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+20"
       }
-      "target_search_bonus_range"                         "175"
       "bonus_damage"
       {
         "value"                                           "0"
@@ -31,7 +31,6 @@
       "dead_shot_cooldown_reduction_on_proc"
       {
         "value"                                           "0"
-        "special_bonus_facet_muerta_slingshot"            "1.0"
       }
     }
   }

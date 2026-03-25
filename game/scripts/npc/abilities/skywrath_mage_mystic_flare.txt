@@ -5,14 +5,14 @@
   //=================================================================================================================
   "skywrath_mage_mystic_flare"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +34,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                          "2.0"
+      "damage_interval"                                   "0.1"
       "radius"
       {
         "value"                                           "170"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "2.0"
       "damage" //OAA
       {
-        "value"                                           "800 1300 1800 3300 4800"
+        "value"                                           "800 1200 1600 1600 1600"
         "special_bonus_unique_skywrath_5"                 "+400"
       }
-      "damage_interval"                                   "0.1"
       "scepter_radius"
       {
         "special_bonus_scepter"                           "500"

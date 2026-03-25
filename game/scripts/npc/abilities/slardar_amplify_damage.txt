@@ -5,16 +5,15 @@
   //=================================================================================================================
   "slardar_amplify_damage"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -32,12 +31,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "armor_reduction" //OAA
       {
-        "value"                                           "-10 -13 -16 -20 -25"
-        "special_bonus_unique_slardar_5"                  "-4"
+        "value"                                           "-10 -15 -20 -20 -20"
+        "special_bonus_unique_slardar_5"                  "-3"
       }
       "duration"
       {

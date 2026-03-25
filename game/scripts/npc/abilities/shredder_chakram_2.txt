@@ -5,23 +5,27 @@
   //=================================================================================================================
   "shredder_chakram_2"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot about this
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "shredder_chakram"
+    "DependentOnAbility"                                  "shredder_chakram"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1200 1200 1200 1200 1200"
     "AbilityCastPoint"                                    "0.15"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "8.0 8.0 8.0 8.0 8.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,6 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage_penalty_tooltip"                            "30" //OAA
       "speed" //OAA
       {
         "value"                                           "900.0"
@@ -42,15 +47,14 @@
       }
       "pass_damage" //OAA
       {
-        "value"                                           "100 165 230 360 490"
+        "value"                                           "100 150 200 200 200"
         "special_bonus_facet_shredder_second_chakram"     "-30%"
       }
       "damage_per_second" //OAA
       {
-        "value"                                           "50 75 100 175 250"
+        "value"                                           "50 75 100 100 100"
         "special_bonus_facet_shredder_second_chakram"     "-30%"
       }
-      "damage_penalty_tooltip"                            "30" //OAA
       "slow" //OAA
       {
         "value"                                           "5"
@@ -67,7 +71,7 @@
       }
       "mana_per_second" //OAA
       {
-        "value"                                           "14 22 30 38 46"
+        "value"                                           "14 22 30 30 30"
       }
       "pass_slow_duration" //OAA
       {

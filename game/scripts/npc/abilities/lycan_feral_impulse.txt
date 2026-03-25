@@ -1,33 +1,36 @@
 "DOTAAbilities"
 {
-  //=====================================================================================================
+  //=================================================================================================================
   // Lycan: Feral Impulse
   //=================================================================================================================
   "lycan_feral_impulse"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_damage" //OAA
       {
-        "value"                                           "10 16 22 28 34 40"
-        "special_bonus_unique_lycan_4"                    "+20"
+        "value"                                           "10 20 30 40 40 40"
+        "special_bonus_unique_lycan_4"                    "+25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_hp_regen" //OAA
       {
-        "value"                                           "2 6 10 14 22 34"
+        "value"                                           "1 3 5 7 7 7"
       }
       "max_level" //OAA
       {
-        "value"                                           "6"
+        "value"                                           "4"
         "special_bonus_facet_lycan_alpha_wolves"          "-1"
       }
     }

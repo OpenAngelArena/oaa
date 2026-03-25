@@ -5,23 +5,25 @@
   //=================================================================================================================
   "magnataur_reverse_polarity"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityManaCost"                                     "150 225 300 375 450"
     "AbilityCastRange"                                    "430" //OAA, same as pull_radius (Valve has it wrong)
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 225 300 375 450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,8 +31,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "-20"
+        "value"                                           "115"
+        "special_bonus_facet_magnataur_reverse_reverse_polarity"  "=100"
       }
       "pull_radius"
       {
@@ -57,7 +59,7 @@
       }
       "polarity_damage" //OAA
       {
-        "value"                                           "250 450 650 1250 1850"
+        "value"                                           "100 200 300 300 300"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "hero_stun_duration"
@@ -78,7 +80,7 @@
       "stats_per_stack" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+15"
+        "special_bonus_unique_magnus_reverse_polarity_stats"  "+12"
       }
     }
   }

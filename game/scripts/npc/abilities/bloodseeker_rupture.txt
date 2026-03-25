@@ -5,17 +5,17 @@
   //=================================================================================================================
   "bloodseeker_rupture"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -33,9 +33,10 @@
     "AbilityValues"
     {
       "duration"                                          "9 10 11 12 13"
+      "AbilityCooldown"                                   "75 70 65 60 55"
       "movement_damage_pct" //OAA
       {
-        "value"                                           "35 55 75 115 175"
+        "value"                                           "35 45 55 55 55"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
@@ -70,7 +71,6 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+2"
       }
-      "AbilityCooldown"                                   "75 70 65 60 55"
     }
   }
 }

@@ -5,30 +5,38 @@
   //=================================================================================================================
   "grimstroke_dark_artistry"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.6"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "11 9 7 5 5 5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movement_slow_pct"                                 "50 60 70 80 85 90"
+      "vision_duration"                                   "2.0"
       "reflected_stroke"
       {
         "value"                                           "0"
-        "special_bonus_facet_grimstroke_fine_art"         "+1"
       }
       "start_radius"
       {
@@ -42,25 +50,23 @@
       }
       "damage" //OAA
       {
-        "value"                                           "100 160 220 280 560 840"
-        "special_bonus_unique_grimstroke_2"               "+75%"
+        "value"                                           "100 160 220 280 280 280"
+        "special_bonus_unique_grimstroke_2"               "+80%"
       }
       "bonus_damage_per_hero" //OAA
       {
-        "value"                                           "20 40 60 80 120 200"
-        "special_bonus_unique_grimstroke_2"               "+75%"
+        "value"                                           "20 40 60 80 80 80"
+        "special_bonus_unique_grimstroke_2"               "+80%"
       }
       "bonus_damage_per_creep" //OAA
       {
-        "value"                                           "10 20 30 40 60 100"
-        "special_bonus_unique_grimstroke_2"               "+75%"
+        "value"                                           "10 20 30 40 40 40"
+        "special_bonus_unique_grimstroke_2"               "+80%"
       }
-      "movement_slow_pct"                                 "50 60 70 80 85 90"
       "slow_duration"
       {
         "value"                                           "1.75"
       }
-      "vision_duration"                                   "2.0"
       "AbilityCastRange"
       {
         "value"                                           "1400"

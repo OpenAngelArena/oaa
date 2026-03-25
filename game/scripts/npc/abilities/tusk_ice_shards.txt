@@ -5,14 +5,14 @@
   //=================================================================================================================
   "tusk_ice_shards"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,6 +30,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "shard_count"                                       "7"
+      "shard_speed"                                       "1200.0"
+      "shard_duration"                                    "4 5 6 7 7.5 8"
+      "shard_angle_step"                                  "40.0"
+      "shard_distance"                                    "200"
+      "turn_rate_slow"                                    "0"
       "shard_width"
       {
         "value"                                           "200"
@@ -40,27 +46,22 @@
         "value"                                           "75 150 225 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "shard_count"                                       "7"
-      "shard_speed"                                       "1200.0"
-      "shard_duration"                                    "4 5 6 7 7.5 8"
-      "shard_angle_step"                                  "40.0"
-      "shard_distance"                                    "200"
-      "turn_rate_slow"                                    "0"
       "aghs_shard_move_slow"
       {
-        "special_bonus_shard"                             "50"
+        "special_bonus_unique_tusk_shard_dps"             "50"
       }
       "aghs_shard_damage" //OAA
       {
+        "special_bonus_unique_tusk_shard_dps"             "110"
         "special_bonus_shard"                             "40 55 70 85 170 255"
       }
       "aghs_shard_depth"
       {
-        "special_bonus_shard"                             "300"
+        "value"                                           "0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "17 16 15 14 14 14"
+        "value"                                           "23 20 17 14 14 14"
         "special_bonus_unique_tusk_5"                     "-6"
       }
     }

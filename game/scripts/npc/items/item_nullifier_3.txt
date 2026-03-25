@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9375"
+    "ItemCost"                                            "9350"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "nlf 3;nullifier 3"
@@ -64,7 +64,7 @@
     {
       "bonus_damage"                                      "55 75 105 145 195"
       "bonus_armor"                                       "7 8 10 13 17"
-      "bonus_regen"                                       "6 9 12 15 18"
+      "bonus_regen"                                       "0"
       "mute_duration"                                     "4.0"
       "projectile_speed"                                  "1000 1200 1400 1600 1800"
       "slow_pct"                                          "10 15 20 25 30"

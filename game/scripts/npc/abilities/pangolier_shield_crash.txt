@@ -5,13 +5,14 @@
   //=================================================================================================================
   "pangolier_shield_crash"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,18 +30,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "base_shield"                                       "0"
+      "duration"                                          "6"
+      "jump_duration"                                     "0.4"
+      "jump_duration_gyroshell"                           "0.75"
+      "jump_height"                                       "250"
+      "jump_height_gyroshell"                             "350"
+      "jump_horizontal_distance"                          "225"
+      "scepter_damage_outgoing_tooltip"                   "75"
       "damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 900"
+        "value"                                           "60 120 180 240 240 240"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "base_shield"                                       "0"
       "hero_shield" //OAA
       {
-        "value"                                           "100 150 200 250 500 750"
+        "value"                                           "60 120 180 240 240 240"
         "special_bonus_unique_pangolier_shield_crash_herostacks"  "+125"
       }
-      "duration"                                          "6"
       "radius"
       {
         "value"                                           "500"
@@ -74,12 +81,6 @@
       {
         "value"                                           "0"
       }
-      "jump_duration"                                     "0.4"
-      "jump_duration_gyroshell"                           "0.75"
-      "jump_height"                                       "250"
-      "jump_height_gyroshell"                             "350"
-      "jump_horizontal_distance"                          "225"
-      "scepter_damage_outgoing_tooltip"                   "75" // If updating this, change damage_penalty in Swashbuckle
     }
   }
 }

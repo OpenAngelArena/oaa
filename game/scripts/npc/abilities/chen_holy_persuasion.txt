@@ -5,19 +5,22 @@
   //=================================================================================================================
   "chen_holy_persuasion"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,20 +34,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_units"                                         "1 2 3 4 5 6"
       "level_req"                                         "6" //OAA
-      "health_min" //OAA
-      {
-        "value"                                           "400 600 800 1000 2000 3000"
-        "special_bonus_unique_chen_4"                     "+1400"
-      }
-      "bonus_health_per_level"                            "50"
       "gold_pct"                                          "25 50 75 100 125 150"
       "movement_speed_bonus"                              "5 10 20 30 45 60"
+      "unsummon_time"                                     "3.0"
+      "max_units"
+      {
+        "value"                                           "1 2 3 4 4 4"
+      }
+      "health_min" //OAA
+      {
+        "value"                                           "400"
+        "hero_levelup"                                    "+50"
+        "special_bonus_unique_chen_4"                     "+1300"
+      }
       "damage_bonus" //OAA
       {
-        "value"                                           "10 15 20 25 50 100"
-        "special_bonus_unique_chen_5"                     "+15"
+        "value"                                           "0 6 12 18 18 18"
+        "special_bonus_unique_chen_5"                     "+12"
       }
       "is_martyr"
       {

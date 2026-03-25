@@ -5,13 +5,13 @@
   //=================================================================================================================
   "dawnbreaker_celestial_hammer"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,7 +32,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hammer_damage"                                     "60 90 120 150 300 600" //OAA
+      "burn_interval"                                     "0.5"
+      "hammer_aoe_radius"                                 "200"
+      "travel_speed_pct"                                  "100"
+      "return_anim_distance_threshold"                    "300"
+      "hammer_damage" //OAA
+      {
+        "value"                                           "50 80 110 140 140 140"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_damage"  "+40%"
+      }
       "projectile_radius"
       {
         "value"                                           "200"
@@ -55,18 +63,22 @@
       "move_slow"
       {
         "value"                                           "24 28 32 36 40 44"
-        "special_bonus_unique_dawnbreaker_celestial_hammer_slow"  "+15"
       }
-      "burn_damage"                                       "20 30 40 50 100 200"
-      "burn_interval"                                     "0.5"
+      "targets_allies"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_targets_allies"  "+1"
+      }
+      "burn_damage"
+      {
+        "value"                                           "20 30 40 50 50 50"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_damage"  "+40%"
+      }
       "pause_duration"
       {
         "value"                                           "2"
         "special_bonus_unique_dawnbreaker_gleaming_hammer"  "+2"
       }
-      "hammer_aoe_radius"                                 "200"
-      "travel_speed_pct"                                  "100"
-      "return_anim_distance_threshold"                    "300"
       "range"
       {
         "value"                                           "700 900 1100 1300 1400 1500"
@@ -82,11 +94,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_dawnbreaker_gleaming_hammer"  "=40"
-      }
-      "fire_trail_health_regen"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dawnbreaker_hearthfire"      "=10 =15 =20 =25 =30 =35"          
       }
     }
   }

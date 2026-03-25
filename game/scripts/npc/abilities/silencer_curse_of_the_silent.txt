@@ -5,13 +5,13 @@
   //=================================================================================================================
   "silencer_curse_of_the_silent"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,23 +29,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "application_damage"                                "20 40 60 80 160 320"
+      "movespeed"                                         "-16 -19 -22 -25 -28 -31"
       "damage"
       {
         "value"                                           "16 24 32 40 80 160"
       }
-      "application_damage"                                "20 40 60 80 160 320"
       "AbilityCooldown"
       {
         "value"                                           "22 20 18 16 15 14"
       }
       "AbilityCharges"
       {
-        "value"                                           "0"
-        "special_bonus_unique_silencer_arcane_curse_charges"  "2"
+        "value"                                           "0 0 0 0 0 0"
       }
       "radius"
       {
         "value"                                           "350"
+        "special_bonus_unique_silencer_arcane_curse_radius"  "+200"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"
@@ -54,7 +55,6 @@
         "special_bonus_unique_silencer_arcane_curse_duration"  "+2"
         "dynamic_value"                                   "true"
       }
-      "movespeed"                                         "-16 -19 -22 -25 -28 -31"
       "undispellable"
       {
         "value"                                           "0"
@@ -67,12 +67,7 @@
       }
       "penalty_multiplier"
       {
-        "value"                                           "1.25"
-        "special_bonus_unique_silencer"                   "+0.25"
-      }
-      "duration_percent_per_stolen_int"
-      {
-        "special_bonus_facet_silencer_burden_of_knowledge"  "1"
+        "value"                                           "1.0"
       }
     }
   }

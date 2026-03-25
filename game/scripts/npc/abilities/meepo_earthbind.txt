@@ -5,12 +5,12 @@
   //=================================================================================================================
   "meepo_earthbind"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,12 +29,12 @@
     "AbilityValues"
     {
       "duration"                                          "2.0"
+      "speed"                                             "1200"
       "radius"
       {
         "value"                                           "220"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed"                                             "1200"
       "megameepo_net_offset"
       {
         "value"                                           "160"
@@ -46,7 +46,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "13 12 11 10 9 8"
+        "value"                                           "16 14 12 10 10 10"
         "special_bonus_unique_meepo_3"                    "-2.5"
       }
       "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0" //OAA

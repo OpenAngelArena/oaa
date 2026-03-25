@@ -5,6 +5,7 @@
   //=================================================================================================================
   "keeper_of_the_light_recall"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -13,13 +14,14 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,29 +31,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movespeed_bonus_duration"                          "4"
       "teleport_delay"
       {
         "value"                                           "6 5 4 3 2"
       }
-      "movespeed_bonus_duration"                          "4"
       "ally_movespeed_pct"
       {
         "value"                                           "12 16 20 24 28"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "17 16 15 14 13"
+        "value"                                           "30"
         "special_bonus_shard"                             "=0"
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "0"
+        "value"                                           "0 0 0 0 0"
         "special_bonus_shard"                             "17 16 15 14 13"
       }
       "AbilityCharges"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=2"
       }
     }
   }

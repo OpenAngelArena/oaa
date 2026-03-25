@@ -5,13 +5,13 @@
   //=================================================================================================================
   "brewmaster_cinder_brew"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,6 +32,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movement_slow"                                     "24 28 32 36 40 44"
+      "extra_duration"                                    "3"
       "duration"
       {
         "value"                                           "5"
@@ -42,13 +44,11 @@
         "value"                                           "80 160 240 320 640 960"
         "special_bonus_unique_brewmaster_5"               "+40%"
       }
-      "movement_slow"                                     "24 28 32 36 40 44"
       "radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "extra_duration"                                    "3"
       "projectile_speed"
       {
         "value"                                           "950"
@@ -65,7 +65,7 @@
       }
       "barrel_impact_damage" //OAA
       {
-        "value"                                           "70 100 130 160 320 640"
+        "value"                                           "40 70 100 130 130 130"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"

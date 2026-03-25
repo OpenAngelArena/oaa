@@ -5,15 +5,15 @@
   //=================================================================================================================
   "tusk_tag_team"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,12 +34,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movement_slow"                                     "75"
+      "slow_duration"                                     "0.5"
       "bonus_damage"
       {
         "value"                                           "25 50 75 100 150 200"
       }
-      "movement_slow"                                     "75"
-      "slow_duration"                                     "0.5"
       "debuff_duration"
       {
         "value"                                           "6"
@@ -52,5 +52,4 @@
       }
     }
   }
-
 }

@@ -5,15 +5,15 @@
   //=================================================================================================================
   "luna_lucent_beam"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -38,15 +38,15 @@
       }
       "beam_damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_luna_1"                     "+100"
+        "value"                                           "75 150 225 300 300 300"
+        "special_bonus_unique_luna_1"                     "+80"
       }
-      "glaives_fired" // unused
+      "glaives_fired"
       {
         "value"                                           "0"
         "special_bonus_unique_luna_8"                     "+2"
       }
-      "glaives_attack_radius" // unused
+      "glaives_attack_radius"
       {
         "value"                                           "0"
         "special_bonus_unique_luna_8"                     "+500"
@@ -67,11 +67,11 @@
       "damage_buff_per_beam"
       {
         "value"                                           "0"
-        "special_bonus_facet_luna_moonstorm"              "+4 7 10 13 19 25"
+        "special_bonus_facet_luna_moonstorm"              "+4 7 10 13 13 13"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "lucent_beam_bounce_range" // Lucent Beam Hits additional Target (within 500 radius)
+      "lucent_beam_bounce_range"
       {
         "special_bonus_unique_luna_5"                     "+500"
         "affected_by_aoe_increase"                        "1"
@@ -82,5 +82,4 @@
       }
     }
   }
-
 }

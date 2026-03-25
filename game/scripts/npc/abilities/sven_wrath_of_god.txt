@@ -1,18 +1,30 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "sven_wrath_of_god"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "MaxLevel"                                            "6"
-    "DependentOnAbility"                                  "sven_gods_strength"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage_per_str"                              "0.0 0.2 0.3 0.4 0.45 0.5"
-      "base_damage_reduction"                             "0"
+      "bonus_damage_per_str"
+      {
+        "value"                                           "0.08"
+        "hero_levelup"                                    "0.02"
+      }
+      "current_bonus_damage_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
     }
   }
 }

@@ -5,22 +5,26 @@
   //=================================================================================================================
   "elder_titan_echo_stomp"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "475" //OAA, Valve has it wrong, not applied during 7.34
     "AbilityCastPoint"                                    "0.35" //OAA
-    "AbilityCastRange"                                    "475" // OAA, Valve has it wrong, not applied during 7.34
     "AbilityChannelTime"                                  "1.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
 
     // Special
@@ -28,31 +32,36 @@
     "AbilityValues"
     {
       "cast_time"                                         "1.65" //OAA
+      "sleep_duration"                                    "2 2.8 3.6 4.4 4.8 5.2"
+      "initial_stun_duration"                             "0.2"
+      "animation_rate"                                    "0.0"
       "radius"
       {
         "value"                                           "475"
         "affected_by_aoe_increase"                        "1"
       }
-      "sleep_duration"                                    "2 2.8 3.6 4.4 4.8 5.2"
       "stomp_damage" //OAA, intentional buff
       {
-        "value"                                           "75 125 175 225 450 675"
-        "special_bonus_unique_elder_titan_2"              "+150"
+        "value"                                           "60 100 140 180 180 180"
+        "special_bonus_unique_elder_titan_2"              "+75"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "initial_stun_duration"                             "0.2"
-      "animation_rate"                                    "0.0"
       "wake_damage_limit" //OAA
       {
-        "value"                                           "100 150 200 250 500 1000"
-        "special_bonus_unique_elder_titan_4"              "+400"
+        "value"                                           "100 150 200 250 250 250"
+        "special_bonus_unique_elder_titan_4"              "+150"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "AbilityCooldown" //OAA, intentional nerf
       {
         "value"                                           "14 13 12 11 11 11"
-        "special_bonus_shard"                             "-1"
+        "special_bonus_shard"                             "-2"
+      }
+      "can_swap_places"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "1"
       }
     }
   }

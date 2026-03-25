@@ -5,19 +5,19 @@
   //=================================================================================================================
   "storm_spirit_static_remnant"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,6 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "static_remnant_delay"                              "0.75"
       "static_remnant_radius"
       {
         "value"                                           "235"
@@ -42,7 +43,6 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "affected_by_aoe_increase"                        "1"
       }
-      "static_remnant_delay"                              "0.75"
       "AbilityCooldown"
       {
         "value"                                           "3.5"
@@ -50,34 +50,29 @@
       }
       "static_remnant_damage" //OAA
       {
-        "value"                                           "100 160 220 280 560 840"
-        "special_bonus_unique_storm_spirit_5"             "+80"
+        "value"                                           "100 160 220 280 280 280"
+        "special_bonus_unique_storm_spirit_5"             "+60"
       }
       "is_point_targeted"
       {
-        "value"                                           "0"
-        "special_bonus_facet_storm_spirit_static_slide"   "+1"
+        "value"                                           "+1"
       }
       "AbilityCastRange"
       {
-        "value"                                           "0"
-        "special_bonus_facet_storm_spirit_static_slide"   "800"
+        "value"                                           "800"
       }
       "static_remnant_travel_speed"
       {
-        "value"                                           "0"
-        "special_bonus_facet_storm_spirit_static_slide"   "300"
+        "value"                                           "300"
       }
       "static_remnant_vision_radius_day"
       {
         "value"                                           "100"
-        "special_bonus_facet_storm_spirit_static_slide"   "=100"
         "affected_by_aoe_increase"                        "1"
       }
       "static_remnant_vision_radius_night"
       {
         "value"                                           "100"
-        "special_bonus_facet_storm_spirit_static_slide"   "=100"
         "affected_by_aoe_increase"                        "1"
       }
     }

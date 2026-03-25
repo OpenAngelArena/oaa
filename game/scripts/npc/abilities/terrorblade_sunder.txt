@@ -5,6 +5,7 @@
   //=================================================================================================================
   "terrorblade_sunder"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -12,8 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -31,7 +30,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hit_point_minimum_pct"                             "35 30 25 20 20"
+      "hit_point_minimum_pct"
+      {
+        "value"                                           "35 30 25 25 25"
+        "special_bonus_unique_terrorblade_sunder_hp_threshold"  "-25"
+      }
       "ignore_minimum_pct_for_enemies"
       {
         "value"                                           "0"
@@ -44,7 +47,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "60 55 50 45 40"
+        "value"                                           "110.0 75.0 40.0 40.0 40.0"
         "special_bonus_unique_terrorblade"                "-30"
       }
       "cast_range_tooltip"                                "475 500 525 550 575" //OAA

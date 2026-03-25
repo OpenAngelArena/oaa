@@ -5,16 +5,23 @@
   //=================================================================================================================
   "keeper_of_the_light_will_o_wisp"
   {
+
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -25,20 +32,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "on_count"                                          "5"
-      "radius"
-      {
-        "value"                                           "725"
-        "affected_by_aoe_increase"                        "1"
-      }
       "hit_count"                                         "12" //OAA
       "wisp_damage"                                       "85"
       "off_duration"                                      "1.85"
@@ -46,6 +44,11 @@
       "off_duration_initial"                              "1.0"
       "fixed_movement_speed"                              "60"
       "bounty"                                            "100"
+      "radius"
+      {
+        "value"                                           "725"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

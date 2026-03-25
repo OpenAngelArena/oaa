@@ -5,28 +5,25 @@
   //=================================================================================================================
   "batrider_flaming_lasso"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "200"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,25 +33,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "2.25 2.75 3.25 3.75 4.25"
-      "drag_distance"                                     "300"
+      "drag_distance"                                     "300 300 300 300 300"
       "break_distance"                                    "425"
+      "tick_rate"                                         "0.5"
+      "duration"
+      {
+        "value"                                           "2.25 2.75 3.25 3.25 3.25"
+        "special_bonus_unique_batrider_1"                 "+0.75"
+      }
       "damage" //OAA, total damage
       {
-        "value"                                           "200 400 600 1000 1800"
+        "value"                                           "200 350 500 500 500"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "grab_radius_scepter" // unused
+      "grab_radius_scepter"
       {
         "special_bonus_scepter"                           "+650"
         "affected_by_aoe_increase"                        "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "65"
+        "value"                                           "90 75 60 60 60"
         "special_bonus_unique_batrider_6"                 "-8"
       }
-      "tick_rate"                                         "0.5"
     }
   }
 }

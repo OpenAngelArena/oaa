@@ -5,11 +5,11 @@
   //=================================================================================================================
   "clinkz_death_pact"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,20 +32,21 @@
     "AbilityValues"
     {
       "duration"                                          "45"
+      "creep_level"                                       "6" //OAA
       "AbilityCharges"
       {
         "value"                                           "1 1 2 2 2 2"
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "30"
+        "value"                                           "40"
         "special_bonus_facet_clinkz_engulfing_step"       "-10"
         "special_bonus_unique_clinkz_9"                   "-10"
       }
       "health_gain"
       {
         "value"                                           "175 250 325 400 800 1600"
-        "special_bonus_unique_clinkz_8"                   "+350"
+        "special_bonus_unique_clinkz_8"                   "+400"
       }
       "skeletons_spawned"
       {
@@ -56,7 +57,6 @@
         "value"                                           "0"
         "special_bonus_facet_clinkz_engulfing_step"       "1"
       }
-      "creep_level"                                       "6" //OAA
     }
   }
 }

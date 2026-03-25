@@ -5,15 +5,14 @@
   //=================================================================================================================
   "enchantress_impetus"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    //"AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,12 +20,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "575"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6 4 2 0 0 0"
-    "AbilityDuration"                                     "1.5"
+    "AbilityDuration"                                     "1.5 1.5 1.5 1.5 1.5 1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,13 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "distance_damage_pct" //OAA
-      {
-        "value"                                           "5 10 15 20 30 50"
-        "special_bonus_unique_enchantress_4"              "+10"
-      }
       "distance_cap"                                      "1750"
       "illusion_damage_multiplier"                        "2"
+      "distance_damage_pct" //OAA
+      {
+        "value"                                           "5 10 15 20 20 20"
+        "special_bonus_unique_enchantress_4"              "+6.5"
+      }
     }
   }
 }

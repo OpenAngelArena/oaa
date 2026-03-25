@@ -5,13 +5,14 @@
   //=================================================================================================================
   "slardar_slithereen_crush"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,17 +30,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
+      "crush_extra_slow_duration"                         "3 4 5 6 6 6"
       "crush_radius"
       {
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "crush_extra_slow" // same kv for ms and as slow
+      "crush_extra_slow"
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
       }
-      "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
-      "crush_extra_slow_duration"                         "3 4 5 6 6 6"
       "stun_duration"
       {
         "value"                                           "0.8"
@@ -58,14 +59,14 @@
       }
       "crush_damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_slardar"                    "+300"
+        "value"                                           "75 150 225 300 300 300"
+        "special_bonus_unique_slardar"                    "+125"
       }
       "shard_amp_duration"
       {
         "special_bonus_shard"                             "5.0"
       }
-      "shard_bonus_radius" // unused
+      "shard_bonus_radius"
       {
         "special_bonus_shard"                             "0"
       }

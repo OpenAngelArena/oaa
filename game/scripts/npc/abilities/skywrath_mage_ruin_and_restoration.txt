@@ -5,13 +5,17 @@
   //=================================================================================================================
   "skywrath_mage_ruin_and_restoration"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Mystic Flare) + 1
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
     "DependentOnAbility"                                  "skywrath_mage_mystic_flare"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "spell_lifesteal"

@@ -5,14 +5,15 @@
   //=================================================================================================================
   "snapfire_firesnap_cookie"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,6 +31,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                                  "1200"
+      "pre_hop_duration"                                  "0.0"
+      "pre_land_anim_time"                                "0.14"
+      "landing_gesture_duration"                          "0.6"
+      "self_cast_delay"                                   "0.3"
+      "shard_damage_multiplier_tooltip"                   "40"
       "AbilityCooldown"
       {
         "value"                                           "18 17 16 15 14 13"
@@ -42,25 +49,21 @@
       }
       "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
       {
-        "value"                                           "18 17 16 15 14 13"
+        "value"                                           "21 19 17 15 15 15"
         "special_bonus_unique_snapfire_3"                 "-4"
       }
-      "projectile_speed"                                  "1200"
-      "pre_hop_duration"                                  "0.0"
       "jump_duration"
       {
-        "value"                                           "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+        "value"                                           "0.484"
       }
       "jump_height"
       {
-        "value"                                           "257" //"228 257 285 314" // proportional to horizontal distance
+        "value"                                           "257"
       }
       "jump_horizontal_distance"
       {
-        "value"                                           "425" //"400 450 500 550"
+        "value"                                           "425"
       }
-      "pre_land_anim_time"                                "0.14"
-      "landing_gesture_duration"                          "0.6"
       "impact_radius"
       {
         "value"                                           "300"
@@ -68,20 +71,18 @@
       }
       "impact_damage" //OAA
       {
-        "value"                                           "90 160 230 300 600 900"
+        "value"                                           "75 150 225 300 300 300"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "impact_stun_duration"
       {
         "value"                                           "1.0 1.4 1.8 2.2 2.4 2.6"
       }
-      "self_cast_delay"                                   "0.3"
       "target_heal" //OAA
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+100 +150 +200 +250 +500 +750"
+        "special_bonus_shard"                             "+200"
       }
-      "shard_damage_multiplier_tooltip"                   "40"
     }
   }
 }

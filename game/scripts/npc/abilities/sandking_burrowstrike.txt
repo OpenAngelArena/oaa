@@ -5,33 +5,34 @@
   //=================================================================================================================
   "sandking_burrowstrike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 110 120 130 140 150"
-
     "AbilityDamage"                                       "80 150 220 290 580 1160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "burrow_speed"                                      "2000"
+      "burrow_anim_time"                                  "0.52"
       "AbilityCooldown"
       {
         "value"                                           "14 13 12 11 10 9"
@@ -46,24 +47,10 @@
       {
         "value"                                           "1.2 1.4 1.6 1.8 1.9 2.0"
       }
-      "burrow_speed"                                      "2000"
-      "burrow_anim_time"                                  "0.52"
       "AbilityCastRange"
       {
-        "value"                                           "525 600 675 750 825 900"
+        "value"                                           "550 625 700 775 825 900"
         "special_bonus_unique_sand_king_8"                "+200"
-      }
-      "mound_duration"
-      {
-        "special_bonus_facet_sand_king_deeper_underground"  "=0"
-      }
-      "is_vector_target"
-      {
-        "special_bonus_facet_sand_king_deeper_underground"  "1"
-      }
-      "underground_distance_pct"
-      {
-        "special_bonus_facet_sand_king_deeper_underground"  "60"
       }
     }
   }

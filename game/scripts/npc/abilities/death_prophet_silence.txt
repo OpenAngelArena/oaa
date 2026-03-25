@@ -5,12 +5,12 @@
   //=================================================================================================================
   "death_prophet_silence"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,27 +33,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                                  "1750"
       "radius"
       {
         "value"                                           "450"
-        "special_bonus_unique_death_prophet_silence_aoe"  "+100"
+        "special_bonus_unique_death_prophet_silence_aoe"  "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "projectile_speed"                                  "1400"
-      "movement_slow" // unused
+      "movement_slow"
       {
         "value"                                           "0"
-        "special_bonus_facet_death_prophet_suppress"      "20 24 28 32 35 40"
       }
       "damage_per_second"
       {
         "value"                                           "0"
-        //"special_bonus_facet_death_prophet_suppress"  "+30"
       }
       "tick_interval"
       {
         "value"                                           "0"
-        //"special_bonus_facet_death_prophet_suppress"  "+0.5"
       }
     }
   }

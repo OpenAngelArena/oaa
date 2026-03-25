@@ -5,13 +5,13 @@
   //=================================================================================================================
   "bloodseeker_blood_bath"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,6 +29,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "delay"                                             "2.6"
+      "delay_plus_castpoint_tooltip"                      "2.9"
       "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 12 12"
@@ -41,11 +43,11 @@
       "silence_duration"
       {
         "value"                                           "3 4 5 6 6.5 7"
-        "special_bonus_unique_bloodseeker_7"              "+2.5"
+        "special_bonus_unique_bloodseeker_7"              "+3.0"
       }
       "damage"
       {
-        "value"                                           "100 155 210 265 530 1060"
+        "value"                                           "105 175 245 315 530 1060"
         "special_bonus_unique_bloodseeker_2"              "+100"
       }
       "heal"
@@ -56,8 +58,6 @@
       {
         "value"                                           "0"
       }
-      "delay"                                             "2.6"
-      "delay_plus_castpoint_tooltip"                      "2.9"
     }
   }
 }

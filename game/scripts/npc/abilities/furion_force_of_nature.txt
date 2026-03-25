@@ -5,89 +5,64 @@
   //=================================================================================================================
   "furion_force_of_nature"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_treants"                                       "2 3 4 5 6 7"
+      "treant_duration"                                   "50"
+      "treant_vision_day"                                 "500"
+      "treant_vision_night"                               "500"
+      "treant_gold_bounty_min"                            "18"
+      "treant_gold_bounty_max"                            "24"
+      "treant_xp_bounty"                                  "30"
+      "treewalking"                                       "1"
       "area_of_effect"
       {
         "value"                                           "150 225 300 375 450 525"
-        "special_bonus_facet_furion_ironwood_treant"      "=100 =100 =100 =100 =100 =100"
         "affected_by_aoe_increase"                        "1"
       }
-      "max_treants"
-      {
-        "value"                                           "2 3 4 5 6 7"
-        "special_bonus_facet_furion_ironwood_treant"      "=1 =1 =1 =1 =1 =1"
-      }
-      "siege_treants"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_furion_ironwood_treant"      "+1"
-      }
-      "treant_duration"                                   "50"
       "treant_health" //OAA
       {
-        "value"                                           "550 650 750 850 1700 2550"
-        "special_bonus_facet_furion_ironwood_treant"      "=750 =950 =1150 =1350 =2700 =5400"
+        "value"                                           "450"
         "special_bonus_unique_furion"                     "x3"
       }
       "treant_damage" //OAA
       {
-        "value"                                           "20 30 40 50 150 250"
-        "special_bonus_facet_furion_ironwood_treant"      "=26 =44 =62 =80 =180 =280"
+        "value"                                           "16 25 34 43 43 43"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treant_bonus_hero_damage"
+      {
+        "value"                                           "4 8 12 16 16 16"
         "special_bonus_unique_furion"                     "x3"
       }
       "treant_movespeed"
       {
-        "value"                                           "305 310 315 320 325 330"
-        "special_bonus_facet_furion_ironwood_treant"      "=335 =340 =345 =350 =355 =360"
+        "value"                                           "300 315 330 345 325 330"
         "special_bonus_unique_furion_2"                   "+50"
-      }
-      "treant_vision_day"
-      {
-        "value"                                           "500"
-        "special_bonus_facet_furion_ironwood_treant"      "+700"
-      }
-      "treant_vision_night"
-      {
-        "value"                                           "500"
-        "special_bonus_facet_furion_ironwood_treant"      "+300"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "33 32 31 30 29 28"
+        "value"                                           "45 40 35 30 30 30"
         "special_bonus_unique_furion_6"                   "-10"
-      }
-      "treant_gold_bounty_min"
-      {
-        "value"                                           "18"
-        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
-      }
-      "treant_gold_bounty_max"
-      {
-        "value"                                           "24"
-        "special_bonus_facet_furion_ironwood_treant"      "=16 =24 =32 =40 =80 =160"
-      }
-      "treant_xp_bounty"
-      {
-        "value"                                           "30"
-        "special_bonus_facet_furion_ironwood_treant"      "=30 =40 =50 =60 =120 =240"
       }
     }
   }

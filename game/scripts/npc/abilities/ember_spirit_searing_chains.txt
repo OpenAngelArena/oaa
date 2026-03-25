@@ -5,13 +5,13 @@
   //=================================================================================================================
   "ember_spirit_searing_chains"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,6 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "tick_interval"                                     "0.5"
       "duration"
       {
         "value"                                           "1.25 1.75 2.25 2.75 3.25 3.75"
@@ -45,19 +46,16 @@
       }
       "damage_per_second"
       {
-        "value"                                           "100 100 100 100 200 300"
+        "value"                                           "100"
         "special_bonus_unique_ember_spirit_chains_dps"    "+50"
       }
-      "tick_interval"                                     "0.5"
       "unit_count"
       {
         "value"                                           "2"
-        "special_bonus_facet_ember_spirit_chain_gang"     "+2"
       }
       "remnant_chains"
       {
         "value"                                           "0"
-        "special_bonus_facet_ember_spirit_chain_gang"     "=1"
       }
     }
   }

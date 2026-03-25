@@ -5,6 +5,7 @@
   //=================================================================================================================
   "shadow_shaman_voodoo"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -12,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -43,5 +43,4 @@
       }
     }
   }
-
 }

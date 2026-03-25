@@ -5,13 +5,13 @@
   //=================================================================================================================
   "puck_waning_rift"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -41,8 +41,8 @@
       }
       "damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 1120"
-        "special_bonus_unique_puck_6"                     "+80"
+        "value"                                           "60 120 180 240 240 240"
+        "special_bonus_unique_puck_6"                     "+60"
       }
       "max_distance"
       {
@@ -57,7 +57,7 @@
       "knock_distance"
       {
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +175 +200"
+        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +150 +150"
       }
       "knock_duration"
       {
@@ -66,7 +66,7 @@
       "pull_distance"
       {
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +175 +200"
+        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +150 +150"
       }
       "pull_duration"
       {

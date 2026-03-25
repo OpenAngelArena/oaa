@@ -1,7 +1,11 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "windrunner_shackleshot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,13 +22,10 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.15"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityDamage"                                       "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@
       }
       "bonus_damage_per_hero"
       {
-        "special_bonus_facet_windrunner_tangled"          "35 35 35 35 70 105"
+        "special_bonus_facet_windrunner_tangled"          "35"
       }
       "bonus_damage_per_other_pct"
       {
@@ -71,7 +71,7 @@
       }
       "damage_buff_duration"
       {
-        "special_bonus_facet_windrunner_tangled"          "3 4 5 6 7 8"
+        "special_bonus_facet_windrunner_tangled"          "3 4 5 6 6 6"
       }
     }
   }

@@ -5,6 +5,7 @@
   //=================================================================================================================
   "riki_tricks_of_the_trade"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -12,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +23,7 @@
     "AbilityCastPoint"                                    "0.3"
     "AbilityChannelTime"                                  "2.0"
 
-    // Ability Data
+    // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "65"
 
@@ -30,15 +31,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "speed_per_attack"                                  "180"
+      "interval_targets"                                  "2"
+      "agility_pct"                                       "0"
+      "cd_per_kill"                                       "0"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "15 14 13 12 11 10"
+        "value"                                           "21 18 15 12 12 12"
         "special_bonus_unique_riki_6"                     "-4"
       }
       "AbilityCastRange"
       {
         "value"                                           "400"
-        "special_bonus_scepter"                           "+300"
+        "special_bonus_scepter"                           "+500"
       }
       "radius"
       {
@@ -49,17 +54,14 @@
       {
         "value"                                           "4"
       }
-      "speed_per_attack"                                  "180"
-      "interval_targets"                                  "2"
       "attack_damage"
       {
         "value"                                           "25 50 75 100 200 300"
       }
-      "base_attack_damage_pct" // percentage of attack damage, not just base
+      "base_attack_damage_pct"
       {
         "special_bonus_unique_riki_tricks_dmg"            "+15"
       }
-      "agility_pct"                                       "0"
       "dispel"
       {
         "value"                                           "0"
@@ -80,7 +82,6 @@
       {
         "special_bonus_scepter"                           "2"
       }
-      "cd_per_kill"                                       "0"
       "creep_agility_multiplier"
       {
         "value"                                           "1"

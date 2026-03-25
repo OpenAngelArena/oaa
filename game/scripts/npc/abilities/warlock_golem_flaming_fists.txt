@@ -1,14 +1,19 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "warlock_golem_flaming_fists"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -16,11 +21,11 @@
     {
       "damage" //OAA
       {
-        "value"                                           "40 60 80 120 160"
+        "value"                                           "40 50 60 60 60"
       }
       "radius"
       {
-        "value"                                           "300"
+        "value"                                           "300 300 300 300 300"
         "affected_by_aoe_increase"                        "1"
       }
     }

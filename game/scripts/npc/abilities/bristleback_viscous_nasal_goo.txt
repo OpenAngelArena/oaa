@@ -5,6 +5,7 @@
   //=================================================================================================================
   "bristleback_viscous_nasal_goo"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -12,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -36,18 +36,10 @@
       "goo_speed"                                         "1000"
       "goo_duration"                                      "5.0"
       "base_armor"                                        "1.5 2 2.5 3 4 5"
-      "armor_per_stack"
-      {
-        "value"                                           "2.0 2.5 3.0 3.5 4.0 4.5"
-      }
+      "armor_per_stack"                                   "2.0 2.5 3.0 3.5 4.0 4.5"
       "base_move_slow"                                    "12"
       "move_slow_per_stack"                               "3 6 9 12 15 18"
-      "stack_limit" //OAA
-      {
-        "value"                                           "4"
-        "special_bonus_facet_bristleback_snot_rocket"     "+1"
-      }
-      "goo_duration_creep"                                "10.0"
+      "stack_limit"                                       "6" //OAA
       "AbilityCastRange"
       {
         "value"                                           "650"

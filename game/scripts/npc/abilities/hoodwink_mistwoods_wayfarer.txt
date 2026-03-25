@@ -5,13 +5,15 @@
   //=================================================================================================================
   "hoodwink_mistwoods_wayfarer"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "DependentOnAbility"                                  "hoodwink_sharpshooter"
-    "MaxLevel"                                            "6" // same as Dependent ability (Sharpshooter) + 1
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "radius"
@@ -19,7 +21,11 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "redirect_chance"                                   "14 21 28 35 40 45" // doubled with Scurry
+      "redirect_chance"
+      {
+        "value"                                           "14"
+        "hero_levelup"                                    "1"
+      }
     }
   }
 }

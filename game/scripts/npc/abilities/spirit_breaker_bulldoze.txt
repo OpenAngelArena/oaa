@@ -5,9 +5,11 @@
   //=================================================================================================================
   "spirit_breaker_bulldoze"
   {
+
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -16,6 +18,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "30 40 50 60 70 80"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "movement_speed"                                    "8 12 16 20 28 36"
@@ -28,7 +32,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 18 17 16 15 14"
+        "value"                                           "22 20 18 16 16 16"
         "special_bonus_unique_spirit_breaker_2"           "-3"
       }
     }

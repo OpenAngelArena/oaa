@@ -5,6 +5,7 @@
   //=================================================================================================================
   "pugna_decrepify"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -12,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 600 650 700 750 800"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,6 +35,7 @@
     "AbilityValues"
     {
       "bonus_heal_amp_pct_allies"                         "10 15 20 25 30 35"
+      "bonus_movement_speed"                              "-45 -50 -55 -60 -65 -70"
       "bonus_movement_speed_allies"
       {
         "value"                                           "0"
@@ -45,7 +46,6 @@
         "value"                                           "-20 -30 -40 -50 -55 -60"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "bonus_movement_speed"                              "-45 -50 -55 -60 -65 -70"
       "AbilityDuration"
       {
         "value"                                           "3.5"

@@ -5,24 +5,26 @@
   //=================================================================================================================
   "leshrac_pulse_nova"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "1.0"
+    "AbilityCastPoint"                                    "0 0 0 0 0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1.0 1.0 1.0 1.0 1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,10 +42,10 @@
       }
       "damage" //OAA
       {
-        "value"                                           "90 140 190 340 490"
-        "special_bonus_unique_leshrac_3"                  "+50"
+        "value"                                           "80 135 180 180 180"
+        "special_bonus_unique_leshrac_3"                  "+30"
       }
-      "damage_resistance" // special_bonus_unique_leshrac_4 is not used
+      "damage_resistance"
       {
         "value"                                           "0"
         "special_bonus_unique_leshrac_4"                  "+10"

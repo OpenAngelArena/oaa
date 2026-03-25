@@ -5,11 +5,13 @@
   //=================================================================================================================
   "largo_song_good_vibrations"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,12 +25,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "double_song"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "=1"
       }
-      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "radius"
       {
         "value"                                           "800"
@@ -37,7 +39,7 @@
       "heal_burst"
       {
         "value"                                           "34 56 78 156 312"
-        "special_bonus_unique_largo_7"                    "+35%"
+        "special_bonus_unique_largo_7"                    "+30%"
       }
       "AbilityManaCost"
       {

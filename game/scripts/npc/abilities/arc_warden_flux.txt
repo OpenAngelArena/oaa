@@ -5,22 +5,23 @@
   //=================================================================================================================
   "arc_warden_flux"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "search_radius"                                     "200" //OAA
+      "think_interval"                                    "0.5"
       "duration"
       {
         "value"                                           "6.0"
         "special_bonus_scepter"                           "+2.0"
       }
-      "search_radius"                                     "200" //OAA
-      "think_interval"                                    "0.5"
       "damage_per_second"
       {
         "value"                                           "15 30 45 60 120 180"

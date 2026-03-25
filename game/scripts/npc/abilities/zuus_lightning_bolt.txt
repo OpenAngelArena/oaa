@@ -1,15 +1,18 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "zuus_lightning_bolt"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.0"
+    "AbilityCooldown"                                     "6.0 6.0 6.0 6.0 6.0 6.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,26 +34,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "sight_duration"                                    "5"
+      "creep_damage_bonus_pct"                            "0"
       "damage"
       {
         "value"                                           "140 220 300 380 760 1140"
       }
       "true_sight_radius"
       {
-        "value"                                           "500"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "sight_radius_day"
       {
-        "value"                                           "500"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "sight_radius_night"
       {
-        "value"                                           "500"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "sight_duration"                                    "5"
       "spread_aoe"
       {
         "value"                                           "325"
@@ -61,7 +65,6 @@
         "value"                                           "0.35"
         "special_bonus_unique_zeus_3"                     "+0.5"
       }
-      "creep_damage_bonus_pct"                            "0"
       "aoe_radius"
       {
         "special_bonus_unique_zeus_5"                     "325"

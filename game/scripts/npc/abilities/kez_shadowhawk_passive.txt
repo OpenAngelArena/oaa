@@ -5,11 +5,13 @@
   //=================================================================================================================
   "kez_shadowhawk_passive"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-
-    "MaxLevel"                                            "6" // OAA (Valve has it wrong: they have 5 instead of 4) same as Dependent ability (Ravens Veil) + 1
+    "MaxLevel"                                            "7" //OAA (Valve has it wrong: they have 5 instead of 4) same as Dependent ability (Ravens Veil) + 1
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
     "DependentOnAbility"                                  "kez_ravens_veil"
 
     // Special
@@ -17,7 +19,7 @@
     "AbilityValues"
     {
       "invis_bonus_duration"                              "1"
-      "invis_bonus_crit"                                  "30 45 60 75 90 105"
+      "invis_bonus_crit"                                  "30 45 60 75 75 105 105"
     }
   }
 }

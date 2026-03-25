@@ -5,22 +5,22 @@
   //=================================================================================================================
   "undying_soul_rip"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +34,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "max_units"                                         "10"
+      "tombstone_heal"                                    "4 8 12 16 18 20"
       "damage_per_unit" //OAA
       {
-        "value"                                           "20 30 40 50 100 150"
-        "special_bonus_unique_undying_6"                  "+15"
+        "value"                                           "14 26 38 50 50 50"
+        "special_bonus_unique_undying_6"                  "+12"
       }
-      "max_units"                                         "10"
       "radius"
       {
         "value"                                           "1300"
         "affected_by_aoe_increase"                        "1"
       }
-      "tombstone_heal"                                    "4 8 12 16 18 20"
       "strength_share_percent"
       {
         "value"                                           "0"

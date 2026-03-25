@@ -5,14 +5,14 @@
   //=================================================================================================================
   "death_prophet_carrion_swarm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,6 +30,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "range"                                             "900"
+      "speed"                                             "1100 1100 1100 1100 1100 1100"
       "damage"
       {
         "value"                                           "100 175 250 325 650 975"
@@ -50,8 +52,6 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "range"                                             "900"
-      "speed"                                             "1100"
       "slow_percent"
       {
         "value"                                           "0"

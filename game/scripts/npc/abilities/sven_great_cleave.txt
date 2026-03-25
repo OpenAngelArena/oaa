@@ -5,11 +5,11 @@
   //=================================================================================================================
   "sven_great_cleave"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,10 +18,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "strength_bonus"                                    "00"
       "cleave_starting_width"
       {
         "value"                                           "150"
-        // intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
       }
       "cleave_ending_width"
       {
@@ -40,7 +40,6 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "strength_bonus"                                    "00"
     }
   }
 }

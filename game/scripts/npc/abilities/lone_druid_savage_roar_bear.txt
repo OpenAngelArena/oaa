@@ -5,13 +5,15 @@
   //=================================================================================================================
   "lone_druid_savage_roar_bear"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,15 +31,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA, Valve has it wrong, not applied during 7.35
-      {
-        "value"                                           "350"
-        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
-        "affected_by_aoe_increase"                        "1"
-      }
       "bonus_speed"                                       "20"
       "duration"                                          "1.1 1.4 1.7 2.0 2.1 2.2"
       "only_affects_player_units"                         "1"
+      "radius" //OAA, Valve has it wrong, not applied during 7.35
+      {
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
+      }
     }
   }
 }

@@ -5,35 +5,40 @@
   //=================================================================================================================
   "broodmother_spin_web"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "3 5 7 9 11 13"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40"
+    "AbilityCharges"                                      "3 5 7 9 11 13"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_turn_rate"                                   "0.2"
       "radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "count" // should be same as AbilityCharges
+      "count"
       {
         "value"                                           "3 5 7 9 11 13"
       }
@@ -43,24 +48,23 @@
       }
       "bonus_movespeed"
       {
-        "value"                                           "10 22 34 46 58 70"
-        "special_bonus_unique_broodmother_web_speed"      "+7" // unused
+        "value"                                           "10 20 30 40 58 70"
+        "special_bonus_unique_broodmother_web_speed"      "+7"
       }
       "AbilityChargeRestoreTime"
       {
         "value"                                           "27"
         "special_bonus_unique_broodmother_5"              "-6"
       }
-      "bonus_turn_rate"                                   "0.2"
       "degen" //OAA
       {
+        "special_bonus_facet_broodmother_necrotic_webs"   "=10 =25 =40 =55 =55 =55"
         "value"                                           "0"
-        "special_bonus_facet_broodmother_necrotic_webs"   "=10 =14 =18 =22 =26 =30"
       }
       "break_move_cap"
       {
         "value"                                           "0"
-        "special_bonus_unique_broodmother_web_speed"      "1" // unused
+        "special_bonus_unique_broodmother_web_speed"      "1"
       }
     }
   }

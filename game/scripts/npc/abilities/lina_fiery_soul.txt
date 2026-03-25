@@ -5,11 +5,11 @@
   //=================================================================================================================
   "lina_fiery_soul"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,6 +18,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "fiery_soul_max_stacks"                             "7"
+      "fiery_soul_stack_duration"                         "18"
       "fiery_soul_attack_speed_bonus"
       {
         "value"                                           "8 16 24 32 40 48"
@@ -30,23 +32,11 @@
       }
       "fiery_soul_magic_resist" //OAA, intentional nerf
       {
-        "special_bonus_unique_lina_4"                     "+2"
+        "special_bonus_unique_lina_4"                     "+5"
       }
-      "fiery_soul_max_stacks"                             "7"
-      "fiery_soul_stack_duration"                         "18"
       "bonus_spell_damage"
       {
         "value"                                           "0"
-      }
-      "target_crit_multiplier"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_lina_crit_debuff"           "+150"
-      }
-      "target_crit_debuff_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_lina_crit_debuff"           "3.0"
       }
     }
   }

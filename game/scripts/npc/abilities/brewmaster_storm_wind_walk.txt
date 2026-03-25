@@ -5,12 +5,14 @@
   //=================================================================================================================
   "brewmaster_storm_wind_walk"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +20,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 75 75 75 75 75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +28,7 @@
     {
       "bonus_damage" //OAA
       {
-        "value"                                           "140 260 380 500 740 1100"
+        "value"                                           "140 200 260 320 320 320"
       }
       "bonus_movement_speeed"
       {
@@ -34,11 +36,11 @@
       }
       "duration"
       {
-        "value"                                           "20.0"
+        "value"                                           "20.0 20.0 20.0 20.0 20.0 20.0"
       }
       "fade_time"
       {
-        "value"                                           "0.6"
+        "value"                                           "0.6 0.6 0.6 0.6 0.6 0.6"
       }
     }
   }

@@ -5,14 +5,14 @@
   //=================================================================================================================
   "void_spirit_astral_step"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -24,16 +24,19 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "90"
+    "AbilityCharges"                                      "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "min_travel_distance"                               "200"
+      "max_travel_distance"                               "800 900 1000 1100 1200"
+      "movement_slow_pct"                                 "40 60 80 85 90"
       "radius"
       {
         "value"                                           "170"
@@ -41,11 +44,9 @@
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "18 17 16 15 14"
+        "value"                                           "25 20 15 15 15"
         "special_bonus_unique_void_spirit_1"              "-3"
       }
-      "min_travel_distance"                               "200"
-      "max_travel_distance"                               "800 900 1000 1100 1200"
       "pop_damage_delay"
       {
         "value"                                           "1.25"
@@ -53,10 +54,9 @@
       }
       "pop_damage" //OAA
       {
-        "value"                                           "150 300 450 900 1650"
+        "value"                                           "130 230 330 330 330"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "movement_slow_pct"                                 "40 60 80 85 90"
       "ability_chance_pct"
       {
         "value"                                           "0"

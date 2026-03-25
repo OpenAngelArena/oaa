@@ -5,14 +5,13 @@
   //=================================================================================================================
   "earth_spirit_magnetize"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,6 +33,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "damage_interval"                                   "1.0"
+      "rock_explosion_delay"                              "8.0"
+      "silence_duration"                                  "5.0"
+      "slow_duration"                                     "2.0"
       "cast_radius"
       {
         "value"                                           "350"
@@ -41,7 +44,7 @@
       }
       "damage_per_second" //OAA
       {
-        "value"                                           "80 120 160 280 400"
+        "value"                                           "45 90 135 135 135"
         "special_bonus_unique_earth_spirit_8"             "+30%"
       }
       "damage_duration"
@@ -61,10 +64,6 @@
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_interval"                                   "1.0"
-      "rock_explosion_delay"                              "8.0"
-      "silence_duration"                                  "5.0"
-      "slow_duration"                                     "2.0"
       "magnetized_rocks_buff_self"
       {
         "value"                                           "0"

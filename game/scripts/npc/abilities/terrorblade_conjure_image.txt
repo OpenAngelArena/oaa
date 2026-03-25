@@ -5,10 +5,10 @@
   //=================================================================================================================
   "terrorblade_conjure_image"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,6 +21,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "illusion_incoming_damage"                          "175 150 125 100 75 50" //OAA
+      "illusion_incoming_damage_total_tooltip"            "275 250 225 200 175 150" //OAA
       "illusion_duration"
       {
         "value"                                           "34.0"
@@ -28,19 +30,17 @@
       }
       "illusion_outgoing_damage"
       {
-        "value"                                           "-80 -75 -70 -65 -55 -45"
+        "value"                                           "-75 -70 -65 -60 -55 -45"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                           "20 25 30 35 45 55"
+        "value"                                           "25 30 35 40 45 55"
       }
       "AbilityCooldown"
       {
         "value"                                           "16"
         "special_bonus_unique_terrorblade_4"              "-2"
       }
-      "illusion_incoming_damage"                          "175 150 125 100 75 50" //OAA
-      "illusion_incoming_damage_total_tooltip"            "275 250 225 200 175 150" //OAA
       "strong_illusion"
       {
         "value"                                           "0"

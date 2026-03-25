@@ -1,32 +1,40 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "venomancer_poison_sting"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6 9 12 15 15 15"
+      "debuff_dmg"                                        "0"
+      "duration"
+      {
+        "value"                                           "4.5"
+        "hero_levelup"                                    "+0.5"
+      }
       "damage" //OAA
       {
-        "value"                                           "10 20 30 40 80 120"
+        "value"                                           "9"
+        "hero_levelup"                                    "+1"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "movement_speed"
       {
-        "value"                                           "-8 -10 -12 -14 -16 -18"
-        "special_bonus_unique_venomancer_2"               "-5"
+        "value"                                           "10"
+        "special_bonus_unique_venomancer_2"               "7"
       }
       "hp_regen_reduction"
       {

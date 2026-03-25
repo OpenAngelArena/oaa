@@ -5,15 +5,15 @@
   //=================================================================================================================
   "mars_arena_of_blood"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -31,19 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
-      {
-        "value"                                           "100 95 90 85 80"
-        "special_bonus_unique_mars_arena_cooldown"        "-16"
-      }
-      "duration"                                          "5.5"
-      "radius"
-      {
-        "value"                                           "550"
-        "affected_by_aoe_increase"                        "1"
-      }
       "width"                                             "100"
-      "spear_damage"                                      "80 180 280 480 680" //OAA special_bonus_unique_mars_2_oaa
       "formation_time"                                    "0.1"
       "spear_distance_from_wall"                          "160"
       "spear_attack_interval"                             "1"
@@ -52,42 +40,57 @@
       "warrior_fade_min_dist"                             "350.0"
       "warrior_fade_max_dist"                             "450.0"
       "cast_around_self_and_leash"                        "0"
+      "AbilityCooldown"
+      {
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-10"
+      }
+      "duration"
+      {
+        "value"                                           "5.5"
+        "special_bonus_scepter"                           "+1.0"
+      }
+      "radius"
+      {
+        "value"                                           "550"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "spear_damage" //OAA special_bonus_unique_mars_2_oaa
+      {
+        "value"                                           "80 160 240 240 240"
+        "special_bonus_unique_mars_arena_of_blood_damage"  "+70"
+      }
       "obscure_vision" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_mars_arena"                  "0"
-      }
-      "block_targeting"
-      {
-        "value"                                           "0"
-      }
-      "reduced_vision_percent"
       {
         "value"                                           "0"
       }
       "arena_kill_buff_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+20"
+        "special_bonus_scepter"                           "+20"
       }
       "arena_kill_buff_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+20"
+        "special_bonus_scepter"                           "+35"
       }
       "arena_kill_buff_heal_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+30"
+        "special_bonus_scepter"                           "+35"
       }
       "allied_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_mars_victory_feast"          "+50"
+        "special_bonus_scepter"                           "+100"
       }
       "health_regen"
       {
         "special_bonus_unique_mars_arena_of_blood_hp_regen"  "180"
+      }
+      "pierces_debuff_immunity"
+      {
+        "value"                                           "0"
       }
     }
   }

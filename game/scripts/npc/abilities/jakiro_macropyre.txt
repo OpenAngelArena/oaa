@@ -5,15 +5,16 @@
   //=================================================================================================================
   "jakiro_macropyre"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,10 +35,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "burn_interval"                                     "0.5 0.5 0.5 0.5 0.5"
+      "linger_duration"                                   "1"
       "damage" //OAA
       {
-        "value"                                           "100 175 250 400 550"
-        "special_bonus_unique_jakiro_7"                   "+75"
+        "value"                                           "100 150 200 200 200"
+        "special_bonus_unique_jakiro_7"                   "+20"
       }
       "path_width"
       {
@@ -53,8 +56,6 @@
       {
         "value"                                           "1400"
       }
-      "burn_interval"                                     "0.5"
-      "linger_duration"                                   "1"
       "pure_damage_type"
       {
         "value"                                           "0"

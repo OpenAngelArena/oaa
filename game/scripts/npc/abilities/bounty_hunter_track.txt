@@ -5,28 +5,30 @@
   //=================================================================================================================
   "bounty_hunter_track"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    // Unit Targeting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6 5 4 3 3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "60"
 
     // Special
@@ -34,6 +36,8 @@
     "AbilityValues"
     {
       "target_damage_amp"                                 "8 12 16 20 24"
+      "duration"                                          "25"
+      "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7"
       "bonus_gold_radius"
       {
         "value"                                           "1200"
@@ -41,17 +45,14 @@
       }
       "bonus_gold_self" //OAA
       {
-        "value"                                           "320 640 1280 2560 5120"
+        "value"                                           "130 225 320 320 320"
         "special_bonus_unique_bounty_hunter_3"            "+50"
       }
       "bonus_gold" //OAA
       {
-        "value"                                           "250 500 750 1500 3000"
+        "value"                                           "50 90 130 130 130"
         "special_bonus_unique_bounty_hunter_3"            "+50"
       }
-      "duration"                                          "25"
-      "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7" // unused
-      "bonus_move_speed_pct"                              "12 16 20 24 28"
     }
   }
 }

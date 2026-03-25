@@ -5,24 +5,30 @@
   //=================================================================================================================
   "brewmaster_drunken_brawler"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      // earth
+      "crit_chance"                                       "20"
+      "brewed_up_bonus"                                   "150"
+      "hangover_time"                                     "9"
       "magic_resist"
       {
         "value"                                           "8 12 16 20 22 24"
@@ -33,8 +39,6 @@
         "value"                                           "3 5 7 9 11 13"
         "special_bonus_unique_brewmaster_drunken_brawler_stance_bonus"  "+50%"
       }
-
-      // storm
       "dodge_chance"
       {
         "value"                                           "15 20 25 30 30 30"
@@ -45,9 +49,6 @@
         "value"                                           "4 6 8 10 12 14"
         "special_bonus_unique_brewmaster_drunken_brawler_stance_bonus"  "+50%"
       }
-
-      // fire
-      "crit_chance"                                       "20"
       "crit_multiplier"
       {
         "value"                                           "120 140 160 180 200 220"
@@ -58,26 +59,20 @@
         "value"                                           "10 20 30 40 50 60"
         "special_bonus_unique_brewmaster_drunken_brawler_stance_bonus"  "+50%"
       }
-
-      // tooltip only
       "stance_multiplier_tooltip"
       {
         "special_bonus_unique_brewmaster_drunken_brawler_stance_bonus"  "1.5"
       }
-
-      // Brew Up
       "brewed_up_duration"
       {
         "value"                                           "5"
-        "special_bonus_unique_brewmaster_brewed_up_duration"  "+1"
+        "special_bonus_unique_brewmaster_brewed_up_duration"  "+2"
       }
       "brewed_up_duration_extend"
       {
         "value"                                           "2"
         "special_bonus_unique_brewmaster_brewed_up_duration"  "+1"
       }
-      "brewed_up_bonus"                                   "150"
-      "hangover_time"                                     "9"
     }
   }
 }

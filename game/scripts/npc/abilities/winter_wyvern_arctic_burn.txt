@@ -1,21 +1,25 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "winter_wyvern_arctic_burn"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,29 +37,29 @@
       "attack_range_bonus"                                "250 275 300 325 350 375"
       "percent_damage"                                    "4 6 8 10 11 12"
       "tick_rate"                                         "0.5"
+      "projectile_speed_bonus"                            "500"
+      "attack_point"                                      "0.1"
+      "max_attacks"                                       "5"
       "damage_duration"
       {
-        "value"                                           "5.0"
+        "value"                                           "3.0"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "special_bonus_unique_winter_wyvern_6"            "+3"
       }
-      "move_slow" // OAA, because of special_bonus_unique_winter_wyvern_1 nerf
+      "move_slow" //OAA, because of special_bonus_unique_winter_wyvern_1 nerf
       {
-        "value"                                           "16 24 32 40 45 50"
-        "special_bonus_unique_winter_wyvern_1"            "+10"
+        "value"                                           "15 20 25 30 30 30"
+        "special_bonus_unique_winter_wyvern_1"            "+15"
       }
-      "projectile_speed_bonus"                            "500"
       "tree_destruction_radius"
       {
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "attack_point"                                      "0.1"
-      "max_attacks"                                       "5"
       "mana_cost_scepter" //OAA
       {
-        "special_bonus_scepter"                           "20 30 40 50 60 70"
+        "special_bonus_scepter"                           "20"
       }
       "movement_scepter"
       {

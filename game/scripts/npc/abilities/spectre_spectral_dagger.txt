@@ -5,15 +5,15 @@
   //=================================================================================================================
   "spectre_spectral_dagger"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // OAA, Valve lmao
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, Valve lmao
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentional nerf
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -31,9 +31,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "dagger_path_duration"                              "12.0"
+      "hero_path_duration"                                "7.0"
+      "buff_persistence"                                  "4.0"
+      "speed"                                             "800"
+      "dagger_grace_period"                               "1.0"
       "damage" //OAA
       {
-        "value"                                           "100 160 220 280 560 1120"
+        "value"                                           "70 120 170 220 220 220"
         "special_bonus_unique_spectre_6"                  "+80"
       }
       "bonus_movespeed"
@@ -41,9 +46,6 @@
         "value"                                           "10 14 18 22 23 24"
         "special_bonus_unique_spectre_3"                  "+15"
       }
-      "dagger_path_duration"                              "12.0"
-      "hero_path_duration"                                "7.0"
-      "buff_persistence"                                  "4.0"
       "dagger_radius"
       {
         "value"                                           "125"
@@ -59,15 +61,13 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed"                                             "800"
-      "dagger_grace_period"                               "1.0"
       "applies_desolate"
       {
         "value"                                           "0"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 18 17 16 15 14"
+        "value"                                           "22 20 18 16 16 16"
         "special_bonus_unique_spectre"                    "-4"
       }
     }

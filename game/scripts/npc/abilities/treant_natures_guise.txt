@@ -5,27 +5,32 @@
   //=================================================================================================================
   "treant_natures_guise"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_FORCE_KEYBIND | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "grace_time"                                        "2"
+      "shard_root_time"                                   "0"
+      "shard_by_tree_root_time"                           "0"
+      "shard_damage"                                      "0"
+      "attack_damage_pct"                                 "0"
+      "shard_cooldown"                                    "0"
       "radius"
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "grace_time"                                        "2"
       "cooldown_time"
       {
         "value"                                           "2.75"
       }
-
       "movement_bonus"
       {
         "value"                                           "10"
@@ -33,15 +38,10 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "30"
+        "value"                                           "36"
         "hero_levelup"                                    "-1"
-        "levelup_interval"                                "2"
+        "levelup_interval"                                "1"
       }
-      "shard_root_time"                                   "0"
-      "shard_by_tree_root_time"                           "0"
-      "shard_damage"                                      "0"
-      "attack_damage_pct"                                 "0"
-      "shard_cooldown"                                    "0"
     }
   }
 }

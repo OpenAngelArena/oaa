@@ -5,14 +5,14 @@
   //=================================================================================================================
   "lina_dragon_slave"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "0.6875"
+    "AbilityDuration"                                     "0.6875 0.6875 0.6875 0.6875 0.6875 0.6875"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,11 +34,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "dragon_slave_speed"                                "1200"
+      "dragon_slave_distance"                             "1075"
       "dragon_slave_damage"
       {
-        "value"                                           "85 165 245 325 650 975"
+        "value"                                           "65 125 185 245 650 975"
       }
-      "dragon_slave_speed"                                "1200"
       "dragon_slave_width_initial"
       {
         "value"                                           "275"
@@ -49,7 +50,6 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "dragon_slave_distance"                             "1075"
       "AbilityCooldown"
       {
         "value"                                           "11 10 9 8 8 8"

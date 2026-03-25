@@ -5,28 +5,27 @@
   //=================================================================================================================
   "furion_wrath_of_nature"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    // Unit Targeting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "130 160 190 220 250"
 
     // Special
@@ -34,9 +33,10 @@
     "AbilityValues"
     {
       "max_targets"                                       "16"
+      "jump_delay"                                        "0.15"
       "damage" //OAA, special_bonus_unique_furion_5 is not used
       {
-        "value"                                           "115 165 215 365 515"
+        "value"                                           "90 130 170 170 170"
         "special_bonus_unique_furion_5"                   "+25"
       }
       "damage_percent_add"
@@ -45,14 +45,13 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "jump_delay"                                        "0.15"
-      "kill_damage" // unused
+      "kill_damage"
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "kill_damage_duration" // unused
+      "kill_damage_duration"
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

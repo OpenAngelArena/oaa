@@ -5,21 +5,25 @@
   //=================================================================================================================
   "tiny_grow"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityType"                                         "ABILITY_TYPE_BASIC" //OAA
-
-    "MaxLevel"                                            "3"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "5 10 15"
+      "bonus_armor"                                       "5 10 15 15 15"
+      "move_speed"                                        "10 15 20 20 20"
       "bonus_damage"
       {
-        "value"                                           "55 110 165"
+        "value"                                           "55 110 165 165 165"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_speed_reduction"
@@ -29,10 +33,41 @@
       }
       "toss_bonus_damage" //OAA
       {
-        "value"                                           "75 300 525"
+        "value"                                           "50 175 300 300 300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "move_speed"                                        "10 15 20"
+      "land_movement_slow"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "25"
+      }
+      "land_attack_slow"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "45"
+      }
+      "land_debuff_duration"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "=2.5"
+      }
+      "land_radius_tooltip"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "125"
+      }
+      "land_toss_damage_tooltip"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "land_tree_damage_tooltip"
+      {
+        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "50"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
     }
   }
 }

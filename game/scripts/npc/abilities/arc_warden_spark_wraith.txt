@@ -5,22 +5,24 @@
   //=================================================================================================================
   "arc_warden_spark_wraith"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "2000"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4.0"
+    "AbilityCooldown"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,23 +32,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "move_speed_slow_pct"                               "100"
+      "think_interval"                                    "0.2"
+      "wraith_vision_duration"                            "3.34"
+      "creep_damage_bonus_pct"                            "0"
       "radius"
       {
         "value"                                           "375"
-        "special_bonus_shard"                             "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "16"
-      "move_speed_slow_pct"                               "100"
+      "duration"
+      {
+        "value"                                           "16"
+        "special_bonus_unique_arc_warden_7"               "+30"
+      }
       "base_activation_delay"
       {
         "value"                                           "1.5"
-        "special_bonus_unique_arc_warden_7"               "-1.1"
       }
       "spark_damage_base"
       {
         "value"                                           "100 170 240 310 620 930"
-        "special_bonus_unique_arc_warden"                 "+50%"
+        "special_bonus_unique_arc_warden"                 "+200"
       }
       "wraith_speed_base"
       {
@@ -54,31 +61,25 @@
       }
       "ministun_duration"
       {
-        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
+        "value"                                           "0.7 0.8 0.9 1.0 0.9 1.0"
       }
-      "think_interval"                                    "0.2"
       "wraith_vision_radius"
       {
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "wraith_vision_duration"                            "3.34"
       "maximum_targets"
       {
         "value"                                           "1"
-        "special_bonus_shard"                             "+1"
       }
       "second_wraith_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=80.0"
       }
       "second_wraith_speed_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=100.0"
       }
-      "creep_damage_bonus_pct"                            "0"
     }
   }
 }

@@ -5,6 +5,7 @@
   //=================================================================================================================
   "ringmaster_the_box"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -12,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,21 +30,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"
-      {
-        "value"                                           "600"
-      }
       "invis_duration"                                    "2.0 2.4 2.8 3.2 3.3 3.4"
       "move_speed"                                        "5 10 15 20 25 30" //OAA
       "magic_resist"                                      "50 60 70 80 85 90"
       "slow_resist"                                       "100"
       "transform_time"                                    "0.5"
       "model_scale_time"                                  "0.2"
-      "leash_radius"                                      "500"
       "heal_ally"                                         "0"
       "leap_distance"                                     "250"
       "leap_speed"                                        "1300.0"
       "leap_acceleration"                                 "20000.0"
+      "unicycle_duration"                                 "0"
+      "AbilityCastRange"
+      {
+        "value"                                           "600"
+      }
+      "leash_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "grant_debuff_immunity"
       {
         "value"                                           "0"
@@ -62,13 +68,13 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "23 22 21 20 19 18"
+        "value"                                           "38 32 26 20 20 20"
         "special_bonus_scepter"                           "-100%"
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "=23 =22 =21 =20 =19 =18"
+        "value"                                           "0 0 0 0 0 0"
+        "special_bonus_scepter"                           "=38 =32 =26 =20 =20 =20"
       }
       "launch_daggers_count"
       {
@@ -77,15 +83,16 @@
       "launch_daggers_range"
       {
         "special_bonus_scepter"                           "=1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "explosion_radius" //OAA
       {
-        "special_bonus_scepter"                           "=325"
+        "special_bonus_scepter"                           "=225"
         "affected_by_aoe_increase"                        "1"
       }
       "explosion_damage" //OAA
       {
-        "special_bonus_scepter"                           "=75 =150 =225 =300 =600 =900"
+        "special_bonus_scepter"                           "=300"
       }
     }
   }

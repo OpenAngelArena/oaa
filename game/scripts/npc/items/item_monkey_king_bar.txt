@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_monkey_king_bar"
     "ItemRequirements"
     {
-      "01"                                                "item_demon_edge;item_javelin;item_blitz_knuckles"
+      "01"                                                "item_demon_edge;item_blitz_knuckles;item_javelin"
     }
   }
 
@@ -52,10 +52,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "40 50 70 100 140"
+      "bonus_damage"                                      "50 50 70 100 140"
       "bonus_attack_speed"                                "35 40 45 50 55" //OAA
       "bonus_chance"                                      "80"
       "bonus_chance_damage"                               "70 80 100 130 170"
+      "melee_attack_range"                                "50"
     }
   }
 }

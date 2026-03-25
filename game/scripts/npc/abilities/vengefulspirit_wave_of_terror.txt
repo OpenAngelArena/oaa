@@ -5,13 +5,13 @@
   //=================================================================================================================
   "vengefulspirit_wave_of_terror"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,6 +36,7 @@
     {
       "damage"                                            "60 80 100 120 240 360"
       "wave_speed"                                        "2000.0"
+      "vision_duration"                                   "4"
       "wave_width"
       {
         "value"                                           "325"
@@ -48,14 +49,13 @@
       }
       "attack_reduction" //OAA, reducing total attack damage
       {
-        "value"                                           "5 10 15 20 25 30"
+        "value"                                           "10 15 20 25 25 25"
       }
       "vision_aoe"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "vision_duration"                                   "4"
       "steal_pct"
       {
         "value"                                           "0"

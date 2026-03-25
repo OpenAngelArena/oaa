@@ -5,12 +5,12 @@
   //=================================================================================================================
   "alchemist_corrosive_weaponry"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,10 +21,20 @@
     {
       "max_stacks"                                        "7 10 13 16 17 18"
       "debuff_duration"                                   "4.0"
-      "slow_per_stack"                                    "2.0 2.1 2.2 2.3 2.4 2.5" //OAA
-      "attack_dmg_per_stack"                              "1.7 1.8 1.9 2.0 2.1 2.2" //OAA, base damage reduction
       "stacks_per_attack"                                 "2"
       "one_tooltip"                                       "1"
+      "slow_per_stack" //OAA
+      {
+        "value"                                           "2.5 3 3.5 4 4 4"
+        "display_type"                                    "kDebuffPercentage"
+        "special_bonus_unique_alchemist_weaponry_power"   "+1"
+      }
+      "attack_dmg_per_stack" //OAA, base damage reduction
+      {
+        "value"                                           "2.5 3 3.5 4 4 4"
+        "display_type"                                    "kDebuffPercentage"
+        "special_bonus_unique_alchemist_weaponry_power"   "+1"
+      }
     }
   }
 }

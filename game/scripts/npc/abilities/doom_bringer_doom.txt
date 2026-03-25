@@ -5,6 +5,7 @@
   //=================================================================================================================
   "doom_bringer_doom"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,17 +14,16 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5"
     "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,26 +33,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "deniable_pct"                                      "25 25 25 25 25"
       "duration" //OAA, intentional nerf
       {
-        "value"                                           "12 13 14 15 16"
-        "special_bonus_facet_doom_bringer_impending_doom"  "+0"        // this is needed for facet tooltip to recognize that it's modifying this value
+        "value"                                           "12 14 16 16 16"
+        "special_bonus_unique_doom_11"                    "+0"
         "dynamic_value"                                   "true"
       }
       "damage"
       {
-        "value"                                           "25 45 65 105 145"
-        "special_bonus_scepter"                           "+15"
+        "value"                                           "25 45 66 105 145"
       }
-      "deniable_pct"                                      "25" // unused
       "AbilityCooldown" //OAA
       {
-        "value"                                           "120"
+        "value"                                           "140 130 120 120 120"
+        "special_bonus_unique_doom_9"                     "-10"
       }
       "does_break"
       {
         "value"                                           "0"
-        "special_bonus_unique_doom_11"                    "+1"
+        "special_bonus_scepter"                           "+1"
       }
       "does_mute"
       {
@@ -62,7 +62,7 @@
       "scepter_aura_radius" //OAA, intentional nerf
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+250"
+        "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
       "applies_dispel_to_self"
@@ -72,12 +72,10 @@
       "upgrade_interval"
       {
         "value"                                           "0.0"
-        "special_bonus_facet_doom_bringer_impending_doom"  "=6.66"
       }
       "upgrade_amount"
       {
         "value"                                           "0.0"
-        "special_bonus_facet_doom_bringer_impending_doom"  "+0.66"
       }
     }
   }

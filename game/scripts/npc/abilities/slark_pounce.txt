@@ -5,12 +5,14 @@
   //=================================================================================================================
   "slark_pounce"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,6 +26,7 @@
     "AbilityValues"
     {
       "pounce_damage"                                     "0"
+      "pounce_acceleration"                               "7000.0"
       "pounce_distance"
       {
         "value"                                           "700"
@@ -32,7 +35,6 @@
       {
         "value"                                           "933.33"
       }
-      "pounce_acceleration"                               "7000.0"
       "pounce_radius"
       {
         "value"                                           "120"
@@ -52,7 +54,7 @@
       }
       "charge_restore_time" //OAA
       {
-        "special_bonus_scepter"                           "18 16 14 12 11 10"
+        "special_bonus_scepter"                           "12"
       }
       "pounce_distance_scepter"
       {
@@ -64,7 +66,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "18 16 14 12 11 10"
+        "value"                                           "24 20 16 12 12 12"
       }
     }
   }

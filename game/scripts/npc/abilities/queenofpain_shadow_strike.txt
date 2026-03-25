@@ -5,15 +5,16 @@
   //=================================================================================================================
   "queenofpain_shadow_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -35,13 +36,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration_damage"                                   "20 40 60 80 160 240" //special_bonus_unique_queen_of_pain_4_oaa
+      "movement_slow"                                     "-25 -35 -45 -55 -65 -75"
+      "projectile_speed"                                  "900"
+      "duration"                                          "16"
       "strike_damage"
       {
         "value"                                           "50 80 110 140 280 560"
       }
-      "duration_damage"                                   "20 40 60 80 160 240" // special_bonus_unique_queen_of_pain_4_oaa
-      "movement_slow"                                     "-25 -35 -45 -55 -65 -75"
-      "projectile_speed"                                  "900"
       "attack_speed"
       {
         "special_bonus_unique_queen_of_pain_1"            "+35"
@@ -66,7 +68,6 @@
         "special_bonus_scepter"                           "+375"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "16"
     }
   }
 }

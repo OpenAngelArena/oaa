@@ -5,13 +5,13 @@
   //=================================================================================================================
   "sniper_shrapnel"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1800"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "slow_movement_speed"
       {
         "value"                                           "-12 -18 -24 -30 -36 -42"
-        "special_bonus_facet_sniper_scattershot"          "=-30 =-45 =-60 =-75 =-80 =-85"
+        "special_bonus_facet_sniper_scattershot"          "=-30 =-45 =-60 =-75 =-75 =-75"
       }
       "radius"
       {
@@ -51,7 +51,7 @@
       "shrapnel_damage"
       {
         "value"                                           "30 45 60 75 150 300"
-        "special_bonus_facet_sniper_scattershot"          "=90 =160 =230 =300 =600 =900"
+        "special_bonus_facet_sniper_scattershot"          "=90 =160 =230 =300 =300 =300"
         "special_bonus_unique_sniper_shrapnel_damage"     "+30%"
       }
       "duration"
@@ -79,5 +79,4 @@
       }
     }
   }
-
 }

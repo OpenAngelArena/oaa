@@ -5,9 +5,9 @@
   //=================================================================================================================
   "bane_fiends_grip"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -15,7 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -46,12 +46,12 @@
       }
       "fiend_grip_damage" //OAA
       {
-        "value"                                           "70 150 230 390 550"
+        "value"                                           "70 110 150 150 150"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100"
+        "value"                                           "120 110 100 100 100"
         "special_bonus_scepter"                           "-45"
       }
       "illusion_count"

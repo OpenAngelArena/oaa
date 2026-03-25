@@ -5,12 +5,11 @@
   //=================================================================================================================
   "lycan_shapeshift"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -23,30 +22,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration" //OAA, because of Bite
-      {
-        "value"                                           "15"
-        "special_bonus_unique_lycan_1"                    "+6"
-      }
       "speed"                                             "550"
       "bonus_night_vision"                                "1000"
       "transformation_time"                               "1.1"
       "crit_chance"                                       "40"
       "crit_multiplier"                                   "160 190 220 250 280" //OAA, intentional nerf
       "health_bonus"                                      "225 325 425 725 1025"
-      "is_wolfpack"
+      "is_wolfpack"                                       "1"
+      "duration" //OAA, because of Bite
       {
-        "value"                                           "0"
-        "special_bonus_facet_lycan_pack_leader"           "+1"
+        "value"                                           "25"
+        "special_bonus_unique_lycan_1"                    "+7"
       }
       "kill_duration_extension"
       {
         "value"                                           "0"
-        "special_bonus_facet_lycan_pack_leader"           "+5"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "90 85 80 75 70"
+        "value"                                           "110 100 90 90 90"
         "special_bonus_unique_lycan_8"                    "-15"
       }
     }

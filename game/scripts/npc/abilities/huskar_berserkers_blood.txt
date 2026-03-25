@@ -5,19 +5,28 @@
   //=================================================================================================================
   "huskar_berserkers_blood"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "maximum_attack_speed"                              "170 220 270 320 370 420"
+      "maximum_magic_resist"                              "15 20 25 30 35 40"
+      "hp_threshold_max"                                  "10"
       "maximum_health_regen"
       {
         "value"                                           "25 40 55 70 85 100"
@@ -31,32 +40,30 @@
       {
         "value"                                           "0"
       }
-      "maximum_magic_resist"                              "15 20 25 30 35 40"
-      "hp_threshold_max"                                  "10"
       "activatable"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+1"
+        "special_bonus_shard"                             "+1"
       }
       "activation_healthcost_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+30.0"
+        "special_bonus_shard"                             "+30.0"
       }
       "activation_cooldown" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+33.0 +32.0 +31.0 +30.0 +29.0 +28.0"
+        "special_bonus_shard"                             "+20.0"
       }
       "activation_delay"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+3.0"
+        "special_bonus_shard"                             "+3.0"
       }
       "activation_heal_pct_per_debuff"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_cauterize"            "+4.0"
+        "special_bonus_shard"                             "+3.0"
       }
     }
   }

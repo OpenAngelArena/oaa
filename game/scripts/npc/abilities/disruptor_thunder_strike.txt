@@ -5,22 +5,23 @@
   //=================================================================================================================
   "disruptor_thunder_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "0"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.05"
+    "AbilityCastPoint"                                    "0.05 0.05 0.05 0.05 0.05 0.05"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,10 +35,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "strike_damage"                                     "30 60 90 120 230 460"
+      "slow_amount"                                       "100"
+      "shard_ground_delay"                                "4"
       "AbilityCastRange"
       {
         "value"                                           "800"
-        "special_bonus_shard"                             "+400"
       }
       "radius"
       {
@@ -47,10 +50,13 @@
       "strikes"
       {
         "value"                                           "4"
-        "special_bonus_shard"                             "+1"
+        "special_bonus_unique_disruptor_thunder_strike_strikes"  "+6"
       }
-      "strike_interval"                                   "2.0"
-      "strike_damage"                                     "25 55 85 115 230 460"
+      "strike_interval"
+      {
+        "value"                                           "2.0"
+        "special_bonus_unique_disruptor_thunder_strike_strikes"  "-50%"
+      }
       "strike_damage_bonus"
       {
         "value"                                           "0"
@@ -61,8 +67,6 @@
         "value"                                           "0.3"
         "special_bonus_facet_disruptor_thunderstorm"      "x1.75"
       }
-      "slow_amount"                                       "100"
-      "shard_ground_delay"                                "4"
       "hits_units_inside_kinetic"
       {
         "value"                                           "0"

@@ -5,12 +5,13 @@
   //=================================================================================================================
   "lone_druid_savage_roar"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -27,15 +28,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_speed"                                       "20"
+      "duration"                                          "1.1 1.4 1.7 2.0 2.1 2.2"
+      "only_affects_player_units"                         "1"
       "radius"
       {
         "value"                                           "350"
         "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_speed"                                       "20"
-      "duration"                                          "1.1 1.4 1.7 2.0 2.1 2.2"
-      "only_affects_player_units"                         "1"
       "shard_radius"
       {
         "special_bonus_shard"                             "700"
@@ -43,11 +44,11 @@
       }
       "shard_movement_speed_pct" //OAA
       {
-        "special_bonus_shard"                             "9 11 13 15 17 19"
+        "special_bonus_shard"                             "15"
       }
       "shard_attack_speed" //OAA
       {
-        "special_bonus_shard"                             "25 30 35 40 45 50"
+        "special_bonus_shard"                             "40"
       }
       "shard_duration"
       {
@@ -55,10 +56,9 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "23 22 21 20 19 18"
-        "special_bonus_unique_lone_druid_4"               "-3"
+        "value"                                           "29 26 23 20 20 20"
+        "special_bonus_unique_lone_druid_4"               "-5"
       }
     }
   }
-
 }

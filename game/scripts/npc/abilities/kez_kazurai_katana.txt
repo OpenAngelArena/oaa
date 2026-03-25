@@ -5,24 +5,32 @@
   //=================================================================================================================
   "kez_kazurai_katana"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "kez_shodo_sai"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "200"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40"
 
     // Special
@@ -30,13 +38,13 @@
     "AbilityValues"
     {
       "katana_bleed_duration"                             "7"
+      "impale_duration"                                   "0.5"
       "katana_bleed_attack_damage_pct" //OAA
       {
-        "value"                                           "5 6 7 8 10 12"
+        "value"                                           "3 6 9 12 12 12"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4"
+        "special_bonus_unique_kez_kazura_katana_bleed_damage"  "+4.0"
       }
-      "impale_duration"                                   "0.5"
       "bleed_as_rupture_pct"
       {
         "value"                                           "50"
@@ -53,15 +61,15 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+40"
       }
-      "backstab_angle"
-      {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+105"
-      }
       "max_stacks"
       {
         "value"                                           "500"
         "special_bonus_shard"                             "+500"
+      }
+      "backstab_angle"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+105"
       }
     }
   }

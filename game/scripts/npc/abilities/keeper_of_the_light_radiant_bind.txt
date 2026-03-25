@@ -5,6 +5,7 @@
   //=================================================================================================================
   "keeper_of_the_light_radiant_bind"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_FORCE_KEYBIND | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve forgot DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE
@@ -12,20 +13,18 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "1" // MaxLevel: 5, same as Spirit Form
+    "HasShardUpgrade"                                     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120"
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "850"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +32,11 @@
     {
       "duration"                                          "6"
       "slow"                                              "10"
-      "magic_resistance"                                  "25 30 35 40 45" //OAA
+      "magic_resistance" //OAA
+      {
+        "value"                                           "20 30 40"
+        "special_bonus_unique_keeper_of_the_light_3"      "+10"
+      }
       "stun_duration"
       {
         "value"                                           "0"

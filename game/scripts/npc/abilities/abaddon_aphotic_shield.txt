@@ -5,16 +5,17 @@
   //=================================================================================================================
   "abaddon_aphotic_shield"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -47,8 +48,8 @@
       }
       "damage_absorb" //OAA, because of special_bonus_unique_abaddon
       {
-        "value"                                           "120 150 180 210 420 630"
-        "special_bonus_unique_abaddon"                    "+100"
+        "value"                                           "120 150 180 210 210 210"
+        "special_bonus_unique_abaddon"                    "+80"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "regen"

@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_nullifier"
     "ItemRequirements"
     {
-      "01"                                                "item_relic;item_helm_of_iron_will"
+      "01"                                                "item_relic;item_splintmail"
     }
   }
 
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4375"
+    "ItemCost"                                            "4350"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "nlf;nullifier"
@@ -65,7 +65,7 @@
     {
       "bonus_damage"                                      "55 75 105 145 195" //OAA
       "bonus_armor"                                       "7 8 10 13 17" //OAA
-      "bonus_regen"                                       "6 9 12 15 18"
+      "bonus_regen"                                       "0"
       "mute_duration"                                     "4.0"
       "projectile_speed"                                  "1000 1200 1400 1600 1800" //OAA
       "slow_pct"                                          "10 15 20 25 30"

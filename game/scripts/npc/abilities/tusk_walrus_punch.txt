@@ -5,25 +5,24 @@
   //=================================================================================================================
   "tusk_walrus_punch"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot about this
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot about this
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
     "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +37,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "60 90 120 180 240"
+      "push_length"                                       "1000"
       "crit_multiplier"
       {
         "value"                                           "200 250 300 350 400"
@@ -48,12 +48,10 @@
         "value"                                           "1.0"
         "special_bonus_unique_tusk_7"                     "+0.75"
       }
-      "push_length"                                       "1000"
       "proc_chance" //OAA
       {
-        "special_bonus_unique_tusk_4"                     "10"
+        "special_bonus_unique_tusk_4"                     "12"
       }
     }
   }
-
 }

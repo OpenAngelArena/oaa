@@ -5,12 +5,12 @@
   //=================================================================================================================
   "pangolier_lucky_shot"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +24,7 @@
       "attack_slow"                                       "40 80 120 160 320 480"
       "armor"
       {
-        "value"                                           "3 5 7 9 13 17"
+        "value"                                           "2 4 6 8 13 17"
         "special_bonus_unique_pangolier_luckyshot_armor"  "+3"
       }
     }

@@ -5,14 +5,14 @@
   //=================================================================================================================
   "morphling_adaptive_strike_agi"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,14 +30,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                                  "1150"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "14 12 10 8 8 8"
+        "value"                                           "17 14 11 8 8 8"
         "special_bonus_unique_morphling_7"                "-3"
       }
       "damage_base" //OAA
       {
-        "value"                                           "70 80 90 100 200 300"
+        "value"                                           "50 70 90 110 110 110"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_min"
@@ -56,7 +57,7 @@
       }
       "stun_max"
       {
-        "value"                                           "2.4"
+        "value"                                           "1.4 1.8 2.2 2.6 2.6 2.6"
       }
       "knockback_min"
       {
@@ -70,7 +71,6 @@
       {
         "value"                                           "0.5"
       }
-      "projectile_speed"                                  "1150"
       "extra_targets"
       {
         "value"                                           "0"

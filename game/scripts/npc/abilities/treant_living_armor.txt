@@ -5,6 +5,7 @@
   //=================================================================================================================
   "treant_living_armor"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -12,13 +13,14 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "AbilityCastRange"                                    "0" //OAA
-    "AbilityCastPoint"                                    "0.3"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0" //OAA
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,16 +28,20 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 45 50 55 60 65"
+    "AbilityManaCost"                                     "65 70 75 80 60 65"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration"                                          "12"
+      "damage_block_loss"                                 "20"
+      "damage_block_threshold"                            "20"
       "heal_per_second" //OAA, total heal can be big because there are no towers here
       {
-        "value"                                           "10 15 20 25 50 100"
-        "special_bonus_unique_treant_8"                   "+30"
+        "value"                                           "4 7 10 13 13 13"
+        "special_bonus_unique_treant_8"                   "+4"
       }
-      "duration"                                          "12"
       "aoe_radius"
       {
         "special_bonus_unique_treant_7"                   "450"
@@ -43,15 +49,13 @@
       }
       "damage_block_base"
       {
-        "value"                                           "120"
+        "value"                                           "60 80 100 120 120 120"
         "special_bonus_unique_treant_13"                  "+20"
       }
       "passive_reset_cd"
       {
         "special_bonus_shard"                             "0"
       }
-      "damage_block_loss"                                 "35 30 25 20 15 10"
-      "damage_block_threshold"                            "20"
     }
   }
 }

@@ -5,13 +5,14 @@
   //=================================================================================================================
   "ursa_earthshock"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,40 +20,35 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    //"AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 125 175 225 450 900"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "95"
+    "AbilityDamage"                                       "75 125 175 225 450 900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "movement_slow"                                     "-22 -28 -34 -40 -45 -50"
+      "hop_duration"                                      "0.25"
+      "hop_height"                                        "83"
       "shock_radius"
       {
         "value"                                           "385"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_ursa_2"                     "+300"
       }
-      "movement_slow"                                     "-22 -28 -34 -40 -45 -50"
       "hop_distance"
       {
         "value"                                           "250"
       }
-      "hop_duration"                                      "0.25"
-      "hop_height"                                        "83"
       "shard_enrage_duration"
       {
-
       }
       "fury_swipe_stacks_on_hit"
       {
@@ -60,7 +56,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "12 11 10 9 8 7"
+        "value"                                           "15 13 11 9 9 9"
         "special_bonus_unique_ursa_3"                     "=0.25"
       }
       "AbilityCharges"
@@ -70,7 +66,7 @@
       }
       "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
       {
-        "value"                                           "12 11 10 9 8 7"
+        "value"                                           "15 13 11 9 9 9"
       }
     }
   }

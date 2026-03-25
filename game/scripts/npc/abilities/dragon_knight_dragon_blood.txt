@@ -5,10 +5,10 @@
   //=================================================================================================================
   "dragon_knight_dragon_blood"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE  |  DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -17,27 +17,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      // GREEN DRAGON
-      "is_green_dragon"
+      "health_regen"
       {
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "1"
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.5"
+        "special_bonus_unique_dragon_knight"              "+12"
+      }
+      "armor"
+      {
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.5"
+        "special_bonus_unique_dragon_knight"              "+12"
+      }
+      "regen_and_armor_multiplier_during_dragon_form"
+      {
+        "value"                                           "50"
       }
       "corrosive_breath_damage" //OAA
       {
         "special_bonus_facet_dragon_knight_corrosive_dragon"  "10 15 20 25 50 75"
       }
-      "corrosive_breath_duration"
-      {
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "3"
-      }
       "corrosive_breath_armor_reduction" //OAA
       {
         "special_bonus_facet_dragon_knight_corrosive_dragon"  "1 2 3 4 6 8"
-      }
-      // RED DRAGON
-      "is_red_dragon"
-      {
-        "special_bonus_facet_dragon_knight_fire_dragon"   "1"
       }
       "magic_damage" //OAA
       {
@@ -46,27 +48,6 @@
       "bonus_aoe" //OAA
       {
         "special_bonus_facet_dragon_knight_fire_dragon"   "30 45 60 75 90 105"
-      }
-      // BLUE DRAGON
-      "is_blue_dragon"
-      {
-        "special_bonus_facet_dragon_knight_frost_dragon"  "1"
-      }
-      "frost_bonus_movement_speed"
-      {
-        "special_bonus_facet_dragon_knight_frost_dragon"  "-14 -21 -28 -35 -42 -49"
-      }
-      "frost_bonus_attack_speed"
-      {
-        "special_bonus_facet_dragon_knight_frost_dragon"  "-14 -21 -28 -35 -42 -49"
-      }
-      "frost_duration"
-      {
-        "special_bonus_facet_dragon_knight_frost_dragon"  "3.0"
-      }
-      "frost_healing_reduction"
-      {
-        "special_bonus_facet_dragon_knight_frost_dragon"  "14 21 28 35 42 49"
       }
     }
   }

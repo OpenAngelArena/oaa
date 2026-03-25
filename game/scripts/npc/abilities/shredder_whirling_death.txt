@@ -5,20 +5,20 @@
   //=================================================================================================================
   "shredder_whirling_death"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -32,18 +32,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "whirling_damage"                                   "75 120 165 210 420 630"
+      "whirling_tick"                                     "0.3"
       "whirling_radius"
       {
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "whirling_damage"                                   "75 120 165 210 420 630"
       "tree_damage_scale"
       {
         "value"                                           "9 16 23 30 44 58"
         "special_bonus_unique_timbersaw"                  "+75"
       }
-      "whirling_tick"                                     "0.3"
       "stat_loss_pct"
       {
         "value"                                           "13"

@@ -5,17 +5,17 @@
   //=================================================================================================================
   "abyssal_underlord_atrophy_aura"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "Innate"                                              "1" //OAA
-
-    "MaxLevel"                                            "7" //OAA
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6" //OAA
     "RequiredLevel"                                       "-1" //OAA
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,26 +28,26 @@
       }
       "damage_reduction_pct" //OAA
       {
-        "value"                                           "0 12 18 24 30 33 36"
+        "value"                                           "8 16 24 32 32 32"
         "special_bonus_unique_underlord_3"                "+10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_damage_from_creep" //OAA
       {
-        "value"                                           "1 2 4 6 8 16 32"
+        "value"                                           "2 4 6 8 8 8"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_damage_from_hero" //OAA
       {
-        "value"                                           "15 30 35 40 45 55 75"
+        "value"                                           "30 35 40 45 45 45"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_damage_duration" //OAA
       {
-        "value"                                           "20 30 40 50 60 65 70"
+        "value"                                           "30 40 50 60 60 60"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_unique_underlord_8"                "+15"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
@@ -59,29 +59,24 @@
       "cleave_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+35"
       }
       "cleave_starting_width"
       {
         "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "cleave_angle"
       {
         "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+75"
       }
       "cleave_distance_base"
       {
         "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+100"
         "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_facet_abyssal_underlord_demons_reach"  "+5"
       }
     }
   }

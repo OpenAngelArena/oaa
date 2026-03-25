@@ -1,23 +1,32 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "weaver_the_swarm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
+    // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110"
 
     // Special
@@ -26,30 +35,30 @@
     {
       "damage"                                            "18 23 28 33 66 99"
       "attack_rate"                                       "1.2 1.05 0.9 0.75 0.6 0.45"
-      "count"                                             "12"
+      "count"                                             "12 12 12 12 12 12"
+      "duration"                                          "16"
+      "speed"                                             "750 750 750 750 750 750"
       "armor_reduction"
       {
-        "value"                                           "1"
+        "value"                                           "1 1 1 1 1 1"
         "special_bonus_unique_weaver_3"                   "+0.5"
       }
-      "duration"                                          "16"
       "destroy_attacks" //OAA
       {
-        "value"                                           "6 6 8 8 8 8"
+        "value"                                           "6 7 8 9 9 9"
         "special_bonus_unique_weaver_4"                   "+2"
       }
       "radius"
       {
-        "value"                                           "100"
+        "value"                                           "100 100 100 100 100 100"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed"                                             "750"
       "spawn_radius"
       {
-        "value"                                           "300"
+        "value"                                           "300 300 300 300 300 300"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_cooldown_reduction" // unused
+      "shard_cooldown_reduction"
       {
         "special_bonus_shard"                             "2"
       }

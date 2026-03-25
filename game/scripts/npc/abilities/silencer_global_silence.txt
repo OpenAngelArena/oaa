@@ -5,20 +5,20 @@
   //=================================================================================================================
   "silencer_global_silence"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,18 +30,18 @@
     {
       "AbilityDuration" //OAA
       {
-        "value"                                           "4.5 5.0 5.5 6.0 6.5"
-        "special_bonus_facet_silencer_reverberating_silence"  "=0"
+        "value"                                           "4.5 5.25 6.0 6.0 6.0"
+        "special_bonus_unique_silencer_global_duration"   "+2"
       }
       "apply_twice"
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1"
       }
-      "first_duration" // unused
+      "first_duration"
       {
         "special_bonus_facet_silencer_reverberating_silence"  "3 3.5 4 4 4"
       }
-      "second_duration" // unused
+      "second_duration"
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1.5 1.75 2 2 2"
       }

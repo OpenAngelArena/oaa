@@ -5,13 +5,14 @@
   //=================================================================================================================
   "dragon_knight_elder_dragon_form"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
@@ -27,82 +28,44 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration" //OAA
-      {
-        "value"                                           "45"
-      }
-      "bonus_movement_speed"                              "20"
+      "duration"                                          "60" //OAA
+      "bonus_movement_speed"                              "25 30 35 40 40"
+      "bonus_ability_cast_range"                          "350"
+      "bonus_attack_damage"                               "0"
+      "model_scale"                                       "10 15 20 30 30"
+      "corrosive_duration"                                "3 3 3 3 3"
+      "corrosive_damage_per_second"                       "25 25 25 35 35"
+      "ranged_splash_damage_pct"                          "0 75 75 100 70"
+      "health_bar_offset"                                 "300"
+      "magic_resistance"                                  "0 0 0 20 20"
+      "frost_duration"                                    "0 0 3 3 3"
+      "frost_bonus_movement_speed"                        "0 0 30 45 45"
+      "frost_bonus_attack_speed"                          "0 0 50 65 65"
+      "frost_healing_reduction"                           "0"
+      "scepter_bonus_levels"                              "1"
       "bonus_attack_range"
       {
-        "value"                                           "350 350 350 350 350 450"
+        "value"                                           "350"
         "special_bonus_unique_dragon_knight_7"            "+150"
-      }
-      "bonus_attack_damage"                               "20 50 80 110 140 170"
-      "magic_resistance"
-      {
-        "value"                                           "0"
-      }
-      "model_scale"
-      {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_scepter"                           "+10"
-      }
-      "is_green_dragon"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
-      }
-      "is_red_dragon"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_fire_dragon"   "+1"
-      }
-      "is_blue_dragon"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_dragon_knight_frost_dragon"  "+1"
       }
       "ranged_splash_radius"
       {
-        "value"                                           "275"
+        "value"                                           "0 275 275 350 350"
         "affected_by_aoe_increase"                        "1"
-      }
-      "ranged_splash_damage_pct"
-      {
-        "value"                                           "30 40 50 60 70 80"
       }
       "frost_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "special_bonus_facet_dragon_knight_frost_dragon"
-        {
-          "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+25"
-        }
       }
       "corrosive_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "special_bonus_facet_dragon_knight_corrosive_dragon"
-        {
-          "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+25"
-        }
       }
       "fire_breath_effect_bonus" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "special_bonus_facet_dragon_knight_fire_dragon"
-        {
-          "value"                                         "=20 =30 =40 =50 =55 =60"
-          "special_bonus_unique_dragon_knight_8"          "+25"
-        }
       }
       "wyrms_wrath_bonus_tooltip" //OAA, because of special_bonus_unique_dragon_knight_8
       {
-        "value"                                           "20 30 40 50 55 60"
+        "value"                                           "20 30 40 50 55"
         "special_bonus_unique_dragon_knight_8"            "+25"
-      }
-      "health_bar_offset"
-      {
-        "value"                                           "300"
       }
     }
   }

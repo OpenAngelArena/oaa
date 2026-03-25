@@ -5,16 +5,17 @@
   //=================================================================================================================
   "kez_falcon_rush"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "kez_echo_slash"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,23 +35,23 @@
     {
       "rush_range"                                        "525"
       "rush_speed"                                        "850"
-      "base_echo_damage" // percentage of Kez attack damage
+      "slow_resist"                                       "15 30 45 60 75 90"
+      "break_range"                                       "825"
+      "echo_proc_chance_reduction"                        "50"
+      "base_echo_damage"
       {
         "value"                                           "30 35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "slow_resist"                                       "15 30 45 60 75 90"
       "duration"
       {
         "value"                                           "3.75 4.5 5.25 6.0 6.75 7.5"
-        "special_bonus_unique_kez_falcon_rush_duration"   "+2"
+        "special_bonus_unique_kez_falcon_rush_duration"   "+2.0"
       }
-      "break_range"                                       "825"
       "bonus_attack_speed"
       {
         "special_bonus_unique_kez_falcon_rush_attack_speed"  "=40"
       }
-      "echo_proc_chance_reduction"                        "50"
     }
   }
 }

@@ -5,16 +5,17 @@
   //=================================================================================================================
   "silencer_oppressive_silence"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Global Silence) + 1
-    "DependentOnAbility"                                  "silencer_global_silence"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_pct"                                        "8 12 16 20 24 28"
     }
   }
 }

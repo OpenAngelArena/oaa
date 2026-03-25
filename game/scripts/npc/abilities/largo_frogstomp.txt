@@ -5,12 +5,12 @@
   //=================================================================================================================
   "largo_frogstomp"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -27,6 +27,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "stomp_interval"                                    "1"
+      "delay"                                             "0.5"
       "AbilityCooldown"
       {
         "value"                                           "20 18 16 14 13 12"
@@ -57,8 +59,6 @@
       {
         "value"                                           "0.1"
       }
-      "stomp_interval"                                    "1"
-      "delay"                                             "0.5"
     }
   }
 }

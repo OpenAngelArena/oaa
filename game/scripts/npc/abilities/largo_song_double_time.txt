@@ -5,11 +5,13 @@
   //=================================================================================================================
   "largo_song_double_time"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,12 +25,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "double_song"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "=1"
       }
-      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "radius"
       {
         "value"                                           "800"
@@ -36,12 +38,12 @@
       }
       "movespeed_bonus_burst"
       {
-        "value"                                           "16 22 28 34 40"
-        "special_bonus_unique_largo_7"                    "+35%"
+        "value"                                           "16 20 24 34 40"
+        "special_bonus_unique_largo_7"                    "+30%"
       }
       "slow_resistance"
       {
-        "value"                                           "70 80 90 95 100"
+        "value"                                           "70 75 80 95 100"
       }
       "movement_burst_duration"
       {

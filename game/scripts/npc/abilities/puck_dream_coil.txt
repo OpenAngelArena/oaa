@@ -5,15 +5,15 @@
   //=================================================================================================================
   "puck_dream_coil"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,17 +31,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "75 70 65 60 55"
-        "special_bonus_unique_puck"                       "-15"
-      }
       "coil_duration"                                     "5 5.5 6 6.5 7"
       "coil_break_radius"                                 "600"
       "stun_duration"                                     "0.5"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "75"
+        "special_bonus_unique_puck"                       "-15"
+      }
       "coil_initial_damage" //OAA
       {
-        "value"                                           "175 325 475 925 1375"
+        "value"                                           "175 250 325 325 325"
         "special_bonus_unique_puck_coil_damage"           "+200"
       }
       "coil_stun_duration"
@@ -50,7 +50,7 @@
       }
       "coil_break_damage" //OAA
       {
-        "value"                                           "200 400 600 1200 2200"
+        "value"                                           "200 300 400 400 400"
         "special_bonus_unique_puck_coil_damage"           "+200"
       }
       "coil_radius"
@@ -58,7 +58,7 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "coil_rapid_fire_rate" // unused
+      "coil_rapid_fire_rate"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+0.6"
@@ -71,7 +71,7 @@
       "attack_rate_pct" //OAA coil_rapid_fire_rate exists lmao but they had to make a new kv
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+100"
+        "special_bonus_scepter"                           "+90"
       }
       "pierces_debuff_immunity"
       {

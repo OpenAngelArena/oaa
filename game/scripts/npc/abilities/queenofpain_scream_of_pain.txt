@@ -5,12 +5,12 @@
   //=================================================================================================================
   "queenofpain_scream_of_pain"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,11 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.5 7 6.5 6 5.5 5"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,16 +28,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "projectile_speed"                                  "900"
+      "damage_reflected_to_self"                          "25.0"
+      "AbilityCooldown"
+      {
+        "value"                                           "7.5 7 6.5 6 6 6"
+      }
       "area_of_effect"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "projectile_speed"                                  "900"
       "damage" //OAA
       {
-        "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_queen_of_pain_2"            "+150"
+        "value"                                           "90 175 260 345 345 345"
+        "special_bonus_unique_queen_of_pain_2"            "+115"
       }
     }
   }

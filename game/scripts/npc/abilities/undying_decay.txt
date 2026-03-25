@@ -5,18 +5,21 @@
   //=================================================================================================================
   "undying_decay"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.3"
 
@@ -32,6 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "str_scale_up"                                      "2"
+      "creep_damage_multiplier"                           "2.0"
+      "shard_buff_duration"                               "40"
       "decay_damage"
       {
         "value"                                           "20 60 100 140 280 560"
@@ -39,7 +45,7 @@
       }
       "str_steal" //OAA
       {
-        "value"                                           "3 4 5 6 8 10" // equivalent to 60/80/100/120/160/200 pure damage
+        "value"                                           "4"
         "special_bonus_scepter"                           "+4"
       }
       "decay_duration"
@@ -51,9 +57,6 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "str_scale_up"                                      "2"
-      "creep_damage_multiplier"                           "2.0"
-      "shard_buff_duration"                               "40"
       "AbilityCooldown"
       {
         "value"                                           "13 10 7 4 4 4"

@@ -5,16 +5,19 @@
   //=================================================================================================================
   "invoker_invoke"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    // Stats
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "5" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
     // Special
@@ -22,7 +25,7 @@
     "AbilityValues"
     {
       "max_invoked_spells"                                "2"
-      "cooldown_reduction_per_orb"                        "0.14" // OAA, so it becomes near 0 when maxed out
+      "cooldown_reduction_per_orb"                        "0.14" //OAA, so it becomes near 0 when maxed out
     }
   }
 }

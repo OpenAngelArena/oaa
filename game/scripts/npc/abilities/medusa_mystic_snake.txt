@@ -5,15 +5,15 @@
   //=================================================================================================================
   "medusa_mystic_snake"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // OAA, Valve forgot about this
-
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,12 +24,18 @@
     {
       "AbilityCastRange"                                  "750"
       "AbilityCastPoint"                                  "0.2"
+      "AbilityManaCost"                                   "80 100 120 140 160 180"
+      "jump_delay"                                        "0.25 0.25 0.25 0.25 0.25 0.25"
+      "snake_damage_pct"                                  "0"
+      "snake_scale"                                       "25"
+      "initial_speed"                                     "800"
+      "return_speed"                                      "800"
+      "slow_duration"                                     "0"
       "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 11 10"
-        "special_bonus_unique_medusa_5"                   "-3"
+        "special_bonus_unique_medusa_5"                   "-4"
       }
-      "AbilityManaCost"                                   "80 100 120 140 160 180"
       "radius"
       {
         "value"                                           "450"
@@ -40,31 +46,29 @@
         "value"                                           "3 4 5 6 7 8"
         "special_bonus_unique_medusa_3"                   "+3"
       }
-      "jump_delay"                                        "0.25"
       "snake_damage"
       {
         "value"                                           "90 140 190 240 480 720"
-        "special_bonus_unique_medusa_snake_damage"        "+40" // unused
+        "special_bonus_unique_medusa_snake_damage"        "+40%"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "snake_damage_pct"                                  "0"
-      "snake_mana_steal"                                  "15" // mana gain not steal
-      "snake_scale"                                       "25" // snake damage and speed increase per jump
-      "initial_speed"                                     "800"
-      "return_speed"                                      "800"
+      "snake_mana_steal"
+      {
+        "value"                                           "15"
+        "special_bonus_unique_medusa_snake_damage"        "+40%"
+      }
       "stone_form_scepter_base"
       {
         "special_bonus_shard"                             "1.0"
       }
-      "stone_form_scepter_increment" // unused
+      "stone_form_scepter_increment"
       {
         "special_bonus_scepter"                           "0.2"
       }
-      "movement_slow" // unused
+      "movement_slow"
       {
         "value"                                           "30"
       }
-      "slow_duration"                                     "0"
       "max_attacks"
       {
         "special_bonus_facet_medusa_engorged"             "+3"

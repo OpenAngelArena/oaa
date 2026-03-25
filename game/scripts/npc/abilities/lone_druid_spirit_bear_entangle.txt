@@ -5,19 +5,23 @@
   //=================================================================================================================
   "lone_druid_spirit_bear_entangle"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6" // same lvl as lone_druid_entangle
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" // These are all dummy (tooltip) values. lone_druid_entangle handles everything
+    "AbilityValues"
     {
+      "spirit_bear_counters_applied_tooltip"              "1"
+      "counter_duration"                                  "10"
       "entangle_duration"
       {
         "value"                                           "1.2 1.6 2.0 2.4 2.5 2.6"
@@ -25,14 +29,12 @@
       }
       "damage"
       {
-        "value"                                           "90 90 90 90 180 270"
+        "value"                                           "90"
         "special_bonus_unique_lone_druid_1"               "+20"
       }
-      "spirit_bear_counters_applied_tooltip"              "1"
-      "counter_duration"                                  "10"
       "hits_required" //OAA, intentional nerf
       {
-        "value"                                           "6"
+        "value"                                           "5"
       }
     }
   }

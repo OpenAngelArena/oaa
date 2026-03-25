@@ -5,23 +5,24 @@
   //=================================================================================================================
   "dawnbreaker_solar_guardian"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+    "LinkedAbility"                                       "dawnbreaker_land"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1"
     "AbilityChannelTime"                                  "1.7"
 
     // Cost
@@ -32,22 +33,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "pulse_interval"                                    "0.5"
+      "land_stun_duration"                                "1.4 1.6 1.8 2.0 2.2"
+      "max_offset_distance"                               "350"
+      "airtime_scepter_movement_speed"                    "200"
+      "daytime_duration"                                  "6"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "90 85 80 75 70"
-        "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-15"
+        "value"                                           "110 100 90 90 90"
+        "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-20"
       }
       "scepter_aura_duration"
       {
         "special_bonus_scepter"                           "2"
       }
-      "miss_rate" // unused
+      "miss_rate"
       {
         "special_bonus_scepter"                           "0"
       }
       "base_heal" //OAA
       {
-        "value"                                           "45 95 145 295 445"
+        "value"                                           "45 70 95 95 95"
         "special_bonus_scepter"                           "+15 25 35 65 95"
       }
       "radius"
@@ -58,26 +64,22 @@
       }
       "base_damage" //OAA
       {
-        "value"                                           "30 70 110 230 350"
+        "value"                                           "30 50 70 70 70"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "pulse_interval"                                    "0.5"
       "land_damage" //OAA
       {
-        "value"                                           "200 400 600 1200 1800"
+        "value"                                           "130 160 190 190 190"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "land_stun_duration"                                "1.4 1.6 1.8 2.0 2.2"
-      "max_offset_distance"                               "350"
       "scepter_channel_time"
       {
         "special_bonus_scepter"                           "1.7"
       }
-      "airtime_scepter_bonus" // unused
+      "airtime_scepter_bonus"
       {
         "special_bonus_scepter"                           "3.5"
       }
-      "airtime_scepter_movement_speed"                    "200"
       "airtime_duration"
       {
         "value"                                           "0.8"

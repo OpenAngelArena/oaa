@@ -5,23 +5,30 @@
   //=================================================================================================================
   "enigma_event_horizon"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
-    "MaxLevel"                                            "6" // same as Dependent ability (Black Hole) + 1
-    "DependentOnAbility"                                  "enigma_black_hole"
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "vision_cone"                                       "0.08715"
       "radius"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_enigma_5"                   "+100"
       }
-      "speed_bonus"                                       "10 12 14 16 18 20" //OAA
-      "vision_cone"                                       "0.08715"
+      "speed_bonus" //OAA
+      {
+        "value"                                           "4"
+        "hero_levelup"                                    "+1"
+      }
     }
   }
 }

@@ -5,10 +5,10 @@
   //=================================================================================================================
   "rubick_arcane_supremacy"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,18 +18,11 @@
     "AbilityValues"
     {
       "cast_range"                                        "60 120 180 240 290 340"
-      "spell_amp"                                         "11 16 21 26 31 36"
-      "aoe_bonus"
+      "spell_amp"
       {
-        "value"                                           "0"
-        "special_bonus_facet_rubick_arcane_accumulation"  "+25"
-      }
-      "aoe_bonus_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_rubick_arcane_accumulation"  "+20"
+        "value"                                           "11 16 21 26 26 26"
+        "special_bonus_unique_rubick_arcane_supremacy"    "+7"
       }
     }
   }
-
 }

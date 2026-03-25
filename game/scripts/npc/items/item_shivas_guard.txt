@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500" //OAA
+    "ItemCost"                                            "1700" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_shivas_guard"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_veil_of_discord;item_chainmail"
+      "01"                                                "item_platemail;item_chasm_stone"
     }
   }
 
@@ -41,7 +41,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "27 26 25 24 23"
     "AbilitySharedCooldown"                               "shivas"
-    "AbilityManaCost"                                     "100" //OAA
+    "AbilityManaCost"                                     "75"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3775" //OAA
+    "ItemCost"                                            "3900" //OAA
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -60,30 +60,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "5 10 15 20 25" // Veil of Discord (4);
-      "bonus_strength"                                    "5 10 15 20 25" // Veil of Discord (4);
-      "bonus_agility"                                     "5 10 15 20 25" // Veil of Discord (4);
-      "bonus_hp_regen"                                    "5 8 11 14 17" // Veil of Discord (4);
-      "bonus_armor"                                       "10 11 13 16 20" //OAA, Chain Mail (4); Veil of Discord (4);
+      "bonus_hp_regen"                                    "0"
+      "bonus_armor"                                       "10 11 13 16 20" //OAA, Plate Mail (10);
+      "bonus_aoe"                                         "50 60 70 80 90" //OAA
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_attack_speed"                                 "-45 -55 -65 -75 -85"
-      "blast_damage"                                      "200 300 450 650 900"
+      "blast_damage"                                      "260 360 510 710 960"
       "blast_movement_speed"                              "-40 -45 -50 -55 -60"
       "blast_debuff_duration"                             "4.0"
       "blast_radius"
       {
-        "value"                                           "900"
+        "value"                                           "825"
         "affected_by_aoe_increase"                        "1"
       }
       "blast_speed"                                       "400"
-      "restoration_reduction_aura"                        "25"
-      "illusion_multiplier_pct"                           "100"
-      "spell_amp"                                         "15 18 21 24 27"
-      "resist_debuff_duration"                            "16.0"
       "cooldown_tooltip"                                  "27 26 25 24 23" //OAA
     }
   }

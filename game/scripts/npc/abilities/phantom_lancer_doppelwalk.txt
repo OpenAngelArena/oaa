@@ -5,10 +5,10 @@
   //=================================================================================================================
   "phantom_lancer_doppelwalk"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -29,6 +29,9 @@
       "illusion_1_damage_in_pct"                          "0"
       "illusion_2_damage_out_pct"                         "-80 -78 -76 -74 -72 -70" //OAA
       "illusion_2_damage_in_pct"                          "500 460 420 380 340 300" //OAA
+      "delay"                                             "1"
+      "illusion_duration"                                 "8"
+      "illusion_extended_duration"                        "0" //OAA
       "target_aoe"
       {
         "value"                                           "325"
@@ -39,9 +42,6 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "delay"                                             "1"
-      "illusion_duration"                                 "8"
-      "illusion_extended_duration"                        "0" //OAA
       "illusion_2_amount"
       {
         "value"                                           "1"
@@ -53,7 +53,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "16 15 14 13 12 11"
+        "value"                                           "22 18 14 10 10 10"
         "special_bonus_unique_phantom_lancer_4"           "-4"
       }
       "AbilityCastRange"

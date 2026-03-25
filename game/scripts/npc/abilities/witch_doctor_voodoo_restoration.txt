@@ -1,21 +1,24 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "witch_doctor_voodoo_restoration"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -25,6 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "heal_interval"                                     "0.33 0.33 0.33 0.33 0.33 0.33"
       "mana_per_second"
       {
         "value"                                           "9 12 15 18 21 24"
@@ -46,7 +50,6 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "special_bonus_facet_witch_doctor_voodoo_festeration"  "+10"
       }
-      "heal_interval"                                     "0.33"
       "does_heal_all_allies"
       {
         "value"                                           "1"
@@ -59,8 +62,8 @@
       }
       "self_only_heal_percentage"
       {
-        "value"                                           "0"
-        "special_bonus_facet_witch_doctor_voodoo_festeration"  "=25 =30 =35 =40 =45 =50"
+        "value"                                           "0 0 0 0 0 0"
+        "special_bonus_facet_witch_doctor_voodoo_festeration"  "=25 =30 =35 =40 =40 =40"
       }
       "bonus_heal_percent"
       {

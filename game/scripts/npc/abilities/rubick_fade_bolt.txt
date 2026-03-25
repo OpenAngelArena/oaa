@@ -5,41 +5,58 @@
   //=================================================================================================================
   "rubick_fade_bolt"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "800 800 800 800 800 800"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 125 140 155 170 185"
-
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "damage"                                            "100 175 250 325 650 975"
+      "duration"                                          "10.0 10.0 10.0 10.0 10.0 10.0"
+      "jump_delay"                                        "0.25 0.25 0.25 0.25 0.25 0.25"
+      "steals_damage"                                     "0"
       "jump_damage_reduction_pct"
       {
         "value"                                           "6"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "damage_reduction"
+      {
+        "value"                                           "6 12 18 24 24 24"
+        "special_bonus_unique_rubick_fade_bolt_spell_reduction"  "+12"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "radius"
+      {
+        "value"                                           "440"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "16 14 12 10 10 10"
+        "special_bonus_unique_rubick_3"                   "-3"
       }
       "attack_damage_reduction" //OAA
       {
@@ -47,18 +64,6 @@
         "special_bonus_unique_rubick_7"                   "+20"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-      }
-      "duration"                                          "10.0"
-      "radius"
-      {
-        "value"                                           "440"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "jump_delay"                                        "0.25"
-      "AbilityCooldown"
-      {
-        "value"                                           "16 14 12 10 10 10"
-        "special_bonus_unique_rubick_3"                   "-5"
       }
       "damage_reduction_bosses" //OAA
       {

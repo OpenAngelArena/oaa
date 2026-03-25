@@ -1,21 +1,33 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "dark_seer_aggrandize"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_NONE"
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_pct_base"                                     "10.0"
-      "heal_pct_per_level"                                "1.0" //OAA
-      "heal_pct_tooltip"
+      "int_to_atkspd"                                     "1.0"
+      "attack_speed_tooltip"
       {
         "dynamic_value"                                   "true"
       }
+      "heal_pct"
+      {
+        "value"                                           "8.5"
+        "hero_levelup"                                    "+1.5"
+      }
+      "heal_pct_per_level"                                "1.0" //OAA
     }
   }
 }

@@ -5,26 +5,29 @@
   //=================================================================================================================
   "snapfire_gobble_up"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "250" //OAA
     "AbilityCastPoint"                                    "0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "250" //OAA
-    "AbilityCooldown"                                     "20" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

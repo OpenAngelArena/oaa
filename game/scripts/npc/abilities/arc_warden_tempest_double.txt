@@ -5,11 +5,11 @@
   //=================================================================================================================
   "arc_warden_tempest_double"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -17,7 +17,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.15"
-    "AbilityCastRange"                                    "700"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,38 +26,51 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
-      {
-        "value"                                           "60 55 50 45 40"
-      }
       "bounty"                                            "180 240 300 480 780"
       "duration"                                          "18 21 24 27 30"
       "max_blind_chance"                                  "35.0"
       "max_slow"                                          "35.0"
+      "AbilityCastRange"
+      {
+        "value"                                           "700"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "60 55 50 45 40"
+      }
+      "bounty_gold"
+      {
+        "value"                                           "70"
+        "hero_levelup"                                    "+10"
+      }
+      "bounty_xp"
+      {
+        "value"                                           "70"
+        "hero_levelup"                                    "+10"
+      }
       "has_debuff"
       {
         "value"                                           "1"
-        "special_bonus_unique_arc_warden_8"               "=0"
       }
       "rune_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=12"
+        "special_bonus_shard"                             "=12"
       }
       "invis_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=0 =1 =1 =1 =1"
+        "special_bonus_shard"                             "+1"
       }
       "arcane_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=1 =1 =1 =1 =1"
+        "special_bonus_shard"                             "+1"
       }
       "haste_rune"
       {
         "value"                                           "0"
-        "special_bonus_facet_arc_warden_runed_replica"    "=0 =0 =1 =1 =1"
+        "special_bonus_shard"                             "+1"
       }
     }
   }

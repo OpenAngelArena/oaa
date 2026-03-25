@@ -5,27 +5,28 @@
   //=================================================================================================================
   "shadow_demon_demonic_cleanse"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" //OAA, to not refresh in duels
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has it wrong, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES is not needed
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve has it wrong: SPELL_IMMUNITY_ENEMIES_YES
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "IsGrantedByShard"                                    "1"
     "MaxLevel"                                            "1"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "5.0"
-    "AbilityCooldown"                                     "60"
+    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60"
+    "AbilityDuration"                                     "5.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "purge_damage" // this is actually the healing value
+      "purge_damage"
       {
         "value"                                           "450"
       }

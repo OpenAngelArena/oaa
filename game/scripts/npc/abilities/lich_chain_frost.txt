@@ -5,16 +5,15 @@
   //=================================================================================================================
   "lich_chain_frost"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -36,9 +35,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "jumps"                                             "10" //special_bonus_unique_lich_1_oaa
+      "slow_movement_speed"                               "-65"
+      "slow_attack_speed"                                 "-65"
+      "slow_duration"                                     "2.5"
+      "initial_projectile_speed"                          "1050"
+      "projectile_speed"                                  "850"
       "damage" //OAA
       {
-        "value"                                           "250 500 750 1250 1750"
+        "value"                                           "250 400 550 550 550"
       }
       "bonus_jump_damage"
       {
@@ -46,17 +51,11 @@
         "special_bonus_unique_lich_jump_damage"           "+100"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "jumps"                                             "10" // special_bonus_unique_lich_1_oaa
       "jump_range"
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
       }
-      "slow_movement_speed"                               "-65"
-      "slow_attack_speed"                                 "-65"
-      "slow_duration"                                     "2.5"
-      "initial_projectile_speed"                          "1050"
-      "projectile_speed"                                  "850"
       "vision_radius"
       {
         "value"                                           "800"
@@ -65,6 +64,7 @@
       "has_unlimited_jumps"
       {
         "value"                                           "0"
+        "special_bonus_unique_lich_5"                     "=1"
       }
       "should_fire_chain_frost_on_death"
       {
@@ -73,17 +73,14 @@
       "bonus_jumps_per_hero_killed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_growing_cold"           "+5"
       }
       "bonus_jumps_per_creep_killed"
       {
         "value"                                           "0"
-        "special_bonus_facet_lich_growing_cold"           "+1"
       }
       "frostbound_duration"
       {
         "value"                                           "2"
-        "special_bonus_facet_lich_frostbound"             "=2 =2.75 =3.5"
       }
     }
   }

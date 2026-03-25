@@ -5,16 +5,17 @@
   //=================================================================================================================
   "kez_echo_slash"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "LinkedAbility"                                       "kez_falcon_rush"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,13 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_echo_damage" // percentage of Kez's attack damage
+      "katana_distance"                                   "800"
+      "travel_distance"                                   "250"
+      "tag_slow"                                          "100"
+      "tag_slow_duration"                                 "0.25"
+      "katana_echo_damage"
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "value"                                           "70 80 90 100 110 120"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "echo_hero_damage" // bonus dmg
+      "echo_hero_damage"
       {
         "value"                                           "20 40 60 80 160 320"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
@@ -59,13 +64,6 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "katana_distance"
-      {
-        "value"                                           "800"
-      }
-      "travel_distance"                                   "250"
-      "tag_slow"                                          "100"
-      "tag_slow_duration"                                 "0.25"
     }
   }
 }

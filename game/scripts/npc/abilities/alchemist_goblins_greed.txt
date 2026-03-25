@@ -5,9 +5,20 @@
   //=================================================================================================================
   "alchemist_goblins_greed"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_SELF"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -16,27 +27,37 @@
       "duration"                                          "40"
       "bonus_gold"                                        "2"
       "bonus_bonus_gold"                                  "1" //OAA
+      "bonus_gold_per_scepter"                            "6"
       "bounty_multiplier"                                 "2"
+      "bonus_gold_cap"                                    "18"
+      "bonus_gold_tooltip"
+      {
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+0"
+        "dynamic_value"                                   "true"
+      }
       "damage"
       {
-        "special_bonus_unique_alchemist_7"                "+2.5"
+        "special_bonus_unique_alchemist_7"                "+3"
       }
-      "bonus_gold_cap"
+      "bonus_gold_cap_tooltip"
       {
         "value"                                           "18"
+        "special_bonus_scepter"                           "+0"
+        "dynamic_value"                                   "true"
       }
-      "starting_gold_bonus"
+      "scepter_bonus_damage" //OAA
       {
-        "special_bonus_facet_alchemist_seed_money"        "=250"
+        "value"                                           "25"
       }
-      "scepter_bonus_damage"                              "20" //OAA
+      "scepter_bonus_damage_tooltip"
+      {
+        "special_bonus_scepter"                           "+0"
+        "dynamic_value"                                   "true"
+      }
       "scepter_spell_amp"
       {
         "special_bonus_scepter"                           "0"
-      }
-      "gpm_increase_per_stack"
-      {
-        "special_bonus_facet_alchemist_dividends"         "+70"
       }
     }
   }

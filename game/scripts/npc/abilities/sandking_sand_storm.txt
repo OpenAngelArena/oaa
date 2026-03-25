@@ -5,13 +5,13 @@
   //=================================================================================================================
   "sandking_sand_storm"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
-    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -50,19 +50,18 @@
       }
       "fade_delay" //OAA
       {
-        "value"                                           "1.0"
+        "value"                                           "0.7"
       }
       "blind_pct"
       {
-        "special_bonus_facet_sand_king_obscurity"         "20 30 40 50 55 60"
+        "special_bonus_unique_sand_king_4"                "35"
       }
       "blind_debuff_duration"
       {
-        "special_bonus_facet_sand_king_obscurity"         "5"
       }
       "sand_storm_slow"
       {
-        "special_bonus_unique_sand_king_4"                "50"
+        "special_bonus_unique_sand_king_4"                "35"
       }
     }
   }

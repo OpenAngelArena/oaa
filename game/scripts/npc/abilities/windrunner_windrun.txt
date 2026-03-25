@@ -5,19 +5,19 @@
   //=================================================================================================================
   "windrunner_windrun"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,38 +31,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movespeed_bonus_pct"                               "60"
+      "movespeed_bonus_pct"                               "50"
       "evasion_pct_tooltip"                               "100"
-      "enemy_movespeed_bonus_pct"
+      "cannot_be_dispelled"
       {
-        "value"                                           "0"
+        "value"                                           "+0"
       }
-      "radius"
+      "duration"
       {
-        "special_bonus_facet_windrunner_tailwind"         "700"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "3 4 5 6 6 6"
+        "special_bonus_unique_windranger_4"               "+0.75"
       }
-      "scepter_movespeed_bonus_pct"
+      "AbilityCooldown"
       {
-        "special_bonus_scepter"                           "0"
+        "value"                                           "14 13 12 11 12 12"
       }
       "physical_damage_pct" //OAA
       {
         "special_bonus_scepter"                           "-20 -25 -30 -35 -40 -45"
-      }
-      "cannot_be_dispelled"
-      {
-        "special_bonus_unique_windranger_windrun_undispellable"  "+1"
-      }
-      "ally_movespeed_bonus_pct"
-      {
-        "special_bonus_facet_windrunner_tailwind"         "=15"
-      }
-      "duration"                                          "3 4 5 6 6.5 7"
-      "AbilityCooldown"
-      {
-        "value"                                           "15 14 13 12 12 12"
-        "special_bonus_unique_windranger_4"               "-2"
       }
       "scepter_spell_amp" //OAA
       {

@@ -5,37 +5,35 @@
   //=================================================================================================================
   "life_stealer_feast"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-
-    "MaxLevel"                                            "6" // same as Dependent ability (Infest) + 1
-    "DependentOnAbility"                                  "life_stealer_infest"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "creep_deny_percent"                                "50"
+      "bonus_hp_per_hero"                                 "10 15 20 25 25 25"
+      "bonus_hp_per_creep"                                "1"
       "hp_leech_percent" //OAA
       {
-        "value"                                           "1.5 1.75 2.0 2.25 2.5 2.75"
+        "value"                                           "1.45 2.05 2.65 3.25 3.25 3.25"
         "special_bonus_unique_lifestealer_3"              "+1.0"
       }
       "hp_damage_percent" //OAA
       {
-        "value"                                           "1.5 1.75 2.0 2.25 2.5 2.75"
+        "value"                                           "1.45 2.05 2.65 3.25 3.25 3.25"
         "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_hp_per_hero"
-      {
-        "value"                                           "10"
-        "special_bonus_facet_life_stealer_fleshfeast"     "=15 =20 =25 =30 =35 =40"
-      }
-      "bonus_hp_per_creep"                                "1"
-      "creep_deny_percent"                                "75"
       "bonus_hp_total"
       {
         "dynamic_value"                                   "true"

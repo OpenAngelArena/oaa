@@ -5,6 +5,7 @@
   //=================================================================================================================
   "phantom_assassin_phantom_strike"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -12,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,20 +24,21 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.1"
-    "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "21 18 15 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "21 18 15 12 12 12"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "creep_lifesteal_penalty"                           "40"
       "bonus_attack_speed" //OAA
       {
-        "value"                                           "140 150 160 170 180 190"
+        "value"                                           "100 130 160 190 190 190"
         "special_bonus_unique_phantom_assassin_strike_aspd"  "+60"
       }
       "duration"
@@ -47,10 +48,9 @@
       }
       "AbilityCastRange" //OAA
       {
-        "value"                                           "950"
+        "value"                                           "650 750 850 950 950 950"
         "special_bonus_unique_phantom_assassin_6"         "+200"
       }
-      "creep_lifesteal_penalty"                           "40" // unused
     }
   }
 }

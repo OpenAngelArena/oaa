@@ -5,14 +5,14 @@
   //=================================================================================================================
   "techies_suicide"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,10 +30,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
+      "duration"                                          "0.75"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "28 27 26 25 24 23"
-        "special_bonus_unique_techies_5"                  "-12"
+        "value"                                           "40 35 30 25 25 25"
+        "special_bonus_unique_techies_5"                  "-15"
       }
       "radius"
       {
@@ -45,7 +47,6 @@
         "value"                                           "200 300 400 500 750 1250"
         "special_bonus_unique_techies"                    "+200"
       }
-      "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
       "hp_cost"
       {
         "value"                                           "20"
@@ -55,12 +56,9 @@
       "hp_dmg"
       {
         "value"                                           "0"
-        "special_bonus_facet_techies_spleens_secret_sauce"  "=15"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE" // this is a lie
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "duration"                                          "0.75"
     }
   }
-
 }

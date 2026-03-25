@@ -1,17 +1,20 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // General
+  //=================================================================================================================
   "skeleton_king_spectral_blade"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Cost
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
@@ -38,7 +41,6 @@
       "curse_delay"
       {
         "value"                                           "3"
-        //"special_bonus_unique_wraith_king_facet_2"        "-1"
       }
     }
   }

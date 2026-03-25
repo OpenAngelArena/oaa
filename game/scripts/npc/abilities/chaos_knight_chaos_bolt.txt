@@ -5,22 +5,23 @@
   //=================================================================================================================
   "chaos_knight_chaos_bolt"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "HasShardUpgrade"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,6 +32,7 @@
     "AbilityValues"
     {
       "chaos_bolt_speed"                                  "700"
+      "fake_bolt_distance"                                "675"
       "stun_min"
       {
         "value"                                           "1.25 1.5 1.75 2 2.1 2.2"
@@ -49,7 +51,6 @@
       {
         "value"                                           "155 240 325 410 820 1640"
       }
-      "fake_bolt_distance"                                "675"
       "AbilityCastRange"
       {
         "value"                                           "600"
@@ -72,7 +73,7 @@
       }
       "bounce_range_pct"
       {
-        "special_bonus_facet_chaos_knight_cloven_chaos"   "=70"
+        "value"                                           "0"
       }
     }
   }

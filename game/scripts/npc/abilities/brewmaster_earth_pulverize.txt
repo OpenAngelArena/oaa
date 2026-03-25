@@ -5,17 +5,19 @@
   //=================================================================================================================
   "brewmaster_earth_pulverize"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_building_damage" // percentage bonus damage against bosses
+      "bonus_building_damage"
       {
         "value"                                           "40 80 120 160 200 240"
       }

@@ -5,13 +5,14 @@
   //=================================================================================================================
   "luna_lunar_blessing"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-
     "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,19 +25,17 @@
       }
       "bonus_damage"
       {
-        "value"                                           "1"
         "hero_levelup"                                    "+1"
-        "special_bonus_unique_luna_3"                     "+30"
+        "special_bonus_unique_luna_3"                     "+25"
       }
       "self_bonus_damage"
       {
-        "value"                                           "2"
         "hero_levelup"                                    "+2"
-        "special_bonus_unique_luna_3"                     "+60"
+        "special_bonus_unique_luna_3"                     "+50"
       }
       "bonus_night_vision"
       {
-        "value"                                           "250"
+        "value"                                           "225"
         "hero_levelup"                                    "+25"
       }
     }

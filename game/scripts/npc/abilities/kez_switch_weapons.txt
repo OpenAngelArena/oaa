@@ -19,6 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "katana_base_ms"                                    "0"
       "katana_attack_range"                               "225"
       "katana_base_attack_time"                           "1.9"
       "katana_agility_bonus_base_damage"
@@ -27,20 +28,12 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "katana_swap_bonus_damage"
-      {
-        "special_bonus_facet_kez_flutter"                 "12"
-      }
+      "katana_swap_bonus_damage"                          "12"
+      "sai_base_ms"                                       "0"
       "sai_attack_range"                                  "150"
       "sai_base_attack_time"                              "1.5"
-      "sai_swap_bonus_movement_speed"
-      {
-        "special_bonus_facet_kez_flutter"                 "12"
-      }
-      "sai_swap_duration"
-      {
-        "special_bonus_facet_kez_flutter"                 "2"
-      }
+      "sai_swap_bonus_movement_speed"                     "12"
+      "sai_swap_duration"                                 "2"
       "AbilityCooldown" //OAA
       {
         "value"                                           "5.1"

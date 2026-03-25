@@ -5,13 +5,15 @@
   //=================================================================================================================
   "nyx_assassin_burrow"
   {
+
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
     "MaxLevel"                                            "1"
-
+    "RequiredLevel"                                       "1"
     "LinkedAbility"                                       "nyx_assassin_unburrow"
 
     // Casting
