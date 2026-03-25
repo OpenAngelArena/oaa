@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_heavens_halberd"
     "ItemRequirements"
     {
-      "01"                                                "item_vanguard;item_crown"
+      "01"                                                "item_talisman_of_evasion;item_splintmail;item_ring_of_health"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2600"
+    "ItemCost"                                            "3400"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd;halberd"

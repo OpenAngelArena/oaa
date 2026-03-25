@@ -20,7 +20,7 @@
     "ItemResult"                                          "item_mage_slayer"
     "ItemRequirements"
     {
-      "01"                                                "item_cloak;item_orb_of_venom;item_gloves;item_cornucopia"
+      "01"                                                "item_pers;item_cloak;item_blades_of_attack;item_orb_of_venom"
     }
   }
 
@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2800"
+    "ItemCost"                                            "3100"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mage slayer;ms"

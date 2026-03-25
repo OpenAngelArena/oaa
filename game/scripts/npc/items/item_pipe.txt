@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200" //OAA
+    "ItemCost"                                            "675"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_pipe"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_cloak;item_headdress;item_ring_of_tarrasque"
+      "01"                                                "item_ring_of_tarrasque;item_cloak*;item_shawl"
     }
   }
 
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3125" //OAA
+    "ItemCost"                                            "2825" //OAA
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"

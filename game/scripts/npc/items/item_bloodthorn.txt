@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "450"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_bloodthorn"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_orchid;item_javelin;item_hyperstone"
+      "01"                                                "item_orchid;item_oblivion_staff;item_javelin"
     }
   }
 
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6625"
+    "ItemCost"                                            "6400"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "orchid malevolence;bloodthorn"

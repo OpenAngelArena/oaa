@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "450" //OAA
+    "ItemCost"                                            "350" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_blade_mail"
     "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_chainmail"
+      "01"                                                "item_broadsword;item_splintmail"
     }
   }
 
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2000" //OAA
+    "ItemCost"                                            "2300" //OAA
     "ItemShopTags"                                        "damage;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -62,7 +62,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "15" // Broadsword (15)
-      "bonus_armor"                                       "5" //OAA, Chainmail (4)
+      "bonus_armor"                                       "7" //OAA, Chainmail (7)
       "bonus_intellect"                                   "0"
       "duration"                                          "5.5"
       "passive_reflection_constant"                       "10"

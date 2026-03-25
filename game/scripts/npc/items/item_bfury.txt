@@ -15,7 +15,7 @@
     "ItemResult"                                          "item_bfury"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_small_cleaver_oaa;item_cornucopia"
+      "01"                                                "item_small_cleaver_oaa;item_pers"
     }
   }
 
@@ -44,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3900"
+    "ItemCost"                                            "4100"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf;battle fury;cleaver"
