@@ -40,27 +40,6 @@
 
     //"AbilityTalentStart"                                  "10"
 
-    "Facets"
-    {
-      // replace repair bots
-      "tinker_repair_bots"
-      {
-        "Icon"                                            "summons"
-        "Color"                                           "Gray"
-        "GradientID"                                      "3"
-
-        "Abilities"
-        {
-          "Ability1"
-          {
-            "AbilityName"                                 "tinker_march_of_the_machines"
-            "ReplaceAbility"                              "tinkerer_oil_spill"
-            "AutoLevelAbility"                            "false"
-          }
-        }
-      }
-    }
-
     "ArmorPhysical"                                       "2"
     "MagicalResistance"                                   "25"
 

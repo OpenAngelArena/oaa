@@ -24,32 +24,5 @@
     // special_bonus_unique_underlord_9 - Fiend's Gates deals DPS in a radius                  - not usable
     // special_bonus_unique_underlord_7_oaa - % Pit of Malice Damage
     // special_bonus_unique_underlord_9_oaa - Dark Rift Damage
-
-    "Facets"
-    {
-      "abyssal_underlord_demons_reach"
-      {
-        "Icon"                                            "area_of_effect"
-        "Color"                                           "Green"
-        "GradientID"                                      "0"
-      }
-
-      "abyssal_underlord_summons"
-      {
-        "Icon"                                            "teleport"
-        "Color"                                           "Blue"
-        "GradientID"                                      "3"
-
-        "Abilities"
-        {
-          "Ability1"
-          {
-            "AbilityName"                                 "abyssal_underlord_innates_oaa"
-            "ReplaceAbility"                              "abyssal_underlord_cancel_dark_rift_oaa"
-            "AutoLevelAbility"                            "false"
-          }
-        }
-      }
-    }
   }
 }
