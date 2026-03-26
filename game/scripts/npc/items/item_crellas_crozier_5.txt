@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Crella's Crozier 5
+  //=================================================================================================================
+  "item_recipe_crellas_crozier_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_crellas_crozier_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_crellas_crozier_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Crella's Crozier 5
+  //=================================================================================================================
+  "item_crellas_crozier_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_crellas_crozier"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "FightRecapLevel"                                     "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "ethereal"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "34800"
+    "ItemShopTags"                                        "int;agi;str;hard_to_tag;escape"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "crellas 5;crozier 5;crellas crozier 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_all_stats"                                   "6 11 16 21 26"
+      "bonus_health"                                      "450 550 700 900 1150"
+      "bonus_mana"                                        "450 550 700 900 1150"
+      "duration"                                          "4.0 4.25 4.5 4.75 5.0"
+      "extra_spell_damage_percent"                        "-30"
+      "radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "health_steal"                                      "30 35 42 51 62"
+      "interval"                                          "1.0"
+      "active_radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "movespeed_steal_pct"                               "5 6 7 8 9"
+      "active_health_steal"                               "75 90 110 135 165"
+      "stack_duration"                                    "1.5"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Consecrated Wraps
+  //=================================================================================================================
+  "item_recipe_consecrated_wraps"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "700"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_consecrated_wraps"
+    "ItemRequirements"
+    {
+      "01"                                                "item_vitality_booster;item_shawl;item_crown"
+    }
+  }
+
+  //=================================================================================================================
+  // Consecrated Wraps
+  //=================================================================================================================
+  "item_consecrated_wraps"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_consecrated_wraps_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "2600"
+    "ItemShopTags"                                        "magic_resist;move_speed;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "consecrated;wraps;consecrated wraps"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_spell_resist"                                "15 17 19 21 23"
+      "bonus_all_stats"                                   "6 9 13 18 24"
+      "bonus_health"                                      "250 350 500 700 950"
+      "stack_gain_time"                                   "3"
+      "max_stacks"                                        "3"
+      "movement_speed_pct_on_stack_gain"                  "20 22 24 26 28"
+      "stack_threshold_damage"                            "0"
+      "duration"                                          "7 7.5 8 8.5 9"
+      "barrier_per_stack"                                 "120 165 220 285 360"
+      "max_barrier_tooltip"                               "360 495 660 855 1080"
+      "barrier_cd"                                        "0"
+    }
+  }
+}
