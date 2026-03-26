@@ -18,9 +18,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hydras_breath"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_specialists_array;item_dragon_lance;item_orb_of_venom;"
+      "01"                                                "item_specialists_array;item_dragon_lance;item_orb_of_venom"
     }
   }
 
@@ -56,21 +56,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strength"                                          "15 20 27 36 47"
-      "agility"                                           "30 36 46 60 78"
-      "damage"                                            "25 35 50 70 95"
+      "strength"                                          "10 15 25 40 60" // OAA, Dragon Lance (10);
+      "agility"                                           "30 35 45 60 80" // Dragon Lance (15); Specialist Array (12);
+      "damage"                                            "20 30 50 80 110" // OAA, Specialist Array (20);
       "base_count"                                        "0"
       "count"                                             "3"
-      "secondary_target_range_bonus"                      "150 175 200 225 250"
+      "secondary_target_range_bonus"                      "150 160 170 180 190"
       "secondary_target_angle"                            "120"
       "proc_chance"                                       "30"
       "proc_dmg_pct"                                      "75"
       "proc_dmg_pct_primary_tooltip"                      "100"
-      "base_proc_dmg"                                     "20 30 45 65 90"
-      "base_attack_range"                                 "150"
+      "base_proc_dmg"                                     "20 30 50 80 110"
+      "base_attack_range"                                 "130 140 150 160 170" // OAA, Dragon Lance (130);
       "poison_duration"                                   "3"
       "poison_base_damage"                                "0"
-      "poison_damage_per_second"                          "2.5 3.5 5 7 10"
+      "poison_damage_per_second"                          "2.5" // do not scale, max hp dmg
     }
   }
 }
