@@ -17,7 +17,9 @@ if IsServer() then
   end
 
   -- caster is needed for debuff amplification (bosses and creeps dont have that for now)
-  -- ability is needed to check if it's an item (because Nether Core does not affect items) and if it's stolen (because Rubick Spell Steal has debuff amp for stolen abilities)
+  -- ability is needed to check if it's an item (because Nether Core does not affect items)
+  -- if it's a passive without a cooldown (because Nether Core does not affect those)
+  -- if it's stolen (because Rubick Spell Steal has debuff amp for stolen abilities)
   function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, ability)
     if self and value then
       local status_resist = self:GetStatusResistance()
@@ -25,12 +27,16 @@ if IsServer() then
       local debuff_amplifications = 0
       local isItem = false
       local isStolen = false
+      local isPassive = false
+      local hasCooldown = true
       if ability and not ability:IsNull() then
         isItem = ability:IsItem()
         isStolen = ability:IsStolen()
+        isPassive = ability:IsPassive()
+        hasCooldown = ability:GetCooldown(-1) ~= 0
       end
       if caster and not caster:IsNull() then
-        if caster:HasModifier("modifier_item_nether_core") and not isItem then
+        if caster:HasModifier("modifier_item_nether_core") and not isItem and not (isPassive and not hasCooldown) then
           local nether_core_mod = caster:FindModifierByNameAndCaster("modifier_item_nether_core", caster)
           if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
             local nether_core_item = nether_core_mod:GetAbility()

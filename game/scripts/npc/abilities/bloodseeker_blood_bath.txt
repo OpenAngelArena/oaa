@@ -5,13 +5,13 @@
   //=================================================================================================================
   "bloodseeker_blood_bath"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -47,7 +47,7 @@
       }
       "damage"
       {
-        "value"                                           "105 175 245 315 530 1060"
+        "value"                                           "100 155 210 265 530 1060"
         "special_bonus_unique_bloodseeker_2"              "+100"
       }
       "heal"
