@@ -90,7 +90,7 @@ if IsServer() then
     -- event.original_damage = phys_dmg * crit_diff + magic proc dmg before reductions
     -- event.damage = phys_dmg * crit_diff * (1 - phys_reduction)
     local armor = damaged_unit:GetPhysicalArmorValue(false)
-    local magic_resist = damaged_unit:Script_GetMagicalArmorValue(false, nil)
+    local magic_resist = damaged_unit:Script_GetMagicalArmorValue(nil)
     local phys_reduction = (0.06 * armor) / (1 + 0.06 * math.abs(armor))
     --local phys_dmg = attacker:GetAverageTrueAttackDamage(nil) -- original physical without crits
     --local crit_diff = math.max(1, event.damage / (phys_dmg * (1 - phys_reduction)))
