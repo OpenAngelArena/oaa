@@ -29,7 +29,7 @@ const ignoredBaseClasses = [
   'item_crimson_guard',
   'item_devastator',
   'item_disperser',
-  'item_eternal_shroud',
+  'item_essence_distiller',
   'item_ethereal_blade',
   'item_glimmer_cape',
   'item_greater_crit',

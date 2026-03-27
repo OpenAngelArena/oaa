@@ -220,6 +220,11 @@ if IsServer() then
       enigma_midnight_pulse = true,           -- when it starts working against ancients
       huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
+      item_hydras_breath = true,
+      item_hydras_breath_2 = true,
+      item_hydras_breath_3 = true,
+      item_hydras_breath_4 = true,
+      item_hydras_breath_5 = true,
       item_jidi_pollen_bag = true,
       item_serrated_shiv = true,              -- physical dmg
       kez_kazurai_katana = true,              -- physical dmg

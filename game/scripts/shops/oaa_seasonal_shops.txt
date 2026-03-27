@@ -53,21 +53,25 @@
   "weapons_armor" // 17/17
   {
     "item"                                                "item_quelling_blade"
-    "item"                                                "item_ring_of_protection"
-    //"item"                                                "item_infused_raindrop"
-    //"item"                                                "item_orb_of_venom"
-    "item"                                                "item_blight_stone"
-    "item"                                                "item_orb_of_frost"
+    //"item"                                                "item_ring_of_protection"
     "item"                                                "item_blades_of_attack"
+    "item"                                                "item_orb_of_frost"
+
     "item"                                                "item_gloves"
     "item"                                                "item_chainmail"
-    "item"                                                "item_helm_of_iron_will"
     "item"                                                "item_broadsword"
+    "item"                                                "item_blight_stone"
+
     //"item"                                                "item_blitz_knuckles"
-    "item"                                                "item_javelin"
-    "item"                                                "item_talisman_of_evasion"
+    "item"                                                "item_splintmail"
     "item"                                                "item_claymore"
+    //"item"                                                "item_orb_of_venom"
+
+    "item"                                                "item_javelin"
+    "item"                                                "item_helm_of_iron_will"
     "item"                                                "item_mithril_hammer"
+
+    "item"                                                "item_talisman_of_evasion"
     "item"                                                "item_platemail"
     "item"                                                "item_hyperstone"
     "item"                                                "item_demon_edge"
@@ -77,20 +81,27 @@
   "misc" // 17/17
   {
     //"item"                                                "item_ring_of_regen"
-    "item"                                                "item_sobi_mask"
-    //"item"                                                "item_magic_stick"
-    "item"                                                "item_fluffy_hat"
+    //"item"                                                "item_sobi_mask"
     "item"                                                "item_wind_lace"
+    //"item"                                                "item_magic_stick"
+
+    "item"                                                "item_fluffy_hat"
+    //"item"                                                "item_wizard_hat"
     "item"                                                "item_boots"
-    "item"                                                "item_cloak"
-    "item"                                                "item_lifesteal"
     "item"                                                "item_voodoo_mask"
+
+    "item"                                                "item_shawl"
     //"item"                                                "item_shadow_amulet"
-    "item"                                                "item_ghost"
+    //"item"                                                "item_gem"
+    "item"                                                "item_lifesteal"
+
+    "item"                                                "item_cloak"
+    "item"                                                "item_chasm_stone"
     "item"                                                "item_blink"
+
+    "item"                                                "item_ghost"
     "item"                                                "item_ring_of_health"
     "item"                                                "item_void_stone"
-    "item"                                                "item_cornucopia"
     "item"                                                "item_energy_booster"
     "item"                                                "item_vitality_booster"
     "item"                                                "item_point_booster"
@@ -142,7 +153,8 @@
     "item"                                                "item_glimmer_cape"
     "item"                                                "item_pipe"
 
-    "item"                                                "item_ancient_janggo"
+    //"item"                                                "item_ancient_janggo"
+    "item"                                                "item_essence_distiller"
     "item"                                                "item_spirit_vessel_oaa"
     "item"                                                "item_holy_locket"
     "item"                                                "item_vladmir"
@@ -177,7 +189,7 @@
 
     "item"                                                "item_bloodstone_1"
     "item"                                                "item_octarine_core"
-    "item"                                                "item_dagon_oaa_6"
+    "item"                                                "item_crellas_crozier"
     "item"                                                "item_sacred_skull"
 
     "item"                                                "item_dagger_of_moriah_1"
@@ -186,7 +198,7 @@
     "item"                                                "item_nether_core_1"
   }
 
-  "defense" // 19/20
+  "defense" // 20/20
   {
     "item"                                                "item_vanguard"
     "item"                                                "item_heavens_halberd"
@@ -195,7 +207,7 @@
 
     "item"                                                "item_black_king_bar_1"
     "item"                                                "item_lotus_orb"
-    "item"                                                ""
+    "item"                                                "item_consecrated_wraps"
     "item"                                                "item_heart"
 
     "item"                                                "item_sphere"
@@ -226,7 +238,8 @@
     "item"                                                "item_devastator" // Parasma
 
     "item"                                                "item_monkey_king_bar"
-    "item"                                                "item_invis_sword"
+    //"item"                                                "item_invis_sword"
+    "item"                                                "item_hydras_breath"
     "item"                                                "item_nullifier"
     "item"                                                "item_radiance"
 
@@ -265,8 +278,8 @@
 
     "item"                                                "item_siege_mode" // Splash Cannon
     "item"                                                "item_vampire"
-    "item"                                                "item_havoc_hammer_1"
     "item"                                                "item_pull_staff"
+    "item"                                                "item_havoc_hammer_1"
   }
 
   // Column 1, Duel Shop

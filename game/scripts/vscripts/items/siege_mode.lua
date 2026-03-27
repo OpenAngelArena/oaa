@@ -277,7 +277,7 @@ function modifier_item_splash_cannon_passive:GetModifierAttackRangeBonus()
   end
 
   -- Prevent stacking with Dragon Lance, Hurricane Pike or Hydra's Breath
-  if parent:HasModifier("modifier_item_dragon_lance") or parent:HasModifier("modifier_item_hurricane_pike") or parent:HasModifier("modifier_item_hydras_breath") then
+  if parent:HasModifier("modifier_item_dragon_lance") or parent:HasModifier("modifier_item_hurricane_pike") or parent:HasModifier("modifier_hydras_breath") then
     return 0
   end
 
