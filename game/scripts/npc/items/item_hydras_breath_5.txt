@@ -1,0 +1,80 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Hydra's Breath 5
+  //=================================================================================================================
+  "item_recipe_hydras_breath_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_hydras_breath_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_hydras_breath_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Hydra's Breath 5
+  //=================================================================================================================
+  "item_hydras_breath_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_hydras_breath"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityCastRange"                                    "0"
+    "AbilityManaCost"                                     "0"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "35900"
+    "ItemShopTags"                                        "agi;damage;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "hydra 5;hydras breath 5;hydra bow 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "strength"                                          "10 15 25 40 60"
+      "agility"                                           "30 35 45 60 80"
+      "damage"                                            "20 30 50 80 110"
+      "base_count"                                        "0"
+      "count"                                             "3"
+      "secondary_target_range_bonus"                      "150 160 170 180 190"
+      "secondary_target_angle"                            "120"
+      "proc_chance"                                       "30"
+      "proc_dmg_pct"                                      "75"
+      "proc_dmg_pct_primary_tooltip"                      "100"
+      "base_proc_dmg"                                     "20 30 50 80 110"
+      "base_attack_range"                                 "130 140 150 160 170"
+      "poison_duration"                                   "3"
+      "poison_base_damage"                                "0"
+      "poison_damage_per_second"                          "2.5"
+    }
+  }
+}

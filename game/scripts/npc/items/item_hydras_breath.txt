@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Hydra's Breath
+  //=================================================================================================================
+  "item_recipe_hydras_breath"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1100"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_hydras_breath"
+    "ItemRequirements" //OAA
+    {
+      "01"                                                "item_specialists_array;item_dragon_lance;item_orb_of_venom"
+    }
+  }
+
+  //=================================================================================================================
+  // Hydra's Breath
+  //=================================================================================================================
+  "item_hydras_breath"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityCastRange"                                    "0"
+    "AbilityManaCost"                                     "0"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_hydras_breath_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5900"
+    "ItemShopTags"                                        "agi;damage;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "hydra;hydras breath;hydra bow"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "strength"                                          "10 15 25 40 60" // OAA, Dragon Lance (10);
+      "agility"                                           "30 35 45 60 80" // Dragon Lance (15); Specialist Array (12);
+      "damage"                                            "20 30 50 80 110" // OAA, Specialist Array (20);
+      "base_count"                                        "0"
+      "count"                                             "3"
+      "secondary_target_range_bonus"                      "150 160 170 180 190"
+      "secondary_target_angle"                            "120"
+      "proc_chance"                                       "30"
+      "proc_dmg_pct"                                      "75"
+      "proc_dmg_pct_primary_tooltip"                      "100"
+      "base_proc_dmg"                                     "20 30 50 80 110"
+      "base_attack_range"                                 "130 140 150 160 170" // OAA, Dragon Lance (130);
+      "poison_duration"                                   "3"
+      "poison_base_damage"                                "0"
+      "poison_damage_per_second"                          "2.5" // do not scale, max hp dmg
+    }
+  }
+}

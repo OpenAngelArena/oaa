@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Crella's Crozier
+  //=================================================================================================================
+  "item_recipe_crellas_crozier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "300"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_crellas_crozier"
+    "ItemRequirements" //OAA
+    {
+      "01"                                                "item_ghost;item_soul_booster"
+    }
+  }
+
+  //=================================================================================================================
+  // Crella's Crozier
+  //=================================================================================================================
+  "item_crellas_crozier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "FightRecapLevel"                                     "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "ethereal"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_crellas_crozier_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4800"
+    "ItemShopTags"                                        "int;agi;str;hard_to_tag;escape"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "crellas;crozier;crellas crozier"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_all_stats"                                   "6 11 16 21 26"
+      "bonus_health"                                      "425 525 675 875 1125" // OAA
+      "bonus_mana"                                        "425 525 675 875 1125" // OAA
+      "duration"                                          "4.0"
+      "extra_spell_damage_percent"                        "-30"
+      "radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "health_steal"                                      "30" // do not scale, it's passive aura
+      "interval"                                          "1.0"
+      "active_radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "movespeed_steal_pct"                               "5" // does not need to scale
+      "active_health_steal"                               "75" // does not need to scale
+      "stack_duration"                                    "1.5"
+    }
+  }
+}
