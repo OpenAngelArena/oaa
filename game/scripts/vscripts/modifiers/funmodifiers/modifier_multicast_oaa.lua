@@ -180,6 +180,8 @@ function modifier_multicast_oaa:OnCreated()
     --warlock_rain_of_chaos = 1,                         -- lag
     --weaver_time_lapse = 1,                             -- powerful or grief with scepter?
     --winter_wyvern_cold_embrace = 1,                    -- grief
+    wisp_spirits_in = 1,                                 -- useless
+    wisp_spirits_out = 1,                                -- useless
     wisp_tether_break = 1,                               -- useless
     witch_doctor_voodoo_switcheroo_oaa = 1,              -- multiplies
     --zuus_cloud_oaa = 1,                                -- powerful
