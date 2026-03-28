@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Clockwerk: Armor Power (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "rattletrap_armor_power"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "damage_per_armor"                                  "0.25"
+      "damage_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
+
+      "can_consume_chainmail" //OAA, intentionally disabled
+      {
+        "value"                                           "0"
+      }
+
+      "armor_per_chainmail" //OAA, intentionally disabled
+      {
+        "value"                                           "0"
+      }
+
+      "model_scale_per_chainmail"
+      {
+        "value"                                           "5"
+      }
+
+      "model_scale_maximum"
+      {
+        "value"                                           "125"
+      }
+
+      "health_bar_offset_per_stack"
+      {
+        "value"                                           "6"
+      }
+    }
+  }
+}

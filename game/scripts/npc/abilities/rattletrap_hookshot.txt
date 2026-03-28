@@ -1,29 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clockwerk: Hookshot
+  // Clockwerk: Hookshot FIXEDFUCK
   //=================================================================================================================
   "rattletrap_hookshot"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "2000 2500 3000 3500 4000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40 35 30 25 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,9 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "latch_radius"                                      "125 125 125 125 125"
-      "duration"                                          "1.2 1.4 1.6 1.8 2.0"
-      "speed"                                             "4000 5000 6000 7000 7500"
+      "latch_radius"                                      "125"
       "stun_radius"
       {
         "value"                                           "175"
@@ -58,15 +53,17 @@
       {
         "value"                                           "0"
       }
-      "damage" //OAA
+      "duration"                                          "1.2 1.4 1.6 1.8 2.0"
+      "speed"                                             "4000 5000 6000 6500 7000"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "75 175 275 275 275"
+        "value"                                           "75 275 475 875 1475"
         "special_bonus_unique_clockwerk_hookshot_damage"  "+75"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "60.0 45.0 30.0 30.0 30.0"
+        "value"                                           "45 40 35 30 25"
         "special_bonus_unique_clockwerk_5"                "-10"
       }
     }

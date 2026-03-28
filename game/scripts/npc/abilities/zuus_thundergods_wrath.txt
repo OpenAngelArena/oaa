@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130" // special_bonus_unique_zeus_1_oaa
+    "AbilityCooldown"                                     "130" // special_bonus_unique_zeus_1_oaa is unused for now
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "sight_duration"                                    "3.0"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
         "value"                                           "300 550 800 1300 1800"
         "special_bonus_unique_zeus_4"                     "+150"

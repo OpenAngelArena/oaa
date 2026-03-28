@@ -708,16 +708,16 @@ if CDOTA_BaseNPC then
       end
     end
 
-    local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
-    if power_cogs_mod then
-      local power_cogs_ab = power_cogs_mod:GetAbility()
-      if power_cogs_ab then
-        local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
-        if check then
-          return true
-        end
-      end
-    end
+    -- local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
+    -- if power_cogs_mod then
+      -- local power_cogs_ab = power_cogs_mod:GetAbility()
+      -- if power_cogs_ab then
+        -- local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
+        -- if check then
+          -- return true
+        -- end
+      -- end
+    -- end
 
     return false
   end
