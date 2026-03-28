@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wisp: Tether
+  // Io (Wisp): Tether FIXEDFUCK
   //=================================================================================================================
   "wisp_tether"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,11 +12,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    "LinkedAbility"                                       "wisp_tether_break"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,18 +28,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 40 40 40 40 40"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "latch_speed"                                       "1000"
-      "tether_heal_amp"                                   "50 60 70 80 90 100" //OAA
-      "tether_mana_amp"                                   "50 60 70 80 90 100" //OAA
-      "self_bonus"                                        "0"
-      "slow_duration"                                     "0.2"
-      "tick_rate"                                         "0.5"
       "radius"
       {
         "value"                                           "1000"
@@ -56,10 +48,15 @@
       {
         "value"                                           "700"
       }
+      "latch_speed"                                       "1000"
+      "tether_heal_amp"                                   "50 60 70 80 90 100" //OAA, intentionally nerfed
+      "tether_mana_amp"                                   "50 60 70 80 90 100" //OAA, intentionally nerfed
+      "self_bonus"                                        "0"
       "slow"
       {
         "value"                                           "15 30 45 60 65 70"
       }
+      "slow_duration"                                     "0.2"
       "damage"
       {
         "value"                                           "0"
@@ -70,9 +67,10 @@
         "value"                                           "0"
         "special_bonus_shard"                             "50"
       }
+      "tick_rate"                                         "0.5"
       "tether_attack_damage_pct"
       {
-        "special_bonus_unique_wisp_4"                     "=75"
+        "special_bonus_unique_wisp_4"                     "=50" // unused talent
       }
       "tethered_unit_damage"
       {
