@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Zeus: Arc Lightning FIXEDFUCK
   //=================================================================================================================
   "zuus_arc_lightning"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,8 +26,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "jump_count"                                        "5 7 9 11 13 15"
-      "jump_delay"                                        "0.25 0.25 0.25 0.25 0.25 0.25"
       "AbilityCooldown"
       {
         "value"                                           "1.6"
@@ -35,23 +33,25 @@
       }
       "AbilityManaCost"
       {
-        "value"                                           "85 90 95 100 100 100"
+        "value"                                           "85 90 95 100 105 110"
         "special_bonus_unique_zeus_6"                     "-20%"
       }
-      "arc_damage" //OAA, because of special_bonus_unique_zeus_2 nerf
+      "arc_damage" // OAA, because of special_bonus_unique_zeus_2 nerf
       {
-        "value"                                           "105 130 155 180 180 180"
-        "special_bonus_unique_zeus_2"                     "+60"
+        "value"                                           "105 130 155 180 360 540"
+        "special_bonus_unique_zeus_2"                     "+30"
       }
       "radius"
       {
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
+      "jump_count"                                        "5 7 9 11 13 15"
       "has_unlimited_jumps"
       {
         "value"                                           "0"
       }
+      "jump_delay"                                        "0.25"
     }
   }
 }

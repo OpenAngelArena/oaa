@@ -1,7 +1,7 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Zeus
+  // HERO: Zeus FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_zuus"
   {
@@ -17,14 +17,14 @@
     //"Ability15"                                           "special_bonus_unique_zeus_3"
 
     //"Ability16"                                           "special_bonus_unique_zeus_5"
-    //"Ability17"                                           "special_bonus_unique_zeus_static_field_dmg"
+    //"Ability17"                                           "special_bonus_unique_zeus_jump_charges"
 
     // special_bonus_unique_zeus - Heavenly Jump Target
     // special_bonus_unique_zeus_2 - Arc Lightning Damage
     // special_bonus_unique_zeus_3 - Lightning Bolt Ministun
     // special_bonus_unique_zeus_4 - Thundergod's Wrath Damage
     // special_bonus_unique_zeus_5 - AoE Lightning Bolt
-    // special_bonus_unique_zeus_6 - Arc Lightning Cooldown
+    // special_bonus_unique_zeus_6 - Arc Lightning Mana Cost/Cooldown
     // special_bonus_unique_zeus_1_oaa - Thundergod's Wrath Cooldown
   }
 }

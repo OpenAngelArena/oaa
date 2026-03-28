@@ -224,7 +224,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
       -- Damage table for Lightning Bolt
       local damage_table = {
-        attacker = parent,
+        attacker = caster,
         victim = target,
         damage = lightning_bolt_dmg,
         damage_type = lightning_bolt_ability:GetAbilityDamageType(),
