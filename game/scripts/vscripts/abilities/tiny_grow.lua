@@ -115,6 +115,7 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_damage = 0
   --self.attack_speed_reduction = 0
   self.model_scale = 0
+  self.ms = 0
 
   self:OnRefresh()
 
@@ -238,7 +239,7 @@ if IsServer() then
       return
     end
 
-    local number_of_trees = 3
+    local number_of_trees = cast_ability:GetSpecialValueFor("spawned_trees_oaa")
     for i = 1, number_of_trees do
       local random_location = caster:GetAbsOrigin() + RandomVector(500)
       CreateTempTree(random_location, 3)
@@ -288,7 +289,7 @@ function modifier_tiny_grow_vanilla_mod_applier:GetAuraSearchFlags()
 end
 
 function modifier_tiny_grow_vanilla_mod_applier:GetAuraRadius()
-  return 200
+  return 100
 end
 
 function modifier_tiny_grow_vanilla_mod_applier:GetAuraEntityReject(hEntity)

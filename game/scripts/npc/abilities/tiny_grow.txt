@@ -1,29 +1,28 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Grow (first 3 levels)
+  // Tiny: Grow (first 3 levels) FIXEDFUCK
   //=================================================================================================================
   "tiny_grow"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityType"                                         "ABILITY_TYPE_BASIC" //OAA, DO NOT CHANGE THIS!
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "HasShardUpgrade"                                     "1"
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "MaxLevel"                                            "3" //OAA, DO NOT CHANGE THIS!
+
+    "HasShardUpgrade"                                     "0" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "5 10 15 15 15"
-      "move_speed"                                        "10 15 20 20 20"
+      "bonus_armor"                                       "5 10 15"
       "bonus_damage"
       {
-        "value"                                           "55 110 165 165 165"
+        "value"                                           "60 120 180"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "attack_speed_reduction"
@@ -31,11 +30,13 @@
         "value"                                           "-35"
         "special_bonus_unique_tiny_6"                     "+8"
       }
-      "toss_bonus_damage" //OAA
+      "toss_bonus_damage" //OAA, intentionally buffed
       {
-        "value"                                           "50 175 300 300 300"
+        "value"                                           "50 300 550"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
+      "move_speed"                                        "10 20 30"
+
       "land_movement_slow"
       {
         "RequiresShard"                                   "1"
@@ -51,18 +52,18 @@
         "RequiresShard"                                   "1"
         "special_bonus_shard"                             "=2.5"
       }
-      "land_radius_tooltip"
+      "land_radius_tooltip" // we do not show this tooltip so it doesnt matter
       {
         "RequiresShard"                                   "1"
         "special_bonus_shard"                             "125"
       }
-      "land_toss_damage_tooltip"
+      "land_toss_damage_tooltip" // we do not show this tooltip so it doesnt matter; real value is toss_land_damage_pct in tiny_toss
       {
         "RequiresShard"                                   "1"
         "special_bonus_shard"                             "20"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "land_tree_damage_tooltip"
+      "land_tree_damage_tooltip" // we do not show this tooltip so it doesnt matter; real value is bonus_damage in tiny_toss_tree
       {
         "RequiresShard"                                   "1"
         "special_bonus_shard"                             "50"

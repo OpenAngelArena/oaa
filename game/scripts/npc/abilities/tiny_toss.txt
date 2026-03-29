@@ -1,18 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Toss
+  // Tiny: Toss FIXEDFUCK
   //=================================================================================================================
   "tiny_toss"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Cannot toss enemies or damage spell immune enemies; Can toss allies to enemies;
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,15 +19,15 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800 900 1000 1100 1200 1300"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
+    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
+    "AbilityManaCost"                                     "120 125 130 135 140 145" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,12 +49,12 @@
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "toss_land_damage_pct"
+      "toss_land_damage_pct" //OAA, intentionally buffed
       {
         "value"                                           "0"
         "RequiresShard"                                   "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "special_bonus_shard"                             "20"
+        "special_bonus_shard"                             "20 25 30 35 40 45"
       }
       "AbilityCharges"
       {

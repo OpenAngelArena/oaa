@@ -1,22 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Toss Tree (Ability linked to Tree Grab)
+  // Tiny: Toss Tree (Ability linked to Tree Grab) FIXEDFUCK
   //=================================================================================================================
   "tiny_toss_tree"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve has it wrong
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    "LinkedAbility"                                       "tiny_tree_grab"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,11 +28,9 @@
     {
       "speed"                                             "900.0"
       "range"                                             "1200"
-      "movement_slow"                                     "0"
-      "slow_duration"                                     "0"
       "bonus_damage"
       {
-        "value"                                           "10 20 30 40 60 80"
+        "value"                                           "10 20 30 40 80 120"
         "special_bonus_unique_tiny_7"                     "+60"
         "special_bonus_shard"                             "+50"
         "CalculateSpellDamageTooltip"                     "0"
@@ -44,6 +41,8 @@
         "special_bonus_shard"                             "=400"
         "affected_by_aoe_increase"                        "1"
       }
+      "movement_slow"                                     "0"
+      "slow_duration"                                     "0"
     }
   }
 }
