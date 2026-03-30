@@ -39,12 +39,14 @@
 - Inheritance: KV entries inherit from `BaseClass` (vanilla or `*_datadriven`/`*_lua`). Tests compare our values to vanilla and allow differences only when the KV comment includes `OAA`. Example: `AbilityCooldown  // OAA: changed`. This is only for when we change the levels that overlap with dota, OAA levels of abilities don't need the comment.
 - Specials/Values: `AbilityValues` must preserve names, order, and base values vs. parent. New keys require an `OAA` comment. Item levels must keep specials consistent across levels.
 - Icons: `AbilityTextureName` must be lowercase, no `.png`, and not start with `item_`. Resolved icon must exist in `game/resource/flash3/images/spellicons/` (abilities) or `.../items/` (items). Allowed exception: `item_recipe`.
-- IDs/Costs/Recipes: Do not change vanilla `ID`. Non-vanilla items must have `ItemCost`. `ItemRequirements` are validated and must match parent unless commented `OAA`. Only one recipe per result; cost trees must be consistent.
+- Costs/Recipes: Non-vanilla items must have `ItemCost`. `ItemRequirements` are validated and must match parent unless commented `OAA`. Only one recipe per result; cost trees must be consistent.
 - Script hooks: If `ScriptFile` is set, it must exist under `game/scripts/vscripts/`.
 - Heroes: Hero ability slots must match vanilla unless the comment references the original ability.
 - Custom abilities/items: Custom content ends with `_oaa`. Updating KV keys for custom entries generally also requires updating the backing Lua logic referenced by `ScriptFile`. Do not “fix tests” by deleting or arbitrarily adding KV keys—align KV with Lua and with inheritance rules.
 - MaxLevel does not need to match base dota.
 - Only use `// OAA` sparingly to indicate intentional deviations from vanilla at vanilla levels. Generally avoid when possible.
+- Do not rearrange the order of keyvalues and do not delete KV comments (text after `//`).
+- If there is a word `intentionally` or `because` in the KV comment of keyvalue, do not change values.
 
 ## Commit & Pull Request Guidelines
 - Commits: concise, present-tense summaries (e.g., "Fix Lua kv links"), reference issues/PRs (e.g., `(#1234)`).
