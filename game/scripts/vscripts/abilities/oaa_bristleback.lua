@@ -59,7 +59,7 @@ function bristleback_bristleback_oaa:OnHeroCalculateStatBonus()
     return
   end
   if caster:HasScepter() then
-	scepter_bristleback:SetHidden(false)
+    scepter_bristleback:SetHidden(false)
     if scepter_bristleback:GetLevel() <= 0 then
       scepter_bristleback:SetLevel(1)
     end

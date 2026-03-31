@@ -86,18 +86,20 @@ if IsServer() then
     local inflictor = event.inflictor
 
     -- happpens for auto attacks and other specific situations
-    if not inflictor or inflictor:IsNull() then
-      return
-    end
+    --if not inflictor or inflictor:IsNull() then
+      --return
+    --end
 
     -- this inflictor is not the right type
-    if not inflictor.IsItem or not inflictor.GetAbilityName then
-      return
-    end
+    --if not inflictor.IsItem or not inflictor.GetAbilityName then
+      --return
+    --end
 
     -- skip items
-    if inflictor:IsItem() then
-      return
+    if inflictor then
+      if inflictor:IsItem() then
+        return
+      end
     end
 
     -- should only be abilities now

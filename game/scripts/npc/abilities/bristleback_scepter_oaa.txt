@@ -20,19 +20,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "side_damage_reduction" //OAA
+      "side_damage_reduction" //OAA, intentionally
       {
         "value"                                           "0"
-        //"special_bonus_unique_bristleback_6"              "+0"
       }
-      "back_damage_reduction" //OAA
+      "back_damage_reduction" //OAA, intentionally
       {
         "value"                                           "0"
-        //"special_bonus_unique_bristleback_6"              "+0"
       }
-      "side_angle"                                        "0" //OAA, intentional
-      "back_angle"                                        "0" //OAA, intentional
-      "quill_release_threshold"                           "99999" //OAA, intentional
+      "side_angle"                                        "0" //OAA, intentionally
+      "back_angle"                                        "0" //OAA, intentionally
+      "quill_release_threshold" //OAA, intentionally
+      {
+        "value"                                           "99999"
+      }
       "quill_release_interval"                            ".1"
       "goo_radius"
       {

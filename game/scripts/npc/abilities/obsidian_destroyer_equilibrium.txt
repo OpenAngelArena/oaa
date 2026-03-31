@@ -1,37 +1,32 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OD: Equilibrium (Essense Flux)
+  // OD: Essense Flux (Innate) FIXEDFUCK
   //=================================================================================================================
   "obsidian_destroyer_equilibrium"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.75"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proc_chance"                                       "25" //OAA
-      "mana_restore" //OAA
+      "proc_chance"                                       "25" //OAA, intentionally nerfed
+      "mana_restore" //OAA, intentionally nerfed
       {
-        "value"                                           "40"
-        "hero_levelup"                                    "+5"
+        "value"                                           "25"
+        "hero_levelup"                                    "+2"
         "levelup_interval"                                "5"
         "special_bonus_unique_outworld_devourer_flux_restore"  "+5"
       }
-      "mana_restore_attack"
+      "mana_restore_attack" //OAA, intentionally nerfed; mana_restore_attack is the same as mana_restore because of custom Arcane Orb
       {
         "value"                                           "25"
-        "hero_levelup"                                    "+5"
+        "hero_levelup"                                    "+2"
         "levelup_interval"                                "5"
         "special_bonus_unique_outworld_devourer_flux_restore"  "+5"
       }
@@ -39,8 +34,6 @@
       {
         "special_bonus_unique_outworld_devourer_3"        "=0.8"
       }
-      "scepter_barrier_cooldown"                          "60" //OAA
-      "scepter_max_mana_barrier_pct"                      "40" //OAA
     }
   }
 }

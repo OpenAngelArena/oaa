@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Mana Burn (Facet)
+  // Nyx Assassin: Mana Burn (Innate) FIXEDFUCK
   //=================================================================================================================
   "nyx_assassin_innate_mana_burn_oaa"
   {
@@ -9,17 +9,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_nyx_assassin_innate_mana_burn.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
     "IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "1"
     "RequiredLevel"                                       "-1" // maybe not needed
-    "DependentOnAbility"                                  "nyx_assassin_vendetta"
+    "Innate"                                              "1"
 
     "AbilityValues"
     {
-      "mana_pct"                                          "16 19 22 25 28 31" // current mana pct
+      "mana_pct"                                          "15" // current mana pct
       "damage_threshold"                                  "1"
     }
   }

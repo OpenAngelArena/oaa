@@ -5,7 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_bristleback"
   {
-    "Ability3"                                            "bristleback_bristleback_oaa" // replaces bristleback_bristleback
+    "Ability3"                                            "bristleback_scepter_oaa" // replaces bristleback_bristleback
+    "Ability5"                                            "bristleback_bristleback_oaa" // replaces generic_hidden
 
     //"Ability10"                                           "special_bonus_attack_speed_25"
     //"Ability11"                                           "special_bonus_mp_regen_150"
@@ -16,7 +17,7 @@
     //"Ability14"                                           "special_bonus_hp_regen_25"
     //"Ability15"                                           "special_bonus_unique_bristleback_2"
 
-    "Ability16"                                           "special_bonus_spell_lifesteal_20" // special_bonus_unique_bristleback
+    //"Ability16"                                           "special_bonus_unique_bristleback"
     //"Ability17"                                           "special_bonus_unique_bristleback_3"
 
     // special_bonus_unique_bristleback - Max Goo Stacks
