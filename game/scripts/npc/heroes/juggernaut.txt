@@ -1,25 +1,26 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Juggernaut
+  // HERO: Juggernaut FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_juggernaut"
   {
     //"Ability10"                                           "special_bonus_unique_juggernaut_5"
-    "Ability11"                                           "special_bonus_unique_juggernaut_blade_fury_movespeed" // replaces special_bonus_unique_juggernaut_3
+    //"Ability11"                                           "special_bonus_unique_juggernaut_3"
 
-    //"Ability12"                                           "special_bonus_unique_juggernaut_healing_ward_heal"
-    "Ability13"                                           "special_bonus_unique_juggernaut_3" // replaces special_bonus_unique_juggernaut_blade_fury_movespeed
+    //"Ability12"                                           "special_bonus_unique_juggernaut_omnislash_cooldown"
+    //"Ability13"                                           "special_bonus_unique_juggernaut_blade_fury_movespeed"
 
-    //"Ability14"                                           "special_bonus_unique_juggernaut_2"
+    //"Ability14"                                           "special_bonus_unique_juggernaut_4"
     //"Ability15"                                           "special_bonus_unique_juggernaut"
 
     //"Ability16"                                           "special_bonus_unique_juggernaut_omnislash_duration"
     //"Ability17"                                           "special_bonus_unique_juggernaut_blade_dance_lifesteal"
 
     // special_bonus_unique_juggernaut - Blade Fury DPS
-    // special_bonus_unique_juggernaut_2 - Healing Ward Hits to Destroy
-    // special_bonus_unique_juggernaut_3 - Duelist damage
+    // special_bonus_unique_juggernaut_2 - Healing Ward Hits to Destroy                        - unused, overpowered
+    // special_bonus_unique_juggernaut_3 - Bladeform Stack Gain Interval
+    // special_bonus_unique_juggernaut_4 - Blade Dance Crit                                    - garbage
     // special_bonus_unique_juggernaut_5 - Healing Ward Cooldown
   }
 }

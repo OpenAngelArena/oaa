@@ -470,6 +470,7 @@ function mirana_innates_oaa:Spawn()
     if not caster:HasModifier("modifier_mirana_custom_effects_oaa") then
       caster:AddNewModifier(caster, self, "modifier_mirana_custom_effects_oaa", {})
     end
+    --self:SetLevel(1)
   end
 end
 

@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "1600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -25,7 +25,7 @@
     "ItemResult"                                          "item_refresher_1"
     "ItemRequirements"
     {
-      "01"                                                "item_cornucopia;item_ring_of_tarrasque;item_tiara_of_selemene"
+      "01"                                                "item_ring_of_tarrasque;item_tiara_of_selemene"
     }
   }
 
@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb;refresher"

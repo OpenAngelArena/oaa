@@ -1,12 +1,12 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Mirana
+  // HERO: Mirana FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_mirana"
   {
     "Ability2"                                            "mirana_arrow_oaa" // replaces mirana_arrow
-    "Ability4"                                            "mirana_innates_oaa" // mirana_celestial_quiver
+    "Ability5"                                            "mirana_innates_oaa" // replaces generic_hidden
 
     //"Ability10"                                           "special_bonus_unique_mirana_3"
     //"Ability11"                                           "special_bonus_unique_mirana_6"
@@ -15,7 +15,7 @@
     //"Ability13"                                           "special_bonus_unique_mirana_1"
 
     //"Ability14"                                           "special_bonus_unique_mirana_7"
-    //"Ability15"                                           "special_bonus_base_damage_35"
+    //"Ability15"                                           "special_bonus_unique_mirana_quiver_damage"
 
     //"Ability16"                                           "special_bonus_unique_mirana_2"
     "Ability17"                                           "special_bonus_unique_mirana_3_oaa" // replaces special_bonus_unique_mirana_4

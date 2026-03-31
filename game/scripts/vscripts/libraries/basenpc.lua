@@ -413,6 +413,7 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
+        item_conjurers_catalyst = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
@@ -435,7 +436,6 @@ if IsServer() then
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
-        lina_combustion = true,
         --mirana_starfall = true, -- because of Scepter Arrow
         phoenix_dying_light = true,
         razor_storm_surge = true,

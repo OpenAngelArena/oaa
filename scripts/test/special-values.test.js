@@ -97,7 +97,6 @@ const ignoreValuesFor = [
   'item_infused_raindrop',
   'item_nether_shawl',
   'item_aghanims_shard',
-  'item_cornucopia',
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
   'item_smoke_of_deceit',

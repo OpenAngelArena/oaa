@@ -54,5 +54,5 @@ function modifier_duelist_oaa:GetModifierIncomingDamage_Percentage()
 end
 
 function modifier_duelist_oaa:GetTexture()
-  return "antimage_blink"
+  return "antimage_blink" -- item_duelist_gloves
 end

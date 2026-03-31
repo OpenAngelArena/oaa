@@ -42,7 +42,7 @@ function modifier_magus_oaa:OnCreated()
     centaur_mount = 1,                                   -- self grief
     chaos_knight_phantasm = 1,                           -- invulnerability and lag
     chen_holy_persuasion = 1,                            -- dominating every creep or hero on attack
-    chen_summon_convert = 1,                             -- self grief
+    --chen_summon_convert = 1,                             -- self grief
     clinkz_death_pact = 1,                               -- instant kill
     clinkz_death_pact_oaa = 1,                           -- instant kill
     crystal_maiden_freezing_field_stop = 1,              -- self grief
