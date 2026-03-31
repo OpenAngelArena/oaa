@@ -169,7 +169,7 @@ function modifier_magus_oaa:OnCreated()
     medusa_stone_gaze = 1,                               -- powerful
     mirana_leap = 1,                                     -- self grief in most cases
     --monkey_king_boundless_strike = 1,                  -- looping, sometimes doesn't do damage
-    morphling_waveform = 1,                              -- invulnerability and looping with the facet
+    morphling_waveform = 1,                              -- invulnerability
     muerta_pierce_the_veil = 1,                          -- powerful
     muerta_the_calling = 1,                              -- lag
     naga_siren_mirror_image = 1,                         -- invulnerability and lag

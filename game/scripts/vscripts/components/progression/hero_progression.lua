@@ -204,19 +204,19 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50}
     -- Bad levels give ability points but they shouldn't
 
-    local special_cases = {
-      npc_dota_hero_meepo = 1,
-      npc_dota_hero_magnataur = 4,
-      npc_dota_hero_night_stalker = 3,
-      npc_dota_hero_silencer = 3,
-    }
+    --local special_cases = {
+      --npc_dota_hero_meepo = 1,
+      --npc_dota_hero_magnataur = 4,
+      --npc_dota_hero_night_stalker = 3,
+      --npc_dota_hero_silencer = 3,
+    --}
 
     -- Extra skill point when Meepo, Magnus or NightStalker pick the facet that remove 1 skill point
-    if special_cases[hero:GetUnitName()] ~= nil then
-      if hero:GetHeroFacetID() == special_cases[hero:GetUnitName()] and level == 50 then
-        return true
-      end
-    end
+    --if special_cases[hero:GetUnitName()] ~= nil then
+      --if hero:GetHeroFacetID() == special_cases[hero:GetUnitName()] and level == 50 then
+        --return true
+      --end
+    --end
 
     -- get 1 point on levels: 28, 31, 34, 37, 40, 43, 46, 49
     return math.fmod(level, 3) == 1

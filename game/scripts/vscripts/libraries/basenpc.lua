@@ -440,7 +440,6 @@ if IsServer() then
         phoenix_dying_light = true,
         razor_storm_surge = true,
         --sandking_epicenter = true, -- because of shard?
-        sandking_sand_storm = true, -- because of moving Sand Storm facet
         warlock_golem_permanent_immolation = true,
         wisp_spirits = true,
       }
