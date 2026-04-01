@@ -14,15 +14,6 @@ local function SafeTeleport(unit, location, maxDistance)
       print("Error: Tried to teleport an Infesting unit, but could not find Consume ability on that unit, or ability was not castable")
     end
   end
-  if unit:FindModifierByName("modifier_life_stealer_assimilate_effect") then
-    --DebugPrint("Found Lifestealer with assimilated unit")
-    local ability = unit:FindAbilityByName("life_stealer_assimilate_eject")
-    if ability and ability:IsActivated() then
-      unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
-    else
-      print("Error: Tried to teleport an Assimilating unit, but could not find Eject ability on that unit, or ability was not castable")
-    end
-  end
   local exileModifiers = {
     "modifier_obsidian_destroyer_astral_imprisonment_prison",
     --"modifier_riki_tricks_of_the_trade_phase", -- Should be removed by stop order

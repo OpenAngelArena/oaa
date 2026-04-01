@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Leshrac: Diabolic Edict
+  // Leshrac: Diabolic Edict FIXEDFUCK
   //=================================================================================================================
   "leshrac_diabolic_edict"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,7 +34,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tower_bonus"                                       "0"
       "num_explosions"
       {
         "value"                                           "40"
@@ -45,13 +44,14 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
+      "tower_bonus"                                       "0"
       "affects_buildings"
       {
         "value"                                           "1"
       }
       "damage"
       {
-        "value"                                           "10 18 26 34 50 66"
+        "value"                                           "9 16 23 30 44 58"
       }
       "targets"
       {
