@@ -1,15 +1,11 @@
 //=============================================================================
 // Bloodstone
 //=============================================================================
-"DOTA_Tooltip_Ability_item_bloodstone"                                          "Bloodstone"
-"DOTA_Tooltip_Ability_item_recipe_bloodstone"                                   "Bloodstone Recipe"
-"DOTA_Tooltip_ability_item_bloodstone_Description"                              "<h1>Active: Bloodpact</h1> Increases Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x. Lasts %buff_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-"DOTA_Tooltip_ability_item_bloodstone_Lore"                                     "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
+//"DOTA_Tooltip_Ability_item_bloodstone"                                          "Bloodstone"
+//"DOTA_Tooltip_Ability_item_recipe_bloodstone"                                   "Bloodstone Recipe"
+"DOTA_Tooltip_ability_item_bloodstone_Description"                              "<h1>Active: Bloodpact</h1> Increases Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x. Lasts %buff_duration% seconds. \n\n<h1>Passive: Spell Weakness Aura</h1> Enemy units take %aura_spell_vulnerability%%% increased damage from spells. <br><br>Radius: %aura_radius%"
+//"DOTA_Tooltip_ability_item_bloodstone_Lore"                                     "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
 // "DOTA_Tooltip_ability_item_bloodstone_Note0"                                   "Using Bloodpact leaves you drained for 40 seconds and can't benefit from Bloodpact again during that time."
-"DOTA_Tooltip_ability_item_bloodstone_bonus_health"                             "+$health"
-"DOTA_Tooltip_ability_item_bloodstone_bonus_mana"                               "+$mana"
-"DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal"                          "%+$spell_lifesteal"
-"DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen"                           "+$mana_regen"
 
 // "DOTA_Tooltip_modifier_item_bloodstone_active"                                 "Bloodpact"
 // "DOTA_Tooltip_modifier_item_bloodstone_active_Description"                     "Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."
@@ -27,12 +23,7 @@
 // "DOTA_Tooltip_Ability_item_bloodstone_1_Note1"                                 "Dying to neutrals does not remove a charge."
 "DOTA_Tooltip_Ability_item_bloodstone_1_bonus_health"                           "#{DOTA_Tooltip_ability_item_bloodstone_bonus_health}"
 "DOTA_Tooltip_Ability_item_bloodstone_1_bonus_mana"                             "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mana}"
-// "DOTA_Tooltip_Ability_item_bloodstone_1_bonus_health_regen"                    "+$hp_regen"
-"DOTA_Tooltip_ability_item_bloodstone_1_bonus_mp_regen"                         "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen}"
-// "DOTA_Tooltip_ability_item_bloodstone_1_mana_regen_multiplier"                 "%+Mana Regen Amplification"
-// "DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect"                       "+$int"
-// "DOTA_Tooltip_ability_item_bloodstone_1_spell_amp"                             "%+Base Spell Amplification"
-// "DOTA_Tooltip_ability_item_bloodstone_1_manacost_reduction"                    "%+Manacost and Manaloss Reduction"
+"DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect"                        "+$int"
 "DOTA_Tooltip_ability_item_bloodstone_1_hero_spell_lifesteal"                   "#{DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_2"                                        "#{DOTA_Tooltip_Ability_item_bloodstone}"
@@ -42,8 +33,8 @@
 "DOTA_Tooltip_ability_item_bloodstone_2_Note0"                                  "#{DOTA_Tooltip_Ability_item_bloodstone_1_Note0}"
 "DOTA_Tooltip_ability_item_bloodstone_2_bonus_health"                           "#{DOTA_Tooltip_ability_item_bloodstone_bonus_health}"
 "DOTA_Tooltip_ability_item_bloodstone_2_bonus_mana"                             "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mana}"
-"DOTA_Tooltip_ability_item_bloodstone_2_bonus_mp_regen"                         "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen}"
 "DOTA_Tooltip_ability_item_bloodstone_2_hero_spell_lifesteal"                   "#{DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal}"
+"DOTA_Tooltip_ability_item_bloodstone_2_bonus_intellect"                        "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_3"                                        "#{DOTA_Tooltip_Ability_item_bloodstone}"
 "DOTA_Tooltip_Ability_item_recipe_bloodstone_3"                                 "#{DOTA_Tooltip_Ability_item_recipe_bloodstone}"
@@ -52,8 +43,8 @@
 "DOTA_Tooltip_ability_item_bloodstone_3_Note0"                                  "#{DOTA_Tooltip_Ability_item_bloodstone_1_Note0}"
 "DOTA_Tooltip_ability_item_bloodstone_3_bonus_health"                           "#{DOTA_Tooltip_ability_item_bloodstone_bonus_health}"
 "DOTA_Tooltip_ability_item_bloodstone_3_bonus_mana"                             "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mana}"
-"DOTA_Tooltip_ability_item_bloodstone_3_bonus_mp_regen"                         "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen}"
 "DOTA_Tooltip_ability_item_bloodstone_3_hero_spell_lifesteal"                   "#{DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal}"
+"DOTA_Tooltip_ability_item_bloodstone_3_bonus_intellect"                        "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_4"                                        "#{DOTA_Tooltip_Ability_item_bloodstone}"
 "DOTA_Tooltip_Ability_item_recipe_bloodstone_4"                                 "#{DOTA_Tooltip_Ability_item_recipe_bloodstone}"
@@ -62,8 +53,8 @@
 "DOTA_Tooltip_ability_item_bloodstone_4_Note0"                                  "#{DOTA_Tooltip_Ability_item_bloodstone_1_Note0}"
 "DOTA_Tooltip_ability_item_bloodstone_4_bonus_health"                           "#{DOTA_Tooltip_ability_item_bloodstone_bonus_health}"
 "DOTA_Tooltip_ability_item_bloodstone_4_bonus_mana"                             "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mana}"
-"DOTA_Tooltip_ability_item_bloodstone_4_bonus_mp_regen"                         "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen}"
 "DOTA_Tooltip_ability_item_bloodstone_4_hero_spell_lifesteal"                   "#{DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal}"
+"DOTA_Tooltip_ability_item_bloodstone_4_bonus_intellect"                        "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_5"                                        "#{DOTA_Tooltip_Ability_item_bloodstone}"
 "DOTA_Tooltip_Ability_item_recipe_bloodstone_5"                                 "#{DOTA_Tooltip_Ability_item_recipe_bloodstone}"
@@ -72,5 +63,5 @@
 "DOTA_Tooltip_ability_item_bloodstone_5_Note0"                                  "#{DOTA_Tooltip_Ability_item_bloodstone_1_Note0}"
 "DOTA_Tooltip_ability_item_bloodstone_5_bonus_health"                           "#{DOTA_Tooltip_ability_item_bloodstone_bonus_health}"
 "DOTA_Tooltip_ability_item_bloodstone_5_bonus_mana"                             "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mana}"
-"DOTA_Tooltip_ability_item_bloodstone_5_bonus_mp_regen"                         "#{DOTA_Tooltip_ability_item_bloodstone_bonus_mp_regen}"
 "DOTA_Tooltip_ability_item_bloodstone_5_hero_spell_lifesteal"                   "#{DOTA_Tooltip_ability_item_bloodstone_spell_lifesteal}"
+"DOTA_Tooltip_ability_item_bloodstone_5_bonus_intellect"                        "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_intellect}"

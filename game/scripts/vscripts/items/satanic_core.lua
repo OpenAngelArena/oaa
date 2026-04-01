@@ -49,7 +49,7 @@ function item_bloodstone_1:OnSpellStart()
   local caster = self:GetCaster()
 
   -- Basic Dispel (for the caster)
-  caster:Purge(false, true, false, false, false)
+  --caster:Purge(false, true, false, false, false)
 
   local duration = self:GetSpecialValueFor("buff_duration")
 
@@ -57,14 +57,7 @@ function item_bloodstone_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 
   -- Blood Pact
-  if not caster:HasModifier("modifier_item_bloodstone_drained") then
-    caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
-  end
-
-  -- Drained
-  local cd = self.BaseClass.GetCooldown(self, self:GetLevel())
-  local drain_duration = cd * caster:GetCooldownReduction()
-  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_drained", {duration = drain_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
 end
 
 item_bloodstone_2 = item_bloodstone_1

@@ -64,13 +64,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "425 525 675 875 1125"
+      "bonus_health"                                      "600 700 850 1050 1300"
       "bonus_mana"                                        "425 525 675 875 1125"
-      "bonus_mp_regen"                                    "3 3.25 3.75 4.5 5.5"
+      "bonus_intellect"                                   "15 20 30 45 65"
       "hero_spell_lifesteal"                              "20 22 24 26 28"
       "creep_spell_lifesteal"                             "4.0 4.4 4.8 5.2 5.6"
       "buff_duration"                                     "5"
-      "lifesteal_multiplier"                              "6"
+      "lifesteal_multiplier"                              "3"
+      "aura_spell_vulnerability"                          "12"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }
