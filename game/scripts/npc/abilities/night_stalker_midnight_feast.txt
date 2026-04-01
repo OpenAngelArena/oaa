@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Night Stalker: Midnight Feast FIXEDFUCK
+  //=================================================================================================================
+  "night_stalker_midnight_feast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "33 32 31 30 29 28" //OAA, intentionally buffed
+    "AbilityCastRange"                                    "125"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "attack_heal" // flat hp restore on attack
+      {
+        "value"                                           "12 16 20 24 48 72"
+        "special_bonus_unique_night_stalker_2"            "+100"
+      }
+      "hp_restore"                                        "10 15 20 25 30 35" // percentage
+      "mp_restore"                                        "10 12 14 16 18 20" // percentage
+    }
+  }
+}
