@@ -1,23 +1,23 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kez: Raven's Veil
+  // Kez: Raven's Veil FIXEDFUCK
   //=================================================================================================================
   "kez_ravens_veil"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-    "LinkedAbility"                                       "kez_raptor_dance"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,11 +32,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blast_speed"                                       "1500"
-      "blind_duration"                                    "4.0"
-      "bonus_ms"                                          "15 25 35 45 55"
-      "slow"                                              "0"
-      "fade_delay"                                        "0.0"
       "AbilityCooldown"
       {
         "value"                                           "40 35 30 25 20"
@@ -46,15 +41,19 @@
         "value"                                           "1500"
         "affected_by_aoe_increase"                        "1"
       }
+      "blast_speed"                                       "1500"
       "buff_duration"
       {
-        "value"                                           "7 8 9 10 11"
-        "special_bonus_facet_kez_shadowhawk"              "+1"
+        "value"                                           "8 10 12 13 14"
       }
+      "blind_duration"                                    "4.0"
+      "bonus_ms"                                          "15 25 35 45 55"
+      "slow"                                              "0"
       "basic_dispel"
       {
         "value"                                           "1"
       }
+      "fade_delay"                                        "0.0"
       "apply_parry_bonus"
       {
         "value"                                           "0"

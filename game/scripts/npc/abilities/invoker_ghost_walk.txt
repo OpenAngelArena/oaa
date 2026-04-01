@@ -5,15 +5,13 @@
   //=================================================================================================================
   "invoker_ghost_walk"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                     "1"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,9 +27,9 @@
     {
       "duration"                                          "60"
       "aura_fade_time"                                    "2.0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "32"
+        "value"                                           "30"
       }
       "area_of_effect"
       {

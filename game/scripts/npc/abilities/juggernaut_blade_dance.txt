@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Juggernaut: Blade Dance
+  // Juggernaut: Blade Dance FIXEDFUCK
   //=================================================================================================================
   "juggernaut_blade_dance"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +20,7 @@
       "blade_dance_crit_chance"                           "35"
       "blade_dance_crit_mult"
       {
-        "value"                                           "130 150 170 190 210 230"
+        "value"                                           "140 160 180 200 220 240"
         "special_bonus_unique_juggernaut_4"               "+15"
       }
       "blade_dance_lifesteal"

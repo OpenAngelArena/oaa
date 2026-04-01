@@ -5,16 +5,13 @@
   //=================================================================================================================
   "invoker_sun_strike"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "HasShardUpgrade"                                     "1"
-    "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +33,14 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "23"
+        "value"                                           "20"
         "special_bonus_unique_invoker_11"                 "-4"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "175 225 275 325 375 425 475 525 575 625 675"
+        "value"                                           "200 265 330 395 460 525 590 720 850 980 1240"
         "levelkey"                                        "exortlevel"
       }
       "vision_distance"
@@ -56,7 +53,7 @@
         "value"                                           "0"
         "special_bonus_scepter_3"                         "+2"
       }
-      "cataclysm_cooldown" //OAA
+      "cataclysm_cooldown"
       {
         "value"                                           "90"
       }

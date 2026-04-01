@@ -5,13 +5,12 @@
   //=================================================================================================================
   "invoker_forge_spirit"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,9 +28,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "spirit_damage" //OAA
+      "spirit_damage" //OAA, intentionally buffed
       {
-        "value"                                           "20 30 40 50 60 70 80 90 100 110 120"
+        "value"                                           "22 32 42 52 62 72 82 92 112 132 152"
         "levelkey"                                        "exortlevel"
       }
       "spirit_mana"
@@ -39,9 +38,9 @@
         "value"                                           "100 150 200 250 300 350 400 450 500 550 600"
         "levelkey"                                        "exortlevel"
       }
-      "spirit_armor" //OAA
+      "spirit_armor" //OAA, intentionally buffed
       {
-        "value"                                           "0 1 2 3 4 5 6 7 8 9"
+        "value"                                           "0 1 2 3 4 5 6 7 9 11 13"
         "levelkey"                                        "exortlevel"
       }
       "spirit_attack_range"
@@ -49,9 +48,9 @@
         "value"                                           "305 360 415 470 525 580 635 690 745 800 855"
         "levelkey"                                        "quaslevel"
       }
-      "spirit_hp" //OAA
+      "spirit_hp" //OAA, intentionally buffed
       {
-        "value"                                           "300 400 500 600 700 800 900 1000 1100 1200 1300"
+        "value"                                           "400 600 800 1000 1200 1400 1600 1800 2200 2600 3000"
         "levelkey"                                        "quaslevel"
       }
       "spirit_duration"

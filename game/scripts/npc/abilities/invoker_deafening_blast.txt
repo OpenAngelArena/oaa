@@ -5,15 +5,14 @@
   //=================================================================================================================
   "invoker_deafening_blast"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28" //OAA
+    "AbilityCooldown"                                     "28" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,9 +48,9 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 110 150 190 230 270 310 350 390 430 470"
+        "value"                                           "70 120 170 220 270 320 370 470 570 670 870"
         "levelkey"                                        "exortlevel"
       }
       "knockback_duration"
