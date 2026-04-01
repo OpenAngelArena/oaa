@@ -105,15 +105,15 @@ LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker
 LinkLuaModifier("modifier_custom_glyph_knockback", "components/glyph/glyph.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 -- ARDM modifiers
-LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom hero skins
 LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_MODIFIER_MOTION_NONE)

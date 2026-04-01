@@ -1,18 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Legion Commander: Overwhelming Odds
+  // Legion Commander: Overwhelming Odds FIXEDFUCK
   //=================================================================================================================
   "legion_commander_overwhelming_odds"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,44 +29,40 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "40 70 100 130 260 520"
-      "damage_per_unit"                                   "14 16 18 20 40 80"
-      "bonus_armor_heroes"                                "0"
-      "bonus_armor_creeps"                                "0"
-      "bonus_attack_speed_creeps"                         "0"
-      "bonus_attack_speed"                                "65 90 115 140 165 190" //OAA
-      "duration"                                          "6.0"
-      "slow_duration"                                     "0.3"
-      "movement_slow"                                     "100"
       "radius"
       {
         "value"                                           "600"
         "special_bonus_shard"                             "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_hero" //OAA
+      "damage"                                            "40 70 100 130 260 520"
+      "damage_per_hero" //OAA, because of special_bonus_unique_legion_commander_4 buff
       {
-        "value"                                           "40 70 100 130 130 130"
-        "special_bonus_unique_legion_commander_4"         "+35"
+        "value"                                           "40 70 100 130 260 520"
+        "special_bonus_unique_legion_commander_4"         "+60"
       }
-      "AbilityCooldown" //OAA
+      "damage_per_unit"                                   "14 16 18 20 40 80"
+      "bonus_armor_heroes"                                "0" // unused
+      "bonus_armor_creeps"                                "0" // unused
+      "bonus_attack_speed_creeps"                         "0"
+      "bonus_attack_speed"                                "50 75 100 125 150 175"
+      "duration"                                          "6.0"
+      "slow_duration"                                     "0.3"
+      "movement_slow"                                     "100"
+      "AbilityCooldown"
       {
         "value"                                           "18"
         "special_bonus_unique_legion_commander_9"         "-2"
       }
-      "shield_per_damage_pct" //OAA
+      "shield_per_damage_pct" //OAA, intentionally buffed
       {
-        "special_bonus_shard"                             "+50"
+        "special_bonus_shard"                             "+80"
         "RequiresShard"                                   "1"
       }
-      "shield_duration" //OAA
+      "shield_duration"
       {
         "special_bonus_shard"                             "+6"
         "RequiresShard"                                   "1"
-      }
-      "duel_radius_bonus" //OAA
-      {
-        "special_bonus_shard"                             "+150"
       }
     }
   }

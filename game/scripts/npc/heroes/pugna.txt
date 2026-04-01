@@ -7,24 +7,5 @@
   {
     "Ability3"                                            "pugna_nether_ward_oaa" // replaces pugna_nether_ward
     "Ability5"                                            "pugna_nether_ward" // replaces generic_hidden
-
-    "Facets"
-    {
-      "pugna_undead_nature_oaa"
-      {
-        "Icon"                                            "spirit"
-        "Color"                                           "Purple"
-        "GradientID"                                      "2"
-        "Abilities"
-        {
-          "Ability1"
-          {
-            "AbilityName"                                 "pugna_facet_oaa"
-            "AbilityIndex"                                "4"
-            "AutoLevelAbility"                            "true"
-          }
-        }
-      }
-    }
   }
 }

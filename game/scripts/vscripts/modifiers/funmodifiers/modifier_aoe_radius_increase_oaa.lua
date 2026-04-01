@@ -82,7 +82,6 @@ local forbidden_kvs = {
   ancient_apparition_ice_blast = {radius_grow = true,},
   --dawnbreaker_celestial_hammer = {hammer_aoe_radius = true,},
   grimstroke_soul_chain = {leash_radius_buffer = true,},
-  --legion_commander_overwhelming_odds = {duel_radius_bonus = true,}, -- uncomment if flat change
   --leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,}, -- uncomment if flat change
   lich_frost_nova = {aoe_damage = true,},
   --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change

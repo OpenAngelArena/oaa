@@ -9,19 +9,20 @@ local forbidden_modifiers = {
   "modifier_faceless_void_chronosphere_freeze",
   "modifier_legion_commander_duel",
   "modifier_batrider_flaming_lasso",
-  "modifier_disruptor_kinetic_field",
 }
 
 function sohei_ki_attraction:CastFilterResultTarget(target)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
-  if target == caster then
-    return UF_FAIL_CUSTOM
-  end
-
   for _, modifier in pairs(forbidden_modifiers) do
     if target:HasModifier(modifier) then
+      return UF_FAIL_CUSTOM
+    end
+  end
+
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    if (target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune()) or target:IsLeashedOAA() or target == caster then
       return UF_FAIL_CUSTOM
     end
   end
@@ -31,18 +32,23 @@ end
 
 function sohei_ki_attraction:GetCustomCastErrorTarget(target)
   local caster = self:GetCaster()
-  if target == caster then
-    return "#dota_hud_error_cant_cast_on_self"
-  elseif target:HasModifier("modifier_enigma_black_hole_pull") then
-    return "#oaa_hud_error_pull_staff_black_hole"
+  if target:HasModifier("modifier_enigma_black_hole_pull") then
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_black_hole"
   elseif target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
-    return "#oaa_hud_error_pull_staff_chronosphere"
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_chronosphere"
   elseif target:HasModifier("modifier_legion_commander_duel") then
-    return "#oaa_hud_error_pull_staff_duel"
+    return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_duel"
   elseif target:HasModifier("modifier_batrider_flaming_lasso") then
     return "#oaa_hud_error_pull_staff_lasso"
-  elseif target:HasModifier("modifier_disruptor_kinetic_field") then
-    return "#oaa_hud_error_pull_staff_kinetic_field"
+  end
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    if target == caster then
+      return "#dota_hud_error_cant_cast_on_self"
+    elseif target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+      return "#oaa_hud_error_pull_staff_kinetic_field"
+    elseif target:IsLeashedOAA() then
+      return "#dota_hud_error_cant_cast_on_tethered_target" --"#dota_hud_error_target_cannot_be_moved"
+    end
   end
 end
 
