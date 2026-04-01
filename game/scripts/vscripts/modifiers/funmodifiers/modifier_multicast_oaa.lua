@@ -122,7 +122,7 @@ function modifier_multicast_oaa:OnCreated()
     pangolier_rollup_stop = 1,                           -- useless
     --phantom_lancer_doppelwalk = 1,                     -- lag
     --phantom_lancer_juxtapose = 1,                      -- lag because of shard
-    --phantom_lancer_spirit_lance = 1,                   -- lag because of scepter
+    --phantom_lancer_spirit_lance = 1,                   -- lag
     phoenix_icarus_dive_stop = 1,                        -- useless
     phoenix_sun_ray_stop = 1,                            -- useless
     phoenix_sun_ray_toggle_move = 1,                     -- useless
@@ -144,9 +144,7 @@ function modifier_multicast_oaa:OnCreated()
     shadow_shaman_mass_serpent_ward = 1,                 -- lag, powerful
     shadow_shaman_mass_serpent_ward_oaa = 1,             -- lag, powerful
     shredder_chakram = 1,                                -- multiplies Chakrams
-    shredder_chakram_2 = 1,                              -- multiplies Chakrams
     shredder_return_chakram = 1,                         -- useless
-    shredder_return_chakram_2 = 1,                       -- useless
     --shredder_timber_chain = 1,                         -- bugs out?
     --silencer_global_silence = 1,                       -- powerful because of scepter?
     skeleton_king_bone_guard = 1,                        -- lag because of the talent that grants free skeletons

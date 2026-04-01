@@ -179,7 +179,7 @@ function modifier_magus_oaa:OnCreated()
     pangolier_swashbuckle = 1,                           -- looping, powerful
     --phantom_assassin_stifling_dagger = 1,              -- looping
     phantom_lancer_juxtapose = 1,                        -- lag because of shard
-    phantom_lancer_spirit_lance = 1,                     -- lag because of scepter
+    --phantom_lancer_spirit_lance = 1,                   -- lag
     --pugna_nether_ward_oaa = 1,                         -- lag
     --pugna_nether_ward = 1,                             -- lag
     rattletrap_power_cogs = 1,                           -- lag, annoying
