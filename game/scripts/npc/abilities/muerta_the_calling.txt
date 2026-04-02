@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // MUERTA: The Calling
+  // Muerta: The Calling FIXEDFUCK
   //=================================================================================================================
   "muerta_the_calling"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 29 28 27 26 25" //OAA
+    "AbilityCooldown"                                     "27 26 25 24 23 22" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,15 +34,7 @@
     "AbilityValues"
     {
       "damage"                                            "45 90 135 180 360 540"
-      "duration"                                          "5 6 7 8 9 10"
-      "speed_initial"                                     "0.2"
-      "speed_max"                                         "1.0"
-      "acceleration"                                      "0.75"
-      "rotation_initial"                                  "0"
-      "debug_draw"                                        "0"
-      "aura_movespeed_slow"                               "-20"
-      "silence_duration"                                  "1.5 2 2.5 3 3 3"
-      "rotation_direction"                                "-1"
+      "duration"                                          "5 6 7 8 8.5 9"
       "hit_radius"
       {
         "value"                                           "120"
@@ -58,6 +50,14 @@
         "value"                                           "4"
         "special_bonus_unique_muerta_the_calling_num_revenants"  "+2"
       }
+      "speed_initial"                                     "0.2"
+      "speed_max"                                         "1.0"
+      "acceleration"                                      "0.75"
+      "rotation_initial"                                  "0"
+      "debug_draw"                                        "0"
+      "aura_movespeed_slow"                               "-20"
+      "silence_duration"                                  "1.5 2 2.5 3 3 3"
+      "rotation_direction"                                "-1"
       "kill_check_radius"
       {
         "affected_by_aoe_increase"                        "1"
