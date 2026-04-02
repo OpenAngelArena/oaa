@@ -1,22 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lifestealer: Infest
+  // Lifestealer: Infest FIXEDFUCK
   //=================================================================================================================
   "life_stealer_infest"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -35,12 +34,12 @@
     {
       "radius"
       {
-        "value"                                           "700 700 700 700 700"
+        "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "150 275 400 400 400"
+        "value"                                           "150 350 550 1150 1750"
         "special_bonus_unique_lifestealer_infest_damage"  "+175"
       }
       "bonus_movement_speed"
@@ -48,10 +47,10 @@
         "value"                                           "15 20 25 30 35"
         "special_bonus_unique_lifestealer_infest_target_bonus"  "+12"
       }
-      "bonus_health"
+      "bonus_health" // OAA, Valve has it wrong for special_bonus_unique_lifestealer_infest_target_bonus talent
       {
-        "value"                                           "400 800 1200 2400 3600"
-        "special_bonus_unique_lifestealer_infest_target_bonus"  "+15%"
+        "value"                                           "400 800 1200 1600 2000"
+        "special_bonus_unique_lifestealer_infest_target_bonus"  "+12%"
       }
       "self_regen"
       {
@@ -73,9 +72,9 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+1.0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "80 65 50 50 50"
+        "value"                                           "60 55 50 45 40"
         "special_bonus_scepter"                           "=20"
       }
       "open_wounds_duration_pct"
@@ -106,7 +105,7 @@
       "dot_tick_interval"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+1.0"
+        "special_bonus_shard"                             "+1.0" // if changing this, update DOTA_Tooltip_modifier_life_stealer_infest_dot_Description
       }
     }
   }

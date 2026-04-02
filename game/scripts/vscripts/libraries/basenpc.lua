@@ -413,6 +413,7 @@ if IsServer() then
     if ability.GetAbilityName then
       local damagingByAccident = {
         item_cloak_of_flames = true,
+        item_conjurers_catalyst = true,
         item_maelstrom = true, -- because of random bounces
         item_mjollnir = true, -- because of random bounces
         item_mjollnir_2 = true,
@@ -435,12 +436,10 @@ if IsServer() then
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
-        lina_combustion = true,
         --mirana_starfall = true, -- because of Scepter Arrow
         phoenix_dying_light = true,
         razor_storm_surge = true,
         --sandking_epicenter = true, -- because of shard?
-        sandking_sand_storm = true, -- because of moving Sand Storm facet
         warlock_golem_permanent_immolation = true,
         wisp_spirits = true,
       }
@@ -708,16 +707,16 @@ if CDOTA_BaseNPC then
       end
     end
 
-    local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
-    if power_cogs_mod then
-      local power_cogs_ab = power_cogs_mod:GetAbility()
-      if power_cogs_ab then
-        local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
-        if check then
-          return true
-        end
-      end
-    end
+    -- local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
+    -- if power_cogs_mod then
+      -- local power_cogs_ab = power_cogs_mod:GetAbility()
+      -- if power_cogs_ab then
+        -- local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
+        -- if check then
+          -- return true
+        -- end
+      -- end
+    -- end
 
     return false
   end

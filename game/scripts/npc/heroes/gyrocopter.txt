@@ -1,11 +1,11 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Gyrocopter
+  // HERO: Gyrocopter FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_gyrocopter"
   {
-    "Ability4"                                            "gyrocopter_innate_oaa" // gyrocopter_afterburner
+    "Ability7"                                            "gyrocopter_innate_oaa" // replaces generic_hidden
 
     //"Ability10"                                           "special_bonus_unique_gyrocopter_4"
     "Ability11"                                           "special_bonus_unique_gyrocopter_1_oaa" // replaces special_bonus_hp_150

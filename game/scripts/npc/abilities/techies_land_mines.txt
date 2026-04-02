@@ -1,17 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Proximity Mines
+  // Techies: Proximity Mines FIXEDFUCK
   //=================================================================================================================
   "techies_land_mines"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -24,32 +25,27 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 140 170 200 230"
-    "AbilityCharges"                                      "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proximity_threshold"                               "1.0"
-      "building_damage_pct"                               "30"
-      "outer_damage"                                      "60"
-      "min_distance"                                      "150"
-      "placement_radius"                                  "350"
-      "mres_reduction"                                    "15 20 25 30 35"
-      "burn_duration"                                     "5"
       "radius"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "proximity_threshold"                               "1.0"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "400 575 750 750 750"
+        "value"                                           "400 600 800 1200 1600"
       }
+      "building_damage_pct"                               "30"
       "activation_delay"
       {
         "value"                                           "1"
@@ -62,8 +58,13 @@
       "AbilityChargeRestoreTime"
       {
         "value"                                           "15"
-        "special_bonus_unique_techies_3"                  "-3"
+        "special_bonus_unique_techies_3"                  "-2"
       }
+      "outer_damage"                                      "50"
+      "min_distance"                                      "150"
+      "placement_radius"                                  "350"
+      "mres_reduction"                                    "10 15 20 25 30" //OAA, intentionally nerfed
+      "burn_duration"                                     "5"
     }
   }
 }

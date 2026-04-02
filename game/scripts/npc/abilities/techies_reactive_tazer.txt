@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Reactive Tazer
+  // Techies: Reactive Tazer FIXEDFUCK
   //=================================================================================================================
   "techies_reactive_tazer"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -25,17 +25,16 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60"
+    "AbilityManaCost"                                     "60 65 70 75 80 85" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_ms"                                          "18 22 26 30 34 38"
       "duration"
       {
         "value"                                           "6"
@@ -43,9 +42,10 @@
       }
       "disarm_duration"
       {
-        "value"                                           "2.4 2.7 3 3.3 3.3 3.3"
+        "value"                                           "2.4 2.7 3 3.3 3.6 3.9"
         "special_bonus_unique_techies_tazer_duration"     "+25%"
       }
+      "bonus_ms"                                          "18 22 26 30 34 38"
       "explosion_radius"
       {
         "value"                                           "450"
@@ -53,12 +53,7 @@
       }
       "damage"
       {
-        "value"                                           "60 110 160 210 210 210"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-      }
-      "shard_damage" //OAA
-      {
-        "special_bonus_shard"                             "75 150 225 300 600 900"
+        "value"                                           "60 110 160 210 420 840"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }

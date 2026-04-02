@@ -1,55 +1,55 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clockwerk: Battery Assault
+  // Clockwerk: Battery Assault FIXEDFUCK
   //=================================================================================================================
   "rattletrap_battery_assault"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 90 90"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "10.5 10.5 10.5 10.5 10.5 10.5"
-      "creep_damage_multiplier"                           "1.0"
       "radius"
       {
-        "value"                                           "275 275 275 275 275 275"
+        "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
       "overclocking_radius"
       {
-        "value"                                           "330 330 330 330 330 330"
+        "value"                                           "330"
         "affected_by_aoe_increase"                        "1"
       }
+      "duration"                                          "10.5"
       "interval"
       {
-        "value"                                           "0.7 0.7 0.7 0.7 0.7 0.7"
+        "value"                                           "0.7"
         "special_bonus_unique_clockwerk"                  "-0.25"
       }
-      "damage" //OAA
+      "damage" // OAA, because of special_bonus_unique_clockwerk_3 buff
       {
-        "value"                                           "20 45 70 95 95 95"
-        "special_bonus_unique_clockwerk_3"                "+24"
+        "value"                                           "20 45 70 95 190 285"
+        "special_bonus_unique_clockwerk_3"                "+35"
       }
+      "creep_damage_multiplier"                           "1.0"
     }
   }
 }

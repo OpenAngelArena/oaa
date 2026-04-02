@@ -53,19 +53,19 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif ability_name == "rubick_fade_bolt" and modifier_name == "modifier_rubick_fade_bolt_debuff" and victim:IsOAABoss() then
     victim:AddNewModifier(caster, ability, "modifier_rubick_fade_bolt_debuff_oaa_boss", {duration = modifier_duration})
     return false
-  elseif modifier_name == "modifier_windrunner_windrun_invis" then
-    victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
-    return false
+  --elseif modifier_name == "modifier_windrunner_windrun_invis" then
+    --victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
+    --return false
   elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
     victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then
     victim:AddNewModifier(caster, ability, "modifier_wraith_form_penalty_oaa", {duration = modifier_duration})
-  elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
-    if victim ~= caster then
-      victim:AddNewModifier(caster, ability, "modifier_legion_duel_debuff_oaa", {duration = modifier_duration})
+  --elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
+    --if victim ~= caster then
+      --victim:AddNewModifier(caster, ability, "modifier_legion_duel_debuff_oaa", {duration = modifier_duration})
     -- else
       -- victim:AddNewModifier(caster, ability, "modifier_legion_duel_buff_oaa", {duration = modifier_duration})
-    end
+    --end
   elseif ability_name == "viper_viper_strike" and modifier_name ~= "modifier_viper_viper_strike_silence" then
     local talent = caster:FindAbilityByName("special_bonus_unique_viper_3_oaa")
     if talent and talent:GetLevel() > 0 then
@@ -79,15 +79,15 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       -- Viper Strike Silences
       victim:AddNewModifier(caster, ability, "modifier_viper_viper_strike_silence", {duration = modifier_duration})
     end
-  elseif modifier_name == "modifier_mars_arena_of_blood_animation" and victim ~= caster and victim:GetTeamNumber() ~= caster:GetTeamNumber() then
-    local facet = caster:GetHeroFacetID()
-    if tostring(facet) == "2" then
-      victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
-    end
+  --elseif modifier_name == "modifier_mars_arena_of_blood_animation" and victim ~= caster and victim:GetTeamNumber() ~= caster:GetTeamNumber() then
+    --local facet = caster:GetHeroFacetID()
+    --if tostring(facet) == "2" then
+      --victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
+    --end
   elseif modifier_name == "modifier_wisp_relocate_return" then
     victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
-  elseif modifier_name == "modifier_bristleback_warpath_active" then
-    victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
+  --elseif modifier_name == "modifier_bristleback_warpath_active" then
+    --victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_slark_shadow_dance_aura" then
     victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_item_overwhelming_blink_debuff" and ability_name ~= "item_overwhelming_blink" then

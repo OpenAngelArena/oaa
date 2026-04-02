@@ -15,8 +15,8 @@ function modifier_muerta_pierce_the_veil_penalty_oaa:IsPurgable()
 end
 
 function modifier_muerta_pierce_the_veil_penalty_oaa:OnCreated()
-  self.dmg_penalty = -50
-  self.dmg_penalty_bosses = -40
+  self.dmg_penalty = -30
+  self.dmg_penalty_bosses = -50
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then

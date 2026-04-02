@@ -154,9 +154,12 @@ if IsServer() then
     local non_trigger_inflictors = {
       ["batrider_sticky_napalm"] = true,
       ["batrider_sticky_napalm_oaa"] = true,
+      ["item_conjurers_catalyst"] = true,
       ["item_trumps_fists"] = true,           -- Blade of Judecca
       ["item_trumps_fists_2"] = true,
-      ["lina_combustion"] = true,
+      ["jakiro_liquid_ice"] = true,
+      ["largo_croak_of_genius"] = true,
+      ["warlock_fatal_bonds"] = true,
     }
 
     if non_trigger_inflictors[inflictor:GetName()] then

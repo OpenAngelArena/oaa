@@ -5,13 +5,12 @@
   //=================================================================================================================
   "invoker_wex"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "10"
+
+    "MaxLevel"                                            "11" //OAA, MaxLevel: 11
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -28,21 +27,20 @@
     "AbilityValues"
     {
       "agility_bonus"                                     "1"
-      "max_level" //OAA
+      "max_level" //OAA, intentionally changed
       {
-        "value"                                           "8"
-        "special_bonus_scepter_2"                         "+1"
-        "special_bonus_unique_invoker_orb_levels"         "+1"
-        "special_bonus_scepter"                           "+0"
+        "value"                                           "11"
+        "special_bonus_scepter_2"                         "+0"
+        "special_bonus_unique_invoker_orb_levels"         "+0"
       }
       "move_speed_per_instance"
       {
-        "value"                                           "0.6 1.2 1.8 2.4 3.0 3.6 4.2 4.8 5.4 6.0"
+        "value"                                           "0.6 1.2 1.8 2.4 3.0 3.6 4.2 4.8 5.4 6.0 6.6"
         "special_bonus_unique_invoker_13"                 "x2"
       }
       "attack_speed_per_instance"
       {
-        "value"                                           "1 2 3 4 5 6 7 8 9 10"
+        "value"                                           "1 2 3 4 5 6 7 8 9 10 11"
         "special_bonus_unique_invoker_13"                 "x2"
       }
       "upgrade_at_level"
@@ -50,14 +48,19 @@
         "value"                                           "0"
         "special_bonus_facet_invoker_wex_focus"           "6"
       }
-      "scepter_bonus_levels" //OAA
+      "scepter_bonus_levels" //OAA, intentionally changed
       {
-        "value"                                           "0"
-        "special_bonus_scepter_2"                         "1"
+        "value"                                           "1" // cant be 0, unequiping or destroying aghs removes 1 lvl no matter what
+        "special_bonus_scepter_2"                         "0"
       }
-      "facet_bonus_levels" //OAA
+      "facet_bonus_levels"
       {
         "value"                                           "0"
+        "special_bonus_facet_invoker_wex_focus"
+        {
+          "value"                                         "0"
+          "special_bonus_unique_invoker_facet_orb_level"  "+1"
+        }
       }
     }
   }

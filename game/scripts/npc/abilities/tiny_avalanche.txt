@@ -1,38 +1,33 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Avalanche
+  // Tiny: Avalanche FIXEDFUCK
   //=================================================================================================================
   "tiny_avalanche"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "105 120 135 150 155 170"
+    "AbilityManaCost"                                     "105 120 135 150 165 180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                     "0.3"
-      "total_duration"                                    "1.5"
-      "tick_count"                                        "5"
-      "stun_duration"                                     "0.3"
-      "projectile_speed"                                  "1200"
       "AbilityCastRange"
       {
         "value"                                           "600"
@@ -43,14 +38,19 @@
         "value"                                           "325 340 355 370 385 400"
         "affected_by_aoe_increase"                        "1"
       }
+      "tick_interval"                                     "0.3"
+      "total_duration"                                    "1.5"
+      "tick_count"                                        "5"
+      "stun_duration"                                     "0.3"
+      "projectile_speed"                                  "1200"
       "avalanche_damage"
       {
-        "value"                                           "90 180 270 360 740 1110"
+        "value"                                           "90 180 270 360 720 1440"
         "special_bonus_unique_tiny"                       "+90"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "23 20 17 14 14 14"
+        "value"                                           "20 18 16 14 14 14"
         "special_bonus_unique_tiny_3"                     "-8"
       }
     }

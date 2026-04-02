@@ -1,59 +1,53 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinker: Defense Matrix
+  // Tinkerer: Defense Matrix TODO
   //=================================================================================================================
-  "tinker_defense_matrix"
+  "tinkerer_defense_matrix_oaa"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/tinkerer/tinkerer_defense_matrix.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "1"
+
+    "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15" //OAA
+    "AbilityCooldown"                                     "15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "75 85 95 105 115 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "flicker_angle"                                     "90"
-      "damage_absorb" //OAA
+      "damage_absorb" // magic dmg only
       {
-        "value"                                           "240"
-        "special_bonus_unique_tinker_7"                   "+60"
+        "value"                                           "125 225 325 425 850 1275"
       }
+      "mana_refund_pct"                                   "50"
       "status_resistance"
       {
-        "value"                                           "30"
+        "value"                                           "15 20 25 30 35 40"
       }
       "barrier_duration"
       {
-        "value"                                           "15"
-      }
-      "cooldown_reduction"
-      {
-        "value"                                           "0"
-      }
-      "flicker_range"
-      {
-        "value"                                           "0"
+        "value"                                           "20"
       }
     }
   }

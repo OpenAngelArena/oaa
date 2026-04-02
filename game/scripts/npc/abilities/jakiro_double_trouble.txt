@@ -1,27 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Jakiro: Double Trouble (Innate)
+  // Jakiro: Double Trouble (Innate) FIXEDFUCK
   //=================================================================================================================
   "jakiro_double_trouble"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "second_attack_delay"                               "0.2"
-      "attack_damage_reduction" //OAA
+      "attack_damage_reduction" //OAA, intentionally nerfed
       {
         "value"                                           "51"
-        "hero_levelup"                                    "-1.0"
+        "hero_levelup"                                    "-0.5"
       }
     }
   }

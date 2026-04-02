@@ -1,24 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clockwerk: Rocket Flare
+  // Clockwerk: Rocket Flare FIXEDFUCK
   //=================================================================================================================
   "rattletrap_rocket_flare"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "0" // global
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,43 +28,43 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6.0"
-      "speed"                                             "2250"
-      "slow_pct"                                          "100"
-      "projectile_vision_radius"                          "250"
-      "projectile_vision_duration"                        "1.0"
-      "projectile_vision_tick_rate"                       "0.15"
       "radius"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "duration"                                          "6.0"
+      "speed"                                             "2250"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "80 120 160 200 200 200"
+        "value"                                           "70 140 210 280 560 840"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "slow_pct"                                          "100"
       "slow_duration"
       {
         "value"                                           "0.4"
         "special_bonus_unique_clockwerk_7"                "+0.4"
       }
+      "projectile_vision_radius"                          "250"
+      "projectile_vision_duration"                        "1.0"
+      "projectile_vision_tick_rate"                       "0.15"
       "true_sight"
       {
         "special_bonus_unique_clockwerk_4"                "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "20.0 18.0 16.0 14.0 14.0 14.0"
+        "value"                                           "17 16 15 14 13 12"
       }
       "AbilityCharges"
       {
         "value"                                           "0"
         "special_bonus_unique_clockwerk_rocket_flare_charges"  "+3"
       }
-      "AbilityChargeRestoreTime"
+      "AbilityChargeRestoreTime" //OAA, intentionally buffed
       {
-        "value"                                           "20.0 18.0 16.0 14.0 14.0 14.0"
+        "value"                                           "17 16 15 14 13 12"
       }
     }
   }

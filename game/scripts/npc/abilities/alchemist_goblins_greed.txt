@@ -5,20 +5,11 @@
   //=================================================================================================================
   "alchemist_goblins_greed"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_SELF"
-    "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.2"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,29 +17,29 @@
     {
       "duration"                                          "40"
       "bonus_gold"                                        "2"
-      "bonus_bonus_gold"                                  "1" //OAA
-      "bonus_gold_per_scepter"                            "6"
-      "bounty_multiplier"                                 "2"
-      "bonus_gold_cap"                                    "18"
       "bonus_gold_tooltip"
       {
         "value"                                           "2"
         "special_bonus_scepter"                           "+0"
         "dynamic_value"                                   "true"
       }
+      "bonus_bonus_gold"                                  "1" //OAA, intentionally nerfed
+      "bonus_gold_per_scepter"                            "6"
+      "bounty_multiplier"                                 "2"
       "damage"
       {
         "special_bonus_unique_alchemist_7"                "+3"
       }
+      "bonus_gold_cap"                                    "16"
       "bonus_gold_cap_tooltip"
       {
-        "value"                                           "18"
+        "value"                                           "16"
         "special_bonus_scepter"                           "+0"
         "dynamic_value"                                   "true"
       }
-      "scepter_bonus_damage" //OAA
+      "scepter_bonus_damage"
       {
-        "value"                                           "25"
+        "value"                                           "15"
       }
       "scepter_bonus_damage_tooltip"
       {

@@ -67,22 +67,22 @@ LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/
 -- Tidehunter custom Anchor Smash modifier for bosses
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifyabilitiesfilter/tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 -- Windranger Windrun aghs additional effect:
-LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 -- Muerta Pierce The Veil penalties modifier
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Wraith Form penalty modifier
 LinkLuaModifier("modifier_wraith_form_penalty_oaa", "modifiers/modifyabilitiesfilter/wraith_form_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Legion Commander aghs additional effects
-LinkLuaModifier("modifier_legion_duel_buff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_legion_duel_debuff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_legion_duel_buff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_legion_duel_debuff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 -- Viper Strike Purges and Silences talent
 LinkLuaModifier("modifier_viper_viper_strike_silence", "abilities/oaa_viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 -- Mars custom facet
-LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabilitiesfilter/mars_blood_sport_facet_replacement.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabilitiesfilter/mars_blood_sport_facet_replacement.lua", LUA_MODIFIER_MOTION_NONE)
 -- Io Relocate shield additional effect
 LinkLuaModifier("modifier_wisp_relocate_shield_oaa", "modifiers/modifyabilitiesfilter/wisp_relocate_shield.lua", LUA_MODIFIER_MOTION_NONE)
 -- Bristleback Seeing Red facet fix
-LinkLuaModifier("modifier_bristleback_seeing_red_oaa", "modifiers/modifyabilitiesfilter/bristleback_seeing_red_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_bristleback_seeing_red_oaa", "modifiers/modifyabilitiesfilter/bristleback_seeing_red_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 -- Slark Shadow Dance % bonus regen
 LinkLuaModifier("modifier_slark_shadow_dance_oaa", "modifiers/modifyabilitiesfilter/slark_shadow_dance_addition.lua", LUA_MODIFIER_MOTION_NONE)
 -- Overwhelming Blink dot fix
@@ -105,15 +105,15 @@ LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker
 LinkLuaModifier("modifier_custom_glyph_knockback", "components/glyph/glyph.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 -- ARDM modifiers
-LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom hero skins
 LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_MODIFIER_MOTION_NONE)

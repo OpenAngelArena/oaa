@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Juggernaut: Blade Fury
+  // Juggernaut: Blade Fury FIXEDFUCK
   //=================================================================================================================
   "juggernaut_blade_fury"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,10 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "immunity_resist"                                   "80"
-      "blade_fury_damage" //OAA, because of special_bonus_unique_juggernaut
+      "blade_fury_damage"
       {
-        "value"                                           "80 110 140 170 170 170"
+        "value"                                           "80 110 140 170 340 680"
         "special_bonus_unique_juggernaut"                 "+100"
       }
       "blade_fury_damage_tick"
@@ -55,9 +54,9 @@
       {
         "value"                                           "5.0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "36 30 24 18 18 18"
+        "value"                                           "21 20 19 18 17 16"
       }
       "bonus_movespeed"
       {
@@ -80,6 +79,7 @@
       {
         "value"                                           "0"
       }
+      "immunity_resist"                                   "80"
     }
   }
 }

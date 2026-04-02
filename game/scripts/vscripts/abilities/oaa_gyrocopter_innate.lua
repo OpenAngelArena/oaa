@@ -10,6 +10,7 @@ function gyrocopter_innate_oaa:Spawn()
     if not caster:HasModifier("modifier_gyrocopter_innate_oaa") then
       caster:AddNewModifier(caster, self, "modifier_gyrocopter_innate_oaa", {})
     end
+    --self:SetLevel(1)
   end
 end
 

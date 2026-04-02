@@ -1,32 +1,34 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spirit Breaker: Nether Strike
+  // Spirit Breaker: Nether Strike FIXEDFUCK
   //=================================================================================================================
   "spirit_breaker_nether_strike"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "1.0"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastRangeBuffer"                              "500"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 45 40 35 30" //OAA
+    "AbilityCooldown"                                     "50 45 40 35 30" //OAA, intentionally rescaled
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,29 +38,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                         "1.0 1.0 1.0 1.0 1.0"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "150 250 350 350 350"
+        "value"                                           "150 350 550 1150 1750"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "shard_bonus_damage"
+      "fade_time"                                         "1.0"
+      "shard_bonus_damage" // unused
       {
         "special_bonus_shard"                             "0"
       }
-      "shard_break_duration"
+      "shard_break_duration" // unused
       {
         "special_bonus_shard"                             "0.0"
       }
-      "shard_spell_immune_duration"
+      "shard_spell_immune_duration" // unused
       {
         "special_bonus_shard"                             "0.0"
       }
-      "knockback_amp"
+      "knockback_amp" // unused
       {
         "special_bonus_facet_spirit_breaker_imbalanced"   "+100"
       }
-      "knockback_amp_duration"
+      "knockback_amp_duration" // unused
       {
         "special_bonus_facet_spirit_breaker_imbalanced"   "+6"
       }

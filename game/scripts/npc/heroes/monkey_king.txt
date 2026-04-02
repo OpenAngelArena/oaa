@@ -1,14 +1,13 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Monkey King
+  // HERO: Monkey King FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_monkey_king"
   {
     "Ability4"                                            "monkey_king_jingu_mastery_oaa" // replaces monkey_king_jingu_mastery
     "Ability6"                                            "monkey_king_wukongs_command_oaa" // replaces monkey_king_wukongs_command
-    "Ability9"                                            "monkey_king_untransform" // replaces undefined
-    "Ability8"                                            "generic_hidden" // replaces monkey_king_transfiguration
+    "Ability9"                                            "generic_hidden" // replaces monkey_king_transfiguration
 
     //"Ability10"                                           "special_bonus_unique_monkey_king_3"
     //"Ability11"                                           "special_bonus_unique_monkey_king_9"

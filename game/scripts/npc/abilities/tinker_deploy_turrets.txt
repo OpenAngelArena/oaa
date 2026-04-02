@@ -1,0 +1,146 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinker(er): Deploy Turrets FIXEDFUCK
+  //=================================================================================================================
+  "tinker_deploy_turrets"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.1"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 120 140 160 180 200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "drop_aoe_radius"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "turret_placement_radius"
+      {
+        "value"                                           "70"
+      }
+      "drop_delay"
+      {
+        "value"                                           "0.5"
+      }
+      "drop_knockback_duration"
+      {
+        "value"                                           "0.1"
+      }
+      "drop_knockback_duration_tinker"
+      {
+        "value"                                           "0.3"
+      }
+      "drop_knockback_distance"
+      {
+        "value"                                           "100"
+      }
+      "drop_knockback_distance_tinker"
+      {
+        "value"                                           "400"
+        "special_bonus_unique_tinker_deploy_turrets_knockback"  "+100"
+      }
+      "drop_count"
+      {
+        "value"                                           "1"
+      }
+      "drop_interval"
+      {
+        "value"                                           "0.22"
+      }
+      "drop_spread_pct"
+      {
+        "value"                                           "100"
+      }
+      "turrets_per_drop"
+      {
+        "value"                                           "3"
+      }
+      "extra_turrets_per_drop"
+      {
+        "value"                                           "0"
+      }
+      "AbilityCooldown" //OAA, intentionally buffed
+      {
+        "value"                                           "21 20 19 18 17 16"
+      }
+      "drop_damage" //OAA, intentionally buffed
+      {
+        "value"                                           "55 110 165 220 440 660"
+      }
+      "missile_damage"
+      {
+        "value"                                           "20 40 60 80 160 240"
+        "special_bonus_unique_tinker_deploy_turrets_missile_damage"  "+60"
+      }
+      "missile_speed"
+      {
+        "value"                                           "1200"
+      }
+      "turret_hp"
+      {
+        "value"                                           "40 80 120 160 200 240"
+      }
+      "missile_target_range"
+      {
+        "value"                                           "650 700 750 800 850 900"
+      }
+      "missile_range"
+      {
+        "value"                                           "750 800 850 900 950 1000"
+      }
+      "missile_width"
+      {
+        "value"                                           "70"
+      }
+      "turret_duration"
+      {
+        "value"                                           "4.5"
+        "special_bonus_unique_tinker_deploy_turrets_turret_duration"  "+1.5"
+      }
+      "missile_spawn_interval"
+      {
+        "value"                                           "1.5"
+        "special_bonus_scepter"                           "-0.3"
+      }
+      "missile_attack_rate_tooltip"
+      {
+        "value"                                           "20"
+      }
+      "radius_explosion"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "splash_pct"
+      {
+        "value"                                           "50"
+      }
+      "activation_time"
+      {
+        "value"                                           "0.3"
+        "special_bonus_scepter"                           "-0.3"
+      }
+    }
+  }
+}

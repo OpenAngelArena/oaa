@@ -42,7 +42,7 @@ function modifier_magus_oaa:OnCreated()
     centaur_mount = 1,                                   -- self grief
     chaos_knight_phantasm = 1,                           -- invulnerability and lag
     chen_holy_persuasion = 1,                            -- dominating every creep or hero on attack
-    chen_summon_convert = 1,                             -- self grief
+    --chen_summon_convert = 1,                             -- self grief
     clinkz_death_pact = 1,                               -- instant kill
     clinkz_death_pact_oaa = 1,                           -- instant kill
     crystal_maiden_freezing_field_stop = 1,              -- self grief
@@ -169,7 +169,7 @@ function modifier_magus_oaa:OnCreated()
     medusa_stone_gaze = 1,                               -- powerful
     mirana_leap = 1,                                     -- self grief in most cases
     --monkey_king_boundless_strike = 1,                  -- looping, sometimes doesn't do damage
-    morphling_waveform = 1,                              -- invulnerability and looping with the facet
+    morphling_waveform = 1,                              -- invulnerability
     muerta_pierce_the_veil = 1,                          -- powerful
     muerta_the_calling = 1,                              -- lag
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
@@ -179,7 +179,7 @@ function modifier_magus_oaa:OnCreated()
     pangolier_swashbuckle = 1,                           -- looping, powerful
     --phantom_assassin_stifling_dagger = 1,              -- looping
     phantom_lancer_juxtapose = 1,                        -- lag because of shard
-    phantom_lancer_spirit_lance = 1,                     -- lag because of scepter
+    --phantom_lancer_spirit_lance = 1,                   -- lag
     --pugna_nether_ward_oaa = 1,                         -- lag
     --pugna_nether_ward = 1,                             -- lag
     rattletrap_power_cogs = 1,                           -- lag, annoying

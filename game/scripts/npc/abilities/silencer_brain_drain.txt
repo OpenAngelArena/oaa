@@ -1,33 +1,32 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Silencer: Suffer In Silence / Brain Drain (Innate) FIXEDFUCK
   //=================================================================================================================
   "silencer_brain_drain"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "permanent_int_steal_amount"                        "1" //OAA
-      "silenced_bonus_int_steal_amount"                   "1"
-      "permanent_int_steal_range" //OAA
+      "permanent_int_steal_range" //OAA, intentionally nerfed
       {
-        "value"                                           "925"
+        "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_pct"
+      "permanent_int_steal_amount"                        "1"
+      "silenced_bonus_int_steal_amount"                   "1"
+      "damage_pct" //OAA, because of special_bonus_unique_silencer_brain_drain_damage and hero_levelup nerfs
       {
         "value"                                           "5"
-        "hero_levelup"                                    "+0.5"
-        "special_bonus_unique_silencer_brain_drain_damage"  "+7"
+        "hero_levelup"                                    "+0.4"
+        "special_bonus_unique_silencer_brain_drain_damage"  "+5"
       }
     }
   }

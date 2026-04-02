@@ -1,21 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Invoker: Alacrity
+  // Invoker: Alacrity FIXEDFUCK
   //=================================================================================================================
   "invoker_alacrity"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "9"
-      "bonus_attack_speed"
+      "bonus_attack_speed" //OAA, because of special_bonus_unique_invoker_5
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_5"                  "+50"
+        "special_bonus_unique_invoker_5"                  "+45"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA, because of special_bonus_unique_invoker_5
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_5"                  "+50"
+        "special_bonus_unique_invoker_5"                  "+45"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_attack_range"
@@ -53,6 +51,7 @@
         "value"                                           "0"
         "levelkey"                                        "wexlevel"
       }
+      "duration"                                          "9"
     }
   }
 }

@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Timbersaw: Exposure Therapy (Innate)
+  // Timbersaw: Exposure Therapy (Innate) FIXEDFUCK
   //=================================================================================================================
   "shredder_exposure_therapy"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,13 +17,13 @@
     {
       "mana_restore"
       {
-        "value"                                           "3.75"
-        "hero_levelup"                                    "+0.25"
+        "value"                                           "4"
+        "hero_levelup"                                    "+0.5"
       }
-      "health_restore" //OAA
+      "health_restore" //OAA, because of special_bonus_unique_timbersaw_exposure_therapy_health buff
       {
         "value"                                           "0"
-        "special_bonus_unique_timbersaw_exposure_therapy_health"  "+10"
+        "special_bonus_unique_timbersaw_exposure_therapy_health"  "+20"
       }
     }
   }

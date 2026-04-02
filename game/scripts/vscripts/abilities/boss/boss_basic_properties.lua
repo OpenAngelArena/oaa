@@ -218,7 +218,7 @@ if IsServer() then
       death_prophet_spirit_siphon = inflictor:GetSpecialValueFor("damage_pct") ~= 0, -- talent gives pct dmg
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       enigma_midnight_pulse = true,           -- when it starts working against ancients
-      huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0, -- facet gives pct dmg
+      huskar_burning_spear = inflictor:GetSpecialValueFor("burn_damage_max_pct") ~= 0,
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       item_hydras_breath = true,
       item_hydras_breath_2 = true,
@@ -233,7 +233,7 @@ if IsServer() then
       nyx_assassin_jolt = true,
       phantom_assassin_fan_of_knives = true,  -- physical dmg
       ringmaster_impalement = true,
-      shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0, -- facet gives pct dmg
+      shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0,
       venomancer_noxious_plague = true,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
       witch_doctor_maledict = true,

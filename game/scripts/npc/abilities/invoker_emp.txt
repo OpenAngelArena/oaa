@@ -1,19 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Invoker: EMP
+  // Invoker: EMP FIXEDFUCK
   //=================================================================================================================
   "invoker_emp"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25" //OAA
+    "AbilityCooldown"                                     "25" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "self_mana_restore_pct"                             "25"
       "delay"
       {
         "value"                                           "2.9"
@@ -43,14 +40,14 @@
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
       }
-      "mana_burned" //OAA
+      "mana_burned" //OAA, intentionally buffed
       {
-        "value"                                           "100 175 250 325 400 475 550 625 700 775 850"
+        "value"                                           "100 175 250 325 400 475 550 700 850 1000 1300"
         "levelkey"                                        "wexlevel"
       }
-      "damage_per_mana_pct" //OAA
+      "damage_per_mana_pct" //OAA, intentionally buffed
       {
-        "value"                                           "60"
+        "value"                                           "80"
         "special_bonus_shard_2"                           "+50%"
       }
       "drag_speed"
@@ -58,6 +55,7 @@
         "value"                                           "0"
         "special_bonus_shard_2"                           "+125"
       }
+      "self_mana_restore_pct"                             "25"
       "damage_barriers"
       {
         "value"                                           "0"

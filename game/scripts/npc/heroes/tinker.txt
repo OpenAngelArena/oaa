@@ -7,7 +7,7 @@
   {
     "Ability1"                                            "tinkerer_smart_missiles" // replaces tinker_laser
     "Ability2"                                            "tinkerer_oil_spill" // replaces tinker_march_of_the_machines
-    "Ability3"                                            "tinker_defense_matrix" // tinker_deploy_turrets
+    "Ability3"                                            "tinker_deploy_turrets" // tinkerer_defense_matrix_oaa TODO
     "Ability4"                                            "tinkerer_laser_oaa" // replaces tinker_warp_grenade
     "Ability5"                                            "generic_hidden" // replaces tinker_keen_teleport
     "Ability6"                                            "tinkerer_laser_contraption" // replaces tinker_rearm
@@ -16,10 +16,10 @@
     "Ability10"                                           "special_bonus_unique_tinkerer_5" // replaces special_bonus_unique_tinker_march_duration
     "Ability11"                                           "special_bonus_unique_tinkerer_6" // replaces special_bonus_mana_reduction_10
 
-    "Ability12"                                           "special_bonus_unique_tinker_7" // special_bonus_unique_tinker_deploy_turrets_knockback
+    "Ability12"                                           "special_bonus_unique_tinker_deploy_turrets_knockback" // TODO
     "Ability13"                                           "special_bonus_unique_tinkerer_3" // replaces  special_bonus_unique_tinker
 
-    "Ability14"                                           "special_bonus_unique_tinker_defense_matrix_status_resistance" // special_bonus_unique_tinker_deploy_turrets_missile_damage
+    "Ability14"                                           "special_bonus_unique_tinker_deploy_turrets_missile_damage" // TODO
     "Ability15"                                           "special_bonus_unique_tinkerer_7" // replaces special_bonus_unique_tinker_5
 
     "Ability16"                                           "special_bonus_unique_tinkerer_2" // replaces special_bonus_unique_tinker_4
@@ -34,7 +34,6 @@
     // special_bonus_unique_tinkerer_7 - Tar Spill amplifies damage / March of the Machines bonus dmg
     // special_bonus_unique_tinkerer_8 - Keen Contraption applies Tar Spill                               - scepter
     // special_bonus_unique_tinkerer_9 - Keen Contraption Heals Allies
-    // special_bonus_unique_tinker_7 - Defense Matrix bonus damage absorbed
 
     //"Ability25"                                           ""
 

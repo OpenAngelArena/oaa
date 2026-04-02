@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lifestealer: Feast (Innate)
+  // Lifestealer: Feast FIXEDFUCK
   //=================================================================================================================
   "life_stealer_feast"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,20 +20,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_deny_percent"                                "50"
-      "bonus_hp_per_hero"                                 "10 15 20 25 25 25"
-      "bonus_hp_per_creep"                                "1"
-      "hp_leech_percent" //OAA
+      "hp_leech_percent" //OAA, intentionally nerfed base values and talent
       {
-        "value"                                           "1.45 2.05 2.65 3.25 3.25 3.25"
-        "special_bonus_unique_lifestealer_3"              "+1.0"
+        "value"                                           "1.45 1.8 2.15 2.5 2.85 3.2"
+        "special_bonus_unique_lifestealer_3"              "+0.7"
       }
-      "hp_damage_percent" //OAA
+      "hp_damage_percent" //OAA, intentionally nerfed base values and talent
       {
-        "value"                                           "1.45 2.05 2.65 3.25 3.25 3.25"
-        "special_bonus_unique_lifestealer_3"              "+1.0"
+        "value"                                           "1.45 1.8 2.15 2.5 2.85 3.2"
+        "special_bonus_unique_lifestealer_3"              "+0.7"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "creep_deny_percent"                                "50" // unused
+      "bonus_hp_per_hero"                                 "10"
+      "bonus_hp_per_creep"                                "1"
       "bonus_hp_total"
       {
         "dynamic_value"                                   "true"

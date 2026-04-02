@@ -1,38 +1,38 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Templar Assassin: Psi Blades (Innate in OAA)
+  // Templar Assassin: Psi Blades FIXEDFUCK
   //=================================================================================================================
   "templar_assassin_psi_blades"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                            "6" //OAA
-    "RequiredLevel"                                       "-1" //OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_spill_pct"                                  "60 70 80 90 100 110 120" //OAA
       "bonus_attack_range"
       {
         "value"                                           "50 100 150 200 250 300"
       }
-      "attack_spill_range" //OAA
+      "attack_spill_range"
       {
-        "value"                                           "400 500 600 700 700 700"
+        "value"                                           "400 500 600 700 750 800"
       }
       "attack_spill_width"
       {
         "value"                                           "90"
         "affected_by_aoe_increase"                        "1"
       }
+      "attack_spill_pct"                                  "70 80 90 100 110 120"
       "meld_strike_spills"
       {
         "value"                                           "1.0"

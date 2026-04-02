@@ -5,15 +5,14 @@
   //=================================================================================================================
   "invoker_chaos_meteor"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,9 +30,9 @@
       "land_time"                                         "1.3"
       "end_vision_duration"                               "3.0"
       "burn_duration"                                     "3.0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "50"
+        "value"                                           "35"
       }
       "area_of_effect"
       {
@@ -41,7 +40,7 @@
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_invoker_chaos_meteor_size"  "+25"
       }
-      "travel_distance" //OAA
+      "travel_distance"
       {
         "value"                                           "465 615 780 930 1095 1245 1410 1575 1725 1890 2055"
         "levelkey"                                        "wexlevel"
@@ -61,14 +60,14 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "main_damage" //OAA
+      "main_damage" //OAA, intentionally buffed
       {
-        "value"                                           "55 80 105 130 155 180 205 220 235 250 265"
+        "value"                                           "55 90 125 160 195 230 265 335 405 475 615"
         "levelkey"                                        "exortlevel"
       }
-      "burn_dps" //OAA
+      "burn_dps" //OAA, intentionally buffed
       {
-        "value"                                           "10 15 20 25 30 35 40 45 50 55 60"
+        "value"                                           "10 17 24 31 38 45 52 66 80 94 122"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"

@@ -73,9 +73,6 @@ local abilities_with_custom_talents = {
   muerta_pierce_the_veil = {
     AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
   },
-  obsidian_destroyer_ominous_discernment = {
-    bonus_max_mana_per_int = {"special_bonus_unique_obsidian_destroyer_1_oaa", "+"},
-  },
   queenofpain_shadow_strike = {
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },

@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wisp: Relocate
+  // Io (Wisp): Relocate FIXEDFUCK
   //=================================================================================================================
   "wisp_relocate"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "5"
@@ -33,14 +33,14 @@
       }
       "return_time"
       {
-        "value"                                           "12.0 12.0 12.0 12.0 12.0"
+        "value"                                           "12.0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "90 80 70 70 70"
+        "value"                                           "80 75 70 65 60"
         "special_bonus_unique_wisp_6"                     "-30"
       }
-      "shield_hp"                                         "150 300 450 750 1050" //OAA
+      "shield_hp"                                         "150 300 450 750 1050" //OAA, additional effect
     }
   }
 }

@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Blast Off
+  // Techies: Blast Off! FIXEDFUCK
   //=================================================================================================================
   "techies_suicide"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG" //OAA, Valve has it wrong
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,12 +30,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
-      "duration"                                          "0.75"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed base values and nerfed talent
       {
-        "value"                                           "40 35 30 25 25 25"
-        "special_bonus_unique_techies_5"                  "-15"
+        "value"                                           "28 27 26 25 24 23"
+        "special_bonus_unique_techies_5"                  "-12"
       }
       "radius"
       {
@@ -44,21 +42,23 @@
       }
       "damage"
       {
-        "value"                                           "200 300 400 500 750 1250"
+        "value"                                           "200 300 400 500 1000 1500"
         "special_bonus_unique_techies"                    "+200"
       }
+      "stun_duration"                                     "0.8 1 1.2 1.4 1.6 1.8"
       "hp_cost"
       {
         "value"                                           "20"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "hp_dmg"
+      "hp_dmg" // Valve this is redundant
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "duration"                                          "0.75"
     }
   }
 }

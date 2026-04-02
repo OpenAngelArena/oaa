@@ -5,16 +5,14 @@
   //=================================================================================================================
   "invoker_ice_wall"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
+
+    "MaxLevel"                                            "1" // MaxLevel: 11
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -47,9 +45,9 @@
         "value"                                           "-20 -40 -60 -80 -100 -120 -140 -160 -180 -200 -220"
         "levelkey"                                        "quaslevel"
       }
-      "damage_per_second" //OAA
+      "damage_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "30 36 42 48 54 60 66 72 78 84"
+        "value"                                           "30 36 42 48 54 60 66 78 90 102 126"
         "levelkey"                                        "exortlevel"
         "special_bonus_unique_invoker_ice_wall_dps"       "+50"
       }
@@ -80,11 +78,11 @@
         "levelkey"                                        "quaslevel"
         "special_bonus_scepter_1"                         "+2.5"
       }
-      "root_damage" //OAA
+      "root_damage" //OAA, intentionally scales
       {
         "value"                                           "0"
         "levelkey"                                        "quaslevel"
-        "special_bonus_scepter_1"                         "+325"
+        "special_bonus_scepter_1"                         "100 125 150 175 200 225 250 300 350 400 500"
       }
     }
   }

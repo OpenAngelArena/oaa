@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Dispersion
+  // Spectre: Dispersion FIXEDFUCK
   //=================================================================================================================
   "spectre_dispersion"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +21,7 @@
       "damage_reflection_pct"
       {
         "value"                                           "8 12 16 20 21 22"
-        "special_bonus_unique_spectre_5"                  "+5"
+        "special_bonus_unique_spectre_5"                  "+4"
       }
       "min_radius"
       {

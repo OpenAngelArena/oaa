@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Io (Wisp): Equilibrium (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "wisp_equilibrium"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "damage_amplification" //OAA, intentionally nerfed
+      {
+        "value"                                           "4"
+        "hero_levelup"                                    "+0.3"
+      }
+      "heal_amplification" //OAA, intentionally nerfed
+      {
+        "value"                                           "4"
+        "hero_levelup"                                    "+0.3"
+      }
+      "current_damage_amp"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "current_heal_amp"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

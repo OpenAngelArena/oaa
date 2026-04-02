@@ -1,42 +1,37 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Legion Commander: Moment of Courage
+  // Legion Commander: Moment of Courage FIXEDFUCK
   //=================================================================================================================
   "legion_commander_moment_of_courage"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.8" //OAA
+    "AbilityCooldown"                                     "0.3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "buff_duration"                                     "1.0"
-      "secondary_attack_damage"                           "100"
       "trigger_attacks"
       {
         "value"                                           "7 6 5 4 4 4"
         "special_bonus_unique_legion_commander_3"         "-1"
       }
+      "buff_duration"                                     "1.0"
+      "secondary_attack_damage"                           "100"
       "hp_leech_percent"
       {
         "value"                                           "55 65 75 85 90 95"
-        "special_bonus_unique_legion_commander_7"         "+75"
-      }
-      "trigger_chance" //OAA
-      {
-        "value"                                           "25"
-        "special_bonus_unique_legion_commander_3"         "+15"
+        "special_bonus_unique_legion_commander_7"         "+100"
       }
     }
   }

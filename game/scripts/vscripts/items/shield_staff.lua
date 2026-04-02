@@ -20,26 +20,20 @@ local forbidden_modifiers = {
   "modifier_faceless_void_chronosphere_freeze",
   "modifier_legion_commander_duel",
   "modifier_batrider_flaming_lasso",
-  --"modifier_disruptor_kinetic_field",
 }
 
 function item_shield_staff:CastFilterResultTarget(target)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
-  -- Show only error when targetting allies if conditions are met
-  if target:GetTeamNumber() == caster:GetTeamNumber() then
-    for _, modifier in pairs(forbidden_modifiers) do
-      if target:HasModifier(modifier) then
-        return UF_FAIL_CUSTOM
-      end
-    end
-
-    if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+  for _, modifier in pairs(forbidden_modifiers) do
+    if target:HasModifier(modifier) then
       return UF_FAIL_CUSTOM
     end
+  end
 
-    if target:IsLeashedOAA() then
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    if (target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune()) or target:IsLeashedOAA() then
       return UF_FAIL_CUSTOM
     end
   end
@@ -48,23 +42,22 @@ function item_shield_staff:CastFilterResultTarget(target)
 end
 
 function item_shield_staff:GetCustomCastErrorTarget(target)
+  local caster = self:GetCaster()
   if target:HasModifier("modifier_enigma_black_hole_pull") then
     return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_black_hole"
-  end
-  if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+  elseif target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
     return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_chronosphere"
-  end
-  if target:HasModifier("modifier_legion_commander_duel") then
+  elseif target:HasModifier("modifier_legion_commander_duel") then
     return "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_duel"
-  end
-  if target:HasModifier("modifier_batrider_flaming_lasso") then
+  elseif target:HasModifier("modifier_batrider_flaming_lasso") then
     return "#oaa_hud_error_pull_staff_lasso"
   end
-  if target:HasModifier("modifier_disruptor_kinetic_field") then
-    return "#oaa_hud_error_pull_staff_kinetic_field"
-  end
-  if target:IsLeashedOAA() then
-    return "#dota_hud_error_cant_cast_on_tethered_target" --"#dota_hud_error_target_cannot_be_moved"
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
+      return "#oaa_hud_error_pull_staff_kinetic_field"
+    elseif target:IsLeashedOAA() then
+      return "#dota_hud_error_cant_cast_on_tethered_target" --"#dota_hud_error_target_cannot_be_moved"
+    end
   end
 end
 

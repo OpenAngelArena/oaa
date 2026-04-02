@@ -1,44 +1,43 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Legion Commander: Duel
+  // Legion Commander: Duel FIXEDFUCK
   //=================================================================================================================
   "legion_commander_duel"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 75 75 75 75"
+    "AbilityManaCost"                                     "75 80 85 90 95" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"                                  "200" //OAA
-      "reward_damage"                                     "10 20 30" //OAA
-      "AbilityCooldown"                                   "60 55 50" //OAA
       "duration"
       {
-        "value"                                           "4.0 4.5 5.0 5.75 6.5"
-        "special_bonus_unique_legion_commander_duel_duration"  "+1"
+        "value"                                           "4.0 4.5 5.0 5.5 6.0"
+        "special_bonus_unique_legion_commander_duel_duration"  "+0.75"
       }
+      "AbilityCastRange"                                  "200"
+      "reward_damage"                                     "10 20 30 50 70"
       "trigger_pta_on_victory"
       {
         "value"                                           "0"
@@ -49,28 +48,25 @@
         "value"                                           "0"
         "special_bonus_unique_legion_commander_duel_refresh_on_victory"  "+1"
       }
-      "damage_reduction_pct"
+      "damage_reduction_pct" // unused
       {
         "value"                                           "0"
       }
-      "team_duel"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "0"
-      }
-      "team_duel_damage_pct"
+      "AbilityCooldown"                                   "50" //OAA, intentionally does not scale
+      "team_duel" // unused
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "0"
       }
-      "team_duel_radius"
+      "team_duel_damage_pct" // unused
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "0"
       }
-      "shard_duel_damage_bonus" //OAA
+      "team_duel_radius" // unused
       {
-        "special_bonus_shard"                             "10"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0"
       }
     }
   }

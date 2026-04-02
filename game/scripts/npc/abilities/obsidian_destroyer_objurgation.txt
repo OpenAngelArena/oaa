@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // OD: Objurgation FIXEDFUCK
+  //=================================================================================================================
+  "obsidian_destroyer_objurgation"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastPoint"                                    "0.2"
+
+    "AbilityManaCost"                                     "250"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown" //OAA, intentionally buffed
+      {
+        "value"                                           "33 32 31 30 29 28"
+        "special_bonus_unique_outworld_devourer_barrier"  "-10"
+      }
+      "barrier_flat"                                      "120 180 240 300 360 420"
+      "mana_to_barrier"
+      {
+        "value"                                           "12"
+        "special_bonus_scepter"                           "+4"
+      }
+      "bonus_mana"                                        "80 160 240 320 400 480"
+      "barrier_duration"                                  "10"
+      "automatic_trigger_threshold"
+      {
+        "special_bonus_scepter"                           "20"
+      }
+      "automatic_trigger_cd" //OAA, intentionally buffed
+      {
+        "special_bonus_scepter"                           "60"
+      }
+    }
+  }
+}

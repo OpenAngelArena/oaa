@@ -1,20 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Lancer: Spirit Lance
+  // Phantom Lancer: Spirit Lance FIXEDFUCK
   //=================================================================================================================
   "phantom_lancer_spirit_lance"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "0"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800 850"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,45 +31,45 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lance_speed"                                       "1000 1000 1000 1000 1000 1000"
-      "illusion_duration"                                 "3.5 5.0 6.5 8.0 8.0 8.0"
-      "illusion_damage_in_pct"                            "275 250 225 200 175 150" //OAA
-      "tooltip_illusion_total_damage_in_pct"              "375 350 325 300 275 250" //OAA
-      "fake_lance_distance"                               "675"
       "lance_damage"
       {
         "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_phantom_lancer_lance_damage"  "+100"
       }
+      "lance_speed"                                       "1000"
       "duration"
       {
-        "value"                                           "3.75"
-        "special_bonus_unique_phantom_lancer_lance_slow_duration"  "+1.25"
+        "value"                                           "3.0"
+        "special_bonus_unique_phantom_lancer_lance_slow_duration"  "+1.0"
       }
       "movement_speed_pct"
       {
-        "value"                                           "-14 -21 -28 -35 -42 -50"
+        "value"                                           "-14 -21 -28 -35 -42 -49"
       }
-      "illusion_damage_out_pct" //OAA
+      "illusion_duration"                                 "3.5 5.0 6.5 8.0 8.0 8.0"
+      "illusion_damage_out_pct" //OAA, intentionally buffed
       {
-        "value"                                           "-85"
+        "value"                                           "-85 -83 -81 -79 -77 -75"
       }
-      "tooltip_illusion_damage" //OAA
+      "tooltip_illusion_damage" //OAA, intentionally buffed
       {
-        "value"                                           "15"
+        "value"                                           "15 17 19 21 23 25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "scepter_bounce_radius"
+      "illusion_damage_in_pct"                            "275 250 225 200 175 150" //OAA, intentionally buffed
+      "tooltip_illusion_total_damage_in_pct"              "375 350 325 300 275 250" //OAA, intentionally buffed
+      "fake_lance_distance"                               "675"
+      "scepter_bounce_radius" // unused
       {
         "special_bonus_scepter"                           "0"
         "affected_by_aoe_increase"                        "1"
       }
-      "scepter_bonus_illusion_damage"
+      "scepter_bonus_illusion_damage" // unused
       {
         "special_bonus_scepter"                           "0"
       }
-      "scepter_total_hits"
+      "scepter_total_hits" // unused
       {
         "special_bonus_scepter"                           "0"
       }

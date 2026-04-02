@@ -97,15 +97,10 @@ const ignoreValuesFor = [
   'item_infused_raindrop',
   'item_nether_shawl',
   'item_aghanims_shard',
-  'item_cornucopia',
   'item_ring_of_tarrasque',
   'item_tiara_of_selemene',
-  'item_smoke_of_deceit',
-  'centaur_stampede',
-  'templar_assassin_psi_blades'
-  // 'shredder_chakram',
-  // 'shredder_chakram_2',
-  // 'tiny_grow',
+  'item_smoke_of_deceit'
+  // 'centaur_stampede',
 ];
 
 // Keys at the top-level ability definition that are expected to scale by level
