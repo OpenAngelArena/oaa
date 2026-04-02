@@ -1,14 +1,8 @@
 //====================================================================================
 // Gleipnir
 //====================================================================================
-"DOTA_Tooltip_Ability_item_gungir"                                              "Gleipnir"
-"DOTA_Tooltip_Ability_item_recipe_gungir"                                       "Gleipnir Recipe"
-"DOTA_Tooltip_ability_item_gungir_Description"                                  "<h1>Active: Eternal Chains</h1>Roots all enemies in a target %radius% radius for %duration% seconds and deals %active_damage% damage.<br><br>Range: %abilitycastrange% \n\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
-"DOTA_Tooltip_ability_item_gungir_Lore"                                         "Bindings forged by impossible means to leash an ancient evil."
-"DOTA_Tooltip_ability_item_gungir_bonus_intellect"                              "+$int"
-"DOTA_Tooltip_ability_item_gungir_bonus_hp"                                     "+$health"
-"DOTA_Tooltip_ability_item_gungir_bonus_aoe"                                    "+$aoe_bonus"
-"DOTA_Tooltip_Ability_item_gungir_bonus_mana"                                   "+$mana"
+//"DOTA_Tooltip_ability_item_gungir_Description"                                  "<h1>Active: Eternal Chains</h1>Roots all enemies in a %radius_tooltip% radius for %duration% seconds."
+//"DOTA_Tooltip_ability_item_gungir_Lore"                                         "Bindings forged by impossible means to leash an ancient evil."
 
 "DOTA_Tooltip_Ability_item_gungir_2"                                            "#{DOTA_Tooltip_Ability_item_gungir}"
 "DOTA_Tooltip_Ability_item_recipe_gungir_2"                                     "#{DOTA_Tooltip_Ability_item_recipe_gungir}"

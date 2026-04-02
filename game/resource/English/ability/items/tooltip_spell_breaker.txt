@@ -1,11 +1,11 @@
 //==============================================================================
 // Spell Breaker
 //==============================================================================
-//"DOTA_Tooltip_ability_item_mage_slayer_Description"                             "<h1>Passive: Mage Slayer</h1>Places a debuff when you attack enemies, dealing %dps% damage per second and causing them to do %spell_amp_debuff%%% less spell damage for %duration% seconds."
+//"DOTA_Tooltip_ability_item_mage_slayer_Description"                             "<h1>Passive: Mage Slayer</h1>Places a debuff when you attack enemies, dealing %dps% physical damage per second and causing them to do %spell_amp_debuff%%% less spell damage for %duration% seconds."
 //"DOTA_Tooltip_ability_item_mage_slayer_Lore"                                    "Forged by a secret order in The Third Age of Praxa'cia to fell the False King."
 
 //"DOTA_Tooltip_modifier_item_mage_slayer_debuff"                                 "Mage Slayer"
-//"DOTA_Tooltip_modifier_item_mage_slayer_debuff_Description"                     "Takes damage over time. Reduced spell damage by %dMODIFIER_PROPERTY_TOOLTIP%%%."
+//"DOTA_Tooltip_modifier_item_mage_slayer_debuff_Description"                     "Takes damage over time. Reduced spell damage by %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%."
 
 "DOTA_Tooltip_Ability_item_recipe_spell_breaker_1"                              "Spell Breaker Recipe"
 "DOTA_Tooltip_Ability_item_spell_breaker_1"                                     "Spell Breaker"
@@ -57,6 +57,6 @@
 "DOTA_Tooltip_ability_item_spell_breaker_5_bonus_mana_regen"                    "#{DOTA_Tooltip_ability_item_spell_breaker_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_spell_breaker_5_bonus_attack_damage"                 "#{DOTA_Tooltip_Ability_item_spell_breaker_1_bonus_attack_damage}"
 
-"DOTA_Tooltip_modifier_item_spell_breaker_silence"                              "Silence"
+"DOTA_Tooltip_modifier_item_spell_breaker_silence"                              "#{DOTA_Tooltip_Ability_item_spell_breaker_1} Mini-Silence"
 "DOTA_Tooltip_modifier_item_spell_breaker_active"                               "#{DOTA_Tooltip_Ability_item_spell_breaker_1}"
-"DOTA_Tooltip_modifier_item_spell_breaker_active_Description"                   "Reduced spell lifesteal and AoE of spells."
+"DOTA_Tooltip_modifier_item_spell_breaker_active_Description"                   "Reduced AoE of spells."
