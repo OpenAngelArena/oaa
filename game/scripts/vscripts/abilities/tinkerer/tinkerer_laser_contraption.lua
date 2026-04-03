@@ -447,7 +447,7 @@ function modifier_tinkerer_laser_contraption_debuff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     --self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
-    self.heal_prevent_percent = ability:GetSpecialValueFor("scepter_heal_prevent_percent")
+    self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
   end
   if self:GetParent():IsMagicImmune() then
     self:Destroy()
@@ -483,18 +483,23 @@ end
 
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, -- GetModifierHealAmplify_PercentageTarget
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, -- GetModifierHealAmplify_PercentageTarget
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION, -- GetModifierPropertyRestorationAmplification
     --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE, -- GetModifierPropertyRestorationAmplificationUnique
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+function modifier_tinkerer_laser_contraption_debuff:OnTooltip()
+  return self.heal_prevent_percent
 end
+
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+-- end
 
 -- Still works but we need all health restoration
 -- function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Percentage()

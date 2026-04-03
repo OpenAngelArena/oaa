@@ -19,7 +19,7 @@ function modifier_faceless_void_time_dilation_degen_oaa:OnCreated()
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.heal_prevent_percent = 0 - math.abs(ability:GetSpecialValueFor("heal_prevent_percent"))
+    self.heal_prevent_percent = 0 - math.abs(ability:GetSpecialValueFor("health_restoration"))
   end
 end
 
@@ -52,20 +52,25 @@ end
 
 function modifier_faceless_void_time_dilation_degen_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_faceless_void_time_dilation_degen_oaa:GetModifierHealAmplify_PercentageTarget()
+function modifier_faceless_void_time_dilation_degen_oaa:OnTooltip()
   return self.heal_prevent_percent
 end
 
-function modifier_faceless_void_time_dilation_degen_oaa:GetModifierHPRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- function modifier_faceless_void_time_dilation_degen_oaa:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_prevent_percent
+-- end
+
+-- function modifier_faceless_void_time_dilation_degen_oaa:GetModifierHPRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_faceless_void_time_dilation_degen_oaa:GetModifierLifestealRegenAmplify_Percentage()

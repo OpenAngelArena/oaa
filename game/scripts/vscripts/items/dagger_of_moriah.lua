@@ -394,7 +394,7 @@ end
 function modifier_item_dagger_of_moriah_frostbite:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_percent")
+    self.heal_reduction = ability:GetSpecialValueFor("health_restoration")
   else
     self.heal_reduction = -40
   end
@@ -429,20 +429,25 @@ end
 
 function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_reduction)
+function modifier_item_dagger_of_moriah_frostbite:OnTooltip()
+  return self.heal_reduction
 end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierHealAmplify_PercentageTarget()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
+
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_item_dagger_of_moriah_frostbite:GetModifierLifestealRegenAmplify_Percentage()

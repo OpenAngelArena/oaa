@@ -1,0 +1,23 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Tinker(er): Turret 5
+  //=================================================================================
+  "npc_dota_tinker_turret5"
+  {
+    "include_keys_from"                                   "npc_dota_tinker_turret1"
+
+    // General
+    //----------------------------------------------------------------
+    "Level"                                               "5"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackDamageMin"                                     "250"    // Damage range min.
+    "AttackDamageMax"                                     "250"    // Damage range max.
+
+    "BountyXP"                                            "25"    // Experience earn.
+    "BountyGoldMin"                                       "25"    // Gold earned min.
+    "BountyGoldMax"                                       "25"    // Gold earned max.
+  }
+}

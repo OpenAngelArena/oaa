@@ -3,7 +3,7 @@
 //==================================================================
 "DOTA_Tooltip_Ability_item_dagger_of_moriah_1"                                  "Dagger of Moriah"
 "DOTA_Tooltip_Ability_item_recipe_dagger_of_moriah_1"                           "Dagger of Moriah Recipe"
-"DOTA_Tooltip_Ability_item_dagger_of_moriah_1_Description"                      "<h1>Active: Sangromancy</h1> Spell damage reduces enemy health restoration by %heal_reduction_percent%%% for %heal_reduction_duration% seconds. Additionally, magical spells deal %magic_dmg_amp%%% more damage. Lasts %duration% seconds. Does not work for item damage, reflected damage and hp removal damage.\n<h1>Passive: Moriah's Aura</h1>Reduces magic resistance of enemies by %aura_magic_resistance%%% in %aura_radius% radius."
+"DOTA_Tooltip_Ability_item_dagger_of_moriah_1_Description"                      "<h1>Active: Sangromancy</h1> Spell damage reduces enemy health restoration by %health_restoration%%% for %heal_reduction_duration% seconds. Additionally, magical spells deal %magic_dmg_amp%%% more damage. Lasts %duration% seconds. Does not work for item damage, reflected damage and hp removal damage.\n<h1>Passive: Moriah's Aura</h1>Reduces magic resistance of enemies by %aura_magic_resistance%%% in %aura_radius% radius."
 "DOTA_Tooltip_Ability_item_dagger_of_moriah_1_bonus_health_regen"               "+$hp_regen"
 "DOTA_Tooltip_Ability_item_dagger_of_moriah_1_bonus_all_stats"                  "+$all"
 "DOTA_Tooltip_Ability_item_dagger_of_moriah_1_bonus_armor"                      "+$armor"
@@ -26,4 +26,4 @@
 "DOTA_Tooltip_modifier_item_dagger_of_moriah_aura_effect_Description"           "Magic Resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 "DOTA_Tooltip_modifier_item_dagger_of_moriah_frostbite"                         "Sangromancy Degen"
-"DOTA_Tooltip_modifier_item_dagger_of_moriah_frostbite_Description"             "All health restoration reduced by %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%."
+"DOTA_Tooltip_modifier_item_dagger_of_moriah_frostbite_Description"             "All health restoration reduced by %dMODIFIER_PROPERTY_TOOLTIP%%%."

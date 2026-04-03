@@ -207,7 +207,6 @@ function modifier_item_ghost_king_bar_passives:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
@@ -233,14 +232,6 @@ function modifier_item_ghost_king_bar_passives:GetModifierManaBonus()
 end
 
 function modifier_item_ghost_king_bar_passives:GetModifierHealAmplify_PercentageSource()
-  if self:GetStackCount() == 2 then
-    return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
-  else
-    return 0
-  end
-end
-
-function modifier_item_ghost_king_bar_passives:GetModifierHealAmplify_PercentageTarget()
   if self:GetStackCount() == 2 then
     return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
   else

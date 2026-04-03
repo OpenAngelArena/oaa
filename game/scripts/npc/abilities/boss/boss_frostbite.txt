@@ -21,8 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_prevent_percent"                              "-60" // reduces healing only
-      "health_restoration"                                "-60" // reduces everything else
+      "health_restoration"                                "-60" // reduces all health restoration
       "heal_prevent_duration"                             "3.0"
     }
   }

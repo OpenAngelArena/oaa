@@ -108,7 +108,7 @@ end
 function modifier_boss_frostbite_effect:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
+    self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
   else
     self.heal_prevent_percent = -60
   end
@@ -147,20 +147,25 @@ end
 
 function modifier_boss_frostbite_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_boss_frostbite_effect:GetModifierHealAmplify_PercentageTarget()
+function modifier_boss_frostbite_effect:OnTooltip()
   return self.heal_prevent_percent
 end
 
-function modifier_boss_frostbite_effect:GetModifierHPRegenAmplify_Percentage()
-  return self.heal_prevent_percent
-end
+-- function modifier_boss_frostbite_effect:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_prevent_percent
+-- end
+
+-- function modifier_boss_frostbite_effect:GetModifierHPRegenAmplify_Percentage()
+  -- return self.heal_prevent_percent
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_boss_frostbite_effect:GetModifierLifestealRegenAmplify_Percentage()

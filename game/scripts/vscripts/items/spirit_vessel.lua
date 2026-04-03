@@ -574,7 +574,7 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnRefresh()
   if ability and not ability:IsNull() then
     self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount_oaa")
     self.current_hp_dmg = ability:GetSpecialValueFor("current_hp_as_dmg")
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_with_charge")
+    self.heal_reduction = ability:GetSpecialValueFor("restoration_reduction_enemy")
   else
     self.damage_per_second = 25
     self.current_hp_dmg = 4
@@ -642,19 +642,24 @@ end
 function modifier_spirit_vessel_oaa_debuff_with_charge:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_spirit_vessel_oaa_debuff_with_charge:OnTooltip()
+  return self.heal_reduction
 end
 
 -- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHPRegenAmplify_Percentage()
   -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
 -- end
 
-function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
-end
+-- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierHealAmplify_PercentageTarget()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_with_charge"))
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_spirit_vessel_oaa_debuff_with_charge:GetModifierLifestealRegenAmplify_Percentage()
@@ -700,7 +705,7 @@ function modifier_spirit_vessel_oaa_debuff_no_charge:OnCreated()
   end
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_no_charge")
+    self.heal_reduction = ability:GetSpecialValueFor("health_restoration")
   end
 end
 
@@ -734,19 +739,24 @@ end
 function modifier_spirit_vessel_oaa_debuff_no_charge:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_spirit_vessel_oaa_debuff_no_charge:OnTooltip()
+  return self.heal_reduction
 end
 
 -- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHPRegenAmplify_Percentage()
   -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
 -- end
 
-function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
-end
+-- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierHealAmplify_PercentageTarget()
+  -- return 0 - math.abs(self.heal_reduction or self:GetAbility():GetSpecialValueFor("heal_reduction_no_charge"))
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_spirit_vessel_oaa_debuff_no_charge:GetModifierLifestealRegenAmplify_Percentage()
