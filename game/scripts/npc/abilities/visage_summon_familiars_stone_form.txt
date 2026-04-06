@@ -1,20 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Visage: Summon Familiars Stone Form
+  // Visage: Summon Familiars Stone Form FIXEDFUCK
   //=================================================================================================================
   "visage_summon_familiars_stone_form"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
     "DependentOnAbility"                                  "visage_summon_familiars"
 
     // Casting
@@ -30,16 +28,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_delay"                                        "0.55"
-      "stun_damage"                                       "100 180 260 500 740" //OAA
-      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
-      "stone_duration"                                    "6.0"
-      "hp_regen"                                          "150.0 175.0 200.0 300.0 400.0"
-      "stun_radius"
+      "stun_radius" // stun_radius will pull from owner's visage_stone_form_self_cast, because familiars themselves cant have bonus aoe
       {
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
+      "stun_delay"                                        "0.55"
+      "stun_damage"                                       "100 180 260 500 740" //OAA, intentionally buffed
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "stone_duration"                                    "6.0"
+      "hp_regen"                                          "150.0 175.0 200.0 275.0 475.0" // it needs to be equal or higher than familiar hp divided by stone_duration
+
     }
   }
 }

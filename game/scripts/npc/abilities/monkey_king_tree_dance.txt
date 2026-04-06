@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Monkey King: Tree Dance
+  // Monkey King: Tree Dance FIXEDFUCK
   //=================================================================================================================
   "monkey_king_tree_dance"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
-    "MaxLevel"                                            "6"
+
+    "MaxLevel"                                            "6" // check max_level kv
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -35,13 +35,6 @@
       "leap_speed"                                        "600"
       "spring_leap_speed"                                 "1300"
       "give_up_distance"                                  "1850"
-      "perched_day_vision"                                "700"
-      "perched_night_vision"                              "500"
-      "perched_spot_height"                               "192.0"
-      "unperched_stunned_duration"                        "3.0"
-      "top_level_height"                                  "500"
-      "impact_movement_slow_tooltip"                      "35 50 65 80 90 100" //OAA, Valve has it wrong: wrong values but it's just a tooltip error, not fixed since 7.36
-      "range"                                             "900"
       "ground_jump_distance"
       {
         "value"                                           "900"
@@ -58,24 +51,24 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "perched_day_vision"                                "700"
+      "perched_night_vision"                              "500"
+      "perched_spot_height"                               "192.0"
+      "unperched_stunned_duration"                        "3.0"
+      "top_level_height"                                  "500"
       "impact_damage_tooltip" //OAA, Valve has it wrong: wrong values and missing talent but it's just a tooltip error, not fixed since 7.37
       {
-        "value"                                           "140 210 280 350 350 350"
-        "special_bonus_unique_monkey_king_3"              "+90"
+        "value"                                           "110 200 290 380 760 1140"
       }
-      "max_level" //OAA
+      "impact_movement_slow_tooltip"                      "35 50 65 80 90 100" //OAA, Valve has it wrong: wrong values but it's just a tooltip error, not fixed since 7.36
+      "range"                                             "900"
+      "max_level" //OAA, intentionally
       {
-        "value"                                           "4"
-        "special_bonus_facet_monkey_king_simian_stride"   "+1"
+        "value"                                           "6"
       }
-      "max_level_tooltip" //OAA
+      "max_level_tooltip" // unused
       {
         "special_bonus_facet_monkey_king_simian_stride"   "=5"
-      }
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "1.4 1.2 1.0 0.8 0.8 0.8"
-        "special_bonus_facet_monkey_king_simian_stride"   "=0.0"
       }
     }
   }

@@ -1,17 +1,11 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Dazzle: Nothl Projection End FIXEDFUCK
   //=================================================================================================================
   "dazzle_nothl_projection_end"
   {
-
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
     "DependentOnAbility"                                  "dazzle_nothl_projection"
   }
 }
