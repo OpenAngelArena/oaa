@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Elder Dragon Form - this is a hidden ability in OAA FIXEDFUCK
+  // Dragon Knight: Elder Dragon Form (first 4 levels) FIXEDFUCK
   //=================================================================================================================
   "dragon_knight_elder_dragon_form"
   {
@@ -12,7 +12,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "HasScepterUpgrade"                                   "0" //OAA, intentionally
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "4" //OAA, DO NOT CHANGE THIS!
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
@@ -26,10 +26,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" // lvl 5 values need to be the same as lvl 4 values, these values are actual values that dragon_knight_elder_dragon_form_oaa uses
+    "AbilityValues"
     {
       "duration"                                          "45" //OAA, intentionally nerfed because of cd change
-      "bonus_movement_speed"                              "25 30 35 40 40"
+      "bonus_movement_speed"                              "25 30 35 40"
       "bonus_attack_range"
       {
         "value"                                           "350"
@@ -37,20 +37,20 @@
       }
       "bonus_ability_cast_range"                          "350"
       "bonus_attack_damage"                               "0"
-      "model_scale"                                       "10 15 20 30 30"
+      "model_scale"                                       "10 15 20 30"
       "corrosive_duration"                                "3"
-      "corrosive_damage_per_second"                       "25 25 25 35 35"
-      "ranged_splash_damage_pct"                          "0 75 75 100 100"
+      "corrosive_damage_per_second"                       "25 25 25 35"
+      "ranged_splash_damage_pct"                          "0 75 75 100"
       "ranged_splash_radius"
       {
-        "value"                                           "0 275 275 350 350"
+        "value"                                           "0 275 275 350"
         "affected_by_aoe_increase"                        "1"
       }
       "health_bar_offset"                                 "300"
-      "magic_resistance"                                  "0 0 0 20 20"
-      "frost_duration"                                    "0 0 3 3 3"
-      "frost_bonus_movement_speed"                        "0 0 30 45 45"
-      "frost_bonus_attack_speed"                          "0 0 50 65 65"
+      "magic_resistance"                                  "0 0 0 20"
+      "frost_duration"                                    "0 0 3 3"
+      "frost_bonus_movement_speed"                        "0 0 30 45"
+      "frost_bonus_attack_speed"                          "0 0 50 65"
       "frost_healing_reduction"                           "0"
       "scepter_bonus_levels"                              "1"
     }

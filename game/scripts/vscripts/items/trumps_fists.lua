@@ -86,6 +86,13 @@ function modifier_item_trumps_fists_passive:GetAttributes()
 end
 
 function modifier_item_trumps_fists_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
+  end
+end
+
+function modifier_item_trumps_fists_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_all_stats = ability:GetSpecialValueFor( "bonus_all_stats" )
@@ -94,13 +101,7 @@ function modifier_item_trumps_fists_passive:OnCreated()
     self.bonus_mana = ability:GetSpecialValueFor( "bonus_mana" )
     self.heal_prevent_duration = ability:GetSpecialValueFor( "heal_prevent_duration" )
   end
-
-  if IsServer() then
-    self:GetParent():ChangeAttackProjectile()
-  end
 end
-
-modifier_item_trumps_fists_passive.OnRefresh = modifier_item_trumps_fists_passive.OnCreated
 
 function modifier_item_trumps_fists_passive:OnDestroy()
   local parent = self:GetParent()

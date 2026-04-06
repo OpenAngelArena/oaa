@@ -52,7 +52,7 @@ function modifier_universal_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_TOOLTIP,
   }
 end
@@ -73,13 +73,13 @@ function modifier_universal_oaa:GetModifierHealAmplify_PercentageSource()
   end
 end
 
-function modifier_universal_oaa:GetModifierHealAmplify_PercentageTarget()
-  if self:GetStackCount() == self.stack_uni then
-    return self.heal_amp_uni
-  else
-    return self.heal_amp_other
-  end
-end
+--function modifier_universal_oaa:GetModifierHealAmplify_PercentageTarget()
+  --if self:GetStackCount() == self.stack_uni then
+    --return self.heal_amp_uni
+  --else
+    --return self.heal_amp_other
+  --end
+--end
 
 function modifier_universal_oaa:OnTooltip()
   return self:GetStackCount()

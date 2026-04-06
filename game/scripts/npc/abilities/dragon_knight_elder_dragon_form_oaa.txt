@@ -36,7 +36,7 @@
     {
       // kvs that only serve for the tooltip
       // 5th value will be the same as 4th value no matter what we write here,
-      // so it's better to be the same as 4th value to avoid confusion in the tooltip
+      // so it's better to be the same as 4th value to avoid confusion/error in the tooltip
       "duration"                                          "45"
       "bonus_movement_speed"                              "25 30 35 40 40"
       "bonus_attack_range"
@@ -63,8 +63,8 @@
       // original kvs:
       "rage_chance"                                       "40" // unused
       "rage_duration"                                     "2.0" // unused
-      "health_restoration"                                "-40"
-      "heal_reduction_duration"                           "3"
+      "health_restoration"                                "-40" // for the lvl 5 Dragon
+      "heal_reduction_duration"                           "3" // for the lvl 5 Dragon
     }
   }
 }

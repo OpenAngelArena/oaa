@@ -108,15 +108,22 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
     unit:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
 
   -- If it's one of Dragon Knight's forms, use its attack projectile instead
-  elseif unit:HasModifier("modifier_dragon_knight_frost_breath") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_frost.vpcf")
-
-  elseif unit:HasModifier("modifier_dragon_knight_splash_attack") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
-
-  elseif unit:HasModifier("modifier_dragon_knight_corrosive_breath") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf")
-
+  --elseif unit:HasModifier("modifier_dragon_knight_black_dragon_tooltip") then
+    --unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/black_dragon_particle.vpcf") -- FIND OUT WHICH PARTICLE IF YOU USE THIS
+  --elseif unit:HasModifier("modifier_dragon_knight_dragon_form") then
+    --unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf")
+    --local mod = unit:FindModifierByName("modifier_dragon_knight_dragon_form")
+    --if mod and not mod:IsNull() then
+      --local ab = mod:GetAbility()
+      --if ab and not ab:IsNull() then
+        --local lvl = ab:GetLevel()
+        --if lvl >= 2 then
+          --unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
+        --elseif lvl >= 3 then
+          --unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_frost.vpcf")
+        --end
+      --end
+    --end
   -- If it's a metamorphosed Terrorblade, use its attack projectile instead
   elseif unit:HasModifier("modifier_terrorblade_metamorphosis") then
     unit:SetRangedProjectileName("particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf")
