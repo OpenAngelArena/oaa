@@ -303,9 +303,9 @@ if IsServer() then
     local damage = gained_hp * heal_to_damage / 100
 
     -- If unit has item debuffs with MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, try to find the item and reduce the damage because it will be amped
-    if unit:HasModifier("modifier_item_veil_of_discord_debuff") or attacker:HasModifier("modifier_item_bloodstone_aura") then
-      local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
-      local bloodstone_debuff = attacker:FindModifierByName("modifier_item_bloodstone_aura")
+    if unit:HasModifier("modifier_item_veil_of_discord_debuff") or unit:HasModifier("modifier_item_bloodstone_aura") then
+      local veil_debuff = unit:FindModifierByName("modifier_item_veil_of_discord_debuff")
+      local bloodstone_debuff = unit:FindModifierByName("modifier_item_bloodstone_aura")
       if veil_debuff then
         local veil_item = veil_debuff:GetAbility()
         if veil_item then
