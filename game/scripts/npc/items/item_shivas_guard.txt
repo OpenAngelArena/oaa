@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1700" //OAA
+    "ItemCost"                                            "1500" //OAA, intentionally
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3900" //OAA
+    "ItemCost"                                            "3700" //OAA
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -61,8 +61,8 @@
     "AbilityValues"
     {
       "bonus_hp_regen"                                    "0"
-      "bonus_armor"                                       "10 11 13 16 20" //OAA, Plate Mail (10);
-      "bonus_aoe"                                         "50 60 70 80 90" //OAA
+      "bonus_armor"                                       "10 11 13 16 20" //OAA, intentionally nerfed; Plate Mail (10);
+      "bonus_aoe"                                         "50 60 70 80 90" //OAA, intentionally nerfed
       "aura_radius"
       {
         "value"                                           "1200"
