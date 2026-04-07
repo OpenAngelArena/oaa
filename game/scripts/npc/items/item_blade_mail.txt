@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "350" //OAA
+    "ItemCost"                                            "350" //OAA, intentionally buffed
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -43,12 +43,6 @@
     "AbilitySharedCooldown"                               "blademail"
     "AbilityManaCost"                                     "25"
 
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    //"MaxUpgradeLevel"                                     "5"
-    //"ItemBaseLevel"                                       "1"
-    //"UpgradesItems"                                       "item_blade_mail;item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "2300" //OAA
@@ -62,12 +56,12 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "15" // Broadsword (15)
-      "bonus_armor"                                       "7" //OAA, Chainmail (7)
+      "bonus_armor"                                       "7" // Splintmail (7)
       "bonus_intellect"                                   "0"
       "duration"                                          "5.5"
       "passive_reflection_constant"                       "10"
       "passive_reflection_pct"                            "15"
-      "active_reflection_pct"                             "80" //OAA
+      "active_reflection_pct"                             "80" //OAA, intentionally nerfed
     }
   }
 }

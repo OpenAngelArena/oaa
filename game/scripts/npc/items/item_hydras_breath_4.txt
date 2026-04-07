@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18900"
+    "ItemCost"                                            "18400"
     "ItemShopTags"                                        "agi;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hydra 4;hydras breath 4;hydra bow 4"
@@ -74,7 +74,7 @@
       "base_attack_range"                                 "130 140 150 160 170"
       "poison_duration"                                   "3"
       "poison_base_damage"                                "0"
-      "poison_damage_per_second"                          "2.5"
+      "poison_damage_per_second"                          "1.5"
     }
   }
 }
