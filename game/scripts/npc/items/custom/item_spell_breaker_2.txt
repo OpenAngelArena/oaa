@@ -38,8 +38,8 @@
     "ScriptFile"                                          "items/spell_breaker.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/spell_breaker_2"
 
@@ -70,15 +70,14 @@
     "AbilityValues"
     {
       // Mage Slayer stats
-      "bonus_magical_armor"                               "21 22 23 24 25"
-      "bonus_attack_speed"                                "20 25 30 35 40"
+      "bonus_magical_armor"                               "20 21 22 23 24"
       "spell_amp_debuff"                                  "25 30 35 40 45"
-      "bonus_health_regen"                                "5 8 11 14 17"
-      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
+      "bonus_health_regen"                                "6 9 12 15 18"
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
       "duration"                                          "3"
-      "dps"                                               "25 35 55 85 125"
+      "dps"                                               "45 55 75 105 145"
       // Spell Breaker passive stats
-      "bonus_attack_damage"                               "32 42 62 92 132"
+      "bonus_attack_damage"                               "35 45 65 95 135"
       // Spell Breaker active stuff
       "silence_duration"                                  "0.1"
       "aoe_decrease_percent"                              "25"

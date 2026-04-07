@@ -605,6 +605,36 @@ if IsServer() then
       return self:AddNewModifier(caster, ability, mod_name, {duration = duration})
     end
   end
+
+  -- This is for refreshing item stats - unused
+  function CDOTA_BaseNPC:ReEquipAllItems()
+    local max_slot = DOTA_ITEM_SLOT_6
+    if self:HasModifier("modifier_spoons_stash_oaa") then
+      max_slot = DOTA_ITEM_SLOT_9
+    end
+    for i = DOTA_ITEM_SLOT_1, max_slot do
+      local item = self:GetItemInSlot(i)
+      if item then
+        local name = item:GetAbilityName()
+        if not string.find(name, "ultimate_scepter") and not string.find(name, "aghanims_scepter") then
+          item:OnUnequip()
+          item:OnEquip()
+        end
+      end
+    end
+
+    local tp_scroll = parent:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+    if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
+      tp_scroll:OnUnequip()
+      tp_scroll:OnEquip()
+    end
+
+    -- local neutral_item = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+    -- if neutral_item then
+    --   neutral_item:OnUnequip()
+    --   neutral_item:OnEquip()
+    -- end
+  end
 end
 
 -- On Server:

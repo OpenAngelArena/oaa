@@ -159,37 +159,37 @@ local aoe_keywords = {
 }
 
 local other_keywords = {
-  scepter_range = true,
-  arrow_range_multiplier = true,
-  wave_width = true,
   aftershock_range = true,
-  echo_slam_damage_range = true,
-  echo_slam_echo_search_range = true,
-  echo_slam_echo_range = true,
-  torrent_max_distance = true,
-  cleave_ending_width = true,
-  cleave_distance = true,
-  ghostship_width = true,
-  dragon_slave_distance = true,
-  dragon_slave_width_initial = true,
-  dragon_slave_width_end = true,
-  width = true,
+  arrow_range_multiplier = true,
   arrow_width = true,
-  requiem_line_width_start = true,
-  requiem_line_width_end = true,
-  orb_vision = true,
-  hook_distance = true,
-  flesh_heap_range = true,
-  hook_width = true,
-  end_distance = true,
-  burrow_width = true,
-  splash_width = true,
-  splash_range = true,
-  jump_range = true,
-  bounce_range = true,
   attack_spill_range = true,
   attack_spill_width = true,
+  bounce_range = true,
+  burrow_width = true,
+  cleave_distance = true,
+  cleave_ending_width = true,
   dash_width = true,
+  dragon_slave_distance = true,
+  dragon_slave_width_end = true,
+  dragon_slave_width_initial = true,
+  echo_slam_damage_range = true,
+  echo_slam_echo_range = true,
+  echo_slam_echo_search_range = true,
+  end_distance = true,
+  flesh_heap_range = true,
+  ghostship_width = true,
+  hook_distance = true,
+  hook_width = true,
+  jump_range = true,
+  orb_vision = true,
+  requiem_line_width_end = true,
+  requiem_line_width_start = true,
+  scepter_range = true,
+  splash_range = true,
+  splash_width = true,
+  torrent_max_distance = true,
+  wave_width = true,
+  width = true,
 }
 
 local ignored_abilities = {
@@ -201,36 +201,37 @@ local ignored_abilities = {
 
 local forbidden_kvs = {
   ancient_apparition_ice_blast = {radius_grow = true,},
-  --dawnbreaker_celestial_hammer = {hammer_aoe_radius = true,},
+  dawnbreaker_celestial_hammer = {hammer_aoe_radius = true,},
   grimstroke_soul_chain = {leash_radius_buffer = true,},
-  --leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,}, -- uncomment if flat change
+  leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,},
   lich_frost_nova = {aoe_damage = true,},
-  --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change
   sandking_epicenter = {epicenter_radius_increment = true, scepter_explosion_radius_pct = true,},
-  sandking_sand_storm = {scepter_explosion_radius_pct = true,},
 }
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(keys)
   local ability = keys.ability
+  local parent = self:GetParent()
   if not ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+  local name = ability:GetAbilityName()
+  if not parent:FindAbilityByName(name) then
     return 0
   end
 
-  if ability:IsItem() then
+  if (ignored_abilities and ignored_abilities[name]) or ability:IsItem() then
     return 0
   end
 
-  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
-    local t = forbidden_kvs[ability:GetAbilityName()]
+  if forbidden_kvs and forbidden_kvs[name] then
+    local t = forbidden_kvs[name]
     if t[keys.ability_special_value] then
       return 0
     end
   end
 
+  --[[ -- uncomment this and disable GetAbilityKeyValuesByName if it lags too much
   if aoe_keywords then
     for keyword, _ in pairs(aoe_keywords) do
       if string.find(keys.ability_special_value, keyword) then
@@ -242,33 +243,62 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(ke
   if other_keywords and other_keywords[keys.ability_special_value] then
     return 1
   end
+  ]]
+
+  local ability_kvs = GetAbilityKeyValuesByName(name)
+  if ability_kvs and ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
+    -- print("Keyvalue for ability: "..name)
+    -- print("Key: "..tostring(keys.ability_special_value))
+    -- print("Value: "..tostring(ability_kvs.AbilityValues[keys.ability_special_value]))
+    if type(ability_kvs.AbilityValues[keys.ability_special_value]) == "table" then
+      local affected_kv = ability_kvs.AbilityValues[keys.ability_special_value].affected_by_aoe_increase
+      -- print("value of affected_by_aoe_increase: ")
+      -- print(affected_kv)
+      if affected_kv then
+        if tonumber(affected_kv) == 1 then
+          --print("Affected Key: "..tostring(keys.ability_special_value))
+          --print("it is affected")
+          return 1
+        end
+      end
+    end
+  end
 
   return 0
 end
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialValue(keys)
+  local parent = self:GetParent()
   local ability = keys.ability
-  if not keys.ability_special_value or not keys.ability_special_level then
-    return
+  if not ability or not keys.ability_special_value then
+    return 0
   end
 
   local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+  if not value then
+    return 0
+  end
+  if value == 0 then
+    return 0
+  end
 
-  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+  local name = ability:GetAbilityName()
+  if not parent:FindAbilityByName(name) then
     return value
   end
 
-  if ability:IsItem() then
+  if (ignored_abilities and ignored_abilities[name]) or ability:IsItem() then
     return value
   end
 
-  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
-    local t = forbidden_kvs[ability:GetAbilityName()]
+  if forbidden_kvs and forbidden_kvs[name] then
+    local t = forbidden_kvs[name]
     if t[keys.ability_special_value] then
       return value
     end
   end
 
+  --[[ -- uncomment this and disable GetAbilityKeyValuesByName if it lags too much
   if aoe_keywords then
     for keyword, _ in pairs(aoe_keywords) do
       if string.find(keys.ability_special_value, keyword) then
@@ -279,6 +309,19 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialVal
 
   if other_keywords and other_keywords[keys.ability_special_value] then
     return value * self.aoe_multiplier
+  end
+  ]]
+
+  local ability_kvs = GetAbilityKeyValuesByName(name)
+  if ability_kvs and ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
+    if type(ability_kvs.AbilityValues[keys.ability_special_value]) == "table" then
+      local affected_kv = ability_kvs.AbilityValues[keys.ability_special_value].affected_by_aoe_increase
+      if affected_kv then
+        if tonumber(affected_kv) == 1 then
+          return value * self.aoe_multiplier
+        end
+      end
+    end
   end
 
   return value

@@ -66,8 +66,8 @@
     {
       "health_regen"                                      "12 13 14 15 16"
       "magic_resistance"                                  "20 22 24 26 28"
-      "add_nostack_debuff"                                "1"
-      "aura_health_regen"                                 "2.5 5.5 8.5 11.5 14.5" // OAA
+      "add_nostack_debuff"                                "0"
+      "aura_health_regen"                                 "0"
       "magic_resistance_aura"                             "8 10 12 14 16"
       "aura_radius"
       {
@@ -83,7 +83,6 @@
       }
       "bonus_all_stats"                                   "0"
       "barrier_block_creep"                               "425 525 725 1025 1425"
-      "tooltip_resist"                                    "20 22 24 26 28" // OAA
     }
   }
 }
