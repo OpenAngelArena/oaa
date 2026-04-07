@@ -1,53 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Wyrm's Wrath
+  // Dragon Knight: Dragon Blood (Innate) FIXEDFUCK
   //=================================================================================================================
   "dragon_knight_dragon_blood"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE  |  DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve has extra space
+
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_regen"
+      "health_regen" //OAA, because of hero_levelup nerf
       {
         "value"                                           "2"
-        "hero_levelup"                                    "+0.5"
+        "hero_levelup"                                    "+0.3"
         "special_bonus_unique_dragon_knight"              "+12"
       }
-      "armor"
+      "armor" //OAA, because of hero_levelup nerf
       {
         "value"                                           "2"
-        "hero_levelup"                                    "+0.5"
+        "hero_levelup"                                    "+0.3"
         "special_bonus_unique_dragon_knight"              "+12"
       }
-      "regen_and_armor_multiplier_during_dragon_form"
+      "regen_and_armor_multiplier_during_dragon_form" //OAA, intentionally nerfed
       {
-        "value"                                           "50"
-      }
-      "corrosive_breath_damage" //OAA
-      {
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "10 15 20 25 50 75"
-      }
-      "corrosive_breath_armor_reduction" //OAA
-      {
-        "special_bonus_facet_dragon_knight_corrosive_dragon"  "1 2 3 4 6 8"
-      }
-      "magic_damage" //OAA
-      {
-        "special_bonus_facet_dragon_knight_fire_dragon"   "10 15 20 25 50 75"
-      }
-      "bonus_aoe" //OAA
-      {
-        "special_bonus_facet_dragon_knight_fire_dragon"   "30 45 60 75 90 105"
+        "value"                                           "40"
       }
     }
   }

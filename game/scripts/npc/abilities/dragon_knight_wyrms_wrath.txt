@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dragon Knight: Wyrm's Wrath FIXEDFUCK
+  //=================================================================================================================
+  "dragon_knight_wyrms_wrath"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "magic_damage"
+      {
+        "value"                                           "10 20 30 40 80 120"
+        "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
+      }
+      "bonus_aoe" //OAA, intentionally nerfed
+      {
+        "value"                                           "25 40 55 70 85 100"
+        "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
+      }
+    }
+  }
+}
