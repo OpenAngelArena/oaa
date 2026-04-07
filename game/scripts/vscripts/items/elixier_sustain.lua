@@ -206,6 +206,10 @@ if IsServer() then
 
         -- Ignore damage that has the no-reflect flag
         if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+          -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+          if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+            return
+          end
           if not spellLifestealReflected then
             return
           end
@@ -213,19 +217,23 @@ if IsServer() then
 
         -- Ignore damage that has the no-spell-lifesteal flag
         if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+          -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+          if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+            return
+          end
           if not spellLifestealReflected then
             return
           end
         end
 
-        -- Spell Lifesteal
+        -- Apply Spell Lifesteal
         attacker:HealWithParams(lifesteal_amount, nil, false, true, attacker, true)
 
         local particle1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
         ParticleManager:SetParticleControl(particle1, 0, attacker:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(particle1)
       elseif lifesteal_bool then
-        -- Normal Lifesteal
+        -- Apply Lifesteal
         attacker:HealWithParams(lifesteal_amount, nil, true, true, attacker, false)
 
         local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)

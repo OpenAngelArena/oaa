@@ -331,8 +331,8 @@ if IsServer() then
       return
     end
 
-    -- Normal lifesteal should not work for spells and magic damage attacks
-    if event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+    -- Normal lifesteal should not work for spells and spell damage attacks
+    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
 
@@ -341,22 +341,32 @@ if IsServer() then
       return
     end
 
-    -- Check damage if 0 or negative
-    if damage <= 0 then
+    -- Get lifesteal percent
+    local lifesteal_percent = ability:GetSpecialValueFor("lifesteal_aura")
+
+    -- Check if damage and lifesteal are > 0
+    if damage <= 0 or lifesteal_percent <= 0 then
       return
     end
 
-    -- Calculate the lifesteal (heal) amount
-    local lifesteal = ability:GetSpecialValueFor("lifesteal_aura")
-    local heal_amount = damage * lifesteal / 100
-
-    -- Normal Lifesteal (physical dmg attacks)
-    if heal_amount > 0 then
-      attacker:HealWithParams(heal_amount, nil, true, true, attacker, false)
-      -- Particle
-      local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
-      ParticleManager:ReleaseParticleIndex(particle)
+    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+    if damaged_unit:IsIllusion() then
+      lifesteal_percent = lifesteal_percent / 2
     end
+
+    -- Reduce lifesteal against creeps by 40% (Vladmirs Grimoire intentionally does not have penalty)
+    --if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+      --lifesteal_percent = lifesteal_percent * 0.6
+    --end
+
+    local health_restore = damage * lifesteal_percent * 0.01
+
+    -- Apply Lifesteal
+    attacker:HealWithParams(health_restore, ability, true, true, attacker, false)
+
+    -- Particle
+    local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+    ParticleManager:ReleaseParticleIndex(particle)
   end
 end
 

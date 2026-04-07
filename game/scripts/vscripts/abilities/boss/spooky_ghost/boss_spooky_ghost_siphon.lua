@@ -163,6 +163,11 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnIntervalThink()
   local max_hp_pct = ability:GetSpecialValueFor("max_hp_dmg")
   local heal_pct = ability:GetSpecialValueFor("lifesteal_pct")
 
+  -- Reduce heal percent percent against illusions and creeps - same rule as spell lifesteal
+  if parent:IsIllusion() or (parent:IsCreep() and not parent:IsCreepHero()) then
+    heal_pct = heal_pct / 5
+  end
+
   local damage_table = {
     attacker = caster,
     victim = parent,
