@@ -21,6 +21,7 @@ function modifier_blood_magic_oaa:OnCreated()
   self.bonus_hp = parent:GetMaxMana() - 75
   self.bonus_hp_regen = parent:GetManaRegen()
   self.bonus_mana = 0 - self.bonus_hp
+  self.health_cost_multiplier = 2.25
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus(true)
     self:StartIntervalThink(0.5)
@@ -75,7 +76,7 @@ end
 function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
   -- On Client: it shows mana cost x this number as health cost
   -- On Server: it doesnt spend health for most spells, but at least it turns mana cost per second into health per second x this number for some spells
-  return 2.25
+  return self.health_cost_multiplier
 end
 
 -- Reinventing Amplified Health Cost that is not affected by magic resist
@@ -96,7 +97,7 @@ if IsServer() then
     end
 
     local mana_cost = cast_ability:GetManaCost(-1)
-    local self_damage = mana_cost * 2.25
+    local self_damage = mana_cost * self.health_cost_multiplier
     local damage_table = {
       attacker = parent,
       victim = parent,

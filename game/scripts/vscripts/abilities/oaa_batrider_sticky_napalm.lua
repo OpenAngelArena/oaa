@@ -270,6 +270,7 @@ if IsServer() then
     local non_trigger_inflictors = {
       ["batrider_sticky_napalm"] = true,
       ["batrider_sticky_napalm_oaa"] = true,
+      ["item_angels_halo"] = true, -- only non-consumed version
       ["item_blood_grenade"] = true,
       ["item_cloak_of_flames"] = true,
       ["item_conjurers_catalyst"] = true,

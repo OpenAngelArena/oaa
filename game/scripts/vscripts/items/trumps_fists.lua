@@ -302,14 +302,26 @@ if IsServer() then
     local heal_to_damage = self.heal_prevent_percent or 45
     local damage = gained_hp * heal_to_damage / 100
 
-    -- If unit has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
-    if unit:HasModifier("modifier_item_veil_of_discord_debuff") then
-      local veil_debuff = unit:FindModifierByName("modifier_item_veil_of_discord_debuff")
-      local veil_item = veil_debuff:GetAbility()
-      if veil_item then
-        local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
-        if damage_amp then
-          damage = damage / (1 + damage_amp/100)
+    -- If unit has item debuffs with MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, try to find the item and reduce the damage because it will be amped
+    if unit:HasModifier("modifier_item_veil_of_discord_debuff") or attacker:HasModifier("modifier_item_bloodstone_aura") then
+      local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
+      local bloodstone_debuff = attacker:FindModifierByName("modifier_item_bloodstone_aura")
+      if veil_debuff then
+        local veil_item = veil_debuff:GetAbility()
+        if veil_item then
+          local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+          if damage_amp then
+            damage = damage / (1 + damage_amp/100)
+          end
+        end
+      end
+      if bloodstone_debuff then
+        local bloodstone_item = bloodstone_debuff:GetAbility()
+        if bloodstone_item then
+          local damage_amp = bloodstone_item:GetSpecialValueFor("aura_spell_vulnerability")
+          if damage_amp then
+            damage = damage / (1 + damage_amp/100)
+          end
         end
       end
     end

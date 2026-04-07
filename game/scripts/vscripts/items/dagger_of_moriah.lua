@@ -269,11 +269,6 @@ if IsServer() then
       -- return 0
     -- end
 
-    -- Prevent stacking with Veil of Discord and Shiva's Guard
-    -- if damaged_unit:HasModifier("modifier_item_veil_of_discord_debuff") then
-      -- return 0
-    -- end
-
     if inflictor and event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and event.damage_type == DAMAGE_TYPE_MAGICAL then
       -- Ignore item damage
       if inflictor:IsItem() then
