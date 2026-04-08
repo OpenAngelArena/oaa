@@ -5,12 +5,11 @@
   //=================================================================================================================
   "primal_beast_uproar"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,9 +31,9 @@
       "damage_max"                                        "2000"
       "roared_bonus_attack_speed"                         "0"
       "roar_duration"                                     "7"
-      "bonus_damage_per_stack" //OAA
+      "bonus_damage_per_stack" //OAA, intentionally nerfed
       {
-        "value"                                           "10 20 30 40 40 40"
+        "value"                                           "10 16 22 28 40 52"
       }
       "stack_limit"
       {
@@ -68,9 +67,9 @@
         "special_bonus_scepter"                           "75"
         "affected_by_aoe_increase"                        "1"
       }
-      "projectile_damage" //OAA
+      "projectile_damage" //OAA, intentionally rescaled
       {
-        "special_bonus_scepter"                           "85"
+        "special_bonus_scepter"                           "55 65 75 85 95 105"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"
       }

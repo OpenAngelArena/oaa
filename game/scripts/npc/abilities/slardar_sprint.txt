@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Slardar Sprint
+  // Slardar: Guardian Sprint FIXEDFUCK
   //=================================================================================================================
   "slardar_sprint"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -17,7 +17,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,18 +27,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_speed"                                       "10 18 26 34 42 50"
-      "speed_burst_max_duration"                          "2.5"
-      "slow_resistance_tooltip"                           "100"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "29 25 21 17 17 17"
+        "value"                                           "21 20 19 18 17 16"
       }
+      "bonus_speed"                                       "10 18 26 34 42 50"
       "duration"
       {
         "value"                                           "10"
         "special_bonus_unique_slardar_7"                  "+2"
       }
+      "speed_burst_max_duration"                          "2.5"
+      "slow_resistance_tooltip"                           "100"
     }
   }
 }

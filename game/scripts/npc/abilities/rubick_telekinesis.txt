@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rubick: Telekinesis
+  // Rubick: Telekinesis FIXEDFUCK
   //=================================================================================================================
   "rubick_telekinesis"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 575 600 625 650 675"
-    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1 0.1"
+    "AbilityCastPoint"                                    "0.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fall_duration"                                     "0.3 0.3 0.3 0.3 0.3 0.3"
       "lift_duration"
       {
         "value"                                           "0.95 1.2 1.45 1.7 1.8 1.9"
@@ -47,14 +45,15 @@
       }
       "max_land_distance"
       {
-        "value"                                           "375 375 375 375 375 375"
+        "value"                                           "375"
         "special_bonus_shard"                             "+225"
       }
+      "fall_duration"                                     "0.3"
       "shard_max_land_distance_bonus_pct"
       {
         "special_bonus_shard"                             "50"
       }
-      "shard_cooldown_reduction_pct"
+      "shard_cooldown_reduction_pct" // unused
       {
         "special_bonus_shard"                             "0"
       }
@@ -62,14 +61,14 @@
       {
         "special_bonus_shard"                             "0.5"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed base values and talent
       {
-        "value"                                           "22 19 16 13 13 13"
-        "special_bonus_unique_rubick_4"                   "-2"
+        "value"                                           "16 15 14 13 12 11"
+        "special_bonus_unique_rubick_4"                   "-3"
       }
       "landing_damage"
       {
-        "special_bonus_unique_rubick_8"                   "325"
+        "special_bonus_unique_rubick_8"                   "300"
       }
     }
   }

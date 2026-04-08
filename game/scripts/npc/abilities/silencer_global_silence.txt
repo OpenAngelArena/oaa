@@ -1,24 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Silencer: Global Silence
+  // Silencer: Global Silence FIXEDFUCK
   //=================================================================================================================
   "silencer_global_silence"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,20 +28,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityDuration" //OAA
+      "AbilityDuration" //OAA, intentionally nerfed
       {
-        "value"                                           "4.5 5.25 6.0 6.0 6.0"
+        "value"                                           "4.5 5.0 5.5 6.0 6.5"
         "special_bonus_unique_silencer_global_duration"   "+2"
       }
-      "apply_twice"
+      "apply_twice" // unused
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1"
       }
-      "first_duration"
+      "first_duration" // unused
       {
         "special_bonus_facet_silencer_reverberating_silence"  "3 3.5 4 4 4"
       }
-      "second_duration"
+      "second_duration" // unused
       {
         "special_bonus_facet_silencer_reverberating_silence"  "1.5 1.75 2 2 2"
       }
@@ -52,7 +52,7 @@
       "AbilityCooldown"
       {
         "value"                                           "120"
-        "special_bonus_unique_silencer_7"                 "-20"
+        "special_bonus_unique_silencer_7"                 "-15"
       }
     }
   }

@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Pudge: Flesh Heap (Innate)
+  // Pudge: Flesh Heap (Innate) FIXEDFUCK
   //=================================================================================================================
   "pudge_innate_graft_flesh"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +17,7 @@
     {
       "flesh_heap_strength_buff_amount"
       {
-        "value"                                           "1.6"
+        "value"                                           "2.0"
         "special_bonus_unique_pudge_1"                    "x1.5"
       }
       "flesh_heap_range"

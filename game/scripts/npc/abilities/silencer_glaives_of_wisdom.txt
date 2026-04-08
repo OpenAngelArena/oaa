@@ -1,20 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Silencer: Glaives of Wisdom
+  // Silencer: Glaives of Wisdom FIXEDFUCK
   //=================================================================================================================
   "silencer_glaives_of_wisdom"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,31 +25,30 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityDuration"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityDuration"                                     "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 25 30 35 45 55" //OAA
+    "AbilityManaCost"                                     "20 25 30 35 40 45" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "debuff_linger_duration"                            "3 4 5 6 6 6"
-      "intellect_damage_pct" //OAA
+      "intellect_damage_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "35 50 65 80 80 80"
+        "value"                                           "35 40 45 50 55 60"
         "special_bonus_unique_silencer_3"                 "+30"
       }
-      "int_steal" //OAA
+      "int_steal" //OAA, intentionally nerfed
       {
-        "value"                                           "2 3 4 5 5 5"
+        "value"                                           "1"
         "special_bonus_shard"                             "+1"
       }
-      "int_steal_duration" //OAA
+      "int_steal_duration" //OAA, intentionally nerfed both base values and talent
       {
-        "value"                                           "10 20 30 40 40 40"
-        "special_bonus_unique_silencer_5"                 "+40"
+        "value"                                           "10 15 20 25 30 35"
+        "special_bonus_unique_silencer_5"                 "+25"
       }
       "bounce_range"
       {
@@ -61,27 +59,19 @@
       {
         "special_bonus_shard"                             "1"
       }
-      "stacks_for_silence"
+      "stacks_for_silence" // unused
       {
         "value"                                           "0"
       }
-      "silence_duration"
+      "silence_duration" // unused
       {
         "value"                                           "+2.5"
       }
-      "pure_pierce_debuff"
+      "debuff_linger_duration"                            "3 4 5 6 6 6" // unknown
+      "pure_pierce_debuff" // unused
       {
         "value"                                           "0"
         "special_bonus_unique_silencer_glaives_pierce"    "0"
-      }
-      "max_level" //OAA
-      {
-        "value"                                           "6"
-        "special_bonus_facet_silencer_spread_the_knowledge"  "+1"
-      }
-      "max_level_tooltip" //OAA
-      {
-        "special_bonus_facet_silencer_spread_the_knowledge"  "=7"
       }
     }
   }
