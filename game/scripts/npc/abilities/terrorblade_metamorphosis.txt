@@ -5,12 +5,11 @@
   //=================================================================================================================
   "terrorblade_metamorphosis"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,19 +32,19 @@
       "tooltip_attack_range"                              "450 500 550 600 650 700"
       "bonus_damage"                                      "20 40 60 80 160 240"
       "speed_loss"                                        "0"
-      "duration" //OAA
+      "duration" //OAA, intentionally nerfed
       {
-        "value"                                           "35 40 45 50 50 50"
-        "special_bonus_unique_terrorblade_3"              "+30"
+        "value"                                           "20 22 24 26 28 30"
+        "special_bonus_unique_terrorblade_3"              "+20"
       }
       "metamorph_aura_tooltip"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "145 140 135 130 130 130"
+        "value"                                           "100"
         "special_bonus_unique_terrorblade_metamorphosis_cooldown"  "-10"
       }
     }

@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tidehunter: Leviathan's Catch (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "tidehunter_leviathans_catch"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "model_scale"
+      {
+        "value"                                           "0"
+      }
+      "attack_range"
+      {
+        "value"                                           "0"
+      }
+      "anchor_smash_radius"
+      {
+        "value"                                           "0"
+      }
+      "fish_duration"                                     "15" //OAA, intentionally nerfed
+      "fish_strength_gain"                                "0"
+      "fish_attack_range"                                 "1" //OAA, intentionally nerfed
+      "fish_damage_block"                                 "1"
+      "fish_health_bonus"                                 "3"
+      "fish_model_scale"                                  "1.1"
+      "max_fish_spawn_distance"                           "200"
+      "health_bar_offset_base"                            "160"
+      "health_bar_offset_per_level"                       "5"
+      "permanent_health_gain"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "permanent_attack_range_gain"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "permanent_damage_block_gain"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

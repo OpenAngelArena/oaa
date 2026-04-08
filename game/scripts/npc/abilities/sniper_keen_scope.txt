@@ -1,25 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Sniper: Keen Scope (Innate)
   //=================================================================================================================
   "sniper_keen_scope"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage_for_range"
+      "bonus_damage_for_range" //OAA, intentionally nerfed
       {
         "value"                                           "1.50"
-        "hero_levelup"                                    "+0.05"
+        "hero_levelup"                                    "+0.02"
       }
       "bonus_damage_distance"
       {

@@ -1,18 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Desolate (Innate)
+  // Spectre: Desolate (Innate) FIXEDFUCK
   //=================================================================================================================
   "spectre_desolate"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +24,7 @@
         "hero_levelup"                                    "+2"
         "special_bonus_unique_spectre_2"                  "+12"
       }
-      "illusion_damage_outgoing"
+      "illusion_damage_outgoing" // This is affecting all illusions that have the Desolate ability
       {
         "special_bonus_unique_spectre_4"                  "+15"
       }
