@@ -48,12 +48,12 @@
       }
       "arrow_damage_pct" //OAA, this is multiplied with (Drow's base (white) damage + Frost Arrow damage)
       {
-        "value"                                           "100 120 140 160 160 160"
+        "value"                                           "100 120 140 160 180 200"
         "special_bonus_unique_drow_ranger_1"              "+25"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "24 21 18 15 15 15"
+        "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_drow_ranger_6"              "-6"
       }
     }

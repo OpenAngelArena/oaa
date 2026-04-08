@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,28 +33,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "images_count"                                      "2 3 3 4 4" //OAA
-      "outgoing_damage"                                   "-50 -25 0 25 50" //OAA
+      "images_count"                                      "3"
+      "outgoing_damage"                                   "-50 -25 0 25 50"
       "invuln_duration"                                   "0.5"
       "magic_resistance"                                  "0"
-      "illusion_duration" //OAA
+      "illusion_duration" //OAA, intentionally buffed
       {
-        "value"                                           "30.0"
+        "value"                                           "35"
       }
-      "outgoing_damage_tooltip" //OAA
+      "outgoing_damage_tooltip"
       {
-        "value"                                           "100"
+        "value"                                           "50 75 100 125 150"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "incoming_damage" //OAA
+      "incoming_damage" //OAA, intentionally buffed
       {
-        "value"                                           "250"
+        "value"                                           "225 200 175 150 125"
         "special_bonus_unique_chaos_knight_7"             "-125"
       }
-      "incoming_damage_tooltip" //OAA
+      "incoming_damage_tooltip" //OAA, intentionally buffed
       {
-        "value"                                           "350"
+        "value"                                           "325 300 275 250 225"
         "special_bonus_unique_chaos_knight_7"             "-125"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

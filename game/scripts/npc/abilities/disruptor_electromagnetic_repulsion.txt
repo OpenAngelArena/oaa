@@ -11,7 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -22,24 +21,15 @@
     "AbilityValues"
     {
       "damage_threshold"                                  "250"
-      "knockback_duration"                                ".2"
-      "damage_reset_interval"                             "7"
-      "distance_per_int"                                  "0"
-      "damage_per_int"                                    "1.5"
       "effect_radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "manual_cooldown" //OAA
-      {
-        "special_bonus_facet_disruptor_conduit"           "14 12 10 8 7 6"
-      }
-      "max_level" //OAA
-      {
-        "value"                                           "1"
-        "special_bonus_facet_disruptor_conduit"           "=6"
-      }
+      "knockback_duration"                                ".2"
+      "damage_reset_interval"                             "7"
+      "distance_per_int"                                  "0"
+      "damage_per_int"                                    "1.5"
     }
   }
 }

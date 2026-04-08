@@ -10,9 +10,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "IsGrantedByShard"                                    "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
+    "AbilityManaCost"                                     "70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,10 +40,10 @@
       {
         "value"                                           "100"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "14"
-        "special_bonus_unique_disruptor_2"                "-3"
+        "value"                                           "11"
+        "special_bonus_unique_disruptor_2"                "-3" // unused
       }
       "radius"
       {
@@ -74,11 +73,6 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "0"
-      }
-      "AbilityChargeRestoreTime" //OAA, special_bonus_unique_disruptor_2 is not used
-      {
-        "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_disruptor_2"                "-3"
       }
     }
   }

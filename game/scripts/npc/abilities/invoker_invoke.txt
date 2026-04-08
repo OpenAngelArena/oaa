@@ -25,6 +25,9 @@
     {
       "max_invoked_spells"                                "2"
       "cooldown_reduction_per_orb"                        "0.15" //OAA, intentionally so it becomes near 0 when orbs are maxed out
+      "first_ability_level"                               "6"
+      "second_ability_level"                              "12"
+      "third_ability_level"                               "18"
     }
   }
 }

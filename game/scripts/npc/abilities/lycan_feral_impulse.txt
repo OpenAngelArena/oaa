@@ -17,9 +17,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage" //OAA
+      "bonus_damage" //OAA, intentionally nerfed
       {
-        "value"                                           "10 20 30 40 40 40"
+        "value"                                           "10 16 22 28 34 40"
         "special_bonus_unique_lycan_4"                    "+25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

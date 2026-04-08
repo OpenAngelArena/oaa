@@ -25,22 +25,22 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
+    "AbilityCooldown"                                     "80 75 70 65 60" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "300 400 500 600 700"
+    "AbilityManaCost"                                     "250 350 450 550 650"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burn_interval"                                     "0.5 0.5 0.5 0.5 0.5"
+      "burn_interval"                                     "0.5"
       "linger_duration"                                   "1"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "100 150 200 200 200"
-        "special_bonus_unique_jakiro_7"                   "+20"
+        "value"                                           "100 175 250 400 550"
+        "special_bonus_unique_jakiro_7"                   "+75"
       }
       "path_width"
       {

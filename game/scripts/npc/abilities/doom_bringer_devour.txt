@@ -20,8 +20,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300 300 300 300 300 300"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,11 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_level"                                       "6" //OAA
+      "creep_level"                                       "6" //OAA, intentionally buffed
       "hero_ability_steal_time"                           "99999"
-      "bonus_gold" //OAA
+      "bonus_gold" //OAA, intentionally buffed
       {
-        "value"                                           "35 70 105 140 140 140"
+        "value"                                           "50 80 110 140 280 560"
       }
       "ability_bonus_level"
       {
@@ -44,19 +44,18 @@
       "magic_resist"
       {
         "value"                                           "0"
-        "special_bonus_unique_doom_3"                     "+15"
       }
       "AbilityCharges"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+2"
       }
-      "AbilityChargeRestoreTime" //OAA
+      "AbilityChargeRestoreTime"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+66"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown"
       {
         "value"                                           "66.0"
         "special_bonus_shard"                             "=0.0"
