@@ -51,14 +51,23 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "EnableChargeDisplayOverride"                         "1"
+    "ItemInitialCharges"                                  "3"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "3"
+    "AbilityCooldown"                                     "0"
+    "ItemPermanent"                                       "1"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_spell_resist"                                "12 13 14 15 16"
-      "bonus_all_stats"                                   "6 11 16 21 26"
+      "bonus_all_stats"                                   "5 10 15 20 25"
       "bonus_health"                                      "250 350 500 700 950"
-      "stack_gain_time"                                   "3"
+      "stack_gain_time"                                   "4"
       "max_stacks"                                        "3"
       "movement_speed_pct_on_stack_gain"                  "15 17 19 21 23"
       "stack_threshold_damage"                            "0"
