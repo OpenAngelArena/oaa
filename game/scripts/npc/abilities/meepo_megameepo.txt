@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Meepo Fair Share
+  // Meepo: Mega Meepo
   //=================================================================================================================
   "meepo_megameepo"
   {
@@ -10,10 +10,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsGrantedByScepter"                                  "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LinkedAbility"                                       "meepo_megameepo_fling"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "25"
+      "duration"                                          "20"
       "model_scale"                                       "0"
       "damage_distribution_duration"                      "6"
       "end_knockback_duration"                            "0.3"

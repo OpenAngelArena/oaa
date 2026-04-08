@@ -33,17 +33,17 @@
     {
       "heal" //OAA
       {
-        "value"                                           "90 160 230 300 300 300"
+        "value"                                           "90 160 230 300 600 900"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_omniknight_1"               "+160"
+        "special_bonus_unique_omniknight_1"               "+200"
       }
       "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_omniknight_6"               "-3"
       }
-      "radius" //OAA, Valve has it wrong: special_bonus_unique_omniknight_4 is a Hammer or Purity talent
+      "radius"
       {
         "value"                                           "260"
         "affected_by_aoe_increase"                        "1"

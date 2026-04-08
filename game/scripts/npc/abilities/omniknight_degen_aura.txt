@@ -1,25 +1,22 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Degen Aura (Innate)
+  // Omniknight: Degen Aura (Innate) FIXEDFUCK
   //=================================================================================================================
   "omniknight_degen_aura"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "linger_duration"                                   "1"
       "speed_bonus"
       {
         "value"                                           "11"
@@ -28,7 +25,7 @@
       "radius"
       {
         "value"                                           "325"
-        "special_bonus_unique_omniknight_degen_aura_radius"  "+125"
+        "special_bonus_unique_omniknight_degen_aura_radius"  "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage_per_stack"
@@ -43,6 +40,7 @@
       {
         "value"                                           "0"
       }
+      "linger_duration"                                   "1"
     }
   }
 }

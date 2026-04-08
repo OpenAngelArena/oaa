@@ -24,14 +24,14 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 35 45 55 65 75"
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "damage_threshold"                                  "0"
-      "duration"                                          "12 18 24 30 31 32"
+      "duration"                                          "20 22 24 26 28 30" //OAA, intentionally rescaled
       "duration_reduction"                                "0.5"
       "max_distance"                                      "2000"
       "damage_per_second"
