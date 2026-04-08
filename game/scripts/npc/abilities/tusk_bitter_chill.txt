@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tusk: Bitter Chill (Innate)
+  // Tusk: Bitter Chill (Innate) FIXEDFUCK
   //=================================================================================================================
   "tusk_bitter_chill"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +22,7 @@
       }
       "attack_speed_slow"
       {
-        "value"                                           "17"
+        "value"                                           "12"
         "hero_levelup"                                    "+3"
       }
     }

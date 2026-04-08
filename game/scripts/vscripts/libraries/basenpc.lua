@@ -770,7 +770,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike",                     -- Sand King E
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
-      "modifier_tiny_tree_channel",
+      --"modifier_tiny_tree_channel",
       --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do

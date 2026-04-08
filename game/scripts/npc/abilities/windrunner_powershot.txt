@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Windranger: Powershot FIXEDFUCK
   //=================================================================================================================
   "windrunner_powershot"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,11 +19,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityChannelTime"                                  "1.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 11 10 9 8 7"
+    "AbilityChannelTime"                                  "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,16 +33,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "arrow_speed"                                       "3000"
-      "vision_duration"                                   "3.34 3.34 3.34 3.34 3.34 3.34"
-      "powershot_damage"
+      "powershot_damage" // uses special_bonus_unique_windranger_1_oaa
       {
         "value"                                           "170 270 370 470 940 1880"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow"
       {
-        "value"                                           "20 25 30 35 40 45"
+        "value"                                           "22 28 34 40 46 52"
       }
       "slow_duration"
       {
@@ -58,13 +56,14 @@
       }
       "arrow_width"
       {
-        "value"                                           "125 125 125 125 125 125"
+        "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
       "arrow_range"
       {
         "value"                                           "3000"
       }
+      "arrow_speed"                                       "3000"
       "tree_width"
       {
         "value"                                           "50.0"
@@ -75,6 +74,7 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
+      "vision_duration"                                   "3.34"
       "min_execute_threshold"
       {
         "value"                                           "0"
