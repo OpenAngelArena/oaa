@@ -60,15 +60,15 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "10 20 40 70 110" //OAA
-      "slow_resistance"                                   "30 27 29 31 33"
-      "hp_regen_amp"                                      "20 22 24 26 28"
+      "slow_resistance"                                   "25 27 29 31 33" //OAA, Sange (25);
+      "hp_regen_amp"                                      "16 18 20 22 24"
       "bonus_strength"                                    "35 40 45 50 55" //OAA, inherited from Skadi
       "bash_chance_melee"                                 "25"
       "bash_chance_ranged"                                "10"
       "bash_duration"                                     "1.2"
       "bash_cooldown"                                     "2.3"
       "bonus_chance_damage"                               "180 230 330 480 680" //OAA, like Mjollnir passive proc dmg
-      "stun_duration"                                     "1.6 1.7 1.8 1.9 2.0"
+      "stun_duration"                                     "1.6"
     }
   }
 }
