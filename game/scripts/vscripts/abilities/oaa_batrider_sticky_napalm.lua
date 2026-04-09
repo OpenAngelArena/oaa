@@ -446,7 +446,7 @@ if IsServer() then
     --local number = ability:GetSpecialValueFor("shard_number_of_attack_proc")
     --local condition = RandomInt(1, 100) <= chance
     --local condition = self.count > 0 and (self.count % number == 0)
-    local stacks_per_attack = ability:GetSpecialValueFor("stacks_per_attack")
+    local stacks_per_attack = ability:GetSpecialValueFor("napalm_stacks_on_attack")
     local condition = stacks_per_attack ~= 0
     if condition then
 

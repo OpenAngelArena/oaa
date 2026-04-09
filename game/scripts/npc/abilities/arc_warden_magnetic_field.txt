@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Arc Warden: Magnetic Field
+  // Arc Warden: Magnetic Field FIXEDFUCK
   //=================================================================================================================
   "arc_warden_magnetic_field"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -52,7 +52,7 @@
       "AbilityCooldown"
       {
         "value"                                           "20 19 18 17 16 15"
-        "special_bonus_unique_arc_warden_9"               "-5"
+        "special_bonus_unique_arc_warden_9"               "-4"
       }
       "affects_buildings"
       {
@@ -72,7 +72,7 @@
       }
       "rune_pull_radius"
       {
-        "value"                                           "800 1200 1600 2000 2000 2000"
+        "value"                                           "800 1200 1600 2000 2400 2800"
       }
       "rune_activate_radius_buffer"
       {

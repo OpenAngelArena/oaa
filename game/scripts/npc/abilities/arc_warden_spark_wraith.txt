@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Arc Warden: Spark Wraith
+  // Arc Warden: Spark Wraith FIXEDFUCK
   //=================================================================================================================
   "arc_warden_spark_wraith"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,10 +41,10 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"
+      "duration" //OAA, intentionally nerfed
       {
         "value"                                           "16"
-        "special_bonus_unique_arc_warden_7"               "+30"
+        "special_bonus_unique_arc_warden_7"               "+16"
       }
       "base_activation_delay"
       {
@@ -53,15 +53,15 @@
       "spark_damage_base"
       {
         "value"                                           "100 170 240 310 620 930"
-        "special_bonus_unique_arc_warden"                 "+200"
+        "special_bonus_unique_arc_warden"                 "+240"
       }
       "wraith_speed_base"
       {
         "value"                                           "550"
       }
-      "ministun_duration"
+      "ministun_duration" // slow duration
       {
-        "value"                                           "0.7 0.8 0.9 1.0 0.9 1.0"
+        "value"                                           "0.7 0.8 0.9 1.0 1.1 1.2"
       }
       "wraith_vision_radius"
       {
