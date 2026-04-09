@@ -27,32 +27,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
-      "echo_slam_damage_range" //OAA
+      "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA, intentionally buffed
+      "echo_slam_damage_range" //OAA, intentionally buffed
       {
-        "value"                                           "700"
+        "value"                                           "750"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "affected_by_aoe_increase"                        "1"
       }
-      "echo_slam_echo_search_range" //OAA
+      "echo_slam_echo_search_range" //OAA, intentionally buffed
       {
-        "value"                                           "700"
+        "value"                                           "750"
         "affected_by_aoe_increase"                        "1"
       }
-      "echo_slam_echo_range" //OAA
+      "echo_slam_echo_range" //OAA, intentionally buffed
       {
-        "value"                                           "700"
+        "value"                                           "750"
         "affected_by_aoe_increase"                        "1"
       }
-      "echo_slam_echo_damage" //OAA
+      "echo_slam_echo_damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 90 110 110 110"
+        "value"                                           "70 110 150 270 470"
         "special_bonus_unique_earthshaker_2"              "+50"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "130.0 120.0 110.0 110.0 110.0"
+        "value"                                           "110"
         "special_bonus_unique_earthshaker_echo_cd"        "-50%"
       }
     }

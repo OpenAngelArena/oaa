@@ -44,14 +44,14 @@
         "value"                                           "4.75 5.25 5.75 6.0 6.25"
         "special_bonus_unique_bane_3"                     "+3"
       }
-      "fiend_grip_damage" //OAA
+      "fiend_grip_damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 110 150 150 150"
+        "value"                                           "70 120 170 270 370"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "120 110 100 100 100"
+        "value"                                           "110 105 100 95 90"
         "special_bonus_scepter"                           "-45"
       }
       "illusion_count"

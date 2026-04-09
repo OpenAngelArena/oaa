@@ -22,11 +22,11 @@
     {
       "mana_regen" // for tooltip
       {
-        "value"                                           "0.5 0.75 1.0 1.25 1.75 2.5"
+        "value"                                           "0.4 0.6 0.8 1 1.2 1.4"
       }
       "proximity_mana_regen_tooltip" // for tooltip
       {
-        "value"                                           "1.5 2.25 3.0 3.75 5.25 7.5"
+        "value"                                           "1.2 1.8 2.4 3.0 3.6 4.2"
       }
       "proximity_bonus_factor"                            "3" // for tooltip
       "proximity_bonus_radius" // for tooltip
@@ -34,42 +34,11 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "activatable"
+      "mana_regen_amp" // TODO: add to tooltip
       {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+1"
+        "value"                                           "20 40 60 80 90 100"
       }
-      "activation_spell_amp_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+35.0"
-      }
-      "activation_mana_cost_increase_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+50.0"
-      }
-      "mana_battery_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "=1200"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "mana_battery_mana_pct"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "20"
-      }
-      "activation_duration"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+10.0"
-      }
-      "activation_cooldown"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_crystal_maiden_arcane_overflow"  "+30.0"
-      }
+
       "cd_reduction"                                      "0"
       "mana_cost_reduction_pct"                           "0"
       "bonus_magic_resistance"                            "0"

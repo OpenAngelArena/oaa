@@ -42,9 +42,9 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_second" //OAA
+      "damage_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "45 90 135 135 135"
+        "value"                                           "60 120 180 300 420"
         "special_bonus_unique_earth_spirit_8"             "+30%"
       }
       "damage_duration"

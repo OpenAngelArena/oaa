@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 4" //OAA
+    "AbilityCooldown"                                     "12 10 8 6 4" //OAA, intentionally rescaled
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
     "AbilityValues"
     {
       "projectile_speed"                                  "1500"
-      "stolen_debuff_amp"                                 "10 15 20 25 30" //OAA
+      "stolen_debuff_amp"                                 "0"
       "cast_range_scepter"
       {
         "special_bonus_scepter"                           "1400"
@@ -47,17 +47,17 @@
         "value"                                           "0"
         "special_bonus_unique_rubick_6"                   "+50"
       }
-      "stolen_spell_cooldown_percent"
+      "stolen_spell_cooldown_percent" //OAA, intentionally nerfed
       {
-        "value"                                           "10 20 30 30 30"
+        "value"                                           "10 15 20 25 30"
       }
       "spell_amp_percent"
       {
         "special_bonus_unique_rubick_5"                   "40"
       }
-      "duration" //OAA
+      "duration" //OAA, intentionally nerfed
       {
-        "value"                                           "180 240 300 300 300"
+        "value"                                           "240"
       }
       "curiosity_steal_factor"
       {

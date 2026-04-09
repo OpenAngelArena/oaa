@@ -22,7 +22,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "reincarnate_time"                                  "3.0 3.0 3.0 3.0 3.0"
+      "reincarnate_time"                                  "3.0"
       "movespeed"                                         "-75"
       "attackslow"                                        "-75"
       "slow_duration"                                     "4.0"
@@ -42,11 +42,11 @@
       }
       "shard_skeleton_count" //OAA, because of lag
       {
-        "value"                                           "2 3 4 4 4"
+        "value"                                           "3"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "180 150 120 120 120"
+        "value"                                           "100 95 90 85 80"
         "special_bonus_scepter"                           "-15"
       }
       "trigger_wraithfire_blast"

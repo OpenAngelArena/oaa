@@ -33,7 +33,7 @@
       "min_knockback_duration"                            "0.4"
       "damage"
       {
-        "value"                                           "110 180 250 320 600 900"
+        "value"                                           "110 180 250 320 640 960" // uses special_bonus_unique_huskar_1_oaa
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
@@ -48,7 +48,7 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "17 15 13 11 11 11"
+        "value"                                           "17 15 13 11 10 9"
       }
       "movement_slow_pct"
       {

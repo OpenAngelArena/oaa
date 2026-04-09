@@ -1,29 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Wraith King: Vampiric Spirit
   //=================================================================================================================
   "skeleton_king_vampiric_spirit"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vampiric_aura" //OAA
+      "vampiric_aura" //OAA, because of special_bonus_unique_wraith_king_2 talent buff
       {
         "value"                                           "14"
         "hero_levelup"                                    "+1"
-        "special_bonus_unique_wraith_king_2"              "+10"
+        "special_bonus_unique_wraith_king_2"              "+15"
       }
-      "duration" //OAA
+      "duration"
       {
         "value"                                           "4.25"
         "hero_levelup"                                    "+0.25"
@@ -38,12 +36,13 @@
       {
         "value"                                           "20"
       }
-      "scepter_aura_radius" //OAA
+      "scepter_aura_radius" //OAA, intentionally nerfed
       {
-        "special_bonus_scepter"                           "+1200"
+        "special_bonus_scepter"                           "+900"
         "affected_by_aoe_increase"                        "1"
       }
-      "wraith_damage_penalty" //OAA
+
+      "wraith_damage_penalty" //OAA, additional effect
       {
         "value"                                           "25"
       }

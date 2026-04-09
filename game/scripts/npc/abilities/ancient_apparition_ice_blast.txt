@@ -24,19 +24,19 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100" //OAA, intentional nerf
+    "AbilityCooldown"                                     "100" //OAA, intentionally nerfed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 225 275 325 375" //OAA, intentional nerf
-    "AbilityDamage"                                       "300 400 500 800 1100" //OAA
+    "AbilityManaCost"                                     "175 225 275 325 375" //OAA, intentionally nerfed
+    "AbilityDamage"                                       "300 400 500 800 1100" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "speed"                                             "1500 1500 1500 1500 1500"
-      "damage_per_second"                                 "12 24 36 36 36"
+      "damage_per_second"                                 "12 24 36 72 108"
       "radius_min"
       {
         "value"                                           "275"
@@ -56,14 +56,14 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "frostbite_duration" //OAA
+      "frostbite_duration" //OAA, intentionally nerfed
       {
-        "value"                                           "10 11 12 12 12"
+        "value"                                           "7"
         "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+4"
       }
-      "kill_pct" //OAA
+      "kill_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "12 13 14 14 14"
+        "value"                                           "10 11 12 13 14"
         "special_bonus_unique_ancient_apparition_5"       "+4"
         "display_type"                                    "kHealthPercentage"
       }

@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                     "30" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,14 +38,14 @@
     {
       "armor_bonus"                                       "10 15 20 25 30"
       "charge_speed"                                      "1200"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "275 375 475 475 475"
-        "special_bonus_unique_axe_5"                      "+150"
+        "value"                                           "275 475 675 1075 1475"
+        "special_bonus_unique_axe_5"                      "+300"
       }
       "speed_bonus"
       {
-        "value"                                           "20 25 30 30 30"
+        "value"                                           "20 25 30 35 40"
         "display_type"                                    "kBuffPercentage"
       }
       "speed_duration"
@@ -60,7 +60,7 @@
       }
       "armor_per_stack"
       {
-        "value"                                           "1 1.5 2 2 2"
+        "value"                                           "1 1.5 2 2.25 2.5"
       }
     }
   }

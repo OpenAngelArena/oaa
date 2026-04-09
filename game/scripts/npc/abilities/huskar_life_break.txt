@@ -41,12 +41,12 @@
       "health_damage"
       {
         "value"                                           "0.32 0.38 0.44 0.5 0.56"
-        "special_bonus_unique_huskar"                     "+0.22"
+        "special_bonus_unique_huskar"                     "+0.22" // unused in OAA
       }
       "tooltip_health_damage"
       {
         "value"                                           "32 38 44 50 56"
-        "special_bonus_unique_huskar"                     "+22"
+        "special_bonus_unique_huskar"                     "+22" // unused in OAA
       }
       "tooltip_health_cost_percent"
       {
@@ -54,7 +54,7 @@
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "AbilityDuration"
+      "AbilityDuration" // Life Break uses AbilityDuration for slow duration
       {
         "value"                                           "3 4 5 6 7"
         "special_bonus_unique_huskar_4"                   "+2"

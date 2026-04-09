@@ -24,14 +24,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aftershock_range" //OAA, intentional buff
+      "aftershock_range"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "aftershock_damage" //OAA
       {
-        "value"                                           "65 90 115 140 140 140"
+        "value"                                           "65 90 115 140 280 560"
         "special_bonus_unique_earthshaker_6"              "+50"
       }
       "aftershock_range_tooltip" //OAA, intentional buff

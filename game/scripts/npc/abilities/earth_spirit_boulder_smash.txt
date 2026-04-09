@@ -36,9 +36,9 @@
       "duration"                                          "1.75 2.5 3.25 4 4.75 5.5"
       "speed"                                             "900"
       "creep_multiplier"                                  "1.0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "20.0 17.0 14.0 11.0 11.0 11.0"
+        "value"                                           "14 13 12 11 10 9"
         "special_bonus_unique_earth_spirit_7"             "-2.0"
       }
       "radius"
@@ -51,10 +51,10 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage" //OAA
+      "rock_damage" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "110 180 250 320 320 320"
-        "special_bonus_unique_earth_spirit_6"             "+80"
+        "value"                                           "110 180 250 320 640 960"
+        "special_bonus_unique_earth_spirit_6"             "+100"
       }
       "unit_distance"
       {

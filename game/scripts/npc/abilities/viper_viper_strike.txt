@@ -36,9 +36,9 @@
         "value"                                           "6"
         "special_bonus_unique_viper_4"                    "+1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 110 150 150 150"
+        "value"                                           "70 140 210 350 490"
         "special_bonus_unique_viper_2"                    "+70"
       }
       "bonus_movement_speed"
@@ -51,15 +51,15 @@
         "value"                                           "100 140 180 220 260"
         "display_type"                                    "kDebuffValue"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "50 40 30 30 30"
-        "special_bonus_unique_viper_8"                    "-50%"
+        "value"                                           "40 35 30 25 20"
+        "special_bonus_unique_viper_8"                    "-50%" // unused
       }
       "AbilityManaCost"
       {
         "value"                                           "100 150 200 250 300"
-        "special_bonus_unique_viper_8"                    "-50%"
+        "special_bonus_unique_viper_8"                    "-50%" // unused
       }
       "does_break"
       {

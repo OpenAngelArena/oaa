@@ -27,9 +27,9 @@
       "attackspeed_slow"                                  "-30 -45 -60 -75 -90 -105"
       "duration"                                          "4"
       "vision_duration"                                   "6.0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "11 10 9 8 8 8"
+        "value"                                           "13 12 11 10 9 8"
         "special_bonus_unique_crystal_maiden_5"           "-4.5"
       }
       "radius"
@@ -37,7 +37,7 @@
         "value"                                           "425"
         "affected_by_aoe_increase"                        "1"
       }
-      "nova_damage" //OAA
+      "nova_damage" //OAA, intentionally rescaled
       {
         "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_crystal_maiden_2"           "+300"

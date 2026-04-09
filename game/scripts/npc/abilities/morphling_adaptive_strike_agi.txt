@@ -31,14 +31,14 @@
     "AbilityValues"
     {
       "projectile_speed"                                  "1150"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "17 14 11 8 8 8"
+        "value"                                           "14 12 10 8 8 8"
         "special_bonus_unique_morphling_7"                "-3"
       }
-      "damage_base" //OAA
+      "damage_base"
       {
-        "value"                                           "50 70 90 110 110 110"
+        "value"                                           "50 70 90 110 220 330"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_min"
@@ -57,7 +57,7 @@
       }
       "stun_max"
       {
-        "value"                                           "1.4 1.8 2.2 2.6 2.6 2.6"
+        "value"                                           "1.4 1.8 2.2 2.6 2.7 2.8"
       }
       "knockback_min"
       {
