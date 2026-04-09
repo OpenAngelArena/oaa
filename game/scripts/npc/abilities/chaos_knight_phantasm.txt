@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chaos Knight: Phantasm
+  // Chaos Knight: Phantasm FIXEDFUCK
   //=================================================================================================================
   "chaos_knight_phantasm"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75"
+    "AbilityCooldown"                                     "85 80 75 70 65"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +34,11 @@
     "AbilityValues"
     {
       "images_count"                                      "3"
-      "outgoing_damage"                                   "-50 -25 0 25 50"
-      "invuln_duration"                                   "0.5"
-      "magic_resistance"                                  "0"
       "illusion_duration" //OAA, intentionally buffed
       {
         "value"                                           "35"
       }
+      "outgoing_damage"                                   "-50 -25 0 25 50"
       "outgoing_damage_tooltip"
       {
         "value"                                           "50 75 100 125 150"
@@ -59,11 +57,13 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "invuln_duration"                                   "0.5"
       "vision_radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
+      "magic_resistance"                                  "0"
       "bonus_illusion_chance"
       {
         "value"                                           "0"

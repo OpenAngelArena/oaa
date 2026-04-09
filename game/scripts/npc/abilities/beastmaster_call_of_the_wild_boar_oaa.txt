@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild Boar (OAA rework)
+  // Beastmaster: Call of the Wild Boar (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "beastmaster_call_of_the_wild_boar_oaa"
   {
@@ -15,8 +15,6 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-
-    //"LinkedAbility"                                       "beastmaster_call_of_the_wild_hawk"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +46,6 @@
       "AbilityCooldown"
       {
         "value"                                           "30 28 26 24 22 20"
-        "special_bonus_unique_beastmaster_3"              "-5"
       }
     }
   }

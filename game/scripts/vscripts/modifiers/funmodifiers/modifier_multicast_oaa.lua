@@ -42,7 +42,7 @@ function modifier_multicast_oaa:OnCreated()
     arc_warden_tempest_double = 1,                       -- multiple Tempest Doubles and lag
     bane_nightmare_end = 1,                              -- useless
     --beastmaster_call_of_the_wild_boar_oaa = 1,         -- lag
-    --beastmaster_call_of_the_wild_hawk = 1,             -- lag
+    beastmaster_summon_raptor = 1,                       -- lag
     brewmaster_primal_split = 1,                         -- bugs out?
     broodmother_spin_web = 1,                            -- bugs out the screen
     centaur_mount = 1,                                   -- bugs out?

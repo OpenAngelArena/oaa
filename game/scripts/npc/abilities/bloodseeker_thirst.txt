@@ -1,62 +1,58 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseeker's Thirst
+  // Bloodseeker: Thirst FIXEDFUCK
   //=================================================================================================================
   "bloodseeker_thirst"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_bonus_pct"                                     "100"
-      "max_bonus_pct"                                     "25"
-      "visibility_threshold_pct"                          "25"
-      "invis_threshold_pct"                               "25"
-      "linger_duration"                                   "4.0"
       "AbilityManaCost"
       {
         "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "50"
+        "special_bonus_facet_bloodseeker_bloodrush"       "50" // unused
       }
+      "min_bonus_pct"                                     "100"
       "bonus_movement_speed"
       {
         "value"                                           "10 20 30 40 45 50"
-        "special_bonus_unique_bloodseeker_4"              "+18"
+        "special_bonus_unique_bloodseeker_4"              "+15"
       }
       "active_movement_speed"
       {
         "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "6 12 18 24 24 24"
+        "special_bonus_facet_bloodseeker_bloodrush"       "6 12 18 24 24 24" // unused
       }
       "active_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "5"
+        "special_bonus_facet_bloodseeker_bloodrush"       "5" // unused
       }
       "inactive_penalty_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "+50.0"
+        "special_bonus_facet_bloodseeker_bloodrush"       "+50.0" // unused
       }
       "sanguivore_multiplier"
       {
         "value"                                           "0"
-        "special_bonus_facet_bloodseeker_bloodrush"       "2"
+        "special_bonus_facet_bloodseeker_bloodrush"       "2" // unused
       }
+      "max_bonus_pct"                                     "25"
+      "visibility_threshold_pct"                          "25"
+      "invis_threshold_pct"                               "25"
+      "linger_duration"                                   "4.0"
     }
   }
 }

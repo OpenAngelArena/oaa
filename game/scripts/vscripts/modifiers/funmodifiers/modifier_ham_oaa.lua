@@ -22,7 +22,7 @@ function modifier_ham_oaa:OnCreated()
   self.ignore_abilities = {
     abaddon_borrowed_time_oaa = true,                       -- invulnerability
     beastmaster_call_of_the_wild_boar_oaa = true,           -- lag
-    beastmaster_call_of_the_wild_hawk = true,               -- lag
+    beastmaster_summon_raptor = true,                       -- lag
     brewmaster_primal_split = true,                         -- invulnerability
     dark_willow_shadow_realm = true,                        -- untargettable
     dazzle_shallow_grave = true,                            -- invulnerability

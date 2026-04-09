@@ -431,7 +431,7 @@ if IsServer() then
         item_radiance_4 = true,
         item_radiance_5 = true,
         item_stormcrafter = true,
-        beastmaster_call_of_the_wild_hawk = true,
+        beastmaster_summon_raptor = true,
         brewmaster_fire_permanent_immolation = true,
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
