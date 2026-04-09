@@ -152,6 +152,7 @@ function modifier_item_spell_breaker_active:DeclareFunctions()
   }
 end
 
+--[[
 local aoe_keywords = {
   aoe = true,
   area_of_effect = true,
@@ -191,6 +192,7 @@ local other_keywords = {
   wave_width = true,
   width = true,
 }
+]]
 
 local ignored_abilities = {
   arc_warden_flux = true,

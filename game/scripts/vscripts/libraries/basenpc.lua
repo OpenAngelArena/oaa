@@ -623,7 +623,7 @@ if IsServer() then
       end
     end
 
-    local tp_scroll = parent:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+    local tp_scroll = self:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
     if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
       tp_scroll:OnUnequip()
       tp_scroll:OnEquip()
