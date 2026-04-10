@@ -1,50 +1,46 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ogre Magi: Multicast
+  // Ogre Magi: Multicast FIXEDFUCK
   //=================================================================================================================
   "ogre_magi_multicast"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
+    "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "one_tooltip"                                       "1"
       "multicast_2_times"
       {
         "value"                                           "75"
         "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
         "dynamic_value"                                   "true"
       }
-      "multicast_3_times" //OAA
+      "multicast_3_times" //OAA, intentionally rescaled
       {
-        "value"                                           "0 30 30 30 30"
+        "value"                                           "0 29 30 31 32"
         "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
         "dynamic_value"                                   "true"
       }
-      "multicast_4_times" //OAA
+      "multicast_4_times" //OAA, intentionally rescaled
       {
-        "value"                                           "0 0 15 15 15"
+        "value"                                           "0 0 15 16 17"
         "special_bonus_unique_ogre_magi_multicast_chance"  "+10"
         "dynamic_value"                                   "true"
       }
-      "strength_for_one_pct"
+      "strength_for_one_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "16"
+        "value"                                           "36"
       }
-      "strength_mult" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_ogre_magi_fat_chance"        "=0.03"
-      }
+      "one_tooltip"                                       "1"
     }
   }
 }

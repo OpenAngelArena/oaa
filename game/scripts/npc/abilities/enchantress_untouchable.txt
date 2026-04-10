@@ -19,10 +19,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_attack_speed" //OAA
+      "slow_attack_speed" //OAA, intentionally nerfed talent
       {
-        "value"                                           "-110 -160 -210 -210 -210"
-        "special_bonus_unique_enchantress_3"              "-80"
+        "value"                                           "-110 -160 -210 -260 -310"
+        "special_bonus_unique_enchantress_3"              "-50"
       }
       "slow_duration"
       {

@@ -35,15 +35,15 @@
       "illusion_duration"
       {
         "value"                                           "34.0"
-        "special_bonus_unique_terrorblade_5"              "+10"
+        "special_bonus_unique_terrorblade_5"              "+8"
       }
       "illusion_outgoing_damage"
       {
-        "value"                                           "-80 -75 -70 -65 -55 -45"
+        "value"                                           "-75 -70 -65 -60 -50 -40"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                           "20 25 30 35 45 55"
+        "value"                                           "25 30 35 40 50 60"
       }
       "AbilityCooldown"
       {
@@ -54,11 +54,11 @@
       "illusion_incoming_damage_total_tooltip"            "275 250 225 200 175 150"
       "creep_illusion_outgoing_damage"
       {
-        "value"                                           "-55 -45 -35 -25 -15 0"
+        "value"                                           "-45 -40 -35 -30 -20 -10"
       }
       "creep_illusion_outgoing_tooltip"
       {
-        "value"                                           "45 55 65 75 85 100"
+        "value"                                           "55 60 65 70 80 90"
       }
       "creep_illusion_incoming_damage"                    "0 -10 -20 -30 -40 -50"
       "creep_illusion_incoming_damage_total_tooltip"      "100 90 80 70 60 50"

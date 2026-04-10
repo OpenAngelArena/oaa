@@ -33,20 +33,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "deniable_pct"                                      "25 25 25 25 25"
-      "duration" //OAA, intentional nerf
+      "deniable_pct"                                      "25"
+      "duration" //OAA, intentionally nerfed
       {
-        "value"                                           "12 14 16 16 16"
+        "value"                                           "12 13 14 15 16"
         "special_bonus_unique_doom_11"                    "+0"
         "dynamic_value"                                   "true"
       }
-      "damage"
+      "damage" // intentionally scales poorly
       {
-        "value"                                           "25 45 66 105 145"
+        "value"                                           "22 44 66 110 154"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "140 130 120 120 120"
+        "value"                                           "120"
         "special_bonus_unique_doom_9"                     "-10"
       }
       "does_break"
@@ -59,21 +59,21 @@
         "value"                                           "0"
         "special_bonus_unique_doom_10"                    "+1"
       }
-      "scepter_aura_radius" //OAA, intentional nerf
+      "scepter_aura_radius" //OAA, intentionally nerfed
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+350"
+        "special_bonus_scepter"                           "+275"
         "affected_by_aoe_increase"                        "1"
       }
-      "applies_dispel_to_self"
+      "applies_dispel_to_self" // unused
       {
         "special_bonus_scepter"                           "0"
       }
-      "upgrade_interval"
+      "upgrade_interval" // unused
       {
         "value"                                           "0.0"
       }
-      "upgrade_amount"
+      "upgrade_amount" // unused
       {
         "value"                                           "0.0"
       }

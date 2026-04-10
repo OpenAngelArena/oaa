@@ -12,7 +12,14 @@ LinkLuaModifier("modifier_item_dagger_of_moriah_frostbite", "items/dagger_of_mor
 ---------------------------------------------------------------------------------------------------
 
 function item_dagger_of_moriah_1:GetIntrinsicModifierName()
-  return "modifier_item_dagger_of_moriah_passive"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_dagger_of_moriah_1:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_dagger_of_moriah_passive",
+    "modifier_item_spell_lifesteal_oaa",
+  }
 end
 
 function item_dagger_of_moriah_1:OnSpellStart()
@@ -72,35 +79,41 @@ end
 function modifier_item_dagger_of_moriah_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    --self.str = ability:GetSpecialValueFor("bonus_all_stats")
+    --self.agi = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_intellect")
+    --self.armor = ability:GetSpecialValueFor("bonus_armor")
+    --self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    --self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
+    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
 end
 
 function modifier_item_dagger_of_moriah_passive:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    --MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    --MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    --MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
   }
 end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierBonusStats_Strength()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierBonusStats_Agility()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierBonusStats_Intellect()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierPhysicalArmorBonus()
@@ -113,6 +126,14 @@ end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierConstantManaRegen()
   return self.mp_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_dagger_of_moriah_passive:GetModifierHealthBonus()
+  return self.bonus_hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_dagger_of_moriah_passive:GetModifierManaBonus()
+  return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
 function modifier_item_dagger_of_moriah_passive:IsAura()
@@ -269,11 +290,6 @@ if IsServer() then
       -- return 0
     -- end
 
-    -- Prevent stacking with Veil of Discord and Shiva's Guard
-    -- if damaged_unit:HasModifier("modifier_item_veil_of_discord_debuff") then
-      -- return 0
-    -- end
-
     if inflictor and event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and event.damage_type == DAMAGE_TYPE_MAGICAL then
       -- Ignore item damage
       if inflictor:IsItem() then
@@ -394,7 +410,7 @@ end
 function modifier_item_dagger_of_moriah_frostbite:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_percent")
+    self.heal_reduction = ability:GetSpecialValueFor("health_restoration")
   else
     self.heal_reduction = -40
   end
@@ -429,20 +445,25 @@ end
 
 function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_reduction)
+function modifier_item_dagger_of_moriah_frostbite:OnTooltip()
+  return self.heal_reduction
 end
 
-function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierHealAmplify_PercentageTarget()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
+
+-- function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_reduction)
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_item_dagger_of_moriah_frostbite:GetModifierLifestealRegenAmplify_Percentage()

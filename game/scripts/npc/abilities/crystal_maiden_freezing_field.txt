@@ -26,29 +26,29 @@
       "AbilityDuration"                                   "10.0"
       "AbilityManaCost"                                   "200 400 600 800 1000"
       "explosion_interval"                                "0.1"
-      "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA
+      "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA. intentionally buffed
       "attack_slow"                                       "-80 -120 -160 -200 -240"
       "slow_duration"                                     "1.0"
       "explosion_min_dist"                                "195"
-      "radius" //OAA
+      "radius" //OAA, intentionally nerfed
       {
-        "value"                                           "810"
+        "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "explosion_radius" //OAA
+      "explosion_radius" //OAA, intentionally nerfed
       {
-        "value"                                           "320"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "explosion_max_dist" //OAA
+      "explosion_max_dist" //OAA, intentionally nerfed
       {
-        "value"                                           "785"
+        "value"                                           "770"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "110 180 250 250 250"
-        "special_bonus_unique_crystal_maiden_3"           "+50"
+        "value"                                           "110 185 260 410 560"
+        "special_bonus_unique_crystal_maiden_3"           "+75"
       }
       "frostbite_delay"
       {

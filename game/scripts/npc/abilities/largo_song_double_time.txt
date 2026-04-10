@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Amphibian Rhapsody — Double Time
+  // LARGO: Amphibian Rhapsody — Hotfeet Hustle
   //=================================================================================================================
   "largo_song_double_time"
   {
@@ -38,12 +38,12 @@
       }
       "movespeed_bonus_burst"
       {
-        "value"                                           "16 20 24 34 40"
+        "value"                                           "16 20 24 28 32"
         "special_bonus_unique_largo_7"                    "+30%"
       }
       "slow_resistance"
       {
-        "value"                                           "70 75 80 95 100"
+        "value"                                           "70 75 80 85 90"
       }
       "movement_burst_duration"
       {

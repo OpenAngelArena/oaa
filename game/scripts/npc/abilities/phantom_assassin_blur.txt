@@ -5,16 +5,14 @@
   //=================================================================================================================
   "phantom_assassin_blur"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "20" //OAA
+      "duration"                                          "20" //OAA, intentionally nerfed
       "radius"                                            "500"
       "fade_duration"                                     "0.8"
       "break_on_attack"                                   "0"
@@ -62,9 +60,9 @@
       {
         "special_bonus_shard"                             "60"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "45"
+        "value"                                           "40"
         "special_bonus_shard"                             "-10"
       }
     }

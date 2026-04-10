@@ -148,17 +148,18 @@ function modifier_item_devastator_oaa_desolator:GetAttributes()
 end
 
 function modifier_item_devastator_oaa_desolator:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-  end
-
+  self:OnRefresh()
   if IsServer() then
     self:GetParent():ChangeAttackProjectile()
   end
 end
 
-modifier_item_devastator_oaa_desolator.OnRefresh = modifier_item_devastator_oaa_desolator.OnCreated
+function modifier_item_devastator_oaa_desolator:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+  end
+end
 
 function modifier_item_devastator_oaa_desolator:OnDestroy()
   local parent = self:GetParent()

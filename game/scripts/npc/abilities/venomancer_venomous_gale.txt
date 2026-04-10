@@ -42,9 +42,9 @@
         "value"                                           "25 50 75 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "tick_damage" //OAA
+      "tick_damage"
       {
-        "value"                                           "10 40 70 100 100 100"
+        "value"                                           "10 40 70 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
@@ -81,10 +81,9 @@
         "value"                                           "21 20 19 18 17 16"
         "special_bonus_unique_venomancer_3"               "-5"
       }
-      "explosion_damage" //OAA
+      "explosion_damage"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "75 150 225 300 600 900"
       }
       "explosion_stun_duration"
       {

@@ -25,9 +25,9 @@
       "attack_damage_per_stone"                           "2.5"
       "attack_damage_per_stone_used"                      "7.5"
       "buff_duration"                                     "10"
-      "duration" //OAA
+      "duration" //OAA, intentionally nerfed to reduce number of entities on the map
       {
-        "value"                                           "60.0"
+        "value"                                           "40"
       }
       "polarization_distance"
       {

@@ -5,14 +5,13 @@
   //=================================================================================================================
   "nyx_assassin_vendetta"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -26,9 +25,9 @@
       "mana_regen_rate_scepter"                           "3"
       "attack_animation_bonus"                            "70"
       "attack_range_bonus"                                "75"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "80 70 60 60 60"
+        "value"                                           "70 65 60 55 50"
         "special_bonus_shard"                             "-10"
       }
       "AbilityManaCost"
@@ -37,15 +36,15 @@
       }
       "duration"
       {
-        "value"                                           "60"
+        "value"                                           "45 50 55 60 65"
       }
       "movement_speed"
       {
         "value"                                           "16 18 20 22 24"
       }
-      "bonus_damage" //OAA
+      "bonus_damage" //OAA, intentionally buffed
       {
-        "value"                                           "300 400 500 500 500"
+        "value"                                           "300 450 600 900 1200"
         "special_bonus_unique_nyx_vendetta_damage"        "+50"
         "CalculateSpellDamageTooltip"                     "1"
       }

@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Arc warden: Tempest Double
+  // Arc Warden: Tempest Double FIXEDFUCK
   //=================================================================================================================
   "arc_warden_tempest_double"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "HasShardUpgrade"                                     "1"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -20,16 +20,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0" //OAA
+    "AbilityManaCost"                                     "0" //OAA, Valve forgot about it
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bounty"                                            "180 240 300 480 780"
-      "duration"                                          "18 21 24 27 30"
-      "max_blind_chance"                                  "35.0"
-      "max_slow"                                          "35.0"
       "AbilityCastRange"
       {
         "value"                                           "700"
@@ -38,6 +34,7 @@
       {
         "value"                                           "60 55 50 45 40"
       }
+      "bounty"                                            "180 240 300 480 780" // unused
       "bounty_gold"
       {
         "value"                                           "70"
@@ -48,6 +45,9 @@
         "value"                                           "70"
         "hero_levelup"                                    "+10"
       }
+      "duration"                                          "18 21 24 27 30"
+      "max_blind_chance"                                  "35.0"
+      "max_slow"                                          "35.0"
       "has_debuff"
       {
         "value"                                           "1"

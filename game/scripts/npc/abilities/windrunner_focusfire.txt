@@ -51,11 +51,11 @@
       {
         "special_bonus_facet_windrunner_whirlwind"        "7 9 11 11 11" // unused
       }
-      "focusfire_damage_reduction"
+      "focusfire_damage_reduction" //OAA, because of special_bonus_unique_windranger_8 buff
       {
         "value"                                           "-25"
         "special_bonus_facet_windrunner_whirlwind"        "-5" // unused
-        "special_bonus_unique_windranger_8"               "+10"
+        "special_bonus_unique_windranger_8"               "+15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

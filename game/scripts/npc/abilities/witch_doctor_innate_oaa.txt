@@ -20,8 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_prevent_percent"                              "-10 -11 -12 -13 -14 -15" // reduces only healing
-      "health_restoration"                                "-10 -11 -12 -13 -14 -15" // reduces everything else
+      "health_restoration"                                "-10 -11 -12 -13 -14 -15" // reduces all health restoration
       "duration"                                          "3"
     }
   }

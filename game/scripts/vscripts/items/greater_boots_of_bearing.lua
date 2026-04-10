@@ -380,6 +380,7 @@ function modifier_item_greater_boots_of_bearing_endurance_aura_effect:OnCreated(
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed = ability:GetSpecialValueFor("aura_movement_speed")
+    self.hp_regen = ability:GetSpecialValueFor("aura_health_regen")
   end
 end
 
@@ -388,6 +389,7 @@ modifier_item_greater_boots_of_bearing_endurance_aura_effect.OnRefresh = modifie
 function modifier_item_greater_boots_of_bearing_endurance_aura_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
   }
 end
 
@@ -397,6 +399,14 @@ function modifier_item_greater_boots_of_bearing_endurance_aura_effect:GetModifie
     return 0
   end
   return self.move_speed or self:GetAbility():GetSpecialValueFor("aura_movement_speed")
+end
+
+function modifier_item_greater_boots_of_bearing_endurance_aura_effect:GetModifierConstantHealthRegen()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_boots_of_bearing_aura") or parent:HasModifier("modifier_item_ancient_janggo_aura") or parent:HasModifier("modifier_item_headdress_aura") then
+    return 0
+  end
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("aura_health_regen")
 end
 
 function modifier_item_greater_boots_of_bearing_endurance_aura_effect:GetTexture()

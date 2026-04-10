@@ -1,38 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Fiend: Necromastery (Innate)
+  // Shadow Fiend: Necromastery (Innate) FIXEDFUCK
   //=================================================================================================================
   "nevermore_necromastery"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "souls_per_kill"                                    "1"
-      "souls_per_hero_kill"                               "4"
-      "necromastery_soul_release"                         "0.7"
-      "attack_range_bonus"                                "0"
-      "soul_release_tooltip"                              "30.0"
-      "necromastery_damage_per_soul" //OAA
+      "necromastery_damage_per_soul" //OAA, intentionally nerfed hero_levelup
       {
         "value"                                           "1.35"
-        "hero_levelup"                                    "+0.15"
+        "hero_levelup"                                    "+0.1"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_unique_nevermore_1"                "+1"
       }
       "necromastery_max_souls"
       {
         "value"                                           "20"
         "special_bonus_unique_nevermore_1"                "+5"
       }
+      "souls_per_kill"                                    "1"
+      "souls_per_hero_kill"                               "4"
+      "necromastery_soul_release"                         "0.7"
+      "attack_range_bonus"                                "0"
       "shard_souls_per_kill"
       {
         "special_bonus_shard"                             "2"
@@ -45,7 +42,8 @@
       {
         "special_bonus_shard"                             "0.4"
       }
-      "max_soul_increase_on_hero_kill" //OAA, because fuck this shit Valve
+      "soul_release_tooltip"                              "30.0"
+      "max_soul_increase_on_hero_kill"
       {
         "value"                                           "0"
       }

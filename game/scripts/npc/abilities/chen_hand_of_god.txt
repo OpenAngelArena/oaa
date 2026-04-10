@@ -29,22 +29,22 @@
     "AbilityValues"
     {
       "hot_duration"                                      "10"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "150 130 110 110 110"
+        "value"                                           "120 110 100 90 80"
         "special_bonus_scepter"                           "-40"
       }
-      "heal_amount" //OAA
+      "heal_amount" //OAA, intentionally buffed
       {
-        "value"                                           "200 300 400 400 400"
+        "value"                                           "200 400 600 1200 1800"
       }
-      "heal_per_second" //OAA
+      "heal_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "20 30 40 40 40"
+        "value"                                           "20 40 60 120 180"
       }
       "ancient_creeps_scepter"
       {
-        "special_bonus_shard"                             "1 2 3 3 3"
+        "special_bonus_shard"                             "1 2 3 4 5"
       }
       "does_purge"
       {

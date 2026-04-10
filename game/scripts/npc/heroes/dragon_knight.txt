@@ -1,12 +1,12 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Dragon Knight
+  // HERO: Dragon Knight FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_dragon_knight"
   {
-    //"Ability5"                                            "dragon_knight_elder_dragon_form" // replaces generic_hidden
-    //"Ability6"                                            "dragon_knight_elder_dragon_form_oaa" // replaces dragon_knight_elder_dragon_form
+    "Ability6"                                            "dragon_knight_elder_dragon_form_oaa" // replaces dragon_knight_elder_dragon_form
+    "Ability7"                                            "dragon_knight_elder_dragon_form" // replaces undefined
     "Ability8"                                            "dragon_knight_innates_oaa" // replaces undefined
 
     "Ability10"                                           "special_bonus_strength_15" // replaces special_bonus_attack_damage_15
@@ -19,7 +19,7 @@
     "Ability15"                                           "special_bonus_unique_dragon_knight" // replaces special_bonus_unique_dragon_knight_9
 
     "Ability16"                                           "special_bonus_unique_dragon_knight_9" // replaces special_bonus_unique_dragon_knight
-    //"Ability17"                                           "special_bonus_unique_dragon_knight_8"
+    //"Ability17"                                           "special_bonus_unique_dragon_knight_wyrms_wrath_damage"
 
     // special_bonus_unique_dragon_knight - Dragon Blood HP Regen/Armor                                                       - 25 -> 20
     // special_bonus_unique_dragon_knight_2 - Dragon Tail Stun                                                                - 15

@@ -49,9 +49,9 @@
       "duration"                                          "6.0"
       "slow_duration"                                     "0.3"
       "movement_slow"                                     "100"
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "18"
+        "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_legion_commander_9"         "-2"
       }
       "shield_per_damage_pct" //OAA, intentionally buffed

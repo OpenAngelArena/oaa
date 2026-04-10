@@ -23,7 +23,7 @@ end
 function modifier_healer_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
   }
 end
 
@@ -31,9 +31,9 @@ function modifier_healer_oaa:GetModifierHealAmplify_PercentageSource()
   return self.heal_amp
 end
 
-function modifier_healer_oaa:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_amp
-end
+-- function modifier_healer_oaa:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_amp
+-- end
 
 function modifier_healer_oaa:GetTexture()
   return "item_holy_locket"

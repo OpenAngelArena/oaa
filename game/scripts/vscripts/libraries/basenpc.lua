@@ -431,7 +431,7 @@ if IsServer() then
         item_radiance_4 = true,
         item_radiance_5 = true,
         item_stormcrafter = true,
-        beastmaster_call_of_the_wild_hawk = true,
+        beastmaster_summon_raptor = true,
         brewmaster_fire_permanent_immolation = true,
         ember_spirit_immolation = true,
         furion_wrath_of_nature = true, -- because of random bounces
@@ -605,6 +605,36 @@ if IsServer() then
       return self:AddNewModifier(caster, ability, mod_name, {duration = duration})
     end
   end
+
+  -- This is for refreshing item stats - unused
+  function CDOTA_BaseNPC:ReEquipAllItems()
+    local max_slot = DOTA_ITEM_SLOT_6
+    if self:HasModifier("modifier_spoons_stash_oaa") then
+      max_slot = DOTA_ITEM_SLOT_9
+    end
+    for i = DOTA_ITEM_SLOT_1, max_slot do
+      local item = self:GetItemInSlot(i)
+      if item then
+        local name = item:GetAbilityName()
+        if not string.find(name, "ultimate_scepter") and not string.find(name, "aghanims_scepter") then
+          item:OnUnequip()
+          item:OnEquip()
+        end
+      end
+    end
+
+    local tp_scroll = self:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+    if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
+      tp_scroll:OnUnequip()
+      tp_scroll:OnEquip()
+    end
+
+    -- local neutral_item = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+    -- if neutral_item then
+    --   neutral_item:OnUnequip()
+    --   neutral_item:OnEquip()
+    -- end
+  end
 end
 
 -- On Server:
@@ -740,7 +770,7 @@ if CDOTA_BaseNPC then
       --"modifier_sand_king_scorpion_strike",                     -- Sand King E
       --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
       "modifier_sohei_flurry_self",
-      "modifier_tiny_tree_channel",
+      --"modifier_tiny_tree_channel",
       --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
     }
     for _, v in pairs(list) do

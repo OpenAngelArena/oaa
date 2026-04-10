@@ -1,19 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Visage: Summon Familiars Stone Form Self Cast
+  // Visage: Summon Familiars Stone Form Self Cast FIXEDFUCK
   //=================================================================================================================
   "visage_stone_form_self_cast"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
     "DependentOnAbility"                                  "visage_summon_familiars"
 
     // Casting
@@ -32,16 +30,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_delay"                                        "0.55"
-      "stun_damage"                                       "100 180 260 500 740" //OAA
-      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
-      "stone_duration"                                    "6.0"
-      "hp_regen"                                          "150 175 200 300 400"
       "stun_radius"
       {
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
+      "stun_delay"                                        "0.55"
+      "stun_damage"                                       "100 180 260 500 740" //OAA, intentionally buffed
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "stone_duration"                                    "6.0"
+      "hp_regen"                                          "150 175 200 275 475" // it needs to be equal or higher than familiar hp divided by stone_duration
       "AbilityCastRange"
       {
         "value"                                           "0"

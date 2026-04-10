@@ -14,15 +14,15 @@
 
     "AbilityValues"
     {
-      "damage_amplification" //OAA, intentionally nerfed
+      "damage_amplification" //OAA, intentionally nerfed both base value and hero_levelup
       {
-        "value"                                           "4"
-        "hero_levelup"                                    "+0.3"
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.2"
       }
-      "heal_amplification" //OAA, intentionally nerfed
+      "heal_amplification" //OAA, intentionally nerfed both base value and hero_levelup
       {
-        "value"                                           "4"
-        "hero_levelup"                                    "+0.3"
+        "value"                                           "2"
+        "hero_levelup"                                    "+0.2"
       }
       "current_damage_amp"
       {

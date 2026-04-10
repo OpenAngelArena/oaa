@@ -10,10 +10,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -40,13 +39,13 @@
       }
       "burst_damage"
       {
-        "value"                                           "20 30 40 40 40"
+        "value"                                           "20 30 40 50 60"
         "special_bonus_unique_largo_7"                    "+12"
       }
       "damage_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+6 +12 +18 +18 +18"
+        "special_bonus_scepter"                           "+6 +10 +14 +18 +22"
         "special_bonus_unique_largo_7"                    "+6"
       }
       "magic_damage_bonus"

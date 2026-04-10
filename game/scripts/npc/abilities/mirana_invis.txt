@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mirana Moonlight Shadow
+  // Mirana: Moonlight Shadow
   //=================================================================================================================
   "mirana_invis"
   {
@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,10 +32,10 @@
       "duration"                                          "11" //OAA
       "bonus_movement_speed"                              "9 12 15 18 21"
       "bonus_outgoing_damage_pct"                         "9.0 12.0 15.0 18.0 21.0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "120 110 100 100 100"
-        "special_bonus_unique_mirana_4"                   "-30"
+        "value"                                           "110 105 100 95 90"
+        "special_bonus_unique_mirana_4"                   "-30" // unused
       }
       "evasion"
       {

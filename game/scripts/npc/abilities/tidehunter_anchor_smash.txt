@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tidehunter: Anchor Smash
+  // Tidehunter: Anchor Smash FIXEDFUCK
   //=================================================================================================================
   "tidehunter_anchor_smash"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,7 +32,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "reduction_duration"                                "6.0 6.0 6.0 6.0 6.0 6.0"
       "attack_damage"
       {
         "value"                                           "50 100 150 200 250 300"
@@ -45,10 +44,16 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "reduction_duration"                                "6.0"
       "targets_buildings"
       {
         "value"                                           "0"
         "special_bonus_unique_tidehunter_10"              "+1"
+      }
+      "building_pct_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_tidehunter_10"              "+50"
       }
       "smash_on_attack"
       {

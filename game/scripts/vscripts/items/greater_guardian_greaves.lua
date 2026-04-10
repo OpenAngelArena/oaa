@@ -99,6 +99,7 @@ function modifier_item_greater_guardian_greaves:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_ms = ability:GetSpecialValueFor("bonus_movement")
+    self.mana = ability:GetSpecialValueFor("bonus_mana")
     self.armor = ability:GetSpecialValueFor("bonus_armor") + ability:GetSpecialValueFor("aura_armor")
     self.mana_regen = ability:GetSpecialValueFor("mana_regen") + ability:GetSpecialValueFor("aura_mana_regen")
     self.hp_regen = ability:GetSpecialValueFor("aura_health_regen")
@@ -136,6 +137,7 @@ modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardia
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
@@ -144,6 +146,10 @@ end
 
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
   return self.bonus_ms or self:GetAbility():GetSpecialValueFor("bonus_movement")
+end
+
+function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
+  return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()

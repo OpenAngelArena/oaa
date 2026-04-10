@@ -32,13 +32,13 @@
       {
         "special_bonus_shard"                             "0"
       }
-      "shard_bonus_damage" //OAA, this applies to every attack, not just Phase Shift attack
+      "shard_bonus_damage" //OAA, intentionally rescaled; this applies to every attack, not just Phase Shift attack
       {
-        "special_bonus_shard"                             "20"
+        "special_bonus_shard"                             "5 10 15 20 40 60"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "8 7.5 7 6.5 6.5 6.5"
+        "value"                                           "7.25 7.0 6.75 6.5 6.25 6.0"
       }
     }
   }

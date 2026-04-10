@@ -52,10 +52,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "50 50 70 100 140"
-      "bonus_attack_speed"                                "35 40 45 50 55" //OAA
-      "bonus_chance"                                      "80"
-      "bonus_chance_damage"                               "70 80 100 130 170"
+      "bonus_damage"                                      "40 50 70 100 140" //OAA, intentionally nerfed; Demon Edge (40);
+      "bonus_attack_speed"                                "35 40 45 50 55" //OAA, intentionally nerfed; Blitz Knuckles (35);
+      "bonus_chance"                                      "80" // Javelin (25);
+      "bonus_chance_damage"                               "70 80 100 130 170" // Javelin (60);
       "melee_attack_range"                                "50"
     }
   }

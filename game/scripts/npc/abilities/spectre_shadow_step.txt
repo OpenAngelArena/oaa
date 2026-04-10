@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OAA
+  // Spectre: Shadow Step FIXEDFUCK
   //=================================================================================================================
   "spectre_shadow_step"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -13,10 +12,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    "LinkedAbility"                                       "spectre_reality"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,21 +33,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_damage_incoming"                          "100 90 80 70 60 50" //OAA
-      "move_speed"                                        "900"
-      "bonus_move_speed_illusion_pct"                     "35"
       "AbilityCastRange"
       {
-        "value"                                           "825 950 1075 1200 1350 1500"
+        "value"                                           "825 950 1075 1200 1325 1450"
       }
       "duration"
       {
         "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
         "special_bonus_unique_spectre_shadow_step_duration"  "+1.0"
       }
-      "tooltip_illusion_total_damage_incoming" //OAA
+      "illusion_damage_incoming"                          "100 85 70 55 40 25"
+      "tooltip_illusion_total_damage_incoming"
       {
-        "value"                                           "200 185 170 155 155 155"
+        "value"                                           "200 185 170 155 140 125"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -58,6 +55,8 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
+      "move_speed"                                        "900"
+      "bonus_move_speed_illusion_pct"                     "35"
     }
   }
 }

@@ -26,6 +26,7 @@ function beastmaster_call_of_the_wild_boar_oaa:OnSpellStart()
   -- end
 end
 
+--[[
 function beastmaster_call_of_the_wild_boar_oaa:OnUpgrade()
   local abilityLevel = self:GetLevel()
   local hawk_ability = self:GetCaster():FindAbilityByName("beastmaster_call_of_the_wild_hawk_oaa")
@@ -35,6 +36,7 @@ function beastmaster_call_of_the_wild_boar_oaa:OnUpgrade()
     hawk_ability:SetLevel(abilityLevel)
   end
 end
+]]
 
 function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abilityLevel, duration)
   local baseUnitName = "npc_dota_beastmaster_boar"

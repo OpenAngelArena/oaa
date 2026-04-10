@@ -86,11 +86,10 @@ if IsServer() then
       return
     end
 
-    -- Normal lifesteal should not work for spells and magic damage attacks
-    --if (event.inflictor or event.damage_type ~= DAMAGE_TYPE_PHYSICAL) and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
-      --self:Destroy()
-      --return
-    --end
+    -- Blood Sword lifesteal should not work for pure damage
+    if event.damage_type == DAMAGE_TYPE_PURE then
+      return
+    end
 
     local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
 
@@ -110,12 +109,23 @@ if IsServer() then
       parent_team
     )
 
+    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+    if damaged_unit:IsIllusion() then
+      lifesteal_percent = lifesteal_percent / 2
+    end
+
+    -- Reduce lifesteal against creeps by 40%
+    if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+      lifesteal_percent = lifesteal_percent * 0.6
+    end
+
     if ufResult == UF_SUCCESS and parent:IsAlive() then
-      local lifesteal_amount = damage * lifesteal_percent * 0.01
-      parent:HealWithParams(lifesteal_amount, ability, true, true, parent, false)
+      local health_restore = damage * lifesteal_percent * 0.01
+
+      -- Apply Lifesteal
+      parent:HealWithParams(health_restore, ability, true, true, parent, false)
 
       local part = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControl(part, 0, parent:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(part)
     end
 

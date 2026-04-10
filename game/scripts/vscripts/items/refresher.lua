@@ -20,9 +20,20 @@ function item_refresher_2:OnSpellStart()
     --dazzle_good_juju = true,
     riki_permanent_invisibility = true,
     tinker_rearm = true,
-    treant_natures_guise = true
+    --treant_natures_guise = true,
+    undying_ceaseless_dirge = true,
   }
 
+  -- Reset cooldown for most abilities
+  for i = 0, caster:GetAbilityCount() - 1 do
+    local ability = caster:GetAbilityByIndex(i)
+    if ability and not exempt_ability_table[ability:GetAbilityName()] then
+      ability:RefreshCharges()
+      ability:EndCooldown()
+    end
+  end
+
+  --[[
   -- Put item exemption in here
   local exempt_item_table = {
     item_ex_machina = true,
@@ -34,15 +45,6 @@ function item_refresher_2:OnSpellStart()
     item_refresher_shard_oaa = true,
     item_tranquil_boots = true,
   }
-
-  -- Reset cooldown for most abilities
-  for i = 0, caster:GetAbilityCount() - 1 do
-    local ability = caster:GetAbilityByIndex(i)
-    if ability and not exempt_ability_table[ability:GetAbilityName()] then
-      ability:RefreshCharges()
-      ability:EndCooldown()
-    end
-  end
 
   -- Reset cooldown for items that are not in backpack
   local max_slot = DOTA_ITEM_SLOT_6
@@ -67,6 +69,7 @@ function item_refresher_2:OnSpellStart()
   if neutral_item and neutral_item:IsActiveNeutral() and not exempt_item_table[neutral_item:GetAbilityName()] then
     neutral_item:EndCooldown()
   end
+  ]]
 end
 
 function item_refresher_2:IsRefreshable()

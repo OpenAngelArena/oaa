@@ -5,15 +5,13 @@
   //=================================================================================================================
   "morphling_morph_str"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    "LinkedAbility"                                       "morphling_morph_agi"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,11 +24,11 @@
       "points_per_tick"                                   "1"
       "morph_rate"
       {
-        "value"                                           "4 8 12 16 16 16"
+        "value"                                           "4 8 12 16 20 24"
       }
-      "mana_cost" //OAA
+      "mana_cost" //OAA, intentionally nerfed
       {
-        "value"                                           "10"
+        "value"                                           "10 12 14 16 18 20"
         "special_bonus_shard"                             "-50%"
       }
       "castable_while_stunned"

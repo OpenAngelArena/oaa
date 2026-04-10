@@ -14,7 +14,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4325"
+    "ItemCost"                                            "5725"
     "ItemShopTags"                                        "move_speed;regen_health;str;int;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots;tranquil boots;tranquils"
@@ -65,10 +65,11 @@
     "AbilityValues"
     {
       "bonus_movement_speed"                              "70 75 80 85"
-      "bonus_health_regen"                                "18 21 24 27"
+      "bonus_health_regen"                                "21 24 27 30"
       "bonus_str"                                         "13 23 38 58"
-      "bonus_int"                                         "13 23 38 58"
+      "bonus_int"                                         "0"
       "aura_movement_speed"                               "25 30 35 40"
+      "aura_health_regen"                                 "5.5 8.5 11.5 14.5"
       "aura_radius"
       {
         "value"                                           "1200"

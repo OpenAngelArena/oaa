@@ -32,23 +32,23 @@
     "AbilityValues"
     {
       "archer_attack_speed_pct"                           "40"
-      "attack_speed_bonus" //OAA
+      "attack_speed_bonus" //OAA, intentionally nerfed
       {
-        "value"                                           "120 160 200 240 240 240"
+        "value"                                           "140 160 180 200 220 240"
         "special_bonus_unique_clinkz_7"                   "+40"
       }
       "duration"
       {
         "value"                                           "3.5"
-        "special_bonus_unique_clinkz_1"                   "+0.75"
+        "special_bonus_unique_clinkz_1"                   "+1.0"
       }
       "attack_range_bonus"
       {
         "value"                                           "200"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "30 25 20 15 15 15"
+        "value"                                           "21 19 17 15 14 13"
         "special_bonus_unique_clinkz_4"                   "-9"
       }
       "strafe_skeleton_radius"

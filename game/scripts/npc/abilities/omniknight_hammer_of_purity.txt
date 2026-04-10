@@ -25,31 +25,31 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0 0 0 0 0 0"
-    "AbilityDamage"                                       "0 0 0 0 0 0"
+    "AbilityManaCost"                                     "0"
+    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "50 75 100 125 250 375" //OAA this is actually base damage of the spell
+      "bonus_damage"                                      "40 60 80 100 120 140" //OAA, intentionally buffed; this is actually base damage of the spell
       "heal_duration"                                     "5"
       "attack_range_bonus"                                "75"
       "duration"                                          "0.2"
       "movement_slow"                                     "75"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "13 10 7 4 4 4"
+        "value"                                           "12 10 8 6 5 4"
         "special_bonus_unique_omniknight_3"               "-0.5"
       }
-      "base_damage"
+      "base_damage" // this is damage based on Omniknight's base damage
       {
-        "value"                                           "30 50 70 90 115 130"
+        "value"                                           "30 50 70 90 110 130"
         "special_bonus_unique_omniknight_4"               "+75"
       }
       "heal_pct"
       {
-        "value"                                           "30"
+        "value"                                           "35"
       }
       "attack_cooldown"
       {

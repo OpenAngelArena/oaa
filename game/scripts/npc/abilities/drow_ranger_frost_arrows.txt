@@ -43,9 +43,9 @@
         "value"                                           "10 15 20 25 50 75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "shard_regen_reduction_pct_per_stack" //OAA
+      "shard_regen_reduction_pct_per_stack" //OAA, intentionally nerfed
       {
-        "special_bonus_scepter"                           "+10"
+        "special_bonus_scepter"                           "+8"
       }
       "shard_bonus_damage_per_stack"
       {
@@ -73,14 +73,14 @@
       {
         "special_bonus_scepter"                           "+2.0"
       }
-      "shard_max_stacks" //OAA
+      "shard_max_stacks" //OAA, intentionally nerfed
       {
-        "special_bonus_scepter"                           "+9"
+        "special_bonus_scepter"                           "+8"
       }
-      "AbilityManaCost" //OAA
+      "AbilityManaCost" //OAA, intentionally nerfed special_bonus_unique_drow_ranger_7 talent
       {
-        "value"                                           "9 10 11 12 12 12"
-        "special_bonus_unique_drow_ranger_7"              "-18%"
+        "value"                                           "9 10 11 12 13 14"
+        "special_bonus_unique_drow_ranger_7"              "-10%"
       }
     }
   }

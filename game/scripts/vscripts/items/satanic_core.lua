@@ -56,7 +56,7 @@ function item_bloodstone_1:OnSpellStart()
   -- Sound
   caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 
-  -- Blood Pact
+  -- Blood Pact (modifier_item_bloodstone_active is here mostly for the visuals)
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
 end
 

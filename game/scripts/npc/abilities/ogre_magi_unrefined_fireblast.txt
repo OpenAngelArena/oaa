@@ -5,7 +5,6 @@
   //=================================================================================================================
   "ogre_magi_unrefined_fireblast"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -14,9 +13,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "IsGrantedByScepter"                                  "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +32,12 @@
       "stun_duration"                                     "1.2"
       "multicast_delay"                                   "0.6"
       "scepter_mana"                                      "35"
-      "base_damage"                                       "150" //OAA
-      "str_multiplier"                                    "1.5"
+      "base_damage" //OAA, intentionally added a talent
+      {
+        "value"                                           "150"
+        "special_bonus_unique_ogre_magi_2"                "+175"
+      }
+      "str_multiplier"                                    "1.25" // OAA, intentionally nerfed
       "AbilityCooldown"
       {
         "value"                                           "7"

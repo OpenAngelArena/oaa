@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "4" //OAA, intentionally
     "RequiredLevel"                                       "4"
     "LevelsBetweenUpgrades"                               "7"
 
@@ -21,8 +21,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tooltip_clones"                                    "1 2 3 4 4 4"
-      "dps_penalty_pct"                                   "50 66 75 80 80 80"
+      "tooltip_clones"                                    "1 2 3 4"
+      "dps_penalty_pct"                                   "50 66 75 80"
       "required_level"
       {
         "value"                                           "3"
@@ -35,6 +35,8 @@
       {
         "value"                                           "4"
       }
+
+      "attribute_penalty_pct"                             "0"
     }
   }
 }

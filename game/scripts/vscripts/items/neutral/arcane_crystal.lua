@@ -37,7 +37,7 @@ function modifier_item_arcane_crystal_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
   }
 end
@@ -50,9 +50,9 @@ function modifier_item_arcane_crystal_passive:GetModifierHealAmplify_PercentageS
   return self.heal_amp or self:GetAbility():GetSpecialValueFor("bonus_heal_amp")
 end
 
-function modifier_item_arcane_crystal_passive:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_amp or self:GetAbility():GetSpecialValueFor("bonus_heal_amp")
-end
+-- function modifier_item_arcane_crystal_passive:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_amp or self:GetAbility():GetSpecialValueFor("bonus_heal_amp")
+-- end
 
 function modifier_item_arcane_crystal_passive:GetModifierPercentageCasttime()
   local parent = self:GetParent()

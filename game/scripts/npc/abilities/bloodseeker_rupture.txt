@@ -1,21 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bloodseeker: Rupture
+  // Bloodseeker: Rupture FIXEDFUCK
   //=================================================================================================================
   "bloodseeker_rupture"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -26,17 +26,16 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 250 300"
+    "AbilityManaCost"                                     "125 175 225 275 325"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "9 10 11 12 13"
-      "AbilityCooldown"                                   "75 70 65 60 55"
-      "movement_damage_pct" //OAA
+      "movement_damage_pct" //OAA, intentionally buffed
       {
-        "value"                                           "35 45 55 55 55"
+        "value"                                           "35 55 75 115 155"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
@@ -71,6 +70,7 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+2"
       }
+      "AbilityCooldown"                                   "75 70 65 60 55"
     }
   }
 }

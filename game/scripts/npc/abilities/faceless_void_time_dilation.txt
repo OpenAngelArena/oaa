@@ -70,8 +70,7 @@
       {
         "special_bonus_shard"                             "+1"
       }
-      "heal_prevent_percent"                              "-25 -30 -35 -40 -45 -50" //OAA, reduces healing only
-      "health_restoration"                                "-25 -30 -35 -40 -45 -50" //OAA, reduces everything else
+      "health_restoration"                                "-25 -30 -35 -40 -45 -50" //OAA, reduces all health restoration
     }
   }
 }

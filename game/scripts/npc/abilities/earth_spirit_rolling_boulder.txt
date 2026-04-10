@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 90 100" //OAA
+    "AbilityManaCost"                                     "50 60 70 80 90 100" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,8 +33,8 @@
       "rock_speed"                                        "1600"
       "rock_distance_multiplier"                          "2"
       "delay"                                             "0.6"
-      "damage"                                            "70 80 90 100 200 400" //OAA
-      "AbilityCooldown"                                   "16.0 12.0 8.0 4.0" //OAA, cooldown starts when current roll ends
+      "damage"                                            "70 80 90 100 200 300" //OAA, intentionally buffed
+      "AbilityCooldown"                                   "10 8 6 4 4 4" //OAA, intentionally buffed; cooldown starts when current roll ends
       "can_roll_over_allied_heroes"                       "0"
       "radius"
       {

@@ -9,9 +9,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,10 +18,10 @@
     {
       "day_threshold"                                     "0.006"
       "max_vision_pct"                                    "20"
-      "max_dmg_pct"
+      "max_dmg_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "10"
-        "hero_levelup"                                    "+1"
+        "value"                                           "8"
+        "hero_levelup"                                    "+0.75"
       }
       "current_dmg_tooltip"
       {

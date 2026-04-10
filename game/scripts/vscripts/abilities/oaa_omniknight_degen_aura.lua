@@ -117,7 +117,7 @@ function modifier_omniknight_degen_aura_effect_oaa:OnRefresh()
     self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
     self.move_slow = ability:GetSpecialValueFor("move_speed_slow")
   else
-    self.heal_prevent_percent = -6
+    self.heal_prevent_percent = -10
     self.attack_slow = -10
     self.move_slow = -10
   end
@@ -127,8 +127,8 @@ function modifier_omniknight_degen_aura_effect_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
@@ -142,9 +142,9 @@ function modifier_omniknight_degen_aura_effect_oaa:GetModifierAttackSpeedBonus_C
   return self.attack_slow
 end
 
-function modifier_omniknight_degen_aura_effect_oaa:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_prevent_percent
-end
+-- function modifier_omniknight_degen_aura_effect_oaa:GetModifierHealAmplify_PercentageTarget()
+  -- return self.heal_prevent_percent
+-- end
 
 function modifier_omniknight_degen_aura_effect_oaa:GetModifierHPRegenAmplify_Percentage()
   return self.heal_prevent_percent

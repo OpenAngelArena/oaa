@@ -39,9 +39,9 @@
       "animation_rate"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
       "vector_render_radius"                              "120"
       "turn_rate"                                         "200"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "25 22 19 16 16 16"
+        "value"                                           "19 18 17 16 15 14"
         "special_bonus_unique_bane_5"                     "-3"
       }
       "bonus_attack_speed"

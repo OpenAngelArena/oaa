@@ -5,14 +5,13 @@
   //=================================================================================================================
   "pangolier_shield_crash"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,14 +37,14 @@
       "jump_height_gyroshell"                             "350"
       "jump_horizontal_distance"                          "225"
       "scepter_damage_outgoing_tooltip"                   "75"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "60 120 180 240 240 240"
+        "value"                                           "75 150 225 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hero_shield" //OAA
+      "hero_shield" //OAA, intentionally buffed
       {
-        "value"                                           "60 120 180 240 240 240"
+        "value"                                           "100 150 200 250 500 750"
         "special_bonus_unique_pangolier_shield_crash_herostacks"  "+125"
       }
       "radius"

@@ -1,15 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Visage: Gravekeeper's Cloak
+  // Visage: Gravekeeper's Cloak FIXEDFUCK
   //=================================================================================================================
   "visage_gravekeepers_cloak"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,24 +17,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "minimum_damage"                                    "40" //OAA
       "max_layers"
       {
         "value"                                           "4"
       }
-      "damage_reduction"
+      "damage_reduction" // per layer
       {
         "value"                                           "8 12 16 20 24 28"
       }
-      "recovery_time" //OAA
+      "recovery_time" //OAA, because of special_bonus_unique_visage_cloak_recovery_time nerf
       {
-        "value"                                           "7 6 5 4 4 4"
-        "special_bonus_unique_visage_cloak_recovery_time"  "-2"
+        "value"                                           "7 6 5 4 3 3"
+        "special_bonus_unique_visage_cloak_recovery_time"  "-1.5"
       }
-      "radius" //OAA
+      "minimum_damage"                                    "40 45 50 55 110 165" //OAA, intentionally buffed
+      "minimum_damage_familiars"                          "0"
+      "radius" //OAA, intentionally buffed
       {
         "affected_by_aoe_increase"                        "1"
-        "value"                                           "900"
+        "value"                                           "1200"
       }
       "max_damage_reduction"
       {
@@ -45,9 +45,9 @@
       {
         "special_bonus_shard"                             "25"
       }
-      "shard_cooldown" //OAA
+      "shard_cooldown" //OAA, intentionally buffed
       {
-        "special_bonus_shard"                             "65"
+        "special_bonus_shard"                             "35"
       }
       "shard_manacost"
       {

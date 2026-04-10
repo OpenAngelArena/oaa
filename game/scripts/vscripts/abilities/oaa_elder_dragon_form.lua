@@ -37,53 +37,65 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local level = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
-  local ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
+  local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
 
-  if ability then
-    if level >= 4 then
-      if caster:HasScepter() then
-        ability:SetLevel(3)
+  -- Fixing the level of the vanilla ability because equiping and unequiping messes up the lvl
+  -- that's why fixing it during OnUpgrade is not enough
+  if vanilla_ability then
+    if not caster:HasScepter() then
+      if level >= 4 then
+        vanilla_ability:SetLevel(4)
       else
-        ability:SetLevel(4)
+        vanilla_ability:SetLevel(level)
+      end
+    else
+      if level >= 3 then
+        vanilla_ability:SetLevel(4)
+        if level >= 5 then
+          duration = -1
+        end
+      else
+        vanilla_ability:SetLevel(level+1)
       end
     end
   else
-    ability = self
+    return
   end
 
-  if level >= 5 and caster:HasScepter() then
-    duration = -1
-  end
+  -- Cast the vanilla ability (using this instead of a modifier because it does not introduce bugs like the other method)
+  vanilla_ability:OnSpellStart()
 
   -- apply the standard dragon form modifier ( for movespeed and the model change )
-  caster:AddNewModifier( caster, ability, "modifier_dragon_knight_dragon_form", { duration = duration, } )
+  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_dragon_form", { duration = duration, } )
 
-  -- apply the corrosive breath modifier, don't need to check its level really
-  caster:AddNewModifier( caster, ability, "modifier_dragon_knight_corrosive_breath", { duration = duration, } )
+  -- apply the corrosive breath modifier, don't need to check its level really, this modifier might not exist anymore
+  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_corrosive_breath", { duration = duration, } )
 
   -- apply the leveled modifiers
-  if level >= 2 then
-    caster:AddNewModifier( caster, ability, "modifier_dragon_knight_splash_attack", { duration = duration, } )
-  end
+  --if level >= 2 then
+    -- this modifier might not exist anymore
+    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_splash_attack", { duration = duration, } )
+  --end
 
-  if level >= 3 then
-    caster:AddNewModifier( caster, ability, "modifier_dragon_knight_frost_breath", { duration = duration, } )
-  end
+  --if level >= 3 then
+    -- this modifier might not exist anymore
+    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_frost_breath", { duration = duration, } )
+  --end
 
   if level >= 5 or ( level >= 4 and caster:HasScepter() ) then
     caster:AddNewModifier( caster, self, "modifier_dragon_knight_max_level_oaa", { duration = duration, } )
   end
 
   -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
-  local projectile_name = caster:GetRangedProjectileName()
-  if not projectile_name or projectile_name == "" then
-    if self:IsStolen() then
+  --local projectile_name = caster:GetRangedProjectileName()
+  --if not projectile_name or projectile_name == "" then
+    --if self:IsStolen() then
       -- For Rubick if he doesn't have a projectile in Dragon Form at least add his base projectile
-      caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
-    else
-      caster:ChangeAttackProjectile()
-    end
-  end
+      --caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
+    --else
+      --caster:ChangeAttackProjectile()
+    --end
+  --end
 end
 
 function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()
@@ -92,26 +104,31 @@ function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()
   end
 end
 
+--[[
 function dragon_knight_elder_dragon_form_oaa:OnUpgrade()
   local caster = self:GetCaster()
-  local ability_level = self:GetLevel()
+  local level = self:GetLevel()
 
   local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
   if not vanilla_ability then
     return
   end
 
-  if ability_level >= 4 then
-    if caster:HasScepter() then
-      vanilla_ability:SetLevel(3)
-    else
+  if not caster:HasScepter() then
+    if level >= 4 then
       vanilla_ability:SetLevel(4)
+    else
+      vanilla_ability:SetLevel(level)
     end
-    return
+  else
+    if level >= 3 then
+      vanilla_ability:SetLevel(4)
+    else
+      vanilla_ability:SetLevel(level+1)
+    end
   end
-
-  vanilla_ability:SetLevel(ability_level)
 end
+]]
 
 -- function dragon_knight_elder_dragon_form_oaa:GetAssociatedSecondaryAbilities()
   -- return "dragon_knight_elder_dragon_form"
@@ -126,11 +143,16 @@ end
   -- vanilla_ability:SetHidden(true)
 -- end
 
-function dragon_knight_elder_dragon_form_oaa:OnUnStolen()
-  local caster = self:GetCaster()
-  if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
-    caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
-  end
+-- function dragon_knight_elder_dragon_form_oaa:OnUnStolen()
+  -- local caster = self:GetCaster()
+  -- if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
+    -- caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
+  -- end
+-- end
+
+-- TODO: Fix this spell with Rubick Speal Steal
+function dragon_knight_elder_dragon_form_oaa:IsStealable()
+  return false
 end
 
 function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
@@ -177,7 +199,7 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnRefresh()
   self:OnIntervalThink()
 end
 
--- Check periodically if parent has scepter or not if the ability is level 5 or above
+-- Check periodically if owner has scepter or not if the ability is level 5 or above
 function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
   if not IsServer() then
     return
@@ -189,7 +211,8 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
     return
   end
 
-  if parent:IsIllusion() then
+  -- No need to think for illusions or if the parent is dead
+  if parent:IsIllusion() or not parent:IsAlive() then
     return
   end
 
@@ -199,29 +222,65 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
     return
   end
 
-  if ability:GetLevel() >= 5 then
-    -- Vanilla Dragon Form modifier
-    local modifier = parent:FindModifierByName("modifier_dragon_knight_dragon_form")
-    if parent:HasScepter() then
-      if not modifier then
-        ability:OnSpellStart()
-      else
+  -- Ability should be lvl 5, but checking just in case
+  if ability:GetLevel() < 5 then
+    return
+  end
+
+  -- Dragon Form modifiers
+  local modifier = parent:FindModifierByName("modifier_dragon_knight_dragon_form")
+  local modifier2 = parent:FindModifierByName("modifier_dragon_knight_black_dragon_tooltip")
+  local modifier3 = parent:FindModifierByName("modifier_dragon_knight_max_level_oaa")
+  if parent:HasScepter() then
+    if not modifier or not modifier2 or not modifier3 then
+      ability:OnSpellStart()
+      return
+    else
+      -- Fix modifier duration to be permanent
+      if modifier then
         if modifier:GetDuration() ~= -1 then
-          ability:OnSpellStart()
+          --ability:OnSpellStart()
+          modifier:SetDuration(-1, true)
         end
       end
-    else
-      -- Parent doesn't have scepter -> indirectly check if parent dropped/sold his scepter
-      -- by checking if it has dragon form modifiers and by checking modifier durations
-      if not modifier then
-        -- Modifier doesn't exist and parent doesn't have scepter -> don't do anything
-        return
-      else
-        if modifier:GetDuration() == -1 then
-          -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
-          -- Reapply Dragon Form modifiers to give them normal duration
-          ability:OnSpellStart()
+      if modifier2 then
+        if modifier2:GetDuration() ~= -1 then
+          --ability:OnSpellStart()
+          modifier2:SetDuration(-1, true)
         end
+      end
+      if modifier3 then
+        if modifier3:GetDuration() ~= -1 then
+          --ability:OnSpellStart()
+          modifier3:SetDuration(-1, true)
+        end
+      end
+    end
+  else
+    -- Parent doesn't have scepter -> indirectly check if parent dropped/sold his scepter
+    -- by checking if it has dragon form modifiers and by checking modifier durations
+    -- If Modifiers don't exist -> don't do anything
+    if modifier then
+      if modifier:GetDuration() == -1 then
+        -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
+        -- Recast the ability
+        ability:OnSpellStart()
+        return -- no need to do the rest
+      end
+    end
+    if modifier2 then
+      if modifier2:GetDuration() == -1 then
+        -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
+        -- Recast the ability
+        ability:OnSpellStart()
+        return -- no need to do the rest
+      end
+    end
+    if modifier3 then
+      if modifier3:GetDuration() == -1 then
+        -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
+        -- Recast the ability
+        ability:OnSpellStart()
       end
     end
   end
@@ -274,24 +333,25 @@ if IsServer() then
 
       local duration = spell:GetSpecialValueFor( "rage_duration" )
 
-      -- check if the ability is already active, and if so, grab the current
-      -- duration
+      -- check if the ability is already active, and if so, grab the current duration
       local mod = parent:FindModifierByName( "modifier_dragon_knight_dragon_form" )
 
       if mod then
         duration = duration + mod:GetRemainingTime()
-      end
 
-      local edfMods = {
-        "modifier_dragon_knight_dragon_form",
-        "modifier_dragon_knight_corrosive_breath",
-        "modifier_dragon_knight_splash_attack",
-        "modifier_dragon_knight_frost_breath",
-      }
+        local edfMods = {
+          "modifier_dragon_knight_dragon_form",
+          "modifier_dragon_knight_corrosive_breath", -- this modifier might not exist anymore
+          "modifier_dragon_knight_splash_attack", -- this modifier might not exist anymore
+          "modifier_dragon_knight_frost_breath", -- this modifier might not exist anymore
+        }
 
-      -- apply the edf modifiers with the new duration
-      for _, modName in pairs( edfMods ) do
-        parent:AddNewModifier( parent, spell, modName, { duration = duration } )
+        -- apply the edf modifiers with the new duration
+        for _, modName in pairs( edfMods ) do
+          parent:AddNewModifier( parent, spell, modName, { duration = duration } )
+        end
+      else
+        spell:OnSpellStart()
       end
     else
       -- increment failure count
@@ -321,32 +381,30 @@ function modifier_dragon_knight_max_level_oaa:RemoveOnDeath()
   return true
 end
 
-function modifier_dragon_knight_max_level_oaa:OnCreated()
-  local ability = self:GetAbility()
-  local mr_at_4 = ability:GetLevelSpecialValueFor("magic_resistance", 3)
-  local mr_at_5 = ability:GetLevelSpecialValueFor("magic_resistance", 4)
+--function modifier_dragon_knight_max_level_oaa:OnCreated()
+  --local ability = self:GetAbility()
+  --local mr_at_4 = ability:GetLevelSpecialValueFor("magic_resistance", 3)
+  --local mr_at_5 = ability:GetLevelSpecialValueFor("magic_resistance", 4)
 
-  if mr_at_5 > mr_at_4 and mr_at_4 ~= 100 then
-    self.bonus_mr = 100 * (mr_at_5 - mr_at_4) / (100 - mr_at_4)
-  else
-    self.bonus_mr = 0
-  end
-end
+  --if mr_at_5 > mr_at_4 and mr_at_4 ~= 100 then
+    --self.bonus_mr = 100 * (mr_at_5 - mr_at_4) / (100 - mr_at_4)
+  --else
+    --self.bonus_mr = 0
+  --end
+--end
 
-function modifier_dragon_knight_max_level_oaa:OnRefresh()
-  self:OnCreated()
-end
+--modifier_dragon_knight_max_level_oaa.OnRefresh = modifier_dragon_knight_max_level_oaa.OnCreated
 
 function modifier_dragon_knight_max_level_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
 end
 
-function modifier_dragon_knight_max_level_oaa:GetModifierMagicalResistanceBonus()
-  return self.bonus_mr
-end
+--function modifier_dragon_knight_max_level_oaa:GetModifierMagicalResistanceBonus()
+  --return self.bonus_mr
+--end
 
 if IsServer() then
   function modifier_dragon_knight_max_level_oaa:OnAttackLanded(event)
@@ -385,10 +443,11 @@ if IsServer() then
       return
     end
 
-    local duration = ability:GetSpecialValueFor("frost_duration")
+    local duration = ability:GetSpecialValueFor("heal_reduction_duration")
 
     -- Apply the debuff
     target:AddNewModifier(parent, ability, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = duration})
+    target:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", duration)
   end
 end
 ---------------------------------------------------------------------------------------------------
@@ -412,39 +471,67 @@ function modifier_dragon_knight_frostbite_debuff_oaa:GetEffectName()
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:OnCreated()
-  self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
-  -- No effect if caster is an illusion
+  -- No effect if caster is an illusion, this shouldnt be created on illusions but we check just in case
   local caster = self:GetCaster()
   if caster:IsIllusion() then
     self:Destroy()
+    return
+  end
+  self.heal_suppression_pct = -40
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.heal_suppression_pct = ability:GetSpecialValueFor("health_restoration")
   end
 end
 
-function modifier_dragon_knight_frostbite_debuff_oaa:OnRefresh()
-  self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
-  -- No effect if caster is an illusion
+modifier_dragon_knight_frostbite_debuff_oaa.OnRefresh = modifier_dragon_knight_frostbite_debuff_oaa.OnCreated
+
+function modifier_dragon_knight_frostbite_debuff_oaa:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
   local caster = self:GetCaster()
-  if caster:IsIllusion() then
-    self:Destroy()
+  if not parent or parent:IsNull() then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_crude")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
   end
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
-function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHealAmplify_PercentageTarget()
-  return -self.heal_suppression_pct
+function modifier_dragon_knight_frostbite_debuff_oaa:OnTooltip()
+  return self.heal_suppression_pct
 end
 
-function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHPRegenAmplify_Percentage()
-  return -self.heal_suppression_pct
-end
+-- function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHealAmplify_PercentageTarget()
+  -- return -self.heal_suppression_pct
+-- end
+
+-- function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHPRegenAmplify_Percentage()
+  -- return -self.heal_suppression_pct
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierLifestealRegenAmplify_Percentage()

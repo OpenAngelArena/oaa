@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_range"                                        "100 200 300 400 500"
+      "cast_range"                                        "100 175 250 325 400"
       "duration"
       {
         "value"                                           "40.0 45.0 50.0 55.0 55.0"
@@ -36,7 +36,7 @@
       "movement_speed"
       {
         "value"                                           "50"
-        "special_bonus_unique_keeper_of_the_light_11"     "+30"
+        "special_bonus_unique_keeper_of_the_light_11"     "+25"
       }
       "illuminate_heal"
       {

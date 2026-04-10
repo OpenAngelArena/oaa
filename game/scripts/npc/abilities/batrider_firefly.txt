@@ -1,38 +1,37 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Batrider: Firefly
+  // Batrider: Firefly FIXEDFUCK
   //=================================================================================================================
   "batrider_firefly"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35 34 33 32 31 30" //OAA
+    "AbilityCooldown"                                     "36 34 32 30 29 28" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 105 110 115 120 125" //OAA
+    "AbilityManaCost"                                     "100 105 110 115 120 125" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                     "0.5"
       "damage_per_second"
       {
         "value"                                           "25 50 75 100 200 300"
@@ -48,6 +47,7 @@
       {
         "value"                                           "15"
       }
+      "tick_interval"                                     "0.5"
       "tree_radius"
       {
         "value"                                           "100"
@@ -55,12 +55,8 @@
       }
       "movement_speed_pct_total"
       {
-        "value"                                           "12 18 24 30 30 30"
+        "value"                                           "12 18 24 30 36 42"
         "special_bonus_unique_batrider_3"                 "+5"
-      }
-      "spell_amplification_total" //OAA
-      {
-        "special_bonus_facet_batrider_buff_on_displacement"  "=20 =21 =22 =23 =24 =25"
       }
     }
   }

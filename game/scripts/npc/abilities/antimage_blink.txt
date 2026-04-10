@@ -1,54 +1,53 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Blink
+  // Anti-Mage: Blink FIXEDFUCK
   //=================================================================================================================
   "antimage_blink"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA, intentional nerf
+    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_blink_range"                                   "200"
-      "AbilityCooldown" //OAA
+
+      "AbilityCooldown" //OAA, intentionally nerfed because of farming speed
       {
-        "value"                                           "10.5 9 7.5 6 6 6"
+        "value"                                           "12 10 8 6 6 6"
         "special_bonus_unique_antimage"                   "-1"
-        "special_bonus_scepter"                           "-2"
       }
       "AbilityCastRange"
       {
-        "value"                                           "875 950 1025 1100 1250 1300"
-        "special_bonus_unique_antimage_3"                 "+150"
+        "value"                                           "875 950 1025 1100 1175 1250"
+        "special_bonus_unique_antimage_3"                 "+125"
       }
+      "min_blink_range"                                   "200"
       "empowered_mana_break_duration"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+5.0"
       }
-      "empowered_max_burn_pct_tooltip"
+      "empowered_max_burn_pct_tooltip" // tooltip only: update empowered_max_burn_pct value
       {
         "value"                                           "0.0"
         "special_bonus_scepter"                           "+20.0"
       }
-      "empowered_mana_break_debuff_duration_tooltip"
+      "empowered_mana_break_debuff_duration_tooltip" // tooltip only: update empowered_mana_break_debuff_duration value
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+6.0"

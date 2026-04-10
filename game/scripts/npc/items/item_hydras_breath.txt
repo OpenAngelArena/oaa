@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "600" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5900"
+    "ItemCost"                                            "5400" //OAA
     "ItemShopTags"                                        "agi;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hydra;hydras breath;hydra bow"
@@ -70,7 +70,7 @@
       "base_attack_range"                                 "130 140 150 160 170" // OAA, Dragon Lance (130);
       "poison_duration"                                   "3"
       "poison_base_damage"                                "0"
-      "poison_damage_per_second"                          "2.5" // do not scale, max hp dmg
+      "poison_damage_per_second"                          "1.5" // OAA, do not scale, max hp dmg
     }
   }
 }

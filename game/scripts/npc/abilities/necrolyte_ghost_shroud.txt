@@ -30,10 +30,10 @@
       "duration"                                          "3 3.5 4 4.5 5.0 5.5"
       "heal_bonus"
       {
-        "value"                                           "55 65 75 85 75 80"
+        "value"                                           "55 65 75 85 90 95"
         "display_type"                                    "kBuffPercentage"
       }
-      "enemies_negative_heal_bonus_as_pct_of_self" //OAA
+      "enemies_negative_heal_bonus_as_pct_of_self"
       {
         "value"                                           "0"
       }
@@ -58,9 +58,9 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "display_type"                                    "kDebuffPercentage"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "28 24 20 16 16 16"
+        "value"                                           "22 20 18 16 15 14"
         "special_bonus_unique_necrophos_6"                "-2.5"
       }
     }

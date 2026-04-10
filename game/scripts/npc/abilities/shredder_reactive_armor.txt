@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Timbersaw: Reactive Armor
+  // Timbersaw: Reactive Armor FIXEDFUCK
   //=================================================================================================================
   "shredder_reactive_armor"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,33 +19,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "0.6 1.2 1.8 2.4 3.0 3.6" //OAA, total armor: 4.8/9.6/14.4/19.2/24/28.8
-      "bonus_hp_regen" //OAA
+      "bonus_armor"                                       "0.6 1.2 1.8 2.4 3.0 3.6" //OAA, intentionally buffed; total armor: 4.8/9.6/14.4/19.2/24/28.8 (without special_bonus_unique_timbersaw_2)
+      "bonus_hp_regen" //OAA, intentionally buffed
       {
-        "value"                                           "0.4 0.5 0.6 0.7 0.7 0.7"
+        "value"                                           "0.5 1.2 1.9 2.6 3.3 4.0" // total regen: 4/9.6/15.2/20.8/26.4/32 (without special_bonus_unique_timbersaw_2)
         "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.25"
       }
-      "stack_limit" //OAA
+      "stack_limit" //OAA, intentionally nerfed both base values and the talent
       {
-        "value"                                           "10 20 30 40 40 40"
-        "special_bonus_unique_timbersaw_2"                "+6"
+        "value"                                           "8"
+        "special_bonus_unique_timbersaw_2"                "+4" // armor: 7.2/14.4/21.6/28.8/36/43.2; regen: 6/14.4/22.8/31.2/39.6/48
       }
       "stack_duration"
       {
         "value"                                           "10 12 14 16 18 20"
       }
-      "stacks_per_hero_attack" //OAA
+      "stacks_per_hero_attack" //OAA, intentionally nerfed
       {
-        "value"                                           "4"
+        "value"                                           "2"
         "special_bonus_unique_timbersaw_2"                "+1"
       }
       "AbilityManaCost"
       {
         "special_bonus_scepter"                           "+200"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "special_bonus_scepter"                           "45"
+        "special_bonus_scepter"                           "30"
       }
       "initial_shield"
       {
@@ -60,9 +59,9 @@
       {
         "special_bonus_scepter"                           "75"
       }
-      "max_shield" //OAA
+      "max_shield" //OAA, intentionally rescaled
       {
-        "special_bonus_scepter"                           "800"
+        "special_bonus_scepter"                           "500 600 700 800 1000 1200"
       }
       "duration"
       {
@@ -78,9 +77,9 @@
         "special_bonus_scepter"                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "base_explosion" //OAA
+      "base_explosion" //OAA, intentionally rescaled
       {
-        "special_bonus_scepter"                           "200"
+        "special_bonus_scepter"                           "50 100 150 200 400 800"
       }
     }
   }

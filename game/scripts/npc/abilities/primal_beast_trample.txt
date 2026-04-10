@@ -36,9 +36,9 @@
         "value"                                           "15 30 45 60 120 180"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "attack_damage" //OAA
+      "attack_damage" //OAA, intentionally rescaled
       {
-        "value"                                           "35"
+        "value"                                           "20 25 30 35 40 45"
         "special_bonus_unique_primal_beast_trample_attack_damage"  "+20"
       }
       "bonus_magic_resistance"
@@ -46,9 +46,9 @@
         "value"                                           "0"
         "special_bonus_unique_primal_beast_trample_magic_resist"  "+25"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "30 27 24 21 21 21"
+        "value"                                           "24 23 22 21 20 19"
         "special_bonus_unique_primal_beast_trample_cooldown"  "-5"
       }
       "unslowable"

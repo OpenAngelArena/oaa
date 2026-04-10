@@ -270,6 +270,7 @@ if IsServer() then
     local non_trigger_inflictors = {
       ["batrider_sticky_napalm"] = true,
       ["batrider_sticky_napalm_oaa"] = true,
+      ["item_angels_halo"] = true, -- only non-consumed version
       ["item_blood_grenade"] = true,
       ["item_cloak_of_flames"] = true,
       ["item_conjurers_catalyst"] = true,
@@ -445,7 +446,7 @@ if IsServer() then
     --local number = ability:GetSpecialValueFor("shard_number_of_attack_proc")
     --local condition = RandomInt(1, 100) <= chance
     --local condition = self.count > 0 and (self.count % number == 0)
-    local stacks_per_attack = ability:GetSpecialValueFor("stacks_per_attack")
+    local stacks_per_attack = ability:GetSpecialValueFor("napalm_stacks_on_attack")
     local condition = stacks_per_attack ~= 0
     if condition then
 

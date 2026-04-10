@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33900"
+    "ItemCost"                                            "34700"
     "ItemShopTags"                                        "armor;agi;str;int;regen_health;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -63,20 +63,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "20 25"
-      "bonus_armor"                                       "16 20"
-      "bonus_health_regen"                                "14 17"
-      "bonus_mana_regen"                                  "0"
+      "bonus_health"                                      "850 1100"
+      "bonus_mana"                                        "675 925"
+      "bonus_intellect"                                   "30 50"
+      "hero_spell_lifesteal"                              "24 26"
+      "creep_spell_lifesteal"                             "4.8 5.2"
       "aura_radius"
       {
-        "value"                                           "800 850"
+        "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_magic_resistance"                             "13 15"
       // Active stuff
-      "magic_dmg_amp"                                     "24 27"
+      "magic_dmg_amp"                                     "16 20"
       "heal_reduction_duration"                           "3"
-      "heal_reduction_percent"                            "40 45"
       "health_restoration"                                "-40 -45"
       "duration"                                          "10.0"
     }

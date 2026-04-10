@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentional nerf
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentionally nerfed
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,7 +34,7 @@
         "value"                                           "90"
         "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
       }
-      "AbilityManaCost" //OAA
+      "AbilityManaCost"
       {
         "value"                                           "250"
         "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
@@ -44,14 +44,14 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration" //OAA
+      "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "5 5.5 6 6 6"
-        "special_bonus_unique_medusa"                     "+2.5"
+        "value"                                           "5 5.25 5.5 5.75 6"
+        "special_bonus_unique_medusa"                     "+1.5"
       }
-      "bonus_physical_damage" //OAA
+      "bonus_physical_damage" //OAA, intentionally rescaled
       {
-        "value"                                           "35 45 55 55 55"
+        "value"                                           "35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "special_bonus_unique_medusa_8"                   "+12"
       }

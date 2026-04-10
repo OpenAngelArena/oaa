@@ -81,6 +81,8 @@ if IsServer() then
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
+    local damage = event.damage
+    local lifesteal_percent = self.lifesteal_pct
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -102,8 +104,13 @@ if IsServer() then
       return
     end
 
-    local damage = event.damage
-    if damage <= 0 or event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+    -- Check if damage and lifesteal are > 0
+    if damage <= 0 or lifesteal_percent <= 0 then
+      return
+    end
+
+    -- Spider Boss Rage lifesteal should work for all attacks
+    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
       return
     end
 
@@ -115,11 +122,21 @@ if IsServer() then
       parent:GetTeamNumber()
     )
 
-		if ufResult == UF_SUCCESS then
+    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+    if target:IsIllusion() then
+      lifesteal_percent = lifesteal_percent / 2
+    end
+
+    -- Reduce lifesteal against creeps by 40%
+    if target:IsCreep() and not target:IsCreepHero() then
+      lifesteal_percent = lifesteal_percent * 0.6
+    end
+
+    if ufResult == UF_SUCCESS then
       -- Calculate Lifesteal, max amount is target's current hp)
-      local amount = math.min(damage * self.lifesteal_pct / 100, target:GetHealth())
+      local health_restore = math.min(damage * lifesteal_percent * 0.01, target:GetHealth())
       -- Apply Lifesteal
-      parent:HealWithParams(amount, self:GetAbility(), true, true, parent, false)
+      parent:HealWithParams(health_restore, self:GetAbility(), true, true, parent, false)
       -- Lifesteal particle
       local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:ReleaseParticleIndex(particle)

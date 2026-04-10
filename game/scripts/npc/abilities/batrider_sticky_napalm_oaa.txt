@@ -40,31 +40,32 @@
     "AbilityValues"
     {
       "stacks_per_cast"                                   "2"
-      "stacks_per_attack"
+      "napalm_stacks_on_attack"
       {
         "value"                                           "0"
-        "special_bonus_facet_batrider_arsonist"           "=0 =0 =0 =0 =1 =1"
+        "special_bonus_unique_batrider_6"                 "+1"
       }
       "application_damage" // application (first) damage
       {
         "value"                                           "5 10 15 20 40 60"
-        "special_bonus_unique_batrider_4"                 "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_per_stack" // proc damage per stack
       {
         "value"                                           "2.5 5 7.5 10 20 30"
-        "special_bonus_unique_batrider_4"                 "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
       {
         "value"                                           "375"
-        "special_bonus_unique_batrider_7"                 "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "6"
-      "movement_speed_pct"                                "-0.75 -1.5 -2.25 -3 -3.75 -4.5"
+      "movement_speed_pct"
+      {
+        "value"                                           "-0.75 -1.5 -2.25 -3 -3.75 -4.5"
+        "special_bonus_unique_batrider_7"                 "-0.75"
+      }
       "turn_rate_pct"                                     "-10 -30 -50 -70 -75 -80"
       "max_stacks"                                        "20"
       "unlimited_stacks"

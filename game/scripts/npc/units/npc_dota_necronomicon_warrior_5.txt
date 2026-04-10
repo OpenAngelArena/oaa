@@ -46,16 +46,6 @@
     "ProjectileModel"                                     ""      // Particle system model for projectile.
     "ProjectileSpeed"                                     ""      // Speed of projectile.
 
-    // Attributes
-    //----------------------------------------------------------------
-    "AttributePrimary"                                    "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"                               "0"      // Base strength
-    "AttributeStrengthGain"                               "0"      // Strength bonus per level.
-    "AttributeBaseIntelligence"                           "0"      // Base intelligence
-    "AttributeIntelligenceGain"                           "0"      // Intelligence bonus per level.
-    "AttributeBaseAgility"                                "0"      // Base agility
-    "AttributeAgilityGain"                                "0"      // Agility bonus per level.
-
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "800"    // Experience earn.

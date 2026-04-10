@@ -343,7 +343,7 @@ if IsServer() then
   function modifier_monkey_king_jingu_mastery_oaa_buff:OnTakeDamage(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local amount = self.lifesteal
+    local lifesteal_percent = self.lifesteal
 
     local attacker = event.attacker
     local damaged_unit = event.unit
@@ -369,11 +369,12 @@ if IsServer() then
       return
     end
 
-    if damage <= 0 or amount <= 0 then
+    -- Check if damage and lifesteal are > 0
+    if damage <= 0 or lifesteal_percent <= 0 then
       return
     end
 
-    -- Normal lifesteal should not work for spells and magic damage attacks
+    -- Normal lifesteal should not work for spells and spell damage attacks
     if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
@@ -392,9 +393,21 @@ if IsServer() then
       parentTeam
     )
 
+    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+    if damaged_unit:IsIllusion() then
+      lifesteal_percent = lifesteal_percent / 2
+    end
+
+    -- Reduce lifesteal against creeps by 40%
+    if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+      lifesteal_percent = lifesteal_percent * 0.6
+    end
+
     if ufResult == UF_SUCCESS then
-      local lifesteal_amount = damage * amount * 0.01
-      parent:HealWithParams(lifesteal_amount, ability, true, true, parent, false)
+      local health_restore  = damage * lifesteal_percent * 0.01
+
+      -- Apply Lifesteal
+      parent:HealWithParams(health_restore, ability, true, true, parent, false)
 
       local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )

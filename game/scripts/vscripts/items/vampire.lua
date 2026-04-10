@@ -413,6 +413,7 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
     local damage = event.damage
+    local lifesteal_percent = amount
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -436,7 +437,8 @@ if IsServer() then
 
     self.procRecords[event.record] = nil
 
-    if damage <= 0 or amount <= 0 then
+    -- Check if damage and lifesteal are > 0
+    if damage <= 0 or lifesteal_percent <= 0 then
       return
     end
 
@@ -464,9 +466,21 @@ if IsServer() then
       parentTeam
     )
 
+    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+    if damaged_unit:IsIllusion() then
+      lifesteal_percent = lifesteal_percent / 2
+    end
+
+    -- Reduce lifesteal against creeps by 40% (Vampire Fang intentionally does not have penalty)
+    --if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+      --lifesteal_percent = lifesteal_percent * 0.6
+    --end
+
     if ufResult == UF_SUCCESS then
-      local lifesteal_amount = damage * amount * 0.01
-      parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
+      local health_restore = damage * lifesteal_percent * 0.01
+
+      -- Apply Lifesteal
+      parent:HealWithParams(health_restore, spell, true, true, parent, false)
 
       local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )

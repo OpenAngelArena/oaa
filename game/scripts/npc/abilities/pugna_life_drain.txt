@@ -40,7 +40,7 @@
       "drain_buffer"                                      "200"
       "health_drain" //OAA
       {
-        "value"                                           "150 250 350 350 350"
+        "value"                                           "150 300 450 750 1050"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
@@ -50,7 +50,7 @@
       }
       "ally_healing" //OAA
       {
-        "value"                                           "150 250 350 350 350"
+        "value"                                           "150 300 450 750 1050"
       }
       "shard_damage_pct_from_ward"
       {

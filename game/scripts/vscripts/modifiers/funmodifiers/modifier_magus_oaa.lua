@@ -128,7 +128,7 @@ function modifier_magus_oaa:OnCreated()
   self.low_chance_to_proc = {
     antimage_mana_overload = 1,                          -- lag
     beastmaster_call_of_the_wild_boar_oaa = 1,           -- lag
-    beastmaster_call_of_the_wild_hawk = 1,               -- lag
+    beastmaster_summon_raptor = 1,                       -- lag
     broodmother_spin_web = 1,                            -- bugs out the screen
     clinkz_burning_army = 1,                             -- lag
     clinkz_burning_barrage = 1,                          -- looping

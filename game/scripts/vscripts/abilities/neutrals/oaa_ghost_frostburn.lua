@@ -100,7 +100,7 @@ end
 function modifier_frostburn_oaa_effect:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
+    self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
     self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
   else
     self.heal_prevent_percent = -25
@@ -143,22 +143,26 @@ end
 
 function modifier_frostburn_oaa_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    --MODIFIER_EVENT_ON_HEALTH_GAINED
+    --MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
 end
 
-function modifier_frostburn_oaa_effect:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_prevent_percent)
+function modifier_frostburn_oaa_effect:OnTooltip()
+  return self.heal_prevent_percent
 end
 
-function modifier_frostburn_oaa_effect:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_prevent_percent)
-end
+-- function modifier_frostburn_oaa_effect:GetModifierHealAmplify_PercentageTarget()
+  -- return 0 - math.abs(self.heal_prevent_percent)
+-- end
+
+-- function modifier_frostburn_oaa_effect:GetModifierHPRegenAmplify_Percentage()
+  -- return 0 - math.abs(self.heal_prevent_percent)
+-- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_frostburn_oaa_effect:GetModifierLifestealRegenAmplify_Percentage()

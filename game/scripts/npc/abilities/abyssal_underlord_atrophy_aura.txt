@@ -13,7 +13,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                            "6" //OAA
+
+    "Innate"                                              "1" //OAA
+    "MaxLevel"                                            "7" //OAA
     "RequiredLevel"                                       "-1" //OAA
     "LevelsBetweenUpgrades"                               "2"
 
@@ -28,26 +30,26 @@
       }
       "damage_reduction_pct" //OAA
       {
-        "value"                                           "8 16 24 32 32 32"
+        "value"                                           "4 8 16 24 32 40 48"
         "special_bonus_unique_underlord_3"                "+10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_damage_from_creep" //OAA
       {
-        "value"                                           "2 4 6 8 8 8"
+        "value"                                           "1 2 4 6 8 10 12"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_damage_from_hero" //OAA
       {
-        "value"                                           "30 35 40 45 45 45"
+        "value"                                           "15 30 35 40 45 50 55"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_damage_duration" //OAA
       {
-        "value"                                           "30 40 50 60 60 60"
+        "value"                                           "20 30 40 50 60 70 80"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_unique_underlord_8"                "+15"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

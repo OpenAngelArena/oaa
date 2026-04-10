@@ -230,7 +230,8 @@ function modifier_angels_halo_passive:OnIntervalThink()
     attacker = parent,
     damage = self.dmg,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, -- to prevent Sticky Napalm dmg proc (for consistency with Radiance)
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self:GetAbility(),
   }
 
   for _, enemy in pairs(enemies) do

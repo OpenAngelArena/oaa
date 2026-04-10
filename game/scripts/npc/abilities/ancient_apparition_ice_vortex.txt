@@ -34,9 +34,9 @@
     "AbilityValues"
     {
       "drag_speed"                                        "40 50 60 70 70 70"
-      "AbilityCooldown" //OAA, intentional nerf
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "10 8 6 4 4 4"
+        "value"                                           "9 8 7 6 5 4"
         "special_bonus_unique_ancient_apparition_3"       "-2"
       }
       "radius"
@@ -44,7 +44,7 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "movement_speed_pct" //OAA, Valve it says it doesnt slow on it's own, hmmmm
+      "movement_speed_pct"
       {
         "value"                                           "-8"
         "display_type"                                    "kDebuffPercentage"
@@ -55,14 +55,14 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "display_type"                                    "kDebuffPercentage"
       }
-      "vision_aoe" //OAA, same as radius
+      "vision_aoe" //OAA, intentionally buffed to be the same as radius
       {
-        "value"                                           "200 220 240 260 260 260"
+        "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second"
       {
-        "value"                                           "10 20 30 40 40 40"
+        "value"                                           "10 20 30 40 80 120"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "vortex_duration"

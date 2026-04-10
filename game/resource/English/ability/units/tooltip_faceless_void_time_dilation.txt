@@ -1,5 +1,5 @@
 //=============================================================================
 // Faceless Void's Time Dilation
 //=============================================================================
-"DOTA_Tooltip_ability_faceless_void_time_dilation_Description"                  "Faceless Void traps all nearby enemies in a time dilation field for %duration% seconds, extending their cooldowns and slowing their movement and attack speed by %slow%%% for each cooldown extended. Deals damage per second for each cooldown. <font color='#FFA500'>Time Dilation also slows all health restoration.</font>"
-"DOTA_Tooltip_ability_faceless_void_time_dilation_heal_prevent_percent"         "%HEALTH RESTORATION REDUCTION:"
+"DOTA_Tooltip_ability_faceless_void_time_dilation_Description"                  "Faceless Void envelops nearby enemies with time dilating fields to slow cooldown progression of their abilities. Each enveloped enemy gains one Time Dilation stack when applied, and one stack per ability they have on cooldown. Each stack deals damage per second and slows movement and attack speed. The duration is paused while affected by Chronosphere. <font color='#FFA500'>Time Dilation also slows all health restoration.</font>"
+"DOTA_Tooltip_ability_faceless_void_time_dilation_health_restoration"           "%HEALTH RESTORATION REDUCTION:"

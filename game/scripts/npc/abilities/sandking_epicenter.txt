@@ -1,19 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Epicenter
+  // Sand King: Epicenter FIXEDFUCK
   //=================================================================================================================
   "sandking_epicenter"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,8 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "shard_interval"                                    "3.0"
-      "linger_duration"                                   "3.0"
       "AbilityCooldown"
       {
         "value"                                           "120 110 100 90 80"
@@ -50,37 +47,36 @@
         "value"                                           "60 70 80 110 140"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "epicenter_radius_base" //OAA, intentional nerf
+      "epicenter_radius_base"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_sand_king_5"                "+75"
       }
-      "epicenter_radius_increment" //OAA, intentional nerf
+      "epicenter_radius_increment" //OAA, intentionally nerfed
       {
-        "value"                                           "13"
-        "special_bonus_unique_sand_king_5"                "+7"
+        "value"                                           "10"
       }
       "epicenter_slow"
       {
         "value"                                           "-30 -40 -50 -60 -70"
       }
-      "epicenter_slow_as" //OAA
+      "epicenter_slow_as" //OAA, intentionally buffed
       {
-        "value"                                           "-50 -55 -60 -60 -60"
+        "value"                                           "-30 -50 -70 -90 -110"
       }
       "proc_passively"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+1"
       }
-      "shard_radius" //OAA, Valve has it wrong, they put +100 instead of +75 for special_bonus_unique_sand_king_5
+      "shard_radius"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+425"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_sand_king_5"                "+75"
       }
+      "shard_interval"                                    "3.0"
+      "linger_duration"                                   "3.0"
       "scepter_explosion_radius_pct"
       {
         "special_bonus_scepter"                           "+35"
@@ -99,7 +95,7 @@
       }
       "spine_damage_pct"
       {
-        "special_bonus_scepter"                           "=50"
+        "special_bonus_scepter"                           "=40"
       }
       "shard_explosions_per_pulse"
       {
