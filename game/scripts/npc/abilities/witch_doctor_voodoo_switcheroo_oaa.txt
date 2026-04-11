@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Witch Doctor: Voodoo Switcheroo (OAA rework) - shard ability
+  // Witch Doctor: Voodoo Switcheroo (OAA rework) - shard ability FIXEDFUCK
   //=================================================================================================================
   "witch_doctor_voodoo_switcheroo_oaa"
   {
@@ -17,7 +17,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // same MaxLevel as Death Ward
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -50,18 +50,16 @@
       {
         "value"                                           "70 95 120 170 220"
         "special_bonus_unique_witch_doctor_5"             "+40"
-        "special_bonus_facet_witch_doctor_cleft_death"    "=45 =70 =95 =145 =195"
+        //"special_bonus_facet_witch_doctor_cleft_death"    "=45 =70 =95 =145 =195"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "attack_range_tooltip"
       {
-        "value"                                           "600"
-        "special_bonus_unique_witch_doctor_1"             "+75"
+        "value"                                           "600 625 650 675 700"
       }
       "bonus_attack_range"
       {
-        "value"                                           "0"
-        "special_bonus_unique_witch_doctor_1"             "+75"
+        "value"                                           "0 25 50 75 100"
       }
       "bounce_radius"
       {
@@ -72,7 +70,7 @@
       "initial_target_count"
       {
         "value"                                           "1"
-        "special_bonus_facet_witch_doctor_cleft_death"    "+1"
+        //"special_bonus_facet_witch_doctor_cleft_death"    "+1"
       }
       "duration"                                          "2.5"
       "ward_attack_speed_penalty"                         "-45"
