@@ -59,20 +59,20 @@
       "skeleton_bonus_hero_damage"                        "25 26 27 28 29 30" // OAA, intentionally buffed, percentage increase
       "skeleton_charges_per_hero_multiplier"              "4"
 
-      "skeleton_attack_speed_per_level"                   "1" //OAA, additional effect, tooltip only
-      "skeleton_attack_damage_per_level" //OAA, tooltip only
+      "skeleton_attack_speed_per_level"                   "1" //OAA, additional effect, tooltip only, actual value in wraith_king_global_skeleton_aura_oaa
+      "skeleton_attack_damage_per_level" //OAA, additional effect, tooltip only, actual value in wraith_king_global_skeleton_aura_oaa
       {
         "value"                                           "2"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "skeleton_bonus_damage_against_creeps" //OAA, additional effect, tooltip only
+      "skeleton_bonus_damage_against_creeps" //OAA, additional effect, tooltip only, actual value in wraith_king_global_skeleton_aura_oaa
       {
         "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "skeleton_bonus_damage_against_bosses" //OAA, additional effect, tooltip only
+      "skeleton_bonus_damage_against_bosses" //OAA, additional effect, tooltip only, actual value in wraith_king_global_skeleton_aura_oaa
       {
         "value"                                           "25"
         "CalculateSpellDamageTooltip"                     "0"
