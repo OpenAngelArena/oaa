@@ -5,7 +5,6 @@
   //=================================================================================================================
   "bristleback_hairball"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -13,9 +12,8 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "IsGrantedByShard"                                    "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

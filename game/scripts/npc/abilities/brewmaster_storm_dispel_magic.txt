@@ -5,15 +5,13 @@
   //=================================================================================================================
   "brewmaster_storm_dispel_magic"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

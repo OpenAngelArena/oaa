@@ -5,40 +5,41 @@
   //=================================================================================================================
   "bounty_hunter_jinada"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "MaxLevel"                                            "6" //OAA
-    "RequiredLevel"                                       "-1" //OAA
+
+    "Innate"                                              "1" //OAA
+    "MaxLevel"                                            "7" //OAA
+    "RequiredLevel"                                       "-1" //OAA, so you can lvl it up at lvl 1 if you want.
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage" //OAA
+      "bonus_damage" //OAA, intentionally
       {
-        "value"                                           "70 105 140 175 175 175"
+        "value"                                           "35 70 105 140 175 210 245"
       }
-      "gold_steal" //OAA
+      "gold_steal" //OAA, intentionally
       {
-        "value"                                           "15 22 29 36 36 36"
+        "value"                                           "35 70 90 110 130 170 210"
         "special_bonus_unique_bounty_hunter"              "+50"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally
       {
-        "value"                                           "9 7 5 3 3 3"
+        "value"                                           "11 9 7 5 3 2 1"
         "special_bonus_unique_bounty_hunter_jinada_no_cooldown"  "-100%"
       }
     }

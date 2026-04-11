@@ -5,12 +5,11 @@
   //=================================================================================================================
   "monkey_king_mischief"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

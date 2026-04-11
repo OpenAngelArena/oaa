@@ -5,14 +5,12 @@
   //=================================================================================================================
   "hoodwink_decoy"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "IsGrantedByScepter"                                  "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

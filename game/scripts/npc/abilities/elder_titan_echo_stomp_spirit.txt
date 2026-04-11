@@ -5,7 +5,6 @@
   //=================================================================================================================
   "elder_titan_echo_stomp_spirit"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -13,10 +12,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

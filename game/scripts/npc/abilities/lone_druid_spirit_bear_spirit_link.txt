@@ -5,15 +5,13 @@
   //=================================================================================================================
   "lone_druid_spirit_bear_spirit_link"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityTextureName"                                  "lone_druid_spirit_link"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

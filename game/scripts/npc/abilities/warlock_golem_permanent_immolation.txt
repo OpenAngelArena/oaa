@@ -5,15 +5,13 @@
   //=================================================================================================================
   "warlock_golem_permanent_immolation"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

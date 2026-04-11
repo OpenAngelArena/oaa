@@ -5,13 +5,12 @@
   //=================================================================================================================
   "antimage_persectur"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

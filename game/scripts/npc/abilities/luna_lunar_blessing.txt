@@ -5,14 +5,13 @@
   //=================================================================================================================
   "luna_lunar_blessing"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

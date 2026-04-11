@@ -5,14 +5,12 @@
   //=================================================================================================================
   "brewmaster_storm_wind_walk"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

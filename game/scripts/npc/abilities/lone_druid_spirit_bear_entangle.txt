@@ -5,16 +5,14 @@
   //=================================================================================================================
   "lone_druid_spirit_bear_entangle"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

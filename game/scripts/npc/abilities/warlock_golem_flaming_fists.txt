@@ -5,15 +5,13 @@
   //=================================================================================================================
   "warlock_golem_flaming_fists"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
