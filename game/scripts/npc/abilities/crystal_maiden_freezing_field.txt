@@ -5,13 +5,12 @@
   //=================================================================================================================
   "crystal_maiden_freezing_field"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -26,7 +25,7 @@
       "AbilityDuration"                                   "10.0"
       "AbilityManaCost"                                   "200 400 600 800 1000"
       "explosion_interval"                                "0.1"
-      "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA. intentionally buffed
+      "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA, intentionally buffed
       "attack_slow"                                       "-80 -120 -160 -200 -240"
       "slow_duration"                                     "1.0"
       "explosion_min_dist"                                "195"

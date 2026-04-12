@@ -5,14 +5,16 @@
   //=================================================================================================================
   "alchemist_chemical_rage"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" // must be an ultimate because of Morphling
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "0" //OAA, intentionally; needed because of the custom ability
+    "HasShardUpgrade"                                     "0" //OAA, intentionally; needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

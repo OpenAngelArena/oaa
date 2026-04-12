@@ -22,7 +22,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "1" // needed because it's a custom ability
     "HasShardUpgrade"                                     "1" // needed because it's a custom ability
 
     // Casting

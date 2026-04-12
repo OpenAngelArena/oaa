@@ -10,7 +10,7 @@
     "BaseClass"                                           "bristleback_bristleback"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "1"
 
