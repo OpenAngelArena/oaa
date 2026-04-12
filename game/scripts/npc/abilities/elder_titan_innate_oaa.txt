@@ -21,13 +21,13 @@
       "base_dmg_penalty_per_strength"                     "50"
       "armor_from_movespeed" // TODO
       {
-        "value"				"5.0"
-        "hero_levelup"		"+0.2"
+        "value"                                           "5.0"
+        "hero_levelup"                                    "+0.2"
       }
       "attack_speed_from_movespeed" //TODO
       {
-        "value"      "0"
-        "special_bonus_unique_elder_titan_momentum_attack_speed"			"20"
+        "value"                                           "0"
+        "special_bonus_unique_elder_titan_momentum_attack_speed"  "20"
       }
     }
   }

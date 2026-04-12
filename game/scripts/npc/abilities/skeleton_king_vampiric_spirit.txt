@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wraith King: Vampiric Spirit
+  // Wraith King: Vampiric Spirit FIXEDFUCK
   //=================================================================================================================
   "skeleton_king_vampiric_spirit"
   {
@@ -21,9 +21,9 @@
         "hero_levelup"                                    "+1"
         "special_bonus_unique_wraith_king_2"              "+15"
       }
-      "duration"
+      "duration" //OAA, intentionally nerfed base value
       {
-        "value"                                           "4.25"
+        "value"                                           "3.5"
         "hero_levelup"                                    "+0.25"
         "levelup_interval"                                "6"
         "special_bonus_scepter"                           "+1"
@@ -41,7 +41,6 @@
         "special_bonus_scepter"                           "+900"
         "affected_by_aoe_increase"                        "1"
       }
-
       "wraith_damage_penalty" //OAA, additional effect
       {
         "value"                                           "25"
