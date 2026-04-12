@@ -1,25 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Crystal Maiden: Arcane Aura
+  // Crystal Maiden: Arcane Aura FIXEDFUCK
   //=================================================================================================================
   "crystal_maiden_brilliance_aura"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "0" //OAA, intentionally; needed because of the custom ability
+    "HasShardUpgrade"                                     "0" //OAA, intentionally; needed because of the custom ability
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "proximity_bonus_factor"                            "3"
       "base_mana_regen"
       {
         "value"                                           "0.4 0.6 0.8 1 1.2 1.4"
@@ -32,6 +32,7 @@
       {
         "value"                                           "20 40 60 80 90 100"
       }
+      "proximity_bonus_factor"                            "3"
       "proximity_bonus_radius"
       {
         "value"                                           "1200"
