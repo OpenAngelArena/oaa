@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Weaver: Time Lapse FIXEDFUCK
   //=================================================================================================================
   "weaver_time_lapse"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // for the scepter
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // for the scepter
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO" // for the scepter
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -18,8 +19,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA
+    "AbilityCastRange"                                    "500" // for the scepter
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,9 +30,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "70 55 40 40 40"
+        "value"                                           "50 45 40 35 30"
         "special_bonus_scepter"                           "-10"
       }
       "targets_allies"
@@ -39,7 +40,7 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
-      "cast_point_tooltip"                                "0.3 0.3 0.3 0.2 0.1" //OAA
+      "cast_point_tooltip"                                "0.3 0.3 0.3 0.2 0.1" //OAA, because it scales in OAA
     }
   }
 }
