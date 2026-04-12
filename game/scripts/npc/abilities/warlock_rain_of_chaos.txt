@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Warlock: Chaotic Offering FIXEDFUCK
   //=================================================================================================================
   "warlock_rain_of_chaos"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -18,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "120" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,55 +35,55 @@
     {
       "golem_duration"                                    "60"
       "stun_duration"                                     "0.8"
-      "golem_dmg"                                         "100 200 300 600 1100" //OAA
-      "golem_armor"                                       "8 14 20 26 32" //OAA
-      "golem_movement_speed"                              "320 340 360 380 400"
-      "golem_health_regen"                                "25 50 75 100 125"
-      "golem_gold_bounty"                                 "100 150 200 500 1000"
-      "stun_delay"                                        "0.5"
-      "bonus_slow_resistance"                             "60"
       "aoe"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "golem_hp" //OAA
+      "golem_hp" //OAA, intentionally buffed
       {
-        "value"                                           "1500 2250 3000 3000 3000"
+        "value"                                           "1500 3000 4500 9000 13500"
       }
+      "golem_dmg"                                         "100 200 300 600 900" //OAA, intentionally buffed
+      "golem_armor"                                       "8 14 20 26 32" //OAA, intentionally buffed
+      "golem_movement_speed"                              "320 340 360 380 400"
+      "golem_health_regen"                                "25 50 75 100 125"
+      "golem_gold_bounty"                                 "100 150 200 350 500"
+      "stun_delay"                                        "0.5"
       "number_of_golems_scepter"
       {
         "special_bonus_scepter"                           "2"
       }
-      "golem_hp_scepter" //OAA, same as golem_hp
+      "golem_hp_scepter" //OAA, intentionally buffed; same as golem_hp
       {
-        "special_bonus_scepter"                           "1500 2250 3000 3000 3000"
+        "special_bonus_scepter"                           "1500 3000 4500 9000 13500"
       }
-      "golem_dmg_scepter" //OAA
+      "golem_dmg_scepter" //OAA, intentionally buffed; golem_dmg x 0.8
       {
-        "special_bonus_scepter"                           "80 120 160 160 160"
+        "special_bonus_scepter"                           "80 160 240 480 720"
       }
-      "golem_gold_bounty_scepter"
+      "golem_gold_bounty_scepter" // same as golem_gold_bounty
       {
-        "special_bonus_scepter"                           "100 150 200 200 200"
+        "special_bonus_scepter"                           "100 150 200 350 500"
       }
       "bonus_magic_resistance"
       {
       }
       "bonus_armor"
       {
-        "special_bonus_unique_warlock_2"                  "+20"
+        "special_bonus_unique_warlock_2"                  "+20" // unused
       }
       "bonus_damage_resist"
       {
         "special_bonus_unique_warlock_1"                  "+25"
       }
-      "tooltip_golem_armor" //OAA
+      "tooltip_golem_armor" //OAA, same as golem_armor
       {
-        "value"                                           "8 12 14 14 14"
-        "special_bonus_unique_warlock_2"                  "+20"
+        "value"                                           "8 14 20 26 32"
+        "special_bonus_unique_warlock_2"                  "+20" // unused
       }
-      "tooltip_manahealthboost" //OAA
+      "bonus_slow_resistance"                             "60"
+      "tooltip_manahealthboost" // unused
       {
         "value"                                           "0"
       }

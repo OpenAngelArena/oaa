@@ -1,29 +1,29 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Warlock Golem: Flaming Fists FIXEDFUCK
   //=================================================================================================================
   "warlock_golem_flaming_fists"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // same as warlock_rain_of_chaos
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "40 50 60 60 60"
+        "value"                                           "40 60 80 120 160"
       }
       "radius"
       {
-        "value"                                           "300 300 300 300 300"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
     }

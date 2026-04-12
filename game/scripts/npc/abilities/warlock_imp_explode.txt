@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Warlock Imps Explosion
+  // Warlock Imp: Eldritch Explosion (ability on Imps) FIXEDFUCK
   //=================================================================================================================
   "warlock_imp_explode"
   {
@@ -17,7 +17,7 @@
     "AbilityValues"
     {
       "explosion_delay"                                   ".3"
-      "explosion_nonhero_reduce"                          "50"
+      "explosion_nonhero_reduce"                          "0" //OAA, intentionally buffed
       "explosion_radius"
       {
         "value"                                           "400"

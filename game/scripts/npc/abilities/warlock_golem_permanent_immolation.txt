@@ -1,36 +1,36 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Warlock Golem: Permanent Immolation FIXEDFUCK
   //=================================================================================================================
   "warlock_golem_permanent_immolation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // same as warlock_rain_of_chaos
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aura_damage"                                       "30 45 60 105 150"
-      "health_bonus_pct"                                  "0"
-      "share_damage"                                      "0"
-      "tick_interval"                                     "0.5"
-      "manaboost_scale_mult"                              ".25"
       "aura_radius"
       {
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "manahealthboost" //OAA
+      "aura_damage"                                       "30 50 70 130 190" //OAA, intentionally buffed
+      "health_bonus_pct"                                  "0"
+      "share_damage"                                      "0"
+      "tick_interval"                                     "0.5"
+      "manahealthboost"
       {
         "value"                                           "0"
       }
+      "manaboost_scale_mult"                              ".25"
     }
   }
 }
