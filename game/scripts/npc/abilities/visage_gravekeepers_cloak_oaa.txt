@@ -9,13 +9,13 @@
     "ScriptFile"                                          "abilities/visage_gravekeepers_cloak.lua"
     "AbilityTextureName"                                  "visage_gravekeepers_cloak"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasShardUpgrade"                                     "1"
+    "HasShardUpgrade"                                     "1" // needed because it's a custom ability
 
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
     "AbilityCastRange"                                    "900"

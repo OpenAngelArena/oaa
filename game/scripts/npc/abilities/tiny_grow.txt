@@ -7,13 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityType"                                         "ABILITY_TYPE_BASIC" //OAA, DO NOT CHANGE THIS!
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" // must be an ultimate because of Morphling
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
-    "MaxLevel"                                            "3" //OAA, DO NOT CHANGE THIS!
+    "MaxLevel"                                            "3" //OAA, intentionally; DO NOT CHANGE THIS!
 
-    "HasShardUpgrade"                                     "0" //OAA
+    "HasShardUpgrade"                                     "0" //OAA, intentionally; needed because of the custom ability
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
