@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Winter Wyvern: Cold Embrace FIXEDFUCK
   //=================================================================================================================
   "winter_wyvern_cold_embrace"
   {
@@ -20,11 +20,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850 900 950 1000 1050 1100"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,30 +35,29 @@
     "AbilityValues"
     {
       "duration"                                          "4.0"
-      "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5" //special_bonus_unique_winter_wyvern_1_oaa
-      "tick_interval"                                     "0.25"
       "heal_additive"
       {
-        "value"                                           "40 45 50 55 110 220"
-        "special_bonus_unique_winter_wyvern_5"            "+20"
+        "value"                                           "40 45 50 55 110 165"
+        "special_bonus_unique_winter_wyvern_5"            "+20" // unused in OAA
       }
+      "heal_percentage"                                   "2.25 3 3.75 4.5 5.25 6.0" // uses special_bonus_unique_winter_wyvern_1_oaa
       "shard_cooldown_reduction"
       {
         "special_bonus_shard"                             "4.0"
       }
-      "shard_splinter_range" //OAA
+      "shard_splinter_range"
       {
         "value"                                           "0"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_shard"                             "950"
       }
+      "tick_interval"                                     "0.25"
       "can_target_buildings"
       {
-        "special_bonus_facet_winter_wyvern_winterproof"   "=1"
+        "special_bonus_facet_winter_wyvern_winterproof"   "=1" // unused
       }
-      "damage_buff_pct"
+      "damage_buff_pct" //OAA, intentionally rescaled
       {
-        "special_bonus_shard"                             "=60"
+        "special_bonus_shard"                             "=10 =20 =30 =40 =50 =60"
       }
       "damage_buff_duration"
       {
