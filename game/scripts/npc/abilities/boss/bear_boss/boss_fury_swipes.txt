@@ -12,7 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "1"
 
@@ -20,24 +20,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_reset_time" //OAA
+      "bonus_reset_time" //OAA, intentionally because it's a boss
       {
         "value"                                           "20"
       }
       "bonus_reset_time_roshan"                           "8"
-      "damage_per_stack" //OAA
+      "damage_per_stack" //OAA, intentionally because it's a boss
       {
         "value"                                           "150"
       }
-      "stun_stack_count"
+      "stun_stack_count" //OAA, intentionally because it's a boss
       {
         "value"                                           "0"
-        "special_bonus_unique_ursa_furyswipes_stun"       "+5"
       }
-      "stun_duration"
+      "stun_duration" //OAA, intentionally because it's a boss
       {
         "value"                                           "0"
-        "special_bonus_unique_ursa_furyswipes_stun"       "+1.5"
       }
     }
   }

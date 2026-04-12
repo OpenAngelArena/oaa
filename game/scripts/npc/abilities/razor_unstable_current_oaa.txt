@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/oaa_razor_storm_surge.lua"
     "AbilityTextureName"                                  "razor_unstable_current"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,21 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strike_pct_chance"                                 "18" // for the tooltip
-      "strike_target_count"                               "3" // for the tooltip
-      "strike_damage" // for the tooltip
-      {
-        "value"                                           "45 80 115 150 300 600"
-        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25%"
-      }
-      "strike_move_slow_pct" // for the tooltip
-      {
-        "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25"
-      }
-      "strike_slow_duration"                              "1.0" // for the tooltip
-      "strike_search_radius"                              "700" // for the tooltip
-      "strike_internal_cd"                                "3.0" // for the tooltip
       "bonus_attack_speed"                                "8 12 16 20 24 28"
       "bonus_attack_projectile_speed"                     "300 400 500 600 800 1000"
     }
