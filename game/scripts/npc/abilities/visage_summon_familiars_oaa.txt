@@ -12,6 +12,7 @@
     "AbilityTextureName"                                  "visage_summon_familiars"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,23 +35,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "familiar_hp"                                       "500 700 900 1500 2500"
-      "familiar_armor"                                    "2 4 6 8 10"
+      "familiar_hp"
+      {
+        "value"                                           "600 800 1000 1600 2200"
+      }
+      "familiar_armor"
+      {
+        "value"                                           "2 4 6 8 10"
+      }
+      "familiar_attack_range" // TODO
+      {
+        "value"                                           "180"
+      }
       "familiar_speed"
       {
         "value"                                           "430"
-        //"special_bonus_unique_visage_2"                   "+40"
       }
       "familiar_attack_damage"
       {
         "value"                                           "30 75 120 255 390"
-        "special_bonus_unique_visage_7"                   "+6"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "total_familiars"
       {
         "value"                                           "2"
-        "special_bonus_unique_visage_6"                   "+1"
       }
     }
   }

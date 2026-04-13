@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Visage: Soul Assumption FIXEDFUCK
   //=================================================================================================================
   "visage_soul_assumption"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,26 +24,22 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 115 120 125 130 135" //OAA
+    "AbilityManaCost"                                     "110 115 120 125 130 135" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bolt_speed"                                        "1000"
-      "soul_base_damage"                                  "20"
-      "stack_limit"                                       "3 4 5 6 7 8"
-      "stack_duration"                                    "6.0"
-      "damage_min"                                        "2.0"
-      "damage_max"                                        "3000.0"
       "AbilityCooldown"
       {
         "value"                                           "4"
         "special_bonus_unique_visage_soul_assumption_cooldown"  "-1"
       }
-      "soul_charge_damage" //OAA
+      "bolt_speed"                                        "1000"
+      "soul_base_damage"                                  "20 25 30 35 45 55" //OAA, intentionally buffed
+      "soul_charge_damage"
       {
-        "value"                                           "70"
+        "value"                                           "70 70 70 70 100 130"
         "special_bonus_unique_visage_4"                   "+30"
       }
       "soul_charge_gold"
@@ -58,10 +54,12 @@
       {
         "value"                                           "0"
       }
-      "gold_max_tooltip"
+      "gold_max_tooltip" // soul_charge_gold x stack_limit
       {
         "value"                                           "0"
       }
+      "stack_limit"                                       "3 4 5 6 7 8"
+      "stack_duration"                                    "6.0"
       "damage_limit"
       {
         "value"                                           "100"
@@ -72,6 +70,8 @@
         "value"                                           "1800"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_min"                                        "2.0"
+      "damage_max"                                        "3000.0"
       "target_count"
       {
         "value"                                           "1"
