@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Acid Spray
+  // Alchemist: Acid Spray FIXEDFUCK
   //=================================================================================================================
   "alchemist_acid_spray"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 21 20 19 18 17" //OAA
+    "AbilityCooldown"                                     "22 21 20 19 18 17" //OAA, just OCD
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,28 +32,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "15"
-      "tick_rate"                                         "1.0"
       "radius"
       {
         "value"                                           "350 400 450 500 550 600"
         "affected_by_aoe_increase"                        "1"
       }
+      "duration"                                          "15"
       "damage"
       {
         "value"                                           "25 30 35 40 80 160"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "armor_reduction" //OAA, because of special_bonus_unique_alchemist_5
+      "armor_reduction" //OAA, because of special_bonus_unique_alchemist_5 buff
       {
-        "value"                                           "3 4 5 6 6 6"
-        "special_bonus_unique_alchemist_5"                "+1"
+        "value"                                           "3 4 5 6 8 10"
+        "special_bonus_unique_alchemist_5"                "+2"
       }
       "armor_allies"
       {
         "value"                                           "0"
-        "special_bonus_unique_alchemist_3"                "+1"
+        "special_bonus_unique_alchemist_3"                "+1" // unused
       }
+      "tick_rate"                                         "1.0"
     }
   }
 }

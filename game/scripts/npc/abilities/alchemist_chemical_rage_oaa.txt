@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Chemical Rage (OAA ability that improves vanilla ability)
+  // Alchemist: Chemical Rage (OAA ability that improves vanilla ability) FIXEDFUCK
   //=================================================================================================================
   "alchemist_chemical_rage_oaa"
   {
@@ -34,7 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "30.0"
+      "duration"                                          "30"
       "transformation_time"                               "0.35"
       "base_attack_time"
       {
@@ -44,8 +44,7 @@
       "bonus_health"                                      "0"
       "bonus_health_regen"
       {
-        "value"                                           "60 110 160 260 360"
-        "special_bonus_unique_alchemist_4"                "+50"
+        "value"                                           "60 110 160 310 410"
       }
       "bonus_mana_regen"                                  "0"
       "bonus_movespeed"
