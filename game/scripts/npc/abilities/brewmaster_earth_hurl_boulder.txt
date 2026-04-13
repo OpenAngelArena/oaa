@@ -1,25 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster Earth: Hurl Boulder
+  // Brewmaster Earth: Hurl Boulder FIXEDFUCK
   //=================================================================================================================
   "brewmaster_earth_hurl_boulder"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // MaxLevel: 6 with aghanims scepter
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800 800 800 800 800 800"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
@@ -34,13 +33,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "50 100 150 200 200 200"
+        "value"                                           "50 150 250 350 550 850"
       }
-      "duration" //OAA
+      "duration" //OAA, intentionally buffed
       {
-        "value"                                           "1.6 1.6 1.6 1.8 1.8 1.8"
+        "value"                                           "1.6 1.7 1.8 1.9 2.0 2.1"
       }
       "speed"
       {

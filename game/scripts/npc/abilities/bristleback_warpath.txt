@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bristleback: Warpath
+  // Bristleback: Warpath FIXEDFUCK
   //=================================================================================================================
   "bristleback_warpath"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -18,12 +19,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "move_speed_per_stack"                              "2 2.5 3 3.5 4"
-      "stack_duration"                                    "16.0 18.0 20.0 20.0 20.0"
-      "max_stacks"                                        "8 10 12 12 12"
-      "damage_per_stack" //OAA
+      "damage_per_stack" //OAA, intentionally buffed
       {
-        "value"                                           "15 20 25 25 25"
+        "value"                                           "15 21 27 39 51"
         "special_bonus_facet_bristleback_berserk"         "=5"
         "special_bonus_unique_bristleback_3"              "+18"
         "CalculateSpellDamageTooltip"                     "0"
@@ -34,6 +32,9 @@
         "value"                                           "0"
         "special_bonus_facet_bristleback_berserk"         "=10 =15 =20 =20 =20"
       }
+      "move_speed_per_stack"                              "2 2.5 3 3.5 4"
+      "stack_duration"                                    "16.0 18.0 20.0 20.0 20.0"
+      "max_stacks"                                        "8 10 12 12 12"
     }
   }
 }

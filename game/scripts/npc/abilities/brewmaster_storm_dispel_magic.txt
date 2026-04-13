@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster Storm: Dispel Magic
+  // Brewmaster Storm: Dispel Magic FIXEDFUCK
   //=================================================================================================================
   "brewmaster_storm_dispel_magic"
   {
@@ -11,11 +11,11 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // MaxLevel: 6 with aghanims scepter
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 500 500 500 500 500"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -24,15 +24,15 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 75 75 75 75 75"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "1000"
+        "value"                                           "1000 1200 1400 1600 1800 2000"
       }
       "radius"
       {

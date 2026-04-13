@@ -63,9 +63,9 @@
         "value"                                           "75"
         "affected_by_aoe_increase"                        "1"
       }
-      "barrel_impact_damage" //OAA
+      "barrel_impact_damage" //OAA, intentionally buffed
       {
-        "value"                                           "40 70 100 130 130 130"
+        "value"                                           "70 100 130 160 320 640"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "AbilityCastRange"

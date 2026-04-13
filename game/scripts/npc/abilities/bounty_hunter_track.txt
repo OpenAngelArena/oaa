@@ -5,15 +5,15 @@
   //=================================================================================================================
   "bounty_hunter_track"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA, intentionally buffed
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -37,21 +37,21 @@
     {
       "target_damage_amp"                                 "8 12 16 20 24"
       "duration"                                          "25"
-      "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7"
+      "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7" // unused
       "bonus_gold_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_gold_self" //OAA
+      "bonus_gold_self" //OAA, intentionally buffed
       {
-        "value"                                           "130 225 320 320 320"
-        "special_bonus_unique_bounty_hunter_3"            "+50"
+        "value"                                           "320 640 960 1920 2880"
+        "special_bonus_unique_bounty_hunter_3"            "+50" // unused in OAA
       }
-      "bonus_gold" //OAA
+      "bonus_gold" //OAA, intentionally buffed
       {
-        "value"                                           "50 90 130 130 130"
-        "special_bonus_unique_bounty_hunter_3"            "+50"
+        "value"                                           "250 500 750 1500 2250"
+        "special_bonus_unique_bounty_hunter_3"            "+50" // unused in OAA
       }
     }
   }

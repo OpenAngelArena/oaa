@@ -5,11 +5,11 @@
   //=================================================================================================================
   "brewmaster_drunken_brawler"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"

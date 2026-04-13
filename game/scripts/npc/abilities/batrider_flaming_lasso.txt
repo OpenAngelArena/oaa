@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Batrider: Flaming Lasso
+  // Batrider: Flaming Lasso FIXEDFUCK
   //=================================================================================================================
   "batrider_flaming_lasso"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -32,17 +33,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "drag_distance"                                     "300 300 300 300 300"
-      "break_distance"                                    "425"
-      "tick_rate"                                         "0.5"
       "duration"
       {
-        "value"                                           "2.25 2.75 3.25 3.25 3.25"
+        "value"                                           "2.25 2.75 3.25 3.75 4.25"
         "special_bonus_unique_batrider_1"                 "+0.75"
       }
-      "damage" //OAA, total damage
+      "drag_distance"                                     "300"
+      "break_distance"                                    "425"
+      "damage" //OAA, intentionally buffed; total damage
       {
-        "value"                                           "200 350 500 500 500"
+        "value"                                           "200 400 600 1000 1400"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "grab_radius_scepter"
@@ -50,11 +50,11 @@
         "special_bonus_scepter"                           "+650"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "90 75 60 60 60"
-        "special_bonus_unique_batrider_6"                 "-8"
+        "value"                                           "70 65 60 55 50"
       }
+      "tick_rate"                                         "0.5"
     }
   }
 }
