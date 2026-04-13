@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Void Spirit: Aether Remnant
+  // Void Spirit: Aether Remnant FIXEDFUCK
   //=================================================================================================================
   "void_spirit_aether_remnant"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,12 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "900"
-      "activation_delay"                                  "0.4"
-      "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
-      "pull_destination"                                  "44 50 56 62 68 74"
-      "duration"                                          "17.0"
-      "think_interval"                                    "0.1"
       "start_radius"
       {
         "value"                                           "90"
@@ -52,6 +46,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
+      "projectile_speed"                                  "900"
       "remnant_watch_distance"
       {
         "value"                                           "450"
@@ -67,19 +62,24 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
+      "activation_delay"                                  "0.4"
       "impact_damage"
       {
         "value"                                           "90 140 190 240 480 960"
         "special_bonus_unique_void_spirit_2"              "+65"
       }
+      "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
+      "pull_destination"                                  "44 50 56 62 68 74"
+      "duration"                                          "17.0"
+      "think_interval"                                    "0.1"
       "pierces_creeps"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "17.0 15.0 13.0 11.0 11.0 11.0"
+        "value"                                           "14 13 12 11 10 9"
       }
       "damage_tick_rate"
       {
