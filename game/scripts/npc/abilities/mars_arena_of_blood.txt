@@ -1,17 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Mars: Arena of Blood
+  // Mars: Arena of Blood FIXEDFUCK
   //=================================================================================================================
   "mars_arena_of_blood"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -30,15 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "width"                                             "100"
-      "formation_time"                                    "0.1"
-      "spear_distance_from_wall"                          "160"
-      "spear_attack_interval"                             "1"
-      "warrior_count"                                     "14"
-      "first_warrior_angle"                               "0.0"
-      "warrior_fade_min_dist"                             "350.0"
-      "warrior_fade_max_dist"                             "450.0"
-      "cast_around_self_and_leash"                        "0"
       "AbilityCooldown"
       {
         "value"                                           "100 95 90 85 80"
@@ -54,12 +46,21 @@
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
       }
-      "spear_damage" //OAA special_bonus_unique_mars_2_oaa
+      "width"                                             "100"
+      "spear_damage" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "80 160 240 240 240"
-        "special_bonus_unique_mars_arena_of_blood_damage"  "+70"
+        "value"                                           "80 180 280 580 780"
+        "special_bonus_unique_mars_arena_of_blood_damage"  "+100"
       }
-      "obscure_vision" //OAA
+      "formation_time"                                    "0.1"
+      "spear_distance_from_wall"                          "160"
+      "spear_attack_interval"                             "1"
+      "warrior_count"                                     "14"
+      "first_warrior_angle"                               "0.0"
+      "warrior_fade_min_dist"                             "350.0"
+      "warrior_fade_max_dist"                             "450.0"
+      "cast_around_self_and_leash"                        "0"
+      "obscure_vision"
       {
         "value"                                           "0"
       }

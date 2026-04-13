@@ -61,9 +61,6 @@ local abilities_with_custom_talents = {
   life_stealer_open_wounds = {
     AbilityCooldown = {"special_bonus_unique_lifestealer_1_oaa", "+"},
   },
-  mars_arena_of_blood = {
-    spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
-  },
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },

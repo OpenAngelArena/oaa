@@ -2,7 +2,7 @@
 modifier_mars_arena_of_blood_leash_oaa = modifier_mars_arena_of_blood_leash_oaa or class({})
 
 function modifier_mars_arena_of_blood_leash_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_mars_arena_of_blood_leash_oaa:IsDebuff()
@@ -29,6 +29,7 @@ function modifier_mars_arena_of_blood_leash_oaa:OnIntervalThink()
   end
 end
 
+--[[
 function modifier_mars_arena_of_blood_leash_oaa:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_BONUS_DAY_VISION,
@@ -48,6 +49,7 @@ end
 -- function modifier_mars_arena_of_blood_leash_oaa:GetBonusNightVision()
   -- return -550
 -- end
+]]
 
 function modifier_mars_arena_of_blood_leash_oaa:CheckState()
   if self:GetParent():IsDebuffImmune() then
