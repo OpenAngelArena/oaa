@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Centaur Warchief: Hoof Stomp
+  // Centaur Warrunner: Hoof Stomp FIXEDFUCK
   //=================================================================================================================
   "centaur_hoof_stomp"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,15 +32,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "windup_time"                                       "0.5"
       "radius"
       {
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "stomp_damage" //OAA
+      "stomp_damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 140 210 280 280 280"
+        "value"                                           "75 150 225 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "stun_duration"
@@ -48,6 +47,7 @@
         "value"                                           "1.6 1.8 2.0 2.2 2.4 2.6"
         "special_bonus_unique_centaur_2"                  "+0.8"
       }
+      "windup_time"                                       "0.5"
     }
   }
 }

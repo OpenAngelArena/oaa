@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chaos Knight: Chaos Bolt
+  // Chaos Knight: Chaos Bolt FIXEDFUCK
   //=================================================================================================================
   "chaos_knight_chaos_bolt"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,6 @@
     "AbilityValues"
     {
       "chaos_bolt_speed"                                  "700"
-      "fake_bolt_distance"                                "675"
       "stun_min"
       {
         "value"                                           "1.25 1.5 1.75 2 2.1 2.2"
@@ -50,6 +49,7 @@
       {
         "value"                                           "155 240 325 410 820 1640"
       }
+      "fake_bolt_distance"                                "675" // reduce this if particles on illusions cause too much lag
       "AbilityCastRange"
       {
         "value"                                           "600"
