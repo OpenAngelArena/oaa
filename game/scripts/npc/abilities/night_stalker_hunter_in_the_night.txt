@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Hunter in the Night
+  // Night Stalker: Hunter in the Night FIXEDFUCK
   //=================================================================================================================
   "night_stalker_hunter_in_the_night"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -19,16 +18,15 @@
       "bonus_movement_speed_pct_night"
       {
         "value"                                           "24"
+        "special_bonus_scepter"                           "+15"
         "hero_levelup"                                    "2"
         "levelup_interval"                                "3"
-        "special_bonus_scepter"                           "+15"
       }
       "bonus_attack_speed_night"
       {
         "value"                                           "38"
-        "hero_levelup"                                    "2"
         "special_bonus_scepter"                           "+50"
-        "special_bonus_unique_night_stalker_2"            "+100"
+        "hero_levelup"                                    "2"
       }
       "reset_cooldowns"
       {
@@ -37,14 +35,6 @@
       "bonus_status_resist_night"
       {
         "special_bonus_unique_night_stalker_hunter_status_resist"  "+20"
-      }
-      "shard_cooldown" //OAA
-      {
-        "special_bonus_shard"                             "20"
-      }
-      "shard_cast_range" //OAA
-      {
-        "special_bonus_shard"                             "200"
       }
     }
   }

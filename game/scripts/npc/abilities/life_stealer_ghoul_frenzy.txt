@@ -24,8 +24,9 @@
         "value"                                           "0"
         "hero_levelup"                                    "+0.3" // what is this Valve?
       }
-      "attack_speed_bonus" //OAA, intentionally nerfed
+      "attack_speed_bonus" //OAA, intentionally nerfed hero_levelup and added base value
       {
+        "value"                                           "3"
         "hero_levelup"                                    "+2"
       }
     }
