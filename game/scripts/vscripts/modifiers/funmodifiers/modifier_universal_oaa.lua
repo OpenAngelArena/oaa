@@ -179,6 +179,9 @@ if IsServer() then
 
   function modifier_universal_summons_oaa:GetModifierTotalDamageOutgoing_Percentage(event)
     local caster = self:GetCaster()
+    if not caster or caster:IsNull() then
+      return 0
+    end
     return caster:GetModifierStackCount("modifier_universal_oaa", caster)
   end
 end

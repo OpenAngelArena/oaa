@@ -37,6 +37,8 @@ end
 function modifier_elder_titan_innate_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
@@ -45,6 +47,36 @@ function modifier_elder_titan_innate_oaa:GetModifierBaseAttack_BonusDamage()
   local parent = self:GetParent()
   local dmg_penalty = self.base_dmg_penalty_per_strength * parent:GetStrength()
   return 0 - math.abs(dmg_penalty)
+end
+
+function modifier_elder_titan_innate_oaa:GetModifierPhysicalArmorBonus()
+  local parent = self:GetParent()
+  if parent:IsIllusion() or parent:PassivesDisabled() then
+    return 0
+  end
+  local base_ms = parent:GetBaseMoveSpeed()
+  local current_ms = parent:GetIdealSpeed()
+  if current_ms > base_ms then
+    local ability = self:GetAbility()
+    local armor_per_bonus_ms = ability:GetSpecialValueFor("armor_from_movespeed") / 100
+    return (current_ms - base_ms) * armor_per_bonus_ms
+  end
+  return 0
+end
+
+function modifier_elder_titan_innate_oaa:GetModifierAttackSpeedBonus_Constant()
+  local parent = self:GetParent()
+  if parent:PassivesDisabled() then
+    return 0
+  end
+  local base_ms = parent:GetBaseMoveSpeed()
+  local current_ms = parent:GetIdealSpeed()
+  if current_ms > base_ms then
+    local ability = self:GetAbility()
+    local as_per_bonus_ms = ability:GetSpecialValueFor("attack_speed_from_movespeed") / 100
+    return (current_ms - base_ms) * as_per_bonus_ms
+  end
+  return 0
 end
 
 if IsServer() then

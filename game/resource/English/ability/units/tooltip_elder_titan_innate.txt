@@ -1,5 +1,15 @@
 
+//"DOTA_Tooltip_ability_elder_titan_momentum"                                     "Momentum"
+//"DOTA_Tooltip_ability_elder_titan_momentum_Description"                         "Elder Titan gains armor equal to a percentage of his bonus movement speed."
+//"DOTA_Tooltip_ability_elder_titan_momentum_Note0"                               "Bonus movement speed is any movement speed above his base movement speed."
+//"DOTA_Tooltip_ability_elder_titan_momentum_Note1"                               "Momentum does not reduce Elder Titan's Armor if he is slowed below his base movement speed."
+//"DOTA_Tooltip_ability_elder_titan_momentum_armor_from_movespeed"                "%BONUS SPEED TO ARMOR:"
+
 "DOTA_Tooltip_ability_elder_titan_innate_oaa"                                   "Astral Worldsmith"
-"DOTA_Tooltip_ability_elder_titan_innate_oaa_Description"                       "Elder Titan's attacks deals bonus magic damage based on his strength but he gains less base damage from strength."
+"DOTA_Tooltip_ability_elder_titan_innate_oaa_Description"                       "Elder Titan's attacks deals bonus magic damage based on his strength but he gains less base damage from strength. Additionally #{DOTA_Tooltip_ability_elder_titan_momentum_Description}"
+"DOTA_Tooltip_ability_elder_titan_innate_oaa_Note0"                             "#{DOTA_Tooltip_ability_elder_titan_momentum_Note0}"
+"DOTA_Tooltip_ability_elder_titan_innate_oaa_Note1"                             "#{DOTA_Tooltip_ability_elder_titan_momentum_Note1}"
 "DOTA_Tooltip_ability_elder_titan_innate_oaa_dmg_per_strength"                  "MAGIC DAMAGE PER STRENGTH:"
 "DOTA_Tooltip_ability_elder_titan_innate_oaa_base_dmg_penalty_per_strength"     "%STRENGTH BASE DAMAGE PENALTY:"
+"DOTA_Tooltip_ability_elder_titan_innate_oaa_armor_from_movespeed"              "#{DOTA_Tooltip_ability_elder_titan_momentum_armor_from_movespeed}"
+"DOTA_Tooltip_ability_elder_titan_innate_oaa_attack_speed_from_movespeed"       "%BONUS SPEED TO ATTACK SPEED:" // does not work?

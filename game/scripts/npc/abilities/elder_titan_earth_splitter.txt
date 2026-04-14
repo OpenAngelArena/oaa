@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Earth Splitter
+  // Elder Titan: Earth Splitter FIXEDFUCK
   //=================================================================================================================
   "elder_titan_earth_splitter"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" // it's also physical
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "2400"
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,19 +32,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crack_time"                                        "2.7182"
-      "slow_pct"                                          "30 40 50 60 70"
-      "slow_duration"                                     "3.0 4.0 5.0 6.0 7.0"
-      "speed"                                             "1100"
-      "vision_interval"                                   "0.22"
-      "vision_duration"                                   "4.0"
-      "vision_step"                                       "200"
-      "total_steps"                                       "12"
-      "AbilityCooldown" //OAA 100s -60s vanilla
+      "AbilityCooldown" //OAA, intentionally buffed base values, but nerfed talent
       {
-        "value"                                           "100 95 90 90 90"
-        "special_bonus_unique_elder_titan_3"              "-60"
+        "value"                                           "85 80 75 70 65"
+        "special_bonus_unique_elder_titan_3"              "-30"
       }
+      "crack_time"                                        "2.7182"
       "crack_width"
       {
         "value"                                           "315"
@@ -53,6 +47,9 @@
       {
         "value"                                           "2400"
       }
+      "slow_pct"                                          "30 40 50 60 70"
+      "slow_duration"                                     "3.0 4.0 5.0 6.0 7.0"
+      "speed"                                             "1100"
       "damage_pct"
       {
         "value"                                           "34 42 50 54 58"
@@ -63,6 +60,10 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
+      "vision_interval"                                   "0.22"
+      "vision_duration"                                   "4.0"
+      "vision_step"                                       "200"
+      "total_steps"                                       "12"
     }
   }
 }
