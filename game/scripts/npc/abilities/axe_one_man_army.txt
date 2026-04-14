@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Axe: One Man Army (Innate)
+  // Axe: One Man Army (Innate) FIXEDFUCK
   //=================================================================================================================
   "axe_one_man_army"
   {
@@ -17,12 +17,12 @@
     "AbilityValues"
     {
       "armor_pct_as_strength"                             "50"
-      "radius"                                            "700"
-      "bonus_linger_duration"                             "3"
-      "current_max_str_bonus"
+	  "current_max_str_bonus"
       {
         "dynamic_value"                                   "true"
       }
+      "radius"                                            "700"
+      "bonus_linger_duration"                             "3"
     }
   }
 }

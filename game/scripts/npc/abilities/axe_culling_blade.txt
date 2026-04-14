@@ -1,20 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Axe: Culling Blade
+  // Axe: Culling Blade FIXEDFUCK
   //=================================================================================================================
   "axe_culling_blade"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -36,8 +37,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor_bonus"                                       "10 15 20 25 30"
-      "charge_speed"                                      "1200"
       "damage" //OAA, intentionally buffed both base values and talent
       {
         "value"                                           "275 475 675 1075 1475"
@@ -48,6 +47,7 @@
         "value"                                           "20 25 30 35 40"
         "display_type"                                    "kBuffPercentage"
       }
+      "armor_bonus"                                       "10 15 20 25 30"
       "speed_duration"
       {
         "value"                                           "6"
@@ -58,7 +58,8 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "armor_per_stack"
+      "charge_speed"                                      "1200"
+      "armor_per_stack" // nerf if Axe too strong
       {
         "value"                                           "1 1.5 2 2.25 2.5"
       }
