@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Primal Beast: Rock Throw (Shard ability)
+  // Primal Beast: Rock Throw (shard ability)
   //=================================================================================================================
   "primal_beast_rock_throw"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has an extra space
@@ -23,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12" //OAA
+    "AbilityCooldown"                                     "12" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

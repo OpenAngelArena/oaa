@@ -5,13 +5,13 @@
   //=================================================================================================================
   "grimstroke_dark_artistry"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -48,20 +48,20 @@
         "value"                                           "160"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, because of special_bonus_unique_grimstroke_2 nerf
       {
-        "value"                                           "100 160 220 280 280 280"
-        "special_bonus_unique_grimstroke_2"               "+80%"
+        "value"                                           "100 160 220 280 560 840"
+        "special_bonus_unique_grimstroke_2"               "+75%"
       }
-      "bonus_damage_per_hero" //OAA
+      "bonus_damage_per_hero" //OAA, because of special_bonus_unique_grimstroke_2 nerf
       {
-        "value"                                           "20 40 60 80 80 80"
-        "special_bonus_unique_grimstroke_2"               "+80%"
+        "value"                                           "20 40 60 80 120 160"
+        "special_bonus_unique_grimstroke_2"               "+75%"
       }
-      "bonus_damage_per_creep" //OAA
+      "bonus_damage_per_creep" //OAA, because of special_bonus_unique_grimstroke_2 nerf
       {
-        "value"                                           "10 20 30 40 40 40"
-        "special_bonus_unique_grimstroke_2"               "+80%"
+        "value"                                           "10 20 30 40 60 80"
+        "special_bonus_unique_grimstroke_2"               "+75%"
       }
       "slow_duration"
       {

@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Primal Beast: Colossal (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "primal_beast_colossal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "hp_per_threshold"                                  "500" //OAA, intentionally nerfed
+      "base_slow_resist"                                  "16" //OAA, intentionally buffed
+      "base_aoe"                                          "0"
+      "slow_resistance_per_threshold"                     "1"
+      "aoe_per_threshold"                                 "0.5"
+      "current_slow_resistance"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "current_aoe"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "trample_bonus"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_primal_beast_colossal_trample"  "2"
+      }
+      "model_scale_per_stack"                             "1.1"
+    }
+  }
+}

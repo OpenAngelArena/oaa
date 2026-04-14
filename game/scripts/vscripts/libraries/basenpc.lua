@@ -26,12 +26,10 @@ if IsServer() then
       local other_debuff_duration_decrease = 0
       local debuff_amplifications = 0
       local isItem = false
-      local isStolen = false
       local isPassive = false
       local hasCooldown = true
       if ability and not ability:IsNull() then
         isItem = ability:IsItem()
-        isStolen = ability:IsStolen()
         isPassive = ability:IsPassive()
         hasCooldown = ability:GetCooldown(-1) ~= 0
       end
@@ -49,7 +47,7 @@ if IsServer() then
         local ursa_debuff_amp = caster:FindAbilityByName("ursa_bear_down")
         local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
         local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
-        local rubick_debuff_amp = caster:FindAbilityByName("rubick_spell_steal")
+        local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
             local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
@@ -90,9 +88,27 @@ if IsServer() then
           end
         end
         if rubick_debuff_amp and not rubick_debuff_amp:IsNull() then
-          if rubick_debuff_amp:GetLevel() > 0 and isStolen then
-            local spell_steal_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("stolen_debuff_amp")
-            debuff_amplifications = (1 + debuff_amplifications) * (1 + spell_steal_debuff_amp / 100) - 1
+          if rubick_debuff_amp:GetLevel() > 0 then
+            local base_curiosity_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+            local curiosity_factor = rubick_debuff_amp:GetSpecialValueFor("curiosity_factor")
+            local hero_lvl = caster:GetLevel()
+            local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
+            local curiosity_from_kills = caster:FindModifierByName("modifier_rubick_curiosity_from_heroes_tracker")
+            local total_curiosity = hero_lvl
+            if curiosity_from_spell_casts then
+              total_curiosity = total_curiosity + curiosity_from_spell_casts:GetStackCount()
+            end
+            if curiosity_from_kills then
+              total_curiosity = total_curiosity + curiosity_from_kills:GetStackCount()
+            end
+            -- Calculating total curiosity debuff amp
+            local curiosity_debuff_amp
+            if curiosity_factor ~= 0 then
+              curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp * curiosity_factor
+            else
+              curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp
+            end
+            debuff_amplifications = (1 + debuff_amplifications) * (1 + curiosity_debuff_amp / 100) - 1
           end
         end
       end
