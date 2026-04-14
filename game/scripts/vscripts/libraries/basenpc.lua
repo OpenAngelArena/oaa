@@ -48,6 +48,7 @@ if IsServer() then
         local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
         local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
         local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
+        local timeless_debuff_amp = caster:HasModifier("modifier_item_enhancement_timeless")
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
             local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
@@ -109,6 +110,16 @@ if IsServer() then
               curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp
             end
             debuff_amplifications = (1 + debuff_amplifications) * (1 + curiosity_debuff_amp / 100) - 1
+          end
+        end
+        if timeless_debuff_amp then
+          local timeless_mod = caster:FindModifierByNameAndCaster("modifier_item_enhancement_timeless", caster)
+          if timeless_mod then
+            local timeless_item = timeless_mod:GetAbility()
+            if timeless_item and not timeless_item:IsNull() then
+              local timeless_amp = timeless_item:GetSpecialValueFor("debuff_amp")
+              debuff_amplifications = (1 + debuff_amplifications) * (1 + timeless_amp / 100) - 1
+            end
           end
         end
       end
