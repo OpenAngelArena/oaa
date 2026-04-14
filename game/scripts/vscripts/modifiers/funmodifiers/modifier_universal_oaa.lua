@@ -94,7 +94,7 @@ function modifier_universal_oaa:GetModifierAura()
 end
 
 function modifier_universal_oaa:GetAuraRadius()
-  return 50000
+  return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_universal_oaa:GetAuraSearchTeam()
@@ -125,6 +125,10 @@ function modifier_universal_oaa:GetAuraEntityReject(hEntity)
   end
 
   return false
+end
+
+function modifier_universal_oaa:IsAuraActiveOnDeath()
+  return true
 end
 
 function modifier_universal_oaa:GetTexture()

@@ -5,21 +5,22 @@ function shadow_shaman_mass_serpent_ward_oaa:GetAOERadius()
 end
 
 -- Lazy hack to make shard work and not crash at later levels
--- function shadow_shaman_mass_serpent_ward_oaa:OnUpgrade()
-  -- local caster = self:GetCaster()
-  -- local ability_level = self:GetLevel()
-  -- local vanilla_ability = caster:FindAbilityByName("shadow_shaman_mass_serpent_ward")
+function shadow_shaman_mass_serpent_ward_oaa:OnUpgrade()
+  local caster = self:GetCaster()
+  local ability_level = self:GetLevel()
+  local vanilla_ability = caster:FindAbilityByName("shadow_shaman_mass_serpent_ward")
 
-  -- if not vanilla_ability then
-    -- return
-  -- end
+  if not vanilla_ability then
+    return
+  end
 
-  -- if vanilla_ability:GetLevel() == 3 or ability_level >= 4 then
-    -- return
-  -- end
+  if vanilla_ability:GetLevel() == 3 or ability_level >= 4 then
+    return
+  end
 
-  -- vanilla_ability:SetLevel(ability_level)
--- end
+  -- Set level of the vanilla ability
+  vanilla_ability:SetLevel(ability_level)
+end
 
 function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -30,10 +31,14 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local targetPoint = self:GetCursorPosition()
   local isMegaWard = self:GetSpecialValueFor("is_mega_ward") == 1
   local megaWardScale = self:GetSpecialValueFor("mega_ward_model_scale_multiplier")
-  local megaWardBountyMultiplier = self:GetSpecialValueFor("mega_ward_multiplier_health")
+  local megaWardDmgMultiplier = self:GetSpecialValueFor("mega_ward_multiplier_damage")
+  local megaWardHpMultiplier = self:GetSpecialValueFor("mega_ward_multiplier_health")
+  local megaWardBountyMultiplier = self:GetSpecialValueFor("mega_ward_multiplier_bounty")
   local wardCount = self:GetSpecialValueFor("ward_count")
   local wardHealth = self:GetSpecialValueFor("ward_health")
+  local megaWardHealth = megaWardHpMultiplier * wardHealth
   local wardDamage = self:GetSpecialValueFor("damage_tooltip")
+  local megaWardDamage = megaWardDmgMultiplier * wardDamage
   local duration = self:GetSpecialValueFor("duration")
   local unitName = "npc_dota_shadow_shaman_ward_" .. self:GetLevel()
   local spawnSpacing = 64
@@ -72,29 +77,39 @@ function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
     -- Mark it as serpent ward
     serpentWard:AddNewModifier(caster, self, "modifier_shadow_shaman_serpent_ward", {duration = duration})
 
-    -- Fix ward health
-    serpentWard:SetBaseMaxHealth(wardHealth)
-    serpentWard:SetMaxHealth(wardHealth)
-    serpentWard:SetHealth(wardHealth)
-
-    -- Fix ward damage
-    serpentWard:SetBaseDamageMin(wardDamage)
-    serpentWard:SetBaseDamageMax(wardDamage)
-
-    -- Fix facing of the ward
-    serpentWard:SetForwardVector(casterForwardVector)
-
-    -- Fix size of the ward
+    -- Mega wards have different stats
     if isMegaWard then
+      -- Fix mega ward health
+      serpentWard:SetBaseMaxHealth(megaWardHealth)
+      serpentWard:SetMaxHealth(megaWardHealth)
+      serpentWard:SetHealth(megaWardHealth)
+
+      -- Fix mega ward damage
+      serpentWard:SetBaseDamageMin(megaWardDamage)
+      serpentWard:SetBaseDamageMax(megaWardDamage)
+
       serpentWard:SetModelScale(megaWardScale)
-      -- Fix bounties
+
+      -- Fix mega ward bounties
       local min_bounty = serpentWard:GetMinimumGoldBounty()
       local max_bounty = serpentWard:GetMaximumGoldBounty()
       local xp_bounty = serpentWard:GetDeathXP()
       serpentWard:SetMinimumGoldBounty(min_bounty*megaWardBountyMultiplier)
       serpentWard:SetMaximumGoldBounty(max_bounty*megaWardBountyMultiplier)
       serpentWard:SetDeathXP(xp_bounty*megaWardBountyMultiplier)
+    else
+      -- Fix ward health
+      serpentWard:SetBaseMaxHealth(wardHealth)
+      serpentWard:SetMaxHealth(wardHealth)
+      serpentWard:SetHealth(wardHealth)
+
+      -- Fix ward damage
+      serpentWard:SetBaseDamageMin(wardDamage)
+      serpentWard:SetBaseDamageMax(wardDamage)
     end
+
+    -- Fix facing of the ward
+    serpentWard:SetForwardVector(casterForwardVector)
   end
 
   -- Use tail because we don't want the result for n = 0

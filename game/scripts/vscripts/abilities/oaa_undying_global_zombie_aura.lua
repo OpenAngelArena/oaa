@@ -58,7 +58,7 @@ function modifier_zombie_global_aura_emitter:GetAuraSearchType()
 end
 
 function modifier_zombie_global_aura_emitter:GetAuraRadius()
-  return 20000
+  return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_zombie_global_aura_emitter:GetAuraEntityReject(hEntity)

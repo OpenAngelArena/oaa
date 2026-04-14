@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Mass Serpent Ward (OAA rework); TODO: Fix Urnaconda
+  // Shadow Shaman: Mass Serpent Ward (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "shadow_shaman_mass_serpent_ward_oaa"
   {
@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasShardUpgrade"                                     "1" // needed for Urnaconda
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
@@ -31,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 350 550 800 1100"
+    "AbilityManaCost"                                     "200 350 550 700 850"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,9 +42,9 @@
       "ward_count"
       {
         "value"                                           "10"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=1"
       }
-      "bonus_attack_range"
+      "bonus_damage"                                      "0" // needed if you want to buff the wards with a talent/scepter/shard
+      "bonus_attack_range" // needed if you want to buff the wards with a talent/scepter/shard
       {
         "special_bonus_unique_shadow_shaman_8"            "+160"
       }
@@ -51,7 +53,6 @@
       "damage_tooltip" // not piercing in OAA
       {
         "value"                                           "30 75 120 210 300" // damage values need to be set in unit KVs because of Rubick and Morphling
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "x12"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
@@ -63,19 +64,17 @@
       }
       "attack_range_tooltip"
       {
-        "value"                                           "650"
+        "value"                                           "650" // needs to be set in unit KV
         "special_bonus_unique_shadow_shaman_8"            "+160"
       }
       "hits_to_destroy_tooltip" // hits to destroy for heroes (ward_health / 2)
       {
         "value"                                           "2"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=18"
         "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
       "ward_health" // hits to destroy for creeps
       {
         "value"                                           "4"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=36"
         "special_bonus_unique_shadow_shaman_1"            "+50%"
       }
       "bonus_attack_targets"
@@ -85,19 +84,23 @@
       "is_mega_ward"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+1"
       }
-      "mega_ward_multiplier_damage" // needed for tooltip and in code
+      "mega_ward_multiplier_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=12"
+        "special_bonus_shard"                             "=4"
       }
-      "mega_ward_multiplier_health" // needed for tooltip
+      "mega_ward_multiplier_health"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=9"
+        "special_bonus_shard"                             "=4"
       }
-      "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5 3.7 3.9"
+      "mega_ward_multiplier_bounty"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=4"
+      }
+      "mega_ward_model_scale_multiplier"                  "2.0"
     }
   }
 }

@@ -6,6 +6,7 @@
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Lore"                    "Snake charming was a big part of the Shadow Shaman's act; now Rhasta can empower the snakes to do his bidding."
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_duration"                "DURATION:"
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip"  "HITS TO DESTROY:"
+// "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_shard_Description"       "Allows to create a Mega Ward using the Urnaconda ability."
 
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa"                      "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward}"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_Description"          "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description}\n<font color='#FFA500'>Wards do full damage to heroes and bonus magic damage against Bosses.</font>"
@@ -16,3 +17,6 @@
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_attack_range_tooltip"  "WARD ATTACK RANGE:"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_hits_to_destroy_tooltip"  "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip}"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_ward_health"          "CREEP HITS TO DESTROY:"
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_shard_Description"    "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_shard_Description}"
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_mega_ward_multiplier_damage"  "URNACONDA DMG MULTIPLIER:"
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_mega_ward_multiplier_health"  "URNACONDA HP MULTIPLIER:"
