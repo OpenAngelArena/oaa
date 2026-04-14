@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Strafe
+  // Clinkz: Strafe FIXEDFUCK
   //=================================================================================================================
   "clinkz_strafe"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -14,6 +13,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -31,7 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "archer_attack_speed_pct"                           "40"
       "attack_speed_bonus" //OAA, intentionally nerfed
       {
         "value"                                           "140 160 180 200 220 240"
@@ -48,7 +47,7 @@
       }
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "21 19 17 15 14 13"
+        "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_clinkz_4"                   "-9"
       }
       "strafe_skeleton_radius"
@@ -56,6 +55,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
+      "archer_attack_speed_pct"                           "40"
       "debuff_duration"
       {
         "value"                                           "0"
