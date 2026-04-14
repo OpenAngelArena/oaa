@@ -1,24 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chen: Divine Favor
+  // Chen: Divine Favor FIXEDFUCK
   //=================================================================================================================
   "chen_divine_favor"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, intentionally buffed
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "LinkedAbility"                                       "chen_divine_favor_oaa" //OAA, intentionally
+    "LinkedAbility"                                       "chen_divine_favor_oaa" //OAA, intentionally because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,32 +26,32 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "armor"                                             "0"
-      "heal_rate"                                         "3 6 9 12 18 27" //OAA
-      "AbilityCastRange"                                  "1200"
-      "duration"                                          "6"
-      "bonus_armor"                                       "5 10 15 20 25 30"
-      "creep_bonus"                                       "1"
+      "heal_rate"                                         "3 6 9 12 18 27" //OAA, intentionally buffed (doubled vanilla)
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
+      "AbilityCastRange"                                  "1200"
+      "duration"                                          "6"
+      "bonus_armor"                                       "5 10 15 20 25 30"
       "heal_amp"
       {
         "value"                                           "5 10 15 20 25 30"
         "special_bonus_unique_chen_divine_favor_healing"  "+15"
       }
+      "creep_bonus"                                       "1"
     }
   }
 }

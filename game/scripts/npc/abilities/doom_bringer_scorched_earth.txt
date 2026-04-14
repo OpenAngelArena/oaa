@@ -5,13 +5,13 @@
   //=================================================================================================================
   "doom_bringer_scorched_earth"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -42,7 +42,7 @@
       }
       "bonus_health_regen"
       {
-        "value"                                           "7 8 9 10 20 30"
+        "value"                                           "7 8 9 10 12 15"
       }
       "radius"
       {
