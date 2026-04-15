@@ -26,12 +26,10 @@ if IsServer() then
       local other_debuff_duration_decrease = 0
       local debuff_amplifications = 0
       local isItem = false
-      local isStolen = false
       local isPassive = false
       local hasCooldown = true
       if ability and not ability:IsNull() then
         isItem = ability:IsItem()
-        isStolen = ability:IsStolen()
         isPassive = ability:IsPassive()
         hasCooldown = ability:GetCooldown(-1) ~= 0
       end
@@ -49,7 +47,8 @@ if IsServer() then
         local ursa_debuff_amp = caster:FindAbilityByName("ursa_bear_down")
         local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
         local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
-        local rubick_debuff_amp = caster:FindAbilityByName("rubick_spell_steal")
+        local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
+        local timeless_debuff_amp = caster:HasModifier("modifier_item_enhancement_timeless")
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
             local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
@@ -90,9 +89,37 @@ if IsServer() then
           end
         end
         if rubick_debuff_amp and not rubick_debuff_amp:IsNull() then
-          if rubick_debuff_amp:GetLevel() > 0 and isStolen then
-            local spell_steal_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("stolen_debuff_amp")
-            debuff_amplifications = (1 + debuff_amplifications) * (1 + spell_steal_debuff_amp / 100) - 1
+          if rubick_debuff_amp:GetLevel() > 0 then
+            local base_curiosity_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+            local curiosity_factor = rubick_debuff_amp:GetSpecialValueFor("curiosity_factor")
+            local hero_lvl = caster:GetLevel()
+            local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
+            local curiosity_from_kills = caster:FindModifierByName("modifier_rubick_curiosity_from_heroes_tracker")
+            local total_curiosity = hero_lvl
+            if curiosity_from_spell_casts then
+              total_curiosity = total_curiosity + curiosity_from_spell_casts:GetStackCount()
+            end
+            if curiosity_from_kills then
+              total_curiosity = total_curiosity + curiosity_from_kills:GetStackCount()
+            end
+            -- Calculating total curiosity debuff amp
+            local curiosity_debuff_amp
+            if curiosity_factor ~= 0 then
+              curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp * curiosity_factor
+            else
+              curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp
+            end
+            debuff_amplifications = (1 + debuff_amplifications) * (1 + curiosity_debuff_amp / 100) - 1
+          end
+        end
+        if timeless_debuff_amp then
+          local timeless_mod = caster:FindModifierByNameAndCaster("modifier_item_enhancement_timeless", caster)
+          if timeless_mod then
+            local timeless_item = timeless_mod:GetAbility()
+            if timeless_item and not timeless_item:IsNull() then
+              local timeless_amp = timeless_item:GetSpecialValueFor("debuff_amp")
+              debuff_amplifications = (1 + debuff_amplifications) * (1 + timeless_amp / 100) - 1
+            end
           end
         end
       end
@@ -139,8 +166,7 @@ if IsServer() then
 
   function CDOTA_BaseNPC:DispelUndispellableDebuffs()
     local undispellable_item_debuffs = {
-      "modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
-      "modifier_item_bloodstone_drained",              -- Bloodstone drained debuff
+      --"modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
       "modifier_item_nullifier_mute",                  -- Nullifier debuff
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
@@ -170,6 +196,7 @@ if IsServer() then
       "modifier_ice_blast",
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
+      --"modifier_monkey_king_quadruple_tap_counter",     -- vanilla Jingu Mastery stacks on enemies
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
       "modifier_obsidian_destroyer_equilibrium_debuff_counter",
       "modifier_queenofpain_sonic_wave_damage",
@@ -192,16 +219,20 @@ if IsServer() then
       "modifier_venomancer_noxious_plague_primary",
       "modifier_venomancer_noxious_plague_secondary",
       "modifier_venomancer_noxious_plague_slow",
+      "modifier_venomancer_snakebite",          -- becomes undispellable with the talent
       "modifier_viper_viper_strike_slow",
       "modifier_windrunner_windrun_slow",
       "modifier_winter_wyvern_winters_curse",
       "modifier_winter_wyvern_winters_curse_aura",
+      -- custom:
+      "modifier_monkey_king_jingu_mastery_oaa_count_debuff", -- custom Jingu Mastery stacks on enemies
     }
 
     local debuffs_with_multiple_instances = {
       "modifier_bristleback_quill_spray",                -- Quill Spray stacks
       "modifier_dazzle_innate_weave_armor",              -- same modifier used as a buff and debuff
       "modifier_huskar_burning_spear_counter",           -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+      "modifier_lina_slow_burn",
       "modifier_obsidian_destroyer_equilibrium_debuff",  -- these stacks reduce mana
     }
 
@@ -303,6 +334,7 @@ if IsServer() then
       "modifier_nyx_assassin_vendetta",
       "modifier_obsidian_destroyer_equilibrium_barrier",   -- OD scepter shield
       "modifier_obsidian_destroyer_equilibrium_buff_counter",
+      "modifier_obsidian_destroyer_objurgation_cd",
       "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
@@ -311,7 +343,7 @@ if IsServer() then
       "modifier_rattletrap_battery_assault",
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
-      "modifier_skywrath_mage_shard_bonus_counter",
+      --"modifier_skywrath_mage_shard_bonus_counter",
       "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
       "modifier_sven_warcry",  -- Warcry becomes undispellable with shard
@@ -320,12 +352,14 @@ if IsServer() then
       "modifier_ursa_enrage",
       "modifier_visage_summon_familiars_stone_form_buff", -- Visage and his familiars use the same Stone Form modifier
       "modifier_weaver_shukuchi",
-      "modifier_windrunner_windrun",  -- Windrun becomes undispellable with the talent
-      "modifier_windrunner_windrun_invis",
+      "modifier_windrunner_tailwind_counter", -- Tailwind becomes undispellable with scepter
+      --"modifier_windrunner_windrun",  -- Windrun becomes undispellable with the talent
+      --"modifier_windrunner_windrun_invis",
       "modifier_winter_wyvern_cold_embrace",
       "modifier_wisp_overcharge",
       -- custom:
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
+      "modifier_monkey_king_jingu_mastery_oaa_buff",
       "modifier_sohei_flurry_self",
     }
 
@@ -334,7 +368,8 @@ if IsServer() then
       "modifier_leshrac_diabolic_edict",
       "modifier_obsidian_destroyer_equilibrium_buff",
       "modifier_razor_eye_of_the_storm",
-      "modifier_skywrath_mage_shard_bonus",
+      --"modifier_skywrath_mage_shard_bonus",
+      --"modifier_windrunner_tailwind",
     }
 
     local undispellable_rune_modifiers = {
@@ -362,7 +397,6 @@ if IsServer() then
       "modifier_lycan_shapeshift",                      -- transformation modifier and an ultimate
       "modifier_lycan_shapeshift_speed",                -- transformation modifier and an ultimate
       "modifier_medusa_mana_shield",                    -- removing this seems pointless and maybe it creates issues
-      "modifier_monkey_king_quadruple_tap_counter",     -- Jingu Mastery stacks on enemies, needs testing if it's a problem
       "modifier_morphling_replicate_manager",           -- Coding nightmare
       "modifier_morphling_replicate_timer",             -- Coding nightmare
       "modifier_night_stalker_darkness",                -- Nightstalker Dark Ascension (transformation modifier and an ultimate)

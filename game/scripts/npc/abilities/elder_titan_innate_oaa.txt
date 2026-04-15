@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Astral Worldsmith (Innate) - custom ability
+  // Elder Titan: Astral Worldsmith (Innate) - custom ability FIXEDFUCK
   //=================================================================================================================
   "elder_titan_innate_oaa"
   {
@@ -10,16 +10,25 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_elder_titan_innate.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "Innate"                                              "1"
-    "RequiredLevel"                                       "-1" // maybe not needed
     "MaxLevel"                                            "1"
 
     "AbilityValues"
     {
-      "dmg_per_strength"                                  "0.45"
+      "dmg_per_strength"                                  "0.5"
       "base_dmg_penalty_per_strength"                     "50"
+      "armor_from_movespeed"
+      {
+        "value"                                           "5.4"
+        "hero_levelup"                                    "+0.1"
+      }
+      "attack_speed_from_movespeed" // does not show in the tooltip but it works, maybe because the talent is hardcoded into the engine
+      {
+        //"value"                                           "0"
+        "special_bonus_unique_elder_titan_momentum_attack_speed"  "20"
+      }
     }
   }
 }

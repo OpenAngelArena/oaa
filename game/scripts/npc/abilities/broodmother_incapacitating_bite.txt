@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Broodmother: Incapacitating Bite
+  // Broodmother: Incapacitating Bite FIXEDFUCK
   //=================================================================================================================
   "broodmother_incapacitating_bite"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +19,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "2.0 2.0 2.0 2.0 2.0 2.0"
       "miss_chance"
       {
         "value"                                           "30 40 50 60 65 70"
@@ -27,10 +26,11 @@
       }
       "bonus_movespeed" //OAA, Valve has the wrong value for special_bonus_unique_broodmother_4
       {
-        "value"                                           "-15 -20 -25 -30 -30 -30"
-        "special_bonus_unique_broodmother_4"              "-25"
+        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "special_bonus_unique_broodmother_4"              "-20"
       }
-      "attack_damage"
+      "duration"                                          "2.0"
+      "attack_damage" // reminder: also applies to spiders
       {
         "value"                                           "3 6 9 12 18 24"
         "special_bonus_unique_broodmother_2"              "+5"

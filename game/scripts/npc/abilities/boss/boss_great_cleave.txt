@@ -10,7 +10,7 @@
     "BaseClass"                                           "sven_great_cleave"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "1"
 
@@ -23,24 +23,23 @@
         "value"                                           "150"
         // intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
       }
-      "cleave_ending_width" //OAA
+      "cleave_ending_width" //OAA, intentionally because it's a boss
       {
         "value"                                           "360"
         "affected_by_aoe_increase"                        "1"
       }
-      "cleave_distance" //OAA
+      "cleave_distance" //OAA, intentionally because it's a boss
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "great_cleave_damage" //OAA
+      "great_cleave_damage" //OAA, intentionally because it's a boss
       {
         "value"                                           "100"
-        "special_bonus_unique_sven_8"                     "+25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "strength_bonus"                                    "0" //OAA
+      "strength_bonus"                                    "0" //OAA, intentionally because it's a boss
     }
   }
 }

@@ -5,13 +5,12 @@
   //=================================================================================================================
   "enigma_black_hole"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -19,12 +18,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "275"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
     "AbilityChannelTime"                                  "4.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 125 120 115 110" //OAA
+    "AbilityCooldown"                                     "130 125 120 115 110" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +53,7 @@
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "scepter_pct_damage" //OAA
+      "scepter_pct_damage"
       {
         "special_bonus_scepter"                           "4"
       }

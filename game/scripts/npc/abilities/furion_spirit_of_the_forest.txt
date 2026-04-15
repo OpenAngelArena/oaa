@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Nature's Prophet: Spirit of the Forest (Innate)
   //=================================================================================================================
   "furion_spirit_of_the_forest"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS" //OAA, Valve has it wrong: they have DOTA_ABILITY_BEHAVIOR_HIDDEN for some reason, instead of DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

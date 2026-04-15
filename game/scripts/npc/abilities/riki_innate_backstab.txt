@@ -5,13 +5,12 @@
   //=================================================================================================================
   "riki_innate_backstab"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

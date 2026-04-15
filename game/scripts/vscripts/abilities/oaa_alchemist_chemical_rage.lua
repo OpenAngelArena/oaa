@@ -15,6 +15,7 @@ function alchemist_chemical_rage_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local ability = caster:FindAbilityByName("alchemist_chemical_rage")
 
+  -- If you can't find vanilla ability, use this one
   if not ability then
     ability = self
   end
@@ -37,7 +38,7 @@ function alchemist_chemical_rage_oaa:OnSpellStart()
   caster:EmitSound("Hero_Alchemist.ChemicalRage.Cast")
 
   -- Applying the built-in modifier that controls the animations, sounds and body transformation.
-  -- Applies modifier_alchemist_chemical_rage hopefully
+  -- Applies vanilla modifier_alchemist_chemical_rage and uses values from the kv of the ability that applies it
   local transform_duration = self:GetSpecialValueFor("transformation_time")
   caster:AddNewModifier(caster, ability, "modifier_alchemist_chemical_rage_transform", {duration = transform_duration})
 end

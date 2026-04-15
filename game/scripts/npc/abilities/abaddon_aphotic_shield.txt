@@ -1,21 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Aphotic Shield
+  // Abaddon: Aphotic Shield FIXEDFUCK
   //=================================================================================================================
   "abaddon_aphotic_shield"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, intentionally buffed
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, intentionally buffed
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -46,10 +45,10 @@
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_absorb" //OAA, because of special_bonus_unique_abaddon
+      "damage_absorb" //OAA, because of special_bonus_unique_abaddon buff
       {
-        "value"                                           "120 150 180 210 210 210"
-        "special_bonus_unique_abaddon"                    "+80"
+        "value"                                           "120 150 180 210 420 630"
+        "special_bonus_unique_abaddon"                    "+100"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "regen"

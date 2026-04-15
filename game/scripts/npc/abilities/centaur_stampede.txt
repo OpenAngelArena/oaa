@@ -1,17 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Centaur: Stampede
+  // Centaur Warrunner: Stampede FIXEDFUCK
   //=================================================================================================================
   "centaur_stampede"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -24,11 +25,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "0"
-      "slow_duration"                                     "3"
-      "slow_movement_speed"                               "100"
-      "damage_reduction"                                  "0"
-      "has_flying_movement"                               "0"
       "duration"
       {
         "value"                                           "3.5 4 4.5 5 5.5"
@@ -37,21 +33,26 @@
       {
         "special_bonus_scepter"                           "+1"
       }
-      "strength_damage" //OAA
+      "base_damage"                                       "0"
+      "strength_damage" //OAA, intentionally buffed
       {
-        "value"                                           "2 2.5 3 3 3"
+        "value"                                           "2 3 4 5 6"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "slow_duration"                                     "3"
       "radius"
       {
         "value"                                           "105"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "slow_movement_speed"                               "100"
+      "damage_reduction"                                  "0"
+      "AbilityCooldown"
       {
-        "value"                                           "100 95 90 90 90"
+        "value"                                           "100 95 90 85 80"
         "special_bonus_unique_centaur_5"                  "-25"
       }
+      "has_flying_movement"                               "0"
     }
   }
 }

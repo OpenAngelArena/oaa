@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lich: Sacrifice (OAA Rework) FIXEDFUCK
+  //=================================================================================================================
+  "lich_sacrifice_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_lich_sacrifice.lua"
+    "AbilityTextureName"                                  "lich_death_charge"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO" // DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED
+
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "60"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "active_mana_restore_pct_of_health"
+      {
+        "value"                                           "44"
+        "hero_levelup"                                    "1"
+      }
+      "xp_pct"
+      {
+        "value"                                           "72"
+        "hero_levelup"                                    "3"
+      }
+      "hero_lvl_requirement_for_ancients"                 "6"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Warlock: Custom passive stuff - does not need to be leveled up, needed for additional Upheaval effects
+  // Notes: Not breakable
+  //=================================================================================================================
+  "warlock_innates_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_warlock_innates.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "dmg_reduction"                                     "0"
+    }
+  }
+}

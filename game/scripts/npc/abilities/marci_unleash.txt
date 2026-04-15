@@ -5,13 +5,12 @@
   //=================================================================================================================
   "marci_unleash"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"

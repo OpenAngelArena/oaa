@@ -5,12 +5,11 @@
   //=================================================================================================================
   "troll_warlord_fervor"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"

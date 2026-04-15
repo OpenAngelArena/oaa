@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster: Primal Split
+  // Brewmaster: Primal Split FIXEDFUCK
   //=================================================================================================================
   "brewmaster_primal_split"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "5"
+
+    "MaxLevel"                                            "5" // MaxLevel: 6 with aghanims scepter
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
@@ -21,47 +21,45 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350" //OAA
+    "AbilityManaCost"                                     "150 200 250 300 350 400" //OAA, intentionally
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "split_duration"                                    "0.6"
-      "give_brawler_passive"                              "1"
-      "scepter_bonus_levels"                              "1"
-      "duration" //OAA
+      "duration" //OAA, intentionally
       {
-        "value"                                           "16 20 24 24 24"
+        "value"                                           "16 20 24 26 28 30"
       }
-      "tooltip_earth_brewling_hp" //OAA
+      "split_duration"                                    "0.6"
+      "tooltip_earth_brewling_hp" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "1400 2300 3200 4100 4100"
-        "special_bonus_unique_brewmaster"                 "+600"
+        "value"                                           "1400 3200 5000 6800 10400 15800"
+        "special_bonus_unique_brewmaster"                 "+1000"
       }
       "tooltip_earth_brewling_damage"
       {
-        "value"                                           "35 70 105 140 210"
+        "value"                                           "35 70 105 140 210 350"
         "special_bonus_unique_brewmaster_2"               "+14"
       }
-      "tooltip_storm_brewling_hp" //OAA
+      "tooltip_storm_brewling_hp" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "1000 1500 2000 2500 2500"
-        "special_bonus_unique_brewmaster"                 "+600"
+        "value"                                           "1000 2000 3000 4000 6000 9000"
+        "special_bonus_unique_brewmaster"                 "+1000"
       }
       "tooltip_storm_brewling_damage"
       {
-        "value"                                           "30 50 70 90 130"
+        "value"                                           "30 50 70 90 130 210"
         "special_bonus_unique_brewmaster_2"               "+14"
       }
-      "tooltip_fire_brewling_hp" //OAA
+      "tooltip_fire_brewling_hp" //OAA, intentionally buffed both base values and talent
       {
-        "value"                                           "1300 1450 1600 1750 1750"
-        "special_bonus_unique_brewmaster"                 "+600"
+        "value"                                           "1300 1600 1900 2200 2800 3700"
+        "special_bonus_unique_brewmaster"                 "+1000"
       }
       "tooltip_fire_brewling_damage"
       {
-        "value"                                           "70 120 170 220 320"
+        "value"                                           "70 120 170 220 320 520"
         "special_bonus_unique_brewmaster_2"               "+14"
       }
       "current_hp_agi"
@@ -72,10 +70,10 @@
       {
         "value"                                           "0"
       }
-      "bonus_brewling_hp" //OAA
+      "bonus_brewling_hp" //OAA, intentionally buffed
       {
         "value"                                           "0"
-        "special_bonus_unique_brewmaster"                 "+600"
+        "special_bonus_unique_brewmaster"                 "+1000"
       }
       "bonus_damage"
       {
@@ -87,9 +85,9 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "140 130 120 120 120"
+        "value"                                           "120 115 110 105 100 95"
         "special_bonus_unique_brewmaster_primal_split_cooldown"  "-15"
       }
       "hp_per_attribute"
@@ -107,6 +105,8 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "0"
       }
+      "give_brawler_passive"                              "1"
+      "scepter_bonus_levels"                              "1"
     }
   }
 }

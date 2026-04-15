@@ -1,29 +1,29 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Unstable Concoction
+  // Alchemist: Unstable Concoction FIXEDFUCK
   //=================================================================================================================
   "alchemist_unstable_concoction"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "775"
+    "AbilityCastRange"                                    "775" // for visualization on hover and for the tooltip
     "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17"
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       }
       "move_speed"
       {
-        "value"                                           "4 8 12 16 16 16"
+        "value"                                           "4 8 12 16 20 24"
         "display_type"                                    "kBuffPercentage"
       }
       "chemical_rage_cooldown_reduction_pct"

@@ -5,7 +5,6 @@
   //=================================================================================================================
   "dawnbreaker_fire_wreath"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
@@ -13,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
+    "AbilityManaCost"                                     "100 105 110 115 120 125" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,9 +38,9 @@
       "smash_distance_from_hero"                          "120"
       "animation_rate"                                    "0"
       "turn_rate"                                         "90"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "17 15 13 11 11 11"
+        "value"                                           "14 13 12 11 11 11"
         "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-4"
       }
       "swipe_radius"
@@ -64,7 +63,7 @@
       }
       "smash_stun_duration"
       {
-        "value"                                           "0.6 0.8 1.0 1.2 1.2 1.2"
+        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
         "special_bonus_unique_dawnbreaker_fire_wreath_stun_duration"  "+0.5"
       }
       "shard_cast_point"

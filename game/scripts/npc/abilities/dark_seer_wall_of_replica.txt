@@ -5,11 +5,11 @@
   //=================================================================================================================
   "dark_seer_wall_of_replica"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0 100.0 100.0 100.0 100.0"
+    "AbilityCooldown"                                     "100.0" // uses special_bonus_unique_dark_seer_13
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,23 +32,23 @@
     "AbilityValues"
     {
       "duration"                                          "30.0"
-      "replica_damage_incoming"                           "100 90 80 70 60" //OAA, also affects Normal Punch illusion
       "replica_scale"                                     "0"
       "movement_slow"                                     "40"
-      "wall_damage"                                       "25 55 85 145 205" //OAA
-      "replica_damage_outgoing" //OAA, also affects Normal Punch illusion
+      "wall_damage"                                       "25 55 85 145 205" //OAA, intentionally buffed;
+      "replica_damage_outgoing" //OAA, intentionally buffed; also affects Normal Punch illusion
       {
-        "value"                                           "-30 -20 -10 -10 -10"
+        "value"                                           "-30 -10 10 50 90"
         "special_bonus_unique_dark_seer_7"                "+15"
       }
-      "tooltip_outgoing" //OAA, also affects Normal Punch illusion
+      "tooltip_outgoing" //OAA, intentionally buffed; also affects Normal Punch illusion
       {
-        "value"                                           "70 80 90 90 90"
+        "value"                                           "70 90 110 150 190"
         "special_bonus_unique_dark_seer_7"                "+15"
       }
-      "tooltip_replica_total_damage_incoming" //OAA, also affects Normal Punch illusion
+      "replica_damage_incoming"                           "100 90 80 70 60" //OAA, intentionally buffed; also affects Normal Punch illusion
+      "tooltip_replica_total_damage_incoming" //OAA, intentionally buffed; also affects Normal Punch illusion
       {
-        "value"                                           "200"
+        "value"                                           "200 190 180 170 160"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -61,11 +61,11 @@
       {
         "value"                                           "1"
       }
-      "scepter_length_multiplier"
+      "scepter_length_multiplier" // unused
       {
         "special_bonus_scepter"                           "2"
       }
-      "cooldown_reduction"
+      "cooldown_reduction" // Valve not using AbilityCooldown lmao
       {
         "special_bonus_unique_dark_seer_13"               "40"
       }

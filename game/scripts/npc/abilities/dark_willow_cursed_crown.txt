@@ -5,7 +5,6 @@
   //=================================================================================================================
   "dark_willow_cursed_crown"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -63,7 +62,7 @@
       }
       "AbilityCooldown" //OAA, Calculated with values: 2.8s max stun duration (no talent), 0.2s cast point
       {
-        "value"                                           "17 15 13 11 11 11"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_shard"                             "-1.5"
       }
     }

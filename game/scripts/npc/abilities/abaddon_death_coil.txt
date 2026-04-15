@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Mist Coil
+  // Abaddon: Mist Coil FIXEDFUCK
   //=================================================================================================================
   "abaddon_death_coil"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,7 +34,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "missile_speed"                                     "1300"
       "self_damage"
       {
         "value"                                           "40"
@@ -47,9 +46,10 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "missile_speed"                                     "1300"
       "damage_heal"
       {
-        "value"                                           "95 170 245 320 320 320"
+        "value"                                           "95 170 245 320 640 960"
         "special_bonus_unique_abaddon_2"                  "+35"
       }
       "effect_radius"
@@ -67,16 +67,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_abaddon_2"                  "0"
-      }
-      "target_damage" //OAA
-      {
-        "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_abaddon_2"                  "+35"
-      }
-      "heal_amount" //OAA
-      {
-        "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_abaddon_2"                  "+35"
       }
     }
   }

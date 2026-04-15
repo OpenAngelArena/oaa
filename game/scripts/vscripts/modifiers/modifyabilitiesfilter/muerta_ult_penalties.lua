@@ -34,8 +34,10 @@ function modifier_muerta_pierce_the_veil_penalty_oaa:DeclareFunctions()
 end
 
 function modifier_muerta_pierce_the_veil_penalty_oaa:GetModifierTotalDamageOutgoing_Percentage(event)
-  if event.target:IsOAABoss() then
-    return self.dmg_penalty_bosses
+  if event.target then
+    if event.target:IsOAABoss() then
+      return self.dmg_penalty_bosses
+    end
   end
   return self.dmg_penalty
 end

@@ -5,13 +5,12 @@
   //=================================================================================================================
   "pudge_rot"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"

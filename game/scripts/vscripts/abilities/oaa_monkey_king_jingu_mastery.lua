@@ -185,6 +185,12 @@ function modifier_monkey_king_jingu_mastery_oaa_buff:IsDebuff()
 end
 
 function modifier_monkey_king_jingu_mastery_oaa_buff:IsPurgable()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    if ability:GetSpecialValueFor("buff_is_undispellable") ~= 0 then
+      return false
+    end
+  end
   return true
 end
 

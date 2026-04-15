@@ -5,12 +5,11 @@
   //=================================================================================================================
   "razor_storm_surge"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"

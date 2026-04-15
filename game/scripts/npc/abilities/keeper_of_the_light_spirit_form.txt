@@ -5,12 +5,11 @@
   //=================================================================================================================
   "keeper_of_the_light_spirit_form"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"

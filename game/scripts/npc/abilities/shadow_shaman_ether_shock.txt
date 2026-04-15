@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Ether Shock
+  // Shadow Shaman: Ether Shock FIXEDFUCK
   //=================================================================================================================
   "shadow_shaman_ether_shock"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,26 +36,26 @@
     {
       "start_radius"
       {
-        "value"                                           "200 200 200 200 200 200"
+        "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                           "300 300 300 300 300 300"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
       "end_distance"
       {
         "value"                                           "600"
       }
-      "targets" //OAA
+      "targets" //OAA, intentionally buffed
       {
-        "value"                                           "3 5 7 9 9 9"
+        "value"                                           "9"
       }
-      "damage" //OAA
+      "damage" //OAA, because of special_bonus_unique_shadow_shaman_3 buff
       {
-        "value"                                           "125 190 255 320 320 320"
-        "special_bonus_unique_shadow_shaman_3"            "+250"
+        "value"                                           "125 190 255 320 640 1280"
+        "special_bonus_unique_shadow_shaman_3"            "+320"
       }
     }
   }

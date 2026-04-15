@@ -5,13 +5,12 @@
   //=================================================================================================================
   "ursa_enrage"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -31,8 +30,8 @@
       "damage_reduction"                                  "80"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "60 45 30 30 30"
-        "special_bonus_scepter"                           "=30 =24 =18 =18 =18"
+        "value"                                           "50 40 30 30 30"
+        "special_bonus_scepter"                           "=30 =27 =24 =21 =18"
       }
       "status_resistance"
       {
@@ -41,7 +40,7 @@
       }
       "duration" //OAA
       {
-        "value"                                           "4 4.5 5 5 5"
+        "value"                                           "4.0 4.25 4.5 5.0 5.5"
       }
       "aoe_radius"
       {

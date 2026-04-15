@@ -5,7 +5,6 @@
   //=================================================================================================================
   "dark_willow_bedlam"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -17,7 +16,6 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-    "LinkedAbility"                                       "dark_willow_terrorize"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,9 +37,9 @@
       "attack_targets"                                    "1"
       "roaming_seconds_per_rotation"                      "1.5"
       "travel_speed"                                      "1800"
-      "attack_damage" //OAA
+      "attack_damage" //OAA, intentionally buffed
       {
-        "value"                                           "70 120 170 170 170"
+        "value"                                           "70 170 270 570 870"
         "special_bonus_unique_dark_willow_4"              "+30"
       }
       "attack_radius"

@@ -1,18 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Void Spirit: Astral Step
+  // Void Spirit: Astral Step FIXEDFUCK
   //=================================================================================================================
   "void_spirit_astral_step"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -24,39 +25,39 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90"
-    "AbilityCharges"                                      "2"
+    "AbilityManaCost"                                     "90 95 100 105 110" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_travel_distance"                               "200"
-      "max_travel_distance"                               "800 900 1000 1100 1200"
-      "movement_slow_pct"                                 "40 60 80 85 90"
       "radius"
       {
         "value"                                           "170"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityChargeRestoreTime" //OAA
+      "AbilityChargeRestoreTime" //OAA, intentionally rescaled
       {
-        "value"                                           "25 20 15 15 15"
+        "value"                                           "18 17 16 15 14"
         "special_bonus_unique_void_spirit_1"              "-3"
       }
+      "min_travel_distance"                               "200"
+      "max_travel_distance"                               "800 900 1000 1100 1200"
       "pop_damage_delay"
       {
         "value"                                           "1.25"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "pop_damage" //OAA
+      "pop_damage" //OAA, intentionally buffed
       {
-        "value"                                           "130 230 330 330 330"
+        "value"                                           "130 330 530 1130 1730"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "movement_slow_pct"                                 "40 60 80 85 90"
       "ability_chance_pct"
       {
         "value"                                           "0"

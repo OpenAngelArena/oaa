@@ -21,7 +21,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "LinkedAbility"                                       "chen_divine_favor"
+    "LinkedAbility"                                       "chen_divine_favor" // needed because it's a custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -41,8 +41,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_min"                                        "50 100 150 200 400 800"
-      "damage_max"                                        "100 200 300 400 800 1600"
+      "damage_min"                                        "50 100 150 200 400 600"
+      "damage_max"                                        "100 200 300 400 800 1200"
       "shield_heroes"                                     "100 175 250 325 650 1300"
       "shield_creeps"                                     "100 200 300 400 800 1600"
       "shield_duration"                                   "12"

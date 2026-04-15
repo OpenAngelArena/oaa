@@ -1,29 +1,28 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Astral Spirit
+  // Elder Titan: Astral Spirit FIXEDFUCK
   //=================================================================================================================
   "elder_titan_ancestral_spirit"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
+    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,12 +32,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "900"
-      "move_pct_creeps"                                   "1.5"
-      "armor_creeps"                                      "0"
-      "armor_heroes"                                      "0"
-      "move_pct_cap"                                      "40"
-      "immunity_resist"                                   "50"
       "AbilityCastRange"
       {
         "value"                                           "1200"
@@ -48,9 +41,9 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "pass_damage" //OAA
+      "pass_damage" //OAA, intentionally buffed
       {
-        "value"                                           "50"
+        "value"                                           "50 55 60 65 130 260"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "spirit_duration"
@@ -61,10 +54,12 @@
       {
         "value"                                           "10.0"
       }
+      "speed"                                             "900"
       "controllable"
       {
         "value"                                           "1"
       }
+      "move_pct_creeps"                                   "1.5"
       "move_pct_heroes"
       {
         "value"                                           "4 5 6 7 8 9"
@@ -76,17 +71,21 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage_heroes" //OAA
+      "damage_heroes" //OAA, intentionally buffed
       {
-        "value"                                           "17 38 59 80 80 80"
+        "value"                                           "20 40 60 80 100 120"
         "special_bonus_unique_elder_titan"                "+30"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "scepter_magic_immune_per_hero" //OAA
+      "armor_creeps"                                      "0"
+      "armor_heroes"                                      "0"
+      "move_pct_cap"                                      "40"
+      "scepter_magic_immune_per_hero" //OAA, intentionally nerfed; cant scale and cant use float numbers
       {
-        "special_bonus_scepter"                           "2"
+        "special_bonus_scepter"                           "1"
       }
+      "immunity_resist"                                   "50"
     }
   }
 }

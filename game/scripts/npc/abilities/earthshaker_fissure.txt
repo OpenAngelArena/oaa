@@ -5,7 +5,6 @@
   //=================================================================================================================
   "earthshaker_fissure"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -14,14 +13,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.69 0.69 0.69 0.69 0.69 0.69"
+    "AbilityCastPoint"                                    "0.69"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +32,7 @@
     {
       "fissure_duration"                                  "6.5 7 7.5 8.0 8.5 9.0"
       "fissure_radius"                                    "225"
-      "stun_duration"                                     "1.0 1.2 1.4 1.6 1.6 1.8"
+      "stun_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"
       "free_pathing_application_radius"                   "150"
       "fissure_max_distance_moved"                        "300"
       "AbilityCastRange"

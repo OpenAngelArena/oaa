@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/oaa_alchemist_greevils_greed.lua"
     "AbilityTextureName"                                  "alchemist_goblins_greed"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,17 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "36" // just for the tooltip
-      "bonus_gold"                                        "3 4 5 6 8 14" // just for the tooltip
-      "bonus_bonus_gold"                                  "3 4 5 6 8 14" // just for the tooltip
-      "bonus_gold_cap"                                    "15 18 21 24 60 96" // just for the tooltip
-      "bounty_multiplier"                                 "1.8 2.2 2.6 3.0 3.5 4.0" // just for the tooltip
-      "damage" // just for the tooltip
-      {
-        "value"                                           "0"
-        "special_bonus_unique_alchemist_7"                "+3"
-      }
-
       "armor_reduction_per_hit"
       {
         "value"                                           "0.1 0.2 0.3 0.4 0.6 0.8"

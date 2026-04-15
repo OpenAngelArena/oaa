@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chaos Knight: Chaos Strike
+  // Chaos Knight: Chaos Strike FIXEDFUCK
   //=================================================================================================================
   "chaos_knight_chaos_strike"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,19 +18,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crit_min"                                          "120"
-      "crit_max"                                          "140 180 220 260 280 300"
-      "creep_multiplier"                                  "1.0"
       "chance"
       {
         "value"                                           "33.33"
         "special_bonus_unique_chaos_knight_5"             "+10"
       }
-      "lifesteal" //OAA
+      "crit_min"                                          "120"
+      "crit_max"                                          "140 180 220 260 300 340"
+      "lifesteal"
       {
-        "value"                                           "30 40 50 60 60 60"
+        "value"                                           "30 40 50 60 70 80"
         "special_bonus_unique_chaos_knight_6"             "+30"
       }
+      "creep_multiplier"                                  "1.0"
     }
   }
 }

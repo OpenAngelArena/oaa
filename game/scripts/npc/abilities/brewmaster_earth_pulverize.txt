@@ -1,23 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster Earth: Demolish
+  // Brewmaster Earth: Demolish FIXEDFUCK
   //=================================================================================================================
   "brewmaster_earth_pulverize"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "MaxLevel"                                            "6" // MaxLevel: 6 with aghanims scepter
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_building_damage"
+      "bonus_building_damage" // percentage bonus damage against bosses
       {
         "value"                                           "40 80 120 160 200 240"
       }

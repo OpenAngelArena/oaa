@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Unstable Concoction Throw
+  // Alchemist: Unstable Concoction Throw FIXEDFUCK
   //=================================================================================================================
   "alchemist_unstable_concoction_throw"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -13,9 +12,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "RequiredLevel"                                       "1" // maybe not needed
+    "LevelsBetweenUpgrades"                               "2" // maybe not needed
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,21 +28,21 @@
     {
       "brew_time"                                         "5.0"
       "min_stun"                                          "0.25"
-      "max_stun"                                          "1.75 2.25 2.75 3.25 3.35 3.45"
+      "max_stun"                                          "1.75 2.25 2.75 3.25 3.35 3.45" // alchemist_unstable_concoction + 0.05
       "min_damage"                                        "0"
-      "projectile_speed"                                  "900"
-      "brew_explosion"                                    "7.0"
       "max_damage"
       {
         "value"                                           "150 220 290 360 720 1440"
         "special_bonus_unique_alchemist_2"                "+400"
       }
-      "midair_explosion_radius"
+      "projectile_speed"                                  "900"
+      "midair_explosion_radius" //OAA, Valve has the wrong value for special_bonus_unique_alchemist since 7.41
       {
         "value"                                           "250"
-        "special_bonus_unique_alchemist"                  "+125"
+        "special_bonus_unique_alchemist"                  "+150"
         "affected_by_aoe_increase"                        "1"
       }
+      "brew_explosion"                                    "7.0"
     }
   }
 }

@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Anti-Mage: Counterspell
+  // Anti-Mage: Counterspell FIXEDFUCK
   //=================================================================================================================
   "antimage_counterspell"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,7 +17,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,15 +27,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "1.3"
-      "duration_illusion"                                 "4"
-      "outgoing_damage"                                   "0"
-      "incoming_damage"                                   "150" //OAA
       "magic_resistance"
       {
-        "value"                                           "14 21 28 35 48 56"
+        "value"                                           "14 21 28 35 42 49"
         "display_type"                                    "kBuffPercentage"
       }
+      "duration"                                          "1.3"
+      "duration_illusion"                                 "4" // unused
+      "outgoing_damage"                                   "0" // unused
+      "incoming_damage"                                   "100" // unused
       "does_reflect"
       {
         "value"                                           "1"

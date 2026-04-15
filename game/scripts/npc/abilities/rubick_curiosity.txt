@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Rubick: Curiosity (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "rubick_curiosity"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "curiosity_per_spell_cast"                          "2"
+      "curiosity_duration"                                "20"
+      "curiosity_per_level"                               "1"
+      "curiosity_attack_damage"                           "1"
+      "curiosity_modifier_amp"                            "0.2" //OAA, intentionally nerfed, buff if you disable special_bonus_unique_rubick_curiosity_factor
+      "curiosity_aoe_bonus"                               "1" //OAA, intentionally nerfed, does not accept float numbers only integers
+      "curiosity_per_kill"                                "1"
+      "grace_period"                                      "3"
+      "curiosity_factor" // OAA, intentionally nerfed
+      {
+        "value"                                           "0"
+        "special_bonus_unique_rubick_curiosity_factor"    "+1.5"
+      }
+      "charge_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "curiosity_permanent_gain"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "current_debuff_amp"
+      {
+        "dynamic_value"                                   "true"
+      }
+      "current_aoe_bonus"
+      {
+        "dynamic_value"                                   "true"
+      }
+    }
+  }
+}

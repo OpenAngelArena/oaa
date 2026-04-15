@@ -1,25 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Weaver: Shukuchi FIXEDFUCK
   //=================================================================================================================
   "weaver_shukuchi"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,22 +28,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                         "0.25"
-      "duration"                                          "4.0 4.0 4.0 4.0 4.0 4.0"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "100 130 160 190 190 190"
+        "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_weaver_1"                   "+90"
       }
-      "speed"
+      "speed" // unused
       {
         "value"                                           "200 230 260 290 300 310"
       }
       "radius"
       {
-        "value"                                           "175 175 175 175 175 175"
+        "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
+      "fade_time"                                         "0.25"
+      "duration"                                          "4.0"
       "AbilityCooldown"
       {
         "value"                                           "15 12 9 6 6 6"

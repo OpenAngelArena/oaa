@@ -58,7 +58,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     --return false
   elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
     victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
-  elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then
+  elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" and victim ~= caster then
     victim:AddNewModifier(caster, ability, "modifier_wraith_form_penalty_oaa", {duration = modifier_duration})
   --elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
     --if victim ~= caster then
@@ -79,11 +79,13 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       -- Viper Strike Silences
       victim:AddNewModifier(caster, ability, "modifier_viper_viper_strike_silence", {duration = modifier_duration})
     end
-  --elseif modifier_name == "modifier_mars_arena_of_blood_animation" and victim ~= caster and victim:GetTeamNumber() ~= caster:GetTeamNumber() then
+  elseif modifier_name == "modifier_mars_arena_of_blood_animation" and victim ~= caster and victim:GetTeamNumber() ~= caster:GetTeamNumber() then
     --local facet = caster:GetHeroFacetID()
     --if tostring(facet) == "2" then
-      --victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
-    --end
+    local talent = caster:FindAbilityByName("special_bonus_unique_mars_2_oaa")
+    if talent and talent:GetLevel() > 0 then
+      victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
+    end
   elseif modifier_name == "modifier_wisp_relocate_return" then
     victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
   --elseif modifier_name == "modifier_bristleback_warpath_active" then
@@ -181,6 +183,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   return true
 end
 
+--[[
 function ModifyAbilitiesFilter:ProjectileFilter(keys)
   local source_index = keys.entindex_source_const
   local is_an_attack_projectile = keys.is_attack    -- values: 1 for yes or 0 for no
@@ -200,3 +203,4 @@ function ModifyAbilitiesFilter:ProjectileFilter(keys)
 
   return true
 end
+]]

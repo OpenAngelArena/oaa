@@ -33,7 +33,7 @@ function modifier_spark_power:GetModifierAura()
 end
 
 function modifier_spark_power:GetAuraRadius()
-  return 50000
+  return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_spark_power:GetAuraSearchTeam()

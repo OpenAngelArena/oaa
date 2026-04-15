@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Winter Wyvern: Winter's Curse FIXEDFUCK
   //=================================================================================================================
   "winter_wyvern_winters_curse"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot about this
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,11 +22,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,21 +36,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"                                  "100"
-      "duration"                                          "2"
-      "max_duration"                                      "4.5 5 5.5 6 6.5" //OAA
-      "bonus_duration_per_hero"                           "1.5"
-      "bonus_duration_per_creep"                          "0.5"
       "radius"
       {
         "value"                                           "525"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_attack_speed"
+      "damage_reduction"                                  "100"
+      "bonus_attack_speed" // nerf this if transfer_on_death becomes a thing again
       {
-        "value"                                           "50 65 80 80 80"
+        "value"                                           "50 65 80 95 110"
         "special_bonus_unique_winter_wyvern_3"            "+60"
       }
+      "duration"                                          "2"
+      "max_duration"                                      "4.5 5 5.5 6 6.5" //OAA, intentionally rescaled
+      "bonus_duration_per_hero"                           "1.5"
+      "bonus_duration_per_creep"                          "0.5"
       "transfer_on_death"
       {
         "value"                                           "0"

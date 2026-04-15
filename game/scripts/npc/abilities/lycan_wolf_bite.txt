@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lycan: Wolf Bite
+  // Lycan: Wolf Bite (scepter ability)
   //=================================================================================================================
   "lycan_wolf_bite"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
@@ -13,11 +12,8 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
-    "IsGrantedByScepter"                                  "1"
+
     "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

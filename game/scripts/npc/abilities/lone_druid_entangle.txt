@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OAA, intentional nerf
+  // Lone Druid: Entangle
   //=================================================================================================================
   "lone_druid_entangle"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -14,7 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -44,9 +43,9 @@
         "affected_by_aoe_increase"                        "1"
         "special_bonus_scepter"                           "+100"
       }
-      "hits_required" //OAA, intentional nerf
+      "hits_required" //OAA, intentionally nerfed
       {
-        "value"                                           "5"
+        "value"                                           "6"
       }
       "hits_incremented_on_active"
       {
@@ -73,7 +72,7 @@
       }
       "damage"
       {
-        "value"                                           "90"
+        "value"                                           "90 90 90 90 180 270"
         "special_bonus_unique_lone_druid_1"               "+20"
       }
     }

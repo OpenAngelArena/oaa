@@ -1,20 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Pugna: Nether Ward
+  // Pugna: Nether Ward (first 4 levels)
   //=================================================================================================================
   "pugna_nether_ward"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
-    "MaxLevel"                                            "4"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "MaxLevel"                                            "4" //OAA, intentionally; DO NOT CHANGE THIS!
+
+    "HasScepterUpgrade"                                   "0" //OAA, intentionally; needed because of the custom ability
+    "HasShardUpgrade"                                     "0" //OAA, intentionally; needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

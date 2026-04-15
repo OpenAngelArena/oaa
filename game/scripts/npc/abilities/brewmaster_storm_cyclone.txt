@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster Storm: Cyclone
+  // Brewmaster Storm: Cyclone FIXEDFUCK
   //=================================================================================================================
   "brewmaster_storm_cyclone"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -13,13 +12,12 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+
+    "MaxLevel"                                            "6" // MaxLevel: 6 with aghanims scepter
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 600 600 600 600 600"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -28,15 +26,15 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 150 150 150 150 150"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration_hero"                                     "3 4 5 5.5 6 6.5" //OAA
-      "duration_unit"                                     "16 16 16 16 16 16"
-      "landing_damage"                                    "75 80 85 90 100 115" //OAA
+      "duration_hero"                                     "3 3.75 4.5 5.25 6.0 6.75"
+      "duration_unit"                                     "16"
+      "landing_damage"                                    "75 85 95 105 115 125" //OAA, intentionally buffed
     }
   }
 }

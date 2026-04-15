@@ -1,20 +1,20 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Alchemist
+  // HERO: Alchemist FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_alchemist"
   {
     "Ability6"                                            "alchemist_chemical_rage_oaa" // replaces alchemist_chemical_rage
     "Ability8"                                            "alchemist_chemical_rage" // replaces undefined
 
-    "Ability16"                                           "special_bonus_unique_alchemist_1_oaa" // replaces special_bonus_unique_alchemist_6
-    //"Ability17"                                           "special_bonus_unique_alchemist_4"
+    //"Ability16"                                           "special_bonus_unique_alchemist_6"
+    "Ability17"                                           "special_bonus_unique_alchemist_1_oaa" // replaces special_bonus_unique_alchemist_4
 
     // special_bonus_unique_alchemist -       Unstable Concoction Radius
     // special_bonus_unique_alchemist_2 -     Unstable Concoction Max Damage
     // special_bonus_unique_alchemist_3 -     Acid Spray grants armor to allies
-    // special_bonus_unique_alchemist_4 -     Chemical Rage Regeneration
+    // special_bonus_unique_alchemist_4 -     Chemical Rage Regeneration                 - unused
     // special_bonus_unique_alchemist_5 -     Acid Spray Armor Reduction
     // special_bonus_unique_alchemist_6 -     Chemical Rage Movement Speed
     // special_bonus_unique_alchemist_7 -     Damage per Greevil Greed stack

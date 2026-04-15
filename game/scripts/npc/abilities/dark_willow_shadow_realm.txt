@@ -5,14 +5,13 @@
   //=================================================================================================================
   "dark_willow_shadow_realm"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -37,10 +36,10 @@
         "value"                                           "21 19 17 15 14 13"
         "special_bonus_unique_dark_willow_5"              "-2"
       }
-      "duration" //OAA
+      "duration" //OAA, because of special_bonus_unique_dark_willow_1 nerf
       {
         "value"                                           "5"
-        "special_bonus_unique_dark_willow_1"              "+1.5"
+        "special_bonus_unique_dark_willow_1"              "+0.5"
       }
       "max_damage_duration"
       {

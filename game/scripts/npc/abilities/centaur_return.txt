@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Centaur Warchief: Return (Retaliate)
+  // Centaur Warrunner: Return (Retaliate) FIXEDFUCK
   //=================================================================================================================
   "centaur_return"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve has it wrong
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,13 +20,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "return_damage_str"                                 "16 24 32 40 44 48"
-      "return_damage" //OAA
+      "return_damage" //OAA, intentionally buffed
       {
-        "value"                                           "15 25 35 45 45 45"
-        "special_bonus_unique_centaur_3"                  "+45"
+        "value"                                           "15 30 45 60 120 180"
+        "special_bonus_unique_centaur_3"                  "+90"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "return_damage_str"                                 "16 24 32 40 44 48"
       "aura_radius"
       {
         "value"                                           "1200"

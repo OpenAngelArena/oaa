@@ -5,7 +5,6 @@
   //=================================================================================================================
   "morphling_replicate"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"

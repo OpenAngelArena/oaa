@@ -10,7 +10,7 @@
     "ScriptFile"                                          "abilities/neutrals/oaa_mud_golem_shard_split.lua"
     "AbilityTextureName"                                  "mud_golem_rock_destroy"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "4"
 

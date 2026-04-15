@@ -9,17 +9,6 @@ function abaddon_borrowed_time_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_borrowed_time_passive"
 end
 
---[[
-function abaddon_borrowed_time_oaa:GetCooldown(level)
-  local caster = self:GetCaster()
-  local base_cd = self.BaseClass.GetCooldown(self, level)
-
-  -- Talent that reduces cooldown - done through kv
-
-  return base_cd
-end
-]]
-
 function abaddon_borrowed_time_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local buff_duration = self:GetSpecialValueFor("duration")
@@ -30,10 +19,10 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
   -- Add the Borrowed Time modifier to the caster
   caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
 
-  -- Immolation talent
-  local talent = caster:FindAbilityByName("special_bonus_unique_abaddon_1_oaa")
-  if talent and talent:GetLevel() > 0 then
-    caster:AddNewModifier(caster, talent, "modifier_oaa_borrowed_time_immolation", {duration = buff_duration})
+  -- Immolation
+  local add_immolation = self:GetSpecialValueFor("immolate_damage") ~= 0
+  if add_immolation then
+    caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_immolation", {duration = buff_duration})
   end
 
   -- Caster responses (not really important)
@@ -332,14 +321,12 @@ function modifier_oaa_borrowed_time_immolation:OnCreated()
     return
   end
 
-  local parent = self:GetParent()
-  local talent = self:GetAbility()
+  local ability = self:GetAbility()
 
-  self.ability = parent:FindAbilityByName("abaddon_borrowed_time_oaa")
-
-  self.dps = talent:GetSpecialValueFor("bonus_immolate_damage")
-  self.radius = talent:GetSpecialValueFor("bonus_immolate_aoe")
-  self.interval = talent:GetSpecialValueFor("immolate_tick")
+  self.dps = ability:GetSpecialValueFor("immolate_damage")
+  self.radius = ability:GetSpecialValueFor("immolate_aoe")
+  self.interval = ability:GetSpecialValueFor("immolate_tick")
+  self.ability = ability
 
   self:OnIntervalThink()
   self:StartIntervalThink(self.interval)

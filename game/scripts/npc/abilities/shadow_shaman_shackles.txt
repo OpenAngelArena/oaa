@@ -1,32 +1,31 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Shackles
+  // Shadow Shaman: Shackles FIXEDFUCK
   //=================================================================================================================
   "shadow_shaman_shackles"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    "AbilityChannelTime"                                  "2.2 2.6 3.0 3.4 3.8 4.2" //OAA
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 13 12 11 10 9"
+    "AbilityChannelTime"                                  "2.2 2.6 3.0 3.4 3.8 4.2" //OAA, intentionally nerfed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,21 +35,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                     "0.1 0.1 0.1 0.1 0.1 0.1"
       "AbilityCastRange"
       {
         "value"                                           "450"
         "special_bonus_scepter"                           "+150"
       }
+      "tick_interval"                                     "0.1"
       "total_damage"
       {
         "value"                                           "100 160 220 280 560 1120"
         "special_bonus_unique_shadow_shaman_6"            "+170"
       }
-      "channel_time" //OAA
+      "channel_time" //OAA, intentionally nerfed
       {
-        "value"                                           "2.4 3.0 3.6 4.2 4.2 4.2"
-        "special_bonus_unique_shadow_shaman_2"            "+1.5"
+        "value"                                           "2.2 2.6 3.0 3.4 3.8 4.2"
+        "special_bonus_unique_shadow_shaman_2"            "+0.6"
       }
       "ward_linger_duration"
       {

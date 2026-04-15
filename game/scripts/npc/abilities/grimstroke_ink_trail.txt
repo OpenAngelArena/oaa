@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Grimstroke: Ink Trail (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "grimstroke_ink_trail"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "debuff_duration"                                   "4.0"
+      "damage_reduction" //OAA, intentionally nerfed
+      {
+        "value"                                           "5.2"
+        "hero_levelup"                                    "+0.3"
+      }
+    }
+  }
+}

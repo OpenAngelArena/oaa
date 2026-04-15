@@ -5,7 +5,6 @@
   //=================================================================================================================
   "magnataur_shockwave"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -13,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "0"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -50,12 +49,12 @@
       }
       "shock_damage" //OAA
       {
-        "value"                                           "75 150 225 300 300 300"
-        "special_bonus_unique_magnus"                     "+125"
+        "value"                                           "75 150 225 300 600 900"
+        "special_bonus_unique_magnus"                     "+250"
       }
-      "max_level" //OAA
+      "max_level" //OAA, intentionally
       {
-        "value"                                           "4"
+        "value"                                           "6"
       }
       "basic_slow_duration" //OAA
       {

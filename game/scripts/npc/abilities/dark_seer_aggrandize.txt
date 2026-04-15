@@ -1,17 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Dark Seer: Aggrandize (Innate) FIXEDFUCK
   //=================================================================================================================
   "dark_seer_aggrandize"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_NONE"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,12 +20,11 @@
       {
         "dynamic_value"                                   "true"
       }
-      "heal_pct"
+      "heal_pct" //OAA, intentionally nerfed hero_levelup
       {
         "value"                                           "8.5"
-        "hero_levelup"                                    "+1.5"
+        "hero_levelup"                                    "+1.0"
       }
-      "heal_pct_per_level"                                "1.0" //OAA
     }
   }
 }

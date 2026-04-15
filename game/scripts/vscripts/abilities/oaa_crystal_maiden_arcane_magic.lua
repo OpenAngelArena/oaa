@@ -112,7 +112,7 @@ function modifier_crystal_maiden_arcane_aura_oaa:GetAuraSearchType()
 end
 
 function modifier_crystal_maiden_arcane_aura_oaa:GetAuraRadius()
-  return 30000
+  return FIND_UNITS_EVERYWHERE
 end
 
 ---------------------------------------------------------------------------------------------------

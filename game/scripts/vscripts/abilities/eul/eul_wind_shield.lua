@@ -6,6 +6,11 @@ LinkLuaModifier("modifier_eul_wind_shield_ventus_ally", "abilities/eul/eul_wind_
 
 eul_wind_shield_oaa = class(AbilityBaseClass)
 
+-- C:\buildworker\source2_dota_rel_2019_win64\build\src\game\shared\dota\dota_attack_records.cpp (131) : Assertion Failed in function CDOTA_AttackRecordManager::AddNewAttackRecord():
+-- m_unNextFreeIndex < DOTA_PROJECTILES_ATTACK_RECORD_MAX
+-- ProjectileFilter doesnt remove attack records from blocked projectile quickly enough, or they are not removed at all
+-- Thanks Valve I guess
+--[[
 function eul_wind_shield_oaa:Spawn()
   if IsServer() then
     if FilterManager and not self:IsStolen() then
@@ -13,11 +18,13 @@ function eul_wind_shield_oaa:Spawn()
     end
   end
 end
+]]
 
 -- Some notes:
 -- MODIFIER_PROPERTY_AVOID_DAMAGE blocks dmg but it doesnt block modifiers
 -- MODIFIER_PROPERTY_DODGE_PROJECTILE works for all projectiles (includes spells and items) and you can't filter stuff out
 -- MODIFIER_EVENT_ON_PROJECTILE_DODGE triggers when you dodge/disjoint with the property above, still can't filter stuff out
+--[[
 function eul_wind_shield_oaa:ProjectileFilter(keys)
   local source_index = keys.entindex_source_const
   local target_index = keys.entindex_target_const
@@ -71,6 +78,7 @@ function eul_wind_shield_oaa:ProjectileFilter(keys)
 
   return true
 end
+]]
 
 function eul_wind_shield_oaa:GetAOERadius()
   return self:GetSpecialValueFor("evasion_range_check")
@@ -535,6 +543,57 @@ function modifier_eul_wind_shield_ventus_ally:OnCreated()
      -- Particle
     self.part = ParticleManager:CreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_shackleshot_bolo_tornado_swirl.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControlEnt(self.part, 4, parent, PATTACH_ROOTBONE_FOLLOW, "attach_origin", Vector(0, 0, 0), false)
+  end
+end
+
+function modifier_eul_wind_shield_ventus_ally:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_DODGE_PROJECTILE,
+    MODIFIER_EVENT_ON_PROJECTILE_DODGE,
+  }
+end
+
+function modifier_eul_wind_shield_ventus_ally:GetModifierDodgeProjectile(kv)
+  --print("GetModifierDodgeProjectile Fail type: "..tostring(kv.fail_type))
+  self.last_attacker = kv.attacker
+  return 1
+end
+
+if IsServer() then
+  function modifier_eul_wind_shield_ventus_ally:OnProjectileDodge(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local victim = event.target
+    local attacker = self.last_attacker -- event.attacker is nil for OnProjectileDodge, lmao
+
+    -- Check if victim exists
+    if not victim or victim:IsNull() then
+      return
+    end
+
+    -- Check if victim has this modifier
+    if victim ~= parent then
+      return
+    end
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if ability exists
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    --print("OnProjectileDodge Fail type: "..tostring(event.fail_type))
+
+    local data = {
+      attacker = attacker:GetEntityIndex(),
+      fake_attack = 1,
+    }
+
+    ability:OnProjectileHit_ExtraData(victim, victim:GetAbsOrigin(), data)
   end
 end
 

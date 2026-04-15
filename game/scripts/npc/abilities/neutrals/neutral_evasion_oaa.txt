@@ -9,7 +9,7 @@
     "ScriptFile"                                          "abilities/neutrals/oaa_neutral_evasion.lua"
     "AbilityTextureName"                                  ""
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "4"
 

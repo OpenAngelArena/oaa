@@ -1,28 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Warlock: Eldritch Summoning (Innate)
+  // Warlock: Eldritch Summoning (Innate) FIXEDFUCK
   //=================================================================================================================
   "warlock_eldritch_summoning"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityTextureName"                                  "warlock_imp_explode"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "minor_imp_duration"                                "15"
-      "golem_can_summon"                                  "0"
       "imp_health"
       {
         "value"                                           "5"
@@ -41,6 +37,7 @@
         "value"                                           "297"
         "hero_levelup"                                    "+3"
       }
+      "golem_can_summon"                                  "0"
       "tooltip_imp_explode_radius"
       {
         "value"                                           "400"

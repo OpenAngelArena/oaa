@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Crystal Maidens Frostbite
+  // Crystal Maiden: Frostbite FIXEDFUCK
   //=================================================================================================================
   "crystal_maiden_frostbite"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,16 +22,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastPoint"                                  "0.3 0.3 0.3 0.3 0.3 0.3"
-      "AbilityCooldown"                                   "9 8 7 6 6 6"
-      "AbilityManaCost"                                   "125 135 145 155 165 175"
-      "creep_multiplier"                                  "4"
-      "tick_interval"                                     "0.25"
       "AbilityCastRange"
       {
         "value"                                           "600"
         "special_bonus_unique_crystal_maiden_frostbite_castrange"  "+100"
       }
+      "AbilityCastPoint"                                  "0.3"
+      "AbilityCooldown"                                   "9.0 8.5 8.0 7.5 7.0 6.5" //OAA, intentionally nerfed
+      "AbilityManaCost"                                   "125 135 145 155 165 175"
       "damage_per_second"
       {
         "value"                                           "100 100 100 100 200 300"
@@ -42,6 +40,8 @@
         "value"                                           "1.5 2 2.5 3 3.5 4"
         "special_bonus_unique_crystal_maiden_1"           "+1.0"
       }
+      "creep_multiplier"                                  "4"
+      "tick_interval"                                     "0.25"
     }
   }
 }

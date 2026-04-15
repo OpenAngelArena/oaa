@@ -1,14 +1,10 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Broodmother
+  // HERO: Broodmother FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_broodmother"
   {
-    //"Ability1"                                            "broodmother_insatiable_hunger"
-    //"Ability2"                                            "broodmother_spin_web"
-    //"Ability3"                                            "broodmother_incapacitating_bite"
-    //"Ability4"                                            "broodmother_sticky_snare"
     "Ability5"                                            "broodmother_spawn_spiderlings_oaa" // replaces broodmother_spiders_milk
     "Ability6"                                            "broodmother_incapacitating_bite_oaa" // replaces broodmother_spawn_spiderlings
     "Ability7"                                            "broodmother_spiders_milk" // replaces undefined

@@ -10,7 +10,7 @@
     "BaseClass"                                           "riki_permanent_invisibility"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "1"
 
@@ -18,8 +18,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_delay"                                        "0.1" //OAA
-      "movement_speed"                                    "0" //OAA
+      "fade_delay"                                        "0.1" //OAA, intentionally because it's a creep
+      "movement_speed"                                    "0" //OAA, intentionally because it's a creep
     }
   }
 }

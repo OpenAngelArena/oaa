@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Wraith King: Reincarnation FIXEDFUCK
   //=================================================================================================================
   "skeleton_king_reincarnation"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -23,14 +23,14 @@
     "AbilityValues"
     {
       "reincarnate_time"                                  "3.0"
-      "movespeed"                                         "-75"
-      "attackslow"                                        "-75"
-      "slow_duration"                                     "4.0"
       "slow_radius"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
+      "movespeed"                                         "-75"
+      "attackslow"                                        "-75"
+      "slow_duration"                                     "4.0"
       "AbilityManaCost"
       {
         "value"                                           "220 110 0 0 0"

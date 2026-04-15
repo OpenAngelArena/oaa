@@ -46,7 +46,7 @@
 - MaxLevel does not need to match base dota.
 - Only use `// OAA` sparingly to indicate intentional deviations from vanilla at vanilla levels. Generally avoid when possible.
 - Do not rearrange the order of keyvalues and do not delete KV comments (text after `//`).
-- If there is a word `intentionally` or `because` in the KV comment of keyvalue, do not change values.
+- If there are words `intentionally` or `because` in the KV comment, do not change values.
 
 ## Commit & Pull Request Guidelines
 - Commits: concise, present-tense summaries (e.g., "Fix Lua kv links"), reference issues/PRs (e.g., `(#1234)`).

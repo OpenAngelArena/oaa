@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Borrowed Time (OAA rework)
+  // Abaddon: Borrowed Time (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "abaddon_borrowed_time_oaa"
   {
@@ -13,22 +13,18 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "1" // needed because it's a custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AbilityCastGestureSlot"                              "ABSOLUTE"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +34,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "75 70 65 60 55"
+        "special_bonus_unique_abaddon_borrowed_time_cd"   "-10"
+      }
       "hp_threshold"                                      "350"
       "hp_threshold_max_hp_percent"                       "5"
       "duration"
@@ -56,6 +57,18 @@
         "special_bonus_scepter"                           "900"
         "affected_by_aoe_increase"                        "1"
       }
+      "immolate_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_abaddon_immolation"         "+100"
+      }
+      "immolate_aoe"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_abaddon_immolation"         "+400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "immolate_tick"                                     "0.25"
     }
   }
 }

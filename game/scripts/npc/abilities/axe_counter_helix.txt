@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Axe: Counter Helix
+  // Axe: Counter Helix FIXEDFUCK
   //=================================================================================================================
   "axe_counter_helix"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "HasScepterUpgrade"                                   "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,7 +29,7 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "trigger_attacks" //OAA
+      "trigger_attacks" // nerf if Axe too strong
       {
         "value"                                           "7 6 5 4 4 3"
       }
@@ -43,7 +42,7 @@
       {
         "special_bonus_scepter"                           "+6.0"
       }
-      "damage_reduction"
+      "damage_reduction" // this is only attack damage reduction
       {
         "special_bonus_scepter"                           "+12"
         "display_type"                                    "kDebuffPercentage"

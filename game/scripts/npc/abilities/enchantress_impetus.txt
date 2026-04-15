@@ -5,7 +5,6 @@
   //=================================================================================================================
   "enchantress_impetus"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
@@ -20,12 +19,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "575"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6 4 2 0 0 0"
-    "AbilityDuration"                                     "1.5 1.5 1.5 1.5 1.5 1.5"
+    "AbilityDuration"                                     "1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,9 +36,9 @@
     {
       "distance_cap"                                      "1750"
       "illusion_damage_multiplier"                        "2"
-      "distance_damage_pct" //OAA
+      "distance_damage_pct" //OAA, intentionally buffed
       {
-        "value"                                           "5 10 15 20 20 20"
+        "value"                                           "5 10 15 20 30 50"
         "special_bonus_unique_enchantress_4"              "+6.5"
       }
     }

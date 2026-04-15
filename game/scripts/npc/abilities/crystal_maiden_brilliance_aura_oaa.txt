@@ -12,7 +12,7 @@
     "AbilityTextureName"                                  "crystal_maiden_brilliance_aura"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -22,7 +22,7 @@
     {
       "mana_regen" // for tooltip
       {
-        "value"                                           "0.4 0.6 0.8 1 1.2 1.4"
+        "value"                                           "0.4 0.6 0.8 1.0 1.2 1.4"
       }
       "proximity_mana_regen_tooltip" // for tooltip
       {
@@ -34,9 +34,9 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "mana_regen_amp" // TODO: add to tooltip
+      "mana_regen_amp" // for tooltip
       {
-        "value"                                           "20 40 60 80 90 100"
+        "value"                                           "20 40 60 80 100 120"
       }
 
       "cd_reduction"                                      "0"

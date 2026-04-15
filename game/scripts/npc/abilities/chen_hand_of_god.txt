@@ -1,24 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chen: Hand of God
+  // Chen: Hand of God FIXEDFUCK
   //=================================================================================================================
   "chen_hand_of_god"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hot_duration"                                      "10"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "120 110 100 90 80"
@@ -38,6 +37,7 @@
       {
         "value"                                           "200 400 600 1200 1800"
       }
+      "hot_duration"                                      "10"
       "heal_per_second" //OAA, intentionally buffed
       {
         "value"                                           "20 40 60 120 180"

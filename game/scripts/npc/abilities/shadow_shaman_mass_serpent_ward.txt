@@ -1,0 +1,90 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shadow Shaman: Mass Serpent Ward (first 3 levels) - needed for Urnaconda FIXEDFUCK
+  //=================================================================================================================
+  "shadow_shaman_mass_serpent_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" // must be an ultimate because of Morphling
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "3" //OAA, intentionally; DO NOT CHANGE THIS!
+
+    "HasScepterUpgrade"                                   "0" //OAA, intentionally; needed because of the custom ability
+    "HasShardUpgrade"                                     "0" //OAA, intentionally; needed because of the custom ability
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550" // it doesnt matter what it says here
+    "AbilityCastPoint"                                    "0.3" // it doesnt matter what it says here
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "110 105 100" // it doesnt matter what it says here
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 350 550" // it doesnt matter what it says here
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "ward_count"
+      {
+        "value"                                           "10"
+      }
+      "bonus_damage"                                      "0"
+      "bonus_attack_range"
+      {
+        "special_bonus_unique_shadow_shaman_8"            "+160"
+      }
+      "duration"                                          "45.0"
+      "spawn_radius"                                      "150"
+      "hits_to_destroy_tooltip" // it doesnt matter what it says here, we will not show this ability
+      {
+        "value"                                           "2"
+        "special_bonus_unique_shadow_shaman_1"            "50%"
+      }
+      "ward_health"
+      {
+        "value"                                           "4"
+        "special_bonus_unique_shadow_shaman_1"            "+2"
+      }
+      "bonus_attack_targets"
+      {
+        "special_bonus_unique_shadow_shaman_4"            "+1"
+      }
+      "ward_damage_tooltip" // it doesnt matter what it says here, we will not show this ability
+      {
+        "value"                                           "50 85 120"
+      }
+      "mega_ward_multiplier_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "4"
+      }
+      "mega_ward_multiplier_health"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "4"
+      }
+      "mega_ward_health_tooltip" // it doesnt matter what it says here, we will not show this ability
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=8"
+        "special_bonus_unique_shadow_shaman_1"            "50%"
+      }
+      "mega_ward_damage_tooltip" // it doesnt matter what it says here, we will not show this ability
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "200 340 480"
+      }
+      "mega_ward_model_scale_multiplier"                  "2.0"
+    }
+  }
+}

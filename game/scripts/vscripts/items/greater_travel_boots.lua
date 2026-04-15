@@ -224,8 +224,10 @@ function modifier_item_greater_travel_boots_passives:GetModifierSpellAmplify_Per
 end
 
 function modifier_item_greater_travel_boots_passives:GetModifierTotalDamageOutgoing_Percentage(event)
-  if event.target:IsOAABoss() then
-    return self.boss_dmg or self:GetAbility():GetSpecialValueFor("bonus_boss_damage")
+  if event.target then
+    if event.target:IsOAABoss() then
+      return self.boss_dmg or self:GetAbility():GetSpecialValueFor("bonus_boss_damage")
+    end
   end
   return 0
 end

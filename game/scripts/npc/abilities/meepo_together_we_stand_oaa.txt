@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/oaa_meepo_together_we_stand.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "meepo_divided_we_stand"
-    "IsBreakable"                                         "1"
+    "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "3"
     "LevelsBetweenUpgrades"                               "12"

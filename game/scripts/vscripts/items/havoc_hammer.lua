@@ -153,7 +153,7 @@ function modifier_item_havoc_hammer_active:GetModifierAura()
 end
 
 function modifier_item_havoc_hammer_active:GetAuraRadius()
-  return 50000
+  return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_item_havoc_hammer_active:GetAuraSearchTeam()

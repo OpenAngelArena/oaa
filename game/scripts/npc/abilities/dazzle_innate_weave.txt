@@ -1,17 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Dazzle: Weave (Innate)
   //=================================================================================================================
   "dazzle_innate_weave"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "HasShardUpgrade"                                     "1"
+
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +28,7 @@
         "value"                                           "6.9"
         "hero_levelup"                                    "+0.1"
       }
-      "heal_amplification_pct" //OAA
+      "heal_amplification_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_dazzle_facet_nothl_boon"     "=7.5"

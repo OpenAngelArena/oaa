@@ -34,10 +34,10 @@
         "value"                                           "250 350 450 550 600 650"
         "affected_by_aoe_increase"                        "1"
       }
-      "bonus_hero_damage" //OAA
+      "bonus_hero_damage" //OAA, because of special_bonus_unique_ember_spirit_6 buff
       {
-        "value"                                           "50 90 130 170 170 170"
-        "special_bonus_unique_ember_spirit_6"             "+50"
+        "value"                                           "50 90 130 170 340 510"
+        "special_bonus_unique_ember_spirit_6"             "+100"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "creep_damage_penalty"
