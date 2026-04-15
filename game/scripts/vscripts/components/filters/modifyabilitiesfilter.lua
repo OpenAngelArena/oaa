@@ -183,6 +183,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   return true
 end
 
+--[[
 function ModifyAbilitiesFilter:ProjectileFilter(keys)
   local source_index = keys.entindex_source_const
   local is_an_attack_projectile = keys.is_attack    -- values: 1 for yes or 0 for no
@@ -202,3 +203,4 @@ function ModifyAbilitiesFilter:ProjectileFilter(keys)
 
   return true
 end
+]]
