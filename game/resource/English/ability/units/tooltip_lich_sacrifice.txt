@@ -1,0 +1,17 @@
+//=============================================================================
+// LICH SACRIFICE
+//=============================================================================
+//"DOTA_Tooltip_ability_lich_death_charge"                                        "Sacrifice"
+//"DOTA_Tooltip_ability_lich_death_charge_Description"                            "Sacrifice an allied creep to convert its current health into mana for Lich and give Lich its experience bounty.<br><br>Begins the game on cooldown and with no charges."
+//"DOTA_Tooltip_ability_lich_death_charge_active_mana_restore_pct_of_health"      "%CURRENT HEALTH CONVERTED:"
+//"DOTA_Tooltip_ability_lich_death_charge_xp_pct"                                 "%EXPERIENCE BOUNTY:"
+//"DOTA_Tooltip_ability_lich_death_charge_Note0"                                  "Cannot sacrifice ancients or creep-heroes."
+//"DOTA_Tooltip_ability_lich_death_charge_Note1"                                  "Sacrificed creeps count as denies and can give experience to enemy heroes. Lich's experience bounty and enemy heroes' deny experience are independent."
+
+"DOTA_Tooltip_ability_lich_sacrifice_oaa"                                       "Sacrifice"
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_Description"                           "Sacrifices an allied <font color='#FFA500'>or enemy</font> creep to convert its current health into mana for Lich. Grants part of experience bounty when sacrificing allied creeps. <br><br>Begins the game <font color='#FFA500'>off</font> cooldown and <font color='#FFA500'>with</font> charges.<br><br><font color='#FFA500'>Can target Ancients when Lich reaches level %hero_lvl_requirement_for_ancients%.</font>"
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_Lore"                                  "It was not unheard of Ethreain to make examples out of those who contested his rule during his human life."
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_Note0"                                 "Sacrificed allied creeps count as denies and can give experience to enemy heroes. Lich's experience bounty and enemy heroes' deny experience are independent."
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_Note1"                                 "Sacrificed enemy creeps have no experience multiplier. Experience from sacrificed enemy creeps is shared with nearby heroes."
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_active_mana_restore_pct_of_health"     "#{DOTA_Tooltip_ability_lich_death_charge_active_mana_restore_pct_of_health}"
+"DOTA_Tooltip_ability_lich_sacrifice_oaa_xp_pct"                                "#{DOTA_Tooltip_ability_lich_death_charge_xp_pct}"
