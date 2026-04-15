@@ -1,27 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enchantress: Nature's Attendants
+  // Enchantress: Nature's Attendants FIXEDFUCK
   //=================================================================================================================
   "enchantress_natures_attendants"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 28 26 24 22 20" //OAA
+    "AbilityCooldown"                                     "30 28 26 24 22 20" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,16 +31,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_duration"                                     "13" //OAA
+      "heal_duration"                                     "13" //OAA, intentionally buffed
       "heal_interval"                                     "0.5"
-      "heal" //OAA
+      "heal"
       {
-        "value"                                           "4 8 12 16 16 16"
+        "value"                                           "4 8 12 16 20 24"
         "special_bonus_unique_enchantress_5"              "+8"
       }
       "radius"
       {
-        "value"                                           "275 275 275 275 275 275"
+        "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
       "wisp_count"
@@ -53,7 +53,7 @@
         "value"                                           "0"
         "special_bonus_unique_enchantress_6"              "+30"
       }
-      "overprotective_damage_threshold" //OAA
+      "overprotective_damage_threshold"
       {
         "value"                                           "0"
       }

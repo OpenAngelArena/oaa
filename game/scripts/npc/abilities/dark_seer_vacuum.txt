@@ -5,15 +5,15 @@
   //=================================================================================================================
   "dark_seer_vacuum"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                     "30" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,15 +35,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
-      "damage"                                            "75 150 225 300 600 1200" //OAA
-      "radius_tree"                                       "150" //OAA
       "radius"
       {
-        "value"                                           "325 400 475 550 600 650"
+        "value"                                           "325 400 475 550 625 700"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_dark_seer_2"                "+75"
       }
+      "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
+      "damage"                                            "75 150 225 300 600 1200" //OAA, intentionally buffed
+      "radius_tree"                                       "150"
     }
   }
 }

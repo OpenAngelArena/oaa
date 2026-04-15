@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Dazzle: Weave (Innate)
   //=================================================================================================================
   "dazzle_innate_weave"
   {
@@ -28,7 +28,7 @@
         "value"                                           "6.9"
         "hero_levelup"                                    "+0.1"
       }
-      "heal_amplification_pct" //OAA
+      "heal_amplification_pct"
       {
         "value"                                           "0"
         "special_bonus_facet_dazzle_facet_nothl_boon"     "=7.5"

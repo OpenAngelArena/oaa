@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lich: Sinister Gaze
+  // Lich: Sinister Gaze FIXEDFUCK
   //=================================================================================================================
   "lich_sinister_gaze"
   {
@@ -23,31 +23,31 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "destination"                                       "32 38 44 50 56 62"
-      "mana_drain"                                        "20"
       "AbilityManaCost"
       {
         "value"                                           "25"
       }
-      "AbilityChannelTime" //OAA, I thought having 2 different kvs that do the same thing is a thing of the past, I was wrong
+      "AbilityChannelTime" //OAA, intentionally buffed; I thought having 2 different kvs that do the same thing is a thing of the past, I was wrong
       {
-        "value"                                           "1.10 1.4 1.7 2.0 2.0 2.0"
+        "value"                                           "1.4 1.7 2.0 2.3 2.4 2.5"
         "special_bonus_unique_lich_2"                     "+0.3"
       }
-      "channel_duration" //OAA, Valve is dumb, having 2 different kvs that do the same thing
+      "channel_duration" //OAA, intentionally buffed; Valve is dumb, having 2 different kvs that do the same thing
       {
-        "value"                                           "1.10 1.4 1.7 2.0 2.0 2.0"
+        "value"                                           "1.4 1.7 2.0 2.3 2.4 2.5"
         "special_bonus_unique_lich_2"                     "+0.3"
       }
-      "aoe_scepter" //OAA, intentional nerf
+      "destination"                                       "32 38 44 50 56 62"
+      "mana_drain"                                        "20"
+      "aoe_scepter" //OAA, intentionally nerfed
       {
-        "special_bonus_scepter"                           "+400"
+        "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
       "damage"
@@ -60,7 +60,7 @@
       {
         "value"                                           "0"
       }
-      "post_gaze_debuff_duration_multiplier" //OAA, intentional nerf
+      "post_gaze_debuff_duration_multiplier"
       {
         "value"                                           "0"
       }

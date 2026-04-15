@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Event Horizon (Innate)
+  // Enigma: Event Horizon (Innate) FIXEDFUCK
   //=================================================================================================================
   "enigma_event_horizon"
   {
@@ -16,18 +16,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vision_cone"                                       "0.08715"
       "radius"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_enigma_5"                   "+100"
       }
-      "speed_bonus" //OAA
+      "speed_bonus"
       {
-        "value"                                           "4"
+        "value"                                           "5"
         "hero_levelup"                                    "+1"
       }
+      "vision_cone"                                       "0.08715"
     }
   }
 }

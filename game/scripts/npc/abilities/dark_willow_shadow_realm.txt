@@ -36,10 +36,10 @@
         "value"                                           "21 19 17 15 14 13"
         "special_bonus_unique_dark_willow_5"              "-2"
       }
-      "duration" //OAA
+      "duration" //OAA, because of special_bonus_unique_dark_willow_1 nerf
       {
         "value"                                           "5"
-        "special_bonus_unique_dark_willow_1"              "+1.5"
+        "special_bonus_unique_dark_willow_1"              "+0.5"
       }
       "max_damage_duration"
       {

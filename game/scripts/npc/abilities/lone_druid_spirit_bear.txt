@@ -24,25 +24,25 @@
     "AbilityValues"
     {
       "bear_hp"                                           "1500"
-      "bear_regen_tooltip"                                "3"
+      "bear_regen_tooltip"                                "3" // tooltip only, look at npc_dota_lone_druid_bear1
       "bear_armor"                                        "0"
       "damage_gain_per_druid_level"                       "0"
       "hp_gain_per_druid_level"                           "0"
-      "strength_gain_tooltip"                             "4.5"
-      "agility_gain_tooltip"                              "4.5"
-      "intelligence_gain_tooltip"                         "0.5"
-      "AbilityCooldown" //OAA
+      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "120.0"
+        "value"                                           "75"
         "special_bonus_unique_lone_druid_2"               "-25"
       }
       "bear_bat"
       {
         "value"                                           "1.5"
       }
-      "backlash_damage" //OAA
+      "backlash_damage" //OAA, intentionally nerfed
       {
-        "value"                                           "20.0"
+        "value"                                           "40.0"
       }
       "bear_movespeed"
       {

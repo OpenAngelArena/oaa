@@ -5,7 +5,6 @@
   //=================================================================================================================
   "lich_chain_frost"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -25,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60" //OAA
+    "AbilityCooldown"                                     "60" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,20 +34,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "jumps"                                             "10" //special_bonus_unique_lich_1_oaa
+      "jumps"                                             "10" // uses special_bonus_unique_lich_1_oaa
       "slow_movement_speed"                               "-65"
       "slow_attack_speed"                                 "-65"
       "slow_duration"                                     "2.5"
       "initial_projectile_speed"                          "1050"
       "projectile_speed"                                  "850"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "250 400 550 550 550"
+        "value"                                           "250 500 750 1250 1750"
       }
       "bonus_jump_damage"
       {
         "value"                                           "15 20 25 40 55"
-        "special_bonus_unique_lich_jump_damage"           "+100"
+        "special_bonus_unique_lich_jump_damage"           "+100" // unused
         "CalculateSpellDamageTooltip"                     "1"
       }
       "jump_range"
@@ -70,7 +69,7 @@
       {
         "special_bonus_unique_lich_7"                     "+1"
       }
-      "bonus_jumps_per_hero_killed" //OAA
+      "bonus_jumps_per_hero_killed"
       {
         "value"                                           "0"
       }

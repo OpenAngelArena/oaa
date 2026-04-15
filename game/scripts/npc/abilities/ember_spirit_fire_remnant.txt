@@ -37,12 +37,12 @@
       "duration"                                          "45.0"
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "35.0"
+        "value"                                           "25.0"
         "special_bonus_unique_ember_spirit_5"             "-12"
       }
       "damage" //OAA
       {
-        "value"                                           "100 200 300 300 300"
+        "value"                                           "100 250 400 850 1300"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
