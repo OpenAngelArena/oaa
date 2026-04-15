@@ -31,13 +31,13 @@
     "AbilityValues"
     {
       "damage_delay"                                      "0.25"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "380 565 750 750 750"
+        "value"                                           "380 750 1120 1860 2600"
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "70 60 50 50 50"
+        "value"                                           "50"
         "special_bonus_unique_lina_6"                     "-20"
       }
       "pierce_immunity"
@@ -49,7 +49,7 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+5"
       }
-      "supercharge_stacks" //OAA, intentional nerf
+      "supercharge_stacks"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+12"
