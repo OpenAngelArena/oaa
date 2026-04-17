@@ -20,13 +20,9 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
-
-    // Cost
+    // Damage
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "80 160 240 320 640 1280"
 
@@ -40,14 +36,14 @@
         "value"                                           "600"
         "special_bonus_scepter"                           "+25%"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "21 18 15 12 12 12"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_sven_stormhammer_cooldown"  "-25%"
       }
       "AbilityManaCost"
       {
-        "value"                                           "110 115 120 125 125 125"
+        "value"                                           "110 115 120 125 130 135"
         "special_bonus_unique_sven_stormhammer_cooldown"  "-25%"
       }
       "bolt_speed"
@@ -62,7 +58,7 @@
       }
       "bolt_aoe"
       {
-        "value"                                           "250 270 290 310 320 330"
+        "value"                                           "250 270 290 310 330 350"
         "affected_by_aoe_increase"                        "1"
       }
       "vision_radius"

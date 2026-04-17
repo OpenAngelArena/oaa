@@ -14,7 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 28 26 24" //OAA
+    "AbilityCooldown"                                     "30 28 26 24" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
     "AbilityValues"
     {
       "duration"                                          "8"
-      "burn_damage"                                       "25 50 100 200" //OAA
+      "burn_damage"                                       "25 50 100 200" //OAA, intentionally buffed
       "building_damage_pct"                               "25"
     }
   }

@@ -15,13 +15,13 @@
     //"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     //"IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_aspd" //OAA
+      "bonus_aspd" //OAA, intentionally buffed
       {
         "value"                                           "120 130 140 150"
       }

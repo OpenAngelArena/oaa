@@ -13,12 +13,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // same as Shapeshift
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

@@ -15,7 +15,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.3"
@@ -30,13 +30,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "initial_damage"//OAA
+      "initial_damage" //OAA, intentionally rescaled
       {
         "value"                                           "60 120 240 480"
       }
-      "jump_range"
+      "jump_range" //OAA, intentionally nerfed and added affected_by_aoe_increase
       {
-        "value"                                           "500"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
       "jump_delay"
       {
@@ -46,7 +47,7 @@
       {
         "value"                                           "25.0 20.0 15.0 10.0"
       }
-      "max_targets" //OAA
+      "max_targets" //OAA, intentionally buffed
       {
         "value"                                           "8"
       }
