@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,13 +31,13 @@
       {
         "value"                                           "30.0"
       }
-      "bonus_damage" //OAA
+      "bonus_damage" //OAA, intentionally buffed
       {
         "value"                                           "60 120 180 240 300"
         "special_bonus_unique_night_stalker_3"            "+25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "120"
         "special_bonus_unique_night_stalker"              "-40"

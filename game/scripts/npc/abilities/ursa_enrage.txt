@@ -21,14 +21,14 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0 0 0 0 0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "damage_reduction"                                  "80"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed base values and nerfed scepter values
       {
         "value"                                           "50 40 30 30 30"
         "special_bonus_scepter"                           "=30 =27 =24 =21 =18"
@@ -38,7 +38,7 @@
         "value"                                           "50"
         "special_bonus_unique_ursa_8"                     "+25"
       }
-      "duration" //OAA
+      "duration" //OAA, intentionally nerfed
       {
         "value"                                           "4.0 4.25 4.5 5.0 5.5"
       }

@@ -44,17 +44,17 @@
         "special_bonus_shard"                             "=400"
         "affected_by_aoe_increase"                        "1"
       }
-      "toss_damage"
+      "toss_damage" // reminder: this gets increased with Grow
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "toss_land_damage_pct" //OAA, intentionally buffed
+      "toss_land_damage_pct"
       {
         "value"                                           "0"
         "RequiresShard"                                   "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "special_bonus_shard"                             "20 25 30 35 40 45"
+        "special_bonus_shard"                             "20"
       }
       "AbilityCharges"
       {

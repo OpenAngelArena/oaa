@@ -35,7 +35,7 @@
       {
         "value"                                           "380 750 1120 1860 2600"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "50"
         "special_bonus_unique_lina_6"                     "-20"
@@ -49,10 +49,10 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+5"
       }
-      "supercharge_stacks"
+      "supercharge_stacks" //OAA, intentionally nerfed
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+12"
+        "special_bonus_shard"                             "=8 =9 =10 =11 =12"
       }
       "barrier_pct"
       {

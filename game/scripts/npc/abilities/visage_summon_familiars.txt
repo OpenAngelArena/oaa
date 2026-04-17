@@ -56,7 +56,7 @@
         "value"                                           "100"
         "special_bonus_facet_visage_faithful_followers"   "=50"
       }
-      "bonus_movement_speed"
+      "bonus_movement_speed" // this is for the talent
       {
         "value"                                           "0"
       }
@@ -71,10 +71,10 @@
         "value"                                           "0"
         "special_bonus_unique_visage_7"                   "+6"
       }
-      "bonus_damage" // wtf is this Valve
+      "bonus_damage" // this is for the talent
       {
         "value"                                           "0"
-        "special_bonus_unique_visage_7"                   "0"
+        "special_bonus_unique_visage_7"                   "0" // Valve this line is not needed
         "CalculateSpellDamageTooltip"                     "0"
       }
       "familiar_count"

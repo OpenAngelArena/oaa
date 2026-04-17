@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.1" //OAA, intentional buff
+    "AbilityCooldown"                                     "0.1" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +35,12 @@
     {
       "speed_multiplier"                                  "250"
       "duration"                                          "45.0"
-      "AbilityChargeRestoreTime" //OAA
+      "AbilityChargeRestoreTime" //OAA, intentionally buffed
       {
         "value"                                           "25.0"
         "special_bonus_unique_ember_spirit_5"             "-12"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
         "value"                                           "100 250 400 850 1300"
         "CalculateSpellDamageTooltip"                     "1"

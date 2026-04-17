@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "525"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,19 +31,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration_day"                                      "1.25 1.5 1.75 2.0 2.25" //OAA
+      "duration_day"                                      "1.25 1.5 1.75 2.0 2.25" //OAA, intentionally buffed
       "invisible_damage_tickrate"                         ".1"
       "AbilityCooldown"
       {
         "value"                                           "11 10 9 8 8 8"
         "special_bonus_unique_night_stalker_4"            "-1"
       }
-      "damage" //OAA
+      "damage"
       {
         "value"                                           "80 160 240 320 640 960"
         "special_bonus_facet_night_stalker_voidbringer"   "+0"
       }
-      "duration_night" //OAA
+      "duration_night"
       {
         "value"                                           "1.6 2.2 2.8 3.4 4.0 4.6"
         "special_bonus_facet_night_stalker_voidbringer"   "+0"

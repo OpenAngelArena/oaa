@@ -19,16 +19,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13 12 11 10 9 8"
-    "AbilityDuration"                                     "0.6875 0.6875 0.6875 0.6875 0.6875 0.6875"
+    "AbilityDuration"                                     "0.6875"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
+    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "shock_damage" //OAA
+      "shock_damage" //OAA, because of special_bonus_unique_magnus buff
       {
         "value"                                           "75 150 225 300 600 900"
         "special_bonus_unique_magnus"                     "+250"
@@ -56,9 +56,9 @@
       {
         "value"                                           "6"
       }
-      "basic_slow_duration" //OAA
+      "basic_slow_duration"
       {
-        "value"                                           "0.4 0.6 0.8 1.0 1.0 1.0"
+        "value"                                           "0.4 0.6 0.8 1.0 1.2 1.4"
       }
       "return_damage_pct"
       {
@@ -73,15 +73,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_magnus_2"                   "+200"
-      }
-      "max_level_tooltip" //OAA
-      {
-        "special_bonus_facet_magnataur_diminishing_return"  "=7"
-      }
-      "return_damage_pct_tooltip" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_facet_magnataur_diminishing_return"  "=0 =0 =0 =0 =50 =60 =70"
       }
     }
   }

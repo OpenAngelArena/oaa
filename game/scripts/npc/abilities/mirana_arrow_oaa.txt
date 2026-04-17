@@ -35,7 +35,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "90 95 100 105 110 115"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -95,7 +95,7 @@
         "value"                                           "0 1 1 2 2 3"
         "special_bonus_unique_mirana_arrow_pierce"        "+1"
       }
-      "arrow_pierce_stun_decay_per_unit"                  "20" // percent
+      "arrow_pierce_stun_decay_per_unit"                  "22" // percent
     }
   }
 }
