@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Vengeful Spirit: Vengeance Aura (OAA Rework)
+  // Vengeful Spirit: Vengeance Aura (OAA Rework) FIXEDFUCK
   //=================================================================================================================
   "vengefulspirit_command_aura_oaa"
   {
@@ -38,7 +38,7 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "self_multiplier" // TODO
+      "self_multiplier"
       {
         "value"                                           "20"
         "special_bonus_scepter"                           "+10"

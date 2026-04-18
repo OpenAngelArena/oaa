@@ -199,7 +199,13 @@ function modifier_vengefulspirit_command_aura_oaa_damage_buff:IsPurgable()
 end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:OnCreated()
-  self.damage = self:GetAbility():GetSpecialValueFor("bonus_base_damage")
+  self.damage = 10
+  self.multiplier = 1.2
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.damage = ability:GetSpecialValueFor("bonus_base_damage")
+    self.multiplier = 1 + ability:GetSpecialValueFor("self_multiplier") / 100
+  end
 end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:OnRefresh()
@@ -213,7 +219,11 @@ function modifier_vengefulspirit_command_aura_oaa_damage_buff:DeclareFunctions()
 end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:GetModifierBaseDamageOutgoing_Percentage()
-  return self.damage
+  if self:GetParent() ~= self:GetCaster() then
+    return self.damage
+  else
+    return self.damage * self_multiplier
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
