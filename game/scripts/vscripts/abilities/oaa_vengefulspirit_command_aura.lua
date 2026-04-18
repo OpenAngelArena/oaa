@@ -200,11 +200,9 @@ end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:OnCreated()
   self.damage = 10
-  self.multiplier = 1.2
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.damage = ability:GetSpecialValueFor("bonus_base_damage")
-    self.multiplier = 1 + ability:GetSpecialValueFor("self_multiplier") / 100
   end
 end
 
@@ -219,10 +217,16 @@ function modifier_vengefulspirit_command_aura_oaa_damage_buff:DeclareFunctions()
 end
 
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:GetModifierBaseDamageOutgoing_Percentage()
-  if self:GetParent() ~= self:GetCaster() then
-    return self.damage
+  local parent = self:GetParent()
+  if parent == self:GetCaster() or parent:FindAbilityByName("vengefulspirit_command_aura_oaa") then
+    local multiplier = 1.2
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      multiplier = 1 + ability:GetSpecialValueFor("self_multiplier") / 100
+    end
+    return self.damage * multiplier
   else
-    return self.damage * self_multiplier
+    return self.damage
   end
 end
 
