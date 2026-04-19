@@ -16,8 +16,12 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250"
 
     // Special
@@ -26,7 +30,7 @@
     {
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "33 32 31 30 29 28"
+        "value"                                           "30 29 28 27 26 25"
         "special_bonus_unique_outworld_devourer_barrier"  "-10"
       }
       "barrier_flat"                                      "120 180 240 300 360 420"
