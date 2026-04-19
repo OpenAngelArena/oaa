@@ -1,16 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Queen of Pain: Scream of Pain
+  // Queen of Pain: Scream of Pain FIXEDFUCK
   //=================================================================================================================
   "queenofpain_scream_of_pain"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -28,22 +30,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "900"
-      "damage_reflected_to_self"                          "25.0"
       "AbilityCooldown"
       {
-        "value"                                           "7.5 7 6.5 6 6 6"
+        "value"                                           "7.5 7 6.5 6 5.5 5"
       }
       "area_of_effect"
       {
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "projectile_speed"                                  "900"
+      "damage"
       {
-        "value"                                           "90 175 260 345 345 345"
+        "value"                                           "90 175 260 345 690 1035"
         "special_bonus_unique_queen_of_pain_2"            "+115"
       }
+      "damage_reflected_to_self"                          "25.0"
     }
   }
 }

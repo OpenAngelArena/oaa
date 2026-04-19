@@ -158,7 +158,7 @@ function AllowedToRefresh(ability, notDuel)
     -- used in Refresher item code
     local exempt_ability_table = {
       --dazzle_good_juju = true,
-      oaa_rearm = true
+      oaa_rearm = true,
       riki_permanent_invisibility = true,
       tinker_rearm = true,
       --treant_natures_guise = true,

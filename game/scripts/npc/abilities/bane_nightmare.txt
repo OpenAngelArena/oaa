@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bane: Nightmare
+  // Bane: Nightmare FIXEDFUCK
   //=================================================================================================================
   "bane_nightmare"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
@@ -14,6 +13,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -36,9 +36,7 @@
     "AbilityValues"
     {
       "nightmare_invuln_time"                             "1.0"
-      "animation_rate"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
-      "vector_render_radius"                              "120"
-      "turn_rate"                                         "200"
+      "animation_rate"                                    "0.2"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "19 18 17 16 15 14"
@@ -48,10 +46,12 @@
       {
         "value"                                           "0"
       }
+      "vector_render_radius"                              "120"
       "walk_speed"
       {
         "value"                                           "110"
       }
+      "turn_rate"                                         "200"
     }
   }
 }

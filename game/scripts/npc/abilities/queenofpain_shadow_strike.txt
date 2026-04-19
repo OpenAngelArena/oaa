@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Queen of Pain: Shadow Strike
+  // Queen of Pain: Shadow Strike FIXEDFUCK
   //=================================================================================================================
   "queenofpain_shadow_strike"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 8 6 4 4 4" //OAA
+    "AbilityCooldown"                                     "10 8 6 4 4 4" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,14 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration_damage"                                   "20 40 60 80 160 240" //special_bonus_unique_queen_of_pain_4_oaa
-      "movement_slow"                                     "-25 -35 -45 -55 -65 -75"
-      "projectile_speed"                                  "900"
-      "duration"                                          "16"
       "strike_damage"
       {
         "value"                                           "50 80 110 140 280 560"
       }
+      "duration_damage"                                   "20 40 60 80 160 240" // uses special_bonus_unique_queen_of_pain_4_oaa
+      "movement_slow"                                     "-25 -35 -45 -55 -65 -75"
+      "projectile_speed"                                  "900"
       "attack_speed"
       {
         "special_bonus_unique_queen_of_pain_1"            "+35"
@@ -67,6 +66,7 @@
         "special_bonus_scepter"                           "+375"
         "affected_by_aoe_increase"                        "1"
       }
+      "duration"                                          "16"
     }
   }
 }
