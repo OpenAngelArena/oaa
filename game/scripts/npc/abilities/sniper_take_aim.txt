@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sniper: Take Aim
+  // Sniper: Take Aim FIXEDFUCK
   //=================================================================================================================
   "sniper_take_aim"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,9 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "headshot_chance"                                   "100"
-      "bonus_vision"                                      "250 500 750 1000 1250 1500" //OAA
-      "view_restrict"                                     "140"
       "duration"
       {
         "value"                                           "3"
@@ -45,16 +42,18 @@
       {
         "value"                                           "65"
       }
-      "active_attack_range_bonus" //OAA
+      "headshot_chance"                                   "100"
+      "active_attack_range_bonus"
       {
-        "value"                                           "75 150 225 300 300 300"
-        "special_bonus_unique_sniper_5"                   "+50"
+        "value"                                           "75 150 225 300 375 450"
       }
       "passive_attack_range_bonus"
       {
-        "value"                                           "160 240 320 400 400 400"
+        "value"                                           "160 240 320 400 410 420"
         "special_bonus_unique_sniper_5"                   "+50"
       }
+      "bonus_vision"                                      "500 750 1000 1250 1375 1500"
+      "view_restrict"                                     "140"
       "does_root"
       {
         "value"                                           "0"
