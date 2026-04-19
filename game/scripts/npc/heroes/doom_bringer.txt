@@ -1,34 +1,34 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Doom Bringer
+  // HERO: Doom Bringer FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_doom_bringer"
   {
-    //"Ability10"                                           "special_bonus_unique_doom_3"
+    //"Ability10"                                           "special_bonus_magic_resistance_10"
     //"Ability11"                                           "special_bonus_unique_doom_4"
 
     //"Ability12"                                           "special_bonus_unique_doom_6"
-    //"Ability13"                                           "special_bonus_unique_doom_2"
+    //"Ability13"                                           "special_bonus_unique_doom_1"
 
     //"Ability14"                                           "special_bonus_unique_doom_9"
-    //"Ability15"                                           "special_bonus_unique_doom_1"
+    //"Ability15"                                           "special_bonus_attack_damage_66"
 
     //"Ability16"                                           "special_bonus_unique_doom_10"
     //"Ability17"                                           "special_bonus_unique_doom_11"
 
-    // special_bonus_unique_doom_1 - Infernal Blade Damage
-    // special_bonus_unique_doom_2 - Devour Can Target Ancients
-    // special_bonus_unique_doom_3 - Devour grants Magic Resistance
-    // special_bonus_unique_doom_4 - Scorched Earth Damage
-    // special_bonus_unique_doom_5 - Doom DPS
-    // special_bonus_unique_doom_6 - Scorched Earth Movement Speed
+    // special_bonus_unique_doom_1 - Infernal Blade Max HP Damage                     - 15
+    // special_bonus_unique_doom_2 - Devour Can Target Ancients                       - unused, shard does this
+    // special_bonus_unique_doom_3 - Devour grants Magic Resistance                   - unused
+    // special_bonus_unique_doom_4 - Infernal Blade Stun Duration                     - 10
+    // special_bonus_unique_doom_5 - Doom DPS                                         - unused
+    // special_bonus_unique_doom_6 - Scorched Earth Movement Speed                    - 15
     // special_bonus_unique_doom_7 - Doom Duration                                    - unused
-    // special_bonus_unique_doom_8 - Permanent Scorched Earth                         - bad against Rubick
-    // special_bonus_unique_doom_9 - Scorched Earth Cooldown                          - useless if special_bonus_unique_doom_8 is used
-    // special_bonus_unique_doom_10 - Doom applies Mute
-    // special_bonus_unique_doom_11 - Doom applies Break
+    // special_bonus_unique_doom_8 - Permanent Scorched Earth                         - unused, bad version that makes it passive
+    // special_bonus_unique_doom_9 - Doom Cooldown                                    - 20
+    // special_bonus_unique_doom_10 - Doom applies Mute                               - 25, too good
+    // special_bonus_unique_doom_11 - Permanent Scorched Earth                        - 25, version that makes it toggle
 
-    "AttackRate"                                          "1.7" // 1.9
+    "AttackRate"                                          "1.8" // 1.9
   }
 }

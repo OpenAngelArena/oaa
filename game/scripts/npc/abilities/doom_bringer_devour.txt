@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Doom Bringer: Devour
+  // Doom Bringer: Devour FIXEDFUCK
   //=================================================================================================================
   "doom_bringer_devour"
   {
@@ -30,16 +30,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "creep_level"                                       "6" //OAA, intentionally buffed
-      "hero_ability_steal_time"                           "99999"
       "bonus_gold" //OAA, intentionally buffed
       {
         "value"                                           "50 80 110 140 280 560"
       }
+      "creep_level"                                       "6" //OAA, intentionally buffed
       "ability_bonus_level"
       {
         "value"                                           "0"
       }
+      "hero_ability_steal_time"                           "99999"
       "magic_resist"
       {
         "value"                                           "0"
