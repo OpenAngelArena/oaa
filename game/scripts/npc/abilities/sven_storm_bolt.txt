@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sven: Storm Hammer
+  // Sven: Storm Hammer FIXEDFUCK
   //=================================================================================================================
   "sven_storm_bolt"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -30,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "scepter_bonus_damage"                              "180"
       "AbilityCastRange"
       {
         "value"                                           "600"
@@ -66,6 +65,7 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
+      "scepter_bonus_damage"                              "180"
       "bonus_damage_pct"
       {
         "value"                                           "0"

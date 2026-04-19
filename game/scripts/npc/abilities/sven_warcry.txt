@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sven: Warcry
+  // Sven: Warcry FIXEDFUCK
   //=================================================================================================================
   "sven_warcry"
   {
@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
+    "AbilityCooldown"                                     "24 23 22 21 20 19" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       }
       "bonus_armor"
       {
-        "value"                                           "5 8 11 14 16 18"
+        "value"                                           "5 8 11 14 17 20"
         "special_bonus_unique_sven_7"                     "+8"
       }
       "radius"
@@ -52,7 +52,7 @@
         "value"                                           "8"
         "special_bonus_unique_sven_5"                     "+5"
       }
-      "shard_passive_armor" //OAA
+      "shard_passive_armor"
       {
         "special_bonus_shard"                             "0"
       }
@@ -70,9 +70,9 @@
         "special_bonus_shard"                             "0"
         "affected_by_aoe_increase"                        "1"
       }
-      "base_barrier_amount" //OAA
+      "base_barrier_amount" //OAA, intentionally rescaled
       {
-        "special_bonus_shard"                             "300"
+        "special_bonus_shard"                             "150 200 250 300 400 500"
         "RequiresShard"                                   "1"
       }
       "barrier_per_strength"
