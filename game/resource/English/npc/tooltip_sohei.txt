@@ -3,8 +3,8 @@
 
 "DOTA_Tooltip_Ability_sohei_dash"                                               "Dash"
 //"DOTA_Tooltip_Ability_sohei_dash_description"                                   "Consumes a charge to quickly dash %dash_distance% units in the direction you are facing. Can be used to dash over cliffs and through trees. Dash charges restore every %charge_restore_time% seconds."
-"DOTA_Tooltip_Ability_sohei_dash_Description"                                   "Consumes a charge to dash towards the target location. Sohei damages and slows enemies he dashes through. Dash speed is based on Sohei's current movement speed."
-"DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others." // This doesn't seem very good lmao. Probably needs to use his ki to dash swiftly or some shit
+"DOTA_Tooltip_Ability_sohei_dash_Description"                                   "Consumes a charge to dash towards the target location. Sohei damages and slows enemies he dashes through but heals allies. Dash speed is based on Sohei's current movement speed."
+"DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others."
 "DOTA_Tooltip_Ability_sohei_dash_Note0"                                         "Can be used to traverse over cliffs or through trees. Destroys trees."
 "DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Dash Max Range can be increased with cast range bonuses."
 "DOTA_Tooltip_Ability_sohei_dash_Note2"                                         "Cannot be used when constantly purged."
@@ -15,9 +15,10 @@
 "DOTA_Tooltip_Ability_sohei_dash_move_speed_slow_pct"                           "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_attack_speed_slow"                             "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_slow_duration"                                 "SLOW DURATION:"
-"DOTA_Tooltip_Ability_sohei_dash_warrior_cooldown_tooltip"                      "QIGONG DASH COOLDOWN:"
-"DOTA_Tooltip_Ability_sohei_dash_Facet_sohei_monk"                              "Heal is equal to the damage."
-"DOTA_Tooltip_Ability_sohei_dash_Facet_sohei_warrior"                           "Dash no longer has charges but it has increased max range, increased damage and reduced cooldown."
+"DOTA_Tooltip_Ability_sohei_dash_heal_ratio"                                    "%DAMAGE TO HEAL:"
+//"DOTA_Tooltip_Ability_sohei_dash_warrior_cooldown_tooltip"                      "QIGONG DASH COOLDOWN:"
+//"DOTA_Tooltip_Ability_sohei_dash_Facet_sohei_monk"                              "Heal is equal to %heal_ratio%%% of the damage."
+//"DOTA_Tooltip_Ability_sohei_dash_Facet_sohei_warrior"                           "Dash no longer has charges but it has increased max range, increased damage and reduced cooldown."
 //"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash."
 //"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Increases Dash range and heals allies. Dash provides invulnerability and disjoints projectiles."
 
@@ -27,7 +28,7 @@
 //"DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_polarizing_palm"                                    "Repulsive Palm"
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Enemy units take damage based on Sohei's strength. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be damaged and stunned. Pushed enemies that don't collide with anything are briefly slowed."
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Enemies take damage and allies are healed based on Sohei's strength. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be damaged and stunned. Pushed enemies that don't collide with anything are briefly slowed."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_Lore"                               "Takuan's Ki can be repulsive and attractive."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_push_pull_length"                   "PUSH DISTANCE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_damage"                             "BASE DAMAGE:"
@@ -36,8 +37,9 @@
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_slow_duration"                      "SLOW DURATION:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_move_speed_slow_pct"                "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_attack_speed_slow"                  "ATTACK SPEED SLOW:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_heal_ratio"                         "%DAMAGE TO HEAL:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_shard_description"                  "Grants Ki Attraction ability that pulls units instead of pushing them. Ki Attraction doesn't stun but applies a debuff to enemies or a buff to allies that affects their damage output."
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_Facet_sohei_monk"                   "Heal is equal to half of the damage it would do if the target was an enemy."
+//"DOTA_Tooltip_Ability_sohei_polarizing_palm_Facet_sohei_monk"                   "Heal is equal to half of the damage it would do if the target was an enemy."
 
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body"                                  "Wholeness of Body"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Description"                      "Grants bonus magic resistance to the target ally for the duration. When the buff expires, the target will be healed for a base amount plus a percentage of the damage taken while the buff was active. Removes most debuffs and stuns on cast.\n\nDISPEL TYPE: Strong Dispel"
@@ -51,12 +53,12 @@
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_damage_taken_as_heal"             "%HEAL PER DAMAGE TAKEN:"
 
 "DOTA_Tooltip_Ability_sohei_momentum"                                           "Momentum"
-"DOTA_Tooltip_Ability_sohei_momentum_description"                               "After moving %trigger_distance% distance, Sohei's next attack will be a critical strike."
+"DOTA_Tooltip_Ability_sohei_momentum_description"                               "Sohei's spells have a chance to do bonus damage. Sohei's attack will do critical damage only if Sohei moved %trigger_distance% distance before attacking."
 "DOTA_Tooltip_Ability_sohei_momentum_Lore"                                      "Takuan uses gained momentum to vanquish his foes."
-"DOTA_Tooltip_Ability_sohei_momentum_crit_damage"                               "%CRIT DAMAGE:"
+"DOTA_Tooltip_Ability_sohei_momentum_crit_damage"                               "%ATTACK CRIT DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_momentum_spell_crit_chance"                         "%SPELL CRIT CHANCE:"
 "DOTA_Tooltip_Ability_sohei_momentum_spell_crit_damage"                         "%SPELL CRIT DAMAGE:"
-"DOTA_Tooltip_Ability_sohei_momentum_Facet_sohei_lord"                          "Momentum attacks no longer do critical damage but Sohei's spells (not items) have a chance to do critical damage."
+//"DOTA_Tooltip_Ability_sohei_momentum_Facet_sohei_lord"                          "Momentum attacks no longer do critical damage but Sohei's spells (not items) have a chance to do critical damage."
 
 // "DOTA_Tooltip_Ability_sohei_momentum_strike"                                   "Ki Strike"
 // "DOTA_Tooltip_Ability_sohei_momentum_strike_description"                       "Sohei emits energy from his weapon that damages, slows and pushes all enemy units in front of him. If an enemy unit is pushed into a tree, building, or cliff then that unit will be stunned. If pushed unit is a hero and it collides with another enemy hero, both heroes will be stunned."
@@ -83,8 +85,8 @@
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_bonus_damage"                       "BONUS DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_flurry_radius"                      "RADIUS:"
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Facet_sohei_monk"                   "Flurry of Blows will heal periodically all allies in the area as long as it's active. Heal interval is equal to attack interval. Heal is independent from the damage."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_heal_per_second"                    "HEAL PER SECOND:"
+//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Facet_sohei_monk"                   "Flurry of Blows will heal periodically all allies in the area as long as it's active. Heal interval is equal to attack interval. Heal is independent from the damage."
+//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_heal_per_second"                    "HEAL PER SECOND:"
 
 //"DOTA_Tooltip_Ability_sohei_palm_of_life_Lore"                                  "Healing is more prevalent than damaging for monks like Takuan."
 
@@ -95,7 +97,7 @@
 // "DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                "STR DIFFERENCE MULTIPLIER:"
 
 "DOTA_Tooltip_Ability_sohei_ki_attraction"                                      "Ki Attraction"
-"DOTA_Tooltip_Ability_sohei_ki_attraction_Description"                          "Pulls the target unit closer to Sohei. Enemy units take damage based on Sohei's strength. Affected enemies deal less damage and affected allies deal more damage for the duration."
+"DOTA_Tooltip_Ability_sohei_ki_attraction_Description"                          "Pulls the target unit closer to Sohei. Enemies take damage and allies are healed based on Sohei's strength. Affected enemies deal less damage and affected allies deal more damage for the duration."
 "DOTA_Tooltip_Ability_sohei_ki_attraction_Lore"                                 "Ki is an energy, a power, a primal force and a way of life."
 "DOTA_Tooltip_Ability_sohei_ki_attraction_ally_damage_amp"                      "%ALLY DAMAGE AMP:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_enemy_damage_reduction"               "%ENEMY DAMAGE REDUCTION:"
@@ -103,7 +105,8 @@
 "DOTA_Tooltip_Ability_sohei_ki_attraction_damage"                               "BASE DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_strength_damage"                      "%STRENGTH DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_pull_length"                          "PULL DISTANCE:"
-"DOTA_Tooltip_Ability_sohei_ki_attraction_Facet_sohei_monk"                     "Heal is equal to half of the damage it would do if the target was an enemy."
+"DOTA_Tooltip_Ability_sohei_ki_attraction_heal_ratio"                           "%DAMAGE TO HEAL:"
+//"DOTA_Tooltip_Ability_sohei_ki_attraction_Facet_sohei_monk"                     "Heal is equal to half of the damage it would do if the target was an enemy."
 
 // innate
 "DOTA_Tooltip_ability_sohei_innate_oaa"                                         "Impulse"
@@ -154,7 +157,7 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_3_oaa"                         "+{s:bonus_dash_range} Dash Range"
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_4_oaa"                         "+{s:bonus_flurry_radius} Flurry of Blows AoE"
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_5_oaa"                         "+{s:bonus_crit_damage}% Momentum Crit"
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_5_oaa_facet_sohei_lord"        "+{s:bonus_spell_crit_damage}% Momentum Spell Crit"
+//"DOTA_Tooltip_Ability_special_bonus_unique_sohei_5_oaa_facet_sohei_lord"        "+{s:bonus_spell_crit_damage}% Momentum Spell Crit"
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_6_oaa"                         "Wholeness of Body Knockback"
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_6_oaa_Description"             "Whenever Wholeness of Body is applied, push all nearby enemies with Ki Strike knockback."
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_7_oaa"                         "+{s:bonus_damage} Dash Damage"
@@ -163,9 +166,9 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_9_oaa"                         "+{s:bonus_strength_damage}% Repulsive Palm Strength Damage"
 
 // facets
-"DOTA_Tooltip_facet_sohei_warrior"                                              "Qigong Dash"
-"DOTA_Tooltip_facet_sohei_warrior_Description"                                  "Dash no longer has charges but it has increased max range, increased damage and reduced cooldown."
-"DOTA_Tooltip_facet_sohei_monk"                                                 "Ki Release"
-"DOTA_Tooltip_facet_sohei_monk_Description"                                     "Sohei's spells will heal allies."
-"DOTA_Tooltip_facet_sohei_lord"                                                 "Zen Inertia"
-"DOTA_Tooltip_facet_sohei_lord_Description"                                     "Momentum attacks no longer do critical damage but Sohei's spells have a chance to do critical damage."
+//"DOTA_Tooltip_facet_sohei_warrior"                                              "Qigong Dash"
+//"DOTA_Tooltip_facet_sohei_warrior_Description"                                  "Dash no longer has charges but it has increased max range, increased damage and reduced cooldown."
+//"DOTA_Tooltip_facet_sohei_monk"                                                 "Ki Release"
+//"DOTA_Tooltip_facet_sohei_monk_Description"                                     "Sohei's spells will heal allies."
+//"DOTA_Tooltip_facet_sohei_lord"                                                 "Zen Inertia"
+//"DOTA_Tooltip_facet_sohei_lord_Description"                                     "Momentum attacks no longer do critical damage but Sohei's spells have a chance to do critical damage."
