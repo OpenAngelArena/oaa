@@ -23,25 +23,17 @@ function modifier_sorcerer_oaa:OnCreated()
   self.chance_for_items_on_use = 2
   self.chance_for_items_on_kill = 2
 
-  -- Put ability exemption in here
-  self.exempt_ability_table = {
-    --dazzle_good_juju = true,
-    riki_permanent_invisibility = true,
-    tinker_rearm = true,
-    treant_natures_guise = true
-  }
-
   -- Put item exemption in here
   self.exempt_item_table = {
     item_ex_machina = true,
-    item_refresher_shard_oaa = true,
-    item_tranquil_boots = true,
     item_hand_of_midas_1 = true,
     item_refresher = true,
     item_refresher_2 = true,
     item_refresher_3 = true,
     item_refresher_4 = true,
     item_refresher_5 = true,
+    item_refresher_shard_oaa = true,
+    item_tranquil_boots = true,
   }
 end
 
@@ -96,7 +88,7 @@ if IsServer() then
     end
 
     if RandomInt(1, 100) <= chance then
-      if not no_charges then
+      if not no_charges and not IsFakeItemCustom(ability) then
         ability:RefreshCharges()
       end
       ability:EndCooldown()
@@ -137,8 +129,10 @@ if IsServer() then
       -- Reset cooldown for abilities
       for i = 0, parent:GetAbilityCount() - 1 do
         local ability = parent:GetAbilityByIndex(i)
-        if ability and not self.exempt_ability_table[ability:GetAbilityName()] and ability:IsRefreshable() then
-          ability:RefreshCharges()
+        if ability and AllowedToRefresh(ability, true) then
+          if not IsFakeItemCustom(ability) then
+            ability:RefreshCharges()
+          end
           ability:EndCooldown()
         end
       end

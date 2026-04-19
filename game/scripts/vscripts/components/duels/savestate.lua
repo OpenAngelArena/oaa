@@ -3,10 +3,6 @@ local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
 local export = {}
 
-local function RefreshAbilityFilter(ability)
-  return ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE
-end
-
 local function PurgeDuelHighgroundBuffs(hero)
   local modifierList = {
     "modifier_rune_haste",
@@ -54,7 +50,7 @@ local function SaveState(hero)
   -- Store ability cooldowns and charges
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability and RefreshAbilityFilter(ability) then
+    if ability and AllowedToRefresh(ability) then
       state.abilities[ability:GetAbilityName()] = {
         cooldown = ability:GetCooldownTimeRemaining(),
         charges = ability:GetCurrentAbilityCharges()
@@ -103,7 +99,7 @@ local function RestoreState(hero, state)
   -- Restore ability cooldowns
   for name, abilityState in pairs(state.abilities) do
     local ability = hero:FindAbilityByName(name)
-    if ability and RefreshAbilityFilter(ability) then
+    if ability and AllowedToRefresh(ability) then
       ability:EndCooldown()
       if abilityState.cooldown then
         if abilityState.cooldown > 0 then
@@ -128,6 +124,7 @@ local function RestoreState(hero, state)
     item_refresher_4 = true,
     item_refresher_5 = true,
     item_refresher_shard_oaa = true,
+    item_tranquil_boots = true,
   }
   for item, itemState in pairs(state.items) do
     if IsValidEntity(item) and not exempt_item_table[item:GetAbilityName()] then

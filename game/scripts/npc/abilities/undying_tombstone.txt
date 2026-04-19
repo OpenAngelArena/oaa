@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Undying: Tombstone
+  // Undying: Tombstone FIXEDFUCK
   //=================================================================================================================
   "undying_tombstone"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // for shard
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // for shard
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -30,19 +30,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "30.0"
-      "health_threshold_pct_tooltip"                      "40"
-      "zombie_health"                                     "2"
-      "bunker_units"                                      "1"
-      "bunker_heal_pct"                                   "0"
-      "tombstone_bunker_cd"                               "2"
-      "tombstone_stun_penalty"                            "2"
       "AbilityCooldown"
       {
         "value"                                           "80"
         "special_bonus_unique_undying_7"                  "-15"
       }
-      "tombstone_health"
+      "tombstone_health" // hits_to_destroy_tooltip x 4
       {
         "value"                                           "20 24 28 32 36 40"
         "special_bonus_unique_undying_5"                  "+16"
@@ -52,48 +45,56 @@
         "value"                                           "5 6 7 8 9 10"
         "special_bonus_unique_undying_5"                  "+4"
       }
+      "duration"                                          "30.0"
       "radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
+      "health_threshold_pct_tooltip"                      "40" // tooltip only, actual value in undying_tombstone_zombie_deathstrike
       "zombie_interval"
       {
         "value"                                           "4.0 3.6 3.2 2.8 2.8 2.8"
       }
-      "zombie_damage_tooltip" //OAA
+      "zombie_damage_tooltip" //OAA, because of DamageTypeTooltip
       {
         "value"                                           "34"
         "special_bonus_unique_undying"                    "+20"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "zombie_bonus_damage"
+      "zombie_bonus_damage" // needed for talent to apply
       {
         "special_bonus_unique_undying"                    "+20"
       }
+      "zombie_health"                                     "2"
+      "bunker_units"                                      "1"
+      "bunker_heal_pct"                                   "0"
       "tombstone_grab_radius"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
+      "tombstone_bunker_cd"                               "2"
+      "tombstone_stun_penalty"                            "2"
       "zombie_damage_interval"
       {
         "value"                                           "0"
       }
-      "zombie_attack_damage_per_level" //OAA
+
+      "zombie_attack_damage_per_level" //OAA, additional effect, tooltip only, actual value in undying_global_zombie_aura_oaa
       {
         "value"                                           "2"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "zombie_bonus_damage_against_creeps" //OAA
+      "zombie_bonus_damage_against_creeps" //OAA, additional effect, tooltip only, actual value in undying_global_zombie_aura_oaa
       {
         "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "zombie_bonus_damage_against_bosses" //OAA
+      "zombie_bonus_damage_against_bosses" //OAA, additional effect, tooltip only, actual value in undying_global_zombie_aura_oaa
       {
         "value"                                           "24"
         "CalculateSpellDamageTooltip"                     "0"

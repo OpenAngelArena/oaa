@@ -1,18 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tombstone Aura - this ability is probably unused but keeping it just in case
+  // Undying Tombstone: Zombie Spawn Aura - this ability is probably unused but keeping it just in case FIXEDFUCK
   //=================================================================================================================
   "undying_tombstone_zombie_aura"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Tombstone
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,16 +19,16 @@
     {
       "radius" //OAA, Valve has it wrong, not applied during 7.07
       {
-        "value"                                           "600 800 1000 1200 1200 1200"
+        "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "health_threshold"
+      "health_threshold" // probably unused because Tombstone has 40% value as threshold (actual value in undying_tombstone_zombie_deathstrike)
       {
         "value"                                           "100 200 300 400 500 600"
       }
       "zombie_interval" //OAA, Valve has it wrong, not applied during 7.31c
       {
-        "value"                                           "3"
+        "value"                                           "4.0 3.6 3.2 2.8 2.8 2.8"
       }
     }
   }
