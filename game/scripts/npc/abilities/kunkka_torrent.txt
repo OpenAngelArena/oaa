@@ -5,13 +5,13 @@
   //=================================================================================================================
   "kunkka_torrent"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -31,7 +31,7 @@
     {
       "movespeed_bonus"                                   "-40"
       "slow_duration"                                     "1 2 3 4 4 4"
-      "delay"                                             "1.6 1.6 1.6 1.6 1.6 1.6"
+      "delay"                                             "1.6"
       "percent_instant"                                   "0"
       "damage_tick_interval"                              "0.2"
       "radius"

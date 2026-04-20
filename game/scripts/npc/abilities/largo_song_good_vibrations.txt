@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Amphibian Rhapsody — Good Vibrations
+  // LARGO: Amphibian Rhapsody - Island Elixir
   //=================================================================================================================
   "largo_song_good_vibrations"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -37,7 +36,7 @@
       }
       "heal_burst"
       {
-        "value"                                           "34 56 78 156 312"
+        "value"                                           "34 56 78 100 122"
         "special_bonus_unique_largo_7"                    "+30%"
       }
       "AbilityManaCost"

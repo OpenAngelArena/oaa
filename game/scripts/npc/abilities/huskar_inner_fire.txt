@@ -5,14 +5,15 @@
   //=================================================================================================================
   "huskar_inner_fire"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve forgot about this
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -41,14 +42,14 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "disarm_duration"
+      "disarm_duration" // silence duration
       {
         "value"                                           "1.5 2 2.5 3 3.5 4"
         "special_bonus_unique_huskar_3"                   "+0.75"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "17 15 13 11 10 9"
+        "value"                                           "14 13 12 11 10 9"
       }
       "movement_slow_pct"
       {

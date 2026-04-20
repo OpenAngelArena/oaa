@@ -11,6 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -36,7 +37,7 @@
       "slow_resist"                                       "15 30 45 60 75 90"
       "break_range"                                       "825"
       "echo_proc_chance_reduction"                        "50"
-      "base_echo_damage"
+      "base_echo_damage" // percentage of Kez attack damage
       {
         "value"                                           "30 35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
