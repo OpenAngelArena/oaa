@@ -222,13 +222,6 @@ if IsServer() then
     local min_damage = ability:GetSpecialValueFor("min_damage")
     local max_damage = ability:GetSpecialValueFor("max_damage")
 
-    -- Bonus damage talent
-    local talent = parent:FindAbilityByName("special_bonus_unique_faceless_void_3_oaa")
-    if talent and talent:GetLevel() > 0 then
-      min_damage = min_damage + talent:GetSpecialValueFor("value")
-      max_damage = max_damage + talent:GetSpecialValueFor("value2")
-    end
-
     local bonus_damage = min_damage
 
     -- Imitate multiple proccing without instant attack on each proc

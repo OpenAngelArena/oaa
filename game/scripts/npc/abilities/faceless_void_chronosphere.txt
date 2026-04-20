@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Faceless Void: Chronosphere
+  // Faceless Void: Chronosphere FIXEDFUCK
   //=================================================================================================================
   "faceless_void_chronosphere"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -18,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.35 0.35 0.35 0.35 0.35"
+    "AbilityCastPoint"                                    "0.35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140 135 130 125 120" //OAA, uses special_bonus_unique_faceless_void_2_oaa
+    "AbilityCooldown"                                     "140 135 130 125 120" //OAA, intentionally buffed; uses special_bonus_unique_faceless_void_2_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +37,7 @@
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_faceless_void_2"            "+140"
+        "special_bonus_unique_faceless_void_2"            "+140" // unused in OAA
       }
       "duration" //OAA, intentionally nerfed
       {
