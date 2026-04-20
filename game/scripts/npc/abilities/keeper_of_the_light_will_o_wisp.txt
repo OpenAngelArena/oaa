@@ -1,19 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Will o Wisp
+  // Keeper of the Light: Will o Wisp (scepter ability) FIXEDFUCK
   //=================================================================================================================
   "keeper_of_the_light_will_o_wisp"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "1"
 
@@ -35,18 +34,18 @@
     "AbilityValues"
     {
       "on_count"                                          "5"
-      "hit_count"                                         "12" //OAA
+      "radius"
+      {
+        "value"                                           "725"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "hit_count"                                         "12" //OAA, intentionally buffed
       "wisp_damage"                                       "85"
       "off_duration"                                      "1.85"
       "on_duration"                                       "1.0"
       "off_duration_initial"                              "1.0"
       "fixed_movement_speed"                              "60"
       "bounty"                                            "100"
-      "radius"
-      {
-        "value"                                           "725"
-        "affected_by_aoe_increase"                        "1"
-      }
     }
   }
 }

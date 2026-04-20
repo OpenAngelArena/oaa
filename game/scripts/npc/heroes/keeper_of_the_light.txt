@@ -1,10 +1,10 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Keeper of the Light
+  // HERO: Keeper of the Light FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_keeper_of_the_light"
   {
-    "Ability16"                                           "special_bonus_unique_keeper_of_the_light_1_oaa" // special_bonus_unique_keeper_of_the_light_3
+	// special_bonus_unique_keeper_of_the_light_1_oaa - unused, custom talent
   }
 }
