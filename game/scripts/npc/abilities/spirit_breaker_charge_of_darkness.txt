@@ -12,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" //OAA, Valve has it wrong, not applied during 7.36
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve has it wrong, not applied during 7.36
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // SPELL_DISPELLABLE_YES_STRONG
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_speed" //OAA, intentionally buffed base values and talent
+      "movement_speed" //OAA, intentionally buffed base values and the talent
       {
         "value"                                           "350 375 400 425 450 475"
         "special_bonus_unique_spirit_breaker_increased_charge_speed"  "+75"
