@@ -243,7 +243,8 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
       illusion:SetControllableByPlayer(playerID, true)
     end
     illusion:SetOwner(owner)
-    illusion.GetPlayerOwnerID = function(illusion) return playerID end -- overrirde GetPlayerOwnerID to mark ownership, SetPlayerID does not exist on creeps
+    -- overrirde GetPlayerOwnerID to mark ownership, SetPlayerID does not exist on creeps
+    illusion.GetPlayerOwnerID = function(illusion) return playerID end --luacheck: ignore
     FindClearSpaceForUnit(illusion, origin, false)
 
     for ability_slot = 0, unit_ability_count-1 do

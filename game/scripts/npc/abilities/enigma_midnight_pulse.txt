@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Midnight Pulse
+  // Enigma: Midnight Pulse FIXEDFUCK
   //=================================================================================================================
   "enigma_midnight_pulse"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25" //OAA
+    "AbilityCooldown"                                     "28 27 26 25 24 23" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,19 +32,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "5 10 15 20 40 80"
-      "damage_percent"                                    "4 6 8 10 12 14"
-      "tick_rate"                                         "0.5"
       "radius"
       {
         "value"                                           "600"
         "special_bonus_unique_enigma_9"                   "+200"
         "affected_by_aoe_increase"                        "1"
       }
+      "base_damage"                                       "5 10 15 20 40 80"
+      "damage_percent"                                    "4 6 8 10 12 14" // current hp dmg
       "duration"
       {
         "value"                                           "9 10 11 12 13 14"
       }
+      "tick_rate"                                         "0.5"
     }
   }
 }

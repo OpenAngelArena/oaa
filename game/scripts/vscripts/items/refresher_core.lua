@@ -56,7 +56,7 @@ function item_refresher_core:OnSpellStart()
     item_refresher_5 = true,
     item_refresher_core = true,
     item_refresher_core_2 = true,
-    item_refresher_core_3 = true
+    item_refresher_core_3 = true,
     item_refresher_shard_oaa = true,
     item_tranquil_boots = true,
   }
