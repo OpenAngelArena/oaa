@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Troll Warlord: Fervor
+  // Troll Warlord: Fervor FIXEDFUCK
   //=================================================================================================================
   "troll_warlord_fervor"
   {
@@ -18,27 +18,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_speed" //OAA, max oaa lvl should be the same as max vanilla lvl
+      "attack_speed" //OAA, intentionally rescaled; max oaa lvl should be the same as max vanilla lvl
       {
-        "value"                                           "15 20 25 30 30 30"
+        "value"                                           "5 10 15 20 25 30"
         "special_bonus_unique_troll_warlord_5"            "+4"
       }
-      "max_stacks" //OAA
+      "max_stacks" //OAA, intentionally nerfed
       {
-        "value"                                           "10"
+        "value"                                           "7"
       }
-      "stack_limit_during_battle_trance" //OAA
+      "stack_limit_during_battle_trance"
       {
         "value"                                           "0"
         "special_bonus_facet_troll_warlord_bad_influence"  "+12"
       }
-      "extra_attack_chance_per_stack" //OAA
+      "extra_attack_chance_per_stack" //OAA, intentionally nerfed
       {
-        "special_bonus_shard"                             "3"
+        "special_bonus_shard"                             "2"
       }
-      "base_chance" //OAA
+      "base_chance" //OAA, intentionally nerfed
       {
-        "special_bonus_shard"                             "16"
+        "special_bonus_shard"                             "10"
       }
       "armor_per_stack"
       {

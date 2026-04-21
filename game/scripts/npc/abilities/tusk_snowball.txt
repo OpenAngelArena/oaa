@@ -5,15 +5,15 @@
   //=================================================================================================================
   "tusk_snowball"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // SPELL_DISPELLABLE_YES_STRONG
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -40,7 +40,7 @@
       "snowball_speed_bonus"                              "50"
       "snowball_damage"
       {
-        "value"                                           "80 140 200 260 520 1040"
+        "value"                                           "80 140 200 260 520 780"
         "special_bonus_unique_tusk_2"                     "+120"
       }
       "snowball_windup_radius"
@@ -63,9 +63,9 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "21 19 17 15 15 15"
+        "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_tusk_6"                     "-6"
       }
     }

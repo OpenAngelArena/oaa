@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tusk: Walrus Punch
+  // Tusk: Walrus Punch FIXEDFUCK
   //=================================================================================================================
   "tusk_walrus_punch"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -37,7 +38,6 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "60 90 120 150 180"
-      "push_length"                                       "1000"
       "crit_multiplier"
       {
         "value"                                           "200 250 300 350 400"
@@ -48,6 +48,7 @@
         "value"                                           "1.0"
         "special_bonus_unique_tusk_7"                     "+0.75"
       }
+      "push_length"                                       "1000"
       "proc_chance" //OAA, intentionally nerfed
       {
         "special_bonus_unique_tusk_4"                     "10"

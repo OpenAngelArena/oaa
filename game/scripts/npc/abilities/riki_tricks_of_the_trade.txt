@@ -10,8 +10,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -34,9 +34,9 @@
       "interval_targets"                                  "2"
       "agility_pct"                                       "0"
       "cd_per_kill"                                       "0"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "21 18 15 12 12 12"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_riki_6"                     "-4"
       }
       "AbilityCastRange"
@@ -57,7 +57,7 @@
       {
         "value"                                           "25 50 75 100 200 300"
       }
-      "base_attack_damage_pct"
+      "base_attack_damage_pct" // percentage of total attack damage, not just base
       {
         "special_bonus_unique_riki_tricks_dmg"            "+15"
       }
