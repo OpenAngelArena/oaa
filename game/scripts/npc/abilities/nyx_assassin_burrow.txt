@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Burrow ( scepter ability )
+  // Nyx Assassin: Burrow (scepter ability) FIXEDFUCK
   //=================================================================================================================
   "nyx_assassin_burrow"
   {
@@ -24,7 +24,7 @@
       "mana_regen_rate"                                   "1"
       "damage_reduction"                                  "40"
       "cast_range"                                        "500"
-      "cooldown_reduction"                                "15" //OAA
+      "cooldown_reduction"                                "15" //OAA, intentionally nerfed
       "carapace_radius"
       {
         "value"                                           "400"

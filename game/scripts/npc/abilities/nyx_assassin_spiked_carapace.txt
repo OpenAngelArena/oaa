@@ -1,27 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Spiked Carapce
+  // Nyx Assassin: Spiked Carapace FIXEDFUCK
   //=================================================================================================================
   "nyx_assassin_spiked_carapace"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 14 11 8 8 8" //OAA
+    "AbilityCooldown"                                     "14 12 10 8 8 8" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
