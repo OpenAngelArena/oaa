@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Slardar: Slithereen Crush
+  // Slardar: Slithereen Crush FIXEDFUCK
   //=================================================================================================================
   "slardar_slithereen_crush"
   {
@@ -31,8 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
-      "crush_extra_slow_duration"                         "3 4 5 6 6 6"
       "crush_radius"
       {
         "value"                                           "325"
@@ -42,6 +40,8 @@
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
       }
+	  "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
+      "crush_extra_slow_duration"                         "3 4 5 6 6 6"
       "stun_duration"
       {
         "value"                                           "0.8"
