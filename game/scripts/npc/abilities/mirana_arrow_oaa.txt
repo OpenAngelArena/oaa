@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mirana Arrow (OAA rework)
+  // Mirana: Sacred Arrow (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "mirana_arrow_oaa"
   {
@@ -9,13 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_mirana_arrow.lua"
+    "AbilityTextureName"                                  "mirana_arrow"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityTextureName"                                  "mirana_arrow"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,7 +31,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "60 150 240 330 660 990"
+    "AbilityDamage"                                       "75 150 225 300 600 900"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

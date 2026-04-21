@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Mirana: Leap
+  // Mirana: Leap FIXEDFUCK
   //=================================================================================================================
   "mirana_leap"
   {
@@ -28,20 +28,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "leap_speed"                                        "1300.0"
-      "leap_acceleration"                                 "6000.0"
-      "leap_speedbonus"                                   "6 12 18 24 30 36"
-      "leap_bonus_duration"                               "5" // uses special_bonus_unique_mirana_3_oaa
       "leap_distance"
       {
         "value"                                           "650"
         "special_bonus_unique_mirana_6"                   "+150"
       }
+      "leap_speed"                                        "1300.0"
+      "leap_acceleration"                                 "6000.0"
+      "leap_speedbonus"                                   "6 12 18 24 30 36"
       "leap_speedbonus_as"
       {
         "value"                                           "25 50 75 100 125 150"
         "special_bonus_unique_mirana_1"                   "+90"
       }
+      "leap_bonus_duration"                               "5" // uses special_bonus_unique_mirana_3_oaa
       "additional_charges"
       {
         "value"                                           "0"
