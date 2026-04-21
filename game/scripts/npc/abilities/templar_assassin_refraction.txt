@@ -8,9 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -41,7 +41,7 @@
       }
       "shield_per_instance"
       {
-        "value"                                           "30"
+        "value"                                           "30 30 30 30 60 90"
       }
       "bonus_damage"
       {
