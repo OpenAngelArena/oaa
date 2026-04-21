@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Catchy Lick
+  // LARGO: Catchy Lick FIXEDFUCK
   //=================================================================================================================
   "largo_catchy_lick"
   {
@@ -33,8 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pull_duration"                                     "0.3"
-      "buff_duration"                                     "8"
       "AbilityCastRange"
       {
         "value"                                           "700"
@@ -60,6 +58,7 @@
         "value"                                           "375"
         "special_bonus_unique_largo_4"                    "+50"
       }
+      "pull_duration"                                     "0.3"
       "strong_dispel"
       {
         "value"                                           "0"
@@ -69,6 +68,7 @@
         "value"                                           "4 7 10 13 19 25"
         "special_bonus_unique_largo_2"                    "x2.5"
       }
+      "buff_duration"                                     "8"
     }
   }
 }

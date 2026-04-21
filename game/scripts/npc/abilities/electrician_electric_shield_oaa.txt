@@ -36,7 +36,6 @@
       "AbilityCooldown"
       {
         "value"                                           "18"
-        //"special_bonus_facet_electrician_alternating_current"  "=22"
       }
       "duration"
       {
@@ -45,73 +44,83 @@
       "flat_mana_cost"
       {
         "value"                                           "5"
-        //"special_bonus_facet_electrician_alternating_current"  "=110 =120 =130 =140 =150 =160"
       }
-      "max_mana_cost" // both Direct Current & No Current
+      "max_mana_cost"
       {
         "value"                                           "20"
-        //"special_bonus_facet_electrician_alternating_current"  "=0"
       }
-      "shield_per_mana" // both Direct Current & No Current
+      "shield_per_mana"
       {
         "value"                                           "0.75 0.95 1.15 1.35 1.55 1.75"
-        "special_bonus_facet_electrician_alternating_current"  "=0"
-        "special_bonus_facet_electrician_no_current"      "+0.25"
+        //"special_bonus_facet_electrician_alternating_current"  "=0"
+        //"special_bonus_facet_electrician_no_current"      "+0.25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "magical_shield_damage_block" // Direct Current
+      "magical_shield_damage_block"
       {
-        "value"                                           "0"
-        "special_bonus_facet_electrician_direct_current"  "=70"
+        "value"                                           "70"
+        //"special_bonus_facet_electrician_direct_current"  "=70"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "attack_damage_block" // Alternating Current
+      "attack_damage_block"
       {
-        "value"                                           "0"
-        "special_bonus_facet_electrician_alternating_current"  "=20 =40 =60 =80 =160 =240"
+        "value"                                           "15 35 55 75 150 225"
+        //"special_bonus_facet_electrician_alternating_current"  "=20 =40 =60 =80 =160 =240"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "attack_damage_block_per_mana" // Alternating Current
+      "attack_damage_block_per_mana"
       {
-        "value"                                           "0"
-        "special_bonus_facet_electrician_alternating_current"  "=10"
+        "value"                                           "10"
+        //"special_bonus_facet_electrician_alternating_current"  "=10"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_magic_resist" // Alternating Current
+      "bonus_magic_resist"
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_alternating_current"  "=15 =20 =25 =30 =35 =40"
+        //"special_bonus_facet_electrician_alternating_current"  "=15 =20 =25 =30 =35 =40"
       }
-      "aura_radius" // both Direct Current & Alternating Current
+      "aura_radius"
       {
-        "value"                                           "375"
+        "value"                                           "350"
         "special_bonus_unique_electrician_2_oaa"          "+125"
-        "special_bonus_facet_electrician_no_current"      "=0"
+        //"special_bonus_facet_electrician_no_current"      "=0"
         "affected_by_aoe_increase"                        "1"
       }
-      "aura_damage" // both Direct Current & Alternating Current
+      "aura_damage"
       {
         "value"                                           "25 35 45 55 110 220"
         "special_bonus_unique_electrician_5_oaa"          "+100"
-        "special_bonus_facet_electrician_no_current"      "=0"
+        //"special_bonus_facet_electrician_no_current"      "=0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "aura_interval" // both Direct Current & Alternating Current (not shown in tooltip)
+      "aura_interval" // not shown in tooltip
       {
         "value"                                           "0.25"
       }
-      "physical_shield_damage_block" // No Current
+      "physical_shield_damage_block"
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_no_current"      "=70"
-        "special_bonus_unique_electrician_2_oaa"          "+30"
+        //"special_bonus_facet_electrician_no_current"      "=70"
+        //"special_bonus_unique_electrician_2_oaa"          "+30"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_attack_damage" // No Current
       {
         "value"                                           "0"
-        "special_bonus_facet_electrician_no_current"      "=15 =30 =45 =60 =120 =180"
-        "special_bonus_unique_electrician_5_oaa"          "+100"
+        //"special_bonus_facet_electrician_no_current"      "=15 =30 =45 =60 =120 =180"
+        //"special_bonus_unique_electrician_5_oaa"          "+100"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "direct_current"
+      {
+        "value"                                           "0"
+        //"special_bonus_facet_electrician_direct_current"  "=1"
+      }
+      "alternating_current"
+      {
+        "value"                                           "0"
+        //"special_bonus_facet_electrician_alternating_current"  "=1"
       }
     }
 

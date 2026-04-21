@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Crippling Fear
+  // Night Stalker: Crippling Fear FIXEDFUCK
   //=================================================================================================================
   "night_stalker_crippling_fear"
   {
@@ -57,9 +57,9 @@
         "special_bonus_unique_night_stalker_crippling_fear_radius"  "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "dps" //OAA
+      "dps" //OAA, intentionally buffed
       {
-        "value"                                           "25 30 35 40 40 40"
+        "value"                                           "25 35 45 55 110 220"
         "special_bonus_unique_night_stalker_crippling_fear_damage"  "+10"
       }
       "tick_rate"                                         "0.1"

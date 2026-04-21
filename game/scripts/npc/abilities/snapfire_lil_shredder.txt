@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Snapfire Lil Shredder
+  // Snapfire: Lil Shredder
   //=================================================================================================================
   "snapfire_lil_shredder"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -39,10 +39,10 @@
       "base_attack_time"                                  "1.0"
       "armor_reduction_per_attack"                        "0.5"
       "armor_duration"                                    "5.0"
-      "buffed_attacks"
+      "buffed_attacks" //OAA, because of special_bonus_unique_snapfire_2 nerf
       {
         "value"                                           "5"
-        "special_bonus_unique_snapfire_2"                 "+2"
+        "special_bonus_unique_snapfire_2"                 "+1"
       }
       "damage_pct"
       {

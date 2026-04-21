@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Croak of Genius
+  // LARGO: Croak of Genius FIXEDFUCK
   //=================================================================================================================
   "largo_croak_of_genius"
   {
@@ -30,10 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_threshold"                                  "0"
-      "duration"                                          "15 16 17 18 19 20" //OAA, intentionally nerfed
-      "duration_reduction"                                "0.5"
-      "max_distance"                                      "2000"
       "damage_per_second"
       {
         "value"                                           "0"
@@ -59,6 +55,9 @@
       {
         "value"                                           "0"
       }
+      "damage_threshold"                                  "0"
+      "duration"                                          "15 16 17 18 19 20" //OAA, intentionally nerfed
+      "duration_reduction"                                "0.5"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "25 24 23 22 21 20"
@@ -67,6 +66,7 @@
       {
         "value"                                           "0"
       }
+      "max_distance"                                      "2000"
       "damage_aoe"
       {
         "value"                                           "0"

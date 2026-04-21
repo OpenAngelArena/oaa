@@ -166,7 +166,8 @@ if IsServer() then
       return
     end
 
-    -- Check if modifier_elixier_hybrid_not_allowed is applied to prevent proccing on DOTs with with short time intervals
+    -- Check if modifier_elixier_hybrid_not_allowed is applied to prevent proccing on DOTs with short dmg tick intervals (<0.5s)
+    -- This is mostly for stuff like Dark Seer Ion Shell, Pudge Rot and Phoenix spells
     if damaged_unit:FindModifierByNameAndCaster("modifier_elixier_hybrid_not_allowed", parent) then
       return
     end
