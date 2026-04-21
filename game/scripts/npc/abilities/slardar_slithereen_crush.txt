@@ -8,9 +8,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -36,7 +38,7 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "crush_extra_slow"
+      "crush_extra_slow" // same kv for ms and as slow
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
       }
@@ -56,10 +58,10 @@
         "special_bonus_scepter"                           "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "crush_damage" //OAA
+      "crush_damage" //OAA, because of special_bonus_unique_slardar buff
       {
-        "value"                                           "75 150 225 300 300 300"
-        "special_bonus_unique_slardar"                    "+125"
+        "value"                                           "75 150 225 300 600 1200"
+        "special_bonus_unique_slardar"                    "+300"
       }
       "shard_amp_duration"
       {
@@ -67,7 +69,7 @@
       }
       "shard_bonus_radius"
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                             "0" // unused
       }
       "AbilityCooldown"
       {

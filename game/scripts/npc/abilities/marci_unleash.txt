@@ -8,8 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -40,9 +41,9 @@
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "pulse_damage" //OAA
+      "pulse_damage" //OAA, intentionally buffed
       {
-        "value"                                           "50 100 150 150 150"
+        "value"                                           "50 150 250 450 650"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "bonus_movespeed"
@@ -71,9 +72,9 @@
       {
         "special_bonus_unique_marci_unleash_extend_duration"  "6"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed; do not forget the scepter_cooldown_reduction
       {
-        "value"                                           "80 70 60 55 50"
+        "value"                                           "70 65 60 55 50"
       }
       "AbilityManaCost"
       {

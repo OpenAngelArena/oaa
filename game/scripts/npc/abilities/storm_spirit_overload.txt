@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "0.8"
+    "AbilityDuration"                                     "0.8" // Valve's undocumented change
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +39,18 @@
         "value"                                           "-90"
         "special_bonus_unique_storm_spirit_overload_aspd"  "-20.0"
       }
-      "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
+      "overload_damage" //OAA, intentionally buffed; uses special_bonus_unique_storm_spirit_1_oaa
       {
-        "value"                                           "25 50 75 100 100 100"
+        "value"                                           "40 60 80 100 200 300"
       }
       "shard_activation_radius"
       {
         "special_bonus_shard"                             "750"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_activation_charges" //OAA, intentional nerf
+      "shard_activation_charges" //OAA, intentionally nerfed
       {
-        "special_bonus_shard"                             "3"
+        "special_bonus_shard"                             "2"
       }
       "shard_activation_duration"
       {
