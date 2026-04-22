@@ -5,12 +5,13 @@
   //=================================================================================================================
   "medusa_stone_gaze"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentionally nerfed
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -44,7 +45,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration" //OAA, intentionally rescaled
+      "duration" //OAA, intentionally rescaled and nerfed the talent
       {
         "value"                                           "5 5.25 5.5 5.75 6"
         "special_bonus_unique_medusa"                     "+1.5"

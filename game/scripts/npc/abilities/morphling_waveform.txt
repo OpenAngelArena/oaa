@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Morphling: Waveform
+  // Morphling: Waveform FIXEDFUCK
   //=================================================================================================================
   "morphling_waveform"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -43,12 +43,12 @@
       }
       "AbilityCastRange"
       {
-        "value"                                           "700 775 850 925 1000 1070"
+        "value"                                           "700 775 850 925 1000 1075"
         "special_bonus_unique_morphling_1"                "+250"
       }
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "18 16 14 12 11 10"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_morphling_waveform_cooldown"  "-40%"
       }
       "process_procs"
