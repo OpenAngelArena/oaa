@@ -8,9 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -24,7 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4.0" // slow duration
 
-    // Damage.
+    // Damage
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "75 125 175 225 450 900"
 
@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                     "-22 -28 -34 -40 -45 -50"
+      "movement_slow"                                     "-22 -28 -34 -40 -46 -52"
       "hop_duration"                                      "0.25"
       "hop_height"                                        "83"
       "shock_radius"

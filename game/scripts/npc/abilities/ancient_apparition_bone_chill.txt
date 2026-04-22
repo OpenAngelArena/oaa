@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ancient Apparition: Bone Chill (Innate)
+  //=================================================================================================================
+  "ancient_apparition_bone_chill"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "str_reduction" //OAA, intentionally nerfed
+      {
+        "value"                                           "0.1"
+        "hero_levelup"                                    "0.1"
+        "levelup_interval"                                "3"
+        "special_bonus_scepter"                           "+0.5"
+      }
+      "tooltip_scepter_bonus"                             "0.8"
+      "str_reduction_duration"
+      {
+        "value"                                           "4.0"
+      }
+      "movement_slow_pct"
+      {
+        "value"                                           "2"
+        "display_type"                                    "kDebuffPercentage"
+      }
+    }
+  }
+}
