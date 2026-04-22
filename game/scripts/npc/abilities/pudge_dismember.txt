@@ -8,12 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +23,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "200"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +39,13 @@
       "dismember_damage" //OAA, intentionally buffed
       {
         "value"                                           "80 120 160 280 480"
-        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong
+        "special_bonus_unique_pudge_3"                    "x1.8"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "strength_damage"
       {
         "value"                                           "0.3 0.6 0.9 1.5 2.1"
-        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong
+        "special_bonus_unique_pudge_3"                    "x1.8" // Valve has it wrong, not applied (it should be 1.5) during 7.36b
         "CalculateSpellDamageTooltip"                     "0"
       }
       "ticks"
@@ -53,12 +55,12 @@
       }
       "AbilityChannelTime"
       {
-        "value"                                           "2.75 2.75 2.75 2.75 2.75"
+        "value"                                           "2.75"
         "special_bonus_unique_pudge_6"                    "+0.75"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "30 25 20 20 20"
+        "value"                                           "22 21 20 19 18"
       }
       "shard_regen_pct"
       {
