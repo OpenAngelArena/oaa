@@ -1,21 +1,26 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Death Prophet
+  // HERO: Death Prophet FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_death_prophet"
   {
-    //"Ability10"                                           "special_bonus_attack_speed_40"
-    "Ability11"                                           "special_bonus_hp_200" // replaces special_bonus_magic_resistance_12
+    //"Ability10"                                           "special_bonus_unique_death_prophet_silence_aoe"
+    //"Ability11"                                           "special_bonus_hp_200"
 
-    //"Ability12"                                           "special_bonus_unique_death_prophet_silence_aoe"
-    "Ability13"                                           "special_bonus_unique_death_prophet_3" // replaces special_bonus_unique_death_prophet_2
+    //"Ability12"                                           "special_bonus_attack_speed_50"
+    //"Ability13"                                           "special_bonus_unique_death_prophet_2"
 
-    "Ability14"                                           "special_bonus_unique_death_prophet_2" // special_bonus_unique_death_prophet
-    "Ability15"                                           "special_bonus_unique_death_prophet" // replaces special_bonus_unique_death_prophet_3
+    //"Ability14"                                           "special_bonus_unique_death_prophet"
+    "Ability15"                                           "special_bonus_unique_death_prophet_1_oaa" // replaces special_bonus_unique_death_prophet_3
 
     "Ability16"                                           "special_bonus_unique_death_prophet_5_oaa" // replaces special_bonus_unique_death_prophet_5
-    "Ability17"                                           "special_bonus_unique_death_prophet_1_oaa" // special_bonus_unique_death_prophet_exorcism_duration_on_kill
+    //"Ability17"                                           "special_bonus_unique_death_prophet_exorcism_duration_on_kill"
+
+    // special_bonus_unique_death_prophet - Exorcism Spirits
+    // special_bonus_unique_death_prophet_2 - Crypt Swarm Cooldown
+    // special_bonus_unique_death_prophet_3 - Spirit Siphon Damage/Heal
+    // special_bonus_unique_death_prophet_5 - Spirit Siphon Replenish Time
 
     // special_bonus_unique_death_prophet_1_oaa - Spirit Siphon Max Hp Damage
     // special_bonus_unique_death_prophet_5_oaa - Spirit Siphon Charge Restore Time
