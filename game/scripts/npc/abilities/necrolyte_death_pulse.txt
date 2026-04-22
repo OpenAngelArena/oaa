@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Necrophos: Death Pulse
+  // Necrophos: Death Pulse FIXEDFUCK
   //=================================================================================================================
   "necrolyte_death_pulse"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,13 +23,15 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "115 130 145 160 190 210"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "100 160 220 280 560 840"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "400"
       "area_of_effect"
       {
         "value"                                           "500"
@@ -37,9 +39,10 @@
       }
       "heal"
       {
-        "value"                                           "70 90 110 130 260 520"
+        "value"                                           "70 90 110 130 260 390"
         "special_bonus_unique_necrophos_4"                "+60"
       }
+      "projectile_speed"                                  "400"
       "AbilityCooldown"
       {
         "value"                                           "8 7 6 5 5 5"

@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Nevermore Requiem of Souls
+  // Shadow Fiend: Requiem of Souls
   //=================================================================================================================
   "nevermore_requiem"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -18,21 +19,21 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.67 1.67 1.67 1.67 1.67"
+    "AbilityCastPoint"                                    "1.67"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 175 200 225 250"
-    "AbilityDamage"                                       "80 160 240 400 560" //OAA
+    "AbilityDamage"                                       "80 160 240 400 560" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
-      "requiem_reduction_mres"                            "-5 -10 -15 -15 -15"
+      "requiem_reduction_mres"                            "-10" //OAA, Valve has it wrong since 7.41
       "requiem_soul_conversion"                           "1"
-      "requiem_line_speed"                                "700 700 700 700 700"
+      "requiem_line_speed"                                "700"
       "soul_death_release"                                "0.5"
       "AbilityCooldown"
       {

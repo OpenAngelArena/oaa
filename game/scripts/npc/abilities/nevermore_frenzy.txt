@@ -5,18 +5,18 @@
   //=================================================================================================================
   "nevermore_frenzy"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,22 +34,22 @@
       "linger_duration"                                   "8"
       "bonus_attack_speed"
       {
-        "value"                                           "35 50 65 80 100 115"
+        "value"                                           "35 50 65 80 95 110"
         "special_bonus_unique_nevermore_4"                "+30"
       }
       "bonus_move_speed"
       {
-        "value"                                           "4 6 8 10 13 15"
+        "value"                                           "4 6 8 10 12 14"
       }
-      "cast_speed_pct" //OAA
+      "cast_speed_pct" //OAA, because of special_bonus_unique_nevermore_frenzy_castspeed nerf
       {
         "value"                                           "100"
-        "special_bonus_unique_nevermore_frenzy_castspeed"  "+30"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "+20"
       }
-      "cast_speed_pct_tooltip" //OAA
+      "cast_speed_pct_tooltip" //OAA, intentionally nerfed
       {
         "value"                                           "0"
-        "special_bonus_unique_nevermore_frenzy_castspeed"  "=140"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "=120"
       }
       "max_collection_count"
       {
