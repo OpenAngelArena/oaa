@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Nevermore Shadowraze #3
+  // Shadow Fiend: Shadowraze #3
   //=================================================================================================================
   "nevermore_shadowraze3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,10 +32,9 @@
       "shadowraze_cooldown"                               "3"
       "turn_rate_pct"                                     "0"
       "damage_per_soul"                                   "3"
-      "shadowraze_damage" //OAA
+      "shadowraze_damage" //OAA, intentionally buffed
       {
         "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_nevermore_2"                "+200"
       }
       "shadowraze_radius"
       {
@@ -59,7 +58,7 @@
       }
       "movement_speed_debuff"
       {
-        "value"                                           "0 0 0 0 0 0"
+        "value"                                           "0"
         "special_bonus_shard"                             "=12"
       }
       "AbilityCooldown"

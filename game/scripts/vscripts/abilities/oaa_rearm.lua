@@ -1,10 +1,5 @@
 oaa_rearm = class(AbilityBaseClass)
 
--- Put ability exemption in here
-local exempt_ability_table = {
-  oaa_rearm = true
-}
-
 -- Put item exemption in here
 local exempt_item_table = {
   item_bottle = true,
@@ -117,7 +112,7 @@ if IsServer() then
     -- count cooldown for abilities that is not rearm
     for i = 0, caster:GetAbilityCount() - 1 do
       local ability = caster:GetAbilityByIndex(i)
-      if ability and not exempt_ability_table[ability:GetAbilityName()] then
+      if ability and AllowedToRefresh(ability, true) then
         local cooldown = ability:GetCooldownTimeRemaining()
         if cooldown > 0 then
           --totalCooldown = totalCooldown + cooldown
@@ -161,7 +156,7 @@ if IsServer() then
     -- lower cooldown for abilities that is not rearm
     for i = 0, caster:GetAbilityCount() - 1 do
       local ability = caster:GetAbilityByIndex(i)
-      if ability and not exempt_ability_table[ability:GetAbilityName()] then
+      if ability and AllowedToRefresh(ability, true) then
         local cooldown = ability:GetCooldownTimeRemaining()
         if cooldown > 0 then
           ability:EndCooldown()

@@ -1,7 +1,7 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Sand King
+  // HERO: Sand King FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_sand_king"
   {
@@ -12,22 +12,22 @@
     //"Ability13"                                           "special_bonus_unique_sand_king_8"
 
     //"Ability14"                                           "special_bonus_unique_sand_king_7"
-    //"Ability15"                                           "special_bonus_unique_sand_king_5"
+    //"Ability15"                                           "special_bonus_unique_sand_king"
 
-    //"Ability16"                                           "special_bonus_unique_sand_king"
+    //"Ability16"                                           "special_bonus_unique_sand_king_scorpion_strike_damage"
     //"Ability17"                                           "special_bonus_unique_sand_king_4"
 
-    // special_bonus_unique_sand_king - bonus Epicenter Pulses
-    // special_bonus_unique_sand_king_2 - bonus Sand Storm DPS
-    // special_bonus_unique_sand_king_3 - bonus Stinger Slow
-    // special_bonus_unique_sand_king_4 - Sand Storm Slow and Blind
-    // special_bonus_unique_sand_king_5 - Base/Incremental Radius of Epicenter
+    // special_bonus_unique_sand_king - bonus Epicenter Pulses                   - 20
+    // special_bonus_unique_sand_king_2 - bonus Sand Storm DPS                   - 15
+    // special_bonus_unique_sand_king_3 - bonus Stinger Slow                     - 10
+    // special_bonus_unique_sand_king_4 - Sand Storm Slow and Blind              - 25
+    // special_bonus_unique_sand_king_5 - Base/Incremental Radius of Epicenter   - unused
     // special_bonus_unique_sand_king_6 - Caustic Finale Slow                    - unused
-    // special_bonus_unique_sand_king_7 - Burrowstrike Cooldown
-    // special_bonus_unique_sand_king_8 - Burrowstrike Cast Range
+    // special_bonus_unique_sand_king_7 - Burrowstrike Cooldown                  - 20
+    // special_bonus_unique_sand_king_8 - Burrowstrike Cast Range                - 15
     // special_bonus_unique_sand_king_burrowstrike_stun                          - unused
-    // special_bonus_unique_sand_king_scorpion_strike_damage                     - unused
-    // special_bonus_unique_sand_king_caustic_finale_radius
+    // special_bonus_unique_sand_king_scorpion_strike_damage                     - 25
+    // special_bonus_unique_sand_king_caustic_finale_radius                      - 10
 
     "AttributeStrengthGain"                               "2.7" // 2.3
   }

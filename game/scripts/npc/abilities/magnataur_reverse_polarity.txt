@@ -1,17 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnataur: Reverse Polarity
+  // Magnus: Reverse Polarity FIXEDFUCK
   //=================================================================================================================
   "magnataur_reverse_polarity"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -19,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "430" //OAA, same as pull_radius (Valve has it wrong)
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,9 +30,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "115"
+        "value"                                           "100 95 90 85 80"
         "special_bonus_facet_magnataur_reverse_reverse_polarity"  "=100"
       }
       "pull_radius"
@@ -57,9 +58,9 @@
         "value"                                           "0"
         "special_bonus_facet_magnataur_reverse_reverse_polarity"  "+100"
       }
-      "polarity_damage" //OAA
+      "polarity_damage" //OAA, intentionally buffed
       {
-        "value"                                           "100 200 300 300 300"
+        "value"                                           "100 300 500 1100 1700"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "hero_stun_duration"
@@ -77,10 +78,10 @@
         "value"                                           "0"
         "special_bonus_unique_magnus_reverse_polarity_stats"  "+20"
       }
-      "stats_per_stack" //OAA
+      "stats_per_stack" //OAA, intentionally buffed
       {
         "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+12"
+        "special_bonus_unique_magnus_reverse_polarity_stats"  "+15"
       }
     }
   }

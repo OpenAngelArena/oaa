@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phoenix: Supernova
+  // Phoenix: Supernova FIXEDFUCK
   //=================================================================================================================
   "phoenix_supernova"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -26,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
+    "AbilityCooldown"                                     "100" //OAA, intentionally buffed
     "AbilityDuration"                                     "6.0"
 
     // Cost
@@ -37,31 +38,31 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_sec"                                    "60 120 180 360 540" //OAA
-      "tick_interval"                                     "0.2"
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_per_sec"                                    "60 120 180 300 420" //OAA, intentionally buffed
+      "tick_interval"                                     "0.2"
       "stun_duration"
       {
         "value"                                           "1.6 2 2.4 2.5 2.6"
         "special_bonus_unique_phoenix_2"                  "+0.6"
       }
-      "max_hero_attacks" //OAA
+      "max_hero_attacks" //OAA, intentionally buffed
       {
-        "value"                                           "6 8 10 10 10"
+        "value"                                           "6 9 12 14 16"
         "special_bonus_unique_phoenix_1"                  "+2"
       }
       "max_hero_attacks_scepter"
       {
-        "special_bonus_scepter"                           "7 10 13 13 13"
+        "special_bonus_scepter"                           "7 10 13 15 17"
         "special_bonus_unique_phoenix_1"                  "+2"
       }
       "cast_range_tooltip_scepter" //OAA, Valve forgot about it during 7.39e, idk why it even exists because there is AbilityCastRange
       {
-        "special_bonus_scepter"                           "500"
+        "special_bonus_scepter"                           "450"
       }
     }
   }

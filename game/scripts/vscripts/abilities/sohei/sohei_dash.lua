@@ -463,7 +463,7 @@ if IsServer() then
     end
 
     -- Heal allies in a line
-    local heal_amount = damage * ability:GetSpecialValueFor("heal_ratio")
+    local heal_amount = damage * ability:GetSpecialValueFor("heal_ratio") * 0.01
     if heal_amount > 0 then
       local do_sound = false
       local allies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)

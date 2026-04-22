@@ -15,20 +15,13 @@ function item_refresher_2:OnSpellStart()
   ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true )
   ParticleManager:ReleaseParticleIndex(particle)
 
-  -- Put ability exemption in here
-  local exempt_ability_table = {
-    --dazzle_good_juju = true,
-    riki_permanent_invisibility = true,
-    tinker_rearm = true,
-    --treant_natures_guise = true,
-    undying_ceaseless_dirge = true,
-  }
-
   -- Reset cooldown for most abilities
   for i = 0, caster:GetAbilityCount() - 1 do
     local ability = caster:GetAbilityByIndex(i)
-    if ability and not exempt_ability_table[ability:GetAbilityName()] then
-      ability:RefreshCharges()
+    if ability and AllowedToRefresh(ability, true) then
+      if not IsFakeItemCustom(ability) then
+        ability:RefreshCharges()
+      end
       ability:EndCooldown()
     end
   end
@@ -37,6 +30,7 @@ function item_refresher_2:OnSpellStart()
   -- Put item exemption in here
   local exempt_item_table = {
     item_ex_machina = true,
+    --item_hand_of_midas_1 = true,
     item_refresher = true,
     item_refresher_2 = true,
     item_refresher_3 = true,

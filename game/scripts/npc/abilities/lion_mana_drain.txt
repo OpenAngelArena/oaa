@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lion: Mana Drain
+  // Lion: Mana Drain FIXEDFUCK
   //=================================================================================================================
   "lion_mana_drain"
   {
@@ -21,12 +21,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    "AbilityChannelTime"                                  "5.1"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 6 6" //OAA
+    "AbilityCooldown"                                     "9 8 7 6 6 6" //OAA, intentionally buffed
+    "AbilityChannelTime"                                  "5.1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,22 @@
     "AbilityValues"
     {
       "duration"                                          "5.0"
-      "tick_interval"                                     "0.1"
-      "movespeed_bonus_when_empty_pct"                    "15"
-      "ally_pct"                                          "50"
-      "mana_per_second" //OAA
+      "mana_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "20 40 60 120 120 120"
+        "value"                                           "20 55 90 125 250 375"
       }
       "break_distance"
       {
         "value"                                           "1100"
         "special_bonus_shard"                             "+200"
       }
-      "movespeed" //OAA
+      "tick_interval"                                     "0.1"
+      "movespeed"
       {
-        "value"                                           "15 20 25 30 30 30"
+        "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_lion_6"                     "+10"
       }
+      "movespeed_bonus_when_empty_pct"                    "15"
       "shard_bonus_targets"
       {
         "special_bonus_shard"                             "2"
@@ -62,10 +61,11 @@
       {
         "value"                                           "0"
       }
-      "magic_resist" //OAA
+      "magic_resist" //OAA, intentionally nerfed
       {
-        "special_bonus_shard"                             "+60"
+        "special_bonus_shard"                             "+30"
       }
+      "ally_pct"                                          "50"
     }
   }
 }

@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Pudge Meat Hook
+  // Pudge: Meat Hook
   //=================================================================================================================
   "pudge_meat_hook"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +28,8 @@
     "AbilityValues"
     {
       "hook_width"                                        "100"
-      "vision_radius"                                     "500 500 500 500 500 500"
-      "vision_duration"                                   "4.0 4.0 4.0 4.0 4.0 4.0"
+      "vision_radius"                                     "500"
+      "vision_duration"                                   "4.0"
       "reveal_duration"                                   "00"
       "damage"
       {

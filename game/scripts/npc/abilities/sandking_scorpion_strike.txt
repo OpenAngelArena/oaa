@@ -5,13 +5,13 @@
   //=================================================================================================================
   "sandking_scorpion_strike"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -44,9 +44,9 @@
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
-      "inner_radius_bonus_damage_pct" //OAA
+      "inner_radius_bonus_damage_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "40"
+        "value"                                           "30"
       }
       "inner_radius_procs_caustic"
       {

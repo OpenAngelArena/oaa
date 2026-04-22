@@ -84,11 +84,13 @@ if IsServer() then
     end
 
     local inflictor = event.inflictor
-
-    -- happpens for auto attacks and other specific situations
-    --if not inflictor or inflictor:IsNull() then
-      --return
-    --end
+    local do_sound = true
+    local particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+    if not inflictor or inflictor:IsNull() then
+      -- inflictor doesn't exist for attacks and other specific situations
+      do_sound = false
+      particle_name = "particles/generic_gameplay/generic_manaburn.vpcf"
+    end
 
     -- this inflictor is not the right type
     --if not inflictor.IsItem or not inflictor.GetAbilityName then
@@ -102,7 +104,6 @@ if IsServer() then
       end
     end
 
-    -- should only be abilities now
     local threshold = ability:GetSpecialValueFor("damage_threshold")
 
     -- original damage is before reductions and amps
@@ -121,11 +122,17 @@ if IsServer() then
     local manaCurrent = damaged_unit:GetMana()
     local manaToBurn = manaCurrent * manaPercent
 
-    local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf", PATTACH_ABSORIGIN_FOLLOW, damaged_unit)
+    -- Different particles for attacks and abilities
+    local nFXIndex = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, damaged_unit)
     -- ParticleManager:SetParticleControlEnt(nFXIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), false)
     ParticleManager:ReleaseParticleIndex(nFXIndex)
 
-    damaged_unit:EmitSound("Hero_NyxAssassin.ManaBurn.Target")
+    -- Do sound only when doing ability dmg
+    if do_sound then
+      damaged_unit:EmitSound("Hero_NyxAssassin.ManaBurn.Target")
+    end
+
+    -- Burn/remove mana
     damaged_unit:ReduceMana(manaToBurn, ability)
   end
 end

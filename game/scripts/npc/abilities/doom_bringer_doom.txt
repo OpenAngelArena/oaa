@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Doom Bringer: Doom
+  // Doom Bringer: Doom FIXEDFUCK
   //=================================================================================================================
   "doom_bringer_doom"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH" // cant target allies though
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -32,7 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "deniable_pct"                                      "25"
       "duration" //OAA, intentionally nerfed
       {
         "value"                                           "12 13 14 15 16"
@@ -43,7 +43,8 @@
       {
         "value"                                           "22 44 66 110 154"
       }
-      "AbilityCooldown" //OAA
+      "deniable_pct"                                      "25" // unused
+      "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "120"
         "special_bonus_unique_doom_9"                     "-10"

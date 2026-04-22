@@ -43,18 +43,15 @@ local abilities_with_custom_talents = {
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
-  faceless_void_time_zone = {
-    AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
-  },
   gyrocopter_flak_cannon = {
     radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
   },
   huskar_inner_fire = {
     damage = {"special_bonus_unique_huskar_1_oaa", "+"},
   },
-  keeper_of_the_light_illuminate = {
-    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
-  },
+  -- keeper_of_the_light_illuminate = {
+    -- speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
+  -- },
   lich_chain_frost = {
     jumps = {"special_bonus_unique_lich_1_oaa", "+"},
   },
@@ -88,9 +85,9 @@ local abilities_with_custom_talents = {
   winter_wyvern_cold_embrace = {
     heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
   },
-  zuus_thundergods_wrath = {
-    AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},
-  },
+  -- zuus_thundergods_wrath = {
+    -- AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},
+  -- },
 }
 
 ---------------------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Undying Zombies
+  // Undying Zombies FIXEDFUCK
   //=================================================================================
   "npc_dota_unit_undying_zombie"
   {
@@ -33,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "34"    // OAA
-    "AttackDamageMax"                                     "34"    // OAA
+    "AttackDamageMin"                                     "34" //OAA, no dmg variation
+    "AttackDamageMax"                                     "34" //OAA, no dmg variation
     "AttackRate"                                          "1.6"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "800"    // Range within a target can be acquired.
@@ -108,8 +108,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "34"    // OAA
-    "AttackDamageMax"                                     "34"    // OAA
+    "AttackDamageMin"                                     "34" //OAA, no dmg variation
+    "AttackDamageMax"                                     "34" //OAA, no dmg variation
     "AttackRate"                                          "1.6"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "800"    // Range within a target can be acquired.

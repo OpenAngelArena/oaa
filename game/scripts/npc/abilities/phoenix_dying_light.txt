@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Phoenix: Dying Light (Innate) FIXEDFUCK
   //=================================================================================================================
   "phoenix_dying_light"
   {
@@ -16,17 +16,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_interval"                                     "0.2"
       "radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_pct" //OAA
+      "damage_pct"
       {
         "value"                                           "4"
         "special_bonus_unique_phoenix_dying_light_damage"  "+1"
       }
+      "tick_interval"                                     "0.2"
     }
   }
 }

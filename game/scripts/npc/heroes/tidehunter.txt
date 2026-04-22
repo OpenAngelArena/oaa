@@ -1,7 +1,7 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Tidehunter
+  // HERO: Tidehunter FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_tidehunter"
   {
@@ -20,13 +20,13 @@
     // special_bonus_unique_tidehunter - Gush Armor                                                         - 20
     // special_bonus_unique_tidehunter_2 - Gush Damage                                                      - 15
     // special_bonus_unique_tidehunter_3 - Anchor Smash Damage Reduction                                    - 10
-    // special_bonus_unique_tidehunter_4 - Kraken Shell Damage Block per Anchor Smash Kill                  - ?
+    // special_bonus_unique_tidehunter_4 - Kraken Shell Damage Block per Anchor Smash Kill                  - unused
     // special_bonus_unique_tidehunter_5 - Gush Slow                                                        - 10
-    // special_bonus_unique_tidehunter_6 - Kraken Shell Damage Threshold                                    - useless
+    // special_bonus_unique_tidehunter_6 - Kraken Shell Damage Threshold                                    - unused
     // special_bonus_unique_tidehunter_7 - Ravage Stun Duration                                             - 25
     // special_bonus_unique_tidehunter_8 - 50% chance of Anchor Smash on attack                             - unused, overpowered
     // special_bonus_unique_tidehunter_9 - Anchor Smash Damage                                              - unused
-    // special_bonus_unique_tidehunter_10 - Anchor Smash affects buildings                                  - 25 -> 0, useless
+    // special_bonus_unique_tidehunter_10 - Anchor Smash affects buildings                                  - 25 -> 0, useless in OAA
     // special_bonus_unique_tidehunter_ravage_cooldown                                                      - 15
     // special_bonus_unique_tidehunter_smash_on_blubber - Blubber effect triggers Anchor Smash              - 20 -> 25, overpowered
   }

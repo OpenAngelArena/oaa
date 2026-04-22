@@ -1,23 +1,23 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Storm Spirit: Static Remnant
+  // Storm Spirit: Static Remnant FIXEDFUCK
   //=================================================================================================================
   "storm_spirit_static_remnant"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "static_remnant_delay"                              "0.75"
       "static_remnant_radius"
       {
         "value"                                           "235"
@@ -43,14 +42,15 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "affected_by_aoe_increase"                        "1"
       }
+      "static_remnant_delay"                              "0.75"
       "AbilityCooldown"
       {
         "value"                                           "3.5"
         "special_bonus_unique_storm_spirit_8"             "-1.25"
       }
-      "static_remnant_damage" //OAA
+      "static_remnant_damage"
       {
-        "value"                                           "100 160 220 280 280 280"
+        "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_storm_spirit_5"             "+60"
       }
       "is_point_targeted"

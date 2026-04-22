@@ -27,7 +27,6 @@ end
 
 function pugna_nether_ward_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  --local level = self:GetLevel()
   local ability = caster:FindAbilityByName("pugna_nether_ward")
 
   if not ability then

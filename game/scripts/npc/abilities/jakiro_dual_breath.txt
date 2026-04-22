@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Jakiro's Dual Breath
+  // Jakiro: Dual Breath FIXEDFUCK
   //=================================================================================================================
   "jakiro_dual_breath"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -28,15 +28,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 120 150 180 210 240" //OAA
+    "AbilityManaCost"                                     "90 120 150 180 210 240" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "1050"
-      "fire_delay"                                        "0.2"
-      "speed_fire"                                        "1050"
       "AbilityCooldown"
       {
         "value"                                           "12 11 10 9 8 7"
@@ -57,6 +54,8 @@
         "value"                                           "850"
         "special_bonus_unique_jakiro_2"                   "+100%"
       }
+      "speed"                                             "1050"
+      "fire_delay"                                        "0.2"
       "burn_damage"
       {
         "value"                                           "20 40 60 80 160 240"
@@ -68,8 +67,9 @@
       }
       "slow_attack_speed_pct"
       {
-        "value"                                           "-25 -30 -35 -40 -60 -80"
+        "value"                                           "-25 -30 -35 -40 -45 -50"
       }
+      "speed_fire"                                        "1050"
     }
   }
 }

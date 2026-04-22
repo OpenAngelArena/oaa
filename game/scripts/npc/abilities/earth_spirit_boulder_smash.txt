@@ -5,16 +5,16 @@
   //=================================================================================================================
   "earth_spirit_boulder_smash"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has a typo: AbilityUnitTargetFlag
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -39,7 +39,7 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_earth_spirit_7"             "-2.0"
+        "special_bonus_unique_earth_spirit_7"             "-2"
       }
       "radius"
       {
@@ -51,7 +51,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage" //OAA, intentionally buffed both base values and talent
+      "rock_damage" //OAA, intentionally buffed both base values and the talent
       {
         "value"                                           "110 180 250 320 640 960"
         "special_bonus_unique_earth_spirit_6"             "+100"

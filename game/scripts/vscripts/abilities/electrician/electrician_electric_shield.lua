@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_electrician_electric_shield_default", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_electrician_electric_shield_dc", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_electrician_electric_shield_ac", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_electrician_electric_shield_nc", "abilities/electrician/electrician_electric_shield.lua", LUA_MODIFIER_MOTION_NONE)
@@ -64,17 +65,26 @@ function electrician_electric_shield:OnSpellStart()
   local shield_duration = self:GetSpecialValueFor("duration")
   local spent_mana = self.usedCost
 
-  local magic_shield = self:GetSpecialValueFor("magical_shield_damage_block") ~= 0
+  local dc = self:GetSpecialValueFor("direct_current") ~= 0
+  local ac = self:GetSpecialValueFor("alternating_current") ~= 0
   local physical_shield = self:GetSpecialValueFor("physical_shield_damage_block") ~= 0
-  if magic_shield then
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_dc", {duration = shield_duration, spent_mana = spent_mana})
+  local bonus_dmg = self:GetSpecialValueFor("bonus_attack_damage") ~= 0
+
+  local modifier_name = "modifier_electrician_electric_shield_default" -- Damage Block + Magic Shield + aura magic dmg
+  if dc then
+    modifier_name = "modifier_electrician_electric_shield_dc" -- Magic Shield + aura magic dmg
   end
   if physical_shield then
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc", {duration = shield_duration, spent_mana = spent_mana})
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = shield_duration})
+    modifier_name = "modifier_electrician_electric_shield_nc" -- Physical Shield only
   end
-  if not magic_shield and not physical_shield then
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_ac", {duration = shield_duration, spent_mana = spent_mana})
+  if ac then
+    modifier_name = "modifier_electrician_electric_shield_ac" -- Damage Block + Magic Resist + aura magic/physical dmg
+  end
+
+  caster:AddNewModifier(caster, self, modifier_name, {duration = shield_duration, spent_mana = spent_mana})
+
+  if bonus_dmg then
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = shield_duration})
   end
 
   -- Cast Sound
@@ -86,6 +96,222 @@ function electrician_electric_shield:ProcMagicStick()
 end
 
 --TODO: OnStolen (Rubick and Morphling)
+
+---------------------------------------------------------------------------------------------------
+
+modifier_electrician_electric_shield_default = class(ModifierBaseClass)
+
+function modifier_electrician_electric_shield_default:IsHidden()
+  return false
+end
+
+function modifier_electrician_electric_shield_default:IsDebuff()
+  return false
+end
+
+function modifier_electrician_electric_shield_default:IsPurgable()
+  return true
+end
+
+function modifier_electrician_electric_shield_default:OnCreated(event)
+  local ability = self:GetAbility()
+  local parent = self:GetParent()
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  -- KVs
+  local base_dmg_block = ability:GetSpecialValueFor("attack_damage_block")
+  local dmg_block_per_mana = ability:GetSpecialValueFor("attack_damage_block_per_mana")
+  local max_mana_cost_pct = ability:GetSpecialValueFor("max_mana_cost")
+  local shield_per_mana = ability:GetSpecialValueFor("shield_per_mana")
+  self.shield_block = ability:GetSpecialValueFor("magical_shield_damage_block") * 0.01
+
+  -- Calculate the max possible shield hp and the max possible dmg block, it needs to be visible on the client
+  local max_mana = parent:GetMaxMana()
+  local max_mana_cost = max_mana * max_mana_cost_pct * 0.01
+  self.max_shield_hp = max_mana_cost * shield_per_mana
+  self.max_dmg_block = base_dmg_block + max_mana_cost * dmg_block_per_mana * 0.01
+
+  if IsServer() then
+    local spent_mana = event.spent_mana -- only visible on the server
+    -- Calculate shield based on spent mana
+    local shield_hp = spent_mana * shield_per_mana
+    -- Calculate dmg block based on spent mana
+    local total_dmg_block = base_dmg_block + spent_mana * dmg_block_per_mana * 0.01
+
+    -- Set stack count to be equal to shield hp, it needs to be visible on the client
+    self:SetStackCount(0 - shield_hp)
+
+    -- TODO: use transmitters to show on the client instead of showing max_dmg_block, not critical
+    self.total_dmg_block = total_dmg_block
+
+    -- create the shield particles
+    self.particle = ParticleManager:CreateParticle("particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
+
+    -- Aura damage stuff
+    local dmg_interval = ability:GetSpecialValueFor("aura_interval")
+    local dps = ability:GetSpecialValueFor("aura_damage")
+    self.dmg_radius = ability:GetSpecialValueFor("aura_radius")
+    self.dmg_per_interval = dps * dmg_interval
+
+    -- start thinking
+    self:OnIntervalThink()
+    self:StartIntervalThink(dmg_interval)
+  end
+end
+
+function modifier_electrician_electric_shield_default:OnRefresh(event)
+  -- Destroy the old (previous) instance of shield particle
+  if self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+
+  -- Stop the previous instance of thinking
+  if IsServer() then
+    self:StartIntervalThink(-1)
+  end
+
+  self:OnCreated(event)
+end
+
+function modifier_electrician_electric_shield_default:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local ability = self:GetAbility()
+  local parent = self:GetParent()
+
+  if not parent or parent:IsNull() or not ability or ability:IsNull() then
+    return
+  end
+
+  local parentOrigin = parent:GetAbsOrigin()
+
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    parentOrigin,
+    nil,
+    self.dmg_radius,
+    ability:GetAbilityTargetTeam(),
+    ability:GetAbilityTargetType(),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  local damage_table = {
+    attacker = parent,
+    damage = self.dmg_per_interval,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = ability,
+  }
+
+  for _, enemy in pairs(enemies) do
+    -- Hit Particle
+    local part = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(part, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parentOrigin, true)
+    ParticleManager:ReleaseParticleIndex(part)
+
+    -- Hit Sound
+    enemy:EmitSound("Hero_razor.lightning")
+
+    -- Apply damage
+    damage_table.victim = enemy
+    ApplyDamage(damage_table)
+  end
+end
+
+function modifier_electrician_electric_shield_default:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT,
+    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+  }
+end
+
+function modifier_electrician_electric_shield_default:GetModifierIncomingSpellDamageConstant(event)
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  if not parent or parent:IsNull() or not ability or ability:IsNull() then
+    return 0
+  end
+
+  if IsClient() then
+    -- Shield numbers (visual only)
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return math.abs(self:GetStackCount()) -- current shield hp
+    end
+  else
+    -- Don't react to damage with HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
+    -- Don't react on self damage
+    if event.attacker == parent then
+      return 0
+    end
+
+    local damage = event.damage
+    if damage < 0 then
+      return 0
+    end
+
+    -- Get current (remaining) shield hp
+    local shield_hp = math.abs(self:GetStackCount())
+
+    -- Don't block more than remaining hp
+    local block_amount = math.min(damage*self.shield_block, shield_hp)
+
+    -- Reduce shield hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - shield_hp)
+
+    if block_amount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+    end
+
+    -- Remove the shield if hp is reduced to nothing
+    if self:GetStackCount() >= 0 then
+      self:Destroy()
+    end
+
+    return -block_amount
+  end
+end
+
+function modifier_electrician_electric_shield_default:GetModifierPhysical_ConstantBlock()
+  if IsServer() then
+    return self.total_dmg_block
+  else
+    return self.max_dmg_block
+  end
+end
+
+function modifier_electrician_electric_shield_default:OnDestroy()
+  if not IsServer() then
+    return
+  end
+
+  -- Destroy the shield particle
+  if self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+  end
+
+  -- Expire sound
+  self:GetParent():EmitSound("Hero_Razor.StormEnd")
+end
 
 ---------------------------------------------------------------------------------------------------
 

@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Queen of Pain: Sonic Wave
+  // Queen of Pain: Sonic Wave FIXEDFUCK
   //=================================================================================================================
   "queenofpain_sonic_wave"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -18,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.452 0.452 0.452 0.452 0.452"
+    "AbilityCastPoint"                                    "0.452"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,9 +29,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "900"
-      "tick_rate"                                         "0.1"
-      "knockback_duration"                                "1.4"
       "starting_aoe"
       {
         "value"                                           "100"
@@ -44,20 +42,23 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "speed"                                             "900"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "325 475 625 625 625"
+        "value"                                           "325 575 825 1325 1825"
         "special_bonus_unique_queen_of_pain_7"            "+250"
       }
+      "tick_rate"                                         "0.1"
       "knockback_distance"
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "knockback_duration"                                "1.4"
+      "AbilityCooldown" //OAA, intentionally buffed base values but nerfed the talent
       {
-        "value"                                           "110 95 80 80 80"
-        "special_bonus_unique_queen_of_pain_3"            "-45"
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_queen_of_pain_3"            "-35"
       }
     }
   }

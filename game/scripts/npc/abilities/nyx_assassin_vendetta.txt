@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Vendetta
+  // Nyx Assassin: Vendetta FIXEDFUCK
   //=================================================================================================================
   "nyx_assassin_vendetta"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,11 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_time"                                         "0.0"
-      "health_regen_rate_scepter"                         "3"
-      "mana_regen_rate_scepter"                           "3"
-      "attack_animation_bonus"                            "70"
-      "attack_range_bonus"                                "75"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "70 65 60 55 50"
@@ -38,6 +34,7 @@
       {
         "value"                                           "45 50 55 60 65"
       }
+      "fade_time"                                         "0.0"
       "movement_speed"
       {
         "value"                                           "16 18 20 22 24"
@@ -48,6 +45,8 @@
         "special_bonus_unique_nyx_vendetta_damage"        "+50"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "health_regen_rate_scepter"                         "3"
+      "mana_regen_rate_scepter"                           "3"
       "break_duration"
       {
         "value"                                           "4"
@@ -62,6 +61,8 @@
         "value"                                           "0"
         "special_bonus_shard"                             "200"
       }
+      "attack_animation_bonus"                            "70"
+      "attack_range_bonus"                                "75"
     }
   }
 }

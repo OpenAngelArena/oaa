@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Hammer of Purity
+  // Omniknight: Hammer of Purity FIXEDFUCK
   //=================================================================================================================
   "omniknight_hammer_of_purity"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,17 +26,11 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "40 60 80 100 120 140" //OAA, intentionally buffed; this is actually base damage of the spell
-      "heal_duration"                                     "5"
-      "attack_range_bonus"                                "75"
-      "duration"                                          "0.2"
-      "movement_slow"                                     "75"
       "AbilityCooldown" //OAA, intentionally rescaled
       {
         "value"                                           "12 10 8 6 5 4"
@@ -47,14 +41,19 @@
         "value"                                           "30 50 70 90 110 130"
         "special_bonus_unique_omniknight_4"               "+75"
       }
+      "bonus_damage"                                      "40 60 80 100 120 140" //OAA, intentionally buffed; this is actually base damage of the spell
       "heal_pct"
       {
         "value"                                           "35"
       }
+      "heal_duration"                                     "5"
       "attack_cooldown"
       {
         "value"                                           "-1"
       }
+      "attack_range_bonus"                                "75"
+      "duration"                                          "0.2"
+      "movement_slow"                                     "75"
     }
   }
 }

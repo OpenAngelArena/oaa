@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // General
+  // Venomancer: Venomous Gale FIXEDFUCK
   //=================================================================================================================
   "venomancer_venomous_gale"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,14 +28,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "15"
-      "tick_interval"                                     "3.0 3.0 3.0 3.0 3.0 3.0"
-      "movement_slow"                                     "-35 -40 -45 -50 -55 -60"
-      "AbilityCastRange"
+      "AbilityCastRange"//OAA, Valve is missing a + sign
       {
         "value"                                           "800"
-        "special_bonus_shard"                             "200"
+        "special_bonus_shard"                             "+200"
       }
+      "duration"                                          "15"
       "strike_damage"
       {
         "value"                                           "25 50 75 100 200 400"
@@ -46,6 +44,8 @@
         "value"                                           "10 40 70 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "tick_interval"                                     "3.0"
+      "movement_slow"                                     "-35 -40 -45 -50 -55 -60"
       "radius"
       {
         "value"                                           "125"

@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Mirana: Moonlight Shadow
+  // Mirana: Moonlight Shadow FIXEDFUCK
   //=================================================================================================================
   "mirana_invis"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -28,20 +29,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
-      "duration"                                          "11" //OAA
-      "bonus_movement_speed"                              "9 12 15 18 21"
-      "bonus_outgoing_damage_pct"                         "9.0 12.0 15.0 18.0 21.0"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "110 105 100 95 90"
-        "special_bonus_unique_mirana_4"                   "-30" // unused
+        "special_bonus_unique_mirana_4"                   "-30" // unused in OAA
       }
+      "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA, intentionally nerfed
+      "duration"                                          "11" //OAA, intentionally nerfed
+      "bonus_movement_speed"                              "9 12 15 18 21"
       "evasion"
       {
         "value"                                           "0"
         "special_bonus_unique_mirana_5"                   "+20"
       }
+      "bonus_outgoing_damage_pct"                         "9.0 12.0 15.0 18.0 21.0"
     }
   }
 }

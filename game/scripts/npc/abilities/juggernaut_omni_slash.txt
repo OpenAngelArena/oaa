@@ -5,7 +5,6 @@
   //=================================================================================================================
   "juggernaut_omni_slash"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -21,27 +20,27 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "275" //OAA
+    "AbilityManaCost"                                     "275" //OAA, intentionally does not scale
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "attack_rate_multiplier"                            "1.4"
-      "bonus_damage"                                      "10 20 30 40 50" //OAA
-      "bonus_attack_speed"                                "0" //OAA
-      "duration" //OAA
+      "bonus_damage"                                      "10 20 30 40 50" //OAA, intentionally nerfed
+      "bonus_attack_speed"                                "0" //OAA, intentionally nerfed
+      "duration" //OAA, intentionally nerfed
       {
-        "value"                                           "3 3.25 3.5 3.5 3.5"
+        "value"                                           "3"
         "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
       }
-      "omni_slash_radius" //OAA
+      "omni_slash_radius" //OAA, intentionally nerfed
       {
-        "value"                                           "425"
+        "value"                                           "400"
       }
       "AbilityCastRange"
       {

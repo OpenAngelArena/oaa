@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Undying: Soul Rip
+  // Undying: Soul Rip FIXEDFUCK
   //=================================================================================================================
   "undying_soul_rip"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 6 6" //OAA
+    "AbilityCooldown"                                     "12 10 8 6 6 6" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +34,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_units"                                         "10"
-      "tombstone_heal"                                    "4 8 12 16 18 20"
-      "damage_per_unit" //OAA
+      "damage_per_unit" //OAA, intentionally buffed; also heal per unit
       {
-        "value"                                           "14 26 38 50 50 50"
+        "value"                                           "20 30 40 50 100 150"
         "special_bonus_unique_undying_6"                  "+12"
       }
+      "max_units"                                         "10" // max dmg/heal is damage_per_unit x max_units
       "radius"
       {
         "value"                                           "1300"
         "affected_by_aoe_increase"                        "1"
       }
+      "tombstone_heal"                                    "4 8 12 16 18 20"
       "strength_share_percent"
       {
         "value"                                           "0"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Slardar Bash (OAA rework)
+  // Slardar: Bash of the Deep (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "slardar_bash_oaa"
   {
@@ -9,11 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_bash_of_the_deep.lua"
+    "AbilityTextureName"                                  "slardar_bash"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityTextureName"                                  "slardar_bash"
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "MaxLevel"                                            "6"
@@ -32,7 +32,7 @@
       "bonus_damage"
       {
         "value"                                           "35 90 145 200 400 600"
-        "special_bonus_unique_slardar_2"                  "+40"
+        "special_bonus_unique_slardar_2"                  "+30"
       }
       "duration"                                          "1"
       "duration_creep"                                    "1"

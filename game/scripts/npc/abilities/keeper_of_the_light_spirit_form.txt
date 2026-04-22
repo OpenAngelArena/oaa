@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Spirit Form
+  // Keeper of the Light: Spirit Form FIXEDFUCK
   //=================================================================================================================
   "keeper_of_the_light_spirit_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -26,18 +27,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_range"                                        "100 175 250 325 400"
-      "duration"
+      "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "40.0 45.0 50.0 55.0 55.0"
+        "value"                                           "50"
         "special_bonus_unique_keeper_of_the_light_2"      "+15"
       }
-      "movement_speed"
+      "movement_speed" // this improves KOTL innate
       {
         "value"                                           "50"
         "special_bonus_unique_keeper_of_the_light_11"     "+25"
       }
-      "illuminate_heal"
+      "cast_range"                                        "100 175 250 325 400"
+      "illuminate_heal" // percentage of damage that is healing
       {
         "value"                                           "70"
         "special_bonus_shard"                             "+30"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Medusa: Split Shot
+  // Medusa: Split Shot FIXEDFUCK
   //=================================================================================================================
   "medusa_split_shot"
   {
@@ -17,19 +17,19 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "split_shot_bonus_range"                            "150"
-      "damage_modifier" //OAA, because of special_bonus_unique_medusa_2 talent
+      "damage_modifier" //OAA, because of special_bonus_unique_medusa_2 nerf
       {
         "value"                                           "-50 -40 -30 -20 -15 -10"
         "special_bonus_unique_medusa_2"                   "+5"
       }
-      "damage_modifier_tooltip" //OAA,because of special_bonus_unique_medusa_2 talent; damage_modifier + 100
+      "damage_modifier_tooltip" //OAA, because of special_bonus_unique_medusa_2 nerf; damage_modifier + 100
       {
         "value"                                           "50 60 70 80 85 90"
         "special_bonus_unique_medusa_2"                   "+5"

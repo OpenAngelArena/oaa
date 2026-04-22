@@ -5,12 +5,12 @@
   //=================================================================================================================
   "troll_warlord_berserkers_rage"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,8 +19,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_range"                                       "350"
-      "base_attack_time"                                  "1.4"
+      "bonus_range"                                       "350" // Valve this is not needed here
+      "base_attack_time"                                  "1.4" // Valve this is not needed here
       "ensnare_chance"                                    "20"
       "ensnare_duration"                                  "0.8 1.2 1.6 2.0 2.1 2.2"
       "maim_chance"                                       "20"
@@ -32,11 +32,9 @@
         "value"                                           "15 25 35 45 55 65"
         "special_bonus_unique_troll_warlord_2"            "+20"
       }
-      "bonus_armor" //OAA, Valve has var_type FIELD_INTEGER
+      "bonus_armor" //OAA, intentionally; Valve has var_type FIELD_INTEGER
       {
-        "var_type"                                        "FIELD_INTEGER"
         "value"                                           "0"
-        "special_bonus_unique_troll_warlord"              "+10"
       }
       "maim_damage"
       {

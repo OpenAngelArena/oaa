@@ -1,18 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lich: Chain Frost
+  // Lich: Chain Frost FIXEDFUCK
   //=================================================================================================================
   "lich_chain_frost"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,12 +36,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "jumps"                                             "10" // uses special_bonus_unique_lich_1_oaa
-      "slow_movement_speed"                               "-65"
-      "slow_attack_speed"                                 "-65"
-      "slow_duration"                                     "2.5"
-      "initial_projectile_speed"                          "1050"
-      "projectile_speed"                                  "850"
       "damage" //OAA, intentionally buffed
       {
         "value"                                           "250 500 750 1250 1750"
@@ -50,11 +46,17 @@
         "special_bonus_unique_lich_jump_damage"           "+100" // unused
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "jumps"                                             "10" // uses special_bonus_unique_lich_1_oaa
       "jump_range"
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
       }
+      "slow_movement_speed"                               "-65"
+      "slow_attack_speed"                                 "-65 -70 -75 -80 -85" //OAA, intentionally buffed
+      "slow_duration"                                     "2.5"
+      "initial_projectile_speed"                          "1050"
+      "projectile_speed"                                  "850"
       "vision_radius"
       {
         "value"                                           "800"
@@ -63,7 +65,7 @@
       "has_unlimited_jumps"
       {
         "value"                                           "0"
-        "special_bonus_unique_lich_5"                     "=1"
+        "special_bonus_unique_lich_5"                     "=1" // unused in OAA
       }
       "should_fire_chain_frost_on_death"
       {

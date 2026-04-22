@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Primal Beast: Uproar
+  // Primal Beast: Uproar FIXEDFUCK
   //=================================================================================================================
   "primal_beast_uproar"
   {
@@ -22,15 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stack_count_increase_on_disable"                   "0"
-      "damage_limit"                                      "50"
-      "stack_duration"                                    "20"
-      "move_slow_per_stack"                               "4 6 8 10 12 14"
-      "slow_duration"                                     "3.0"
-      "damage_min"                                        "20"
-      "damage_max"                                        "2000"
-      "roared_bonus_attack_speed"                         "0"
-      "roar_duration"                                     "7"
       "bonus_damage_per_stack" //OAA, intentionally nerfed
       {
         "value"                                           "10 16 22 28 40 52"
@@ -39,16 +30,25 @@
       {
         "value"                                           "6"
       }
+      "stack_count_increase_on_disable"                   "0"
+      "damage_limit"                                      "50"
+      "stack_duration"                                    "20"
+      "move_slow_per_stack"                               "4 6 8 10 12 14"
+      "slow_duration"                                     "3.0"
+      "damage_min"                                        "20"
+      "damage_max"                                        "2000"
       "radius"
       {
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "roared_bonus_armor"
+      "roared_bonus_attack_speed"                         "0"
+      "roared_bonus_armor" // armor per stack
       {
         "value"                                           "2 3 4 5 6 7"
         "special_bonus_unique_primal_beast_uproar_armor"  "+6"
       }
+      "roar_duration"                                     "7"
       "should_dispell"
       {
         "special_bonus_unique_primal_beast_roar_dispells"  "+1"

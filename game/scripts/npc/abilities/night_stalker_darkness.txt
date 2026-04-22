@@ -1,23 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Dark Ascension
+  // Night Stalker: Dark Ascension FIXEDFUCK
   //=================================================================================================================
   "night_stalker_darkness"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,13 +32,13 @@
       {
         "value"                                           "30.0"
       }
-      "bonus_damage" //OAA
+      "bonus_damage" //OAA, intentionally buffed
       {
         "value"                                           "60 120 180 240 300"
         "special_bonus_unique_night_stalker_3"            "+25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "120"
         "special_bonus_unique_night_stalker"              "-40"

@@ -17,14 +17,24 @@ function terrorblade_conjure_image_oaa:CastFilterResultTarget(target)
     return UF_FAIL_CUSTOM
   end
 
+  local name = target:GetUnitName()
+  local banned_units = {
+    dota_fountain = true,
+    npc_dota_bottle_statue_dire = true,
+    npc_dota_bottle_statue_radiant = true,
+    npc_dota_core_guy = true,
+    npc_dota_core_guy_2 = true,
+  }
+
+  if banned_units[name] then
+    return UF_FAIL_CUSTOM
+  end
+
   return default_result
 end
 
 function terrorblade_conjure_image_oaa:GetCustomCastErrorTarget(target)
-	if target:IsOAABoss() or target:IsCourier() then
-		return "#dota_hud_error_cant_cast_on_other"
-	end
-	return ""
+  return "#dota_hud_error_cant_cast_on_other"
 end
 
 function terrorblade_conjure_image_oaa:OnSpellStart()
@@ -117,7 +127,7 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
   }
 
   local illusion
-  if target:IsRealHero() or target:IsSpiritBearOAA() or target:IsTempestDouble() or target:IsClone() then
+  if target:IsHero() or target:IsSpiritBearOAA() or target:IsTempestDouble() or target:IsClone() then
     local illu_table = {
       outgoing_damage = illusion_damage_dealt,
       incoming_damage = illusion_damage_taken,
@@ -131,11 +141,15 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
     -- Use Valve's function
     local illusions = CreateIllusions(caster, target, illu_table, 1, target:GetHullRadius(), false, true)
     illusion = illusions[1]
+  --[[
   elseif target:IsHero() then
-    -- target is a hero creep or an illusion (of a hero or a creep), that's how IsHero() works -> weird I know
+    -- this block of code basically does the same thing as CreateIllusions
+    -- IsHero() used to return true for any illusion (hero or creep), they were checking for `modifier_illusion` probably
+    -- or MakeIllusion() did something weird; it seems they changed this so this is why this is commented out
+
     local unit_level = target:GetLevel()
 
-    -- handle_UnitOwner needs to be nil, else it will crash the game.
+    -- entityOwner needs to be nil, else it will crash the game.
     illusion = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
     illusion:SetPlayerID(playerID)
     if controllable then
@@ -221,13 +235,16 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
 
     -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
     illusion:MakeIllusion()
+  ]]
   else
-    -- target is a creep and not an illusion of a creep
-    illusion = CreateUnitByName(unit_name, origin, true, caster, caster, caster:GetTeamNumber())
+    -- target is a creep
+    illusion = CreateUnitByName(unit_name, origin, true, caster, owner, caster:GetTeamNumber())
     if controllable then
       illusion:SetControllableByPlayer(playerID, true)
     end
     illusion:SetOwner(owner)
+    -- overrirde GetPlayerOwnerID to mark ownership, SetPlayerID does not exist on creeps
+    illusion.GetPlayerOwnerID = function(illusion) return playerID end --luacheck: ignore
     FindClearSpaceForUnit(illusion, origin, false)
 
     for ability_slot = 0, unit_ability_count-1 do
@@ -277,6 +294,11 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
     local max_hp = target:GetMaxHealth()
     illusion:SetBaseMaxHealth(max_hp)
     illusion:SetMaxHealth(max_hp)
+
+    illusion:SetBaseDamageMin(target:GetBaseDamageMin())
+    illusion:SetBaseDamageMax(target:GetBaseDamageMax())
+
+    illusion:SetPhysicalArmorBaseValue(target:GetPhysicalArmorBaseValue())
 
     illusion:AddNewModifier(caster, ability, "modifier_illusion", {duration = duration, outgoing_damage = illusion_damage_dealt, incoming_damage = illusion_damage_taken})
     illusion:AddNewModifier(caster, ability, "modifier_kill", {duration = duration})

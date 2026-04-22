@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ogre Magi: Unrefined Fireblast
+  // Ogre Magi: Unrefined Fireblast FIXEDFUCK
   //=================================================================================================================
   "ogre_magi_unrefined_fireblast"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "1"
 
@@ -23,25 +23,25 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "400"
+    "AbilityManaCost"                                     "400" // this is incorrect, check scepter_mana
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "7"
+      }
       "stun_duration"                                     "1.2"
       "multicast_delay"                                   "0.6"
-      "scepter_mana"                                      "35"
+      "scepter_mana"                                      "35" // % of current mana
       "base_damage" //OAA, intentionally added a talent
       {
         "value"                                           "150"
         "special_bonus_unique_ogre_magi_2"                "+175"
       }
       "str_multiplier"                                    "1.25" // OAA, intentionally nerfed
-      "AbilityCooldown"
-      {
-        "value"                                           "7"
-      }
     }
   }
 }

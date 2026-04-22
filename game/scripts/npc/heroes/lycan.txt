@@ -1,16 +1,21 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Lycan
+  // HERO: Lycan FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_lycan"
   {
     "Ability7"                                            "lycan_feral_movement_oaa" // replaces undefined
 
+    //"Ability14"                                           "special_bonus_unique_lycan_1"
     "Ability15"                                           "special_bonus_unique_lycan_5" // replaces special_bonus_unique_lycan_4
-    "Ability16"                                           "special_bonus_unique_lycan_4" // replaces special_bonus_unique_lycan_5
 
-    // special_bonus_unique_lycan_5 -- howl reduces total attack damage
-    // special_bonus_unique_lycan_4 -- +25% feral impulse damage
+    "Ability16"                                           "special_bonus_unique_lycan_4" // replaces special_bonus_unique_lycan_5
+    //"Ability17"                                           "special_bonus_unique_lycan_2"
+
+    // special_bonus_unique_lycan_1 -- Shapeshift Duration
+    // special_bonus_unique_lycan_2 -- Summon Wolves BAT
+    // special_bonus_unique_lycan_5 -- Howl Reduces Total Attack Damage
+    // special_bonus_unique_lycan_4 -- Feral Impulse Damage
   }
 }

@@ -1,17 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Vengeful Spirit Wave of Terror
+  // Vengeful Spirit: Wave of Terror FIXEDFUCK
   //=================================================================================================================
   "vengefulspirit_wave_of_terror"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +38,6 @@
     {
       "damage"                                            "60 80 100 120 240 360"
       "wave_speed"                                        "2000.0"
-      "vision_duration"                                   "4"
       "wave_width"
       {
         "value"                                           "325"
@@ -45,7 +46,7 @@
       "armor_reduction"
       {
         "value"                                           "-3 -4 -5 -6 -8 -10"
-        "special_bonus_unique_vengeful_spirit_4"          "+-3"
+        "special_bonus_unique_vengeful_spirit_4"          "+-3" // this is hilarious
       }
       "attack_reduction" //OAA, intentionally nerfed; reducing total attack damage;
       {
@@ -56,6 +57,7 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
+      "vision_duration"                                   "4"
       "steal_pct"
       {
         "value"                                           "0"

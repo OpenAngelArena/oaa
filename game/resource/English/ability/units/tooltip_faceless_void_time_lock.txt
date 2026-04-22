@@ -6,7 +6,7 @@
 //"DOTA_Tooltip_ability_faceless_void_time_walk_scepter_description"              "Applies a Time Lock proc to all units at the landing destination."
 
 "DOTA_Tooltip_ability_faceless_void_time_lock_oaa"                              "#{DOTA_Tooltip_ability_faceless_void_time_lock}"
-"DOTA_Tooltip_ability_faceless_void_time_lock_oaa_Description"                  "#{DOTA_Tooltip_ability_faceless_void_time_lock_Description}\n<font color='#FFA500'>Time Lock will deal random bonus damage and has a cooldown.</font>"
+"DOTA_Tooltip_ability_faceless_void_time_lock_oaa_Description"                  "#{DOTA_Tooltip_ability_faceless_void_time_lock_Description}\n<font color='#FFA500'>Time Lock will deal random bonus damage and has a cooldown. Because it has a cooldown, it cannot proc itself.</font>"
 "DOTA_Tooltip_ability_faceless_void_time_lock_oaa_Lore"                         "#{DOTA_Tooltip_ability_faceless_void_time_lock_Lore}"
 "DOTA_Tooltip_ability_faceless_void_time_lock_oaa_Note0"                        "Does not stack with Abyssal Blade."
 "DOTA_Tooltip_ability_faceless_void_time_lock_oaa_Note1"                        "Second attack doesn't apply Time Lock bash despite animation and Time Lock sound."

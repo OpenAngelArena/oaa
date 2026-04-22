@@ -5,15 +5,16 @@
   //=================================================================================================================
   "snapfire_mortimer_kisses"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -25,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA, intentionally buffed
     "AbilityDuration"                                     "5.5"
 
     // Cost
@@ -66,24 +67,24 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_impact" //OAA
+      "damage_per_impact" //OAA, intentionally buffed
       {
-        "value"                                           "180 270 360 360 360"
+        "value"                                           "180 360 540 1080 1980"
       }
       "projectile_vision"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "burn_damage" //OAA
+      "burn_damage" //OAA, intentionally buffed
       {
-        "value"                                           "60 80 100 100 100"
+        "value"                                           "60 100 140 260 380"
         "special_bonus_unique_snapfire_5"                 "+35"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "move_slow_pct" //OAA
+      "move_slow_pct" //OAA, intentionally buffed
       {
-        "value"                                           "15 20 25 25 25"
+        "value"                                           "25 30 35 40 45"
       }
     }
   }

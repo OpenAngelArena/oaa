@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tusk: Tag team
+  // Tusk: Tag Team FIXEDFUCK
   //=================================================================================================================
   "tusk_tag_team"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,22 +24,22 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA
+    "AbilityManaCost"                                     "70 75 80 85 90 95" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                     "75"
-      "slow_duration"                                     "0.5"
       "bonus_damage"
       {
-        "value"                                           "25 50 75 100 150 200"
+        "value"                                           "25 50 75 100 125 150"
       }
+      "movement_slow"                                     "75"
+      "slow_duration"                                     "0.5"
       "debuff_duration"
       {
         "value"                                           "6"

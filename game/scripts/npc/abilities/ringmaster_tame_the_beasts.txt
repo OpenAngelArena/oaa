@@ -5,13 +5,13 @@
   //=================================================================================================================
   "ringmaster_tame_the_beasts"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 9 8"
+    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@
       }
       "damage_max" //OAA, Valve has it wrong, 4x damage_min
       {
-        "value"                                           "180 280 380 480 480 480"
+        "value"                                           "200 300 400 500 1000 1500" // Real max damage is 4x damage_min. Adjusting this only affects tooltips.
         "special_bonus_unique_ringmaster_whip_damage"     "+300"
       }
       "whip_channel_reduction"

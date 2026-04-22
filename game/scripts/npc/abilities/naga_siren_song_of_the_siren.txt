@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -28,15 +29,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "animation_rate"                                    "0.55 0.55 0.55 0.55 0.55"
+      "animation_rate"                                    "0.55"
       "radius"
       {
         "value"                                           "900 1150 1400 1500 1600"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration" //OAA
+      "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "7"
+        "value"                                           "4 5 6 7 8"
       }
       "heal_pct"
       {
@@ -47,9 +48,9 @@
       {
         "special_bonus_shard"                             "+4"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "160 130 100 100 100"
+        "value"                                           "110 105 100 90 95"
         "special_bonus_unique_naga_siren_5"               "-25"
       }
     }

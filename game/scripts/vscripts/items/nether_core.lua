@@ -97,17 +97,19 @@ function modifier_item_nether_core:GetModifierConstantManaRegen()
   return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
-function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
-  -- Prevent multiple Nether Cores stacking the debuff duration decrease
-  if self:GetStackCount() ~= 2 then
-    return 0
-  end
-  local ability = keys.inflictor
-  if ability then
-    -- Disable debuff duration decrease for items and passive abilities without cooldown
-    if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
+if IsServer() then
+  function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
+    -- Prevent multiple Nether Cores stacking the debuff duration decrease
+    if self:GetStackCount() ~= 2 then
       return 0
     end
+    local ability = keys.inflictor
+    if ability then
+      -- Disable debuff duration decrease for items and passive abilities without cooldown
+      if ability:IsItem() or (ability:IsPassive() and ability:GetCooldown(-1) == 0) then
+        return 0
+      end
+    end
+    return self.debuff_reduction -- positive values reduce debuff durations, negative values improve debuff durations (aka debuff amplification)
   end
-  return self.debuff_reduction -- positive values reduce debuff durations, negative values improve debuff durations (aka debuff amplification)
 end

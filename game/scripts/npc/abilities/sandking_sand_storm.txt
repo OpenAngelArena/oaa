@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Sand Storm
+  // Sand King: Sand Storm FIXEDFUCK
   //=================================================================================================================
   "sandking_sand_storm"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,15 +19,15 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
+    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 95 105 115 125 135" //OAA
+    "AbilityManaCost"                                     "85 95 105 115 125 135" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,9 +48,9 @@
         "value"                                           "30 50 70 90 180 270"
         "special_bonus_unique_sand_king_2"                "+25"
       }
-      "fade_delay" //OAA
+      "fade_delay" //OAA, intentionally nerfed
       {
-        "value"                                           "0.7"
+        "value"                                           "1.0"
       }
       "blind_pct"
       {

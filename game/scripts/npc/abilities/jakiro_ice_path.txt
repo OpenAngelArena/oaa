@@ -1,19 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Jakiro: Ice Path
+  // Jakiro: Ice Path FIXEDFUCK
   //=================================================================================================================
   "jakiro_ice_path"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,7 +26,6 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "AbilityDamage"                                       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,9 +37,9 @@
         "value"                                           "1.25 1.50 1.75 2.0 2.25 2.5"
         "special_bonus_unique_jakiro"                     "+0.4"
       }
-      "path_duration"
+      "path_duration" // Valve's undocumented change
       {
-        "value"                                           "3 3.5 4 4.5 4.2 4.3"
+        "value"                                           "3 3.5 4 4.5 4.6 4.7"
         "special_bonus_unique_jakiro"                     "+0.4"
       }
       "path_radius"
@@ -48,15 +47,15 @@
         "value"                                           "150"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "50"
+        "value"                                           "50 55 60 65 130 260"
         "CalculateSpellDamageTooltip"                     "1"
         "special_bonus_unique_jakiro_6"                   "+75"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "20 17 14 11 11 11"
+        "value"                                           "14 13 12 11 10 9"
       }
       "detonate_damage"
       {

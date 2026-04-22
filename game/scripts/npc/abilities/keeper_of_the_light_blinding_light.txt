@@ -1,25 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Blinding Light
+  // Keeper of the Light: Blinding Light FIXEDFUCK
   //=================================================================================================================
   "keeper_of_the_light_blinding_light"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 575 650 725 800 900"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "500 575 650 725 800 875"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,31 +29,31 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "4"
-      "knockback_duration"                                "0.6"
       "miss_rate"
       {
         "value"                                           "45"
         "special_bonus_unique_keeper_of_the_light_8"      "+40"
       }
+      "duration"                                          "4"
       "radius"
       {
         "value"                                           "425 450 475 500 525 550"
         "affected_by_aoe_increase"                        "1"
       }
+      "knockback_duration"                                "0.6"
       "knockback_distance"
       {
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "90 140 190 240 240 240"
+        "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_keeper_of_the_light_5"      "+90"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "24 21 18 15 15 15"
+        "value"                                           "18 17 16 15 14 13"
       }
     }
   }

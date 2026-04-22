@@ -275,6 +275,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_keeper_of_the_light = "midas",
     npc_dota_hero_kez = "power",
     npc_dota_hero_kunkka = "power",
+    npc_dota_hero_largo = "midas",
     npc_dota_hero_legion_commander = "power", -- midas
     npc_dota_hero_leshrac = "cleave",
     npc_dota_hero_lich = "midas",

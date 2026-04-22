@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Vengeful Spirit: Nether Swap
+  // Vengeful Spirit: Nether Swap FIXEDFUCK
   //=================================================================================================================
   "vengefulspirit_nether_swap"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -36,12 +37,12 @@
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage_reduction_duration"
+      "damage_reduction_duration" // shield duration
       {
         "value"                                           "10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage"
+      "damage" // also shield values
       {
         "value"                                           "150 300 450 900 1350"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+150"

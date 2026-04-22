@@ -5,13 +5,13 @@
   //=================================================================================================================
   "ember_spirit_flame_guard"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
+    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "18" //OAA
+      "duration"                                          "18" //OAA, intentionally buffed
       "tick_interval"                                     "0.2"
       "linger_duration"                                   "0.5"
       "shield_pct_absorb"                                 "70"
@@ -52,7 +52,7 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "absorb_amount" //OAA
+      "absorb_amount" //OAA, intentionally buffed both base values and the talent
       {
         "value"                                           "60 120 240 480 960 1440"
         "special_bonus_unique_ember_spirit_1"             "+240"

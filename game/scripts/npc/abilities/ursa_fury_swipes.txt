@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ursa: Fury Swipes
+  // Ursa: Fury Swipes FIXEDFUCK
   //=================================================================================================================
   "ursa_fury_swipes"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,15 +21,15 @@
     "AbilityValues"
     {
       "bonus_reset_time_roshan"                           "8"
-      "bonus_reset_time" //OAA
+      "bonus_reset_time" //OAA, because of special_bonus_unique_ursa_4 nerf
       {
-        "value"                                           "8 12 16 20 20 20"
-        "special_bonus_unique_ursa_4"                     "+9"
+        "value"                                           "8 12 16 20 24 28"
+        "special_bonus_unique_ursa_4"                     "+6"
       }
-      "damage_per_stack" //OAA
+      "damage_per_stack" //OAA, because of special_bonus_unique_ursa buff
       {
-        "value"                                           "12 20 28 36 36 36"
-        "special_bonus_unique_ursa"                       "+6"
+        "value"                                           "12 20 28 36 52 68"
+        "special_bonus_unique_ursa"                       "+10"
       }
       "stun_stack_count"
       {

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OD: Astral Imprisonment
+  // OD: Astral Imprisonment FIXEDFUCK
   //=================================================================================================================
   "obsidian_destroyer_astral_imprisonment"
   {
@@ -11,9 +11,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 150 160 170 180 190" //OAA
+    "AbilityManaCost"                                     "150 155 160 165 170 175" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

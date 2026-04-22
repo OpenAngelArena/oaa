@@ -1,26 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sven: God's Strength
+  // Sven: God's Strength FIXEDFUCK
   //=================================================================================================================
   "sven_gods_strength"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "30.0"
+    "AbilityDuration"                                     "25" //OAA, intentionally nerfed because of AbilityCooldown buff
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,9 +43,9 @@
         "value"                                           "30"
         "special_bonus_unique_sven_gods_strength_slow_resist"  "+20"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "110 105 100 100 100"
+        "value"                                           "95 90 85 80 75"
         "special_bonus_unique_sven_3"                     "-12"
       }
     }

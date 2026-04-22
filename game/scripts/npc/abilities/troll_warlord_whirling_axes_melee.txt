@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Troll Warlord: Whirling Axes Melee
+  // Troll Warlord: Whirling Axes (Melee)
   //=================================================================================================================
   "troll_warlord_whirling_axes_melee"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,7 +29,7 @@
       "whirl_duration"                                    "3.0"
       "damage"
       {
-        "value"                                           "50 100 150 200 400 800"
+        "value"                                           "50 100 150 200 400 600"
         "special_bonus_unique_troll_warlord_3"            "+160"
       }
       "hit_radius"

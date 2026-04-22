@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Queen of Pain: Blink
+  // Queen of Pain: Blink FIXEDFUCK
   //=================================================================================================================
   "queenofpain_blink"
   {
@@ -16,7 +16,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1075 1150 1225 1300 1375 1450"
-    "AbilityCastPoint"                                    "0.33 0.33 0.33 0.33 0.33 0.33"
+    "AbilityCastPoint"                                    "0.33"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,9 +27,9 @@
     "AbilityValues"
     {
       "min_blink_range"                                   "200"
-      "shard_damage" //OAA, it's applied twice if blinked within shard_aoe
+      "shard_damage" //OAA, intentionally rescaled; it's applied twice if blinked within shard_aoe
       {
-        "special_bonus_shard"                             "125"
+        "special_bonus_shard"                             "50 75 100 125 250 500"
       }
       "shard_duration"
       {
@@ -40,9 +40,9 @@
         "special_bonus_shard"                             "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled because of farming speed and talent
       {
-        "value"                                           "12.0 10.0 8.0 6.0 6.0 6.0"
+        "value"                                           "11 10 9 8 7 6"
         "special_bonus_unique_queen_of_pain_6"            "-2"
       }
     }

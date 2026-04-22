@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rubick: Spell Steal
+  // Rubick: Spell Steal FIXEDFUCK
   //=================================================================================================================
   "rubick_spell_steal"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -20,8 +21,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000 1000 1000 1000 1000"
-    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1 0.1"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -29,18 +30,18 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 25 25 25 25"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "1500"
-      "stolen_debuff_amp"                                 "0"
       "cast_range_scepter"
       {
         "special_bonus_scepter"                           "1400"
       }
+      "projectile_speed"                                  "1500"
+      "stolen_debuff_amp"                                 "0"
       "stolen_mana_reduction"
       {
         "value"                                           "0"

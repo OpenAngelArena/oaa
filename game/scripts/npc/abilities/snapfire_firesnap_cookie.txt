@@ -5,15 +5,14 @@
   //=================================================================================================================
   "snapfire_firesnap_cookie"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasShardUpgrade"                                     "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -47,16 +46,16 @@
         "value"                                           "0"
         "special_bonus_unique_snapfire_firesnap_cookie_additional_charge"  "+2"
       }
-      "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
+      "AbilityChargeRestoreTime" //OAA, Valve has it wrong, same as AbilityCooldown
       {
-        "value"                                           "21 19 17 15 15 15"
+        "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_snapfire_3"                 "-4"
       }
-      "jump_duration"
+      "jump_duration" // proportional to horizontal distance
       {
         "value"                                           "0.484"
       }
-      "jump_height"
+      "jump_height" // proportional to horizontal distance
       {
         "value"                                           "257"
       }
@@ -69,19 +68,19 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "impact_damage" //OAA
+      "impact_damage"
       {
-        "value"                                           "75 150 225 300 300 300"
+        "value"                                           "75 150 225 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "impact_stun_duration"
       {
         "value"                                           "1.0 1.4 1.8 2.2 2.4 2.6"
       }
-      "target_heal" //OAA
+      "target_heal" //OAA, intentionally rescaled
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+200"
+        "special_bonus_shard"                             "=50 =100 =150 =200 =400 =600"
       }
     }
   }

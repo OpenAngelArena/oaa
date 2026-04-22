@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rubick: Telekinesis
+  // Rubick: Telekinesis Land (sub ability) FIXEDFUCK
   //=================================================================================================================
   "rubick_telekinesis_land"
   {
@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
-    "MaxLevel"                                            "1" // MaxLevel: 6
+    "MaxLevel"                                            "1" // MaxLevel: 6 same as rubick_telekinesis
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

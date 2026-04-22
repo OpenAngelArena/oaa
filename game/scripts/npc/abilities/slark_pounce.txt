@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Slark: Pounce
+  // Slark: Pounce FIXEDFUCK
   //=================================================================================================================
   "slark_pounce"
   {
@@ -10,7 +10,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,7 +24,6 @@
     "AbilityValues"
     {
       "pounce_damage"                                     "0"
-      "pounce_acceleration"                               "7000.0"
       "pounce_distance"
       {
         "value"                                           "700"
@@ -34,6 +32,7 @@
       {
         "value"                                           "933.33"
       }
+      "pounce_acceleration"                               "7000.0"
       "pounce_radius"
       {
         "value"                                           "120"
@@ -51,7 +50,7 @@
       {
         "special_bonus_scepter"                           "2"
       }
-      "charge_restore_time" //OAA, intentionally rescaled
+      "charge_restore_time" //OAA, intentionally rescaled; same as AbilityCooldown
       {
         "special_bonus_scepter"                           "15 14 13 12 11 10"
       }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnus: Skewer
+  // Magnus: Skewer FIXEDFUCK
   //=================================================================================================================
   "magnataur_skewer"
   {
@@ -9,9 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -19,11 +19,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA
+    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,9 +31,9 @@
     {
       "skewer_speed"                                      "900"
       "skewer_damage"                                     "80 160 240 320 640 960"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "22 20 18 16 16 16"
+        "value"                                           "19 18 17 16 15 14"
         "special_bonus_unique_magnus_7"                   "-5"
       }
       "range"

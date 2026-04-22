@@ -554,7 +554,7 @@ if IsServer() then
       -- Reset cooldown for abilities
       for abilityIndex = 0, unit:GetAbilityCount() - 1 do
         local ability = unit:GetAbilityByIndex(abilityIndex)
-        if ability ~= nil and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
+        if ability and AllowedToRefresh(ability) then
           ability:EndCooldown()
           if not IsFakeItemCustom(ability) then
             ability:RefreshCharges()
@@ -573,6 +573,7 @@ if IsServer() then
         item_refresher_4 = true,
         item_refresher_5 = true,
         item_refresher_shard_oaa = true,
+        item_tranquil_boots = true,
       }
 
       -- Reset cooldown for items that are not in backpack and not in stash

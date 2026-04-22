@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mirana Starfall / Starstorm
+  // Mirana: Starstorm FIXEDFUCK
   //=================================================================================================================
   "mirana_starfall"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "10.0 10.0 10.0 10.0 10.0 10.0"
+    "AbilityDuration"                                     "10.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "12.0 12.0 12.0 12.0 12.0 12.0"
+        "value"                                           "12.0"
         "special_bonus_unique_mirana_3"                   "-2"
       }
       "damage"

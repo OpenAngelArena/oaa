@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sohei_momentum_spell_crit", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 
 sohei_momentum = class(AbilityBaseClass)
 
@@ -18,11 +17,15 @@ function sohei_momentum:GetAbilityTextureName()
 end
 
 function sohei_momentum:GetIntrinsicModifierName()
+  -- If facets come back
+  --[[
   if self:GetSpecialValueFor("spell_crit_chance") <= 0 then
     return "modifier_sohei_momentum_passive"
   else
     return "modifier_sohei_momentum_spell_crit"
   end
+  ]]
+  return "modifier_sohei_momentum_passive"
 end
 
 function sohei_momentum:ShouldUseResources()
@@ -66,12 +69,21 @@ function modifier_sohei_momentum_passive:OnCreated()
   self.attackPrimed = false -- necessary for cases when sohei starts an attack while moving
   -- i.e. force staff
   -- and gets charged before the attack finishes, causing an attack with knockback but no crit
+  self:OnRefresh()
   if IsServer() then
     self:StartIntervalThink( 1 / 30 )
   end
 end
 
 function modifier_sohei_momentum_passive:OnRefresh()
+  self.spell_crit_chance = 20 / 100
+  self.spell_crit_dmg = 120 / 100
+  self.fail_counter = 0
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_crit_chance = ability:GetSpecialValueFor("spell_crit_chance") / 100
+    self.spell_crit_dmg = ability:GetSpecialValueFor("spell_crit_damage") / 100
+  end
   if IsServer() then
     self:OnIntervalThink()
   end
@@ -96,6 +108,7 @@ if IsServer() then
     return {
       MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
       MODIFIER_EVENT_ON_ATTACK_LANDED,
+      MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
   end
 
@@ -222,9 +235,119 @@ if IsServer() then
     -- start momentum cooldown
     spell:UseResources(false, false, false, true)
   end
+
+  function modifier_sohei_momentum_passive:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local dmg_flags = event.damage_flags
+    local damage = event.original_damage
+
+    -- Check if parent is affected by break
+    if parent:PassivesDisabled() then
+      return
+    end
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Ignore self damage
+    if damaged_unit == parent then
+      return
+    end
+
+    -- Check if entity is an item, rune or something weird
+    if damaged_unit.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards, invulnerable and dead units.
+    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() or not damaged_unit:IsAlive() then
+      return
+    end
+
+    -- Ignore damage with no-reflect flag
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      return
+    end
+
+    -- Ignore damage with HP removal flag
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+      return
+    end
+
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with simulated Spell Crit)
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+      return
+    end
+
+    -- Can't crit on 0 or negative damage
+    if damage <= 0 then
+      return
+    end
+
+    -- Ignore attacks
+    if event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+      return
+    end
+
+    local inflictor = event.inflictor
+
+    if not inflictor or inflictor:IsNull() then
+      return
+    end
+
+    if not inflictor.IsItem or not inflictor.GetAbilityName then
+      return
+    end
+
+    -- Ignore items
+    if inflictor:IsItem() then
+      return
+    end
+
+    -- Get number of failures
+    local prngMult = self.fail_counter + 1
+
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(self.spell_crit_chance) * prngMult) then
+      -- Reset failure count
+      self.fail_counter = 0
+
+      -- Simulate spell crit by doing extra damage
+      local damage_table = {
+        victim = damaged_unit,
+        attacker = parent,
+        damage = (self.spell_crit_dmg - 1) * damage,
+        damage_type = event.damage_type,
+        damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+        ability = inflictor,
+      }
+
+      ApplyDamage(damage_table)
+
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, damaged_unit, damage + damage_table.damage, nil)
+    else
+      -- Increment number of failures
+      self.fail_counter = prngMult
+    end
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
+--[[
+LinkLuaModifier("modifier_sohei_momentum_spell_crit", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_sohei_momentum_spell_crit = class(ModifierBaseClass)
 
@@ -317,7 +440,7 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Spell Crit)
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with simulated Spell Crit)
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
       return
     end
@@ -416,6 +539,7 @@ if IsServer() then
     end
   end
 end
+]]
 
 --[[
 --------------------------------------------------------------------------------

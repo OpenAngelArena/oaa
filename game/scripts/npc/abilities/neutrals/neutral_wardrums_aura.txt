@@ -15,17 +15,17 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     //"IsBreakable"                                         "1"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed_bonus" //OAA
+      "speed_bonus" //OAA, intentionally rescaled
       {
         "value"                                           "10 15 20 25"
       }
-      "accuracy" //OAA
+      "accuracy" //OAA, intentionally buffed
       {
         "value"                                           "40 45 50 55"
       }

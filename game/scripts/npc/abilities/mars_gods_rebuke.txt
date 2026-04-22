@@ -5,13 +5,13 @@
   //=================================================================================================================
   "mars_gods_rebuke"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,10 +34,10 @@
       "knockback_slow"                                    "40"
       "activity_duration"                                 "2"
       "bonus_damage_vs_heroes"                            "5 10 15 20 40 60"
-      "crit_mult" //OAA
+      "crit_mult" //OAA, because of special_bonus_unique_mars_gods_rebuke_extra_crit buff
       {
-        "value"                                           "150 200 250 300 300 300"
-        "special_bonus_unique_mars_gods_rebuke_extra_crit"  "+65"
+        "value"                                           "150 200 250 300 350 400"
+        "special_bonus_unique_mars_gods_rebuke_extra_crit"  "+85"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "radius"

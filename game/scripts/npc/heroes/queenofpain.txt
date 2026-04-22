@@ -1,7 +1,7 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Queen of Pain
+  // HERO: Queen of Pain FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_queenofpain"
   {
@@ -20,14 +20,14 @@
     //"Ability17"                                           "special_bonus_unique_queen_of_pain_7"
 
     // special_bonus_unique_queen_of_pain - AoE Shadow Strike                                    - scepter does this
-    // special_bonus_unique_queen_of_pain_1 - Attack Speed against Shadow Striked units
-    // special_bonus_unique_queen_of_pain_2 - Scream of Pain Damage
-    // special_bonus_unique_queen_of_pain_3 - Sonic Wave Cooldown
-    // special_bonus_unique_queen_of_pain_4 - Shadow Strike Damage Interval                      - terrible
-    // special_bonus_unique_queen_of_pain_5 - Sonic Wave Fear                                    - unused
-    // special_bonus_unique_queen_of_pain_6 - Blink Cooldown                                     - annoying
-    // special_bonus_unique_queen_of_pain_7 - Sonic Wave Damage
+    // special_bonus_unique_queen_of_pain_1 - Attack Speed against Shadow Striked units          - 10
+    // special_bonus_unique_queen_of_pain_2 - Scream of Pain Damage                              - 20
+    // special_bonus_unique_queen_of_pain_3 - Sonic Wave Cooldown                                - 20
+    // special_bonus_unique_queen_of_pain_4 - Shadow Strike Damage Interval                      - 15 -> 0, terrible
+    // special_bonus_unique_queen_of_pain_5 -                                                    - unused
+    // special_bonus_unique_queen_of_pain_6 - Blink Cooldown                                     - 25, annoying
+    // special_bonus_unique_queen_of_pain_7 - Sonic Wave Damage                                  - 25
     // special_bonus_unique_queen_of_pain_strike_heal - Shadow Strike Heal Per Tick              - unused
-    // special_bonus_unique_queen_of_pain_4_oaa - Shadow Strike Duration Damage                  - custom talent
+    // special_bonus_unique_queen_of_pain_4_oaa - Shadow Strike Duration Damage                  - 15, custom talent
   }
 }

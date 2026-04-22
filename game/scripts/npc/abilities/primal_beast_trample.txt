@@ -1,41 +1,41 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Primal Beast: Trample
+  // Primal Beast: Trample FIXEDFUCK
   //=================================================================================================================
   "primal_beast_trample"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 105 110 115 120 125" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "step_distance"                                     "140"
-      "duration"                                          "5.5"
       "effect_radius"
       {
         "value"                                           "230"
         "affected_by_aoe_increase"                        "1"
       }
+      "step_distance"                                     "140"
       "base_damage"
       {
         "value"                                           "15 30 45 60 120 180"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "duration"                                          "5.5"
       "attack_damage" //OAA, intentionally rescaled
       {
         "value"                                           "20 25 30 35 40 45"

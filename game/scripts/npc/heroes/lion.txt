@@ -1,11 +1,10 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Lion
+  // HERO: Lion FIXEDFUCK
   //=================================================================================================================
   "npc_dota_hero_lion"
   {
-    "MovementSpeed"                                       "310"
-    "MovementTurnRate"                                    "0.8"
+    "MovementTurnRate"                                    "0.8" // Valve has a typo: TurnRate instead of MovementTurnRate
   }
 }

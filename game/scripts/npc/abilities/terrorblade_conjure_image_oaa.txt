@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Terrorblade: Conjure Image (OAA Rework) - needed for the custom facet
+  // Terrorblade: Conjure Image (OAA Rework) FIXEDFUCK
   //=================================================================================================================
   "terrorblade_conjure_image_oaa"
   {
@@ -32,9 +32,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_duration"
+      "illusion_duration" // intentionally less than vanilla because of cd buff
       {
-        "value"                                           "34.0"
+        "value"                                           "29"
         "special_bonus_unique_terrorblade_5"              "+8"
       }
       "illusion_outgoing_damage"
@@ -45,13 +45,13 @@
       {
         "value"                                           "25 30 35 40 50 60"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" // intentionally scales
       {
-        "value"                                           "16"
+        "value"                                           "16 15 14 13 12 11"
         "special_bonus_unique_terrorblade_4"              "-2"
       }
-      "illusion_incoming_damage"                          "175 150 125 100 75 50"
-      "illusion_incoming_damage_total_tooltip"            "275 250 225 200 175 150"
+      "illusion_incoming_damage"                          "150 125 100 75 50 25" // intentionally scales
+      "illusion_incoming_damage_total_tooltip"            "250 225 200 175 150 125" // intentionally scales
       "creep_illusion_outgoing_damage"
       {
         "value"                                           "-45 -40 -35 -30 -20 -10"

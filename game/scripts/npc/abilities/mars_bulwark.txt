@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mars Bulwark
+  // Mars: Bulwark FIXEDFUCK
   //=================================================================================================================
   "mars_bulwark"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -36,13 +36,13 @@
         "value"                                           "70"
         "special_bonus_unique_mars_bulwark_redirect_chance"  "+30"
       }
-      "redirect_speed_penatly" //OAA penatly x)
+      "redirect_speed_penatly" //OAA. intentionally buffed; penatly x)
       {
-        "value"                                           "18"
+        "value"                                           "0"
       }
-      "redirect_close_range" //OAA, same as Mars attack range
+      "redirect_close_range" //OAA, intentionally buffed; same as Mars attack range
       {
-        "value"                                           "200"
+        "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
       "soldier_count"
@@ -51,16 +51,16 @@
       "soldier_offset"
       {
       }
-      "scepter_movement_slow_pct" //OAA
+      "scepter_movement_slow_pct"
       {
-        "special_bonus_scepter"                           "20 25 30 35 40 45"
+
       }
       "scepter_movement_slow_duration"
       {
       }
-      "scepter_bonus_damage" //OAA
+      "scepter_bonus_damage"
       {
-        "special_bonus_scepter"                           "60 65 70 75 150 225"
+
       }
       "stationary_attack_delay"
       {

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Grimstroke: Phantom's Embrace
+  // Grimstroke: Phantom's Embrace FIXEDFUCK
   //=================================================================================================================
   "grimstroke_ink_creature"
   {
@@ -38,28 +38,28 @@
       "spawn_time"                                        "0.0"
       "speed"                                             "1150"
       "latch_duration"                                    "5"
-      "hero_attack_multiplier"                            "3"
-      "enemy_vision_time"                                 "4"
-      "tick_interval"                                     "0.5"
-      "pop_damage"                                        "120 200 280 360 720 1440"
-      "return_projectile_speed"                           "1150"
-      "latched_unit_offset"                               "130"
-      "latched_unit_offset_short"                         "95"
-      "destroy_attacks"
+      "destroy_attacks" // intentionally scales poorly
       {
         "value"                                           "6 6 9 9 9 9"
         "special_bonus_unique_grimstroke_4"               "+3"
       }
+      "hero_attack_multiplier"                            "3"
       "damage_per_second"
       {
         "value"                                           "10 20 30 40 80 160"
         "special_bonus_unique_grimstroke_8"               "+65"
       }
-      "infection_search_radius"
+      "enemy_vision_time"                                 "4"
+      "tick_interval"                                     "0.5"
+      "infection_search_radius" // unused
       {
         "value"                                           "1000"
         "affected_by_aoe_increase"                        "1"
       }
+      "pop_damage"                                        "120 200 280 360 720 1080"
+      "return_projectile_speed"                           "1150"
+      "latched_unit_offset"                               "130"
+      "latched_unit_offset_short"                         "95"
     }
   }
 }

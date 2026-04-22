@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnataur: Empower
+  // Magnus: Empower FIXEDFUCK
   //=================================================================================================================
   "magnataur_empower"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -14,13 +13,14 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, because of Duel start
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -28,17 +28,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA
+    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "self_multiplier"                                   "30"
-      "always_on"                                         "1"
-      "self_multiplier_bonus_stack_duration"              "0"
-      "self_multiplier_bonus_max_stacks"                  "25 30 35 40 40 40"
-      "self_multiplier_bonus_per_stack"                   "5 6 7 8 8 8"
       "AbilityCastRange"
       {
         "value"                                           "800"
@@ -56,10 +51,9 @@
       {
         "value"                                           "16 24 32 40 48 56"
       }
-      "cleave_damage_pct" //OAA
+      "cleave_damage_pct" //OAA, intentionally buffed
       {
-        "value"                                           "16 24 32 40 40 40"
-        "special_bonus_unique_magnus_2"                   "+10"
+        "value"                                           "24 32 40 48 56 64"
       }
       "cleave_starting_width"
       {
@@ -80,6 +74,11 @@
       {
         "value"                                           "0"
       }
+      "self_multiplier"                                   "30"
+      "always_on"                                         "1"
+      "self_multiplier_bonus_stack_duration"              "0" // unused
+      "self_multiplier_bonus_max_stacks"                  "25 30 35 40 40 40" // unused
+      "self_multiplier_bonus_per_stack"                   "5 6 7 8 8 8" // unused
     }
   }
 }

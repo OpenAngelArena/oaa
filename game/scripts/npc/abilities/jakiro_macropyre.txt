@@ -1,18 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Jakiro: Macropyre
+  // Jakiro: Macropyre FIXEDFUCK
   //=================================================================================================================
   "jakiro_macropyre"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" // changes to Pure with scepter
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,8 +35,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burn_interval"                                     "0.5"
-      "linger_duration"                                   "1"
       "damage" //OAA, intentionally buffed
       {
         "value"                                           "100 175 250 400 550"
@@ -55,6 +54,8 @@
       {
         "value"                                           "1400"
       }
+      "burn_interval"                                     "0.5"
+      "linger_duration"                                   "1"
       "pure_damage_type"
       {
         "value"                                           "0"

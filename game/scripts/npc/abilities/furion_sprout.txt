@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nature's Prophet: Sprout
+  // Nature's Prophet: Sprout FIXEDFUCK
   //=================================================================================================================
   "furion_sprout"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -13,6 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE" //OAA, Valve has DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS because of Roshan maybe
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,13 +34,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "2.5 3 3.5 4 4.5 5"
       "vision_range"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "sprout_damage" //OAA, intentionally buffed both base values and talent
+      "duration"                                          "2.5 3 3.5 4 4.5 5"
+      "sprout_damage" //OAA, intentionally buffed both base values and the talent
       {
         "value"                                           "75 150 225 300 600 900"
         "special_bonus_unique_furion_4"                   "+200"

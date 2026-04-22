@@ -1,26 +1,27 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Terrorblade: Sunder
+  // Terrorblade: Sunder FIXEDFUCK
   //=================================================================================================================
   "terrorblade_sunder"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "475 500 525 550 575" //OAA
-    "AbilityCastPoint"                                    "0.35 0.3 0.25 0.2 0.15" //OAA
+    "AbilityCastRange"                                    "475 500 525 550 575" //OAA, intentionally buffed
+    "AbilityCastPoint"                                    "0.35 0.3 0.25 0.2 0.15" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,13 +46,13 @@
         "value"                                           "1"
         "special_bonus_facet_terrorblade_condemned"       "=0"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "110.0 75.0 40.0 40.0 40.0"
+        "value"                                           "60 55 50 45 40"
         "special_bonus_unique_terrorblade"                "-30"
       }
-      "cast_range_tooltip"                                "475 500 525 550 575" //OAA
-      "cast_point_tooltip"                                "0.35 0.3 0.25 0.2 0.15" //OAA
+      "cast_range_tooltip"                                "475 500 525 550 575" //OAA, for the tooltip
+      "cast_point_tooltip"                                "0.35 0.3 0.25 0.2 0.15" //OAA, for the tooltip
     }
   }
 }

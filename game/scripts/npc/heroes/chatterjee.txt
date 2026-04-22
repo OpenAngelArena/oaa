@@ -41,18 +41,21 @@
         "Icon"                                            "nuke"
         "Color"                                           "Blue"
         "GradientID"                                      "1"
+        "Deprecated"                                      "true"
       }
       "electrician_alternating_current"
       {
         "Icon"                                            "barrier"
         "Color"                                           "Red"
         "GradientID"                                      "0"
+        "Deprecated"                                      "true"
       }
       "electrician_no_current"
       {
         "Icon"                                            "damage"
         "Color"                                           "Gray"
         "GradientID"                                      "3"
+        "Deprecated"                                      "true"
       }
     }
 

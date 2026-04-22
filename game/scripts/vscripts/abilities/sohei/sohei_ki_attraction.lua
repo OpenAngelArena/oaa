@@ -410,7 +410,7 @@ if IsServer() then
     local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
     local total_damage = base_damage + bonus_damage
 
-    local heal_amount = total_damage * heal_ratio
+    local heal_amount = total_damage * heal_ratio * 0.01
 
     -- Healing
     --unit:Heal(heal_amount, ability) -- not affected by heal amp for some reason

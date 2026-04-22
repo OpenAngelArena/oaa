@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kunkka: Tidebringer
+  // Kunkka: Tidebringer FIXEDFUCK
   //=================================================================================================================
   "kunkka_tidebringer"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,9 +45,9 @@
         "value"                                           "35 70 105 140 280 420"
         "special_bonus_unique_kunkka_2"                   "+75"
       }
-      "cleave_damage" //OAA
+      "cleave_damage" //OAA, intentionally buffed
       {
-        "value"                                           "150"
+        "value"                                           "150 160 170 180 190 200"
         "special_bonus_unique_kunkka_4"                   "+80"
       }
       "movespeed_slow"

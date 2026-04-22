@@ -128,3 +128,42 @@ function IsFakeItemCustom(ability)
 
   return string.find(b, "DOTA_ABILITY_BEHAVIOR_IS_FAKE_ITEM")
 end
+
+-- Server-only
+function AllowedToRefresh(ability, notDuel)
+  if not ability or ability:IsNull() then
+    print("AllowedToRefresh: Passed ability parameter does not exist!")
+    return false
+  end
+  if type(ability) == "string" then
+    print("AllowedToRefresh: Passed ability parameter is a string, strings are not supported for AllowedToRefresh!")
+    return false
+  end
+  if not ability.GetAbilityName then
+    print("AllowedToRefresh: Passed ability parameter is not an ability!")
+    return false
+  end
+  -- notDuel is ommited in duels and savestate code
+  if not notDuel then
+    -- Non-ultimate abilities that shouldn't be refreshed in Duels
+    local exempt_ability_table = {
+      centaur_mount = true,
+      centaur_work_horse = true,
+      lycan_wolf_bite = true,
+      shadow_demon_demonic_cleanse = true,
+      undying_ceaseless_dirge = true,
+    }
+    return ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE and not exempt_ability_table[ability:GetAbilityName()]
+  else
+    -- used in Refresher item code
+    local exempt_ability_table = {
+      --dazzle_good_juju = true,
+      oaa_rearm = true,
+      riki_permanent_invisibility = true,
+      tinker_rearm = true,
+      --treant_natures_guise = true,
+      undying_ceaseless_dirge = true,
+    }
+    return not exempt_ability_table[ability:GetAbilityName()] and ability:IsRefreshable()
+  end
+end

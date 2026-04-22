@@ -35,7 +35,7 @@
     "AbilityValues"
     {
       "strike_damage"                                     "30 60 90 120 230 460"
-      "slow_amount"                                       "100"
+      "slow_amount"                                       "100" // same kv for ms and as slow
       "shard_ground_delay"                                "4"
       "AbilityCastRange"
       {

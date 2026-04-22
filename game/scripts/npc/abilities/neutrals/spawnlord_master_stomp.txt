@@ -14,7 +14,7 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
@@ -33,7 +33,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally rescaled
       {
         "value"                                           "125 250 500 1000"
       }

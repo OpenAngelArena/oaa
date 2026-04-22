@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kunkka: Ghostship
+  // Kunkka: Ghostship FIXEDFUCK
   //=================================================================================================================
   "kunkka_ghostship"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -21,10 +22,13 @@
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
 
+    // Damage
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "400 600 800 1200 2000" //OAA, intentionally buffed
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125 175 225 275 325"
-    "AbilityDamage"                                       "400 600 800 1200 2000" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,22 +36,17 @@
     {
       "tooltip_delay"                                     "3.1"
       "ghostship_distance"                                "2000"
-      "stun_duration"                                     "1.2"
-      "ghostship_speed"                                   "650"
-      "rum_factor"                                        "2"
-      "num_cannon_volleys"                                "3"
-      "base_cannon_rotation"                              "20"
-      "rotation_per_cannon"                               "12"
-      "initial_cannon_offset"                             "-150"
-      "distance_between_cannons"                          "75"
       "ghostship_width"
       {
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "AbilityCooldown" //OAA
+      "stun_duration"                                     "1.2"
+      "ghostship_speed"                                   "650"
+      "rum_factor"                                        "2"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "90 80 70 70 70"
+        "value"                                           "75 70 65 60 55"
       }
       "fleet_interval"
       {
@@ -81,15 +80,15 @@
       {
         "special_bonus_scepter"                           "100"
       }
+      "num_cannon_volleys"                                "3"
       "cannon_fire_interval"
       {
         "special_bonus_scepter"                           "0.78"
       }
-      "ghostship_absorb" //OAA
-      {
-        "value"                                           "30"
-        "special_bonus_unique_kunkka_rum"                 "+10"
-      }
+      "base_cannon_rotation"                              "20"
+      "rotation_per_cannon"                               "12"
+      "initial_cannon_offset"                             "-150"
+      "distance_between_cannons"                          "75"
     }
   }
 }

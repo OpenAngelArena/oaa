@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Faceless Void: Time Lock (OAA rework)
+  // Faceless Void: Time Lock (OAA rework) FIXEDFUCK
   //=================================================================================================================
   "faceless_void_time_lock_oaa"
   {
@@ -34,13 +34,12 @@
       "min_damage" // it should be vanilla value x 2
       {
         "value"                                           "36 44 52 60 120 180"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
+        "special_bonus_unique_faceless_void_3_oaa"        "+70"
       }
       "max_damage" // it should be at least: vanilla value x 4
       {
         "value"                                           "72 88 104 120 240 360"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3_oaa"
-        "LinkedSpecialBonusField"                         "value2"
+        "special_bonus_unique_faceless_void_3_oaa"        "+140"
       }
       "second_attack_delay"                               "0.4"
     }

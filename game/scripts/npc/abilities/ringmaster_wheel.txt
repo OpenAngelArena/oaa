@@ -1,18 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // RINGMASTER: The Wheel
+  // RINGMASTER: Wheel of Wonder
   //=================================================================================================================
   "ringmaster_wheel"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -23,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 75 70 65 60" //OAA
+    "AbilityCooldown"                                     "80 75 70 65 60" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,9 +40,9 @@
       "wheel_stun"                                        "2.5 2.75 3.0 3.25 3.5"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 100 150 250 350" //OAA
+      "aura_damage"                                       "50 100 150 250 350" //OAA, intentionally buffed
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 600 900 1500 2100" //OAA
+      "explosion_damage"                                  "300 600 900 1500 2100" //OAA, intentionally buffed
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"

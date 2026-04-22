@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Faceless Void: Time Dilation
+  // Faceless Void: Time Dilation FIXEDFUCK
   //=================================================================================================================
   "faceless_void_time_dilation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,35 +32,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "7 8 9 10 11 12"
-      "cooldown_percentage"                               "35 40 45 50 55 60" //OAA, intentionally rescaled
-      "base_damage"                                       "0"
       "radius"
       {
         "value"                                           "775"
         "affected_by_aoe_increase"                        "1"
       }
-      "slow"
+      "duration"                                          "7 8 9 10 11 12"
+      "slow" // same kv for ms and as slow
       {
         "value"                                           "4 5 6 7 8 9"
         "special_bonus_shard"                             "+5"
       }
-      "attack_slow_tooltip_only"
+      "attack_slow_tooltip_only" // tooltip only. actual value is in "slow"
       {
-        "value"                                           "4 5 6 7 7 7"
+        "value"                                           "4 5 6 7 8 9"
         "special_bonus_shard"                             "+5"
       }
+      "cooldown_percentage"                               "35 40 45 50 55 60" //OAA, intentionally rescaled
+      "base_damage"                                       "0"
       "damage_per_stack"
       {
         "value"                                           "4 6 8 10 20 40"
         "special_bonus_unique_faceless_void_6"            "+6"
       }
-      "self_movespeed_tooltip"
+      "self_movespeed_tooltip" // tooltip only. actual value is in "slow"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "=9 =10 =11 =12 =13 =14"
       }
-      "self_attackspeed_tooltip"
+      "self_attackspeed_tooltip" // tooltip only. actual value is in "slow"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "=9 =10 =11 =12 =13 =14"

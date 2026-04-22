@@ -1,24 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Templar Assassin Scepter
+  // Templar Assassin: Psionic Projection (scepter ability) FIXEDFUCK
   //=================================================================================================================
   "templar_assassin_trap_teleport"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong, casting while rooted only disabled internally
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // Valve forgot DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
 
     "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityChannelTime"                                  "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10"
+    "AbilityChannelTime"                                  "2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

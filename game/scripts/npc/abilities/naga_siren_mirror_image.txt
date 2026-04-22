@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Naga Siren: Mirror Image
+  // Naga Siren: Mirror Image FIXEDFUCK
   //=================================================================================================================
   "naga_siren_mirror_image"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -37,14 +37,14 @@
         "value"                                           "25 30 35 40 50 60"
         "special_bonus_unique_naga_siren_4"               "+10"
       }
-      "incoming_damage" //OAA
+      "incoming_damage" //OAA, intentionally buffed
       {
-        "value"                                           "250"
+        "value"                                           "225 200 175 150 125 100"
         "special_bonus_unique_naga_siren_3"               "-75"
       }
-      "tooltip_incoming_damage_total_pct" //OAA
+      "tooltip_incoming_damage_total_pct" //OAA, intentionally buffed
       {
-        "value"                                           "350"
+        "value"                                           "325 300 275 250 225 200"
         "special_bonus_unique_naga_siren_3"               "-75"
       }
       "images_count"
@@ -52,9 +52,9 @@
         "value"                                           "3"
         "special_bonus_unique_naga_siren"                 "+1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "40 35 30 25 25 25"
+        "value"                                           "28 27 26 25 24 23"
         "special_bonus_unique_naga_siren_6"               "-10"
       }
     }

@@ -18,14 +18,14 @@
       "proc_chance"                                       "25" //OAA, intentionally nerfed
       "mana_restore" //OAA, intentionally nerfed
       {
-        "value"                                           "25"
+        "value"                                           "28"
         "hero_levelup"                                    "+2"
         "levelup_interval"                                "5"
         "special_bonus_unique_outworld_devourer_flux_restore"  "+5"
       }
       "mana_restore_attack" //OAA, intentionally nerfed; mana_restore_attack is the same as mana_restore because of custom Arcane Orb
       {
-        "value"                                           "25"
+        "value"                                           "28"
         "hero_levelup"                                    "+2"
         "levelup_interval"                                "5"
         "special_bonus_unique_outworld_devourer_flux_restore"  "+5"

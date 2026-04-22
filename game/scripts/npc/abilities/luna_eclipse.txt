@@ -1,18 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Luna: Eclipse
+  // Luna: Eclipse FIXEDFUCK
   //=================================================================================================================
   "luna_eclipse"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -30,7 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "beam_interval_scepter"                             "0.3"
       "beams" //OAA
       {
         "value"                                           "6 9 12 15 18"
@@ -38,9 +38,10 @@
       }
       "beam_interval"
       {
-        "value"                                           "0.6 0.6 0.6 0.6 0.6"
+        "value"                                           "0.6"
         "special_bonus_scepter"                           "-0.3"
       }
+      "beam_interval_scepter"                             "0.3" // for the tooltip only
       "radius"
       {
         "value"                                           "675"

@@ -1,28 +1,28 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Templar Assassin: Meld
+  // Templar Assassin: Meld FIXEDFUCK
   //=================================================================================================================
   "templar_assassin_meld"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "11 9 7 5 5 5"
+    "AbilityCooldown"                                     "11 9 7 5 4 3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
     {
       "bonus_damage"
       {
-        "value"                                           "50 100 150 200 400 800"
+        "value"                                           "50 100 150 200 400 600"
       }
       "bonus_armor"
       {

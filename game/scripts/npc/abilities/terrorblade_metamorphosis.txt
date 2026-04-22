@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Terrorblade: Metamorphosis
+  // Terrorblade: Metamorphosis FIXEDFUCK
   //=================================================================================================================
   "terrorblade_metamorphosis"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -26,17 +27,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "duration" //OAA, intentionally nerfed both base values and the talent because of the cd buff
+      {
+        "value"                                           "20 22 24 26 28 30"
+        "special_bonus_unique_terrorblade_3"              "+20"
+      }
       "transformation_time"                               "0.35"
       "base_attack_time"                                  "1.5"
       "bonus_range"                                       "300 350 400 450 500 550"
       "tooltip_attack_range"                              "450 500 550 600 650 700"
       "bonus_damage"                                      "20 40 60 80 160 240"
       "speed_loss"                                        "0"
-      "duration" //OAA, intentionally nerfed
-      {
-        "value"                                           "20 22 24 26 28 30"
-        "special_bonus_unique_terrorblade_3"              "+20"
-      }
       "metamorph_aura_tooltip"
       {
         "value"                                           "1200"

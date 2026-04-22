@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lich: Frost Shield
+  // Lich: Frost Shield FIXEDFUCK
   //=================================================================================================================
   "lich_frost_shield"
   {
@@ -36,9 +36,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                     "20 25 30 35 40 45"
-      "slow_duration"                                     "0.5"
-      "interval"                                          "1.0"
       "damage_reduction"
       {
         "value"                                           "45 50 55 60 65 70"
@@ -46,11 +43,14 @@
         "special_bonus_unique_lich_8"                     "+10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "movement_slow"                                     "20 25 30 35 40 45"
+      "slow_duration"                                     "0.5"
       "damage"
       {
         "value"                                           "18 32 46 60 120 240"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "interval"                                          "1.0"
       "radius"
       {
         "value"                                           "600"

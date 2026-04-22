@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Croak of Genius
+  // LARGO: Croak of Genius FIXEDFUCK
   //=================================================================================================================
   "largo_croak_of_genius"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -30,10 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_threshold"                                  "0"
-      "duration"                                          "20 22 24 26 28 30" //OAA, intentionally rescaled
-      "duration_reduction"                                "0.5"
-      "max_distance"                                      "2000"
       "damage_per_second"
       {
         "value"                                           "0"
@@ -59,14 +55,18 @@
       {
         "value"                                           "0"
       }
-      "AbilityCooldown"
+      "damage_threshold"                                  "0"
+      "duration"                                          "15 16 17 18 19 20" //OAA, intentionally nerfed
+      "duration_reduction"                                "0.5"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "25"
+        "value"                                           "25 24 23 22 21 20"
       }
       "AbilityCharges"
       {
         "value"                                           "0"
       }
+      "max_distance"                                      "2000"
       "damage_aoe"
       {
         "value"                                           "0"

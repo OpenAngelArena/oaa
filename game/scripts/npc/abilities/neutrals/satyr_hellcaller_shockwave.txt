@@ -13,7 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "4"
+    "MaxLevel"                                            "4" //OAA, intentionally
 
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.5"
@@ -24,7 +24,7 @@
     "AbilityManaCost"                                     "100"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "120 240 480 960" //OAA
+    "AbilityDamage"                                       "120 240 480 960" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

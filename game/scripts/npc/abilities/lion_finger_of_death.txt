@@ -1,17 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lion: Finger of Death
+  // Lion: Finger of Death FIXEDFUCK
   //=================================================================================================================
   "lion_finger_of_death"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,11 +21,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 55 40 40 40" //OAA
+    "AbilityCooldown"                                     "50 45 40 35 30" //OAA, intentionally rescaled
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,20 +35,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "grace_period"                                      "3"
-      "punch_bonus_movespeed"                             "30"
-      "punch_attack_range"                                "250"
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "600 725 850 850 850"
+        "value"                                           "600 800 1000 1600 2200"
         "special_bonus_scepter"                           "+100"
       }
-      "damage_per_kill" //OAA
+      "damage_per_kill" //OAA, intentionally buffed both base value and the talent
       {
-        "value"                                           "30"
-        "special_bonus_unique_lion_8"                     "+20"
+        "value"                                           "60"
+        "special_bonus_unique_lion_8"                     "+30"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "grace_period"                                      "3"
       "damage_delay"
       {
         "value"                                           "0.25"
@@ -58,9 +57,11 @@
         "value"                                           "20"
         "special_bonus_scepter"                           "+10"
       }
+      "punch_bonus_movespeed"                             "30"
+      "punch_attack_range"                                "250"
       "punch_bonus_damage_base"
       {
-        "value"                                           "20 30 40 40 40"
+        "value"                                           "20 30 40 50 60"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
@@ -90,10 +91,6 @@
       {
         "special_bonus_scepter"                           "325"
         "affected_by_aoe_increase"                        "1"
-      }
-      "cooldown_scepter" //OAA
-      {
-        "special_bonus_scepter"                           "40 35 30 25 20"
       }
     }
   }

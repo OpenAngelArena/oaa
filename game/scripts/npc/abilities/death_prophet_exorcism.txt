@@ -18,11 +18,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "120" //OAA, intentionally buffed
     "AbilityDuration"                                     "40"
 
     // Cost
@@ -64,7 +64,7 @@
       "duration_increase_per_kill" //OAA, because of special_bonus_unique_death_prophet_exorcism_duration_on_kill nerf
       {
         "value"                                           "0"
-        "special_bonus_unique_death_prophet_exorcism_duration_on_kill"  "+6"
+        "special_bonus_unique_death_prophet_exorcism_duration_on_kill"  "+4"
       }
       "building_dmg_pct"                                  "150" //OAA, additional effect; percentage bonus damage against bosses
     }

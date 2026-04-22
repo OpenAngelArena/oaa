@@ -20,10 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 12 10 8 8 8"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -63,7 +59,7 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "AbilityManaCost" // redundant
+      "AbilityManaCost"
       {
         "value"                                           "0"
         "special_bonus_facet_bloodseeker_old_blood"       "=60"

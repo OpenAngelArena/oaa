@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lycan: Howl
+  // Lycan: Howl FIXEDFUCK
   //=================================================================================================================
   "lycan_howl"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"
+
+    "MaxLevel"                                            "6" // check max_level kv
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
@@ -33,7 +33,7 @@
     {
       "howl_duration"                                     "8"
       "fear_duration"                                     "0"
-      "attack_damage_reduction" //OAA, intentionally nerfed
+      "attack_damage_reduction" //OAA, intentionally rescaled
       {
         "value"                                           "25 28 31 34 37 40"
         "CalculateSpellDamageTooltip"                     "0"

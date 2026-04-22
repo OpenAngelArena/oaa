@@ -8,12 +8,13 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE" //OAA, Valve added DOTA_UNIT_TARGET_FLAG_NO_INVIS for some reason
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -22,7 +23,10 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "10.0"
 
     // Cost
@@ -34,9 +38,9 @@
     "AbilityValues"
     {
       "health_to_mana_rate"                               "0"
-      "tick_rate"                                         "0.25 0.25 0.25 0.25 0.25"
+      "tick_rate"                                         "0.25"
       "drain_buffer"                                      "200"
-      "health_drain" //OAA
+      "health_drain" //OAA, intentionally buffed
       {
         "value"                                           "150 300 450 750 1050"
         "CalculateSpellDamageTooltip"                     "1"
@@ -46,7 +50,7 @@
       {
         "value"                                           "0"
       }
-      "ally_healing" //OAA
+      "ally_healing" //OAA, intentionally buffed
       {
         "value"                                           "150 300 450 750 1050"
       }

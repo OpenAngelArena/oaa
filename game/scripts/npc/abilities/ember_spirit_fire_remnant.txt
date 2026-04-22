@@ -8,8 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -22,12 +23,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.1" //OAA, intentional buff
+    "AbilityCooldown"                                     "0.1" //OAA, intentionally buffed
+    "AbilityCharges"                                      "3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCharges"                                      "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +36,12 @@
     {
       "speed_multiplier"                                  "250"
       "duration"                                          "45.0"
-      "AbilityChargeRestoreTime" //OAA
+      "AbilityChargeRestoreTime" //OAA, intentionally buffed
       {
         "value"                                           "25.0"
         "special_bonus_unique_ember_spirit_5"             "-12"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
         "value"                                           "100 250 400 850 1300"
         "CalculateSpellDamageTooltip"                     "1"

@@ -5,20 +5,20 @@
   //=================================================================================================================
   "gyrocopter_call_down"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,14 +37,14 @@
       {
         "value"                                           "1000"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled
       {
-        "value"                                           "90 75 60 60 60"
+        "value"                                           "75 70 65 60 55"
         "special_bonus_unique_gyrocopter_5"               "-40"
       }
-      "damage" //OAA
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "200 350 500 500 500"
+        "value"                                           "200 500 800 1700 2600"
       }
       "radius"
       {

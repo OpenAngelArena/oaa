@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lycan: Wolf Bite (scepter ability)
+  // Lycan: Wolf Bite (scepter ability) FIXEDFUCK
   //=================================================================================================================
   "lycan_wolf_bite"
   {
@@ -13,12 +13,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "5" // same as Shapeshift
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,13 +28,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "lifesteal_percent"                                 "32 34 36 38 40" //OAA, depends on Shapeshift lvl
-      "attack_range"                                      "150"
+      "lifesteal_percent"                                 "32 34 36 38 40" //OAA, intentionally nerfed
       "lifesteal_range"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
+      "attack_range"                                      "150"
       "AbilityCooldown"
       {
         "value"                                           "110 100 90 85 80"

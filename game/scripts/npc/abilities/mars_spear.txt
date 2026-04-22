@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -39,9 +39,9 @@
       "activity_duration"                                 "1.7"
       "knockback_duration"                                "0.25"
       "knockback_distance"                                "75"
-      "damage" //OAA, because of special_bonus_unique_mars_spear_bonus_damage
+      "damage"
       {
-        "value"                                           "100 175 250 325 325 325"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_mars_spear_bonus_damage"    "+100"
       }
       "spear_width"
@@ -73,9 +73,9 @@
         "special_bonus_shard"                             "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_dps" //OAA
+      "shard_dps" //OAA, intentionally rescaled
       {
-        "special_bonus_shard"                             "40"
+        "special_bonus_shard"                             "25 30 35 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "shard_move_slow_pct"

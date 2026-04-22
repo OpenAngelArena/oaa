@@ -149,7 +149,7 @@ function modifier_serpent_ward_global_aura_effect:GetModifierPreAttack_BonusDama
   -- because Valve randomly deletes or rename their kvs; used GetLevelSpecialValueFor to get value at specific lvl, used 3-1 for clarity
   local bonusDamage = wardDamage - mass_serpent_wards_custom:GetLevelSpecialValueFor("damage_tooltip", 3-1)
 
-  -- We cannot indentify Urnaconda ward so we will asumme that only Urnaconda wards are found
+  -- We cannot identify Urnaconda ward so we will asumme that only Urnaconda wards are found
   local dmgMultiplier = mass_serpent_wards_vanilla:GetSpecialValueFor("mega_ward_multiplier_damage")
 
   return bonusDamage * dmgMultiplier
