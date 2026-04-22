@@ -5,7 +5,6 @@
   //=================================================================================================================
   "razor_static_link"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -14,13 +13,14 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,16 +36,16 @@
     {
       "drain_duration"                                    "12 14 16 18 18 18"
       "drain_range_buffer"                                "250"
-      "radius"                                            "200 200 200 200 200 200"
-      "speed"                                             "900 900 900 900 900 900"
-      "vision_duration"                                   "3.34 3.34 3.34 3.34 3.34 3.34"
+      "radius"                                            "200"
+      "speed"                                             "900"
+      "vision_duration"                                   "3.34"
       "drain_length"
       {
         "value"                                           "10"
       }
       "drain_rate"
       {
-        "value"                                           "6 12 18 24 40 60"
+        "value"                                           "6 12 18 24 36 48"
         "special_bonus_unique_razor"                      "+5"
       }
       "attack_speed_factor"

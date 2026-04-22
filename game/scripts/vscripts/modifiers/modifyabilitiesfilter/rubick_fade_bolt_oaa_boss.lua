@@ -15,7 +15,7 @@ function modifier_rubick_fade_bolt_debuff_oaa_boss:IsPurgable()
 end
 
 function modifier_rubick_fade_bolt_debuff_oaa_boss:OnCreated()
-  self.damage_reduction = -30
+  self.damage_reduction = -25
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then

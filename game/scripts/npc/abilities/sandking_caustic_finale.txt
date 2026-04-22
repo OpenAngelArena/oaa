@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Caustic Finale (Innate)
+  // Sand King: Caustic Finale (Innate) FIXEDFUCK
   //=================================================================================================================
   "sandking_caustic_finale"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "1"
 
@@ -18,7 +18,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "caustic_finale_duration"                           "4.5"
       "caustic_finale_radius"
       {
         "value"                                           "400"
@@ -35,6 +34,7 @@
         "value"                                           "2.5"
         "hero_levelup"                                    "+0.5"
       }
+      "caustic_finale_duration"                           "4.5"
     }
   }
 }

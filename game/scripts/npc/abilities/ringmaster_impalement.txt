@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       "damage_impact"
       {
         "value"                                           "20 35 50 65 130 195"
-        "special_bonus_unique_ringmaster_dagger_impact_damage"  "+100"
+        "special_bonus_unique_ringmaster_dagger_impact_damage"  "+100" // unused
       }
       "bleed_duration"
       {

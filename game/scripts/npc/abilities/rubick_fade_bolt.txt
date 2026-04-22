@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rubick: Fade Bolt
+  // Rubick: Fade Bolt FIXEDFUCK
   //=================================================================================================================
   "rubick_fade_bolt"
   {
@@ -58,9 +58,9 @@
         "special_bonus_unique_rubick_3"                   "-3"
       }
       "steals_damage"                                     "0" // unused
-      "damage_reduction_bosses" //OAA, additional effect, unused, needed if normal damage_reduction goes >= 50%
+      "damage_reduction_bosses" //OAA, additional effect, unused, needed ONLY if normal damage_reduction goes >= 50%
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "value"                                           "15 20 25 30 35 40"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
