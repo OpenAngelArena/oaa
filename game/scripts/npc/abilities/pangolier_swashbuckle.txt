@@ -37,7 +37,7 @@
       "damage_penalty"                                    "25"
       "AbilityCooldown" //OAA, intentionally rescaled because of farming speed
       {
-        "value"                                           "14 13 12 11 10 9"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_pangolier_4"                "-2"
       }
       "range"
@@ -50,7 +50,7 @@
         "value"                                           "35 65 95 125 250 375"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "attack_damage" // percentage of attack damage
+      "attack_damage" // percentage of Pangolier's total attack damage
       {
         "value"                                           "0"
         "special_bonus_unique_pangolier_3"                "+20"
