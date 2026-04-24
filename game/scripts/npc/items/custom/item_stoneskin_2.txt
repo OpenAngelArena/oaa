@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/stoneskin.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin_2"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -77,6 +77,8 @@
       // Active stuff
       "stone_armor"                                       "100"
       "stone_deflect_chance"                              "25"
+      // item_enhancement_tough // TODO
+      //"knockback_resist"                                  "90"
       //"stone_move_speed"                                  "100"
       "duration"                                          "5.5"
     }

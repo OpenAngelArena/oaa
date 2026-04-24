@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/lucience.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "AbilityTextureName"                                  "custom/lucience"
 
     "AbilityCooldown"                                     "1"
