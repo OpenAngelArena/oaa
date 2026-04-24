@@ -2,12 +2,6 @@
 // Nullifier
 //===========================================================================
 "DOTA_Tooltip_ability_item_nullifier_Description"                               "<h1>Active: Nullify</h1> Continuously dispels and slows the target for %mute_duration% seconds.<br><br>Range: %abilitycastrange%<br>Projectile Speed: %projectile_speed%<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-//"DOTA_Tooltip_ability_item_nullifier_lore"                                      "A dangerous weapon pilfered from an inverse dimension."
-
-// "DOTA_Tooltip_modifier_item_nullifier_mute"                                    "Nullifier"
-// "DOTA_Tooltip_modifier_item_nullifier_mute_Description"                        "The target is being constantly dispelled. Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-// "DOTA_Tooltip_modifier_item_nullifier_slow"                                    "Nullifier Slow"
-// "DOTA_Tooltip_modifier_item_nullifier_slow_Description"                        "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 "DOTA_Tooltip_Ability_item_nullifier_2"                                         "#{DOTA_Tooltip_Ability_item_nullifier}"
 "DOTA_Tooltip_Ability_item_recipe_nullifier_2"                                  "#{DOTA_Tooltip_Ability_item_recipe_nullifier}"
