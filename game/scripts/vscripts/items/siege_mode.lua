@@ -197,7 +197,7 @@ function modifier_item_splash_cannon_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
     self:GetParent():ChangeAttackProjectile()
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -272,6 +272,8 @@ end
 
 function modifier_item_splash_cannon_passive:GetModifierAttackRangeBonus()
   local parent = self:GetParent()
+
+  -- Prevent working on melee heroes and stacking with other Splash Cannons
   if not parent:IsRangedAttacker() or self:GetStackCount() ~= 2 then
     return 0
   end
@@ -286,8 +288,8 @@ end
 
 if IsServer() then
   function modifier_item_splash_cannon_passive:OnAttackLanded(event)
-    -- Check if first item in inventory -> prevent the code below from executing multiple times for each Splash Cannon
-    if not self:IsFirstItemInInventory() then
+    -- Prevent triggering multiple Splash Cannons
+    if self:GetStackCount() ~= 2 then
       return
     end
 

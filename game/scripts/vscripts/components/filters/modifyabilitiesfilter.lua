@@ -116,8 +116,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
   end
 
-  if real_caster:HasModifier("modifier_item_nether_core") and modifier_duration ~= -1 and modifier_duration > 0.5 then
-    local nether_core_mod = real_caster:FindModifierByNameAndCaster("modifier_item_nether_core", real_caster)
+  if real_caster:HasModifier("modifier_item_nether_core_passive") and modifier_duration ~= -1 and modifier_duration > 0.5 then
+    local nether_core_mod = real_caster:FindModifierByNameAndCaster("modifier_item_nether_core_passive", real_caster)
     if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
       local nether_core_item = nether_core_mod:GetAbility()
       if nether_core_item then

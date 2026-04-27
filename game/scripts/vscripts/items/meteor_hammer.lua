@@ -128,18 +128,18 @@ function modifier_item_meteor_hammer_oaa_passives:GetModifierBonusStats_Intellec
   return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
--- Doesn't stack with Kaya items
 function modifier_item_meteor_hammer_oaa_passives:GetModifierMPRegenAmplify_Percentage()
   local parent = self:GetParent()
+  -- Prevent stacking with Kaya items
   if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") then
     return 0
   end
   return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 end
 
--- Doesn't stack with Kaya items
 function modifier_item_meteor_hammer_oaa_passives:GetModifierSpellAmplify_Percentage()
   local parent = self:GetParent()
+  -- Prevent stacking with Kaya items
   if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") then
     return 0
   end

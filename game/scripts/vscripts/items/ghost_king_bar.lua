@@ -232,11 +232,12 @@ function modifier_item_ghost_king_bar_passives:GetModifierManaBonus()
 end
 
 function modifier_item_ghost_king_bar_passives:GetModifierHealAmplify_PercentageSource()
-  if self:GetStackCount() == 2 then
-    return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
-  else
+  -- Prevent multiple Ghost King Bars stacking heal amplification
+  if self:GetStackCount() ~= 2 then
     return 0
   end
+
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
 end
 
 function modifier_item_ghost_king_bar_passives:IsAura()
@@ -266,7 +267,7 @@ end
 -- Add charges when abilities are cast by visible enemies
 if IsServer() then
   function modifier_item_ghost_king_bar_passives:OnAbilityExecuted(event)
-    -- Only the first item will get charges
+    -- Prevent multiple Ghost King Bars getting charges
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -494,8 +495,8 @@ function modifier_item_ghost_king_bar_active:CheckState()
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
 
-  -- Check for Muerta innate
-  if not parent:HasModifier("modifier_muerta_supernatural") then
+  -- Check for Muerta passive
+  if not parent:HasModifier("modifier_muerta_pierce_the_veil") then
     state[MODIFIER_STATE_DISARMED] = true
   end
 
@@ -540,7 +541,7 @@ end
 function modifier_item_ghost_king_bar_buff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
+    --self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
     self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
     self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
     self.heal_amp = ability:GetSpecialValueFor("buff_heal_increase")
@@ -551,16 +552,16 @@ modifier_item_ghost_king_bar_buff.OnRefresh = modifier_item_ghost_king_bar_buff.
 
 function modifier_item_ghost_king_bar_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, -- GetModifierMoveSpeedBonus_Percentage
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, -- GetModifierHealAmplify_PercentageTarget
   }
 end
 
-function modifier_item_ghost_king_bar_buff:GetModifierMagicalResistanceBonus()
-  return self.magic_resist or self:GetAbility():GetSpecialValueFor("buff_magic_resistance")
-end
+--function modifier_item_ghost_king_bar_buff:GetModifierMagicalResistanceBonus()
+  --return self.magic_resist or self:GetAbility():GetSpecialValueFor("buff_magic_resistance")
+--end
 
 function modifier_item_ghost_king_bar_buff:GetModifierStatusResistanceStacking()
   return self.status_resist or self:GetAbility():GetSpecialValueFor("buff_status_resistance")

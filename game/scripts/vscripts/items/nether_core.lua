@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_item_nether_core", "items/nether_core.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_nether_core_passive", "items/nether_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_nether_core_1 = class(ItemBaseClass)
 item_nether_core_2 = item_nether_core_1
@@ -7,37 +7,37 @@ item_nether_core_4 = item_nether_core_1
 item_nether_core_5 = item_nether_core_1
 
 function item_nether_core_1:GetIntrinsicModifierName()
-  return "modifier_item_nether_core"
+  return "modifier_item_nether_core_passive"
 end
 
 --------------------------------------------------------------------------------
 
-modifier_item_nether_core = class(ModifierBaseClass)
+modifier_item_nether_core_passive = class(ModifierBaseClass)
 
-function modifier_item_nether_core:IsHidden()
+function modifier_item_nether_core_passive:IsHidden()
   return true
 end
 
-function modifier_item_nether_core:IsDebuff()
+function modifier_item_nether_core_passive:IsDebuff()
   return false
 end
 
-function modifier_item_nether_core:IsPurgable()
+function modifier_item_nether_core_passive:IsPurgable()
   return false
 end
 
-function modifier_item_nether_core:GetAttributes()
+function modifier_item_nether_core_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_nether_core:OnCreated()
+function modifier_item_nether_core_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
     self:StartIntervalThink(0.3)
   end
 end
 
-function modifier_item_nether_core:OnRefresh()
+function modifier_item_nether_core_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.health = ability:GetSpecialValueFor("bonus_health")
@@ -53,7 +53,7 @@ function modifier_item_nether_core:OnRefresh()
   end
 end
 
-function modifier_item_nether_core:OnIntervalThink()
+function modifier_item_nether_core_passive:OnIntervalThink()
   if self:IsFirstItemInInventory() then
     self:SetStackCount(2)
   else
@@ -61,7 +61,7 @@ function modifier_item_nether_core:OnIntervalThink()
   end
 end
 
-function modifier_item_nether_core:DeclareFunctions()
+function modifier_item_nether_core_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
@@ -71,15 +71,15 @@ function modifier_item_nether_core:DeclareFunctions()
   }
 end
 
-function modifier_item_nether_core:GetModifierHealthBonus()
+function modifier_item_nether_core_passive:GetModifierHealthBonus()
   return self.health or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
-function modifier_item_nether_core:GetModifierManaBonus()
+function modifier_item_nether_core_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
-function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
+function modifier_item_nether_core_passive:GetModifierPercentageCooldown(keys)
   -- Prevent stacking with Octarine Core and other Nether Cores -> Octarine Core has higher priority
   if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetStackCount() ~= 2 then
     return 0
@@ -93,12 +93,12 @@ function modifier_item_nether_core:GetModifierPercentageCooldown(keys)
   return self.ability_cdr or self:GetAbility():GetSpecialValueFor("ability_cooldown_reduction")
 end
 
-function modifier_item_nether_core:GetModifierConstantManaRegen()
+function modifier_item_nether_core_passive:GetModifierConstantManaRegen()
   return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 if IsServer() then
-  function modifier_item_nether_core:GetModifierStatusResistanceCaster(keys)
+  function modifier_item_nether_core_passive:GetModifierStatusResistanceCaster(keys)
     -- Prevent multiple Nether Cores stacking the debuff duration decrease
     if self:GetStackCount() ~= 2 then
       return 0

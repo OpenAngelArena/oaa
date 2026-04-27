@@ -91,7 +91,7 @@ end
 
 function modifier_item_sacred_skull_passives:GetModifierPercentageCooldown()
   -- Prevent stacking with Octarine Core, Nether Core and other Sacred Skulls -> Octarine Core and Nether Core have higher priority, Octarine Core is highest priority
-  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetParent():HasModifier("modifier_item_nether_core") or self:GetStackCount() ~= 2 then
+  if self:GetParent():HasModifier("modifier_item_octarine_core") or self:GetParent():HasModifier("modifier_item_nether_core_passive") or self:GetStackCount() ~= 2 then
     return 0
   end
 
@@ -100,6 +100,7 @@ end
 
 if IsServer() then
   function modifier_item_sacred_skull_passives:OnTakeDamage(event)
+    -- Prevent triggering multiple Sacred Skulls
     if self:GetStackCount() ~= 2 then
       return
     end
@@ -294,7 +295,7 @@ if IsServer() then
 
     ApplyDamage(damage_table)
 
-    return -200
+    return -200 -- Simulates damage type conversion by reducing the original damage
   end
 end
 

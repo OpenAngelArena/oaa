@@ -59,12 +59,6 @@ function modifier_item_regen_crystal_passive:OnRefresh()
     if parent:IsHero() then
       parent:CalculateStatBonus(true)
     end
-    -- Check only on the server
-    if self:IsFirstItemInInventory() then
-      self:SetStackCount(2)
-    else
-      self:SetStackCount(1)
-    end
   end
 end
 
@@ -74,16 +68,7 @@ function modifier_item_regen_crystal_passive:OnIntervalThink()
       self:SetStackCount(2)
     else
       self:SetStackCount(1)
-      return -- no need to continue on the server if not the first item
     end
-  elseif self:GetStackCount() ~= 2 then
-    return -- no need to continue on the client
-  end
-
-  -- Checking if self.bonus_hp_regen is initialized just in case
-  if not self.bonus_hp_regen then
-    self:OnRefresh()
-    return
   end
 
   local parent = self:GetParent()
@@ -118,11 +103,12 @@ function modifier_item_regen_crystal_passive:GetModifierHealthBonus()
 end
 
 function modifier_item_regen_crystal_passive:GetModifierConstantHealthRegen()
-  if self:GetStackCount() == 2 then
-    return self.bonus_hp_regen
-  else
+  -- Prevent multiple Regen Crystals stacking health regen
+  if self:GetStackCount() ~= 2 then
     return 0
   end
+
+  return self.bonus_hp_regen
 end
 
 ---------------------------------------------------------------------------------------------------

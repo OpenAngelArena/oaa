@@ -148,6 +148,7 @@ end
 
 if IsServer() then
   function modifier_item_trumps_fists_passive:OnAttackLanded(event)
+    -- Prevent triggering multiple Blades of Judecca
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -185,7 +186,7 @@ if IsServer() then
       return
     end
 
-    -- Disable multiplicative stacking with Skadi
+    -- Disable stacking with Skadi
     if target:HasModifier("modifier_item_skadi_slow") then
       return
     end
@@ -294,7 +295,7 @@ if IsServer() then
       return
     end
 
-    -- Disable multiplicative stacking with Skadi
+    -- Disable stacking with Skadi
     if unit:HasModifier("modifier_item_skadi_slow") then
       return
     end

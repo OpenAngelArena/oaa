@@ -1,5 +1,4 @@
-LinkLuaModifier("modifier_item_giant_form_stacking_stats", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_giant_form_non_stacking_stats", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_giant_form_passive", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_giant_form_grow", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
@@ -7,14 +6,7 @@ LinkLuaModifier("modifier_item_giant_form_grow", "items/giant_form.lua", LUA_MOD
 item_giant_form = class(ItemBaseClass)
 
 function item_giant_form:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_giant_form:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_giant_form_stacking_stats",
-    "modifier_item_giant_form_non_stacking_stats"
-  }
+  return "modifier_item_giant_form_passive"
 end
 
 function item_giant_form:OnSpellStart()
@@ -31,52 +23,70 @@ item_giant_form_2 = item_giant_form
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_giant_form_stacking_stats = class(ModifierBaseClass)
+modifier_item_giant_form_passive = class(ModifierBaseClass)
 
-function modifier_item_giant_form_stacking_stats:IsHidden()
+function modifier_item_giant_form_passive:IsHidden()
   return true
 end
 
-function modifier_item_giant_form_stacking_stats:IsDebuff()
+function modifier_item_giant_form_passive:IsDebuff()
   return false
 end
 
-function modifier_item_giant_form_stacking_stats:IsPurgable()
+function modifier_item_giant_form_passive:IsPurgable()
   return false
 end
 
-function modifier_item_giant_form_stacking_stats:GetAttributes()
+function modifier_item_giant_form_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_giant_form_stacking_stats:OnCreated()
+function modifier_item_giant_form_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.3)
+  end
+end
+
+function modifier_item_giant_form_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.range = ability:GetSpecialValueFor("bonus_attack_range_melee")
+  end
+  if IsServer() then
+    self:OnIntervalThink()
   end
 end
 
-modifier_item_giant_form_stacking_stats.OnRefresh = modifier_item_giant_form_stacking_stats.OnCreated
+function modifier_item_giant_form_passive:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
 
-function modifier_item_giant_form_stacking_stats:DeclareFunctions()
+function modifier_item_giant_form_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
-function modifier_item_giant_form_stacking_stats:GetModifierConstantHealthRegen()
+function modifier_item_giant_form_passive:GetModifierConstantHealthRegen()
   return self.bonus_health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
-function modifier_item_giant_form_stacking_stats:GetModifierPreAttack_BonusDamage()
+function modifier_item_giant_form_passive:GetModifierPreAttack_BonusDamage()
   return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 if IsServer() then
-  function modifier_item_giant_form_stacking_stats:OnAttackLanded(event)
+  function modifier_item_giant_form_passive:OnAttackLanded(event)
     local parent = self:GetParent()
     if event.attacker ~= parent then
       return
@@ -130,39 +140,16 @@ if IsServer() then
   end
 end
 
----------------------------------------------------------------------------------------------------
+function modifier_item_giant_form_passive:GetModifierAttackRangeBonus()
+  local parent = self:GetParent()
 
-modifier_item_giant_form_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_giant_form_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_giant_form_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_giant_form_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_giant_form_non_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.range = ability:GetSpecialValueFor("bonus_attack_range_melee")
+  -- Prevent working on ranged heroes and stacking with other Giant Forms
+  if parent:IsRangedAttacker() or self:GetStackCount() ~= 2 then
+    return 0
   end
-end
 
-modifier_item_giant_form_non_stacking_stats.OnRefresh = modifier_item_giant_form_non_stacking_stats.OnCreated
-
-function modifier_item_giant_form_non_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-  }
-end
-
-function modifier_item_giant_form_non_stacking_stats:GetModifierAttackRangeBonus()
-  if self:GetParent():IsRangedAttacker() then
+  -- Prevent stacking with Monkey King Bar -> Monkey King Bar has higher priority
+  if parent:HasModifier("modifier_item_monkey_king_bar") then
     return 0
   end
 

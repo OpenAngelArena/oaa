@@ -74,7 +74,7 @@ end
 
 if IsServer() then
   function modifier_item_martyrs_mail_passive:OnDeath(event)
-    -- Only the first item will proc
+    -- Prevent triggering multiple Martyr Mails
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -129,8 +129,10 @@ if IsServer() then
 
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
-        -- Healing
-        ally:Heal(heal_amount, ability)
+        -- Healing (it should work with heal amp)
+        --ally:Heal(heal_amount, ability)
+        ally:HealWithParams(heal_amount, ability, false, true, parent, false)
+        -- Visual effect
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
         -- Buff
         ally:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_death_buff", {duration = effect_duration})

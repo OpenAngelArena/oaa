@@ -350,6 +350,7 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_Const
     return
   end
 
+  -- Prevent multiple Infused Staff stacking attack damage block
   if not self:IsFirstItemInInventory() then
     return
   end
@@ -396,6 +397,7 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return
   end
 
+  -- Prevent multiple Infused Staff stacking spell damage block
   if not self:IsFirstItemInInventory() then
     return
   end

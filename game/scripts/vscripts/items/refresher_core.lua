@@ -1,24 +1,8 @@
 LinkLuaModifier( "modifier_item_refresher_core", "items/refresher_core.lua", LUA_MODIFIER_MOTION_NONE )
 
-item_octarine_core_2 = class(ItemBaseClass)
-item_octarine_core_3 = item_octarine_core_2
-item_octarine_core_4 = item_octarine_core_2
-item_octarine_core_5 = item_octarine_core_2
-
-function item_octarine_core_2:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_octarine_core_2:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_spell_lifesteal_oaa",
-    "modifier_item_octarine_core"
-  }
-end
-
 --------------------------------------------------------------------------------
 
-item_refresher_core = class(item_octarine_core_2)
+item_refresher_core = class(ItemBaseClass)
 
 function item_refresher_core:GetIntrinsicModifierNames()
   return {
@@ -90,9 +74,6 @@ end
 function item_refresher_core:IsRefreshable()
   return false
 end
-
-item_refresher_core_2 = item_refresher_core --luacheck: ignore item_refresher_core_2
-item_refresher_core_3 = item_refresher_core --luacheck: ignore item_refresher_core_3
 
 --------------------------------------------------------------------------------
 

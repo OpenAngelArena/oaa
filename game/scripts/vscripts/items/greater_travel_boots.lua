@@ -174,7 +174,7 @@ end
 function modifier_item_greater_travel_boots_passives:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -186,10 +186,13 @@ function modifier_item_greater_travel_boots_passives:OnRefresh()
     self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
     self.boss_dmg = ability:GetSpecialValueFor("bonus_boss_damage")
   end
+  if IsServer() then
+    self:OnIntervalThink()
+  end
 end
 
 function modifier_item_greater_travel_boots_passives:OnIntervalThink()
-  if Duels:IsActive() and self:IsFirstItemInInventory() then
+  if Duels:IsActive() then
     self:SetStackCount(2)
   else
     self:SetStackCount(1)
@@ -210,17 +213,21 @@ function modifier_item_greater_travel_boots_passives:GetModifierMoveSpeedBonus_S
 end
 
 function modifier_item_greater_travel_boots_passives:GetModifierBaseDamageOutgoing_Percentage()
-  if self:GetStackCount() == 2 then
-    return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
+  -- Do not provide the bonus outside of Duels
+  if self:GetStackCount() ~= 2 then
+    return 0
   end
-  return 0
+
+  return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
 end
 
 function modifier_item_greater_travel_boots_passives:GetModifierSpellAmplify_Percentage()
-  if self:GetStackCount() == 2 then
-    return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp_during_duels")
+  -- Do not provide the bonus outside of Duels
+  if self:GetStackCount() ~= 2 then
+    return 0
   end
-  return 0
+
+  return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp_during_duels")
 end
 
 function modifier_item_greater_travel_boots_passives:GetModifierTotalDamageOutgoing_Percentage(event)

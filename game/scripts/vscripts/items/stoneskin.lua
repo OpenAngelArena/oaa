@@ -42,7 +42,7 @@ end
 function modifier_item_stoneskin_passives:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -85,11 +85,12 @@ function modifier_item_stoneskin_passives:GetModifierConstantHealthRegen()
 end
 
 function modifier_item_stoneskin_passives:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() == 2 then
-    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
-  else
+  -- Prevent multiple Stoneskin Armors stacking status resistance
+  if self:GetStackCount() ~= 2 then
     return 0
   end
+
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
 end
 
 ---------------------------------------------------------------------------------------------------

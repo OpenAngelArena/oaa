@@ -294,7 +294,7 @@ function modifier_electrician_electric_shield_default:GetModifierPhysical_Consta
   if IsServer() then
     return self.total_dmg_block
   else
-    return self.max_dmg_block
+    return self.max_dmg_block -- just for the tooltip
   end
 end
 

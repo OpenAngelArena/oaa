@@ -90,7 +90,8 @@ function modifier_item_far_sight_stacking_stats:OnCreated()
     -- DOTA_ATTRIBUTE_STRENGTH = 0
     -- DOTA_ATTRIBUTE_AGILITY = 1
     -- DOTA_ATTRIBUTE_INTELLECT = 2
-    -- DOTA_ATTRIBUTE_MAX = 3
+    -- DOTA_ATTRIBUTE_ALL = 3
+    -- DOTA_ATTRIBUTE_MAX = 4
     stats[DOTA_ATTRIBUTE_STRENGTH+1] = parent:GetBaseStrength() + parent:GetStrengthGain() * 49
     stats[DOTA_ATTRIBUTE_AGILITY+1] = parent:GetBaseAgility() + parent:GetAgilityGain() * 49
     stats[DOTA_ATTRIBUTE_INTELLECT+1] = parent:GetBaseIntellect() + parent:GetIntellectGain() * 49
@@ -258,7 +259,7 @@ end
 function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Aether Lens and Ethereal Blade
+  -- Prevent stacking with Aether Lens
   if parent:HasModifier("modifier_item_aether_lens") then
     return 0
   end

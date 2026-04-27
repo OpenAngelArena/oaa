@@ -136,7 +136,7 @@ function modifier_item_shade_staff_passive:OnRefresh()
     self.agi = ability:GetSpecialValueFor("bonus_all_stats")
     self.int = ability:GetSpecialValueFor("bonus_all_stats")
     --self.slow_resist = ability:GetSpecialValueFor("slow_resistance")
-    self.status_resist = ability:GetSpecialValueFor("status_resistance")
+    --self.status_resist = ability:GetSpecialValueFor("status_resistance")
     -- Stuff active only near trees:
     self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
     self.tree_radius = ability:GetSpecialValueFor("tree_radius")
@@ -190,7 +190,7 @@ function modifier_item_shade_staff_passive:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS, -- GetModifierBonusStats_Agility
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING, -- GetModifierSlowResistance_Stacking
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- GetModifierIncomingDamage_Percentage
   }
 end
@@ -215,14 +215,13 @@ function modifier_item_shade_staff_passive:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
--- Doesn't work, Thanks Valve!
 -- function modifier_item_shade_staff_passive:GetModifierSlowResistance_Stacking()
   -- return self.slow_resist or self:GetAbility():GetSpecialValueFor("slow_resistance")
 -- end
 
-function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
-  return self.status_resist or self:GetAbility():GetSpecialValueFor("status_resistance")
-end
+--function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
+  --return self.status_resist or self:GetAbility():GetSpecialValueFor("status_resistance")
+--end
 
 function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage() -- Tree Damage Reduction
   if self:GetStackCount() ~= 1 then

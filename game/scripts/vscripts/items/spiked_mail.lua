@@ -76,6 +76,7 @@ end
 
 if IsServer() then
   function modifier_item_spiked_mail_passives:OnTakeDamage(event)
+    -- Prevent multiple Spiked Mails stacking damage return
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -106,12 +107,12 @@ if IsServer() then
     end
 
     -- If there is a stronger reflection modifier, don't continue
-    --if parent:HasModifier("modifier_item_spiked_mail_active_return")  then
+    --if parent:HasModifier("modifier_item_spiked_mail_active_return") then
       --return
     --end
 
-    -- If parent has Blade Mail passive/item or Blade Mail buff, don't continue to prevent stacking
-    if parent:HasModifier("modifier_item_blade_mail") or parent:HasModifier("modifier_item_blade_mail_reflect") then
+    -- Prevent stacking with Blademail damage return
+    if parent:HasModifier("modifier_item_blade_mail") then
       return
     end
 

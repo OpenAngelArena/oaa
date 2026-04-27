@@ -81,6 +81,7 @@ end
 -- 3) Ignoring self and damage with hp removal flag
 if IsServer() then
   function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamageAfterReductions(event)
+    -- Prevent multiple Aeon Disks proccing
     if not self:IsFirstItemInInventory() then
       return 0
     end
