@@ -112,7 +112,7 @@ function modifier_item_enrage_crystal_passive:GetModifierSlowResistance_Stacking
   if self:GetStackCount() ~= 2 then
     return 0
   end
-  
+
   return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
 end
 
