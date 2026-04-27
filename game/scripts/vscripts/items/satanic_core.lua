@@ -99,11 +99,9 @@ function modifier_item_satanic_core:OnRefresh()
   end
 
   self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
-  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat / (3 * 0.45))
+  self.bonus_stat_for_universal = math.floor(self.bonus_to_primary_stat / (3 * 0.45))
   --self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
   --self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-  --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
-  --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
   --self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
   --self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mp_regen")
 

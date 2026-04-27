@@ -327,8 +327,8 @@ end
 function modifier_item_heart_transplant_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    --MODIFIER_PROPERTY_HEALTH_BONUS, -- does not work on creeps
-    MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS, -- does not work on creeps, thanks Valve
+    --MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS, -- does not work on creeps, thanks Valve
     MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
   }
 end
@@ -342,7 +342,6 @@ function modifier_item_heart_transplant_buff:GetModifierBonusStats_Strength()
   return 0
 end
 
---[[
 function modifier_item_heart_transplant_buff:GetModifierHealthBonus()
   local parent = self:GetParent()
   if self.hp and parent.GetHealth ~= nil then
@@ -351,8 +350,8 @@ function modifier_item_heart_transplant_buff:GetModifierHealthBonus()
 
   return 0
 end
-]]
 
+--[[
 function modifier_item_heart_transplant_buff:GetModifierExtraHealthBonus()
   local parent = self:GetParent()
   if self.hp and parent.GetHealth ~= nil then
@@ -361,6 +360,7 @@ function modifier_item_heart_transplant_buff:GetModifierExtraHealthBonus()
 
   return 0
 end
+]]
 
 function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()

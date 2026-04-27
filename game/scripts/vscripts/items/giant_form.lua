@@ -190,7 +190,7 @@ function modifier_item_giant_form_grow:OnRefresh()
   self.scale = ability:GetSpecialValueFor("giant_scale")
   self.bonus_to_primary_stat = ability:GetSpecialValueFor("giant_primary_attribute_bonus")
 
-  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat/3)
+  self.bonus_stat_for_universal = math.floor(self.bonus_to_primary_stat / (3 * 0.45))
 end
 
 if IsServer() then
