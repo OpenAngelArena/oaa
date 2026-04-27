@@ -95,8 +95,6 @@ function electrician_electric_shield:ProcMagicStick()
   return true
 end
 
---TODO: OnStolen (Rubick and Morphling)
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_electrician_electric_shield_default = class(ModifierBaseClass)
