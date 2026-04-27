@@ -2,7 +2,7 @@
 // Stoneskin Armor
 //========================================================================================
 "DOTA_Tooltip_Ability_item_stoneskin"                                           "Stoneskin Armor"
-"DOTA_Tooltip_Ability_item_stoneskin_Description"                               "<h1>Active: Stone Form</h1> Grants %stone_armor% armor and %stone_deflect_chance%%% chance to fully block incoming ranged attacks. Lasts %duration% seconds."
+"DOTA_Tooltip_Ability_item_stoneskin_Description"                               "<h1>Active: Stone Form</h1> Grants %stone_armor% armor, %knockback_resist%%% knockback resistance and %stone_deflect_chance%%% chance to fully block incoming ranged attacks but it reduces move speed limit to: caster's base move speed + %stone_max_move_speed_bonus%. Lasts %duration% seconds."
 "DOTA_Tooltip_Ability_item_stoneskin_Lore"                                      "Massive and hefty rock armor bestows incredible defense on the user."
 "DOTA_Tooltip_Ability_item_stoneskin_bonus_armor"                               "+$armor"
 "DOTA_Tooltip_Ability_item_stoneskin_bonus_health_regen"                        "+$hp_regen"
@@ -16,4 +16,4 @@
 "DOTA_Tooltip_Ability_item_stoneskin_2_bonus_status_resist"                     "#{DOTA_Tooltip_Ability_item_stoneskin_bonus_status_resist}"
 
 "DOTA_Tooltip_modifier_item_stoneskin_stone_armor"                              "Stone Form"
-"DOTA_Tooltip_modifier_item_stoneskin_stone_armor_Description"                  "+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and some incoming attack projectiles will do no damage."
+"DOTA_Tooltip_modifier_item_stoneskin_stone_armor_Description"                  "Bonus knockback resistance, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, some incoming attacks projectiles will do no damage and reduced move speed limit."
