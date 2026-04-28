@@ -34,8 +34,8 @@ if IsServer() then
         hasCooldown = ability:GetCooldown(-1) ~= 0
       end
       if caster and not caster:IsNull() then
-        if caster:HasModifier("modifier_item_nether_core") and not isItem and not (isPassive and not hasCooldown) then
-          local nether_core_mod = caster:FindModifierByNameAndCaster("modifier_item_nether_core", caster)
+        if caster:HasModifier("modifier_item_nether_core_passive") and not isItem and not (isPassive and not hasCooldown) then
+          local nether_core_mod = caster:FindModifierByNameAndCaster("modifier_item_nether_core_passive", caster)
           if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
             local nether_core_item = nether_core_mod:GetAbility()
             if nether_core_item then

@@ -401,11 +401,13 @@ if IsServer() then
       return
     end
 
+    -- Prevent triggering multiple Pull Staffs
     if not self:IsFirstItemInInventory() then
       return
     end
 
-    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") then
+    -- Prevent stacking with Harpoon or Echo Sabre and triggering while on cooldown
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") or parent:HasModifier("modifier_item_echo_sabre") then
       return
     end
 
@@ -433,11 +435,13 @@ if IsServer() then
       return
     end
 
+    -- Prevent triggering multiple Pull Staffs
     if not self:IsFirstItemInInventory() then
       return
     end
 
-    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") then
+    -- Prevent stacking with Harpoon or Echo Sabre and triggering while on cooldown
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") or parent:HasModifier("modifier_item_harpoon") or parent:HasModifier("modifier_item_echo_sabre") then
       return
     end
 

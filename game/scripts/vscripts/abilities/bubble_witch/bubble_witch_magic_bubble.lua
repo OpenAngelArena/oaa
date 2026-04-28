@@ -157,10 +157,9 @@ if IsServer() then
       return
     end
 
-    local heal = ability:GetSpecialValueFor("healing_dmg_ratio")
-    if heal > 0 then
-      local heal_amount = total_dmg
-      -- Healing
+    -- Healing the parent
+    local heal_amount = total_dmg * ability:GetSpecialValueFor("healing_dmg_ratio") * 0.01
+    if heal_amount > 0 and parent:IsAlive() then
       --parent:Heal(heal_amount, ability) -- not affected by heal amp for some reason
       parent:HealWithParams(heal_amount, ability, false, true, caster, false)
     end

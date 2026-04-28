@@ -11,7 +11,6 @@ end
 
 function item_satanic_core_1:GetIntrinsicModifierNames()
   return {
-    "modifier_item_bloodstone",
     "modifier_item_satanic_core",
     "modifier_item_spell_lifesteal_oaa",
   }
@@ -57,6 +56,7 @@ function item_bloodstone_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 
   -- Blood Pact (modifier_item_bloodstone_active is here mostly for the visuals)
+  -- modifier_item_spell_lifesteal_oaa handles spell lifesteal
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
 end
 
@@ -88,7 +88,7 @@ end
 function modifier_item_satanic_core:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -99,13 +99,15 @@ function modifier_item_satanic_core:OnRefresh()
   end
 
   self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
-  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat/3)
+  self.bonus_stat_for_universal = math.floor(self.bonus_to_primary_stat / (3 * 0.45))
   --self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
   --self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-  --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
-  --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
   --self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
   --self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mp_regen")
+
+  if IsServer() then
+    self:OnIntervalThink()
+  end
 end
 
 if IsServer() then
@@ -137,8 +139,7 @@ function modifier_item_satanic_core:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     --MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     --MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
-    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
-    --MODIFIER_PROPERTY_AOE_BONUS_CONSTANT, -- GetModifierAoEBonusConstant
+    --MODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING, -- GetModifierAoEBonusConstantStacking
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
   }
 end
@@ -181,19 +182,9 @@ end
   -- return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 -- end
 
--- function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
+-- function modifier_item_satanic_core:GetModifierAoEBonusConstantStacking(event)
   -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items and with itself
-  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
-    -- return 0
-  -- end
-  -- return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
--- end
-
--- Doesn't work, Thanks Valve
--- function modifier_item_satanic_core:GetModifierAoEBonusConstant(event)
-  -- local parent = self:GetParent()
-  -- Prevent stacking with Bloodstone and with itself
+  -- Prevent stacking with other aoe bonuses and with other Satanic Cores
   -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_bloodstone") then
     -- return 0
   -- end
@@ -225,7 +216,7 @@ function modifier_satanic_core_unholy:OnCreated()
   if ability and not ability:IsNull() then
     self.hero_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
     self.creep_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal")
-    self.dmg_to_mana = ability:GetSpecialValueFor("unholy_damage_dealt_to_mana")
+    --self.dmg_to_mana = ability:GetSpecialValueFor("unholy_damage_dealt_to_mana")
   end
 end
 
@@ -247,6 +238,7 @@ function modifier_satanic_core_unholy:OnTooltip2()
   return self.creep_lifesteal_tooltip
 end
 
+--[[
 if IsServer() then
   function modifier_satanic_core_unholy:OnTakeDamage(event)
     local parent = self:GetParent()
@@ -322,6 +314,7 @@ if IsServer() then
     end
   end
 end
+]]
 
 function modifier_satanic_core_unholy:GetEffectName()
   return "particles/items2_fx/satanic_buff.vpcf"

@@ -37,7 +37,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/martyrs_mail.lua"
     "AbilityTextureName"                                  "custom/martyrs_mail"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
@@ -45,7 +45,6 @@
     "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "martyr"
     "AbilityManaCost"                                     "25"
-    "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -85,7 +84,7 @@
         "value"                                           "1800"
         "affected_by_aoe_increase"                        "1"
       }
-      "death_attack_damage"                               "180"
+      "death_attack_damage"                               "150"
       "death_attack_speed"                                "50"
       "death_armor"                                       "15"
     }

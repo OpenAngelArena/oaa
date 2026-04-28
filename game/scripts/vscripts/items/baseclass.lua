@@ -8,6 +8,7 @@ function ItemBaseClass:ProcsMagicStick()
   return false
 end
 
+--[[
 if IsServer() then
   if not OnChargeCountChanged_Engine then
     OnChargeCountChanged_Engine = CDOTA_Item_Lua.OnChargeCountChanged
@@ -16,3 +17,4 @@ if IsServer() then
     end
   end
 end
+]]

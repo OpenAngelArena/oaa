@@ -10,8 +10,7 @@
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "bubble_witch_bubble_of_protection"
-    "MaxLevel"                                            "6" // same as Dependent ability + 1
+    "MaxLevel"                                            "1"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -27,8 +26,9 @@
     {
       "base_dmg"
       {
-        "value"                                           "50 75 100 125 250 375"
-        "special_bonus_facet_bubble_witch_extra_bubbly"   "=50 =60 =70 =80 =160 =240"
+        "value"                                           "44"
+        "hero_levelup"                                    "+6"
+        //"special_bonus_facet_bubble_witch_extra_bubbly"   "=50 =60 =70 =80 =160 =240"
         "special_bonus_unique_bubble_witch_8"             "+25"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
@@ -42,12 +42,12 @@
       "immune_time"
       {
         "value"                                           "0.1"
-        "special_bonus_facet_bubble_witch_extra_bubbly"   "=0"
+        //"special_bonus_facet_bubble_witch_extra_bubbly"   "=0"
       }
       "always_explode_on_owner"
       {
         "value"                                           "0"
-        "special_bonus_facet_bubble_witch_extra_bubbly"   "=1"
+        //"special_bonus_facet_bubble_witch_extra_bubbly"   "=1"
       }
     }
   }

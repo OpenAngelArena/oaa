@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/bubble_orb.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityTextureName"                                  "custom/bubble_orb_2"
 
@@ -49,7 +49,6 @@
     "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "bubble"
-    "AbilityCastRange"                                    "225"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

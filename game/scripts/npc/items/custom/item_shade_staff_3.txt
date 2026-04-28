@@ -44,7 +44,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14"
+    "AbilityCooldown"                                     "15 14 13 12"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "800 850 900 950"
@@ -66,21 +66,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "375 525 725 975"
-      "bonus_all_stats"                                   "10 15 20 25"
-      "bonus_health_regen"                                "9 12 15 18"
-      //"hp_regen_amp"                                      "0"
-      //"status_resistance"                                 "0"
+      "primary_attribute_bonus"                           "10 20 35 55"
+      "bonus_secondary_stats"                             "5 10 15 20"
+      "bonus_health_regen"                                "9.5 12.5 15.5 18.5"
       // Active
       "attack_speed_slow"                                 "250 300 350 400"
-      "slow_duration"                                     "4.5 5.0 5.5 6.0"
-      "sprout_duration"                                   "4.5 5.0 5.5 6.0"
+      "attack_speed_slow_bosses"                          "50 60 70 80"
+      "slow_duration"                                     "4.25 4.5 4.75 5.0"
+      "sprout_duration"                                   "4.25 4.5 4.75 5.0"
       "projectile_speed"                                  "1200 1400 1600 1800"
       // Tree Protection
       "tree_damage_reduction"                             "10 12 14 16"
-      "tree_radius"                                       "175"
-      "tree_protection_duration"                          "4.5 5.0 5.5 6.0"
-      "cooldown_tooltip"                                  "17 16 15 14"
+      "tree_radius"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "tree_protection_duration"                          "4.25 4.5 4.75 5.0"
+      "cooldown_tooltip"                                  "15 14 13 12"
     }
   }
 }

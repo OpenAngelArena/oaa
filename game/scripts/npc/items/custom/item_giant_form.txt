@@ -37,7 +37,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/giant_form.lua"
     "AbilityTextureName"                                  "custom/giant_form_1"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -91,7 +91,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "giant_attack_damage"                               "60"
-      "giant_primary_attribute_bonus"                     "55 75"
+      "giant_primary_attribute_bonus"                     "55 75" // Universal heroes get 0.74x this as all stats
       "giant_attack_speed_reduction"                      "35" // percentage attack speed reduction
       "giant_splash_radius"
       {

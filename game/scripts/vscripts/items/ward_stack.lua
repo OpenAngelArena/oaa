@@ -7,16 +7,8 @@ LinkLuaModifier("modifier_observer_ward_recharger", "items/ward_stack.lua", LUA_
 
 item_ward_stack = class(ItemBaseClass)
 
-function item_ward_stack:GetIntrinsicModifierName ()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_ward_stack:GetIntrinsicModifierNames ()
-  return {
-    "modifier_item_ward_stack",
-    --"modifier_item_ward_stack_observers",
-    --"modifier_item_ward_stack_sentries",
-  }
+function item_ward_stack:GetIntrinsicModifierName()
+  return "modifier_item_ward_stack"
 end
 
 local WARD_TYPE_SENTRY = 1

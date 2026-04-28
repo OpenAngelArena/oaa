@@ -264,7 +264,7 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
         local shield = wind_control:GetSpecialValueFor("all_damage_block") > 0
 
         -- Check for Ventus Deflect
-        local deflect = wind_control:GetSpecialValueFor("attack_projectile_deflect") == 1
+        local deflect = wind_control:GetSpecialValueFor("attack_projectile_deflect") ~= 0
 
         for _, ally in pairs(allies) do
           if ally and not ally:IsNull() then
@@ -275,6 +275,10 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
               end
               if deflect then
                 ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_ventus_ally", {duration = wind_control_duration})
+              end
+              if ally == caster then
+                -- Distortion Field
+                ally:ApplyNonStackableBuff(caster, wind_control, "modifier_faceless_void_time_dilation_distortion_aura_applicator", wind_control_duration)
               end
               self.already_winded[ally:GetEntityIndex()] = true
             end

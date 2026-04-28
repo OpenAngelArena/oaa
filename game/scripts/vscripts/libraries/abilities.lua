@@ -129,6 +129,40 @@ function IsFakeItemCustom(ability)
   return string.find(b, "DOTA_ABILITY_BEHAVIOR_IS_FAKE_ITEM")
 end
 
+function IsAttackAbilityCustom(ability)
+  local ability_name
+  if type(ability) == "string" then
+    ability_name = ability
+    if ability_name == "" then
+      return false
+    end
+  else
+    if not ability or ability:IsNull() then
+      print("IsAttackAbilityCustom: Passed parameter does not exist!")
+      return false
+    end
+    if not ability.GetAbilityName then
+      print("IsAttackAbilityCustom: Passed parameter is not an ability!")
+      return false
+    end
+    ability_name = ability:GetAbilityName()
+  end
+
+  local ability_data = GetAbilityKeyValuesByName(ability_name)
+  if not ability_data then
+    print("IsAttackAbilityCustom: Ability "..ability_name.." does not exist!")
+    return false
+  end
+
+  if ability_data.AbilityBehavior == nil then
+    return false
+  end
+
+  local b = tostring(ability_data.AbilityBehavior)
+
+  return string.find(b, "DOTA_ABILITY_BEHAVIOR_ATTACK")
+end
+
 -- Server-only
 function AllowedToRefresh(ability, notDuel)
   if not ability or ability:IsNull() then

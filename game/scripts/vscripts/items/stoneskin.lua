@@ -10,8 +10,13 @@ end
 function item_stoneskin:OnSpellStart()
   local caster = self:GetCaster()
 
+  local stoneskin_duration = self:GetSpecialValueFor("duration")
+
   -- Apply Stoneskin buff to caster
-  caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {duration = self:GetSpecialValueFor("duration")})
+  caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {duration = stoneskin_duration})
+
+  -- Tough enchantment
+  caster:ApplyNonStackableBuff(caster, self, "modifier_item_enhancement_tough", stoneskin_duration)
 
   -- Activation Sound
   caster:EmitSound("Hero_EarthSpirit.Petrify")
@@ -42,7 +47,7 @@ end
 function modifier_item_stoneskin_passives:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -85,11 +90,12 @@ function modifier_item_stoneskin_passives:GetModifierConstantHealthRegen()
 end
 
 function modifier_item_stoneskin_passives:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() == 2 then
-    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
-  else
+  -- Prevent multiple Stoneskin Armors stacking status resistance
+  if self:GetStackCount() ~= 2 then
     return 0
   end
+
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -108,48 +114,130 @@ function modifier_item_stoneskin_stone_armor:IsPurgable()
   return false
 end
 
+function modifier_item_stoneskin_stone_armor:OnCreated()
+  self:OnRefresh()
+end
+
+function modifier_item_stoneskin_stone_armor:OnRefresh()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  self.armor = ability:GetSpecialValueFor("stone_armor")
+  --self.magic_resist = ability:GetSpecialValueFor("stone_magic_resist")
+  self.deflect_chance = ability:GetSpecialValueFor("stone_deflect_chance")
+  self.max_move_speed = parent:GetBaseMoveSpeed() + ability:GetSpecialValueFor("stone_max_move_speed_bonus")
+  --self.min_move_speed = ability:GetSpecialValueFor("stone_min_move_speed")
+end
+
+function modifier_item_stoneskin_stone_armor:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+
+  local mods = parent:FindAllModifiersByName("modifier_item_enhancement_tough")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_item_stoneskin_stone_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_AVOID_DAMAGE,
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-    --MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+    --MODIFIER_PROPERTY_MOVESPEED_MIN_OVERRIDE,
+    MODIFIER_PROPERTY_MOVESPEED_MAX_OVERRIDE,
   }
 end
 
 function modifier_item_stoneskin_stone_armor:GetModifierPhysicalArmorBonus()
-  if not self:GetAbility() then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return 0
-  end
-  return self:GetAbility():GetSpecialValueFor("stone_armor")
+  return self.armor or self:GetAbility():GetSpecialValueFor("stone_armor")
 end
 
--- function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
-  -- if not self:GetAbility() then
-    -- if not self:IsNull() then
-      -- self:Destroy()
-    -- end
-    -- return 0
-  -- end
-  -- return self:GetAbility():GetSpecialValueFor("stone_magic_resist")
--- end
+--function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
+  --return self.magic_resist or self:GetAbility():GetSpecialValueFor("stone_magic_resist")
+--end
 
-function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local chance = 25
-  if ability and not ability:IsNull() then
-    chance = ability:GetSpecialValueFor("stone_deflect_chance")
+function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(params)
+  if not IsServer() then
+    return
   end
-  if event.ranged_attack == true and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK and RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent) == true then
+
+  local parent = self:GetParent()
+  local attacker = params.attacker
+
+  if not attacker or attacker:IsNull() then
+    return 0
+  end
+
+  -- Do not deflect when attacking self
+  if attacker == parent then
+    return 0
+  end
+
+  -- Deflect only from ranged attackers
+  if not attacker:IsRangedAttacker() then
+    return 0
+  end
+
+  -- Deflect only attacks and dmg from attack based spells
+  if params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+    local inflictor = params.inflictor
+    if not inflictor or inflictor:IsNull() then
+      return 0
+    end
+    if not IsAttackAbilityCustom(inflictor) then
+      return 0
+    end
+  end
+
+  local chance = self.deflect_chance / 100
+
+  if not self.deflect_failures then
+    self.deflect_failures = 0
+  end
+
+  -- Get number of failures
+  local prngMult = self.deflect_failures + 1
+
+  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+    -- Reset failure count
+    self.deflect_failures = 0
+
     return 1
+  else
+    -- Increment number of failures
+    self.deflect_failures = prngMult
   end
 
   return 0
 end
+
+function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_MaxOverride()
+  return self.max_move_speed
+end
+
+--function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_MinOverride()
+  --return self.min_move_speed or self:GetAbility():GetSpecialValueFor("stone_min_move_speed")
+--end
 
 function modifier_item_stoneskin_stone_armor:GetStatusEffectName()
   return "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
@@ -158,16 +246,6 @@ end
 function modifier_item_stoneskin_stone_armor:StatusEffectPriority()
   return MODIFIER_PRIORITY_ULTRA
 end
-
--- function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
-  -- if not self:GetAbility() then
-    -- if not self:IsNull() then
-      -- self:Destroy()
-    -- end
-    -- return
-  -- end
-  -- return self:GetAbility():GetSpecialValueFor("stone_move_speed")
--- end
 
 function modifier_item_stoneskin_stone_armor:GetTexture()
   return "custom/stoneskin_2_active"

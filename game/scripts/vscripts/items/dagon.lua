@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_oaa_dagon_non_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa_1 = class(ItemBaseClass)
@@ -13,14 +12,7 @@ item_dagon_oaa_8 = item_dagon_oaa_1
 item_dagon_oaa_9 = item_dagon_oaa_1
 
 function item_dagon_oaa_1:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_dagon_oaa_1:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_oaa_dagon_passive",
-    "modifier_item_oaa_dagon_non_stacking_stats",
-  }
+  return "modifier_item_oaa_dagon_passive"
 end
 
 function item_dagon_oaa_1:OnSpellStart()
@@ -123,25 +115,45 @@ function modifier_item_oaa_dagon_passive:GetAttributes()
 end
 
 function modifier_item_oaa_dagon_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.3)
+  end
+end
+
+function modifier_item_oaa_dagon_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.int = ability:GetSpecialValueFor("bonus_int")
     self.str = ability:GetSpecialValueFor("bonus_str")
     self.agi = ability:GetSpecialValueFor("bonus_agi")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
+    --self.hp = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.cast_range = ability:GetSpecialValueFor("cast_range_bonus")
+    --self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+  end
+  if IsServer() then
+    self:OnIntervalThink()
   end
 end
 
-modifier_item_oaa_dagon_passive.OnRefresh = modifier_item_oaa_dagon_passive.OnCreated
+function modifier_item_oaa_dagon_passive:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
 
 function modifier_item_oaa_dagon_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
+    --MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+    --MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -157,61 +169,33 @@ function modifier_item_oaa_dagon_passive:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
-function modifier_item_oaa_dagon_passive:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
+--function modifier_item_oaa_dagon_passive:GetModifierHealthBonus()
+  --return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+--end
 
 function modifier_item_oaa_dagon_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
----------------------------------------------------------------------------------------------------
-
-modifier_item_oaa_dagon_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.cast_range = ability:GetSpecialValueFor("cast_range_bonus")
-    --self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-  end
-end
-
-modifier_item_oaa_dagon_non_stacking_stats.OnRefresh = modifier_item_oaa_dagon_non_stacking_stats.OnCreated
-
-function modifier_item_oaa_dagon_non_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
-    --MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-  }
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:GetModifierCastRangeBonusStacking()
+function modifier_item_oaa_dagon_passive:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Aether Lens and Far Sight
-  if parent:HasModifier("modifier_item_aether_lens") or parent:HasModifier("modifier_item_far_sight_non_stacking_stats") then
+  -- Prevent stacking with Aether Lens, Far Sight and other Dagons -> Aether Lens and Far Sight have higher priority, Aether Lens is highest priority
+  if parent:HasModifier("modifier_item_aether_lens") or parent:HasModifier("modifier_item_far_sight_non_stacking_stats") or self:GetStackCount() ~= 2 then
     return 0
   end
 
   return self.cast_range or self:GetAbility():GetSpecialValueFor("cast_range_bonus")
 end
-
---function modifier_item_oaa_dagon_non_stacking_stats:GetModifierSpellAmplify_Percentage()
-  --return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
---end
+--[[
+function modifier_item_oaa_dagon_passive:GetModifierSpellAmplify_Percentage()
+  -- Prevent multiple Dagons stacking spell amplification
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
+end
+]]
 
 ---------------------------------------------------------------------------------------------------
 

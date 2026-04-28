@@ -28,7 +28,7 @@ function item_lucience:OnSpellStart()
   end
 end
 
-function item_lucience:GetToggleState()
+function item_lucience:GetToggleStateOAA()
   if self.serverLucienceState == nil then
     self.serverLucienceState = false
   end
@@ -117,7 +117,7 @@ function modifier_item_lucience_aura_handler:OnCreated()
     local caster = self:GetCaster()
 
     -- Set stack count to update item icon
-    if ability:GetToggleState() then
+    if ability:GetToggleStateOAA() then
       self:SetStackCount(auraTypeMovespeed)
     else
       self:SetStackCount(auraTypeRegen)
@@ -131,7 +131,7 @@ function modifier_item_lucience_aura_handler:OnCreated()
     -- Delay adding the aura modifiers by a frame
     Timers:CreateTimer(function()
       item_lucience.RemoveLucienceAuras(parent)
-      if ability:GetToggleState() then
+      if ability:GetToggleStateOAA() then
         parent:AddNewModifier(caster, ability, movespeedAuraName, {})
       else
         parent:AddNewModifier(caster, ability, regenAuraName, {})

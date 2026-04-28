@@ -37,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/stoneskin.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -72,13 +72,14 @@
 
     "AbilityValues"
     {
-      "bonus_armor"                                       "18 22"
+      "bonus_armor"                                       "16 20"
       "bonus_health_regen"                                "15 18"
       "bonus_status_resist"                               "20 22"
       // Active stuff
-      "stone_armor"                                       "100"
+      "stone_armor"                                       "110"
       "stone_deflect_chance"                              "25"
-      //"stone_move_speed"                                  "100"
+      "knockback_resist"                                  "50" // higher values than this result in weird behavior on heroes that already have 50% knockback resistance
+      "stone_max_move_speed_bonus"                        "115" // Max move speed is base move speed + this
       "duration"                                          "5.5"
     }
   }

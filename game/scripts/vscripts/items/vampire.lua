@@ -97,21 +97,24 @@ function modifier_item_vampire:GetModifierBonusStats_Strength()
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() == 2 then
-    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
-  else
+  -- Prevent multiple Vampire Fangs stacking status resistance
+  if self:GetStackCount() ~= 2 then
     return 0
   end
+
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
 end
 
--- Still doesn't work, Thanks Valve
--- function modifier_item_vampire:GetModifierSlowResistance_Stacking()
-  -- if self:GetStackCount() == 2 then
-    -- return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
-  -- else
-    -- return 0
-  -- end
--- end
+--[[
+function modifier_item_vampire:GetModifierSlowResistance_Stacking()
+  -- Prevent multiple Vampire Fangs stacking slow resistance
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+
+  return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
+end
+]]
 
 function modifier_item_vampire:GetBonusNightVision()
   if self:GetStackCount() == 2 then

@@ -130,16 +130,15 @@ end
 function modifier_item_shade_staff_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.hp = ability:GetSpecialValueFor("bonus_health")
     self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.str = ability:GetSpecialValueFor("bonus_all_stats")
-    self.agi = ability:GetSpecialValueFor("bonus_all_stats")
-    self.int = ability:GetSpecialValueFor("bonus_all_stats")
-    --self.slow_resist = ability:GetSpecialValueFor("slow_resistance")
-    self.status_resist = ability:GetSpecialValueFor("status_resistance")
+    self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+    self.bonus_to_secondary_stats = ability:GetSpecialValueFor("bonus_secondary_stats")
+    self.bonus_stat_for_universal = math.floor(self.bonus_to_primary_stat / (3 * 0.45) + self.bonus_to_secondary_stats / 3)
+
     -- Stuff active only near trees:
     self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
     self.tree_radius = ability:GetSpecialValueFor("tree_radius")
+    self.grant_tree_bonus = false
   end
 end
 
@@ -152,80 +151,100 @@ if IsServer() then
       return
     end
 
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(attribute)
+
     -- Ignore illusions
     if parent:IsIllusion() then
       self:StartIntervalThink(-1) -- dynamic illusions still don't exist, so we can stop thinking
-      self:SetStackCount(0) -- don't grant tree stats
+      self.grant_tree_bonus = false -- don't grant tree stats
       return
     end
 
     -- Ignore Meepo clones
     if parent:IsClone() then
       self:StartIntervalThink(-1) -- dynamic clones still don't exist, so we can stop thinking
-      self:SetStackCount(0) -- don't grant tree stats
+      self.grant_tree_bonus = false -- don't grant tree stats
       return
     end
 
     -- Ignore banished units
     if parent:IsOutOfGame() then
-      self:SetStackCount(0) -- don't grant tree stats
+      self.grant_tree_bonus = false -- don't grant tree stats
       return
     end
 
     local parent_origin = parent:GetAbsOrigin()
     -- Check if tree is nearby
     if self.tree_radius and GridNav:IsNearbyTree(parent_origin, self.tree_radius, true) then
-      self:SetStackCount(1) -- grant tree stats
+      self.grant_tree_bonus = true -- grant tree stats
     else
-      self:SetStackCount(0) -- don't grant tree stats
+      self.grant_tree_bonus = false -- don't grant tree stats
     end
   end
 end
 
 function modifier_item_shade_staff_passive:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    --MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS, -- GetModifierBonusStats_Agility
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     --MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING, -- GetModifierSlowResistance_Stacking
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- GetModifierIncomingDamage_Percentage
   }
 end
 
-function modifier_item_shade_staff_passive:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
+--function modifier_item_shade_staff_passive:GetModifierHealthBonus()
+  --return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+--end
 
 function modifier_item_shade_staff_passive:GetModifierConstantHealthRegen()
   return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Strength()
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return self.bonus_to_secondary_stats
 end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Agility()
-  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return self.bonus_to_secondary_stats
 end
 
 function modifier_item_shade_staff_passive:GetModifierBonusStats_Intellect()
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return self.bonus_to_secondary_stats
 end
 
--- Doesn't work, Thanks Valve!
 -- function modifier_item_shade_staff_passive:GetModifierSlowResistance_Stacking()
-  -- return self.slow_resist or self:GetAbility():GetSpecialValueFor("slow_resistance")
+  -- return self.slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
 -- end
 
-function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
-  return self.status_resist or self:GetAbility():GetSpecialValueFor("status_resistance")
-end
+--function modifier_item_shade_staff_passive:GetModifierStatusResistanceStacking()
+  --return self.status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
+--end
 
 function modifier_item_shade_staff_passive:GetModifierIncomingDamage_Percentage() -- Tree Damage Reduction
-  if self:GetStackCount() ~= 1 then
+  if not self.grant_tree_bonus then
     return 0
   end
 
@@ -366,15 +385,17 @@ end
 function modifier_item_shade_staff_trees_debuff:OnRefresh()
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local attack_slow = 350
+  local attack_slow = 250
+  local attack_slow_bosses = 50
 
   if ability and not ability:IsNull() then
     attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
+    attack_slow_bosses = ability:GetSpecialValueFor("attack_speed_slow_bosses")
     self.tree_radius = ability:GetSpecialValueFor("tree_radius")
   end
 
   if parent:IsOAABoss() then
-    attack_slow = 0
+    attack_slow = attack_slow_bosses
   end
 
   self.attack_slow = attack_slow
@@ -386,12 +407,6 @@ if IsServer() then
 
     if not parent or parent:IsNull() then
       self:StartIntervalThink(-1)
-      return
-    end
-
-    if parent:IsOAABoss() then
-      self:StartIntervalThink(-1)
-      self:Destroy()
       return
     end
 

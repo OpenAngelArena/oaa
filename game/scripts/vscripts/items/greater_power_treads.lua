@@ -112,7 +112,7 @@ function modifier_item_greater_power_treads:OnRefresh()
   self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
   self.bonus_to_secondary_stats = ability:GetSpecialValueFor("bonus_secondary_stats")
 
-  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat/3) + math.ceil(self.bonus_to_secondary_stats/2)
+  self.bonus_stat_for_universal = math.floor(self.bonus_to_primary_stat / (3 * 0.45) + self.bonus_to_secondary_stats / 3)
 end
 
 if IsServer() then

@@ -1,11 +1,11 @@
-LinkLuaModifier( "modifier_item_heart_transplant", "items/heart_transplant.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_heart_transplant_passive", "items/heart_transplant.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_heart_transplant_debuff", "items/heart_transplant.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_heart_transplant_buff", "items/heart_transplant.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_heart_transplant = class(ItemBaseClass)
 
 function item_heart_transplant:GetIntrinsicModifierName()
-  return "modifier_item_heart_transplant"
+  return "modifier_item_heart_transplant_passive"
 end
 
 -- This is client only
@@ -14,6 +14,9 @@ function item_heart_transplant:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
   if target == caster or target:HasModifier("modifier_item_heart_transplant_buff") or caster:HasModifier("modifier_item_heart_transplant_debuff") then
     return UF_FAIL_CUSTOM
+  end
+  if target:IsCourier() then
+    return UF_FAIL_COURIER
   end
 
   return defaultFilterResult
@@ -48,13 +51,13 @@ function item_heart_transplant:OnSpellStart()
   self.transferred_buff = target:AddNewModifier(caster, self, "modifier_item_heart_transplant_buff", {duration = transplant_max_duration})
 
   -- Apply a Heart Transplant debuff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_heart_transplant_debuff", {})
+  caster:AddNewModifier(caster, self, "modifier_item_heart_transplant_debuff", {duration = transplant_max_duration+0.1})
 end
 
 function item_heart_transplant:TransplantEnd(caster)
   if IsServer() then
     -- Remove debuff from the caster
-    caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
+    caster:RemoveModifierByName("modifier_item_heart_transplant_debuff") -- idk if this triggers when caster is dead, so we add a duration just in case
 
     local cooldown = self:GetSpecialValueFor("cooldown")
 
@@ -67,25 +70,32 @@ item_heart_transplant_2 = item_heart_transplant
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_heart_transplant = class(ModifierBaseClass)
+modifier_item_heart_transplant_passive = class(ModifierBaseClass)
 
-function modifier_item_heart_transplant:IsHidden()
+function modifier_item_heart_transplant_passive:IsHidden()
   return true
 end
 
-function modifier_item_heart_transplant:IsDebuff()
+function modifier_item_heart_transplant_passive:IsDebuff()
   return false
 end
 
-function modifier_item_heart_transplant:IsPurgable()
+function modifier_item_heart_transplant_passive:IsPurgable()
   return false
 end
 
-function modifier_item_heart_transplant:GetAttributes()
+function modifier_item_heart_transplant_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_heart_transplant:OnCreated()
+function modifier_item_heart_transplant_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.3)
+  end
+end
+
+function modifier_item_heart_transplant_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.str = ability:GetSpecialValueFor("bonus_strength")
@@ -95,11 +105,20 @@ function modifier_item_heart_transplant:OnCreated()
     self.t_hp = ability:GetSpecialValueFor("transplant_bonus_health")
     self.t_regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
   end
+  if IsServer() then
+    self:OnIntervalThink()
+  end
 end
 
-modifier_item_heart_transplant.OnRefresh = modifier_item_heart_transplant.OnCreated
+function modifier_item_heart_transplant_passive:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
 
-function modifier_item_heart_transplant:DeclareFunctions()
+function modifier_item_heart_transplant_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
@@ -108,7 +127,7 @@ function modifier_item_heart_transplant:DeclareFunctions()
   }
 end
 
-function modifier_item_heart_transplant:GetModifierBonusStats_Strength()
+function modifier_item_heart_transplant_passive:GetModifierBonusStats_Strength()
   local parent = self:GetParent()
   local bonus_str = self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
   if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_str then
@@ -117,7 +136,7 @@ function modifier_item_heart_transplant:GetModifierBonusStats_Strength()
   return bonus_str
 end
 
-function modifier_item_heart_transplant:GetModifierHealthBonus()
+function modifier_item_heart_transplant_passive:GetModifierHealthBonus()
   local parent = self:GetParent()
   local bonus_hp = self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
   if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_hp then
@@ -126,25 +145,20 @@ function modifier_item_heart_transplant:GetModifierHealthBonus()
   return bonus_hp
 end
 
--- Prevent stacking with other heart transplants and other hearts
-function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
+function modifier_item_heart_transplant_passive:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
-  local parentHasHeart = parent:HasModifier("modifier_item_heart")
-
-  if IsServer() then
-    if not parent:IsIllusion() and not parentHasHeart and self:IsFirstItemInInventory() then
-      local bonus_regen = self.regen or self:GetAbility():GetSpecialValueFor("health_regen_pct")
-      if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_regen then
-        return bonus_regen - self.t_regen
-      end
-      return bonus_regen
-    end
+  -- Prevent stacking with Heart of Tarrasque and other Heart Transplants -> Heart of Tarrasque has higher priority
+  if parent:HasModifier("modifier_item_heart") or self:GetStackCount() ~= 2 then
+    return 0
   end
-
-  return 0
+  local bonus_regen = self.regen or self:GetAbility():GetSpecialValueFor("health_regen_pct")
+  if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_regen then
+    return bonus_regen - self.t_regen
+  end
+  return bonus_regen
 end
 
--- function modifier_item_heart_transplant:OnTakeDamage(event)
+-- function modifier_item_heart_transplant_passive:OnTakeDamage(event)
   -- local parent = self:GetParent()
   -- local ability = self:GetAbility()
 
@@ -174,11 +188,13 @@ end
 function modifier_item_heart_transplant_debuff:OnCreated()
   local parent = self:GetParent()
 
-  if IsServer() then
-    if parent:IsHero() then
-      parent:CalculateStatBonus(true)
-    elseif parent:IsCreep() then
-      parent:CalculateGenericBonuses()
+  if IsServer() and parent and not parent:IsNull() then
+    if parent:IsBaseNPC() and parent:IsAlive() then
+      if parent:IsHero() then
+        parent:CalculateStatBonus(true)
+      elseif parent:IsCreep() then
+        parent:CalculateGenericBonuses()
+      end
     end
   end
 end
@@ -207,27 +223,8 @@ function modifier_item_heart_transplant_buff:IsPurgable()
 end
 
 function modifier_item_heart_transplant_buff:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
-  end
-
+  self:OnRefresh()
   if IsServer() then
-    local parent = self:GetParent()
-    if parent:IsHero() then
-      parent:CalculateStatBonus(true)
-    elseif parent:IsCreep() then
-      parent:CalculateGenericBonuses()
-    end
-    local caster = self:GetCaster()
-    if self.particle == nil then
-      self.particle = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-      ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-    end
-
     self:StartIntervalThink(0.1)
   end
 end
@@ -243,22 +240,28 @@ function modifier_item_heart_transplant_buff:OnRefresh()
 
   if IsServer() then
     local parent = self:GetParent()
-    if parent:IsHero() then
-      parent:CalculateStatBonus(true)
-    elseif parent:IsCreep() then
-      parent:CalculateGenericBonuses()
-    end
-    if self.particle then
-      ParticleManager:DestroyParticle(self.particle, true)
-      ParticleManager:ReleaseParticleIndex(self.particle)
-      self.particle = nil
+    if parent:IsBaseNPC() and parent:IsAlive() then
+      if parent:IsHero() then
+        parent:CalculateStatBonus(true)
+      elseif parent:IsCreep() then
+        parent:CalculateGenericBonuses()
+      end
     end
     local caster = self:GetCaster()
-    if self.particle == nil then
+    if self.particle then
+      -- Remove the old particle first
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+      -- Create new particle
+      self.particle = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+    else
       self.particle = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
       ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
       ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     end
+    self:OnIntervalThink()
   end
 end
 
@@ -267,8 +270,15 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
 
-  if not parent or parent:IsNull() or not caster or caster:IsNull() or not caster:IsAlive() or not ability or ability:IsNull() then
-    --self:StartIntervalThink(-1)
+  if not parent or parent:IsNull() or not caster or caster:IsNull() or not ability or ability:IsNull() then
+    self:StartIntervalThink(-1)
+    --self:SetDuration(0.01, true)
+    self:Destroy()
+    return
+  end
+
+  if not parent:IsAlive() or not caster:IsAlive() then
+    self:StartIntervalThink(-1)
     --self:SetDuration(0.01, true)
     self:Destroy()
     return
@@ -281,27 +291,34 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
 
   -- If distance is higher than break distance, remove modifiers
   if distance > break_distance then
-    --self:StartIntervalThink(-1)
+    self:StartIntervalThink(-1)
     --self:SetDuration(0.01, true)
     self:Destroy()
-  end
-
-  if parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  elseif parent:IsCreep() then
-    parent:CalculateGenericBonuses()
   end
 end
 
 function modifier_item_heart_transplant_buff:OnDestroy()
-  if IsServer() and self.particle then
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+  if self.particle then
     ParticleManager:DestroyParticle(self.particle, true)
     ParticleManager:ReleaseParticleIndex(self.particle)
     self.particle = nil
   end
-  local ability = self:GetAbility()
-  local caster = self:GetCaster()
-  if ability and caster then
+  if parent and not parent:IsNull() then
+    if parent:IsBaseNPC() and parent:IsAlive() then
+      if parent:IsHero() then
+        parent:CalculateStatBonus(true)
+      elseif parent:IsCreep() then
+        parent:CalculateGenericBonuses()
+      end
+    end
+  end
+  if ability and not ability:IsNull() and caster and not caster:IsNull() then
     -- End the Heart transplant
     ability:TransplantEnd(caster)
   end
@@ -310,14 +327,15 @@ end
 function modifier_item_heart_transplant_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS, -- does not work on creeps, thanks Valve
+    --MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS, -- does not work on creeps, thanks Valve
     MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
   }
 end
 
 function modifier_item_heart_transplant_buff:GetModifierBonusStats_Strength()
   local parent = self:GetParent()
-  if self.str and parent:IsRealHero() then
+  if self.str and parent.GetStrength ~= nil then
     return self.str
   end
 
@@ -326,16 +344,27 @@ end
 
 function modifier_item_heart_transplant_buff:GetModifierHealthBonus()
   local parent = self:GetParent()
-  if self.hp and not parent:IsIllusion() then
+  if self.hp and parent.GetHealth ~= nil then
     return self.hp
   end
 
   return 0
 end
 
+--[[
+function modifier_item_heart_transplant_buff:GetModifierExtraHealthBonus()
+  local parent = self:GetParent()
+  if self.hp and parent.GetHealth ~= nil then
+    return self.hp
+  end
+
+  return 0
+end
+]]
+
 function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
-  if self.regen and not parent:IsIllusion() then
+  if self.regen and parent.HasModifier ~= nil then
     return self.regen
   end
 

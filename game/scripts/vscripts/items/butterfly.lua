@@ -87,7 +87,7 @@ function modifier_item_butterfly_oaa_passive:GetModifierBonusStats_Agility()
 end
 
 function modifier_item_butterfly_oaa_passive:GetModifierAttackSpeedBonus_Constant()
-  -- Prevent stacking with itself
+  -- Prevent multiple Butterflies stacking attack speed
   if self:GetStackCount() ~= 2 then
     return 0
   end

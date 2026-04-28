@@ -35,7 +35,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_refresher_shard"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL" //OAA, intentionally buffed
     "Model"                                               "models/props_gameplay/refresher_shard.vmdl"
     "Effect"                                              "particles/generic_gameplay/dropped_refresher_shard.vpcf"
 

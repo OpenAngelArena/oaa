@@ -74,6 +74,7 @@ end
 
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
+    -- Prevent triggering multiple Magic Lamps
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -99,6 +100,7 @@ if IsServer() then
   end
 
   function modifier_item_magic_lamp_oaa_passive:OnTakeDamage(event)
+    -- Prevent triggering multiple Magic Lamps
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -143,7 +145,7 @@ if IsServer() then
       parent:DispelUndispellableDebuffs()
       parent:Purge(false, true, false, true, true)
 
-      -- Particle
+      -- Particle and continuous self dispel for duration
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})
 
       -- 'Heal'

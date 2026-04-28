@@ -31,7 +31,6 @@ function BlinkBlock:OnAbilityUsed(keys)
   local hero = player:GetAssignedHero()
   local startPos = hero:GetAbsOrigin()
 
-  -- todo: allow things like natures profit
   Timers:CreateTimer(0.01, function ()
     if not hero or hero:IsNull() then
       return

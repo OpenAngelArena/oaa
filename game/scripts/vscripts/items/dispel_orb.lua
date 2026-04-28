@@ -93,6 +93,7 @@ function modifier_item_dispel_orb_passive:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_item_dispel_orb_passive:GetModifierMagicalResistanceBonus()
+  -- Prevent multiple Dispel Orbs stacking magic resistance
   if self:GetStackCount() ~= 2 then
     return 0
   end

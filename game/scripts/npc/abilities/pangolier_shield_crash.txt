@@ -29,24 +29,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_shield"                                       "0"
-      "duration"                                          "6"
-      "jump_duration"                                     "0.4"
-      "jump_duration_gyroshell"                           "0.75"
-      "jump_height"                                       "250"
-      "jump_height_gyroshell"                             "350"
-      "jump_horizontal_distance"                          "225"
-      "scepter_damage_outgoing_tooltip"                   "75"
       "damage" //OAA, intentionally buffed
       {
         "value"                                           "75 150 225 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hero_shield" //OAA, intentionally buffed
+      "base_shield"                                       "0"
+      "hero_shield" //OAA, intentionally buffed but nerfed the talent
       {
         "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+125"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+100"
       }
+      "duration"                                          "6"
       "radius"
       {
         "value"                                           "500"
@@ -80,6 +74,12 @@
       {
         "value"                                           "0"
       }
+      "jump_duration"                                     "0.4"
+      "jump_duration_gyroshell"                           "0.75"
+      "jump_height"                                       "250"
+      "jump_height_gyroshell"                             "350"
+      "jump_horizontal_distance"                          "225"
+      "scepter_damage_outgoing_tooltip"                   "75"
     }
   }
 }

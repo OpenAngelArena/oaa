@@ -106,10 +106,13 @@ function eul_wind_shield_oaa:OnSpellStart()
   end
 
   -- Check for Ventus Deflect
-  local deflect = self:GetSpecialValueFor("attack_projectile_deflect") == 1
+  local deflect = self:GetSpecialValueFor("attack_projectile_deflect") ~= 0
   if deflect then
     caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_ventus", {duration = duration})
   end
+
+  -- Distortion Field
+  caster:ApplyNonStackableBuff(caster, self, "modifier_faceless_void_time_dilation_distortion_aura_applicator", duration)
 end
 
 -- Ventus fake attacks
@@ -229,8 +232,10 @@ end
 function modifier_eul_wind_shield_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.move_speed_p = ability:GetSpecialValueFor("passive_move_speed")
-    self.move_speed_a = ability:GetSpecialValueFor("active_move_speed")
+    self.move_speed = ability:GetSpecialValueFor("passive_move_speed")
+    self.spell_dodge = ability:GetSpecialValueFor("passive_spell_dmg_dodge_chance") / 100
+    self.evasion_check = ability:GetSpecialValueFor("evasion_range_check")
+    self.attack_dodge = ability:GetSpecialValueFor("passive_evasion")
   end
 end
 
@@ -240,6 +245,7 @@ function modifier_eul_wind_shield_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_EVASION_CONSTANT,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
   }
 end
 
@@ -249,7 +255,6 @@ function modifier_eul_wind_shield_passive:GetModifierEvasion_Constant(params)
   end
 
   local parent = self:GetParent()
-  local ability = self:GetAbility()
   local attacker = params.attacker
   --local attacked_unit = params.unit
 
@@ -267,8 +272,8 @@ function modifier_eul_wind_shield_passive:GetModifierEvasion_Constant(params)
   -- end
 
   local distance = (parent:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D()
-  if distance > ability:GetSpecialValueFor("evasion_range_check") then
-    return ability:GetSpecialValueFor("evasion")
+  if distance > self.evasion_check then
+    return self.attack_dodge or 25
   end
 
   return 0
@@ -276,15 +281,53 @@ end
 
 function modifier_eul_wind_shield_passive:GetModifierMoveSpeedBonus_Percentage()
   local parent = self:GetParent()
-  if parent:HasModifier("modifier_eul_wind_shield_active") then
-    return self.move_speed_a or 20
-  end
 
   if parent:PassivesDisabled() then
     return 0
   end
 
-  return self.move_speed_p or 4
+  return self.move_speed or 4
+end
+
+function modifier_eul_wind_shield_passive:GetModifierAvoidDamage(params)
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local attacker = params.attacker
+
+  if parent:PassivesDisabled() or not attacker or attacker:IsNull() then
+    return 0
+  end
+
+  -- Dodge only spells
+  if not params.inflictor or params.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+    return 0
+  end
+
+  local attackerIsAlly = attacker:GetTeamNumber() == parent:GetTeamNumber()
+  local distance = (parent:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D()
+
+  if attackerIsAlly or distance <= self.evasion_check then
+    return 0
+  end
+
+  -- Get number of failures
+  local prngMult = self:GetStackCount() + 1
+
+  -- compared prng to slightly less prng
+  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(self.spell_dodge) * prngMult) then
+    -- Reset failure count
+    self:SetStackCount(0)
+
+    return 1
+  else
+    -- Increment number of failures
+    self:SetStackCount(prngMult)
+
+    return 0
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -304,37 +347,85 @@ function modifier_eul_wind_shield_active:IsPurgable()
 end
 
 function modifier_eul_wind_shield_active:OnCreated()
-  self.move_speed = 0
-  self.attack_speed = 0
+  self.move_speed = 20
+  self.attack_speed = 40
+  self.evasion = 50
+  self.evasion_check = 300
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed = ability:GetSpecialValueFor("active_move_speed")
     self.attack_speed = ability:GetSpecialValueFor("active_attack_speed")
+    self.evasion = ability:GetSpecialValueFor("active_evasion")
+    self.evasion_check = ability:GetSpecialValueFor("evasion_range_check")
   end
 end
 
 modifier_eul_wind_shield_active.OnRefresh = modifier_eul_wind_shield_active.OnCreated
 
+function modifier_eul_wind_shield_active:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if not parent or parent:IsNull() then
+    return
+  end
+  -- This should happend only for Eul
+  if parent ~= caster then
+    return
+  end
+  local mods = parent:FindAllModifiersByName("modifier_faceless_void_time_dilation_distortion_aura_applicator")
+  for _, mod in pairs(mods) do
+    if mod and not mod:IsNull() then
+      local mod_ability = mod:GetAbility()
+      local mod_caster = mod:GetCaster()
+      if mod_ability and mod_caster then
+        if mod_ability == ability and mod_caster == caster then
+          mod:Destroy()
+          break
+        end
+      end
+    end
+  end
+end
+
 function modifier_eul_wind_shield_active:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_EVASION_CONSTANT,
   }
 end
 
 function modifier_eul_wind_shield_active:GetModifierMoveSpeedBonus_Percentage()
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
-  -- We apply the bonus ms in 'modifier_eul_wind_shield_passive' if the parent is the caster
-  -- Don't apply to the caster's illusions because they have the passive
-  if parent ~= caster and not parent:HasModifier("modifier_eul_wind_shield_passive") then
-    return self.move_speed
-  end
-  return 0
+  return self.move_speed
 end
 
 function modifier_eul_wind_shield_active:GetModifierAttackSpeedBonus_Constant()
   return self.attack_speed
+end
+
+function modifier_eul_wind_shield_active:GetModifierEvasion_Constant(params)
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local attacker = params.attacker
+
+  -- Evasion works only against ranged attackers
+  if not attacker:IsRangedAttacker() then
+    return 0
+  end
+
+  local distance = (parent:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D()
+  if distance > self.evasion_check then
+    return self.evasion
+  end
+
+  return 0
 end
 
 function modifier_eul_wind_shield_active:GetEffectName()

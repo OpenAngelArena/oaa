@@ -90,8 +90,18 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     victim:AddNewModifier(caster, ability, "modifier_wisp_relocate_shield_oaa", {})
   --elseif modifier_name == "modifier_bristleback_warpath_active" then
     --victim:AddNewModifier(caster, ability, "modifier_bristleback_seeing_red_oaa", {duration = modifier_duration})
-  elseif modifier_name == "modifier_slark_shadow_dance_aura" then
-    victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {duration = modifier_duration})
+  elseif modifier_name == "modifier_slark_shadow_dance_aura" or modifier_name == "modifier_slark_depth_shroud" then
+    local shadow_dance_additional_mod = victim:FindModifierByNameAndCaster("modifier_slark_shadow_dance_oaa", caster)
+    if not shadow_dance_additional_mod then
+      victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {})
+    else
+      -- Check the ability and apply the stronger version only
+      local ab = shadow_dance_additional_mod:GetAbility()
+      if ability_name == "slark_shadow_dance" and ab:GetName() == "slark_depth_shroud" then
+        shadow_dance_additional_mod:Destroy()
+        victim:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_oaa", {})
+      end
+    end
   elseif modifier_name == "modifier_item_overwhelming_blink_debuff" and ability_name ~= "item_overwhelming_blink" then
     victim:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff_oaa", {duration = modifier_duration})
   end
@@ -116,8 +126,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
   end
 
-  if real_caster:HasModifier("modifier_item_nether_core") and modifier_duration ~= -1 and modifier_duration > 0.5 then
-    local nether_core_mod = real_caster:FindModifierByNameAndCaster("modifier_item_nether_core", real_caster)
+  if real_caster:HasModifier("modifier_item_nether_core_passive") and modifier_duration ~= -1 and modifier_duration > 0.5 then
+    local nether_core_mod = real_caster:FindModifierByNameAndCaster("modifier_item_nether_core_passive", real_caster)
     if nether_core_mod and nether_core_mod:IsFirstItemInInventory() then
       local nether_core_item = nether_core_mod:GetAbility()
       if nether_core_item then
