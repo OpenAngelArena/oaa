@@ -363,6 +363,7 @@ if IsServer() then
       "modifier_electrician_bonus_mana_count",
       "modifier_monkey_king_jingu_mastery_oaa_buff",                -- Jingu Mastery becomes undispellable with the talent
       "modifier_sohei_flurry_self",
+      "modifier_underlord_raid_boss_buff_oaa",                      -- Underlord innate temporary buff
     }
 
     local buffs_with_multiple_instances = {

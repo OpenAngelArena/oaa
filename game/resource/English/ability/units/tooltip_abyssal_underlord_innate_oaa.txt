@@ -1,0 +1,16 @@
+//=============================================================================
+// Underlord Innate
+//=============================================================================
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa"                             "Abbysal Force"
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_Description"                 "Underlord and his allies temporarily gain Damage Reduction and Movement Speed after Teleporting. Underlord also gains bonus damage permanently whenever an enemy hero or Boss dies near him."
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_damage_reduction"            "%DAMAGE REDUCTION:"
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_bonus_ms"                    "%BONUS MOVE SPEED:"
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_buff_duration"               "BUFF DURATION:"
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_damage_gain_range"           "DAMAGE GAIN RANGE:"
+"DOTA_Tooltip_ability_abyssal_underlord_innate_oaa_damage_gain_per_hero_death"  "DAMAGE GAIN PER DEATH:"
+
+"DOTA_Tooltip_modifier_underlord_raid_boss_buff_oaa"                            "#{DOTA_Tooltip_ability_abyssal_underlord_innate_oaa}"
+"DOTA_Tooltip_modifier_underlord_raid_boss_buff_oaa_Description"                "Takes %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% less damage and bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed."
+
+"DOTA_Tooltip_modifier_underlord_permanent_dmg_increase_oaa"                    "#{DOTA_Tooltip_ability_abyssal_underlord_innate_oaa}"
+"DOTA_Tooltip_modifier_underlord_permanent_dmg_increase_oaa_Description"        "Gaining bonus damage permanently from enemy hero deaths."
