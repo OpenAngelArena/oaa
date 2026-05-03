@@ -19,7 +19,6 @@ if IsServer() then
   -- caster is needed for debuff amplification (bosses and creeps dont have that for now)
   -- ability is needed to check if it's an item (because Nether Core does not affect items)
   -- if it's a passive without a cooldown (because Nether Core does not affect those)
-  -- if it's stolen (because Rubick Spell Steal has debuff amp for stolen abilities)
   function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value, caster, ability)
     if self and value then
       local status_resist = self:GetStatusResistance()
@@ -170,70 +169,69 @@ if IsServer() then
       "modifier_item_nullifier_mute",                  -- Nullifier debuff
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
-      --"modifier_item_angels_demise_slow",              -- Khanda Slow
       "modifier_item_angels_demise_break",             -- Khanda Break
       -- custom:
       "modifier_item_shade_staff_trees_debuff",        -- Shade Staff debuff
       "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
-      "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
+      "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca passive debuff
     }
 
     local undispellable_ability_debuffs = {
-      "modifier_antimage_empowered_mana_break_debuff", -- Anti-Mage scepter debuff
+      "modifier_antimage_empowered_mana_break_debuff",              -- Anti-Mage scepter debuff
       "modifier_axe_berserkers_call",
       "modifier_bloodseeker_rupture",
-      --"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+      "modifier_dazzle_innate_weave_armor_counter",                 -- same modifier used as a buff and debuff
       "modifier_doom_bringer_doom",
-      "modifier_doom_bringer_doom_enemy",
-      "modifier_earth_spirit_magnetize",        -- Magnetize becomes undispellable with the talent
-      "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
-      "modifier_enchantress_little_friends_aura", -- Enchantress scepter aura that affects neutral creeps
-      "modifier_enchantress_little_friends_kill_credit", -- Enchantress scepter debuff that allows her to take credit for the kill made with neutrals
+      "modifier_doom_bringer_doom_aura_enemy",
+      "modifier_doom_bringer_doom_break",
+      --"modifier_earth_spirit_magnetize",                          -- Magnetize becomes undispellable with the talent
+      "modifier_earthspirit_petrify",                               -- Earth Spirit Enchant Remnant debuff
+      "modifier_enchantress_little_friends_aura",                   -- Enchantress scepter aura that affects neutral creeps
+      "modifier_enchantress_little_friends_kill_credit",            -- Enchantress scepter debuff that allows her to take credit for the kill made with neutrals
       "modifier_forged_spirit_melting_strike_debuff",
       "modifier_grimstroke_soul_chain",
-      "modifier_huskar_burning_spear_debuff",   -- Burning Spear stacks
-      "modifier_huskar_life_break_taunt",       -- Huskar Life Break scepter taunt
+      "modifier_huskar_burning_spear_debuff",                       -- Burning Spear stacks
+      "modifier_huskar_life_break_taunt",                           -- Huskar Life Break scepter taunt
       "modifier_ice_blast",
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
-      --"modifier_monkey_king_quadruple_tap_counter",     -- vanilla Jingu Mastery stacks on enemies
+      --"modifier_monkey_king_quadruple_tap_counter",               -- vanilla Jingu Mastery stacks on enemies
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
-      "modifier_obsidian_destroyer_equilibrium_debuff_counter",
+      "modifier_obsidian_destroyer_equilibrium_debuff_counter",     -- Astral Imprisonment stolen mana counter
       "modifier_queenofpain_sonic_wave_damage",
       "modifier_queenofpain_sonic_wave_knockback",
-      "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
+      "modifier_razor_eye_of_the_storm_armor",                      -- Eye of the Storm stacks
       "modifier_razor_static_link_debuff",
-      "modifier_rooted_undispellable",          -- generic undispellable root - Enchantress scepter uses this
-      "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
+      "modifier_rooted_undispellable",                              -- generic undispellable root - Enchantress scepter uses this
+      "modifier_sand_king_caustic_finale_orb",                      -- Caustic Finale initial debuff
       "modifier_shadow_demon_disruption",
-      "modifier_shadow_demon_purge_slow",
-      "modifier_shadow_demon_shadow_poison",    -- Shadow Poison stacks
-      "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
-      "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
+      "modifier_shadow_demon_purge_slow",                           -- same modifier used as a buff and debuff
+      "modifier_shadow_demon_shadow_poison",                        -- Shadow Poison stacks
+      --"modifier_silencer_curse_of_the_silent",                    -- Arcane Curse becomes undispellable with the talent
+      "modifier_slardar_amplify_damage",                            -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
-      "modifier_treant_overgrowth",             -- Overgrowth becomes undispellable with the talent
+      --"modifier_treant_overgrowth",                               -- Overgrowth becomes undispellable with the talent
       "modifier_tusk_walrus_kick_slow",
       "modifier_tusk_walrus_punch_slow",
       "modifier_ursa_fury_swipes_damage_increase",
-      "modifier_venomancer_poison_nova",
+      --"modifier_venomancer_poison_nova",
       "modifier_venomancer_noxious_plague_primary",
       "modifier_venomancer_noxious_plague_secondary",
-      "modifier_venomancer_noxious_plague_slow",
-      "modifier_venomancer_snakebite",          -- becomes undispellable with the talent
+      "modifier_venomancer_snakebite",                              -- Snakebite becomes undispellable with the talent
       "modifier_viper_viper_strike_slow",
       "modifier_windrunner_windrun_slow",
-      "modifier_winter_wyvern_winters_curse",
-      "modifier_winter_wyvern_winters_curse_aura",
+      "modifier_winter_wyvern_winters_curse",                       -- Winter's Curse taunt
+      "modifier_winter_wyvern_winters_curse_aura",                  -- Winter's Curse Target
       -- custom:
-      "modifier_monkey_king_jingu_mastery_oaa_count_debuff", -- custom Jingu Mastery stacks on enemies
+      "modifier_monkey_king_jingu_mastery_oaa_count_debuff",        -- custom Jingu Mastery stacks on enemies
     }
 
     local debuffs_with_multiple_instances = {
-      "modifier_bristleback_quill_spray",                -- Quill Spray stacks
-      "modifier_dazzle_innate_weave_armor",              -- same modifier used as a buff and debuff
-      "modifier_huskar_burning_spear_counter",           -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+      "modifier_bristleback_quill_spray",                           -- Quill Spray stacks
+      "modifier_dazzle_innate_weave_armor",                         -- same modifier used as a buff and debuff
+      "modifier_huskar_burning_spear_counter",                      -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
       "modifier_lina_slow_burn",
-      "modifier_obsidian_destroyer_equilibrium_debuff",  -- these stacks reduce mana
+      "modifier_obsidian_destroyer_equilibrium_debuff",             -- Astral Imprisonment stolen mana
     }
 
     local function RemoveTableOfModifiersFromUnit(unit, t)
@@ -254,9 +252,11 @@ if IsServer() then
     -- Debuffs that reduce cast range or increase cast time (reduce cast speed)
     local a = {
       "modifier_bane_enfeeble_effect",
-      "modifier_faceless_void_time_zone_effect", -- it will probably get reapplied again
-      "modifier_medusa_venomed_volley_slow",
+      --"modifier_faceless_void_time_zone_effect",                  -- not in the game anymore
+      --"modifier_medusa_venomed_volley_slow",                      -- does not slow cast speed anymore
+      --"modifier_techies_snare_trap_slowed",                       -- not in the game yet
       "modifier_tinker_warp_grenade",
+      "modifier_item_giant_maul_debuff",
     }
 
     local function RemoveTableOfModifiersFromUnit(unit, t)
@@ -288,21 +288,21 @@ if IsServer() then
       -- custom:
       --"modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
       "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
-      "modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff
+      --"modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff, dispellable
       "modifier_item_dispel_orb_active",             -- Dispel Orb buff
       "modifier_item_havoc_hammer_active",           -- Havoc Hammer active buff
-      --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
+      --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff, no need to remove it
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
       --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
-      "modifier_satanic_core_unholy",                -- Satanic Core buff
+      --"modifier_satanic_core_unholy",                -- Satanic Core buff
       "modifier_item_shade_staff_trees_caster_buff", -- Shade Staff caster buff
       "modifier_item_shade_staff_trees_buff",        -- Shade Staff ally buff
       "modifier_item_spiked_mail_active_return",     -- Spiked Mail active buff
       "modifier_item_stoneskin_stone_armor",         -- Stoneskin Armor buff
       "modifier_item_vampire_active",                -- Vampire Fang active buff
-      --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller
-      --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
+      --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller, dispellable
+      --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller; no need to remove it
     }
 
     local undispellable_ability_buffs = {
@@ -312,7 +312,7 @@ if IsServer() then
       "modifier_centaur_stampede",
       "modifier_clinkz_wind_walk",
       "modifier_dark_willow_shadow_realm_buff",
-      "modifier_dazzle_innate_weave_armor_counter",
+      "modifier_dazzle_innate_weave_armor_counter",                 -- same modifier used as a buff and debuff
       "modifier_dazzle_shallow_grave",
       "modifier_doom_bringer_doom_aura_self",
       "modifier_doom_bringer_scorched_earth_effect",
@@ -324,15 +324,14 @@ if IsServer() then
       "modifier_kunkka_ghost_ship_damage_absorb",
       "modifier_kunkka_ghost_ship_damage_delay",
       "modifier_life_stealer_rage",
-      "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
-      "modifier_luna_lucent_beam_damage_buff_counter",    -- Luna Moonstorm stacks
-      "modifier_luna_moon_glaive_shield",                 -- Luna Lunar Orbit
+      --"modifier_luna_lucent_beam_damage_buff_counter",            -- Luna Moonstorm stacks
+      "modifier_luna_moon_glaive_shield",                           -- Luna Lunar Orbit
       "modifier_medusa_stone_gaze",
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
-      "modifier_obsidian_destroyer_equilibrium_barrier",   -- OD scepter shield
+      "modifier_obsidian_destroyer_equilibrium_barrier",            -- OD scepter shield
       "modifier_obsidian_destroyer_equilibrium_buff_counter",
       "modifier_obsidian_destroyer_objurgation_cd",
       "modifier_omniknight_martyr",
@@ -342,30 +341,34 @@ if IsServer() then
       "modifier_phoenix_supernova_hiding",
       "modifier_rattletrap_battery_assault",
       "modifier_razor_static_link_buff",
-      "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
+      "modifier_shadow_demon_purge_slow",                           -- same modifier used as a buff and debuff
+      "modifier_skeleton_king_reincarnation_scepter_active",        -- Wraith King Wraith Form (Death Delay)
       --"modifier_skywrath_mage_shard_bonus_counter",
       "modifier_skywrath_mage_shield_barrier",
       "modifier_slark_shadow_dance",
-      "modifier_sven_warcry",  -- Warcry becomes undispellable with shard
+      "modifier_sven_warcry",                                       -- Warcry becomes undispellable with shard
+      --"modifier_sven_warcry_barrier",                             -- Warcry becomes undispellable with shard, it's dispellable
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
       "modifier_ursa_enrage",
-      "modifier_visage_summon_familiars_stone_form_buff", -- Visage and his familiars use the same Stone Form modifier
+      "modifier_visage_summon_familiars_stone_form_buff",           -- Visage and his familiars use the same Stone Form modifier
       "modifier_weaver_shukuchi",
-      "modifier_windrunner_tailwind_counter", -- Tailwind becomes undispellable with scepter
-      --"modifier_windrunner_windrun",  -- Windrun becomes undispellable with the talent
+      "modifier_windrunner_tailwind_counter",                       -- Tailwind becomes undispellable with scepter
+      --"modifier_windrunner_windrun",                              -- Windrun becomes undispellable with the talent
       --"modifier_windrunner_windrun_invis",
       "modifier_winter_wyvern_cold_embrace",
       "modifier_wisp_overcharge",
       -- custom:
-      "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
-      "modifier_monkey_king_jingu_mastery_oaa_buff",
+      "modifier_alpha_invisibility_oaa_buff",                       -- Neutral Alpha Wolf invisibility buff
+      "modifier_electrician_bonus_mana_count",
+      "modifier_monkey_king_jingu_mastery_oaa_buff",                -- Jingu Mastery becomes undispellable with the talent
       "modifier_sohei_flurry_self",
     }
 
     local buffs_with_multiple_instances = {
-      "modifier_dazzle_innate_weave_armor",
+      "modifier_dazzle_innate_weave_armor",                         -- same modifier used as a buff and debuff
       "modifier_leshrac_diabolic_edict",
+      --"modifier_luna_lucent_beam_damage_buff",                    -- Luna Moonstorm stacks
       "modifier_obsidian_destroyer_equilibrium_buff",
       "modifier_razor_eye_of_the_storm",
       --"modifier_skywrath_mage_shard_bonus",
@@ -373,10 +376,16 @@ if IsServer() then
     }
 
     local undispellable_rune_modifiers = {
+      "modifier_fountain_invulnerability",
+      --"modifier_rune_arcane",                    -- dispellable
+      --"modifier_rune_doubledamage",              -- dispellable
+      --"modifier_rune_haste",                     -- dispellable
       "modifier_rune_invis",
+      "modifier_rune_regen",
+      -- custom:
+      --"modifier_rune_hill_lesser_regeneration",  -- dispellable
       "modifier_rune_hill_tripledamage",
       "modifier_rune_hill_super_sight",
-      "modifier_fountain_invulnerability",
     }
 
     -- These are mostly transformation buffs, add them to the list above if they don't crash or break the ability and if fair
@@ -465,12 +474,16 @@ if IsServer() then
         item_radiance_4 = true,
         item_radiance_5 = true,
         item_stormcrafter = true,
+        abaddon_borrowed_time_oaa = true,
         beastmaster_summon_raptor = true,
         brewmaster_fire_permanent_immolation = true,
+        doom_bringer_scorched_earth = true,
+        electrician_electric_shield = true,
         ember_spirit_immolation = true,
+        --eul_tornado_collector_oaa = true,
         furion_wrath_of_nature = true, -- because of random bounces
         --leshrac_diabolic_edict = true,
-        --mirana_starfall = true, -- because of Scepter Arrow
+        --mirana_starfall = true, -- because of scepter Arrow
         phoenix_dying_light = true,
         razor_storm_surge = true,
         --sandking_epicenter = true, -- because of shard?
@@ -706,12 +719,9 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      --"modifier_chaos_knight_phantasm_illusion_shard",
       "modifier_chaos_knight_phantasmagoria",
       "modifier_morphling_replicate_illusion",
-      --"modifier_morphling_replicate_morphed_illusions_effect",
       "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
@@ -724,19 +734,22 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      --"modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",                            -- not in the game anymore
+      --"modifier_enigma_black_hole_pull",                          -- primarily a stun
+      --"modifier_faceless_void_chronosphere_freeze",               -- primarily a stun
       "modifier_grimstroke_soul_chain",
+      --"modifier_legion_commander_duel",                           -- primarily a taunt
       "modifier_puck_coiled",
-      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
-      "modifier_tidehunter_anchor_clamp",
+      "modifier_tidehunter_dead_in_the_water",
       -- custom:
+      "modifier_bubble_witch_cavitation_debuff",
       --"modifier_tinkerer_laser_contraption_debuff",
       "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
-    if self:HasModifier("modifier_sonic_fly") then
+    if self:HasModifier("modifier_sonic_fly") or self:HasModifier("modifier_boss_charger_super_armor") then
       return false
     end
 
@@ -772,47 +785,55 @@ if CDOTA_BaseNPC then
       end
     end
 
-    -- local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
-    -- if power_cogs_mod then
-      -- local power_cogs_ab = power_cogs_mod:GetAbility()
-      -- if power_cogs_ab then
-        -- local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
-        -- if check then
-          -- return true
-        -- end
-      -- end
-    -- end
-
     return false
   end
 
   function CDOTA_BaseNPC:InstantAttackCanProcCleave()
-    -- If it's on this list and uncommented then it can proc Giant Form
+    -- If it's on this list and NOT commented out then it can proc Giant Form
     local list = {
       "modifier_ember_spirit_sleight_of_fist_caster",
       "modifier_ember_spirit_sleight_of_fist_caster_invulnerability",
       "modifier_ember_spirit_sleight_of_fist_in_progress",
-      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Q
+      "modifier_faceless_void_time_lock_oaa",                       -- Faceless Void Time Lock
+      --"modifier_dawnbreaker_fire_wreath_caster",                  -- Dawnbreaker Starbreaker
       "modifier_juggernaut_omnislash",
       "modifier_juggernaut_omnislash_invulnerability",
-      --"modifier_mars_gods_rebuke_crit",                         -- Mars W
-      --"modifier_monkey_king_boundless_strike_crit",               -- MK Q
-      "modifier_wukongs_command_oaa_buff",                        -- MK R
+      --"modifier_kez_echo_slash_echo_damage",                      -- Kez Echo Slash
+      "modifier_kez_falcon_rush",                                   -- Kez Falcon Rush (Echo Slash will work too during this)
+      --"modifier_life_stealer_infest",                             -- Lifestealer scepter Infest
+      --"modifier_mars_gods_rebuke_crit",                           -- Mars Gods Rebuke
+      --"modifier_monkey_king_boundless_strike_crit",               -- Monkey King Boundless Strike
+      "modifier_wukongs_command_oaa_buff",                          -- Monkey King Wukongs Command (Boundless Strike will work during Wukongs Command)
       "modifier_pangolier_swashbuckle",
       "modifier_pangolier_swashbuckle_attack",
-      "modifier_phantom_assassin_stiflingdagger_caster",          -- PA Q
+      "modifier_phantom_assassin_stiflingdagger_caster",            -- Phantom Assassin Stifling Dagger (this probably does not work)
       "modifier_riki_tricks_of_the_trade_phase",
-      --"modifier_sand_king_scorpion_strike",                     -- Sand King E
-      --"modifier_sand_king_scorpion_strike_attack_bonus",        -- Sand King E
+      --"modifier_sand_king_scorpion_strike",                       -- Sand King Stinger
+      --"modifier_sand_king_scorpion_strike_attack_bonus",          -- Sand King Stinger
       "modifier_sohei_flurry_self",
-      --"modifier_tiny_tree_channel",
-      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit R
+      --"modifier_tidehunter_anchor_smash_caster",                  -- Tidehunter Anchor Smash
+      --"modifier_tiny_tree_channel",                               -- Tiny Tree Volley
+      --"modifier_void_spirit_astral_step_caster",                  -- Void Spirit Astral Step
     }
+
+    -- Check if cleave is suppressed
+    if self:HasModifier("modifier_suppress_cleave_oaa") then
+      return false
+    end
+
     for _, v in pairs(list) do
       if self:HasModifier(v) then
         return true
       end
     end
+
+    local name = self:GetUnitName()
+    if name == "npc_dota_hero_phantom_assassin" or name == "npc_dota_hero_pangolier" or name == "npc_dota_hero_legion_commander" then
+      return true
+    elseif name == "npc_dota_hero_sand_king" then
+      return false
+    end
+
     return false
   end
 end
@@ -847,12 +868,9 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      --"modifier_chaos_knight_phantasm_illusion_shard",
       "modifier_chaos_knight_phantasmagoria",
       "modifier_morphling_replicate_illusion",
-      --"modifier_morphling_replicate_morphed_illusions_effect",
       "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
@@ -865,19 +883,22 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsLeashedOAA()
     local normal_leashes = {
-      --"modifier_furion_sprout_tether",
+      --"modifier_furion_sprout_tether",                            -- not in the game anymore
+      --"modifier_enigma_black_hole_pull",                          -- primarily a stun
+      --"modifier_faceless_void_chronosphere_freeze",               -- primarily a stun
       "modifier_grimstroke_soul_chain",
+      --"modifier_legion_commander_duel",                           -- primarily a taunt
       "modifier_puck_coiled",
-      --"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
-      "modifier_tidehunter_anchor_clamp",
+      "modifier_tidehunter_dead_in_the_water",
       -- custom:
+      "modifier_bubble_witch_cavitation_debuff",
       --"modifier_tinkerer_laser_contraption_debuff",
       "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
-    if self:HasModifier("modifier_sonic_fly") then
+    if self:HasModifier("modifier_sonic_fly") or self:HasModifier("modifier_boss_charger_super_armor") then
       return false
     end
 
@@ -887,6 +908,8 @@ if C_DOTA_BaseNPC then
       if self:HasModifier("modifier_grimstroke_soul_chain") then
         return true
       end
+
+      -- FindModifierByName is not available on the client so can't check for other stuff
 
       return false
     end

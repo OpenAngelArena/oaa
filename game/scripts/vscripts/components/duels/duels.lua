@@ -676,7 +676,6 @@ function Duels:EndDuel ()
 
       HeroState.RestoreState(hero, state)
       MoveCameraToPlayer(hero)
-      HeroState.PurgeDuelHighgroundBuffs(hero) -- needed to remove undispellable Highground buffs
     end)
     -- Remove Modifier
     for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
