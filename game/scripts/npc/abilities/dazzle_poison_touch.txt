@@ -5,15 +5,15 @@
   //=================================================================================================================
   "dazzle_poison_touch"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,11 +21,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500 600 700 800 900 1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,12 +42,12 @@
       "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
       "start_radius"
       {
-        "value"                                           "200 200 200 200 200 200"
+        "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                           "300 300 300 300 300 300"
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
       "end_distance"

@@ -5,12 +5,12 @@
   //=================================================================================================================
   "meepo_earthbind"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750 900 1050 1200 1350 1500"
-    "AbilityCastPoint"                                    "0.3 0.25 0.2 0.15 0.1 0" //OAA
+    "AbilityCastPoint"                                    "0.3 0.25 0.2 0.15 0.1 0" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +44,12 @@
       {
         "special_bonus_unique_meepo_4"                    "1"
       }
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "16 14 12 10 10 10"
-        "special_bonus_unique_meepo_3"                    "-2.5"
+        "value"                                           "13 12 11 10 9 8"
+        "special_bonus_unique_meepo_3"                    "-1.5"
       }
-      "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0" //OAA
+      "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0" //OAA, because it scales in OAA; same as AbilityCastPoint
     }
   }
 }

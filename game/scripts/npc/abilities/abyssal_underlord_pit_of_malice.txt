@@ -33,9 +33,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA, intentionally nerfed
+      "radius" //OAA, intentionally nerfed both base value and scepter
       {
-        "value"                                           "350"
+        "value"                                           "360"
         "special_bonus_scepter"                           "+80"
         "affected_by_aoe_increase"                        "1"
       }

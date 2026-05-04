@@ -8,9 +8,10 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -25,10 +26,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "100" //OAA, intentionally nerfed
 
+    // Damage
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "300 400 500 800 1100" //OAA, intentionally buffed
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "175 225 275 325 375" //OAA, intentionally nerfed
-    "AbilityDamage"                                       "300 400 500 800 1100" //OAA, intentionally buffed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

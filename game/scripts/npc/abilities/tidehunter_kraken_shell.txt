@@ -44,7 +44,7 @@
       "active_pct_effectiveness"                          "200.0" // "double" is in the loc file. if changing this amount, update the ability description
       "active_move_speed_penalty_pct"                     "40"
       "active_duration"                                   "4.0"
-      "damage_cleanse"                                    "650 600 550 500 450 450" //OAA, intentionally nerfed
+      "damage_cleanse"                                    "650 600 550 500 450 400" //OAA, intentionally nerfed
       "damage_reset_interval"                             "7.0"
       "smash_on_purge"
       {

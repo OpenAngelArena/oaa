@@ -5,11 +5,12 @@
   //=================================================================================================================
   "dazzle_nothl_projection"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "65 60 55 50 45" //OAA
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,9 +39,9 @@
       "leash_start"                                       "1600"
       "base_leash_pull"                                   "50"
       "leash_increase"                                    "1.5"
-      "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA
+      "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA, intentionally nerfed
       "shallow_grave_heal"                                "225 300 375 450 525"
-      "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA
+      "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA, intentionally rescaled
       "max_duration"
       {
         "value"                                           "12"

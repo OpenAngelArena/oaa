@@ -31,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "beams" //OAA
+      "beams" //OAA, because of special_bonus_scepter buff
       {
         "value"                                           "6 9 12 15 18"
         "special_bonus_scepter"                           "+2 +4 +6 +6 +6"
@@ -57,7 +57,7 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+2500"
       }
-      "AbilityDuration" //OAA, beams x beam_interval
+      "AbilityDuration" //OAA, intentionally changed to be equal to: beams x beam_interval
       {
         "value"                                           "3.6 5.4 7.2 9.0 10.8"
         "special_bonus_scepter"                           "-1.2 -1.5 -1.8 -2.7 -3.6"

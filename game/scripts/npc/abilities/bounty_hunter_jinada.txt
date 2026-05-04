@@ -14,9 +14,9 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "Innate"                                              "1" //OAA
-    "MaxLevel"                                            "7" //OAA
-    "RequiredLevel"                                       "-1" //OAA, so you can lvl it up at lvl 1 if you want.
+    "Innate"                                              "1" //OAA, intentionally
+    "MaxLevel"                                            "7" //OAA, intentionally
+    "RequiredLevel"                                       "-1" //OAA, intentionally; so you can lvl it up at lvl 1 if you want.
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting

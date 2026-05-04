@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA, intentionally nerfed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA, because of special_bonus_unique_disruptor_8
+      "radius"
       {
         "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
@@ -41,9 +41,9 @@
       }
       "pulses" //OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
-        "value"                                           "20"
+        "value"                                           "24"
       }
-      "damage_max" //OAA
+      "damage_max" //OAA, intentionally buffed
       {
         "value"                                           "200 350 500 950 1400"
         "special_bonus_unique_disruptor"                  "+60"
