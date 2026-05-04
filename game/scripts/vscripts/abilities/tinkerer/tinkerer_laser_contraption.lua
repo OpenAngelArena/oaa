@@ -26,16 +26,6 @@ function tinkerer_laser_contraption:GetAOERadius()
   return self:GetSpecialValueFor("radius")
 end
 
-function tinkerer_laser_contraption:GetCastRange(location, target)
-  local caster = self:GetCaster()
-
-  if caster:HasScepter() then
-    return self:GetSpecialValueFor("scepter_cast_range")
-  end
-
-  return self.BaseClass.GetCastRange(self, location, target)
-end
-
 function tinkerer_laser_contraption:OnSpellStart()
   local caster = self:GetCaster()
   local cursor = self:GetCursorPosition()
@@ -133,47 +123,14 @@ function tinkerer_laser_contraption:OnSpellStart()
   -- Visual effect
   ApplyLaser(caster, "attach_attack2", thinker, "attach_hitloc")
 
-  -- Damage table
-  -- local damage_table = {
-    -- attacker = caster,
-    -- damage = self:GetSpecialValueFor("initial_damage"),
-    -- damage_type = DAMAGE_TYPE_PURE,
-    -- ability = self,
-  -- }
-
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
     if unit and not unit:IsNull() and unit:GetUnitName() ~= "npc_dota_tinkerer_keen_node" then
       --local origin = unit:GetAbsOrigin()
       --FindClearSpaceForUnit(unit, origin, true) -- this interrupts some mobility spells like Huskar Life Break
       unit:AddNewModifier(unit, self, "modifier_phased", {duration = FrameTime()})
-      -- if unit:GetTeamNumber() ~= team and not unit:IsMagicImmune() and not square_shape then
-        -- damage_table.victim = unit
-        -- ApplyDamage(damage_table)
-      -- end
     end
   end
-
-  -- if square_shape then
-    -- local enemies = FindUnitsInLine(
-      -- team,
-      -- cursor + radius * Vector(-1, 0, 0),
-      -- cursor + radius * Vector(1, 0, 0),
-      -- nil,
-      -- radius,
-      -- self:GetAbilityTargetTeam(),
-      -- self:GetAbilityTargetType(),
-      -- DOTA_UNIT_TARGET_FLAG_NONE
-    -- )
-
-    -- -- Damage enemies in a square
-    -- for _, enemy in pairs(enemies) do
-      -- if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
-        -- damage_table.victim = enemy
-        -- ApplyDamage(damage_table)
-      -- end
-    -- end
-  -- end
 
   -- Sound
   caster:EmitSound("Hero_Tinker.March_of_the_Machines.Cast")
@@ -195,29 +152,29 @@ function modifier_tinkerer_laser_contraption_thinker:IsPurgable()
   return false
 end
 
--- function modifier_tinkerer_laser_contraption_thinker:IsAura()
-  -- return self:GetCaster():HasScepter()
--- end
+function modifier_tinkerer_laser_contraption_thinker:IsAura()
+  return self:GetAbility():GetSpecialValueFor("health_restoration") ~= 0
+end
 
--- function modifier_tinkerer_laser_contraption_thinker:GetModifierAura()
-  -- return "modifier_tinkerer_laser_contraption_debuff"
--- end
+function modifier_tinkerer_laser_contraption_thinker:GetModifierAura()
+  return "modifier_tinkerer_laser_contraption_debuff"
+end
 
--- function modifier_tinkerer_laser_contraption_thinker:GetAuraRadius()
-  -- return self:GetAbility():GetSpecialValueFor("radius")
--- end
+function modifier_tinkerer_laser_contraption_thinker:GetAuraRadius()
+  return self:GetAbility():GetSpecialValueFor("radius")
+end
 
--- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchTeam()
-  -- return DOTA_UNIT_TARGET_TEAM_ENEMY
--- end
+function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
 
--- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
-  -- return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
--- end
+function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
 
--- function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
-  -- return DOTA_UNIT_TARGET_FLAG_NONE
--- end
+function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_NONE
+end
 
 function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   if not IsServer() then
@@ -250,7 +207,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   -- Start thinking
   self:OnIntervalThink()
   self:StartIntervalThink(dmg_interval)
-  self:ApplyMarchOfTheMachines()
+  --self:ApplyMarchOfTheMachines()
 end
 
 function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
@@ -263,11 +220,16 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
     return
   end
 
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
   local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
-  if tar_spill and tar_spill:GetLevel() > 0 then
+  if tar_spill and not tar_spill:IsNull() then
     -- Keen Contraption applies Tar Spill
-    local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
-    if (talent and talent:GetLevel() > 0) or caster:HasScepter() then
+    local should_apply = ability:GetSpecialValueFor("apply_tar_spill") ~= 0
+    if should_apply and tar_spill:GetLevel() > 0 then
       tar_spill:OnProjectileHit(nil, self.center)
     end
   end
@@ -283,9 +245,16 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyMarchOfTheMachines()
     return
   end
 
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
   local march = caster:FindAbilityByName("tinker_march_of_the_machines")
-  if march and march:GetLevel() > 0 then
-    if caster:HasScepter() then
+  if march and not march:IsNull() then
+    -- Keen Contraption applies March of the Machines
+    local should_apply = ability:GetSpecialValueFor("apply_march") ~= 0
+    if should_apply and march:GetLevel() > 0 then
       caster:SetCursorPosition(self.center)
       march:OnSpellStart()
     end
@@ -359,14 +328,13 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
-      if caster:HasScepter() then
-        -- Apply Heal reduction debuff
-        if not enemy:HasModifier("modifier_tinkerer_laser_contraption_debuff") then
-          enemy:AddNewModifier(caster, ability, "modifier_tinkerer_laser_contraption_debuff", {duration = self:GetRemainingTime() + 0.5})
-        end
-        -- Apply Health Restoration reduction debuff (it will refresh with each interval tick)
-        enemy:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", self:GetRemainingTime())
-      end
+      -- Imitate aura + lingering (only if aura doesnt work)
+      -- Apply Heal reduction debuff
+      --if not enemy:HasModifier("modifier_tinkerer_laser_contraption_debuff") then
+        --enemy:AddNewModifier(caster, ability, "modifier_tinkerer_laser_contraption_debuff", {duration = self:GetRemainingTime() + 0.5})
+      --end
+      -- Apply Health Restoration reduction debuff (it will refresh with each interval tick)
+      --enemy:ApplyNonStackableBuff(caster, ability, "modifier_item_enhancement_crude", self:GetRemainingTime())
       -- Actual damage
       damage_table.victim = enemy
       ApplyDamage(damage_table)
@@ -427,12 +395,12 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Scepter effect provided by an aura of the thinker
+-- Health Restoration reduction effect provided by an aura of the thinker
 
 modifier_tinkerer_laser_contraption_debuff = class({})
 
 function modifier_tinkerer_laser_contraption_debuff:IsHidden()
-  return not self:GetCaster():HasScepter()
+  return self:GetAbility():GetSpecialValueFor("health_restoration") == 0
 end
 
 function modifier_tinkerer_laser_contraption_debuff:IsDebuff()
@@ -444,9 +412,9 @@ function modifier_tinkerer_laser_contraption_debuff:IsPurgable()
 end
 
 function modifier_tinkerer_laser_contraption_debuff:OnCreated()
+  self.heal_prevent_percent = -25
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    --self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
     self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
   end
   if self:GetParent():IsMagicImmune() then
@@ -456,6 +424,7 @@ end
 
 modifier_tinkerer_laser_contraption_debuff.OnRefresh = modifier_tinkerer_laser_contraption_debuff.OnCreated
 
+--[[
 function modifier_tinkerer_laser_contraption_debuff:OnDestroy()
   if not IsServer() then
     return
@@ -480,6 +449,7 @@ function modifier_tinkerer_laser_contraption_debuff:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
@@ -487,8 +457,7 @@ function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
-    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION, -- GetModifierPropertyRestorationAmplification
-    --MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE, -- GetModifierPropertyRestorationAmplificationUnique
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION, -- GetModifierPropertyRestorationAmplification
     MODIFIER_PROPERTY_TOOLTIP,
   }
 end
@@ -498,33 +467,27 @@ function modifier_tinkerer_laser_contraption_debuff:OnTooltip()
 end
 
 -- function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+  -- return self.heal_prevent_percent
 -- end
 
 -- Still works but we need all health restoration
 -- function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Percentage()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+  -- return self.heal_prevent_percent
 -- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+  -- return self.heal_prevent_percent
 -- end
 
 -- Doesn't work, Thanks Valve!
 -- function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+  -- return self.heal_prevent_percent
 -- end
 
--- Doesn't work, Thanks Valve!
--- function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplification()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
--- end
-
--- Doesn't work, Thanks Valve!
--- function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplificationUnique()
-  -- return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
--- end
+function modifier_tinkerer_laser_contraption_debuff:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_prevent_percent)
+end
 
 -- function modifier_tinkerer_laser_contraption_debuff:CheckState()
   -- return {

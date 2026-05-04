@@ -13,14 +13,17 @@
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "witch_doctor_death_ward_oaa"
-    "MaxLevel"                                            "6" // same as Dependent ability + 1
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_restoration"                                "-10 -11 -12 -13 -14 -15" // reduces all health restoration
+      "health_restoration" // reduces all health restoration
+      {
+        "value"                                           "10.5"
+        "hero_levelup"                                    "+0.5"
+      }
       "duration"                                          "3"
     }
   }

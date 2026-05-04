@@ -77,7 +77,7 @@ if IsServer() then
     end
 
     target:AddNewModifier(parent, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
-    target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
+    --target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
   end
 end
 
@@ -98,20 +98,18 @@ function modifier_frostburn_oaa_effect:IsPurgable()
 end
 
 function modifier_frostburn_oaa_effect:OnCreated()
+  self.heal_prevent_percent = -25
+  self.attack_slow = -25
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
     self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
-  else
-    self.heal_prevent_percent = -25
-    self.attack_slow = -25
   end
-  --self.duration = self:GetDuration()
-  --self.health_fraction = 0
 end
 
 modifier_frostburn_oaa_effect.OnRefresh = modifier_frostburn_oaa_effect.OnCreated
 
+--[[
 function modifier_frostburn_oaa_effect:OnDestroy()
   if not IsServer() then
     return
@@ -136,6 +134,7 @@ function modifier_frostburn_oaa_effect:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_frostburn_oaa_effect:GetEffectName()
   return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
@@ -148,12 +147,9 @@ function modifier_frostburn_oaa_effect:DeclareFunctions()
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    --MODIFIER_EVENT_ON_HEALTH_GAINED,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
-end
-
-function modifier_frostburn_oaa_effect:OnTooltip()
-  return self.heal_prevent_percent
 end
 
 -- function modifier_frostburn_oaa_effect:GetModifierHealAmplify_PercentageTarget()
@@ -178,21 +174,10 @@ function modifier_frostburn_oaa_effect:GetModifierAttackSpeedBonus_Constant()
   return 0 - math.abs(self.attack_slow)
 end
 
---[[
-function modifier_frostburn_oaa_effect:OnHealthGained(event)
-  if IsServer() then
-    -- Check that event is being called for the unit that self is attached to
-    local parent = self:GetParent()
-    -- Covfefe (Blade of Judecca) debuff has more priority
-    if event.unit == parent and event.gain > 0 and not parent:HasModifier("modifier_item_trumps_fists_frostbite") then
-      local heal_percent = self.heal_prevent_percent / 100 * (self:GetRemainingTime() / self.duration)
-      local desiredHP = parent:GetHealth() + event.gain * heal_percent + self.health_fraction
-      desiredHP = math.max(desiredHP, 1)
-      -- Keep record of fractions of health since Dota doesn't (mainly to make passive health regen sort of work)
-      self.health_fraction = desiredHP % 1
-
-      parent:SetHealth(desiredHP)
-    end
-  end
+function modifier_frostburn_oaa_effect:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_prevent_percent)
 end
-]]
+
+function modifier_frostburn_oaa_effect:OnTooltip()
+  return self.heal_prevent_percent
+end

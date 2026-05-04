@@ -375,7 +375,7 @@ if IsServer() then
     -- Apply Heal reduction debuff
     local debuff_duration = ability:GetSpecialValueFor("heal_reduction_duration")
     damaged_unit:AddNewModifier(parent, ability, "modifier_item_dagger_of_moriah_frostbite", {duration = debuff_duration})
-    damaged_unit:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", debuff_duration)
+    --damaged_unit:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", debuff_duration)
   end
 end
 
@@ -408,16 +408,16 @@ function modifier_item_dagger_of_moriah_frostbite:IsPurgable()
 end
 
 function modifier_item_dagger_of_moriah_frostbite:OnCreated()
+  self.heal_reduction = -40
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.heal_reduction = ability:GetSpecialValueFor("health_restoration")
-  else
-    self.heal_reduction = -40
   end
 end
 
 modifier_item_dagger_of_moriah_frostbite.OnRefresh = modifier_item_dagger_of_moriah_frostbite.OnCreated
 
+--[[
 function modifier_item_dagger_of_moriah_frostbite:OnDestroy()
   if not IsServer() then
     return
@@ -442,6 +442,7 @@ function modifier_item_dagger_of_moriah_frostbite:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
   return {
@@ -449,8 +450,13 @@ function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
     MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_item_dagger_of_moriah_frostbite:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_item_dagger_of_moriah_frostbite:OnTooltip()

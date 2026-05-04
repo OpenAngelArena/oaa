@@ -80,21 +80,14 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     false
   )
 
-  -- Check for talent that increases the duration
-  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_4")
-  if talent and talent:GetLevel() > 0 then
-    duration = duration + talent:GetSpecialValueFor("value")
-  end
-
   -- Check for Tar Spill Applies Root
-  local hasScepter = caster:HasScepter()
   local root_duration = self:GetSpecialValueFor("scepter_root_duration")
 
   -- Apply debuff to enemies
   for _, enemy in pairs(oiled_enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
-      if hasScepter then
+      if root_duration ~= 0 then
         local actual_root_duration = enemy:GetValueChangedByStatusResistance(root_duration, caster, self)
         enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_root", {duration = actual_root_duration})
       end

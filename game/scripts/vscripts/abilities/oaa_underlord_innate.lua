@@ -133,9 +133,7 @@ function modifier_underlord_raid_boss_buff_oaa:OnCreated()
   end
 end
 
-function modifier_underlord_raid_boss_buff_oaa:OnRefresh()
-  self:OnCreated()
-end
+modifier_underlord_raid_boss_buff_oaa.OnRefresh = modifier_underlord_raid_boss_buff_oaa.OnCreated
 
 function modifier_underlord_raid_boss_buff_oaa:DeclareFunctions()
   return {

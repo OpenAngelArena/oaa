@@ -85,7 +85,7 @@ if IsServer() then
     end
 
     target:AddNewModifier(parent, self:GetAbility(), "modifier_boss_frostbite_effect", {duration = self.heal_prevent_duration})
-    target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
+    --target:ApplyNonStackableBuff(parent, self:GetAbility(), "modifier_item_enhancement_crude", self.heal_prevent_duration)
   end
 end
 
@@ -106,16 +106,16 @@ function modifier_boss_frostbite_effect:IsPurgable()
 end
 
 function modifier_boss_frostbite_effect:OnCreated()
+  self.heal_prevent_percent = -60
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
-  else
-    self.heal_prevent_percent = -60
   end
 end
 
 modifier_boss_frostbite_effect.OnRefresh = modifier_boss_frostbite_effect.OnCreated
 
+--[[
 function modifier_boss_frostbite_effect:OnDestroy()
   if not IsServer() then
     return
@@ -140,6 +140,7 @@ function modifier_boss_frostbite_effect:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_boss_frostbite_effect:GetEffectName()
   return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
@@ -151,8 +152,13 @@ function modifier_boss_frostbite_effect:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
     MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_boss_frostbite_effect:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_boss_frostbite_effect:OnTooltip()
