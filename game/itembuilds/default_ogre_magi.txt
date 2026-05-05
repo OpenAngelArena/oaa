@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b (Darkonius)"
+  "author"        "OAA 7.41x (Darkonius)"
   "hero"          "npc_dota_hero_ogre_magi"
   "Title"         "Recommended items for Ogre Magi"
 
@@ -33,10 +33,9 @@
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_phylactery"
-      "item"      "item_kaya"
       "item"      "item_dagon_oaa_1"
       "item"      "item_ethereal_blade"
-      "item"      "item_shivas_guard"
+      "item"      "item_havoc_hammer_1"
       "item"      "item_ultimate_scepter"
       //"item"      "item_dagger_of_moriah_1"
     }
@@ -58,9 +57,10 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_angels_demise"
-      "item"      "item_havoc_hammer_1"
+      "item"      "item_bloodstone_1"
       "item"      "item_heart"
       "item"      "item_heavens_halberd"
+      "item"      "item_kaya"
       "item"      "item_nullifier"
       "item"      "item_octarine_core"
       "item"      "item_shield_staff"

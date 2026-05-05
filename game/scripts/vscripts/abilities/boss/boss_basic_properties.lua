@@ -194,19 +194,6 @@ if IsServer() then
         end
       end
 
-      -- Primal Beast innate: Primal Beast attacks do bonus damage
-      if attacker:HasModifier("modifier_primal_beast_colossal") then
-        local ability = attacker:FindAbilityByName("primal_beast_colossal")
-        if ability then
-          if ability:GetLevel() > 0 then
-            local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
-            if damage_increase_pct and damage_increase_pct > 0 then
-              return damage_increase_pct
-            end
-          end
-        end
-      end
-
       return 0
     end
 
@@ -214,7 +201,8 @@ if IsServer() then
     local percentDamageSpells = {
       abyssal_underlord_firestorm = true,     -- when it starts working against ancients
       anti_mage_mana_void = false,
-      bloodseeker_bloodrage = true,           -- pure dmg
+      bloodseeker_bloodrage = inflictor:GetSpecialValueFor("max_health_dmg_pct") ~= 0, -- pure dmg
+      bloodseeker_rupture = inflictor:GetSpecialValueFor("hp_pct") ~= 0, -- pure dmg
       death_prophet_spirit_siphon = inflictor:GetSpecialValueFor("damage_pct") ~= 0, -- talent gives pct dmg
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       enigma_midnight_pulse = true,           -- when it starts working against ancients
@@ -236,7 +224,7 @@ if IsServer() then
       shadow_demon_disseminate = inflictor:GetSpecialValueFor("health_lost") ~= 0,
       venomancer_noxious_plague = true,
       winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
-      witch_doctor_maledict = true,
+      witch_doctor_maledict = true,           -- when it starts working against neutrals again
       zuus_static_field = true,
     }
     local name = inflictor:GetAbilityName()
@@ -257,26 +245,6 @@ if IsServer() then
       if ability then
         if ability:GetLevel() > 0 then
           local damage_increase_pct = math.max(ability:GetSpecialValueFor("building_dmg_pct"), ability:GetSpecialValueFor("building_damage_pct"), ability:GetSpecialValueFor("structure_damage_mod"))
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
-          end
-        end
-      end
-    end
-
-    -- Primal Beast innate: Primal Beast spells do bonus damage
-    local primal_beast_abilities = {
-      primal_beast_onslaught = true,
-      primal_beast_pulverize = true,
-      primal_beast_rock_throw = true,
-      primal_beast_trample = true,
-      primal_beast_uproar = true,
-    }
-    if attacker:HasModifier("modifier_primal_beast_colossal") and primal_beast_abilities[name] then
-      local ability = attacker:FindAbilityByName("primal_beast_colossal")
-      if ability then
-        if ability:GetLevel() > 0 then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end

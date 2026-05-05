@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_legion_commander"
   "Title"         "Recommended Items for Legion Commander"
 
@@ -23,7 +23,6 @@
       "item"      "item_blink"
       "item"      "item_harpoon"
       "item"      "item_assault"
-      "item"      "item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Physical_Core"
@@ -38,7 +37,7 @@
     {
       "item"      "item_dagon_oaa_1"
       "item"      "item_ethereal_blade"
-      "item"      "item_gungir"
+      "item"      "item_gungir" // Gleipnir is better than Shivas Guard because slowing attack speed is not synergistic
       "item"      "item_octarine_core"
       "item"      "item_havoc_hammer_1"
     }
@@ -60,6 +59,7 @@
       "item"      "item_sange_and_yasha"
       "item"      "item_silver_edge"
       "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
       "item"      "item_greater_power_treads"
       "item"      "item_devastator_oaa_2"
       "item"      "item_refresher_4"

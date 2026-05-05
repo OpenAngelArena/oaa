@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_rattletrap"
   "Title"         "Recommended items for Clockwerk"
 
@@ -19,7 +19,6 @@
       "item"      "item_orchid"
       "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
-      "item"      "item_octarine_core"
       "item"      "item_pull_staff"
     }
 
@@ -40,13 +39,13 @@
     "#DOTA_Item_Build_Luxury" // Clockwerk is good with most items
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_dagon_oaa_6" // because of miss chance
       "item"      "item_heavens_halberd"
       "item"      "item_lotus_orb"
       "item"      "item_nullifier"
+      "item"      "item_octarine_core"
       "item"      "item_pipe"
       "item"      "item_solar_crest"
-      "item"      "item_greater_phase_boots"
+      "item"      "item_stoneskin"
       "item"      "item_trumps_fists_1"
     }
   }

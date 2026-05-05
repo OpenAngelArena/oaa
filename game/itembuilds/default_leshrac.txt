@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.39x"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_leshrac"
   "Title"         "Recommended Items for Leshrac"
 
@@ -15,9 +15,8 @@
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_kaya"
-      "item"      "item_blink"
-      "item"      "item_gungir"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1" // still good despite spell lifesteal not working on Diabolic Edict
+      "item"      "item_gungir" // Gleipnir is better than Shivas Guard because it provides more effective hp and INT
       "item"      "item_ultimate_scepter"
       "item"      "item_wind_waker"
     }
@@ -39,10 +38,11 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodstone_1"
+      "item"      "item_blink"
+      "item"      "item_crellas_crozier"
       "item"      "item_ethereal_blade"
-      "item"      "item_glimmer_cape"
       "item"      "item_lotus_orb"
+      "item"      "item_shivas_guard"
       "item"      "item_sphere"
       "item"      "item_greater_travel_boots"
     }

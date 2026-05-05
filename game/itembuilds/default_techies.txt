@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_techies"
   "Title"         "Recommended items for Techies"
 
@@ -31,8 +31,8 @@
     {
       "item"      "item_kaya"
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
-      "item"      "item_gungir"
+      "item"      "item_gungir" // Gleipnir is better than Shivas Guard because it provides more mana
+      "item"      "item_bloodstone_1"
       "item"      "item_ethereal_blade"
       "item"      "item_dagger_of_moriah_1"
     }

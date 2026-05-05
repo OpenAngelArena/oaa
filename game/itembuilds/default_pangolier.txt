@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b (Darkonius)"
+  "author"        "OAA 7.41x (Darkonius)"
   "hero"          "npc_dota_hero_pangolier"
   "Title"         "Recommended items for Pangolier"
 
@@ -27,7 +27,7 @@
     "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1"
       "item"      "item_assault"
       "item"      "item_devastator_oaa_2"
       "item"      "item_sacred_skull"
@@ -39,6 +39,7 @@
       "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
       "item"      "item_dispel_orb_1"
+      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Shard"

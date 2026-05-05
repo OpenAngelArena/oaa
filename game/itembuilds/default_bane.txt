@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_bane"
   "Title"         "Recommended items for Bane"
 
@@ -22,7 +22,7 @@
     {
       "item"      "item_phylactery"
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
+      //"item"      "item_bloodstone_1" // spell lifesteal does not work
       "item"      "item_octarine_core"
       "item"      "item_refresher_4"
     }
@@ -33,6 +33,7 @@
       "item"      "item_far_sight"
       "item"      "item_shield_staff"
       "item"      "item_glimmer_cape"
+      "item"      "item_shivas_guard"
     }
 
     "#DOTA_Item_Build_Shard"

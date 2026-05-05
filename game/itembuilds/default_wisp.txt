@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_wisp"
   "Title"         "Recommended items for Io"
 
@@ -16,16 +16,17 @@
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_spirit_vessel_oaa"
       "item"      "item_ghost_king_bar_1"
       "item"      "item_guardian_greaves"
+      "item"      "item_spirit_vessel_oaa" // because of the heal
+      "item"      "item_heart"
       "item"      "item_heart_transplant"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1"
       "item"      "item_kaya_and_sange"
       "item"      "item_ethereal_blade"
       "item"      "item_greater_travel_boots"
@@ -39,7 +40,7 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_dagon_oaa_1" // because of burst heal
+      "item"      "item_arcane_blink" // because of the heal
       "item"      "item_glimmer_cape"
       "item"      "item_helm_of_the_overlord"
       "item"      "item_lotus_orb"

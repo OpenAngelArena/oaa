@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_jakiro"
   "Title"         "Recommended items for Jakiro"
 
@@ -20,7 +20,7 @@
       "item"      "item_kaya" // item_meteor_hammer_1
       "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
-      "item"      "item_gungir"
+      "item"      "item_bloodstone_1" // still good despite spell lifesteal not working on scepter Macropyre
       "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
     }
@@ -43,8 +43,8 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodstone_1"
       "item"      "item_bloodthorn"
+      "item"      "item_gungir"
       "item"      "item_lotus_orb"
       "item"      "item_pull_staff"
       "item"      "item_aeon_disk_oaa_2"

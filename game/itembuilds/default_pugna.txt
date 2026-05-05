@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b + Frost"
+  "author"        "OAA 7.41x + Frost"
   "hero"          "npc_dota_hero_pugna"
   "Title"         "Recommended items for Pugna"
 
@@ -27,27 +27,10 @@
       "item"      "item_kaya"
       "item"      "item_dagon_oaa_1"
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1"
       "item"      "item_ethereal_blade"
       "item"      "item_dagger_of_moriah_1"
     }
-
-    "#DOTA_Item_Build_Physical_Core"
-    {
-      "item"      "item_devastator"
-      "item"      "item_bloodthorn"
-      "item"      "item_hurricane_pike"
-      "item"      "item_spell_breaker_1"
-      "item"      "item_greater_power_treads"
-    }
-
-    //"#DOTA_Item_Build_Boss_Killer"
-    //{
-      //"item"      "item_meteor_hammer_1"
-      //"item"      "item_shivas_guard"
-      //"item"      "item_greater_travel_boots"
-      //"item"      "item_dagger_of_moriah_1"
-    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -60,6 +43,7 @@
       "item"      "item_black_king_bar_1"
       "item"      "item_lotus_orb"
       "item"      "item_pull_staff"
+      "item"      "item_shivas_guard"
       "item"      "item_sphere"
       "item"      "item_dispel_orb_1"
       "item"      "item_bubble_orb_1"
