@@ -17,12 +17,13 @@ function abyssal_underlord_dark_rift_oaa:GetAssociatedSecondaryAbilities()
 end
 
 function abyssal_underlord_dark_rift_oaa:OnUpgrade()
-  local abilityLevel = self:GetLevel()
   local sub_ability = self:GetCaster():FindAbilityByName("abyssal_underlord_cancel_dark_rift_oaa")
 
 	-- Check to not enter a level up loop
-  if sub_ability and sub_ability:GetLevel() < 1 then
-    sub_ability:SetLevel(1)
+  if sub_ability and not sub_ability:IsNull() then
+    if sub_ability:GetLevel() < 1 then
+      sub_ability:SetLevel(1)
+    end
   end
 end
 
