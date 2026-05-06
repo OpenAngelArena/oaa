@@ -31,6 +31,18 @@
       "item"      "item_sheepstick_4"
     }
 
+    "#DOTA_Item_Build_Tank_Core" // Standard Tank
+    {
+      "item"      "item_consecrated_wraps"
+      //"item"      "item_shield_staff" // support item
+      //"item"      "item_crimson_guard" // support item; does not have much hp
+      //"item"      "item_spiked_mail_1" // core item
+      "item"      "item_stoneskin"
+      "item"      "item_heart"
+      //"item"      "item_shade_staff_1" // support item; not good with Power Cogs
+      "item"      "item_enrage_crystal_1"
+    }
+
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -45,7 +57,6 @@
       "item"      "item_octarine_core"
       "item"      "item_pipe"
       "item"      "item_solar_crest"
-      "item"      "item_stoneskin"
       "item"      "item_trumps_fists_1"
     }
   }
