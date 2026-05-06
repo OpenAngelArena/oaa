@@ -1,7 +1,6 @@
 abyssal_underlord_dark_rift_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_underlord_dark_rift_oaa_stun", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_underlord_dark_rift_oaa_caster_buff", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -18,12 +17,13 @@ function abyssal_underlord_dark_rift_oaa:GetAssociatedSecondaryAbilities()
 end
 
 function abyssal_underlord_dark_rift_oaa:OnUpgrade()
-  local abilityLevel = self:GetLevel()
   local sub_ability = self:GetCaster():FindAbilityByName("abyssal_underlord_cancel_dark_rift_oaa")
 
 	-- Check to not enter a level up loop
-  if sub_ability and sub_ability:GetLevel() ~= abilityLevel then
-    sub_ability:SetLevel(abilityLevel)
+  if sub_ability and not sub_ability:IsNull() then
+    if sub_ability:GetLevel() < 1 then
+      sub_ability:SetLevel(1)
+    end
   end
 end
 
@@ -116,13 +116,6 @@ function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseInterrupted()
   end
 end
 
--- function abyssal_underlord_dark_rift_oaa:GetChannelTime()
-  -- if self:GetCaster():HasScepter() then
-    -- return self:GetSpecialValueFor("teleport_delay_scepter")
-  -- end
-  -- return self.BaseClass.GetChannelTime(self)
--- end
-
 function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
@@ -185,8 +178,26 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   ParticleManager:SetParticleControl( part3, 2, originParent )
   ParticleManager:SetParticleControl( part3, 5, originParent )
 
-  -- Apply a buff to the caster
-  caster:AddNewModifier(caster, self, "modifier_underlord_dark_rift_oaa_caster_buff", {duration = self:GetSpecialValueFor("buff_duration")})
+  -- Apply innate buff to the caster
+  local innate = caster:FindAbilityByName("abyssal_underlord_innate_oaa")
+  if innate and not innate:IsNull() then
+    if innate:GetLevel() > 0 then
+      caster:AddNewModifier(caster, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = innate:GetSpecialValueFor("buff_duration")})
+    end
+  end
+
+  -- Create Pit of Malice
+  local should_create_pit = self:GetSpecialValueFor("spawns_pit_of_malice") ~= 0
+  if should_create_pit then
+    local pit_of_malice = caster:FindAbilityByName("abyssal_underlord_pit_of_malice")
+    if pit_of_malice and not pit_of_malice:IsNull() then
+      if pit_of_malice:GetLevel() > 0 then
+        -- Cast Pit of Malice
+        caster:SetCursorPosition(target_loc)
+        pit_of_malice:OnSpellStart()
+      end
+    end
+  end
 
   local damageTable = {
     attacker = caster,
@@ -220,28 +231,6 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
     caster.dark_rift_origin = nil
   end
 end
-
--- function abyssal_underlord_dark_rift_oaa:OnHeroCalculateStatBonus()
-	-- local caster = self:GetCaster()
-  -- local fiends_gate_ability = caster:FindAbilityByName("abyssal_underlord_dark_portal")
-  -- local fiends_gate_warp_ability = caster:FindAbilityByName("abyssal_underlord_portal_warp")
-
-	-- if not fiends_gate_ability then
-    -- return
-  -- end
-
-  -- if caster:HasScepter() then
-		-- fiends_gate_ability:SetHidden(false)
-		-- if fiends_gate_ability:GetLevel() <= 0 then
-			-- fiends_gate_ability:SetLevel(1)
-		-- end
-    -- --if not fiends_gate_warp_ability then
-      -- --caster:AddAbility("abyssal_underlord_portal_warp")
-    -- --end
-	-- else
-		-- fiends_gate_ability:SetHidden(true)
-	-- end
--- end
 
 function abyssal_underlord_dark_rift_oaa:ProcsMagicStick()
   return true
@@ -293,52 +282,4 @@ function modifier_underlord_dark_rift_oaa_stun:CheckState()
   return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_underlord_dark_rift_oaa_caster_buff = class(ModifierBaseClass)
-
-function modifier_underlord_dark_rift_oaa_caster_buff:IsHidden()
-  return false
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:IsDebuff()
-  return false
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:IsPurgable()
-  return true
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:OnCreated()
-  local ability = self:GetAbility()
-  if ability then
-    self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
-    self.move_speed = ability:GetSpecialValueFor("bonus_ms")
-  else
-    self.dmg_reduction = 4
-    self.move_speed = 5
-  end
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:OnRefresh()
-  self:OnCreated()
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-  }
-end
-
-if IsServer() then
-  function modifier_underlord_dark_rift_oaa_caster_buff:GetModifierIncomingDamage_Percentage()
-    return 0 - math.abs(self.dmg_reduction)
-  end
-end
-
-function modifier_underlord_dark_rift_oaa_caster_buff:GetModifierMoveSpeedBonus_Percentage()
-  return self.move_speed
 end

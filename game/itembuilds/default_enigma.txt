@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_enigma"
   "Title"         "Recommended items for Enigma"
 
@@ -21,9 +21,9 @@
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_blink"
-      "item"      "item_shivas_guard"
-      "item"      "item_ultimate_scepter"
       "item"      "item_black_king_bar_1"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_bloodstone_1" // still good despite spell lifesteal not working on Black Hole
       "item"      "item_greater_travel_boots"
       "item"      "item_refresher_4"
     }
@@ -35,6 +35,7 @@
       "item"      "item_shield_staff"
       "item"      "item_solar_crest"
       "item"      "item_glimmer_cape"
+      "item"      "item_shivas_guard"
     }
 
     "#DOTA_Item_Build_Shard"

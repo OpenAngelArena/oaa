@@ -19,12 +19,13 @@ function modifier_faceless_void_time_dilation_degen_oaa:OnCreated()
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.heal_prevent_percent = 0 - math.abs(ability:GetSpecialValueFor("health_restoration"))
+    self.heal_prevent_percent = ability:GetSpecialValueFor("health_restoration")
   end
 end
 
 modifier_faceless_void_time_dilation_degen_oaa.OnRefresh = modifier_faceless_void_time_dilation_degen_oaa.OnCreated
 
+--[[
 function modifier_faceless_void_time_dilation_degen_oaa:OnDestroy()
   if not IsServer() then
     return
@@ -49,6 +50,7 @@ function modifier_faceless_void_time_dilation_degen_oaa:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_faceless_void_time_dilation_degen_oaa:DeclareFunctions()
   return {
@@ -56,8 +58,13 @@ function modifier_faceless_void_time_dilation_degen_oaa:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
     MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_faceless_void_time_dilation_degen_oaa:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_prevent_percent)
 end
 
 function modifier_faceless_void_time_dilation_degen_oaa:OnTooltip()

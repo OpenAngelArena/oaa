@@ -34,7 +34,7 @@
       "sai_base_attack_time"                              "1.5"
       "sai_swap_bonus_movement_speed"                     "12"
       "sai_swap_duration"                                 "2"
-      "AbilityCooldown" //OAA
+      "AbilityCooldown" //OAA, intentionally rescaled to be near 0 at max lvl
       {
         "value"                                           "5.1"
         "hero_levelup"                                    "-0.1"

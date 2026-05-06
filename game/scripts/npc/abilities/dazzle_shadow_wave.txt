@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
         "value"                                           "185"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed both base values and talent
       {
         "value"                                           "85 110 135 160 320 640"
         "special_bonus_unique_dazzle_2"                   "+90"

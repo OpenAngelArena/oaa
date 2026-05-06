@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35e (Darkonius)"
+  "author"        "OAA 7.41x (Darkonius)"
   "hero"          "npc_dota_hero_mars"
   "Title"         "Recommended items for Mars"
 
@@ -13,21 +13,20 @@
       "item"      "item_flask"
     }
 
-    // "#DOTA_Item_Build_Utility_Initiation" // Standard dota item progression
-    // {
-      // "item"      "item_blink"
-      // "item"      "item_cyclone"
-      // "item"      "item_octarine_core"
-      // "item"      "item_shivas_guard"
-      // "item"      "item_assault"
-    // }
+    "#DOTA_Item_Build_Utility_Initiation" // Standard dota item progression
+    {
+      "item"      "item_blink"
+      "item"      "item_cyclone"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
+      "item"      "item_assault"
+    }
 
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_radiance"
       "item"      "item_meteor_hammer_1" // ethereal blade is self grief
-      "item"      "item_blink"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1"
       "item"      "item_gungir"
       "item"      "item_refresher_4"
     }
@@ -35,22 +34,11 @@
     "#DOTA_Item_Build_Physical_Core" // Rightclick
     {
       "item"      "item_greater_phase_boots"
-      "item"      "item_ultimate_scepter"
       "item"      "item_assault"
       "item"      "item_satanic"
       "item"      "item_devastator_oaa_2"
       "item"      "item_rapier"
     }
-
-    // "#DOTA_Item_Build_Tank_Core"
-    // {
-      // "item"      "item_shield_staff"
-      // "item"      "item_spiked_mail_1"
-      // "item"      "item_shade_staff_1"
-      // "item"      "item_enrage_crystal_1"
-      // "item"      "item_stoneskin"
-      // "item"      "item_martyrs_mail_1"
-    // }
 
     "#DOTA_Item_Build_Shard"
     {

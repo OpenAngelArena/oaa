@@ -447,7 +447,7 @@ if IsServer() then
 
     -- Apply the debuff
     target:AddNewModifier(parent, ability, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = duration})
-    target:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", duration)
+    --target:ApplyNonStackableBuff(parent, ability, "modifier_item_enhancement_crude", duration)
   end
 end
 ---------------------------------------------------------------------------------------------------
@@ -486,6 +486,7 @@ end
 
 modifier_dragon_knight_frostbite_debuff_oaa.OnRefresh = modifier_dragon_knight_frostbite_debuff_oaa.OnCreated
 
+--[[
 function modifier_dragon_knight_frostbite_debuff_oaa:OnDestroy()
   if not IsServer() then
     return
@@ -510,6 +511,7 @@ function modifier_dragon_knight_frostbite_debuff_oaa:OnDestroy()
     end
   end
 end
+]]
 
 function modifier_dragon_knight_frostbite_debuff_oaa:DeclareFunctions()
   return {
@@ -517,8 +519,13 @@ function modifier_dragon_knight_frostbite_debuff_oaa:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
     MODIFIER_PROPERTY_TOOLTIP,
   }
+end
+
+function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_suppression_pct)
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:OnTooltip()

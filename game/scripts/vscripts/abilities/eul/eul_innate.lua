@@ -3,6 +3,13 @@ LinkLuaModifier("modifier_eul_hurricane_oaa", "abilities/eul/eul_innate.lua", LU
 LinkLuaModifier("modifier_eul_innate_oaa_dead_tornado", "abilities/eul/eul_innate.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eul_innate_oaa_dead_tornado_debuff", "abilities/eul/eul_innate.lua", LUA_MODIFIER_MOTION_NONE)
 
+local forbidden_modifiers = {
+  "modifier_enigma_black_hole_pull",
+  "modifier_faceless_void_chronosphere_freeze",
+  "modifier_legion_commander_duel",
+  "modifier_batrider_flaming_lasso", -- already does not work, just refunding mana cost and cd
+}
+
 eul_innate_oaa = class(AbilityBaseClass)
 
 function eul_innate_oaa:GetIntrinsicModifierName()
@@ -19,6 +26,38 @@ function StopWindSounds(caster, parent)
     parent:StopSound(sound_name)
     StopSoundOn(sound_name, parent)
   end
+end
+
+function StopCastingHurricane(caster, target, ability)
+  local caster_playerID = caster:GetPlayerOwnerID()
+  -- Remove the vanilla modifier because vanilla ability will go off
+  target:RemoveModifierByNameAndCaster("modifier_enraged_wildkin_hurricane", caster)
+  StopWindSounds(caster, target)
+  -- Refund cooldown and mana cost
+  ability:EndCooldown()
+  ability:RefundManaCost()
+  -- Errors - rooted/leashed
+  local error_message = ""
+  if target == caster then
+    if target:IsRooted() then
+      error_message = "#dota_hud_error_ability_disabled_by_root"
+    elseif target:IsLeashedOAA() then
+      error_message = "#dota_hud_error_ability_disabled_by_tether"
+    end
+  else
+    if target:HasModifier("modifier_enigma_black_hole_pull") then
+      error_message = "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_black_hole"
+    elseif target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+      error_message = "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_chronosphere"
+    elseif target:HasModifier("modifier_legion_commander_duel") then
+      error_message = "#dota_hud_error_target_cannot_be_moved" --"#oaa_hud_error_pull_staff_duel"
+    elseif target:HasModifier("modifier_batrider_flaming_lasso") then
+      error_message = "#oaa_hud_error_pull_staff_lasso"
+    elseif target:IsLeashedOAA() then
+      error_message = "#dota_hud_error_cant_cast_on_tethered_target" --"#dota_hud_error_target_cannot_be_moved"
+    end
+  end
+  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(caster_playerID), "custom_dota_hud_error_message", {reason = 80, message = error_message})
 end
 ---------------------------------------------------------------------------------------------------
 
@@ -55,8 +94,7 @@ function modifier_eul_innate_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
     MODIFIER_PROPERTY_TOOLTIP,
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, spell block and spell reflect
-    MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- needed for dispel talent
+    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, -- needed for damage on enemies, dispel, spell block, spell reflect and cast filter
     MODIFIER_EVENT_ON_DEATH, -- needed for Tornado spawn on death
     MODIFIER_EVENT_ON_RESPAWN, -- needed for reselecting the main hero when it respawns
   }
@@ -107,10 +145,18 @@ if IsServer() then
     -- Check if target is on the enemy team
     if target:GetTeamNumber() ~= caster:GetTeamNumber() then
       if not target:TriggerSpellAbsorb(cast_ability) then
+        for _, modifier in pairs(forbidden_modifiers) do
+          if target:HasModifier(modifier) then
+            StopCastingHurricane(caster, target, cast_ability)
+            return
+          end
+        end
+
         -- Purge enemies before the damage
         if dispel then
           target:Purge(true, false, false, false, false)
         end
+
         -- Applying the tracker
         target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
       else
@@ -119,54 +165,31 @@ if IsServer() then
         StopWindSounds(caster, target)
       end
     else
-      -- Applying the tracker
-      target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
-      if target == caster and (target:IsRooted() or target:IsLeashedOAA()) then
-        -- Remove the vanilla modifier because vanilla ability will go off
-        target:RemoveModifierByNameAndCaster("modifier_enraged_wildkin_hurricane", caster)
-        StopWindSounds(caster, target)
-        -- Refund cooldown and mana cost
-        cast_ability:EndCooldown()
-        cast_ability:RefundManaCost()
-        -- Errors - rooted/leashed
-        if target:IsRooted() then
-          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(target:GetPlayerOwnerID()), "custom_dota_hud_error_message", {reason = 80, message = "#dota_hud_error_ability_disabled_by_root"})
-        elseif target:IsLeashedOAA() then
-          CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(target:GetPlayerOwnerID()), "custom_dota_hud_error_message", {reason = 80, message = "#dota_hud_error_ability_disabled_by_tether"})
+      if target == caster then
+        if caster:IsRooted() or caster:IsLeashedOAA() then
+          StopCastingHurricane(caster, caster, cast_ability)
+          return
+        end
+      else
+        for _, modifier in pairs(forbidden_modifiers) do
+          if target:HasModifier(modifier) then
+            StopCastingHurricane(caster, target, cast_ability)
+            return
+          end
+        end
+        if target:IsLeashedOAA() then
+          StopCastingHurricane(caster, target, cast_ability)
+          return
         end
       end
-    end
-  end
 
-  function modifier_eul_innate_oaa:OnAbilityExecuted(event)
-    local cast_ability = event.ability
-    local target = event.target
-    local caster = event.unit
-
-    if not cast_ability or cast_ability:IsNull() or not target or target:IsNull() or not caster or caster:IsNull() then
-      return
-    end
-
-    -- Find Hurricane ability (it can be on the Rubick or Morphling too and they don't have this innate)
-    local hurricane = caster:FindAbilityByName("eul_hurricane_oaa")
-    if not hurricane then
-      return
-    end
-
-    -- Check if cast ability is Hurricane
-    if cast_ability:GetAbilityName() ~= hurricane:GetAbilityName() then
-      return
-    end
-
-    -- Check for dispel
-    local dispel = cast_ability:GetSpecialValueFor("dispel") == 1
-
-    -- Check if target is on the enemy team
-    if target:GetTeamNumber() == caster:GetTeamNumber() then
       -- Dispel allies
       if dispel then
         target:Purge(false, true, false, false, false)
       end
+
+      -- Applying the tracker
+      target:AddNewModifier(caster, cast_ability, "modifier_eul_hurricane_oaa", {})
     end
   end
 

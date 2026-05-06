@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Cancel Dark Rift
+  // Abyssal Underlord: Cancel Dark Rift FIXEDFUCK
   //=================================================================================================================
   "abyssal_underlord_cancel_dark_rift_oaa"
   {
@@ -15,11 +15,13 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityTextureName"                                  "abyssal_underlord_cancel_dark_rift"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
+
+    "HasScepterUpgrade"                                   "1" // needed because it's a custom ability
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.5"
+    "AbilityCooldown"                                     "0.1"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_4"
     "AbilityCastGestureSlot"                              "DEFAULT"
@@ -28,8 +30,13 @@
     {
       "radius"
       {
-        "value"                                           "425"
+        "value"                                           "435"
         "affected_by_aoe_increase"                        "1"
+      }
+      "spawns_pit_of_malice" // when cast is done
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
       }
     }
   }

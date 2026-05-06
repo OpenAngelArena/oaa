@@ -51,7 +51,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage" //OAA, intentionally buffed both base values and the talent
+      "rock_damage" //OAA, because of special_bonus_unique_earth_spirit_6 buff
       {
         "value"                                           "110 180 250 320 640 960"
         "special_bonus_unique_earth_spirit_6"             "+100"

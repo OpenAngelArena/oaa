@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve has it wrong
 
-    "MaxLevel"                                            "11" //OAA, MaxLevel: 11
+    "MaxLevel"                                            "11" //OAA, intentionally; MaxLevel: 11
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 

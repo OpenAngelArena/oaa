@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_centaur"
   "Title"         "Recommended items for Centaur Warrunner"
 
@@ -20,7 +20,6 @@
 
     "#DOTA_Item_Build_Core_Items" // Really good items on Centaur
     {
-      "item"      "item_crimson_guard"
       "item"      "item_overwhelming_blink"
       "item"      "item_heart"
       "item"      "item_havoc_hammer_1"
@@ -29,9 +28,22 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_shield_staff"
+      "item"      "item_crimson_guard"
       "item"      "item_ultimate_scepter"
       "item"      "item_lotus_orb"
-      "item"      "item_guardian_greaves"
+      "item"      "item_shade_staff_1"
+    }
+
+    "#DOTA_Item_Build_Tank_Core" // Standard Tank
+    {
+      "item"      "item_consecrated_wraps"
+      //"item"      "item_shield_staff" // support item
+      //"item"      "item_crimson_guard" // support item
+      "item"      "item_spiked_mail_1"
+      "item"      "item_stoneskin"
+      //"item"      "item_heart" // core item
+      //"item"      "item_shade_staff_1" // support item
+      "item"      "item_enrage_crystal_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -42,9 +54,8 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_ethereal_blade"
       "item"      "item_pipe"
-      "item"      "item_spiked_mail_1"
-      "item"      "item_stoneskin"
       "item"      "item_martyrs_mail_1"
     }
   }

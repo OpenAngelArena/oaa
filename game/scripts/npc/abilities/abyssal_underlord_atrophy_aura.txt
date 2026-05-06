@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Atrophy Aura (Innate in OAA)
+  // Abyssal Underlord: Atrophy Aura FIXEDFUCK
   //=================================================================================================================
   "abyssal_underlord_atrophy_aura"
   {
@@ -9,13 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
-    "Innate"                                              "1" //OAA
-    "MaxLevel"                                            "7" //OAA
-    "RequiredLevel"                                       "-1" //OAA, so you can lvl it up at lvl 1 if you want.
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Special
@@ -27,28 +26,28 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_reduction_pct" //OAA, intentionally rescaled
+      "damage_reduction_pct" //OAA, intentionally buffed
       {
-        "value"                                           "4 11 18 25 32 34 36"
+        "value"                                           "11 18 25 32 34 36"
         "special_bonus_unique_underlord_3"                "+10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "bonus_damage_from_creep" //OAA, intentionally
+      "bonus_damage_from_creep"
       {
-        "value"                                           "1 2 4 6 8 10 12"
+        "value"                                           "2 4 6 8 10 12"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_from_hero" //OAA, intentionally
+      "bonus_damage_from_hero"
       {
-        "value"                                           "15 30 35 40 45 50 55"
+        "value"                                           "30 35 40 45 50 55"
         "special_bonus_unique_underlord_3"                "+10%"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_duration" //OAA, intentionally
+      "bonus_damage_duration"
       {
-        "value"                                           "20 30 40 50 60 70 80"
+        "value"                                           "30 40 50 60 70 80"
         "CalculateSpellDamageTooltip"                     "0"
         "special_bonus_unique_underlord_8"                "+15"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"

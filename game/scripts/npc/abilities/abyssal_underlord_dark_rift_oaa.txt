@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Dark Rift (OAA Rework)
+  // Abyssal Underlord: Dark Rift (OAA Rework) FIXEDFUCK
   //=================================================================================================================
   "abyssal_underlord_dark_rift_oaa"
   {
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 225 300 375 450"
+    "AbilityManaCost"                                     "175 200 225 250 275"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,45 +37,32 @@
     {
       "AbilityCastRange"
       {
-        "value"                                           "1400"
-        "special_bonus_facet_abyssal_underlord_summons"   "=50000"
+        "value"                                           "1500"
       }
       "AbilityCooldown"
       {
-        "value"                                           "100 95 90 85 80"
+        "value"                                           "95 90 85 80 75"
         "special_bonus_scepter"                           "-10"
-        "special_bonus_facet_abyssal_underlord_summons"   "-40"
       }
       "radius"
       {
-        "value"                                           "400"
-        "special_bonus_facet_abyssal_underlord_summons"   "+100"
+        "value"                                           "430"
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"
       {
-        "value"                                           "2.25 2.5 2.75 3.0 3.25"
-        "special_bonus_facet_abyssal_underlord_summons"   "=0.01"
+        "value"                                           "2.0 2.25 2.5 2.75 3.0"
       }
       "damage"
       {
-        "value"                                           "250 450 650 1250 1850"
+        "value"                                           "150 350 550 1150 1750"
         "special_bonus_unique_underlord_9_oaa"            "+400"
       }
       "minimum_range"                                     "0"
-      "damage_reduction"
+      "spawns_pit_of_malice" // when cast is done
       {
-        "value"                                           "4 6 8 10 12"
-        "special_bonus_scepter"                           "=35"
-      }
-      "bonus_ms"
-      {
-        "value"                                           "5 10 15 20 25"
-        "special_bonus_scepter"                           "+15"
-      }
-      "buff_duration"
-      {
-        "value"                                           "5"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
       }
     }
 

@@ -76,6 +76,14 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
     -- Destroy all trees around destination
     GridNav:DestroyTreesAroundPoint(destination, radius, true)
 
+    -- Apply innate buff to the caster
+    local innate = caster:FindAbilityByName("abyssal_underlord_innate_oaa")
+    if innate and not innate:IsNull() then
+      if innate:GetLevel() > 0 then
+        caster:AddNewModifier(caster, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = innate:GetSpecialValueFor("buff_duration")})
+      end
+    end
+
     -- Teleportation particle
     --local part2 = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient_end.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     --ParticleManager:SetParticleControl(part2, 2, caster:GetAbsOrigin())
@@ -84,6 +92,19 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
 
     -- Sound after teleport
     EmitSoundOnLocationWithCaster(destination, "Hero_AbyssalUnderlord.DarkRift.Aftershock", caster)
+
+    -- Create Pit of Malice
+    local should_create_pit = self:GetSpecialValueFor("spawns_pit_of_malice") ~= 0
+    if should_create_pit then
+      local pit_of_malice = caster:FindAbilityByName("abyssal_underlord_pit_of_malice")
+      if pit_of_malice and not pit_of_malice:IsNull() then
+        if pit_of_malice:GetLevel() > 0 then
+          -- Cast Pit of Malice
+          caster:SetCursorPosition(destination)
+          pit_of_malice:OnSpellStart()
+        end
+      end
+    end
   end
 
 	-- Remove particles

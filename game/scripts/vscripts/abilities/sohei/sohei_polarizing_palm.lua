@@ -56,14 +56,28 @@ function sohei_polarizing_palm:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Do nothing for self-cast
-  -- (This should never happen because of cast filter)
-  if target == caster then
+  -- Check if target and caster entities exist
+  if not target or not caster then
     return
   end
 
+  -- Check if target is something weird
+  if target.TriggerSpellAbsorb == nil then
+    return
+  end
+
+  local isTargetAnEnemy = target:GetTeamNumber() ~= caster:GetTeamNumber()
+
+  -- Check if the enemy has spell block or spell immunity
+  if isTargetAnEnemy then
+    -- Don't do anything if target has Linken's effect or it's spell-immune
+    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+      return
+    end
+  end
+
   -- Do nothing if target has a forbidden modifier
-  -- (this will happen rarely (lotus orb maybe) because the cast filter already checks this)
+  -- this will happen rarely (lotus orb maybe) because the cast filter already checks this
   for _, modifier in pairs(forbidden_modifiers) do
     if target:HasModifier(modifier) then
       return
@@ -72,45 +86,12 @@ function sohei_polarizing_palm:OnSpellStart()
 
   local target_loc = target:GetAbsOrigin()
   local caster_loc = caster:GetAbsOrigin()
-  local isTargetAnEnemy = target:GetTeamNumber() ~= caster:GetTeamNumber()
 
   local speed = self:GetSpecialValueFor("push_pull_speed")
   local reposition_range = self:GetSpecialValueFor("push_pull_length")
 
-  local direction = target_loc - caster_loc -- default is pushing
+  local direction = target_loc - caster_loc -- pushing away from the caster
   local distance = reposition_range
-
-  local pulling = false
-  local flurry = caster:HasModifier("modifier_sohei_flurry_self")
-  if pulling then
-    -- Pulling towards the caster
-    direction = caster_loc - target_loc
-    -- Pulling towards Flurry of Blows center during Flurry of Blows
-    if flurry then
-      local flurry_mod = caster:FindModifierByName("modifier_sohei_flurry_self")
-      if flurry_mod.center then
-        direction = flurry_mod.center - target_loc
-      end
-    end
-  end
-
-  if isTargetAnEnemy then
-    -- Don't do anything if target has Linken's effect or it's spell-immune
-    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
-      return
-    end
-
-    -- For pulling when not in Flurry of Blows
-    if pulling and not flurry then
-      distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
-      if distance > reposition_range then
-        distance = reposition_range
-      end
-      if distance <= 0 then
-        distance = 1
-      end
-    end
-  end
 
   -- Normalize direction
   direction.z = 0

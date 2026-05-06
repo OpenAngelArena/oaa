@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_witch_doctor"
   "Title"         "Recommended items for Witch Doctor"
 
@@ -13,13 +13,10 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Core_Items" // I know everyone buys this, but maybe it's actually bad
     {
-      "item"      "item_spirit_vessel_oaa"
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
       "item"      "item_black_king_bar_1"
-      "item"      "item_kaya"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -28,6 +25,17 @@
       "item"      "item_guardian_greaves"
       "item"      "item_glimmer_cape"
       "item"      "item_shield_staff"
+      "item"      "item_shivas_guard"
+    }
+
+    "#DOTA_Item_Build_Magical_Core" // focused on Maledict and health restoration reduction
+    {
+      "item"      "item_spirit_vessel_oaa" // health restoration reduction
+      "item"      "item_radiance" // health restoration reduction with innate
+      "item"      "item_dagon_oaa_1"
+      "item"      "item_crellas_crozier" // health restoration reduction
+      "item"      "item_bloodstone_1" // still good despite spell lifesteal not working on Death Ward
+      "item"      "item_dagger_of_moriah_1" // health restoration reduction
     }
 
     "#DOTA_Item_Build_Shard"
@@ -37,17 +45,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_blink"
       "item"      "item_bloodthorn"
-      "item"      "item_dagon_oaa_1" // because of Maledict
       "item"      "item_far_sight"
       "item"      "item_pipe"
-      "item"      "item_radiance"
       "item"      "item_solar_crest"
       "item"      "item_sphere"
       "item"      "item_octarine_core"
       "item"      "item_nether_core_1"
       "item"      "item_bubble_orb_1"
-      "item"      "item_dagger_of_moriah_1"
       "item"      "item_sheepstick_4"
     }
   }

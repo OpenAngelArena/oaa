@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35e"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_tidehunter"
   "Title"         "Recommended items for Tidehunter"
 
@@ -13,7 +13,7 @@
       "item"      "item_blight_stone"
     }
 
-    "#DOTA_Item_Build_Support_Core"
+    "#DOTA_Item_Build_Utility_Initiation"
     {
       "item"      "item_blink"
       "item"      "item_meteor_hammer_1"
@@ -32,6 +32,18 @@
       "item"      "item_devastator_oaa_2"
     }
 
+    "#DOTA_Item_Build_Tank_Core" // Standard Tank
+    {
+      "item"      "item_consecrated_wraps"
+      //"item"      "item_shield_staff" // support item; not good already has dmg block
+      //"item"      "item_crimson_guard" // support item; not good already has dmg block
+      "item"      "item_spiked_mail_1"
+      "item"      "item_stoneskin"
+      "item"      "item_heart"
+      //"item"      "item_shade_staff_1" // support item
+      "item"      "item_enrage_crystal_1"
+    }
+
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -40,7 +52,6 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_guardian_greaves"
-      "item"      "item_heart"
       "item"      "item_lotus_orb"
       "item"      "item_monkey_king_bar"
       "item"      "item_octarine_core"

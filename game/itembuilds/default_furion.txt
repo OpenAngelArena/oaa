@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.37x"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_furion"
   "Title"         "Recommended items for Nature's Prophet"
 
@@ -14,19 +14,22 @@
       "item"      "item_flask"
     }
 
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_maelstrom"
+    }
+
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_hurricane_pike"
-      "item"      "item_monkey_king_bar"
       "item"      "item_greater_crit"
-      "item"      "item_black_king_bar_1"
       "item"      "item_greater_power_treads"
-      "item"      "item_devastator_oaa_2"
+      "item"      "item_shade_staff_1"
+      "item"      "item_dispel_orb_1"
     }
 
     "#DOTA_Item_Build_Summons_Core"
     {
-      "item"      "item_solar_crest"
       "item"      "item_ancient_janggo"
       "item"      "item_vladmirs_grimoire_1"
       "item"      "item_bloodthorn"
@@ -51,11 +54,14 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_black_king_bar_1"
       "item"      "item_devastator"
+      "item"      "item_monkey_king_bar"
       "item"      "item_satanic"
       "item"      "item_silver_edge"
       "item"      "item_skadi"
       "item"      "item_sphere"
+      "item"      "item_devastator_oaa_2"
       "item"      "item_siege_mode"
       "item"      "item_trumps_fists_1"
       "item"      "item_rapier"

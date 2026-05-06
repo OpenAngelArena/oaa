@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_abyssal_underlord"
   "Title"         "Recommended items for Abyssal Underlord"
 
@@ -22,9 +22,9 @@
     {
       "item"      "item_guardian_greaves"
       "item"      "item_shield_staff"
+      "item"      "item_crimson_guard"
       "item"      "item_lotus_orb"
-      "item"      "item_heavens_halberd"
-      "item"      "item_far_sight"
+      "item"      "item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -32,16 +32,20 @@
       "item"      "item_gungir"
       "item"      "item_yasha_and_kaya"
       "item"      "item_havoc_hammer_1"
-      "item"      "item_shivas_guard"
+      "item"      "item_bloodstone_1"
       "item"      "item_greater_travel_boots"
     }
 
     "#DOTA_Item_Build_Tank_Core"
     {
-      "item"      "item_crimson_guard"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_consecrated_wraps"
+      //"item"      "item_shield_staff" // support item
+      //"item"      "item_crimson_guard" // support item
       "item"      "item_spiked_mail_1"
       "item"      "item_stoneskin"
+      "item"      "item_heart"
+      //"item"      "item_shade_staff_1" // not good, destroys trees with Dark Rift and Dark Abduction
+      "item"      "item_enrage_crystal_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -52,11 +56,14 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodstone_1"
+      "item"      "item_far_sight"
+      "item"      "item_heavens_halberd"
+      "item"      "item_octarine_core"
       "item"      "item_pipe"
       "item"      "item_pull_staff"
-      "item"      "item_octarine_core"
+      "item"      "item_shivas_guard"
       "item"      "item_sheepstick_4"
+      "item"      "item_sonic"
     }
   }
 }

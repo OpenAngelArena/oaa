@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.40b (Darkonius)"
+  "author"        "OAA 7.41x (Darkonius)"
   "hero"          "npc_dota_hero_shredder"
   "Title"         "Recommended items for Timbersaw"
 
@@ -20,8 +20,10 @@
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_kaya_and_sange"
+      //"item"      "item_bloodstone_1" // spell lifesteal does not work
       "item"      "item_shivas_guard"
       "item"      "item_ultimate_scepter"
+      "item"      "item_shade_staff_1"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -30,7 +32,6 @@
       "item"      "item_shield_staff"
       "item"      "item_overwhelming_blink"
       "item"      "item_wind_waker"
-      "item"      "item_shade_staff_1"
     }
 
     "#DOTA_Item_Build_Shard"

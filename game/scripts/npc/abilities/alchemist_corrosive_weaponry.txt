@@ -33,7 +33,7 @@
         "display_type"                                    "kDebuffPercentage"
         "special_bonus_unique_alchemist_weaponry_power"   "+1"
       }
-      "stacks_per_attack"                                 "2"
+      "stacks_per_attack"                                 "2" // attacks apply 2 stacks, Acid Spray 1 stack per tick, Unstable Concoction 1 stack per brew time
       "one_tooltip"                                       "1"
     }
   }

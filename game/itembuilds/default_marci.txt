@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35d"
+  "author"        "OAA 7.41x"
   "hero"          "npc_dota_hero_marci"
   "Title"         "Recommended items for Marci"
 
@@ -15,9 +15,11 @@
 
     "#DOTA_Item_Build_For_Farming"
     {
-      "item"      "item_hand_of_midas_1"
-      "item"      "item_maelstrom"
-      "item"      "item_radiance"
+      //"item"      "item_hand_of_midas_1"
+      "item"      "item_helm_of_the_dominator"
+      "item"      "item_small_cleaver_oaa"
+      //"item"      "item_maelstrom"
+      //"item"      "item_radiance"
     }
 
     "#DOTA_Item_Build_Physical_Core"
@@ -32,7 +34,6 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_far_sight"
-      "item"      "item_shivas_guard"
       "item"      "item_blink"
       "item"      "item_shield_staff"
       "item"      "item_abyssal_blade_2"

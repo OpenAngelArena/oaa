@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Drow Ranger: Frost Arrows
+  // Drow Ranger: Frost Arrows FIXEDFUCK
   //=================================================================================================================
   "drow_ranger_frost_arrows"
   {
@@ -10,9 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,16 +21,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                     "0.0"
     "AbilityDuration"                                     "1.5"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0 0 0 0 0 0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -76,7 +72,7 @@
       {
         "special_bonus_scepter"                           "+8"
       }
-      "AbilityManaCost" //OAA, intentionally nerfed special_bonus_unique_drow_ranger_7 talent
+      "AbilityManaCost" //OAA, because of special_bonus_unique_drow_ranger_7 nerf
       {
         "value"                                           "9 10 11 12 13 14"
         "special_bonus_unique_drow_ranger_7"              "-10%"

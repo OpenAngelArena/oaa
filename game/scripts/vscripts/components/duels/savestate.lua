@@ -3,18 +3,6 @@ local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
 local export = {}
 
-local function PurgeDuelHighgroundBuffs(hero)
-  local modifierList = {
-    "modifier_rune_haste",
-    "modifier_rune_doubledamage",
-    "modifier_rune_invis",
-    "modifier_rune_arcane",
-    "modifier_rune_hill_tripledamage",
-    "modifier_rune_hill_super_sight",
-  }
-  iter(modifierList):each(partial(hero.RemoveModifierByName, hero))
-end
-
 local function ResetState(hero)
   hero:ResetHeroOAA(true)
 end
@@ -149,7 +137,6 @@ local function TestSaveAndLoadState(keys)
 end
 
 ChatCommand:LinkDevCommand("-test_state", TestSaveAndLoadState, nil)
-export.PurgeDuelHighgroundBuffs = PurgeDuelHighgroundBuffs
 export.SaveState = SaveState
 export.ResetState = ResetState
 export.RestoreState = RestoreState

@@ -27,7 +27,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
@@ -68,15 +67,24 @@
         "value"                                           "1 1 2 2 2"
         "special_bonus_scepter"                           "+1"
       }
-      "scepter_cast_range"
+      "AbilityCastRange"
       {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "1000"
+        "value"                                           "700"
+        "special_bonus_scepter"                           "=1000"
       }
       "health_restoration" // reduces all health restoration
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "-25 -30 -35 -40 -45"
+      }
+      "apply_tar_spill"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+      }
+      "apply_march"
+      {
+        "value"                                           "0"
       }
       "scepter_tar_spill_interval"                        "3"
     }

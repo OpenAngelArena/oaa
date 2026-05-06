@@ -93,7 +93,7 @@ function item_shield_staff:GetManaCost(level)
     if target then
       for _, modifier in pairs(forbidden_modifiers) do
         if target:HasModifier(modifier) then
-          return 0
+          return 0 -- Cast filter prevents reaching this spot, keeping just in case cast filter breaks
         end
       end
 
@@ -125,11 +125,10 @@ function item_shield_staff:OnSpellStart()
     return
   end
 
-  local target_team = target:GetTeamNumber()
-  local caster_team = caster:GetTeamNumber()
+  local isTargetAnEnemy = target:GetTeamNumber() ~= caster:GetTeamNumber()
 
   -- Check if the enemy has spell block or spell immunity
-  if target_team ~= caster_team then
+  if isTargetAnEnemy then
     -- Don't do anything if target has Linken's effect or it's spell-immune
     if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
       return
@@ -137,24 +136,20 @@ function item_shield_staff:OnSpellStart()
   end
 
   -- If target has any of these debuffs, don't continue
+  -- this will happen rarely (lotus orb maybe) because the cast filter already checks this
   for _, modifier in pairs(forbidden_modifiers) do
     if target:HasModifier(modifier) then
       return
     end
   end
 
-  -- If target is affected by Kinetic Field, don't continue
-  if target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune() then
-    return
-  end
-
-  -- If target is leashed, don't continue
-  if target:IsLeashedOAA() then
+  -- If target is affected by Kinetic Field or leashed, don't continue
+  if (target:HasModifier("modifier_disruptor_kinetic_field") and not target:IsDebuffImmune()) or target:IsLeashedOAA() then
     return
   end
 
   -- Apply buff to allies, damage and interrupt enemies
-  if target_team == caster_team then
+  if not isTargetAnEnemy then
     target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = self:GetSpecialValueFor("active_duration")})
   else
     -- Interrupt
@@ -202,7 +197,7 @@ function item_shield_staff:OnSpellStart()
   end
 
   -- Distance for enemies is reduced with Knockback resistance
-  if target_team ~= caster_team then
+  if isTargetAnEnemy then
     distance = target:GetValueChangedByKnockbackResistance(distance)
   end
 
@@ -229,7 +224,12 @@ function modifier_shield_staff_active_buff:IsHidden()
 end
 
 function modifier_shield_staff_active_buff:IsDebuff()
-  return false
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
+    return self:GetParent():GetTeamNumber() ~= caster:GetTeamNumber()
+  else
+    return false
+  end
 end
 
 function modifier_shield_staff_active_buff:IsPurgable()

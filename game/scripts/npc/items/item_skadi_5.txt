@@ -37,6 +37,7 @@
     "BaseClass"                                           "item_skadi"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_5"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +64,7 @@
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
       "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
-      "restoration_reduction"                             "50 55 60 65 70"
+      "restoration_reduction"                             "50 54 58 62 66"
     }
   }
 }
