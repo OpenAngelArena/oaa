@@ -21,9 +21,9 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_pct"
+      "damage_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "4"
+        "value"                                           "3"
         "special_bonus_unique_phoenix_dying_light_damage"  "+1"
       }
       "tick_interval"                                     "0.2"

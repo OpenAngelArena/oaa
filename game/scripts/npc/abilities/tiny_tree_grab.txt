@@ -35,7 +35,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_count"                                      "5 6 7 8 9 10"
+      "attack_count"
+      {
+        "value"                                           "5 6 7 8 9 10"
+        "special_bonus_unique_tiny_6"                     "+2"
+      }
       "bonus_damage" // bonus base damage; not percentage!
       {
         "value"                                           "10 20 30 40 80 120"
