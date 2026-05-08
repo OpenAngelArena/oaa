@@ -58,8 +58,8 @@
     "AbilityValues"
     {
       "bonus_all_stats"                                   "6 11 16 21 26"
-      "bonus_health"                                      "425 525 675 875 1125" // OAA
-      "bonus_mana"                                        "425 525 675 875 1125" // OAA
+      "bonus_health"                                      "425 525 675 875 1125" // OAA, intentionally nerfed
+      "bonus_mana"                                        "425 525 675 875 1125" // OAA, intentionally nerfed
       "duration"                                          "4.0"
       "extra_spell_damage_percent"                        "-30"
       "radius"
@@ -74,7 +74,7 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "movespeed_steal_pct"                               "5" // does not need to scale
+      "movespeed_steal_pct"                               "6" // does not need to scale
       "active_health_steal"                               "75" // does not need to scale
       "stack_duration"                                    "1.5"
     }
