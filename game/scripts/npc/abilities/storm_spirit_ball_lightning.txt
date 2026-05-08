@@ -48,10 +48,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "blocker_duration"                                  "5"
-      "scepter_remnant_interval"                          "300" // unused
+      "scepter_remnant_interval"                          "300" // we dont use this so ignore
       "auto_remnant_interval"
       {
-        "special_bonus_unique_storm_spirit_4"             "450"
+        "special_bonus_unique_storm_spirit_4"             "450" // we dont use this so ignore
       }
     }
   }
