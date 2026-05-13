@@ -45,7 +45,8 @@ function modifier_drunk_oaa:OnCreated()
     doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
     morphling_replicate = 1,                             -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
     muerta_parting_shot = 1,                             -- bugged
-    night_stalker_hunter_in_the_night = 1,               -- instant kill
+    --night_stalker_hunter_in_the_night = 1,               -- instant kill
+    night_stalker_midnight_feast = 1,                    -- instant kill
     primal_beast_pulverize = 1,
     --rubick_spell_steal = 1,                              -- stealing boss spells
     snapfire_gobble_up = 1,                              -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
