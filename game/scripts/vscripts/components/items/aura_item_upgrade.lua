@@ -10,6 +10,7 @@ GameEvents:OnItemCombined(function (keys)
   -- Problematic auras
   local auraItems = {
     "item_assault_",
+    --"item_bloodstone_",
     "item_pipe_",
     "item_radiance_",
     "item_shivas_guard_",

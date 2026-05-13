@@ -74,7 +74,7 @@ if IsServer() then
     local upgradeItemSlot = self:FindItemSlot(upgradeItem)
 
     -- if the item is in another slot swap it to its place
-    if upgradeItemSlot ~= self.ItemSlot and  upgradeItemSlot > -1 then
+    if upgradeItemSlot ~= self.ItemSlot and upgradeItemSlot > -1 then
       hero:SwapItems(upgradeItemSlot, self.ItemSlot)
     end
 

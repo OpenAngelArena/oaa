@@ -112,8 +112,9 @@ function modifier_multicast_oaa:OnCreated()
     muerta_parting_shot = 1,                             -- bugs out
     muerta_the_calling = 1,                              -- lag
     naga_siren_song_of_the_siren_cancel = 1,             -- useless
-    nevermore_frenzy = 1,                                -- self grief in most cases
-    night_stalker_hunter_in_the_night = 1,               -- instant kill
+    nevermore_frenzy = 1,                                -- useless
+    --night_stalker_hunter_in_the_night = 1,               -- instant kill
+    night_stalker_midnight_feast = 1,                    -- instant kill
     nyx_assassin_burrow = 1,                             -- bugs out?
     nyx_assassin_unburrow = 1,                           -- self grief
     --obsidian_destroyer_astral_imprisonment = 1,        -- grief, trolling

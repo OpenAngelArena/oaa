@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Puck: Dream Coil
+  // Puck: Dream Coil FIXEDFUCK
   //=================================================================================================================
   "puck_dream_coil"
   {
@@ -31,14 +31,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "coil_duration"                                     "5 5.5 6 6.5 7"
-      "coil_break_radius"                                 "600"
-      "stun_duration"                                     "0.5"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "75 70 65 60 55"
-        "special_bonus_unique_puck"                       "-15"
+        "special_bonus_unique_puck"                       "-30"
       }
+      "coil_duration"                                     "5 5.5 6 6.5 7"
+      "coil_break_radius"                                 "600"
+      "stun_duration"                                     "0.5"
       "coil_initial_damage" //OAA, intentionally buffed
       {
         "value"                                           "175 325 475 925 1375"
@@ -72,10 +72,6 @@
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+100"
-      }
-      "pierces_debuff_immunity"
-      {
-        "special_bonus_unique_puck_5"                     "1"
       }
     }
   }

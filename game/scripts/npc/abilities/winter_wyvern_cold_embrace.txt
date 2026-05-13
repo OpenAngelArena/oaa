@@ -38,7 +38,7 @@
       "heal_additive"
       {
         "value"                                           "40 45 50 55 110 165"
-        "special_bonus_unique_winter_wyvern_5"            "+20" // unused in OAA
+        "special_bonus_unique_winter_wyvern_5"            "+15" // we dont use this so ignore
       }
       "heal_percentage"                                   "2.25 3 3.75 4.5 5.25 6.0" // uses special_bonus_unique_winter_wyvern_1_oaa
       "shard_cooldown_reduction"

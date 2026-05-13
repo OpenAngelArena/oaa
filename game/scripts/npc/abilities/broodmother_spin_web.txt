@@ -48,7 +48,7 @@
       "bonus_movespeed"
       {
         "value"                                           "10 20 30 40 50 60"
-        "special_bonus_unique_broodmother_web_speed"      "+7" // unused in OAA
+        "special_bonus_unique_broodmother_web_speed"      "+7" // we dont use this so ignore
       }
       "AbilityChargeRestoreTime"
       {
@@ -61,7 +61,7 @@
         "special_bonus_facet_broodmother_necrotic_webs"   "=10 =25 =40 =55 =55 =55"
         "value"                                           "0"
       }
-      "break_move_cap" // unused in OAA because it's annoying
+      "break_move_cap" // // we dont use this because it's annoying
       {
         "value"                                           "0"
         "special_bonus_unique_broodmother_web_speed"      "1"

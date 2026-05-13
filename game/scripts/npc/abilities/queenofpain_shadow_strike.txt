@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 8 6 4 4 4" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "11 9 7 5 5 5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@
       "aoe_radius"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+375"
+        "special_bonus_scepter"                           "+300"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "16"

@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,12 +46,12 @@
       "bonus_gold_self" //OAA, intentionally buffed
       {
         "value"                                           "320 640 960 1920 2880"
-        "special_bonus_unique_bounty_hunter_3"            "+50" // unused in OAA
+        "special_bonus_unique_bounty_hunter_3"            "+50" // we dont use this so ignore
       }
       "bonus_gold" //OAA, intentionally buffed
       {
         "value"                                           "250 500 750 1500 2250"
-        "special_bonus_unique_bounty_hunter_3"            "+50" // unused in OAA
+        "special_bonus_unique_bounty_hunter_3"            "+50" // we dont use this so ignore
       }
     }
   }

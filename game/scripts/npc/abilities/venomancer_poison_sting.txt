@@ -29,10 +29,10 @@
         "hero_levelup"                                    "+1"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "movement_speed"
+      "movement_speed" //OAA, Valve is missing a '+' sign
       {
-        "value"                                           "10"
-        "special_bonus_unique_venomancer_2"               "7"
+        "value"                                           "8"
+        "special_bonus_unique_venomancer_2"               "+10"
       }
       "hp_regen_reduction"
       {

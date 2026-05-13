@@ -17,7 +17,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,8 +33,7 @@
       "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "75"
-        "special_bonus_unique_lone_druid_2"               "-25"
+        "value"                                           "60"
       }
       "bear_bat"
       {

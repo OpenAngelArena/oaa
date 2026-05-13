@@ -33,7 +33,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "shadow_blade"
     "AbilityManaCost"                                     "75"
 
@@ -61,8 +61,8 @@
       "bonus_strength"                                    "0"
       "bonus_intellect"                                   "0"
       "bonus_mana_regen"                                  "0"
-      "windwalk_duration"                                 "13" // OAA
-      "windwalk_movement_speed"                           "25 30 35 40 45"
+      "windwalk_duration"                                 "13" // OAA, intentionally nerfed
+      "windwalk_movement_speed"                           "22 24 26 28 30"
       "windwalk_fade_time"                                "0.3"
       "windwalk_bonus_damage"                             "300 400 500 600 700"
       "backstab_duration"                                 "5"

@@ -32,7 +32,7 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "110 105 100 95 90"
-        "special_bonus_unique_mirana_4"                   "-30" // unused in OAA
+        "special_bonus_unique_mirana_4"                   "-30" // we dont use this so ignore
       }
       "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA, intentionally nerfed
       "duration"                                          "11" //OAA, intentionally nerfed

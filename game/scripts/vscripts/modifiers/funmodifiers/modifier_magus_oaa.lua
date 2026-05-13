@@ -78,7 +78,8 @@ function modifier_magus_oaa:OnCreated()
     morphling_replicate = 1,                             -- bugs out completely when attacking creeps, DOTA_UNIT_TARGET_TEAM_CUSTOM
     muerta_parting_shot = 1,                             -- buggy
     naga_siren_song_of_the_siren_cancel = 1,             -- self grief
-    night_stalker_hunter_in_the_night = 1,               -- instant kill
+    --night_stalker_hunter_in_the_night = 1,               -- instant kill
+    night_stalker_midnight_feast = 1,                    -- instant kill
     nyx_assassin_unburrow = 1,                           -- self grief
     oracle_false_promise = 1,                            -- invulnerability
     pangolier_gyroshell_stop = 1,                        -- self grief
@@ -174,7 +175,7 @@ function modifier_magus_oaa:OnCreated()
     muerta_the_calling = 1,                              -- lag
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
-    nevermore_frenzy = 1,                                -- self grief in most cases
+    --nevermore_frenzy = 1,                                --
     obsidian_destroyer_astral_imprisonment = 1,          -- self grief, invulnerability, trolling
     pangolier_swashbuckle = 1,                           -- looping, powerful
     --phantom_assassin_stifling_dagger = 1,              -- looping
