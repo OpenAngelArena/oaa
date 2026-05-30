@@ -14,9 +14,15 @@ end
 
 function item_vampire:OnSpellStart()
   local caster = self:GetCaster()
-  local modifierName = "modifier_item_vampire_active"
 
-  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
+  -- Apply the buff
+  caster:AddNewModifier(caster, self, "modifier_item_vampire_active", {duration = real_buff_duration})
+
+  -- Activation Sound
+  caster:EmitSound("Vampire.Activate.Begin")
 end
 
 item_vampire_2 = item_vampire
@@ -249,8 +255,6 @@ function modifier_item_vampire_active:OnCreated()
     end
     self:StartIntervalThink(interval)
 
-    parent:EmitSound("Vampire.Activate.Begin")
-
     if self.particle == nil then
       self.particle = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     end
@@ -276,8 +280,6 @@ function modifier_item_vampire_active:OnRefresh()
     end
 
     local parent = self:GetParent()
-
-    parent:EmitSound("Vampire.Activate.Begin")
 
     if self.particle == nil then
       self.particle = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )

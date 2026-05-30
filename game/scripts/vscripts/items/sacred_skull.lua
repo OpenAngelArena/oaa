@@ -17,8 +17,14 @@ function item_sacred_skull:OnSpellStart()
 
   local buff_duration = self:GetSpecialValueFor("buff_duration")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, caster, caster)
+
   -- Apply the buff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_sacred_skull_buff", {duration = buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_sacred_skull_buff", {duration = real_buff_duration})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 item_sacred_skull_2 = item_sacred_skull

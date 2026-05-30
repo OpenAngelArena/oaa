@@ -25,7 +25,14 @@ end
 function item_dagger_of_moriah_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  caster:AddNewModifier(caster, self, "modifier_item_dagger_of_moriah_sangromancy", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
+  -- Apply buff
+  caster:AddNewModifier(caster, self, "modifier_item_dagger_of_moriah_sangromancy", {duration = real_buff_duration})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 item_dagger_of_moriah_2 = item_dagger_of_moriah_1

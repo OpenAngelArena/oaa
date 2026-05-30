@@ -26,6 +26,8 @@ function item_far_sight:OnSpellStart()
   local casterTeam = caster:GetTeamNumber()
   local revealDuration = self:GetSpecialValueFor("reveal_duration")
 
+  -- Intentionally NOT affected by Buff Amp
+
   --AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
   --local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
 

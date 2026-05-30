@@ -17,8 +17,11 @@ function item_elixier_hybrid:OnSpellStart()
   -- Activation sound
   caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
   -- Apply a buff
-  local buff = caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_active", {duration = self:GetSpecialValueFor("duration")})
+  local buff = caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_active", {duration = real_buff_duration})
   buff.regen = self:GetSpecialValueFor("bonus_mana_regen")
   buff.magic_damage = self:GetSpecialValueFor("bonus_magic_damage")
   buff.physical_damage = self:GetSpecialValueFor("bonus_physical_damage")

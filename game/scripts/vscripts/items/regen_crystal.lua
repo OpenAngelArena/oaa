@@ -12,10 +12,13 @@ end
 function item_regen_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply buff
-  caster:AddNewModifier(caster, self, "modifier_item_regen_crystal_active", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
 
-  -- Sound
+  -- Apply buff
+  caster:AddNewModifier(caster, self, "modifier_item_regen_crystal_active", {duration = real_buff_duration})
+
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.EssenceRing.Cast")
 end
 

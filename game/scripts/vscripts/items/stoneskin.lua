@@ -12,11 +12,14 @@ function item_stoneskin:OnSpellStart()
 
   local stoneskin_duration = self:GetSpecialValueFor("duration")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(stoneskin_duration, caster, caster)
+
   -- Apply Stoneskin buff to caster
-  caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {duration = stoneskin_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {duration = real_buff_duration})
 
   -- Tough enchantment
-  caster:ApplyNonStackableBuff(caster, self, "modifier_item_enhancement_tough", stoneskin_duration)
+  caster:ApplyNonStackableBuff(caster, self, "modifier_item_enhancement_tough", real_buff_duration)
 
   -- Activation Sound
   caster:EmitSound("Hero_EarthSpirit.Petrify")

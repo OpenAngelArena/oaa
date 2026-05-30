@@ -143,6 +143,20 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   FindClearSpaceForUnit(hCaster, self.targetEntity:GetAbsOrigin(), true)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Appear", hCaster)
+
+  -- Apply Underlord innate buff to the caster if there is someone on their team with that innate
+  local allied_heroes = FindUnitsInRadius(hCaster:GetTeamNumber(), Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, FIND_ANY_ORDER, false)
+  for _, hero in pairs(allied_heroes) do
+    if hero and not hero:IsNull() then
+      local innate = hero:FindAbilityByName("abyssal_underlord_innate_oaa")
+      if innate and not innate:IsNull() then
+        if innate:GetLevel() > 0 then
+          hCaster:AddNewModifier(hero, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = innate:GetSpecialValueFor("buff_duration")})
+          break
+        end
+      end
+    end
+  end
 end
 
 item_greater_travel_boots_2 = class(item_greater_travel_boots)

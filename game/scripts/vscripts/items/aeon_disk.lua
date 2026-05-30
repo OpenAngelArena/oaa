@@ -152,14 +152,16 @@ if IsServer() then
     local health_pct = current_health / max_health -- health pct before damage occured
 
     if (health_pct <= health_threshold_pct or current_health - damage_after <= 1) and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and parent:IsAlive() then
-      -- Sound
-      parent:EmitSound("DOTA_Item.ComboBreaker")
-
       -- Strong Dispel (for the caster)
       parent:Purge(false, true, false, true, true)
 
+      -- Intentionally NOT affected by Buff Amp
+
       -- Apply Combo Breaker buff
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})
+
+      -- Activation Sound
+      parent:EmitSound("DOTA_Item.ComboBreaker")
 
       -- Start cooldown, spend mana
       ability:UseResources(true, false, false, true)

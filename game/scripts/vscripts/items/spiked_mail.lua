@@ -9,12 +9,17 @@ end
 
 function item_spiked_mail_1:OnSpellStart()
   local caster = self:GetCaster()
-  -- Sound
-  caster:EmitSound("DOTA_Item.BladeMail.Activate")
-  -- Get duration
+
   local buff_duration = self:GetSpecialValueFor("duration")
+
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, caster, caster)
+
   -- Apply modifier
-  caster:AddNewModifier(caster, self, "modifier_item_spiked_mail_active_return", {duration = buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_spiked_mail_active_return", {duration = real_buff_duration})
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.BladeMail.Activate")
 end
 
 item_spiked_mail_2 = item_spiked_mail_1

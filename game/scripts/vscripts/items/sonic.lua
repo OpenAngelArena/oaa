@@ -17,10 +17,13 @@ function item_sonic:OnSpellStart()
     return
   end
 
-  -- Apply Sonic buff to caster
-  caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
 
-  -- Emit Activation sound
+  -- Apply Sonic buff to caster
+  caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = real_buff_duration})
+
+  -- Activation sound
   caster:EmitSound("Hero_Dark_Seer.Surge")
 end
 

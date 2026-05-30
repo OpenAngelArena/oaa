@@ -133,6 +133,53 @@ if IsServer() then
     end
   end
 
+  function GetValueChangedByBuffAmplification(value, victim, caster)
+    if victim and value then
+      local buff_amplifications = 0
+      if caster and not caster:IsNull() then
+        local largo_buff_amp = caster:FindAbilityByName("largo_encore")
+        local rubick_buff_amp = caster:FindAbilityByName("rubick_curiosity")
+        if largo_buff_amp and not largo_buff_amp:IsNull() then
+          if largo_buff_amp:GetLevel() > 0 then
+            local largo_encore_buff_amp = largo_buff_amp:GetSpecialValueFor("buff_amplification")
+              buff_amplifications = (1 + buff_amplifications) * (1 + largo_encore_buff_amp / 100) - 1
+            end
+          end
+        if rubick_buff_amp and not rubick_buff_amp:IsNull() then
+          if rubick_buff_amp:GetLevel() > 0 then
+            local base_curiosity_buff_amp = rubick_buff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+            local curiosity_factor = rubick_buff_amp:GetSpecialValueFor("curiosity_factor")
+            local hero_lvl = caster:GetLevel()
+            local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
+            local curiosity_from_kills = caster:FindModifierByName("modifier_rubick_curiosity_from_heroes_tracker")
+            local total_curiosity = hero_lvl
+            if curiosity_from_spell_casts then
+              total_curiosity = total_curiosity + curiosity_from_spell_casts:GetStackCount()
+            end
+            if curiosity_from_kills then
+              total_curiosity = total_curiosity + curiosity_from_kills:GetStackCount()
+            end
+            -- Calculating total curiosity buff amp
+            local curiosity_buff_amp
+            if curiosity_factor ~= 0 then
+              curiosity_buff_amp = total_curiosity * base_curiosity_buff_amp * curiosity_factor
+            else
+              curiosity_buff_amp = total_curiosity * base_curiosity_buff_amp
+            end
+            buff_amplifications = (1 + buff_amplifications) * (1 + curiosity_buff_amp / 100) - 1
+          end
+        end
+      end
+
+      local new_value = value * (1 + buff_amplifications)
+      if buff_amplifications <= -1 then
+        return value
+      end
+
+      return new_value
+    end
+  end
+
   function CDOTA_BaseNPC:GetValueChangedByKnockbackResistance(value)
     if self and value then
       local total_knockback_resistance = 0

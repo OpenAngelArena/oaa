@@ -10,8 +10,14 @@ end
 function item_reduction_orb_1:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
   -- Apply modifier with damage reduction and converts damage-to-heal
-  caster:AddNewModifier(caster, self, "modifier_item_reduction_orb_active", { duration = self:GetSpecialValueFor("duration") })
+  caster:AddNewModifier(caster, self, "modifier_item_reduction_orb_active", {duration = real_buff_duration})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 ---------------------------------------------------------------------------------------------------

@@ -5,15 +5,18 @@ item_craggy_coat_oaa = class(ItemBaseClass)
 function item_craggy_coat_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
   -- Apply the buff
-  caster:AddNewModifier(caster, self, "modifier_item_craggy_coat_active", {duration = self:GetSpecialValueFor("duration")})
+  caster:AddNewModifier(caster, self, "modifier_item_craggy_coat_active", {duration = real_buff_duration})
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
   ParticleManager:ReleaseParticleIndex(particle)
 
-  -- Sound
+  -- Activation Sound
   caster:EmitSound("Tiny.Grow")
 end
 

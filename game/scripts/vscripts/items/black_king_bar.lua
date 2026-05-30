@@ -16,6 +16,8 @@ function item_black_king_bar_1:OnSpellStart()
   caster:RemoveModifierByName("modifier_slark_pounce_leash")
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
+  -- Intentionally NOT affected by Buff Amp
+
 	-- Apply spell immunity buff
   caster:AddNewModifier(caster, self, "modifier_black_king_bar_immune", {duration = self:GetSpecialValueFor("duration")})
 

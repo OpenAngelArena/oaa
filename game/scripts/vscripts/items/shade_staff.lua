@@ -17,8 +17,11 @@ function item_shade_staff_1:OnSpellStart()
 
   if target:GetTeamNumber() == caster:GetTeamNumber() then
     if target ~= caster then
+      -- Buff Amp
+      local real_buff_duration = GetValueChangedByBuffAmplification(tree_buff_duration, target, caster)
+
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
-      target:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_buff", {duration = tree_buff_duration})
+      target:AddNewModifier(caster, self, "modifier_item_shade_staff_trees_buff", {duration = real_buff_duration})
     end
 
     -- Create trees around the target

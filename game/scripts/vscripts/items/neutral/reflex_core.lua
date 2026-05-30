@@ -15,7 +15,12 @@ function item_reflex_core:OnSpellStart()
   -- Disjoint projectiles on cast
   ProjectileManager:ProjectileDodge(caster)
 
+  -- Intentionally NOT affected by Buff Amp
+
   caster:AddNewModifier(caster, self, "modifier_item_reflex_core_invulnerability", {duration = duration})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 ---------------------------------------------------------------------------------------------------

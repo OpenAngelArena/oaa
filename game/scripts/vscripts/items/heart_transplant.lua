@@ -42,6 +42,8 @@ function item_heart_transplant:OnSpellStart()
 
   local transplant_max_duration = self:GetSpecialValueFor("transplant_max_duration")
 
+  -- Intentionally NOT affected by Buff Amp
+
   -- Remove the previous instance of heart transplant - only allow one active transfer
   if self.transferred_buff and not self.transferred_buff:IsNull() then
     self.transferred_buff:Destroy()

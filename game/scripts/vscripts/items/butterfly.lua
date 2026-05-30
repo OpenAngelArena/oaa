@@ -11,8 +11,11 @@ function item_butterfly_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local buff_duration = self:GetSpecialValueFor("buff_duration")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, caster, caster)
+
   -- Apply a Butterfly special buff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_butterfly_oaa_active", {duration = buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_butterfly_oaa_active", {duration = real_buff_duration})
 
   -- Sound
   caster:EmitSound("DOTA_Item.Butterfly")

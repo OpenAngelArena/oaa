@@ -20,8 +20,11 @@ function item_elixier_burst:OnSpellStart()
   caster:RemoveModifierByName("modifier_elixier_burst_trigger")
   caster:RemoveModifierByName("modifier_elixier_burst_bonus")
 
-  caster:AddNewModifier(caster, self, "modifier_elixier_burst_active", {duration = self:GetSpecialValueFor("total_duration")})
-  caster:AddNewModifier(caster, self, "modifier_elixier_burst_trigger", {bonus_as = self:GetSpecialValueFor("bonus_as"), bonus_attacks = self:GetSpecialValueFor("bonus_attacks"), bonus_duration = self:GetSpecialValueFor("bonus_duration"), duration = self:GetSpecialValueFor("total_duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("total_duration"), caster, caster)
+
+  caster:AddNewModifier(caster, self, "modifier_elixier_burst_active", {duration = real_buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_elixier_burst_trigger", {bonus_as = self:GetSpecialValueFor("bonus_as"), bonus_attacks = self:GetSpecialValueFor("bonus_attacks"), bonus_duration = self:GetSpecialValueFor("bonus_duration"), duration = real_buff_duration})
 
   self:SpendCharge(0.1)
 end

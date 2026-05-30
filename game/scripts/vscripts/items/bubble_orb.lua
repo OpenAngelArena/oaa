@@ -22,6 +22,8 @@ function item_bubble_orb_1:OnSpellStart()
   local duration = self:GetSpecialValueFor("duration")
   local radius = self:GetSpecialValueFor("radius")
 
+  -- Intentionally NOT affected by Buff Amp
+
   -- Create bubble
   CreateModifierThinker(caster, self, "modifier_item_preemptive_bubble_aura_block", {duration = duration}, targetPoint, caster:GetTeamNumber(), false)
 

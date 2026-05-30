@@ -17,15 +17,19 @@ function item_eternal_shroud_oaa:GetIntrinsicModifierNames()
 end
 
 function item_eternal_shroud_oaa:OnSpellStart()
-  local hCaster = self:GetCaster()
+  local caster = self:GetCaster()
   local barrier_duration = self:GetSpecialValueFor("barrier_duration")
 
-  -- Sound
-  hCaster:EmitSound("DOTA_Item.Pipe.Activate")
   -- Remove previous instance
-  hCaster:RemoveModifierByName("modifier_eternal_shroud_oaa_barrier")
+  caster:RemoveModifierByName("modifier_eternal_shroud_oaa_barrier")
+
+  -- Intentionally NOT affected by Buff Amp
+
   -- Apply new instance
-  hCaster:AddNewModifier(hCaster, self, "modifier_eternal_shroud_oaa_barrier", {duration = barrier_duration})
+  caster:AddNewModifier(caster, self, "modifier_eternal_shroud_oaa_barrier", {duration = barrier_duration})
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.Pipe.Activate")
 end
 
 item_eternal_shroud_oaa_2 = item_eternal_shroud_oaa
