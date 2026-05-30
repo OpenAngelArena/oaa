@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500" //OAA, intentionally
+    "ItemCost"                                            "1800" //OAA, intentionally
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_shivas_guard"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_platemail;item_chasm_stone"
+      "01"                                                "item_platemail;item_chainmail;item_chasm_stone"
     }
   }
 
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3700" //OAA
+    "ItemCost"                                            "4500" //OAA
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -61,7 +61,7 @@
     "AbilityValues"
     {
       "bonus_hp_regen"                                    "0"
-      "bonus_armor"                                       "10 11 13 16 20" //OAA, intentionally nerfed; Plate Mail (10);
+      "bonus_armor"                                       "14 15 17 20 24" //OAA, intentionally nerfed; Plate Mail (10); Chain Mail (4);
       "bonus_aoe"                                         "50 60 70 80 90" //OAA, intentionally nerfed
       "aura_radius"
       {
