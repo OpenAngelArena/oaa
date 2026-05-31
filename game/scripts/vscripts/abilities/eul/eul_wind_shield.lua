@@ -96,7 +96,7 @@ function eul_wind_shield_oaa:OnSpellStart()
 
   local duration = self:GetSpecialValueFor("active_duration")
 
-  -- Apply the move speed and attack speed buff
+  -- Apply the move speed, attack speed and evasion buff
   caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_active", {duration = duration})
 
   -- Check for Tornado Barrier

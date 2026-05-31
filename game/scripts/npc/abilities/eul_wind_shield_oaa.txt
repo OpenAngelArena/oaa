@@ -30,15 +30,15 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "15 14.5 14 13.5 13 12.5"
+        "value"                                           "14 13.5 13 12.5 12 11.5"
         "special_bonus_unique_eul_3_oaa"                  "-4"
       }
       // Passive
-      "passive_evasion"
+      "passive_evasion" // evasion only against ranged
       {
         "value"                                           "25 35 45 55 65 75"
       }
-      "passive_spell_dmg_dodge_chance"
+      "passive_spell_dmg_dodge_chance" // only when outside of evasion_range_check radius
       {
         "value"                                           "8 12 16 20 24 28"
       }
@@ -58,7 +58,11 @@
       }
       "active_evasion"
       {
-        "value"                                           "50"
+        "value"                                           "100"
+      }
+      "active_duration"
+      {
+        "value"                                           "6"
       }
       "evasion_range_check" // affects passive evasion, active evasion and spell dmg dodge
       {
@@ -69,6 +73,7 @@
         "value"                                           "0"
         //"special_bonus_facet_eul_tornado_barrier"         "=100 =170 =240 =310 =620 =930"
       }
+
       // Deflect stuff
       "attack_projectile_deflect"
       {
@@ -97,10 +102,7 @@
         "value"                                           "0"
         //"special_bonus_facet_eul_ventus"                  "=250"
       }
-      "active_duration"
-      {
-        "value"                                           "7"
-      }
+
       // Distortion field stuff
       "attack_projectile_slow"                            "80"
       "slow_distance_max"
