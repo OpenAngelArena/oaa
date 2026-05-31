@@ -15,7 +15,7 @@
 // "DOTA_Tooltip_ability_mirana_arrow_arrow_bonus_damage"                         "MAXIMUM BONUS DAMAGE:"
 
 "DOTA_Tooltip_ability_mirana_arrow_oaa"                                         "#{DOTA_Tooltip_ability_mirana_arrow}"
-"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "#{DOTA_Tooltip_ability_mirana_arrow_Description}\n<font color='#FFA500'>Arrow can pierce and stun multiple units. Stun duration gets reduced by %arrow_pierce_stun_decay_per_unit%%% every time it pierces.</font>"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "#{DOTA_Tooltip_ability_mirana_arrow_Description}\n<font color='#FFA500'>Arrow can pierce and stun multiple units. Stun duration gets reduced by %arrow_pierce_stun_decay_per_unit%%% every time it pierces. Every time you hit a real hero with Sacred Arrow from more than %arrow_max_stunrange% range, Sacred Arrow's damage and max travel distance will permanently increase.</font>"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Lore"                                    "#{DOTA_Tooltip_ability_mirana_arrow_Lore}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note0"                                   "Pierce count represents how many units a single arrow can pierce, not how many units it can stun."
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note1"                                   "#{DOTA_Tooltip_ability_mirana_arrow_Note1}"
@@ -28,6 +28,12 @@
 "DOTA_Tooltip_ability_mirana_arrow_oaa_scepter_description"                     "#{DOTA_Tooltip_ability_mirana_arrow_scepter_description}\n<font color='#FFA500'>Pierced units are also hit with a second Starstorm.</font>"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_scepter_radius"                          "#{DOTA_Tooltip_ability_mirana_arrow_scepter_radius}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_scepter_starstorm_target_pct"            "#{DOTA_Tooltip_ability_mirana_arrow_scepter_starstorm_target_pct}"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_bonus_damage_per_stack"                  "ARROW BONUS DAMAGE PER STACK:"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_bonus_range_per_stack"                   "ARROW BONUS RANGE PER STACK:"
 
 "DOTA_Tooltip_modifier_mirana_arrow_stun_oaa"                                   "#{DOTA_Tooltip_ability_mirana_arrow}"
 "DOTA_Tooltip_modifier_mirana_arrow_stun_oaa_Description"                       "Stunned."
+
+"DOTA_Tooltip_modifier_mirana_custom_effects_oaa"                               "Bullseye Counter"
+"DOTA_Tooltip_modifier_mirana_custom_effects_oaa_Description"                   "%dMODIFIER_PROPERTY_TOOLTIP% bonus Arrow damage and %dMODIFIER_PROPERTY_TOOLTIP2% bonus Arrow range."
+
