@@ -25,10 +25,10 @@
         "affected_by_aoe_increase"                        "1"
         "special_bonus_shard"                             "+150"
       }
-      "damage"
+      "damage" //OAA, intentionally buffed hero_levelup
       {
         "value"                                           "10"
-        "hero_levelup"                                    "1"
+        "hero_levelup"                                    "+3"
         "special_bonus_shard"                             "+10"
       }
     }

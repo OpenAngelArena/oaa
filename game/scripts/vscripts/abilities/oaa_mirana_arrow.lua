@@ -135,12 +135,12 @@ if IsServer() then
         -- Damage arrow_base_damage with damage based on traveled distance
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
 
-        -- Increase Innate Counter
+        -- Increase Bullseye Counter
         local diff = 1 - dist_mult
         if diff <= 0.01 and target:IsRealHero() and not target:IsOAABoss() and not target:IsClone() then
-          local innate_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
-          if innate_mod then
-            innate_mod:IncrementStackCount()
+          local bullseye_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
+          if bullseye_mod then
+            bullseye_mod:IncrementStackCount()
           end
         end
 
@@ -331,13 +331,13 @@ if IsServer() then
       arrow_range = talent1:GetSpecialValueFor("projectile_range")
     end
 
-    -- Bonuses from innate
+    -- Bonuses from Bullseye
     local bonus_dmg = 0
     local bonus_range = 0
-    local innate_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
-    if innate_mod then
-      bonus_dmg = self:GetSpecialValueFor("bonus_damage_per_stack") * innate_mod:GetStackCount()
-      bonus_range = self:GetSpecialValueFor("bonus_range_per_stack") * innate_mod:GetStackCount()
+    local bullseye_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
+    if bullseye_mod then
+      bonus_dmg = self:GetSpecialValueFor("bonus_damage_per_stack") * bullseye_mod:GetStackCount()
+      bonus_range = self:GetSpecialValueFor("bonus_range_per_stack") * bullseye_mod:GetStackCount()
     end
 
     local arrow_data = {
@@ -404,8 +404,8 @@ function mirana_arrow_oaa:GetCastRange(location, target)
 
   local bonus_range = 0
   if caster:HasModifier("modifier_mirana_custom_effects_oaa") then
-    local innate_mod_stacks = caster:GetModifierStackCount("modifier_mirana_custom_effects_oaa", caster)
-    bonus_range = self:GetSpecialValueFor("bonus_range_per_stack") * innate_mod_stacks
+    local bullseye_mod_stacks = caster:GetModifierStackCount("modifier_mirana_custom_effects_oaa", caster)
+    bonus_range = self:GetSpecialValueFor("bonus_range_per_stack") * bullseye_mod_stacks
   end
 
   -- Talent that gives global range
@@ -463,7 +463,6 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-mirana_innates_oaa = class(AbilityBaseClass)
 modifier_mirana_custom_effects_oaa = class(ModifierBaseClass)
 
 function modifier_mirana_custom_effects_oaa:IsHidden()
@@ -490,17 +489,17 @@ function modifier_mirana_custom_effects_oaa:DeclareFunctions()
 end
 
 function modifier_mirana_custom_effects_oaa:OnTooltip()
-  local innate_ability = self:GetAbility()
-  if innate_ability then
-    return innate_ability:GetSpecialValueFor("bonus_damage_per_stack") * self:GetStackCount()
+  local ability = self:GetAbility()
+  if ability then
+    return ability:GetSpecialValueFor("bonus_damage_per_stack") * self:GetStackCount()
   end
   return 0
 end
 
 function modifier_mirana_custom_effects_oaa:OnTooltip2()
-  local innate_ability = self:GetAbility()
-  if innate_ability then
-    return innate_ability:GetSpecialValueFor("bonus_range_per_stack") * self:GetStackCount()
+  local ability = self:GetAbility()
+  if ability then
+    return ability:GetSpecialValueFor("bonus_range_per_stack") * self:GetStackCount()
   end
   return 0
 end
