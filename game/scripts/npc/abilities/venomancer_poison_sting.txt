@@ -18,10 +18,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "4.5"
-        "hero_levelup"                                    "+0.5"
+        "value"                                           "6.0"
+        "hero_levelup"                                    "+0.3"
       }
       "damage" // OAA, intentionally buffed hero_levelup
       {
