@@ -209,6 +209,7 @@ function modifier_item_preemptive_bubble_block:IsPurgable()
   return false
 end
 
+-- Needed because of multiple Bubble Orbs
 function modifier_item_preemptive_bubble_block:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end

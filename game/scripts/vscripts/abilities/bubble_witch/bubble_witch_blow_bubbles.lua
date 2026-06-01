@@ -327,35 +327,6 @@ function modifier_bubble_witch_blow_bubbles_ally:OnRefresh()
   end
 end
 
-if IsServer() then
-  function modifier_bubble_witch_blow_bubbles_ally:OnDestroy()
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-
-    if not caster or caster:IsNull() then
-      return
-    end
-
-    local innate = caster:FindAbilityByName("bubble_witch_innate")
-    if not innate or innate:IsNull() then
-      return
-    end
-
-    -- If owner is affected by break, do nothing
-    if caster:PassivesDisabled() then
-      return
-    end
-
-    if not parent or parent:IsNull() then
-      return
-    end
-
-    if parent:IsAlive() then
-      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
-    end
-  end
-end
-
 -- server-only function that is called whenever SetHasCustomTransmitterData(true) or SendBuffRefreshToClients() is called
 function modifier_bubble_witch_blow_bubbles_ally:AddCustomTransmitterData()
   return {
