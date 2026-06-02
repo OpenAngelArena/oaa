@@ -151,7 +151,11 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
       local innate = hero:FindAbilityByName("abyssal_underlord_innate_oaa")
       if innate and not innate:IsNull() then
         if innate:GetLevel() > 0 then
-          hCaster:AddNewModifier(hero, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = innate:GetSpecialValueFor("buff_duration")})
+          -- Buff Amp
+          local real_buff_duration = GetValueChangedByBuffAmplification(innate:GetSpecialValueFor("buff_duration"), hCaster, hero)
+          -- Apply the buff
+          hCaster:AddNewModifier(hero, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = real_buff_duration})
+          -- Break the 'for' loop
           break
         end
       end
