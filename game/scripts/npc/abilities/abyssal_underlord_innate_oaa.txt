@@ -42,7 +42,12 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_gain_per_hero_death"                        "2"
+      "damage_gain_per_hero_death"
+      {
+        "value"                                           "2"
+        "hero_levelup"                                    "+1"
+        "levelup_interval"                                "6"
+      }
     }
   }
 }
