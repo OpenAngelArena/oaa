@@ -33,7 +33,7 @@ function lich_sacrifice_oaa:OnSpellStart()
   end
 
   -- If cast filter is bypassed
-  if target:IsOAABoss() or target:IsCourier() or target:IsZombie() or target:IsConsideredHero() or (target:IsAncient() and caster:GetLevel() < self:GetSpecialValueFor("hero_lvl_requirement_for_ancients")) then
+  if target:IsHero() or target:IsOAABoss() or target:IsCourier() or target:IsZombie() or target:IsConsideredHero() or (target:IsAncient() and caster:GetLevel() < self:GetSpecialValueFor("hero_lvl_requirement_for_ancients")) then
     return
   end
 

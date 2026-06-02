@@ -103,7 +103,11 @@ if IsServer() then
       return
     end
 
-    unit:AddNewModifier(caster, ability, "modifier_underlord_raid_boss_buff_oaa", {duration = ability:GetSpecialValueFor("buff_duration")})
+    -- Buff Amp
+    local real_buff_duration = GetValueChangedByBuffAmplification(ability:GetSpecialValueFor("buff_duration"), unit, caster)
+
+    -- Apply the buff
+    unit:AddNewModifier(caster, ability, "modifier_underlord_raid_boss_buff_oaa", {duration = real_buff_duration})
   end
 end
 

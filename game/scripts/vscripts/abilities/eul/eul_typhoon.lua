@@ -269,17 +269,21 @@ function modifier_eul_typhoon_oaa_thinker:OnIntervalThink()
         for _, ally in pairs(allies) do
           if ally and not ally:IsNull() then
             if self:CheckIfUnitIsValid(ally) and not self.already_winded[ally:GetEntityIndex()] then
-              ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_active", {duration = wind_control_duration})
+              -- Buff Amp
+              local real_buff_duration = GetValueChangedByBuffAmplification(wind_control_duration, ally, caster)
+              -- Apply buffs
+              ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_active", {duration = real_buff_duration})
               if shield then
-                ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_tornado_barrier", {duration = wind_control_duration})
+                ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_tornado_barrier", {duration = real_buff_duration})
               end
               if deflect then
-                ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_ventus_ally", {duration = wind_control_duration})
+                ally:AddNewModifier(caster, wind_control, "modifier_eul_wind_shield_ventus_ally", {duration = real_buff_duration})
               end
               if ally == caster then
                 -- Distortion Field
-                ally:ApplyNonStackableBuff(caster, wind_control, "modifier_faceless_void_time_dilation_distortion_aura_applicator", wind_control_duration)
+                ally:ApplyNonStackableBuff(caster, wind_control, "modifier_faceless_void_time_dilation_distortion_aura_applicator", real_buff_duration)
               end
+              -- Mark the ally so it doesnt get reapplied multiple times
               self.already_winded[ally:GetEntityIndex()] = true
             end
           end

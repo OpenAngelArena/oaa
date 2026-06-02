@@ -72,7 +72,7 @@ function electrician_energy_absorption:OnSpellStart()
 
         -- Reduce/removed mana of the target (only if not an illusion)
         -- Don't remove mana from illusions to prevent weird interactions
-        if not target:IsIllusion() then
+        if target:IsRealHero() or target:IsStrongIllusionOAA() then
           target:ReduceMana(mana_to_remove, self)
           mana_absorbed = mana_absorbed + mana_to_remove
         end
@@ -120,15 +120,18 @@ function electrician_energy_absorption:OnSpellStart()
       end
     end
 
+    -- Buff Amp
+    local real_buff_duration = GetValueChangedByBuffAmplification(duration, caster, caster)
+
     -- Check how much mana does the caster have, add excess mana modifier if needed
     local missing_mana = caster:GetMaxMana() - caster:GetMana()
     if missing_mana < mana_absorbed then
       local modifier = caster:FindModifierByName("modifier_electrician_bonus_mana_count")
       if modifier then
-        modifier:SetDuration(duration, true)
+        modifier:SetDuration(real_buff_duration, true)
         modifier:SetStackCount(math.min(modifier:GetStackCount() + mana_absorbed - missing_mana, self:GetSpecialValueFor("bonus_mana_cap")))
       else
-        modifier = caster:AddNewModifier(caster, self, "modifier_electrician_bonus_mana_count", {duration = duration})
+        modifier = caster:AddNewModifier(caster, self, "modifier_electrician_bonus_mana_count", {duration = real_buff_duration})
         if modifier then
           modifier:SetStackCount(math.min(mana_absorbed - missing_mana, self:GetSpecialValueFor("bonus_mana_cap")))
         end
@@ -145,10 +148,10 @@ function electrician_energy_absorption:OnSpellStart()
     -- give the speed modifier
     local speed_modifier = caster:FindModifierByName("modifier_electrician_energy_absorption")
     if speed_modifier then
-      speed_modifier:SetDuration(duration, true)
+      speed_modifier:SetDuration(real_buff_duration, true)
       speed_modifier:SetStackCount(speed_modifier:GetStackCount() + speed_absorbed)
     else
-      speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = duration})
+      speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = real_buff_duration})
       if speed_modifier then
         speed_modifier:SetStackCount(speed_absorbed)
       end

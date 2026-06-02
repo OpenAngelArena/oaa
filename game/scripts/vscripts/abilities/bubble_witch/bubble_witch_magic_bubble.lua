@@ -18,8 +18,11 @@ function bubble_witch_magic_bubble:OnSpellStart()
     target:Purge(false, true, false, true, true)
   end
 
-  -- Buff
-  target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), target, caster)
+
+  -- Apply the Buff
+  target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = real_buff_duration})
 
   -- Bubble Form Sound
   target:EmitSound("Bubble_Witch.Magic_Bubble.Target")
