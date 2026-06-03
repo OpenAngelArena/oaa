@@ -237,7 +237,7 @@ function modifier_shield_staff_active_buff:IsDebuff()
 end
 
 function modifier_shield_staff_active_buff:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_shield_staff_active_buff:GetPriority()
@@ -471,7 +471,7 @@ function modifier_shield_staff_barrier_buff:IsHidden()
 end
 
 function modifier_shield_staff_barrier_buff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_shield_staff_barrier_buff:OnCreated(event)

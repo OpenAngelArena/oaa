@@ -57,7 +57,7 @@ function item_greater_phase_boots:OnSpellStart()
     end
   end
 
-  -- play the sound
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
 end
 

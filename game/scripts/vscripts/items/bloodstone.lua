@@ -37,12 +37,12 @@ function item_bloodstone_1:OnSpellStart()
 
   -- Intentionally NOT affected by Buff Amp
 
-  -- Sound
-  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
-
   -- Blood Pact (modifier_item_bloodstone_active is here mostly for the visuals)
   -- modifier_item_spell_lifesteal_oaa handles spell lifesteal
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 end
 
 -- upgrades

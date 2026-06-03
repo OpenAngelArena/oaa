@@ -54,6 +54,9 @@ function item_heart_transplant:OnSpellStart()
 
   -- Apply a Heart Transplant debuff to the caster
   caster:AddNewModifier(caster, self, "modifier_item_heart_transplant_debuff", {duration = transplant_max_duration+0.1})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 function item_heart_transplant:TransplantEnd(caster)

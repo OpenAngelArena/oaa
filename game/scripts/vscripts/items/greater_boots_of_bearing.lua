@@ -24,7 +24,7 @@ function item_greater_boots_of_bearing_1:OnSpellStart()
   local bearing_duration = self:GetSpecialValueFor("bearing_duration")
   local unslowable_duration = self:GetSpecialValueFor("bearing_unslowable_duration")
 
-  -- Sound
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.DoE.Activate")
 
   -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area

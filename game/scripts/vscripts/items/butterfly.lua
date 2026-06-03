@@ -17,7 +17,7 @@ function item_butterfly_oaa:OnSpellStart()
   -- Apply a Butterfly special buff to the caster
   caster:AddNewModifier(caster, self, "modifier_item_butterfly_oaa_active", {duration = real_buff_duration})
 
-  -- Sound
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.Butterfly")
 end
 

@@ -16,6 +16,9 @@ function item_dispel_orb_1:OnSpellStart()
 
   -- Apply modifier that dispels OnIntervalThink
   caster:AddNewModifier(caster, self, "modifier_item_dispel_orb_active", { duration = self:GetSpecialValueFor("duration") })
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 ---------------------------------------------------------------------------------------------------
