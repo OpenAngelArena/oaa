@@ -65,7 +65,7 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
     -- Stolen or no vanilla ability found, try to apply Dragon Form
     caster:AddNewModifier(caster, self, "modifier_dragon_knight_dragon_form", {duration = real_buff_duration})
     -- Level 5 effect
-    if level >= 5 or ( level >= 4 and caster:HasScepter() ) then
+    if level >= 5 or (level >= 4 and caster:HasScepter()) then
       caster:AddNewModifier(caster, self, "modifier_dragon_knight_max_level_oaa", {duration = real_buff_duration})
     end
     -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
