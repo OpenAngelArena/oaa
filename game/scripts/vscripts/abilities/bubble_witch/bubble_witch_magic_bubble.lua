@@ -18,8 +18,11 @@ function bubble_witch_magic_bubble:OnSpellStart()
     target:Purge(false, true, false, true, true)
   end
 
-  -- Buff
-  target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), target, caster)
+
+  -- Apply the Buff
+  target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = real_buff_duration})
 
   -- Bubble Form Sound
   target:EmitSound("Bubble_Witch.Magic_Bubble.Target")
@@ -42,6 +45,11 @@ function modifier_bubble_witch_magic_bubble_buff:IsPurgable()
 end
 
 function modifier_bubble_witch_magic_bubble_buff:OnCreated()
+  self:OnRefresh()
+  self.explode_dmg_from_dmg_taken = 0
+end
+
+function modifier_bubble_witch_magic_bubble_buff:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed_slow = ability:GetSpecialValueFor("move_speed_reduction")
@@ -51,10 +59,7 @@ function modifier_bubble_witch_magic_bubble_buff:OnCreated()
     self.radius = ability:GetSpecialValueFor("explode_dmg_radius")
     self.dmg_cap = ability:GetSpecialValueFor("explode_damage_cap")
   end
-  self.explode_dmg_from_dmg_taken = 0
 end
-
-modifier_bubble_witch_magic_bubble_buff.OnRefresh = modifier_bubble_witch_magic_bubble_buff.OnCreated
 
 function modifier_bubble_witch_magic_bubble_buff:DeclareFunctions()
   return {
@@ -162,20 +167,6 @@ if IsServer() then
     if heal_amount > 0 and parent:IsAlive() then
       --parent:Heal(heal_amount, ability) -- not affected by heal amp for some reason
       parent:HealWithParams(heal_amount, ability, false, true, caster, false)
-    end
-
-    local innate = caster:FindAbilityByName("bubble_witch_innate")
-    if not innate or innate:IsNull() then
-      return
-    end
-
-    -- If owner is affected by break, do nothing
-    if caster:PassivesDisabled() then
-      return
-    end
-
-    if parent:IsAlive() then
-      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
     end
 
     -- Bubble pop particle

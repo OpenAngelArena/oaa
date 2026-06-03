@@ -34,7 +34,7 @@
       }
       "toss_bonus_damage" // for the tooltip
       {
-        "value"                                           "50 300 550 1300 2050"
+        "value"                                           "100 300 500 1100 1700"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "move_speed"                                        "10 20 30 40 50" // for the tooltip
@@ -59,7 +59,13 @@
         "value"                                           "0"
         "special_bonus_shard"                             "=125"
       }
-      "land_tree_damage_tooltip" // real value is bonus_damage in tiny_toss_tree
+      "land_toss_damage_tooltip" // for the tooltip; real value is toss_land_damage_pct in tiny_toss
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "land_tree_damage_tooltip" // for the tooltip; real value is bonus_damage in tiny_toss_tree
       {
         "value"                                           "0"
         "special_bonus_shard"                             "=50"
@@ -70,7 +76,7 @@
       "bonus_damage_oaa"                                  "0 0 0 60 120" // bonus_damage - bonus_damage(at lvl 3)
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
-      "bonus_toss_damage_oaa"                             "0 0 0 750 1500" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
+      "bonus_toss_damage_oaa"                             "0 0 0 600 1200" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
       "bonus_move_speed_oaa"                              "0 0 0 10 20" // move_speed - move_speed(at lvl 3)
     }
   }

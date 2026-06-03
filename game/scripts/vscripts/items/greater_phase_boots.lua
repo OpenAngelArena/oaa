@@ -21,18 +21,21 @@ function item_greater_phase_boots:OnSpellStart()
 
   local active_duration = self:GetSpecialValueFor("phase_duration")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(active_duration, caster, caster)
+
   -- Disjoint projectiles on cast
   ProjectileManager:ProjectileDodge(caster)
 
   -- Add the vanilla phase active modifier
-  caster:AddNewModifier(caster, self, "modifier_item_phase_boots_active", {duration = active_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_phase_boots_active", {duration = real_buff_duration})
 
   -- Add the vanilla spider legs modifier (free pathing and cool visual spider effect)
-  --caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = active_duration})
+  --caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = real_buff_duration})
 
   -- Add OAA unique greater phase boots modifier, different for melee and ranged
   if not caster:IsRangedAttacker() then
-    caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = active_duration})
+    caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = real_buff_duration})
   else
     local bonus_search_range = self:GetSpecialValueFor("active_bonus_range")
     local enemies = FindUnitsInRadius(
@@ -54,7 +57,7 @@ function item_greater_phase_boots:OnSpellStart()
     end
   end
 
-  -- play the sound
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
 end
 

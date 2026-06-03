@@ -13,14 +13,17 @@
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "Innate"                                              "1"
-    "DependentOnAbility"                                  "sohei_flurry_of_blows"
-    "MaxLevel"                                            "6" // same as Dependent ability + 1
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_attack_dmg_per_ms"                            "0.08 0.1 0.12 0.14 0.18 0.22"
+      "base_attack_dmg_per_ms" // old: 0.08 0.1 0.12 0.14 0.18 0.22
+      {
+        "value"                                           "0.08"
+        "hero_levelup"                                    "+0.02"
+        "levelup_interval"                                "6"
+      }
     }
   }
 }

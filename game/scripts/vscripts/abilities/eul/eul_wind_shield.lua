@@ -96,23 +96,26 @@ function eul_wind_shield_oaa:OnSpellStart()
 
   local duration = self:GetSpecialValueFor("active_duration")
 
-  -- Apply the move speed and attack speed buff
-  caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_active", {duration = duration})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(duration, caster, caster)
+
+  -- Apply the move speed, attack speed and evasion buff
+  caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_active", {duration = real_buff_duration})
 
   -- Check for Tornado Barrier
   local shield = self:GetSpecialValueFor("all_damage_block") > 0
   if shield then
-    caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_tornado_barrier", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_tornado_barrier", {duration = real_buff_duration})
   end
 
   -- Check for Ventus Deflect
   local deflect = self:GetSpecialValueFor("attack_projectile_deflect") ~= 0
   if deflect then
-    caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_ventus", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_eul_wind_shield_ventus", {duration = real_buff_duration})
   end
 
   -- Distortion Field
-  caster:ApplyNonStackableBuff(caster, self, "modifier_faceless_void_time_dilation_distortion_aura_applicator", duration)
+  caster:ApplyNonStackableBuff(caster, self, "modifier_faceless_void_time_dilation_distortion_aura_applicator", real_buff_duration)
 end
 
 -- Ventus fake attacks

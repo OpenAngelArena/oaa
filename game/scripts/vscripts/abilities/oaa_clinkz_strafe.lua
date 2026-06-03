@@ -22,7 +22,11 @@ function clinkz_strafe_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
 
-  caster:AddNewModifier(caster, self, "modifier_clinkz_strafe_oaa", { duration = duration } )
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(duration, caster, caster)
+
+  -- Apply the buff
+  caster:AddNewModifier(caster, self, "modifier_clinkz_strafe_oaa", {duration = real_buff_duration})
 
   caster:EmitSound("Hero_Clinkz.Strafe")
 end

@@ -24,7 +24,7 @@ function item_greater_boots_of_bearing_1:OnSpellStart()
   local bearing_duration = self:GetSpecialValueFor("bearing_duration")
   local unslowable_duration = self:GetSpecialValueFor("bearing_unslowable_duration")
 
-  -- Sound
+  -- Activation Sound
   caster:EmitSound("DOTA_Item.DoE.Activate")
 
   -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area
@@ -42,11 +42,15 @@ function item_greater_boots_of_bearing_1:OnSpellStart()
 
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
-      -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to the ally
-      ally:AddNewModifier(caster, self, "modifier_item_greater_boots_of_bearing_buff", {duration = bearing_duration})
+      -- Buff Amp
+      local real_bearing_duration = GetValueChangedByBuffAmplification(bearing_duration, ally, caster)
+      local real_unslowable_duration = GetValueChangedByBuffAmplification(unslowable_duration, ally, caster)
+
+      -- Apply Boots of Bearing / Drums of Endurance buff to the ally
+      ally:AddNewModifier(caster, self, "modifier_item_greater_boots_of_bearing_buff", {duration = real_bearing_duration})
 
       -- Apply Boots of Bearing unslowable buff to the ally
-      ally:AddNewModifier(caster, self, "modifier_item_greater_boots_of_bearing_unslowable", {duration = unslowable_duration})
+      ally:AddNewModifier(caster, self, "modifier_item_greater_boots_of_bearing_unslowable", {duration = real_unslowable_duration})
     end
   end
 end

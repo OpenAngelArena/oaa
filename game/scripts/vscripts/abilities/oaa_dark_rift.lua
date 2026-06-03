@@ -182,7 +182,10 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   local innate = caster:FindAbilityByName("abyssal_underlord_innate_oaa")
   if innate and not innate:IsNull() then
     if innate:GetLevel() > 0 then
-      caster:AddNewModifier(caster, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = innate:GetSpecialValueFor("buff_duration")})
+      -- Buff Amp
+      local real_buff_duration = GetValueChangedByBuffAmplification(innate:GetSpecialValueFor("buff_duration"), caster, caster)
+      -- Apply the buff
+      caster:AddNewModifier(caster, innate, "modifier_underlord_raid_boss_buff_oaa", {duration = real_buff_duration})
     end
   end
 

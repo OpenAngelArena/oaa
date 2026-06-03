@@ -16,6 +16,8 @@ function item_elixier_sustain:OnSpellStart()
   -- Activation sound
   caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
 
+  -- Intentionally NOT affected by Buff Amp
+
   -- Apply a buff
   local buff = caster:AddNewModifier(caster, self, "modifier_elixier_sustain_active", {duration = self:GetSpecialValueFor("duration")})
   buff.regen = self:GetSpecialValueFor("bonus_hp_regen")

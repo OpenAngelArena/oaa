@@ -138,15 +138,17 @@ if IsServer() then
 
     local current_health = parent:GetHealth()
     if damage >= current_health and current_health <= 1 and ability:IsCooldownReady() and ability:IsOwnersManaEnough() then
-      -- Sound
-      parent:EmitSound("DOTA_Item.MagicLamp.Cast")
-
       -- Dispel all debuffs (99.99% at least)
       parent:DispelUndispellableDebuffs()
       parent:Purge(false, true, false, true, true)
 
+      -- Intentionally NOT affected by Buff Amp
+
       -- Particle and continuous self dispel for duration
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})
+
+      -- Activation Sound
+      parent:EmitSound("DOTA_Item.MagicLamp.Cast")
 
       -- 'Heal'
       local health_increase = parent:GetMaxHealth() * self.heal_pct * 0.01

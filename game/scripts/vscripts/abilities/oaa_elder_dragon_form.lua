@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_dragon_knight_frostbite_debuff_oaa", "abilities/oaa_e
 
 -- this makes the ability passive when it hits level 5 and caster has scepter
 function dragon_knight_elder_dragon_form_oaa:GetBehavior()
-  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
+  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() and not self:IsStolen() then
     return DOTA_ABILITY_BEHAVIOR_PASSIVE
   end
 
@@ -17,7 +17,7 @@ end
 -- from the tooltip when it becomes passive
 function dragon_knight_elder_dragon_form_oaa:GetCooldown(level)
   local caster = self:GetCaster() or self:GetOwner()
-  if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() then
+  if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() and not self:IsStolen() then
     return 0
   end
 
@@ -26,7 +26,7 @@ end
 
 function dragon_knight_elder_dragon_form_oaa:GetManaCost(level)
   local caster = self:GetCaster() or self:GetOwner()
-  if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() then
+  if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() and not self:IsStolen() then
     return 0
   end
 
@@ -38,6 +38,9 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   local level = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
   local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
+
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(duration, caster, caster)
 
   -- Fixing the level of the vanilla ability because equiping and unequiping messes up the lvl
   -- that's why fixing it during OnUpgrade is not enough
@@ -52,13 +55,25 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
       if level >= 3 then
         vanilla_ability:SetLevel(4)
         if level >= 5 then
-          duration = -1
+          real_buff_duration = -1
         end
       else
         vanilla_ability:SetLevel(level+1)
       end
     end
   else
+    -- Stolen or no vanilla ability found, try to apply Dragon Form
+    caster:AddNewModifier(caster, self, "modifier_dragon_knight_dragon_form", {duration = real_buff_duration})
+    -- Level 5 effect
+    if level >= 5 or (level >= 4 and caster:HasScepter()) then
+      caster:AddNewModifier(caster, self, "modifier_dragon_knight_max_level_oaa", {duration = real_buff_duration})
+    end
+    -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
+    local projectile_name = caster:GetRangedProjectileName()
+    if not projectile_name or projectile_name == "" then
+      -- For Rubick if he doesn't have a projectile in Dragon Form at least add his base projectile
+      caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
+    end
     return
   end
 
@@ -66,40 +81,30 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   vanilla_ability:OnSpellStart()
 
   -- apply the standard dragon form modifier ( for movespeed and the model change )
-  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_dragon_form", { duration = duration, } )
+  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_dragon_form", { duration = real_buff_duration } )
 
   -- apply the corrosive breath modifier, don't need to check its level really, this modifier might not exist anymore
-  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_corrosive_breath", { duration = duration, } )
+  --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_corrosive_breath", { duration = real_buff_duration } )
 
   -- apply the leveled modifiers
   --if level >= 2 then
     -- this modifier might not exist anymore
-    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_splash_attack", { duration = duration, } )
+    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_splash_attack", { duration = real_buff_duration } )
   --end
 
   --if level >= 3 then
     -- this modifier might not exist anymore
-    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_frost_breath", { duration = duration, } )
+    --caster:AddNewModifier( caster, ability, "modifier_dragon_knight_frost_breath", { duration = real_buff_duration } )
   --end
 
-  if level >= 5 or ( level >= 4 and caster:HasScepter() ) then
-    caster:AddNewModifier( caster, self, "modifier_dragon_knight_max_level_oaa", { duration = duration, } )
+  -- Level 5 effect
+  if level >= 5 or (level >= 4 and caster:HasScepter()) then
+    caster:AddNewModifier(caster, self, "modifier_dragon_knight_max_level_oaa", {duration = real_buff_duration})
   end
-
-  -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
-  --local projectile_name = caster:GetRangedProjectileName()
-  --if not projectile_name or projectile_name == "" then
-    --if self:IsStolen() then
-      -- For Rubick if he doesn't have a projectile in Dragon Form at least add his base projectile
-      --caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
-    --else
-      --caster:ChangeAttackProjectile()
-    --end
-  --end
 end
 
 function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()
-  if self:GetLevel() >= 5 then
+  if self:GetLevel() >= 5 and not self:IsStolen() then
     return "modifier_dragon_knight_elder_dragon_form_oaa"
   end
 end
@@ -134,29 +139,36 @@ end
   -- return "dragon_knight_elder_dragon_form"
 -- end
 
--- function dragon_knight_elder_dragon_form_oaa:OnStolen(hSourceAbility)
-  -- local caster = self:GetCaster()
+function dragon_knight_elder_dragon_form_oaa:OnStolen(hSourceAbility)
+  local caster = self:GetCaster()
   -- local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
   -- if not vanilla_ability then
     -- return
   -- end
   -- vanilla_ability:SetHidden(true)
--- end
+  -- Remove intrinsic modifier
+  if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
+    caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
+  end
+end
 
--- function dragon_knight_elder_dragon_form_oaa:OnUnStolen()
-  -- local caster = self:GetCaster()
-  -- if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
-    -- caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
-  -- end
--- end
+function dragon_knight_elder_dragon_form_oaa:OnUnStolen()
+  local caster = self:GetCaster()
+  -- Remove intrinsic modifier
+  if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
+    caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
+  end
+end
 
--- TODO: Fix this spell with Rubick Speal Steal
 function dragon_knight_elder_dragon_form_oaa:IsStealable()
+  if self:GetLevel() <= 5 then
+    return true
+  end
   return false
 end
 
 function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
-  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
+  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() and not self:IsStolen() then
     return false
   end
 

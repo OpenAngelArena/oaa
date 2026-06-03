@@ -93,6 +93,8 @@ function item_infinite_bottle:OnSpellStart()
   --EmitSoundOnClient("Bottle.Drink", PlayerResource:GetPlayer(playerID)) -- emits at the center of the map
   EmitSoundOnLocationForPlayer("Bottle.Drink", caster:GetAbsOrigin(), playerID)
 
+  -- Intentionally NOT affected by Buff Amp
+
   caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
   self:SpendCharge(0.1)

@@ -61,9 +61,10 @@ function HeroSelection:Init ()
       elseif key == "npc_dota_hero_eul" then
         data = LoadKeyValues('scripts/npc/heroes/eul.txt')
        elseif key == "npc_dota_hero_bubble_witch" then
-        data = LoadKeyValues('scripts/npc/heroes/eul.txt')
+        data = LoadKeyValues('scripts/npc/heroes/bubble_witch.txt')
       else
-        data = LoadKeyValues('scripts/npc/npc_heroes.txt')
+        --data = LoadKeyValues('scripts/npc/npc_heroes.txt')
+        print("Hero with a name: "..key.." does not exist!")
       end
 
       if data and data[key] then

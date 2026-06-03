@@ -116,7 +116,8 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
   local extend_duration = ability:GetSpecialValueFor("extend_duration_per_hit")
   local applies_to_caster = ability:GetSpecialValueFor("applies_to_caster")
-  local base_buff_duration = ability:GetSpecialValueFor("buff_duration")
+  local buff_duration = ability:GetSpecialValueFor("buff_duration")
+  local debuff_duration = ability:GetSpecialValueFor("debuff_duration")
   local speed = distance
   local direction = parent:GetForwardVector()
   direction.z = 0
@@ -213,21 +214,28 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   for _, unit in pairs(units_in_cone) do
     if unit and not unit:IsNull() and unit ~= parent then
       if unit:GetTeamNumber() == parent_team then
-        -- Ally
-        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
+        -- Allies
+        -- Buff Amp but only for the base duration
+        local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, unit, parent)
+        -- Apply the buff
+        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = real_buff_duration})
+        -- Extend Magic Bubble buff duration if it exists
         local magic_bubble_buff = unit:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
         if magic_bubble_buff then
           local remain = magic_bubble_buff:GetRemainingTime()
           magic_bubble_buff:SetDuration(remain + extend_duration, true)
         end
       else
-        -- Enemy
-        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_enemy", {duration = ability:GetSpecialValueFor("debuff_duration")})
+        -- Enemies
+        -- Apply the slow debuff
+        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_enemy", {duration = debuff_duration})
+        -- Extend Bubble Snare debuff duration if it exists
         local cavitation_debuff = unit:FindModifierByNameAndCaster("modifier_bubble_witch_cavitation_debuff", parent)
         if cavitation_debuff then
           local remain = cavitation_debuff:GetRemainingTime()
           cavitation_debuff:SetDuration(remain + extend_duration, true)
         end
+        -- Apply Damage
         damage_table.victim = unit
         ApplyDamage(damage_table)
       end
@@ -235,7 +243,11 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   end
 
   if applies_to_caster > 0 then
-    parent:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
+    -- Buff Amp but only for the base duration
+    local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, parent, parent)
+    -- Apply the buff
+    parent:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = real_buff_duration})
+    -- Extend Magic Bubble buff duration if it exists
     local magic_bubble_buff = parent:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
     if magic_bubble_buff then
       local remain = magic_bubble_buff:GetRemainingTime()
@@ -324,35 +336,6 @@ function modifier_bubble_witch_blow_bubbles_ally:OnRefresh()
       self.current_shield = math.max(self.current_shield + self.shield_increase_per_stack, self.shield_increase_per_stack * self:GetStackCount())
     end
     self:SendBuffRefreshToClients()
-  end
-end
-
-if IsServer() then
-  function modifier_bubble_witch_blow_bubbles_ally:OnDestroy()
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-
-    if not caster or caster:IsNull() then
-      return
-    end
-
-    local innate = caster:FindAbilityByName("bubble_witch_innate")
-    if not innate or innate:IsNull() then
-      return
-    end
-
-    -- If owner is affected by break, do nothing
-    if caster:PassivesDisabled() then
-      return
-    end
-
-    if not parent or parent:IsNull() then
-      return
-    end
-
-    if parent:IsAlive() then
-      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
-    end
   end
 end
 

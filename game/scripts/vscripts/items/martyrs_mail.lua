@@ -13,11 +13,17 @@ function item_martyrs_mail_1:GetIntrinsicModifierName()
 end
 
 function item_martyrs_mail_1:OnSpellStart()
-	local hCaster = self:GetCaster()
-	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
+  local caster = self:GetCaster()
+  local martyr_duration = self:GetSpecialValueFor("martyr_duration")
 
-	--hCaster:EmitSound("")
-	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(martyr_duration, caster, caster)
+
+  -- Apply Martyrs Mail buff to caster
+  caster:AddNewModifier(caster, self, "modifier_item_martyrs_mail_martyr_active", {duration = real_buff_duration})
+
+  -- Activation Sound
+  --caster:EmitSound("")
 end
 
 --------------------------------------------------------------------------------
@@ -134,8 +140,10 @@ if IsServer() then
         ally:HealWithParams(heal_amount, ability, false, true, parent, false)
         -- Visual effect
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+        -- Buff Amp
+        local real_buff_duration = GetValueChangedByBuffAmplification(effect_duration, ally, parent)
         -- Buff
-        ally:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_death_buff", {duration = effect_duration})
+        ally:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_death_buff", {duration = real_buff_duration})
       end
     end
 

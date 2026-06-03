@@ -29,8 +29,11 @@ function sohei_wholeness_of_body:OnSpellStart()
   --caster:RemoveModifierByName("modifier_slark_pounce_leash")
   --caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), target, caster)
+
   -- Applying the buff
-  target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
+  target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = real_buff_duration})
 
   -- Knockback talent
   -- local talent = caster:FindAbilityByName("special_bonus_unique_sohei_6_oaa")

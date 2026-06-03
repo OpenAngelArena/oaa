@@ -12,8 +12,11 @@ function item_havoc_hammer_1:OnSpellStart()
   local caster = self:GetCaster()
   local buff_duration = self:GetSpecialValueFor("buff_duration")
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, caster, caster)
+
   -- Apply a buff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_havoc_hammer_active", {duration = buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_item_havoc_hammer_active", {duration = real_buff_duration})
 
   -- Find enemies
   local center = caster:GetAbsOrigin()

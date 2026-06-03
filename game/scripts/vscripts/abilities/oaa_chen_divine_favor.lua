@@ -82,8 +82,10 @@ function chen_divine_favor_oaa:OnSpellStart()
   -- Do something for allies (shield, heal...)
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
+      -- Buff Amp
+      local real_buff_duration = GetValueChangedByBuffAmplification(duration, ally, caster)
       -- Apply physical damage shield
-      ally:AddNewModifier(caster, self, "modifier_chen_divine_favor_shield_oaa", {duration = duration})
+      ally:AddNewModifier(caster, self, "modifier_chen_divine_favor_shield_oaa", {duration = real_buff_duration})
       -- Heal allies
       --ally:Heal(heal, self)
     end

@@ -81,10 +81,14 @@ function electrician_electric_shield:OnSpellStart()
     modifier_name = "modifier_electrician_electric_shield_ac" -- Damage Block + Magic Resist + aura magic/physical dmg
   end
 
-  caster:AddNewModifier(caster, self, modifier_name, {duration = shield_duration, spent_mana = spent_mana})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(shield_duration, caster, caster)
+
+  -- Apply buffs
+  caster:AddNewModifier(caster, self, modifier_name, {duration = real_buff_duration, spent_mana = spent_mana})
 
   if bonus_dmg then
-    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = shield_duration})
+    caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield_nc_buff", {duration = real_buff_duration})
   end
 
   -- Cast Sound

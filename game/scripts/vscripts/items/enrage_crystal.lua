@@ -17,15 +17,17 @@ function item_enrage_crystal_1:OnSpellStart()
   caster:RemoveModifierByName("modifier_slark_pounce_leash")
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
-  -- Sound
-  caster:EmitSound("DOTA_Item.MinotaurHorn.Cast")
-
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:ReleaseParticleIndex(particle)
 
+  -- Intentionally NOT affected by Buff Amp
+
   -- Apply brief debuff immunity
   caster:AddNewModifier(caster, self, "modifier_item_enrage_crystal_active", {duration = self:GetSpecialValueFor("active_duration")})
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.MinotaurHorn.Cast")
 end
 
 item_enrage_crystal_2 = item_enrage_crystal_1

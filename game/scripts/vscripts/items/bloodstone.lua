@@ -1,6 +1,3 @@
-LinkLuaModifier("modifier_item_bloodstone_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_bloodstone_non_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_bloodstone_1 = class(ItemBaseClass)
 
@@ -10,12 +7,14 @@ end
 
 function item_bloodstone_1:GetIntrinsicModifierNames()
   return {
-    "modifier_item_bloodstone_stacking_stats",
-    "modifier_item_bloodstone_non_stacking_stats",
+    --"modifier_item_bloodstone_stacking_stats",
+    --"modifier_item_bloodstone_non_stacking_stats",
+    "modifier_item_bloodstone",
     "modifier_item_spell_lifesteal_oaa"
   }
 end
 
+--[[
 function item_bloodstone_1:GetManaCost(nLevel)
   local caster = self:GetCaster() or self:GetOwner() or self:GetPurchaser()
   local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
@@ -23,13 +22,27 @@ function item_bloodstone_1:GetManaCost(nLevel)
 
   return caster_max_mana*mana_cost_percentage/100
 end
+]]
 
 function item_bloodstone_1:OnSpellStart()
   local caster = self:GetCaster()
-  --caster:Kill(self, caster) -- old bloodstone (Pocket Deny)
-  local duration = self:GetSpecialValueFor("restore_duration")
+
+  -- old bloodstone (Pocket Deny)
+  --caster:Kill(self, caster)
+
+  -- Basic Dispel (for the caster)
+  --caster:Purge(false, true, false, false, false)
+
+  local duration = self:GetSpecialValueFor("buff_duration")
+
+  -- Intentionally NOT affected by Buff Amp
+
+  -- Blood Pact (modifier_item_bloodstone_active is here mostly for the visuals)
+  -- modifier_item_spell_lifesteal_oaa handles spell lifesteal
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
-  -- modifier_item_bloodstone_active is a built-in bloodstone modifier.
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 end
 
 -- upgrades
@@ -39,7 +52,8 @@ item_bloodstone_4 = item_bloodstone_1
 item_bloodstone_5 = item_bloodstone_1
 
 --------------------------------------------------------------------------
--- Parts of bloodstone that should stack with other bloodstones
+-- Parts of bloodstone that should stack with other bloodstones - not used
+LinkLuaModifier("modifier_item_bloodstone_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_item_bloodstone_stacking_stats = class(ModifierBaseClass)
 
@@ -167,28 +181,25 @@ end
 function modifier_item_bloodstone_stacking_stats:IsHidden()
   return true
 end
+
 function modifier_item_bloodstone_stacking_stats:IsDebuff()
   return false
 end
+
 function modifier_item_bloodstone_stacking_stats:IsPurgable()
   return false
 end
 
-if IsServer() then
-  function modifier_item_bloodstone_stacking_stats:DeclareFunctions()
-    return {
-      MODIFIER_EVENT_ON_DEATH,
-      MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
-      MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
-      MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
-      MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
-      MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    }
-  end
+function modifier_item_bloodstone_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+  }
 end
-
---------------------------------------------------------------------------
--- bloodstone stats
 
 function modifier_item_bloodstone_stacking_stats:GetModifierHealthBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_health")
@@ -211,9 +222,6 @@ end
 function modifier_item_bloodstone_stacking_stats:GetModifierBonusStats_Intellect()
   return self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
-
---------------------------------------------------------------------------
--- charge handling
 
 function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
   local caster = self:GetCaster()
@@ -288,7 +296,9 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
 end
 
 -------------------------------------------------------------------------
--- Parts of bloodstone that should NOT stack with other bloodstones
+-- Parts of bloodstone that should NOT stack with other bloodstones - not used
+
+LinkLuaModifier("modifier_item_bloodstone_non_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_item_bloodstone_non_stacking_stats = class(ModifierBaseClass)
 
@@ -345,13 +355,10 @@ end
 --function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
   --local parent = self:GetParent()
   --if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") then
-  --return self.manacost_reduction or self:GetAbility():GetSpecialValueFor("manacost_reduction")
+    --return self.manacost_reduction or self:GetAbility():GetSpecialValueFor("manacost_reduction")
   --end
   --return 0
 --end
-
---------------------------------------------------------------------------
--- aura stuff
 
 -- function modifier_item_bloodstone_stacking_stats:IsAura()
 --   return true
@@ -373,9 +380,11 @@ end
 --   return "modifier_item_bloodstone_charge_collector"
 -- end
 
--- --------------------------------------------------------------------------
--- -- charge collector, stacking modifiers that gives stacks
--- -- stacking auras don't get applied more than once no matter what
+---------------------------------------------------------------------------------------------------
+-- charge collector, stacking modifiers that gives stacks
+-- stacking auras don't get applied more than once no matter what
+
+--LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- modifier_item_bloodstone_charge_collector = class({})
 

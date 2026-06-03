@@ -17,10 +17,13 @@ function item_sonic:OnSpellStart()
     return
   end
 
-  -- Apply Sonic buff to caster
-  caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = self:GetSpecialValueFor("duration")})
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
 
-  -- Emit Activation sound
+  -- Apply Sonic buff to caster
+  caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = real_buff_duration})
+
+  -- Activation sound
   caster:EmitSound("Hero_Dark_Seer.Surge")
 end
 
@@ -110,6 +113,7 @@ function modifier_sonic_fly:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.speed = ability:GetSpecialValueFor("active_speed_bonus")
+    self.attack_speed = ability:GetSpecialValueFor("active_attack_speed")
     self.cast_speed = ability:GetSpecialValueFor("active_cast_speed")
   end
 end
@@ -123,8 +127,9 @@ function modifier_sonic_fly:DeclareFunctions()
     MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_PROPERTY_IGNORE_ATTACKSPEED_LIMIT,
-    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
 end
 
@@ -140,6 +145,10 @@ end
 
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Percentage()
   return self.speed or self:GetAbility():GetSpecialValueFor("active_speed_bonus")
+end
+
+function modifier_sonic_fly:GetModifierAttackSpeedBonus_Constant()
+  return self.attack_speed or self:GetAbility():GetSpecialValueFor("active_attack_speed")
 end
 
 function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()

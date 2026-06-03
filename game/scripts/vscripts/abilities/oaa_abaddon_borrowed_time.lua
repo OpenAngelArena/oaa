@@ -16,13 +16,16 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
   -- Strong Dispel (for caster)
   caster:Purge(false, true, false, true, true)
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(buff_duration, caster, caster)
+
   -- Add the Borrowed Time modifier to the caster
-  caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
+  caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = real_buff_duration})
 
   -- Immolation
   local add_immolation = self:GetSpecialValueFor("immolate_damage") ~= 0
   if add_immolation then
-    caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_immolation", {duration = buff_duration})
+    caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_immolation", {duration = real_buff_duration})
   end
 
   -- Caster responses (not really important)

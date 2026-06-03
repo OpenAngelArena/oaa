@@ -12,12 +12,15 @@ end
 function item_ghost_king_bar_1:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Buff Amp
+  local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("duration"), caster, caster)
+
   -- Apply Ghost King Bar buff to caster (but only if they dont have spell immunity)
   if not caster:IsMagicImmune() then
-    caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
+    caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = real_buff_duration})
   end
 
-  -- Emit Activation sound
+  -- Activation sound
   caster:EmitSound("DOTA_Item.GhostScepter.Activate")
 
   local current_charges = self:GetCurrentCharges()
@@ -572,10 +575,7 @@ function modifier_item_ghost_king_bar_buff:GetModifierMoveSpeedBonus_Percentage(
 end
 
 function modifier_item_ghost_king_bar_buff:GetModifierHealAmplify_PercentageTarget()
-  if not self:GetParent():HasModifier("modifier_item_ghost_king_bar_passives") then
-    return self.heal_amp or self:GetAbility():GetSpecialValueFor("buff_heal_increase")
-  end
-  return 0
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("buff_heal_increase")
 end
 
 function modifier_item_ghost_king_bar_buff:GetTexture()

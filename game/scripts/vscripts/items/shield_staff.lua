@@ -150,7 +150,11 @@ function item_shield_staff:OnSpellStart()
 
   -- Apply buff to allies, damage and interrupt enemies
   if not isTargetAnEnemy then
-    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = self:GetSpecialValueFor("active_duration")})
+    -- Buff Amp
+    local real_buff_duration = GetValueChangedByBuffAmplification(self:GetSpecialValueFor("active_duration"), target, caster)
+
+    -- Apply the shield buff
+    target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {duration = real_buff_duration})
   else
     -- Interrupt
     target:Stop()
@@ -233,7 +237,7 @@ function modifier_shield_staff_active_buff:IsDebuff()
 end
 
 function modifier_shield_staff_active_buff:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_shield_staff_active_buff:GetPriority()
@@ -467,7 +471,7 @@ function modifier_shield_staff_barrier_buff:IsHidden()
 end
 
 function modifier_shield_staff_barrier_buff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_shield_staff_barrier_buff:OnCreated(event)

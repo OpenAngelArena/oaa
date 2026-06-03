@@ -15,7 +15,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -50,7 +50,7 @@
     {
       "flurry_radius"
       {
-        "value"                                           "450"
+        "value"                                           "475"
         //"special_bonus_unique_sohei_4_oaa"                "+250"
         "affected_by_aoe_increase"                        "1"
       }

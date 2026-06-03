@@ -355,9 +355,9 @@ if IsServer() then
     end
 
     -- Reduce lifesteal against creeps by 40% (Vladmirs Grimoire intentionally does not have penalty)
-    --if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
-      --lifesteal_percent = lifesteal_percent * 0.6
-    --end
+    if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+      lifesteal_percent = lifesteal_percent * 0.6
+    end
 
     local health_restore = damage * lifesteal_percent * 0.01
 

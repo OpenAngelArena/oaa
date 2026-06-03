@@ -145,11 +145,19 @@ function sohei_ki_attraction:OnSpellStart()
 
   -- Sounds and modifiers
   if not isTargetAnEnemy then
+    -- Sound for allies
     target:EmitSound("Sohei.Dash")
-    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_buff", {duration = modifier_duration})
+    -- Buff Amp
+    local real_buff_duration = GetValueChangedByBuffAmplification(modifier_duration, target, caster)
+    -- Apply the buff
+    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_buff", {duration = real_buff_duration})
   else
+    -- Sound for enemies
     target:EmitSound("Sohei.Momentum")
-    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_debuff", {duration = modifier_duration})
+    -- Status Resistance and Debuff Amp
+    local real_debuff_duration = target:GetValueChangedByStatusResistance(modifier_duration, caster, self)
+    -- Apply the debuff
+    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_debuff", {duration = real_debuff_duration})
   end
 
   -- Apply motion controller

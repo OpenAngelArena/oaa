@@ -17,14 +17,16 @@ function item_reflection_shard_1:OnSpellStart()
   -- Basic Dispel (for the caster)
   caster:Purge(false, true, false, false, false)
 
-  -- Sound
-  caster:EmitSound("Hero_Antimage.Counterspell.Cast")
+  -- Intentionally NOT affected by Buff Amp
 
   -- Apply Reflection shard modifier
   caster:AddNewModifier(caster, self, "modifier_item_reflection_shard_active", {duration = duration})
 
   -- Built-in modifier (Lotus Orb Echo Shell)
   caster:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", {duration = duration})
+
+  -- Activation Sound
+  caster:EmitSound("Hero_Antimage.Counterspell.Cast")
 end
 
 ---------------------------------------------------------------------------------------------------

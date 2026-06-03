@@ -62,36 +62,46 @@ if IsServer() then
     end
 
     local black_list = {
+      modifier_battlemage_cooldown_oaa = 1, -- not intended, not a buff
       modifier_bottle_regeneration = 1, -- not intended, to prevent multiple proccing
-      modifier_bubble_witch_blow_bubbles_ally = 1, -- to prevent multiple proccing, duration isn't constant
       modifier_bubble_witch_blow_bubbles_caster = 1, -- this is nonsense, not really a buff
       modifier_bubble_witch_bubble_of_protection_buff = 1, -- not intended, similar to aura
       modifier_bubble_witch_innate_buff_oaa = 1, -- to prevent a loop
       modifier_bubble_witch_innate_immune_oaa = 1, -- to prevent a loop
-      modifier_bubble_witch_magic_bubble_buff = 1, -- to prevent multiple proccing, duration isn't constant
+      modifier_echo_strike_cooldown_oaa = 1, -- not intended, not a buff
       modifier_generic_dead_tracker_oaa = 1, -- not intended, not a buff
       modifier_illusion = 1, -- not intended, not a buff
       modifier_invisible = 1, -- not intended, to prevent multiple proccing
       modifier_item_assault_positive = 1, -- not intended, aura
       modifier_item_bloodstone_drained = 1, -- not intended, not a buff
+      modifier_item_bubble_orb_effect_cd = 1, -- not intended, not a buff
       modifier_item_bubble_orb_visible_buff = 1, -- not intended, similar to aura
       modifier_item_buckler_effect = 1, -- not intended, aura
       modifier_item_crimson_guard_nostack = 1, -- not intended, not a buff
       modifier_item_harpoon_pull = 1, -- not intended, not a buff
+      modifier_item_havoc_hammer_active_illusions = 1, -- not intended, similar to aura
       modifier_item_lucience_movespeed_effect = 1, -- not intended, aura
       modifier_item_lucience_regen_effect = 1, -- not intended, aura
       modifier_item_magic_lamp_oaa_buff = 1, -- not intended, not a buff
       modifier_item_mekansm_noheal = 1, -- not intended, not a buff
       modifier_item_preemptive_bubble_block = 1, -- not intended, similar to aura
+      modifier_item_reflex_core_cooldown = 1, -- not intended
       modifier_item_ring_of_basilius_effect = 1, -- not intended, aura
       modifier_item_siege_mode_thinker = 1, -- not intended
+      modifier_item_telescope_oaa_effect = 1, -- not intended, aura
       modifier_kill = 1, -- not intended, not a buff
       modifier_knockback = 1, -- not intended, not a buff
+      modifier_magus_cooldown_oaa = 1, -- not intended, not a buff
       modifier_manta = 1, -- not intended, not a buff
       modifier_observer_ward_recharger = 1, -- not intended, not a buff
+      modifier_roshan_bash_cooldown_oaa = 1, -- not intended, not a buff
       modifier_sentry_ward_recharger = 1, -- not intended, not a buff
+      modifier_spark_power_effect = 1, -- not intended, aura
+      modifier_spell_block_cooldown_oaa = 1, -- not intended, not a buff
+      modifier_teleporting = 1, -- not intended
       modifier_ui_custom_observer_ward_charges = 1, -- not intended, not a buff
       modifier_ui_custom_sentry_ward_charges = 1, -- not intended, not a buff
+      modifier_universal_summons_oaa = 1, -- not intended, aura
     }
 
     local exceptions = {
@@ -107,7 +117,7 @@ if IsServer() then
 
     local duration = mod:GetDuration()
     if duration > 0 then
-      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {duration = mod:GetRemainingTime(), linked_mod = name})
+      unit:AddNewModifier(parent, self:GetAbility(), "modifier_bubble_witch_innate_buff_oaa", {linked_mod = name})
     end
   end
 end
@@ -146,8 +156,9 @@ function modifier_bubble_witch_innate_buff_oaa:OnCreated(kv)
     self.dmg = 50
     self.radius = 675
     self.immune_time = 0.1
+    self.explode_on_caster = 0
   end
-  if IsServer() and self:GetDuration() > 0.1 and self:GetRemainingTime() > 0.1 and kv.linked_mod then
+  if IsServer() and kv.linked_mod then
     self.linked_mod = kv.linked_mod
     self:StartIntervalThink(0.1)
   end
@@ -159,6 +170,7 @@ if IsServer() then
     local parent = self:GetParent()
     if not self.linked_mod then
       self:StartIntervalThink(-1)
+      self:Destroy()
       return
     end
     local linked_buff = parent:FindModifierByNameAndCaster(self.linked_mod, caster)

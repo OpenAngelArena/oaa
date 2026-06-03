@@ -66,7 +66,10 @@ if IsServer() then
 
     local function BuffHealedUnit()
       if unit:GetTeamNumber() == parent:GetTeamNumber() then
-        unit:AddNewModifier(parent, innate, "modifier_oracle_innate_oaa_buff", {duration = innate:GetSpecialValueFor("duration")})
+        -- Buff Amp
+        local real_buff_duration = GetValueChangedByBuffAmplification(innate:GetSpecialValueFor("duration"), unit, parent)
+        -- Apply the buff
+        unit:AddNewModifier(parent, innate, "modifier_oracle_innate_oaa_buff", {duration = real_buff_duration})
       else
         unit:AddNewModifier(parent, innate, "modifier_oracle_innate_oaa_debuff", {duration = innate:GetSpecialValueFor("duration")})
       end

@@ -18,15 +18,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "4.5"
-        "hero_levelup"                                    "+0.5"
+        "value"                                           "6.0"
+        "hero_levelup"                                    "+0.3"
       }
-      "damage"
+      "damage" // OAA, intentionally buffed hero_levelup
       {
         "value"                                           "9"
-        "hero_levelup"                                    "+1"
+        "hero_levelup"                                    "+3"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "movement_speed" //OAA, Valve is missing a '+' sign

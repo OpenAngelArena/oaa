@@ -17,53 +17,22 @@ function item_satanic_core_1:GetIntrinsicModifierNames()
 end
 
 function item_satanic_core_1:OnSpellStart()
-  local hCaster = self:GetCaster()
+  local caster = self:GetCaster()
   local unholy_duration = self:GetSpecialValueFor("duration")
 
-  hCaster:EmitSound( "DOTA_Item.Satanic.Activate" )
-  hCaster:AddNewModifier( hCaster, self, "modifier_satanic_core_unholy", { duration = unholy_duration } )
+  -- Intentionally NOT affected by Buff Amp
+
+  -- Apply the buff to the caster
+  caster:AddNewModifier(caster, self, "modifier_satanic_core_unholy", {duration = unholy_duration})
+
+  -- Activation Sound
+  caster:EmitSound("DOTA_Item.Satanic.Activate")
 end
 
 item_satanic_core_2 = item_satanic_core_1
 item_satanic_core_3 = item_satanic_core_1
 item_satanic_core_4 = item_satanic_core_1
 item_satanic_core_5 = item_satanic_core_1
-
----------------------------------------------------------------------------------------------------
-
-item_bloodstone_1 = class(ItemBaseClass)
-
-function item_bloodstone_1:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_bloodstone_1:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_bloodstone",
-    "modifier_item_spell_lifesteal_oaa",
-  }
-end
-
-function item_bloodstone_1:OnSpellStart()
-  local caster = self:GetCaster()
-
-  -- Basic Dispel (for the caster)
-  --caster:Purge(false, true, false, false, false)
-
-  local duration = self:GetSpecialValueFor("buff_duration")
-
-  -- Sound
-  caster:EmitSound("DOTA_Item.Bloodstone.Cast")
-
-  -- Blood Pact (modifier_item_bloodstone_active is here mostly for the visuals)
-  -- modifier_item_spell_lifesteal_oaa handles spell lifesteal
-  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
-end
-
-item_bloodstone_2 = item_bloodstone_1
-item_bloodstone_3 = item_bloodstone_1
-item_bloodstone_4 = item_bloodstone_1
-item_bloodstone_5 = item_bloodstone_1
 
 ---------------------------------------------------------------------------------------------------
 
