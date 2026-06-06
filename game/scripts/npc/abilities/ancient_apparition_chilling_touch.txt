@@ -27,7 +27,7 @@
       "AbilityManaCost"                                   "35 40 45 50 55 60" //OAA, intentionally nerfed
       "damage"
       {
-        "value"                                           "30 60 90 120 150 180"
+        "value"                                           "35 65 95 125 155 185"
         "special_bonus_unique_ancient_apparition_2"       "+100"
       }
       "slow"
@@ -42,7 +42,7 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "12 9 6 3 3 3"
+        "value"                                           "10 7.5 5 2.5 2.5 2.5"
         "special_bonus_scepter"                           "-100%"
       }
     }

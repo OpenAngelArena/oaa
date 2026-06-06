@@ -40,7 +40,7 @@
       "land_movement_slow"
       {
         "RequiresShard"                                   "1"
-        "special_bonus_shard"                             "25"
+        "special_bonus_shard"                             "35"
       }
       "land_attack_slow"
       {
@@ -50,7 +50,7 @@
       "land_debuff_duration"
       {
         "RequiresShard"                                   "1"
-        "special_bonus_shard"                             "=2.5"
+        "special_bonus_shard"                             "=3.0"
       }
       "land_radius_tooltip" // we do not show this tooltip so it doesnt matter
       {

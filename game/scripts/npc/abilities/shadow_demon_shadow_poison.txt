@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 35 40 45 50 55" //OAA, intentionally buffed
+    "AbilityManaCost"                                     "30 35 40 45 50 55" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "max_multiply_stacks"                               "5"
       "bonus_stack_damage"
       {
-        "value"                                           "50 50 50 50 100 150"
+        "value"                                           "60"
         "special_bonus_unique_shadow_demon_4"             "+15%"
       }
       "radius"

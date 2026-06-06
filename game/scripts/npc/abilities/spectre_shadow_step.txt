@@ -35,17 +35,17 @@
     {
       "AbilityCastRange"
       {
-        "value"                                           "825 950 1075 1200 1325 1450"
+        "value"                                           "1000"
       }
       "duration"
       {
         "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
         "special_bonus_unique_spectre_shadow_step_duration"  "+1.0"
       }
-      "illusion_damage_incoming"                          "100 85 70 55 40 25"
-      "tooltip_illusion_total_damage_incoming"
+      "illusion_damage_incoming"                          "90 85 80 75 70 65" //OAA, intentionally rescaled
+      "tooltip_illusion_total_damage_incoming" // OAA, intentionally rescaled; illusion_damage_incoming + 100
       {
-        "value"                                           "200 185 170 155 140 125"
+        "value"                                           "190 185 180 175 170 165"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

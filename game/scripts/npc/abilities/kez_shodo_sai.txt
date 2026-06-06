@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 11 8 5 5 5" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "12 10 8 6 6 6" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "vuln_duration"                                     "8.0"
       "forward_angle"                                     "180"
       "speed_penalty"                                     "25"
-      "parry_duration"                                    "2.0"
+      "parry_duration"                                    "1.5"
       "parry_stun_duration"                               "0.2" //OAA, intentionally nerfed
       "base_crit_pct" //OAA, intentionally rescaled but buffed the talent
       {
