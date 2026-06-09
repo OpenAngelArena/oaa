@@ -35,9 +35,9 @@
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "burst_damage"
+      "burst_damage" //OAA, intentionally buffed
       {
-        "value"                                           "20 30 40 70 100"
+        "value"                                           "20 35 50 80 125"
         "special_bonus_unique_largo_7"                    "+12"
       }
       "damage_per_stack"
