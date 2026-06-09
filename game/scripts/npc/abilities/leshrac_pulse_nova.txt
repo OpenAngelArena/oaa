@@ -29,13 +29,13 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 75 80 85 90" //OAA, intentionally nerfed
+    "AbilityManaCost"                                     "55 65 75 85 95" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "mana_cost_per_second"                              "30 50 70 90 110" //OAA, intentionally nerfed
+      "mana_cost_per_second"                              "25 45 65 85 105" //OAA, intentionally nerfed
       "radius"
       {
         "value"                                           "500"
@@ -43,7 +43,7 @@
       }
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "90 140 190 340 490"
+        "value"                                           "80 140 200 320 440"
         "special_bonus_unique_leshrac_3"                  "+50"
       }
       "damage_resistance"

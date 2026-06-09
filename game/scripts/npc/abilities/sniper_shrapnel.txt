@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "65 70 75 80 85 90" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
       }
       "shrapnel_damage"
       {
-        "value"                                           "30 45 60 75 150 300"
+        "value"                                           "30 45 60 75 150 225"
         "special_bonus_facet_sniper_scattershot"          "=90 =160 =230 =300 =300 =300"
         "special_bonus_unique_sniper_shrapnel_damage"     "+30%"
       }

@@ -56,15 +56,15 @@
       {
         "value"                                           "40 60 80 100 120 140"
       }
-      "active_evasion"
+      "attack_projectile_dmg_reduction"
       {
-        "value"                                           "100"
+        "value"                                           "80"
       }
       "active_duration"
       {
         "value"                                           "6"
       }
-      "evasion_range_check" // affects passive evasion, active evasion and spell dmg dodge
+      "evasion_range_check" // affects passive evasion, active attack dmg dodge and spell dmg dodge
       {
         "value"                                           "300"
       }

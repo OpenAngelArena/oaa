@@ -37,13 +37,13 @@
     {
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "600 800 1000 1600 2200"
+        "value"                                           "600 850 1100 1600 2100"
         "special_bonus_scepter"                           "+100"
       }
-      "damage_per_kill" //OAA, intentionally buffed both base value and the talent
+      "damage_per_kill" //OAA, intentionally buffed special_bonus_unique_lion_8 talent; reminder: this is also bonus attack dmg per kill
       {
-        "value"                                           "60"
-        "special_bonus_unique_lion_8"                     "+30"
+        "value"                                           "25"
+        "special_bonus_unique_lion_8"                     "+25"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "grace_period"                                      "3"

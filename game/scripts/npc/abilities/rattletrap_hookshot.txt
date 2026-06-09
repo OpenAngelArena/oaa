@@ -57,14 +57,14 @@
       "speed"                                             "4000 5000 6000 6500 7000"
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "75 275 475 875 1475"
+        "value"                                           "100 275 450 800 1325"
         "special_bonus_unique_clockwerk_hookshot_damage"  "+75"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCooldown" //OAA, intentionally rescaled
       {
         "value"                                           "45 40 35 30 25"
-        "special_bonus_unique_clockwerk_5"                "-10"
+        "special_bonus_unique_clockwerk_5"                "-8"
       }
     }
   }

@@ -109,7 +109,7 @@ function modifier_eul_typhoon_oaa_thinker:OnCreated()
 
   if IsServer() then
     self.counter = 0
-    self.think_interval = 0.1
+    self.think_interval = 0.2
 
     local caster = self:GetCaster()
     local parent_loc = self:GetParent():GetAbsOrigin()
@@ -390,7 +390,7 @@ function modifier_eul_typhoon_oaa_debuff:OnCreated()
     self.min_effect_radius = ability:GetSpecialValueFor("radius")
   end
 
-  self.think_interval = 0.1
+  self.think_interval = 0.2
 
   if IsServer() then
     self:OnIntervalThink()

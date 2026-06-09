@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -27,7 +27,7 @@
         "value"                                           "22 24 26 28 30"
         "special_bonus_unique_drow_ranger_3"              "+8"
       }
-      "bonus_damage"                                      "10 20 30 40 50" //OAA, intentionally nerfed
+      "bonus_damage"                                      "10 20 30 50 80" //OAA, intentionally nerfed
       "disable_range"                                     "300"
     }
   }

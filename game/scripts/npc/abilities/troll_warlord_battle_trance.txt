@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    // Valve AbilityBehavior is missing, lmao
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE" //OAA, Valve is missing AbilityBehavior, lmao
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH" // Valve this is a remnant of the old scepter
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // Valve this is a remnant of the old scepter
@@ -48,7 +48,7 @@
       }
       "movement_speed"
       {
-        "value"                                           "25 30 35 40 45"
+        "value"                                           "35"
       }
       "range"
       {

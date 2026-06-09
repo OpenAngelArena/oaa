@@ -13,7 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -39,7 +39,7 @@
       "projectile_speed"                                  "1300"
       "duration"                                          "3.5 5 6.5 8 8.5 9"
       "bonus_damage"                                      "0"
-      "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
+      "bonus_slow"                                        "-2.5 -3 -3.5 -4.0 -4.5 -5.0"
       "start_radius"
       {
         "value"                                           "200"

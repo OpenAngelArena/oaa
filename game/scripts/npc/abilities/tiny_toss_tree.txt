@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.2"
 
     // Special
@@ -27,7 +27,7 @@
     "AbilityValues"
     {
       "speed"                                             "900.0"
-      "range"                                             "1200"
+      "range"                                             "1000"
       "bonus_damage"
       {
         "value"                                           "10 20 30 40 80 120"

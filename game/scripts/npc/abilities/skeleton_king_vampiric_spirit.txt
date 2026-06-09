@@ -15,11 +15,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vampiric_aura" //OAA, because of special_bonus_unique_wraith_king_2 talent buff
+      "vampiric_aura" //OAA, intentionally buffed hero_levelup and special_bonus_unique_wraith_king_2 talent
       {
-        "value"                                           "14"
+        "value"                                           "20"
         "hero_levelup"                                    "+1"
-        "special_bonus_unique_wraith_king_2"              "+15"
+        "special_bonus_unique_wraith_king_2"              "+12"
       }
       "duration" //OAA, intentionally nerfed base value
       {
