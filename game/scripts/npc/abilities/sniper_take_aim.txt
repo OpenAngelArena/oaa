@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,14 +45,14 @@
       "headshot_chance"                                   "100"
       "active_attack_range_bonus"
       {
-        "value"                                           "75 150 225 300 375 450"
+        "value"                                           "75 150 225 300 310 410"
       }
       "passive_attack_range_bonus"
       {
         "value"                                           "160 240 320 400 410 420"
         "special_bonus_unique_sniper_5"                   "+50"
       }
-      "bonus_vision"                                      "500 750 1000 1250 1375 1500"
+      "bonus_vision"                                      "500 750 1000 1250 1350 1450"
       "view_restrict"                                     "140"
       "does_root"
       {

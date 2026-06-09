@@ -36,9 +36,9 @@
       "pull_units_per_second"                             "75"
       "pull_distance_limit"                               "125"
       "animation_rate"                                    "1.5"
-      "dismember_damage" //OAA, intentionally buffed
+      "dismember_damage" //OAA, intentionally buffed base values and talent
       {
-        "value"                                           "80 120 160 280 480"
+        "value"                                           "80 120 160 240 360"
         "special_bonus_unique_pudge_3"                    "x1.8"
         "CalculateSpellDamageTooltip"                     "1"
       }

@@ -37,14 +37,14 @@
       {
         "value"                                           "1000"
       }
-      "AbilityCooldown" //OAA, intentionally rescaled
+      "AbilityCooldown" //OAA, intentionally nerfed both base values and talent
       {
         "value"                                           "75 70 65 60 55"
-        "special_bonus_unique_gyrocopter_5"               "-40"
+        "special_bonus_unique_gyrocopter_5"               "-25"
       }
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "200 500 800 1700 2600"
+        "value"                                           "200 500 800 1400 2300"
       }
       "radius"
       {

@@ -33,7 +33,7 @@
 "oaa_hud_error_eul_no_tornados"                                                 "No Tornados To Consume"
 
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa"                                      "Wind Control"
-"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Description"                          "Passively grants move speed, evasion and a chance to dodge a spell damage against attackers that are not within %evasion_range_check% radius of Eul. When activated Eul gains bonus attack speed, additional move speed and evasion for the duration. Additionally, enemy attack projectiles targetting Eul or allied heroes within a %friendly_hero_distance% radius of him get slowed by %attack_projectile_slow%%%, when they get within %slow_distance_max% distance of their target."
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Description"                          "Passively grants move speed, evasion and a chance to dodge a spell damage against attackers that are not within %evasion_range_check% radius of Eul. When activated Eul gains bonus attack speed, additional move speed and reduces damage from ranged attacks for the duration. Additionally, enemy attack projectiles targetting Eul or allied heroes within a %friendly_hero_distance% radius of him get slowed by %attack_projectile_slow%%%, when they get within %slow_distance_max% distance of their target."
 //"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_tornado_barrier"            "Grants an all damage barrier."
 //"DOTA_Tooltip_Ability_eul_wind_shield_oaa_Facet_eul_ventus"                     "Re-directs all attack projectiles and some ability projectiles aimed at Eul and his allies towards the closest visible enemy within %deflect_search_radius% range. Redirected projectiles are slowed."
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_Lore"                                 "Quick as the wind!"
@@ -42,7 +42,7 @@
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_passive_spell_dmg_dodge_chance"       "%PASSIVE SPELL EVASION:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_move_speed"                    "%ACTIVE MOVE SPEED:"
 "DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_attack_speed"                  "ACTIVE ATTACK SPEED:"
-"DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_evasion"                       "%ACTIVE EVASION:"
+"DOTA_Tooltip_Ability_eul_wind_shield_oaa_active_evasion"                       "%ACTIVE RANGED ATTACK DAMAGE REDUCTION:"
 //"DOTA_Tooltip_Ability_eul_wind_shield_oaa_all_damage_block"                     "BARRIER HEALTH"
 //"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_aura_radius"                  "ALLY REDIRECT RANGE:"
 //"DOTA_Tooltip_Ability_eul_wind_shield_oaa_deflect_search_radius"                "REDIRECT ENEMY SEARCH RANGE:"

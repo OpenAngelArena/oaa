@@ -38,11 +38,11 @@
     {
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "250 500 750 1250 1750"
+        "value"                                           "250 500 750 1250 2000"
       }
       "bonus_jump_damage"
       {
-        "value"                                           "15 20 25 40 55"
+        "value"                                           "15 20 25 35 50"
         "special_bonus_unique_lich_jump_damage"           "+100" // unused
         "CalculateSpellDamageTooltip"                     "1"
       }

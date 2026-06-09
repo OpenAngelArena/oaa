@@ -352,13 +352,13 @@ end
 function modifier_eul_wind_shield_active:OnCreated()
   self.move_speed = 20
   self.attack_speed = 40
-  self.evasion = 50
+  self.dmg_reduction_against_ranged_attacks = 75
   self.evasion_check = 300
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed = ability:GetSpecialValueFor("active_move_speed")
     self.attack_speed = ability:GetSpecialValueFor("active_attack_speed")
-    self.evasion = ability:GetSpecialValueFor("active_evasion")
+    self.dmg_reduction_against_ranged_attacks = ability:GetSpecialValueFor("attack_projectile_dmg_reduction")
     self.evasion_check = ability:GetSpecialValueFor("evasion_range_check")
   end
 end
@@ -398,7 +398,7 @@ function modifier_eul_wind_shield_active:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_EVASION_CONSTANT,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 end
 
@@ -410,22 +410,23 @@ function modifier_eul_wind_shield_active:GetModifierAttackSpeedBonus_Constant()
   return self.attack_speed
 end
 
-function modifier_eul_wind_shield_active:GetModifierEvasion_Constant(params)
+function modifier_eul_wind_shield_active:GetModifierIncomingDamage_Percentage(params)
   if not IsServer() then
     return
   end
 
   local parent = self:GetParent()
   local attacker = params.attacker
+  local category = params.damage_category
 
-  -- Evasion works only against ranged attackers
-  if not attacker:IsRangedAttacker() then
+  -- Works only against ranged attackers
+  if not attacker:IsRangedAttacker() or category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
     return 0
   end
 
   local distance = (parent:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D()
   if distance > self.evasion_check then
-    return self.evasion
+    return 0 - self.dmg_reduction_against_ranged_attacks
   end
 
   return 0

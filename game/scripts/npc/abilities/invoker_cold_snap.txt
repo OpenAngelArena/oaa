@@ -46,9 +46,9 @@
         "value"                                           "0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.50"
         "levelkey"                                        "quaslevel"
       }
-      "freeze_damage"
+      "freeze_damage" //OAA, intentionally buffed
       {
-        "value"                                           "28 36 44 52 60 68 76 84 92 100 108"
+        "value"                                           "28 36 44 52 60 68 76 92 108 124 156"
         "levelkey"                                        "quaslevel"
       }
       "freeze_heal"

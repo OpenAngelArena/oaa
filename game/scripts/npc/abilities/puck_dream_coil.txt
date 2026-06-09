@@ -34,14 +34,14 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "75 70 65 60 55"
-        "special_bonus_unique_puck"                       "-30"
+        "special_bonus_unique_puck"                       "-25"
       }
       "coil_duration"                                     "5 5.5 6 6.5 7"
       "coil_break_radius"                                 "600"
       "stun_duration"                                     "0.5"
       "coil_initial_damage" //OAA, intentionally buffed
       {
-        "value"                                           "175 325 475 925 1375"
+        "value"                                           "175 325 475 775 1225"
         "special_bonus_unique_puck_coil_damage"           "+200"
       }
       "coil_stun_duration"
@@ -50,7 +50,7 @@
       }
       "coil_break_damage" //OAA, intentionally buffed
       {
-        "value"                                           "200 400 600 1200 1800"
+        "value"                                           "200 400 600 1000 1600"
         "special_bonus_unique_puck_coil_damage"           "+200"
       }
       "coil_radius"

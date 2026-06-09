@@ -69,7 +69,7 @@
       }
       "damage_per_impact" //OAA, intentionally buffed
       {
-        "value"                                           "180 360 540 1080 1980"
+        "value"                                           "180 360 540 900 1440"
       }
       "projectile_vision"
       {
@@ -78,7 +78,7 @@
       }
       "burn_damage" //OAA, intentionally buffed
       {
-        "value"                                           "60 100 140 260 380"
+        "value"                                           "60 100 140 220 340"
         "special_bonus_unique_snapfire_5"                 "+35"
         "CalculateSpellDamageTooltip"                     "1"
       }
