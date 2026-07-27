@@ -155,6 +155,7 @@ function OAAOptions:SetupGame()
   local mode = GameRules:GetGameModeEntity()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
+    POOP_WARD_COOLDOWN_SENTRY = 30
     if CustomWardButtons then
       CustomWardButtons.obs_cooldown = 30
       CustomWardButtons.sentry_cooldown = 30

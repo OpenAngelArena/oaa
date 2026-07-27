@@ -7,7 +7,7 @@ function CustomWardButtons:Init()
   self.moduleName = "Poop Wards"
 
   self.obs_cooldown = POOP_WARD_COOLDOWN
-  self.sentry_cooldown = POOP_WARD_COOLDOWN
+  self.sentry_cooldown = POOP_WARD_COOLDOWN_SENTRY
 
   CustomGameEventManager:RegisterListener("custom_ward_button_pressed", Dynamic_Wrap(CustomWardButtons, "CastWard"))
   GameEvents:OnHeroInGame(partial(self.InitCustomWardCharges, self))
@@ -76,11 +76,11 @@ function CustomWardButtons:CastWard(event)
 
   if ward_type == "sentry" then
     ward:AddNewModifier(ward, nil, "modifier_item_ward_true_sight", {
-      true_sight_range = 700,
+      true_sight_range = POOP_WARD_VISION_RADIUS,
       duration = ward_duration
     })
   else
-    local visionRadius = 1200
+    local visionRadius = POOP_WARD_VISION_RADIUS
 
     -- Io/Wisp Innate
     local sightseer = hero:FindAbilityByName("wisp_sight_seer")
