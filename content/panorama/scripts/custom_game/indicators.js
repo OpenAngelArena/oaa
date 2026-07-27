@@ -16,7 +16,7 @@ function CheckForAltPress () {
             const shrine = buildings[i];
             const particle = Particles.CreateParticle('particles/ui_mouseactions/range_display.vpcf', ParticleAttachment_t.PATTACH_WORLDORIGIN, hero);
             Particles.SetParticleControl(particle, 0, Entities.GetAbsOrigin(shrine));
-            Particles.SetParticleControl(particle, 1, [800, 800, 800]);
+            Particles.SetParticleControl(particle, 1, [500, 500, 500]);
             // Store particle instance
             tempParticles.push(particle);
           }
