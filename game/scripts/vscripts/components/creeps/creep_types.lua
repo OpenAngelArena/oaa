@@ -86,19 +86,19 @@ CreepTypes = {
    -- 5 "solo ancient corner camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_neutral_custom_black_dragon",     1500,  300,  80,    3,  100,  150}
+      {"npc_dota_neutral_custom_black_dragon",     1500,  300,  80,    3,  105,  150}
     }
   },
    -- 6 "solo ancient mid camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_mini_roshan",                     1500,    0,  80,    5,  200,  25}
+      {"npc_dota_mini_roshan",                     1500,    0,  80,    5,  205,  25}
     },
     {
-      {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,   10,  200,  25}
+      {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,   10,  205,  25}
     },
     {
-      {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,   10,  200,  25}
+      {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,   10,  205,  25}
     },
   },
    -- 7 "solo prowler - part of the ancient camp" (CreepMax is 1)
