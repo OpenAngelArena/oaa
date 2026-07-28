@@ -110,7 +110,7 @@ function modifier_bubble_witch_bubble_of_protection_thinker:GetAuraRadius()
 end
 
 function modifier_bubble_witch_bubble_of_protection_thinker:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_BOTH
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_bubble_witch_bubble_of_protection_thinker:GetAuraSearchType()
@@ -142,7 +142,7 @@ function modifier_bubble_witch_bubble_of_protection_buff:OnCreated()
   if ability and not ability:IsNull() then
     self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
   else
-    self.dmg_reduction = 75
+    self.dmg_reduction = 20
   end
 end
 

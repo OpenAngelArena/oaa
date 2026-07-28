@@ -9,5 +9,5 @@ It is desirable for icons in **spellicons** and its subfolders to not have pips/
 
 Icons for the items in shop (e.g. when you hover over an item in the shop) go into: **content\panorama\images\items\custom**
 
-**content\panorama\layout\custom_game\precache.xml** needs to be edited so the console doesn't give a red error how the icon cannot be found. 
+**content\panorama\layout\custom_game\precache.xml** needs to be edited so the console doesn't give a red error that says the icon cannot be found. 
 (only 1st lvl of the item needs to be referenced, it is enough for some reason)

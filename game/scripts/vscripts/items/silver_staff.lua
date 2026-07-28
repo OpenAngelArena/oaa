@@ -16,7 +16,7 @@ function item_silver_staff:OnSpellStart()
     return
   end
 
-  -- Apply debuff (duration is not affected by status resistance)
+  -- Apply debuff (duration is not affected by status resistance or debuff amplification)
   local debuff_duration = self:GetSpecialValueFor("duration")
   target:AddNewModifier(caster, self, "modifier_item_silver_staff_debuff", {duration = debuff_duration})
 
@@ -25,7 +25,7 @@ function item_silver_staff:OnSpellStart()
 end
 
 item_silver_staff_2 = item_silver_staff
-item_silver_staff_3 = item_silver_staff
+--item_silver_staff_3 = item_silver_staff
 
 ---------------------------------------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ function modifier_item_silver_staff_debuff:OnRefresh()
     self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
   else
     self.base_damage = 55
-    self.percent_damage = 3.5
+    self.percent_damage = 1.5
   end
 
   -- Do reduced damage to bosses
@@ -167,7 +167,6 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
     attacker = caster,
     damage = damage_per_second,
     damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
     ability = ability,
   }
 

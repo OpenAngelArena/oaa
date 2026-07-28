@@ -21,6 +21,7 @@
       {
         "value"                                           "0.1"
         "hero_levelup"                                    "+0.01"
+        "display_type"                                    "kBuffPercentage"
       }
       "radius"
       {
@@ -32,6 +33,7 @@
       {
         "value"                                           "15"
         "special_bonus_shard"                             "+10"
+        "display_type"                                    "kMagicalDamagePercentage"
       }
       "current_mana_regen"
       {
@@ -41,7 +43,11 @@
       {
         "dynamic_value"                                   "true"
       }
-      "explosion_delay"                                   "1.5"
+      "explosion_delay"
+      {
+        "value"                                           "1.5"
+        "display_type"                                    "kDuration"
+      }
       "AbilityCooldown"
       {
         "value"                                           "0"

@@ -34,7 +34,11 @@
     "AbilityValues"
     {
       "duration"                                          "1.2"
-      "countdown"                                         "2"
+      "countdown"
+      {
+        "value"                                           "2"
+        "display_type"                                    "kDuration"
+      }
       "radius"
       {
         "value"                                           "300"
@@ -45,8 +49,16 @@
         "value"                                           "95 170 245 320 640 960"
         "special_bonus_unique_techies_2"                  "+160"
       }
-      "slow"                                              "25 35 45 55 65 75"
-      "secondary_slow"                                    "15 25 35 45 50 55"
+      "slow"
+      {
+        "value"                                           "25 35 45 55 65 75"
+        "display_type"                                    "kDebuffPercentage"
+      }
+      "secondary_slow"
+      {
+        "value"                                           "15 25 35 45 50 55"
+        "display_type"                                    "kDebuffPercentage"
+      }
       "secondary_slow_duration"                           "3"
       "explosion_radius"
       {

@@ -20,9 +20,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "return_damage" //OAA, intentionally buffed
+      "return_damage" //OAA, intentionally buffed talent special_bonus_unique_centaur_3
       {
-        "value"                                           "15 30 45 60 120 180"
+        "value"                                           "15 25 35 45 90 135"
         "special_bonus_unique_centaur_3"                  "+90"
         "CalculateSpellDamageTooltip"                     "1"
       }
