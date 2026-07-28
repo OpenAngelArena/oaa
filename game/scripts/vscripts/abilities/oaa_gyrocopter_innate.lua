@@ -78,6 +78,6 @@ if IsServer() then
     end
 
     -- Roll chance for true strike (accuracy) again
-    self.truestrike = RandomInt(0, 100) <= self.chance
+    self.truestrike = RollPseudoRandomPercentage(self.chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_2, parent)
   end
 end
