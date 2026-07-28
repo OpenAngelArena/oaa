@@ -33,10 +33,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "brew_time"                                         "5.0"
-      "brew_explosion"                                    "5.5"
-      "min_stun"                                          "0.25"
-      "max_stun"                                          "1.7 2.2 2.7 3.2 3.3 3.4"
+      "brew_time"
+      {
+        "value"                                           "5.0"
+        "display_type"                                    "kDuration"
+      }
+      "brew_explosion"
+      {
+        "value"                                           "5.5"
+        "display_type"                                    "kDuration"
+      }
+      "min_stun"
+      {
+        "value"                                           "0.25"
+        "display_type"                                    "kDebuffDuration"
+      }
+      "max_stun"
+      {
+        "value"                                           "1.7 2.2 2.7 3.2 3.3 3.4"
+        "display_type"                                    "kDebuffDuration"
+      }
       "min_damage"                                        "0"
       "max_damage"
       {

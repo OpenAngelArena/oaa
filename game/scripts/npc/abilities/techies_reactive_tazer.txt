@@ -45,7 +45,11 @@
         "value"                                           "2.25 2.5 2.75 3.0 3.25 3.5"
         "special_bonus_unique_techies_tazer_duration"     "+25%"
       }
-      "bonus_ms"                                          "18 22 26 30 34 38"
+      "bonus_ms"
+      {
+        "value"                                           "18 22 26 30 34 38"
+        "display_type"                                    "kBuffPercentage"
+      }
       "explosion_radius"
       {
         "value"                                           "400"
