@@ -86,17 +86,19 @@ function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
       hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
     end
 
-    -- Damage part should always be applied
-    local damage_table = {
-      victim = hTarget,
-      attacker = caster,
-      damage = self.devastator_damage,
-      damage_type = DAMAGE_TYPE_PHYSICAL,
-      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
-      ability = self
-    }
+    -- Damage part should always be applied if devastator_damage is > 0
+    if self.devastator_damage > 0 then
+      local damage_table = {
+        victim = hTarget,
+        attacker = caster,
+        damage = self.devastator_damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+        ability = self
+      }
 
-    ApplyDamage(damage_table)
+      ApplyDamage(damage_table)
+    end
 
     local caster_debuff = caster:AddNewModifier(caster, self, "modifier_suppress_cleave_oaa", {})
     caster:PerformAttack(hTarget, true, true, true, false, false, false, true)
@@ -311,48 +313,85 @@ function modifier_item_devastator_oaa_slow_movespeed:IsPurgable()
   return true
 end
 
+function modifier_item_devastator_oaa_slow_movespeed:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_devastator_oaa_slow_movespeed:OnCreated()
-  --local parent = self:GetParent()
+  self:OnRefresh()
+  if IsServer() then
+    -- Impact dmg
+    self:OnIntervalThink()
+    -- Start DoT
+    self:StartIntervalThink(self.interval)
+  end
+end
+
+function modifier_item_devastator_oaa_slow_movespeed:OnRefresh()
+  local parent = self:GetParent()
   local ability = self:GetAbility()
   local move_speed_slow = -10
-  local interval = 2
-  local damage_per_interval = 50
+  self.interval = 1
+  self.base_damage = 0
+  self.percent_damage = 2.5
 
-  if ability then
+  if ability and not ability:IsNull() then
     move_speed_slow = ability:GetSpecialValueFor("devastator_movespeed_reduction")
-    interval = ability:GetSpecialValueFor("interval")
-    damage_per_interval = ability:GetSpecialValueFor("damage_per_interval")
+    self.interval = ability:GetSpecialValueFor("interval")
+    self.base_damage = ability:GetSpecialValueFor("damage_per_interval")
+    self.percent_damage = ability:GetSpecialValueFor("max_hp_dmg_per_interval")
   end
-
-  self.damage_per_interval = damage_per_interval
 
   -- Move Speed Slow is reduced with Slow Resistance
   self.slow = move_speed_slow --parent:GetValueChangedBySlowResistance(move_speed_slow)
 
-  -- Start DoT
   if IsServer() then
-    self:StartIntervalThink(interval)
+    -- Do reduced damage to bosses
+    if parent:IsOAABoss() then
+      self.percent_damage = self.percent_damage * (1 - BOSS_DMG_RED_FOR_PCT_SPELLS/100)
+    end
   end
 end
 
-modifier_item_devastator_oaa_slow_movespeed.OnRefresh = modifier_item_devastator_oaa_slow_movespeed.OnCreated
-
 function modifier_item_devastator_oaa_slow_movespeed:OnIntervalThink()
-  if IsServer() then
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-    local ability = self:GetAbility()
-
-    local damage_table = {
-      victim = parent,
-      attacker = caster,
-      damage = self.damage_per_interval,
-      damage_type = DAMAGE_TYPE_PURE,
-      ability = ability,
-    }
-
-    ApplyDamage(damage_table)
+  if not IsServer() then
+    return
   end
+
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  -- ApplyDamage crashes the game if attacker or victim do not exist
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  local damage_per_interval = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01)
+
+  local particle = ParticleManager:CreateParticle("particles/msg_fx/msg_poison.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
+  local presymbol = 9
+  local postsymbol = 6
+  local lifetime = 1
+  local digits = string.len(tostring(math.floor(damage_per_interval))) + 2
+  local color = Vector(215, 50, 248) --Vector(170, 0, 250)
+  ParticleManager:SetParticleControl(particle, 1, Vector(presymbol, damage_per_interval, postsymbol))
+  ParticleManager:SetParticleControl(particle, 2, Vector(lifetime, digits, 0))
+  ParticleManager:SetParticleControl(particle, 3, color)
+  ParticleManager:ReleaseParticleIndex(particle)
+
+  local damage_table = {
+    victim = parent,
+    attacker = caster,
+    damage = damage_per_interval,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+    ability = ability,
+  }
+
+  ApplyDamage(damage_table)
 end
 
 function modifier_item_devastator_oaa_slow_movespeed:DeclareFunctions()

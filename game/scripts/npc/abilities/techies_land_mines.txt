@@ -45,11 +45,16 @@
       {
         "value"                                           "400 600 800 1200 1600"
       }
-      "building_damage_pct"                               "30"
+      "building_damage_pct"
+      {
+        "value"                                           "30"
+        "display_type"                                    "kMagicalDamagePercentage"
+      }
       "activation_delay"
       {
         "value"                                           "1"
         "special_bonus_unique_techies_4"                  "-0.8"
+        "display_type"                                    "kDuration"
       }
       "cast_range_scepter_bonus"
       {
@@ -63,7 +68,11 @@
       "outer_damage"                                      "50"
       "min_distance"                                      "150"
       "placement_radius"                                  "350"
-      "mres_reduction"                                    "10 15 20 25 30" //OAA, intentionally nerfed
+      "mres_reduction" //OAA, intentionally nerfed
+      {
+        "value"                                           "10 15 20 25 30"
+        "display_type"                                    "kDebuffPercentage"
+      }
       "burn_duration"                                     "4"
     }
   }

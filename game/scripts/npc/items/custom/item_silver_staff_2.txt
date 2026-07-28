@@ -9,12 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_silver_staff_2"
     "ItemRequirements"
     {
-      "01"                                                "item_silver_staff;item_upgrade_core_3"
+      "01"                                                "item_silver_staff;item_upgrade_core_4"
     }
   }
 
@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/silver_staff.lua"
-    "AbilityTextureName"                                  "custom/dragonstaff_4"
+    "AbilityTextureName"                                  "custom/dragonstaff_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -45,18 +45,18 @@
 
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "silver_staff"
-    "AbilityCastRange"                                    "950 1000 1050"
+    "AbilityCastRange"                                    "1050 1150"
     "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_silver_staff_3"
+    "UpgradesItems"                                       ""
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15725"
+    "ItemCost"                                            "32725"
     "ItemShopTags"                                        "regen_mana;armor;boost_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "silver staff 2; break staff 2; dragon staff 2"
@@ -67,13 +67,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "625 825 1075"
-      "bonus_mana_regen"                                  "2.5 3.25 4.25"
-      "bonus_all_stats"                                   "0"
-      "bonus_armor"                                       "5 8 12"
-      "base_damage"                                       "55 85 125"
-      "max_hp_damage"                                     "3.5 4 4.5"
-      "duration"                                          "4.5 5.0 5.5"
+      "bonus_health"                                      "0"
+      "bonus_mana_regen"                                  "3.25 4.25"
+      "bonus_all_stats"                                   "25 30"
+      "bonus_armor"                                       "8 12"
+      "base_damage"                                       "55 95"
+      "max_hp_damage"                                     "1.5"
+      "duration"                                          "5.0"
     }
   }
 }

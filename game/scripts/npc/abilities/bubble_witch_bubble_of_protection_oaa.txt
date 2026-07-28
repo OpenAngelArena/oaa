@@ -7,7 +7,7 @@
     "AbilityTextureName"                                  "custom/bubble_witch_r"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -26,7 +26,7 @@
 
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityManaCost"                                     "175 200 225 250 275"
     "AbilityProcsMagicStick"                              "1"
 
     // Precache
@@ -46,7 +46,7 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_reduction"                                  "75" // percentage
+      "damage_reduction"                                  "20 22 24 26 28" // percentage
       "duration"                                          "3 3.5 4 4.5 5"
       "AbilityCooldown"
       {

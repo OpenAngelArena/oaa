@@ -227,9 +227,9 @@ if IsServer() then
     -- Imitate multiple proccing without instant attack on each proc
     -- We use true random to simplify the code and to make it more fair and balanced
     local chance = ability:GetSpecialValueFor("chance_pct")
-    if RandomInt(0, 100) <= chance then
+    if RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_FACELESS_BASH, parent) then
       bonus_damage = (min_damage + max_damage) / 2
-      if RandomInt(0, 100) <= chance then
+      if RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_FACELESS_BASH, parent) then
         bonus_damage = max_damage
       end
     end

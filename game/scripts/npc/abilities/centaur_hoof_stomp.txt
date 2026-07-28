@@ -37,9 +37,9 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "stomp_damage" //OAA, intentionally buffed
+      "stomp_damage"
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "70 140 210 280 560 1120"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "stun_duration"
