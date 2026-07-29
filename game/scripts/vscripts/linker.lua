@@ -145,6 +145,9 @@ LinkLuaModifier("modifier_spark_power_effect", "modifiers/sparks/modifier_spark_
 -- Healing Shrines
 LinkLuaModifier("modifier_shrine_oaa", "modifiers/modifier_shrine_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Towers
+LinkLuaModifier("modifier_tower_oaa", "modifiers/modifier_tower_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Fun modifiers
 LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoe_radius_increase_oaa", "modifiers/funmodifiers/modifier_aoe_radius_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
