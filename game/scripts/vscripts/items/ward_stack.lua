@@ -70,7 +70,7 @@ function item_ward_stack:OnSpellStart ()
       duration = self:GetSpecialValueFor(wardType .. '_duration')
     })
   else
-    ward:AddNewModifier(ward, nil, "modifier_item_ward_stack_vision_gold", {duration = self:GetSpecialValueFor(wardType .. '_duration')})
+    ward:AddNewModifier(caster, self, "modifier_item_ward_stack_vision_gold", {duration = self:GetSpecialValueFor(wardType .. '_duration')})
   end
   ward:AddNewModifier(ward, nil, "modifier_item_buff_ward", {
     duration = self:GetSpecialValueFor(wardType .. '_duration')
@@ -641,6 +641,11 @@ function modifier_item_ward_stack_vision_gold:OnIntervalThink()
 
   local position = parent:GetAbsOrigin()
   local team = parent:GetTeamNumber()
+  local caster = self:GetCaster()
+
+  if not caster or caster:IsNull() then
+    return
+  end
 
   local wardStack = self:GetAbility()
   if not wardStack or wardStack:IsNull() then
