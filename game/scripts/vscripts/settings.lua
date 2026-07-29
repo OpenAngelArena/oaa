@@ -47,8 +47,10 @@ LIMIT_INCREASE_STARTING_COOLDOWN = 60 * 8 -- same as DUEL_INTERVAL so the extens
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_DURATION_SENTRY = 180
-POOP_WARD_COOLDOWN = 240
+POOP_WARD_COOLDOWN = 360
+POOP_WARD_COOLDOWN_SENTRY = 300
 POOP_WARD_RADIUS = 250
+POOP_WARD_VISION_RADIUS = 800
 
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
@@ -128,7 +130,7 @@ INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spaw
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
-CREEP_BOUNTY_SHARE_PERCENT = 40         -- the percentage of the creep's gold bounty that's shared with allies
+CREEP_BOUNTY_SHARE_PERCENT = 50         -- the percentage of the creep's gold bounty that's shared with allies
 CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 0   -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
 CREEP_BOUNTY_BONUS_PERCENT_POWER = 0    -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
 
@@ -175,7 +177,8 @@ USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spaw
 -- Bounty Runes
 FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 240     -- How long in seconds should we wait between bounty rune respawns?
-BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
+BOUNTY_RUNE_INITIAL_TEAM_GOLD = 5
+BOUNTY_RUNE_MIN_GOLD = 40
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
 -- Power-up Runes
 FIRST_POWER_RUNE_SPAWN_TIME = 120    -- After what delay in seconds will the first power-up rune spawn?
@@ -193,7 +196,7 @@ HERO_SELECTION_TIME = 30.0              -- How long should we let people select 
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 1                       -- How much gold should players get per tick? This increases over time in OAA.
+GOLD_PER_TICK = 2                       -- How much gold should players get per tick? This increases over time in OAA.
 GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
@@ -257,7 +260,7 @@ end
 
 ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the first kill in this game?
 HIDE_KILL_BANNERS = false               -- Should we hide the kill banners that show when a player is killed?
-LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the normal amount of dota gold on death?
+LOSE_GOLD_ON_DEATH = false              -- Should we have players lose the normal amount of dota gold on death?
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
 DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?

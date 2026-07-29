@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10"
+    "ItemCost"                                            "5"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_ward_stack"
     "ItemRequirements"
     {
-      "01"                                                "item_sobi_mask;item_ring_of_regen;item_fluffy_hat"
+      "01"                                                "item_fluffy_hat;item_sobi_mask;item_ring_of_regen;item_circlet"
     }
   }
 
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "610"
+    "ItemCost"                                            "760"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -63,15 +63,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health_regen"                                "2 5 8 11 14"
-      "bonus_health"                                      "150 400 650 900 1150"
-      "bonus_all_stats"                                   "0"
+      "bonus_health"                                      "150 250 400 600 850"
+      "bonus_all_stats"                                   "5 10 15 20 25"
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_mana_regen"                                   "1.5 1.75 2.25 3.0 4.0"
+      "aura_health_regen"                                 "2 5 8 11 14"
       "observer_duration"                                 "180" // vanilla dota observer ward duration: 360
       "sentry_duration"                                   "360" // vanilla dota sentry ward duration: 420
       "observer_radius"                                   "1600"
@@ -81,6 +81,7 @@
       "observer_max"                                      "3" // vanilla dota observer ward max stock: 4
       "sentry_recharge"                                   "50" // vanilla dota sentry ward restock: 80
       "sentry_max"                                        "5" // vanilla dota sentry ward max stock: 8
+      "gold_per_second_when_under_vision"                 "10 20 40 80 160"
     }
   }
 }

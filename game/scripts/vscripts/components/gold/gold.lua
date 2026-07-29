@@ -12,7 +12,7 @@ end
 
 local GOLD_CAP = 90000
 local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
-local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
+local GOLD_PER_INTERVAL = GOLD_PER_TICK or 2   -- GOLD_PER_TICK is located in settings.lua
 
 function Gold:Init()
   self.moduleName = "Gold"
@@ -171,7 +171,7 @@ function Gold:PassiveGPM(hero)
   local current_time = HudTimer:GetGameTime()
   if current_time and self:IsGoldGenActive() then
     local tick =  math.floor(current_time/GPM_TICK_INTERVAL)
-    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
+    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick + 192200)/115000))
     if HeroSelection then
       if HeroSelection.is10v10 and not HeroSelection.is6v6 then
         gold_per_tick = math.floor(gold_per_tick * 1.5)

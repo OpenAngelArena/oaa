@@ -732,9 +732,9 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     end
 
     -- Other hidden permanent modifiers
-    if not new_hero:HasModifier("modifier_spark_gpm") then
-      new_hero:AddNewModifier(new_hero, nil, "modifier_spark_gpm", {})
-    end
+    --if not new_hero:HasModifier("modifier_spark_gpm") then
+      --new_hero:AddNewModifier(new_hero, nil, "modifier_spark_gpm", {})
+    --end
     if spark then
       if not new_hero:HasModifier(spark) then
         new_hero:AddNewModifier(new_hero, nil, spark, {})

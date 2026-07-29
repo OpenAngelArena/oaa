@@ -42,9 +42,9 @@ function Sparks:AddSparkOnHeroSpawn(hero)
   end
 
   -- Always add gpm spark to the spawned hero, gpm spark will remove itself if the hero is invalid
-  if not hero:HasModifier("modifier_spark_gpm") then
-    hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
-  end
+  --if not hero:HasModifier("modifier_spark_gpm") then
+    --hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
+  --end
 
   local playerid = hero:GetPlayerOwnerID()
 
@@ -167,9 +167,9 @@ function Sparks:CheckSparkOnHeroEntity(hero, playerid)
   end
 
   -- Failsafe check if the hero has gpm spark
-  if not hero:HasModifier("modifier_spark_gpm") then
-    hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
-  end
+  --if not hero:HasModifier("modifier_spark_gpm") then
+    --hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
+  --end
 
   local spark = Sparks.data.hasSpark[playerid]
   if not spark then

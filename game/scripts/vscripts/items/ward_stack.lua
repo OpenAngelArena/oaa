@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_item_ward_stack_sentries", "items/ward_stack.lua", LUA
 LinkLuaModifier("modifier_item_ward_stack_aura", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sentry_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_observer_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ward_stack_vision_gold", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_ward_stack = class(ItemBaseClass)
 
@@ -68,6 +69,8 @@ function item_ward_stack:OnSpellStart ()
       true_sight_range = self:GetSpecialValueFor("sentry_reveal_radius"),
       duration = self:GetSpecialValueFor(wardType .. '_duration')
     })
+  else
+    ward:AddNewModifier(caster, self, "modifier_item_ward_stack_vision_gold", {duration = self:GetSpecialValueFor(wardType .. '_duration')})
   end
   ward:AddNewModifier(ward, nil, "modifier_item_buff_ward", {
     duration = self:GetSpecialValueFor(wardType .. '_duration')
@@ -519,23 +522,13 @@ end
 -- passive stats
 function modifier_item_ward_stack:DeclareFunctions ()
   return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     --MODIFIER_PROPERTY_MANA_BONUS,
   }
 end
-
-function modifier_item_ward_stack:GetModifierConstantHealthRegen()
-  return self.hp_regen or self:GetAbility():GetSpecialValueFor('bonus_health_regen')
-end
-
---function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
-  --return self:GetAbility():GetSpecialValueFor('bonus_armor')
---end
 
 function modifier_item_ward_stack:GetModifierHealthBonus()
   return self.hp or self:GetAbility():GetSpecialValueFor('bonus_health')
@@ -565,7 +558,8 @@ modifier_item_ward_stack_aura = class(ModifierBaseClass)
 
 function modifier_item_ward_stack_aura:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
@@ -573,6 +567,14 @@ function modifier_item_ward_stack_aura:GetModifierConstantManaRegen()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     return ability:GetSpecialValueFor('aura_mana_regen')
+  end
+  return 0
+end
+
+function modifier_item_ward_stack_aura:GetModifierConstantHealthRegen()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor('aura_health_regen')
   end
   return 0
 end
@@ -591,4 +593,133 @@ end
 
 function modifier_item_ward_stack_aura:GetTexture()
   return "item_ward_dispenser"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_ward_stack_vision_gold = class(ModifierBaseClass)
+
+function modifier_item_ward_stack_vision_gold:IsHidden()
+  return true
+end
+
+function modifier_item_ward_stack_vision_gold:IsDebuff()
+  return false
+end
+
+function modifier_item_ward_stack_vision_gold:IsPurgable()
+  return false
+end
+
+function modifier_item_ward_stack_vision_gold:OnCreated()
+  if IsServer() then
+    self:StartIntervalThink(1)
+  end
+end
+
+function modifier_item_ward_stack_vision_gold:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if not parent or parent:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  if not parent:IsAlive() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  -- Don't give gold during duels
+  if not Gold:IsGoldGenActive() then
+    return
+  end
+
+  local position = parent:GetAbsOrigin()
+  local team = parent:GetTeamNumber()
+  local caster = self:GetCaster()
+
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  local wardStack = self:GetAbility()
+  if not wardStack or wardStack:IsNull() then
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+      local item = caster:GetItemInSlot(i)
+      if item then
+        local item_name = item:GetName()
+        local purchaser = item:GetPurchaser()
+        if purchaser then
+          if purchaser:GetPlayerOwnerID() == caster:GetPlayerOwnerID() and string.find(item_name, "item_ward_stack") then
+            wardStack = item
+            break
+          end
+        end
+      end
+    end
+  end
+
+  if not wardStack or wardStack:IsNull() then
+    return
+  end
+
+  local vision_radius = wardStack:GetSpecialValueFor("observer_radius")
+  local check_for_ward_radius = vision_radius / 2
+
+  local ward_candidates = FindUnitsInRadius(
+    team,
+    position,
+    nil,
+    check_for_ward_radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_OTHER,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+  local wards_from_stack = 0
+  for _, v in pairs(ward_candidates) do
+    if v and not v:IsNull() and v:HasModifier("modifier_item_buff_ward") and not v:HasModifier("modifier_ward_invisibility") then
+      wards_from_stack = wards_from_stack + 1
+    end
+  end
+
+  -- Paradox
+  if wards_from_stack < 1 then
+    wards_from_stack = 1
+  end
+
+  local enemies = FindUnitsInRadius(
+    team,
+    position,
+    nil,
+    vision_radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+  local enemy_count = 0
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      if enemy:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and parent:CanEntityBeSeenByMyTeam(enemy) then
+        enemy_count = enemy_count + 1
+      end
+    end
+  end
+
+  if enemy_count == 0 then
+    return
+  end
+
+  local gold_per_hero_per_interval = wardStack:GetSpecialValueFor("gold_per_second_when_under_vision")
+
+  -- Grant gold
+  Gold:ModifyGold(parent:GetPlayerOwnerID(), (gold_per_hero_per_interval * enemy_count) / wards_from_stack, true, DOTA_ModifyGold_GameTick)
 end

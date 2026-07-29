@@ -13,7 +13,7 @@ function modifier_generic_vision_dummy_stuff:IsPurgable()
 end
 
 function modifier_generic_vision_dummy_stuff:OnCreated(event)
-  self.radius = 800
+  self.radius = 500
   self.unobstructed = true
   self.truesight = false
 end

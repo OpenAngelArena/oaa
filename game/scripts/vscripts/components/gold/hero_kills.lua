@@ -36,37 +36,37 @@ The following parameters are use in this way:
 
 local AssistGoldTable = {
     [1] = {
-      base = 80,
-      comebackBase = 70,
-      killedNwFactor = 0.026,
+      base = 40,
+      comebackBase = 60,
+      killedNwFactor = 0.037,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 1 }
     },
     [2] = {
-      base = 40,
-      comebackBase = 70,
-      killedNwFactor = 0.026,
+      base = 35,
+      comebackBase = 60,
+      killedNwFactor = 0.037,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 1.3 }
     },
     [3] = {
-      base = 20,
-      comebackBase = 70,
-      killedNwFactor = 0.026,
+      base = 30,
+      comebackBase = 60,
+      killedNwFactor = 0.037,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 1, 1.3 }
     },
     [4] = {
-      base = 14.5,
-      comebackBase = 70,
-      killedNwFactor = 0.026,
+      base = 25,
+      comebackBase = 60,
+      killedNwFactor = 0.037,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 0.9, 1.1, 1.3 }
     },
     [5] = {
-      base = 11.5,
-      comebackBase = 70,
-      killedNwFactor = 0.026,
+      base = 20,
+      comebackBase = 60,
+      killedNwFactor = 0.037,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 0.85, 1, 1.15, 1.3 }
     },
@@ -133,7 +133,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
-  local killedHeroLevelFactor = (100 * killedHeroLevel)/14
+  local killedHeroLevelFactor = 8 * killedHeroLevel
   local numAttackers = killedHero:GetNumAttackers()
 
   local rewardPlayerIDs -- The IDs of the players that will get a piece of the base gold bounty if the killer is not a player
@@ -184,7 +184,7 @@ function HeroKillGold:HeroDeathHandler (keys)
     rewardHeroes = iter({killerHero})
   end
 
-  local baseGold = math.floor((40 + streakValue + (killedHeroLevel * 8)) / distributeCount)
+  local baseGold = math.floor((100 + streakValue + killedHeroLevelFactor) / distributeCount)
 
   -- Grant the base last hit bounty
   -- Player that killed the hero gets the full bounty; non-player kills split the bounty between attackers;
@@ -292,8 +292,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   for nwRank, hero in ipairs(assist_table) do
     if hero then
       -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
-      local assistGold = parameters.base + 0.9*(killedHeroLevelFactor/assist_count) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
-      --DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - assist_count) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
+      local assistGold = parameters.base + (killedHeroLevelFactor/assist_count) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
       local assistComebackGold = 0
       if killedTeamNW > killerTeamNW then
         assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/assist_count

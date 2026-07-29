@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "30610"
+    "ItemCost"                                            "30760"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -66,15 +66,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health_regen"                                "2 5 8 11 14"
-      "bonus_health"                                      "150 400 650 900 1150"
-      "bonus_all_stats"                                   "0"
+      "bonus_health"                                      "150 250 400 600 850"
+      "bonus_all_stats"                                   "5 10 15 20 25"
       "aura_radius"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "aura_mana_regen"                                   "1.5 1.75 2.25 3.0 4.0"
+      "aura_health_regen"                                 "2 5 8 11 14"
       "observer_duration"                                 "180"
       "sentry_duration"                                   "360"
       "observer_radius"                                   "1600"
@@ -84,6 +84,7 @@
       "observer_max"                                      "3"
       "sentry_recharge"                                   "50"
       "sentry_max"                                        "5"
+      "gold_per_second_when_under_vision"                 "10 20 40 80 160"
     }
   }
 }

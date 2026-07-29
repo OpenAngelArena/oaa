@@ -22,7 +22,7 @@ function BountyRunePick:Filter(filter_table)
   -- start at 1 minute instead of 0
   if game_time < 1 then
     --DebugPrint('Using minute 1 rune instead')
-    game_time = 1.8
+    game_time = 1
   end
   --DebugPrint('Game time is ' .. tostring(game_time))
   -- Hero that picked up the rune
@@ -80,9 +80,10 @@ function BountyRunePick:Filter(filter_table)
   local gold_difference = math.max(0, gold_diff)
   local xp_difference = math.max(0, xp_diff)
 
+  local min_gold_reward = BOUNTY_RUNE_MIN_GOLD + (3/2) * game_time
   local gold_reward = (BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
   local xp_reward = (BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + (1 - (1 - xp_difference)*(1 - xp_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
-  --gold_reward = math.max(vanilla_gold_bounty, gold_reward)
+  gold_reward = math.max(min_gold_reward, gold_reward)
   xp_reward = math.ceil(xp_reward)
 
   allied_player_ids:each(function (playerid)

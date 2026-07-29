@@ -38,7 +38,7 @@ function TeamVision:AddVision()
   -- Iterate through each found entity and check its name
   for _, building in pairs(buildings) do
     if building and not building:IsNull() then
-      local building_name = building:GetName()
+      local building_name = building:GetName() -- this returns name defined in Hammer
 
       -- Check if it's a Healing Shrine
       if string.find(building_name, "filler") or string.find(building_name, "_shrine") then
@@ -48,6 +48,8 @@ function TeamVision:AddVision()
         --building:RemoveModifierByName("modifier_invulnerable")
       elseif string.find(building_name, "watch_tower") then
         building:RemoveModifierByName("modifier_invulnerable")
+      elseif string.find(building_name, "_tower_") then
+        building:AddNewModifier(building, nil, "modifier_tower_oaa", {})
       end
     end
   end

@@ -189,6 +189,9 @@ function CapturePoints:GiveItemToWholeTeam (item, teamId)
         else
           CorePointsManager:AddCorePoints(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), hero, playerId)
         end
+        -- Grant gold
+        local gold_on_capture = CorePointsManager:GetGoldValueOfCorePoint() * CorePointsManager:GetCorePointValueOfUpdgradeCore(item)
+        Gold:ModifyGold(hero, gold_on_capture, true, DOTA_ModifyGold_RoshanKill)
       end
     end)
   --end

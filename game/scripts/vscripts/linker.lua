@@ -134,7 +134,7 @@ LinkLuaModifier("modifier_suppress_cleave_oaa", "modifiers/modifier_suppress_cle
 LinkLuaModifier("modifier_minimap", "modifiers/modifier_minimap", LUA_MODIFIER_MOTION_NONE)
 
 -- Sparks
-LinkLuaModifier("modifier_spark_gpm", "modifiers/sparks/modifier_spark_gpm.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_spark_gpm", "modifiers/sparks/modifier_spark_gpm.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spark_midas", "modifiers/sparks/modifier_spark_midas.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spark_power", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
@@ -144,6 +144,9 @@ LinkLuaModifier("modifier_spark_power_effect", "modifiers/sparks/modifier_spark_
 
 -- Healing Shrines
 LinkLuaModifier("modifier_shrine_oaa", "modifiers/modifier_shrine_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
+-- Towers
+LinkLuaModifier("modifier_tower_oaa", "modifiers/modifier_tower_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Fun modifiers
 LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)

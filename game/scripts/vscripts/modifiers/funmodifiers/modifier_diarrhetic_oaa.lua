@@ -66,13 +66,15 @@ if IsServer() then
       observer:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
       observer:AddNewModifier(parent, nil, "modifier_generic_dead_tracker_oaa", {duration = self.duration + MANUAL_GARBAGE_CLEANING_TIME})
       observer:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
+      observer:SetDayTimeVisionRange(POOP_WARD_VISION_RADIUS)
+      observer:SetNightTimeVisionRange(POOP_WARD_VISION_RADIUS)
     else
       local sentry = CreateUnitByName("npc_dota_sentry_wards", position, true, nil, parent, team)
       sentry:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
       sentry:AddNewModifier(parent, nil, "modifier_generic_dead_tracker_oaa", {duration = self.duration + MANUAL_GARBAGE_CLEANING_TIME})
       sentry:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
       sentry:AddNewModifier(parent, nil, "modifier_item_ward_true_sight", {
-        true_sight_range = 700,
+        true_sight_range = POOP_WARD_VISION_RADIUS,
         duration = self.duration
       })
     end
