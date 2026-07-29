@@ -70,7 +70,7 @@ if IsServer() then
       return
     end
 
-    parent:StartGestureWithPlaybackRate(ACT_DOTA_CUSTOM_TOWER_ATTACK, parent:GetAttacksPerSecond(false)) -- does not work
+    --parent:StartGestureWithPlaybackRate(ACT_DOTA_CUSTOM_TOWER_ATTACK, parent:GetAttacksPerSecond(false)) -- does not work
   end
 
   function modifier_tower_oaa:OnAttackLanded(event)
