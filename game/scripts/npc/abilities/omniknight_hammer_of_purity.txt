@@ -44,9 +44,10 @@
       "bonus_damage"                                      "40 60 80 100 120 140" //OAA, intentionally buffed; this is actually base damage of the spell
       "heal_pct"
       {
-        "value"                                           "35"
+        "value"                                           "40"
       }
-      "heal_duration"                                     "5"
+      "heal_duration"                                     "4"
+      "total_ticks"                                       "4"
       "attack_cooldown"
       {
         "value"                                           "-1"

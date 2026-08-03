@@ -35,7 +35,7 @@
       }
       "mana_burn"
       {
-        "value"                                           "40 80 120 160 320 480"
+        "value"                                           "40 75 110 145 290 435"
         "special_bonus_unique_clockwerk_2"                "+80"
       }
       "mana_burn_as_damage_pct"                           "50"
@@ -59,7 +59,7 @@
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_clockwerk_9"                "-2"
       }
-      "projectile_distance"                               "1000"
+      "projectile_distance"                               "850 900 950 1000 1050 1100"
       "projectile_speed"                                  "1000"
       "debuff_immune_inside_cogs"
       {

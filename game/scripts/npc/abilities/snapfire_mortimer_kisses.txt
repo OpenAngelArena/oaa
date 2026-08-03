@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Snapfire: Mortimer Kisses
+  // Snapfire: Mortimer Kisses FIXEDFUCK
   //=================================================================================================================
   "snapfire_mortimer_kisses"
   {
@@ -37,26 +37,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "1300"
-      "duration_tooltip"                                  "5.5"
-      "turn_rate"                                         "75"
-      "burn_interval"                                     "0.5"
-      "burn_ground_duration"                              "3.5"
-      "dist_change_speed"                                 "75"
-      "min_range"                                         "600"
-      "min_lob_travel_time"                               "0.8"
-      "max_lob_travel_time"                               "2.0"
-      "delay_after_last_projectile"                       "0.5"
-      "burn_linger_duration"                              "1.0"
       "projectile_count"
       {
         "value"                                           "8"
-        "special_bonus_unique_snapfire_1"                 "+8"
+        "special_bonus_unique_snapfire_1"                 "+6"
       }
       "has_bonus_projectile"
       {
         "special_bonus_unique_snapfire_1"                 "1"
       }
+      "projectile_speed"                                  "1300"
       "projectile_width"
       {
         "value"                                           "130"
@@ -69,23 +59,33 @@
       }
       "damage_per_impact" //OAA, intentionally buffed
       {
-        "value"                                           "180 360 540 900 1440"
+        "value"                                           "170 340 510 850 1360"
       }
+      "duration_tooltip"                                  "5.5"
       "projectile_vision"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
+      "turn_rate"                                         "75"
+      "burn_interval"                                     "0.5"
       "burn_damage" //OAA, intentionally buffed
       {
         "value"                                           "60 100 140 220 340"
-        "special_bonus_unique_snapfire_5"                 "+35"
+        "special_bonus_unique_snapfire_5"                 "+30"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct" //OAA, intentionally buffed
       {
         "value"                                           "25 30 35 40 45"
       }
+      "burn_ground_duration"                              "3.5"
+      "dist_change_speed"                                 "75"
+      "min_range"                                         "600"
+      "min_lob_travel_time"                               "0.8"
+      "max_lob_travel_time"                               "2.0"
+      "delay_after_last_projectile"                       "0.5"
+      "burn_linger_duration"                              "1.0"
     }
   }
 }

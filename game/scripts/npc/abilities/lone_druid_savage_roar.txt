@@ -33,7 +33,7 @@
       "radius"
       {
         "value"                                           "350"
-        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
+        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+125"
         "affected_by_aoe_increase"                        "1"
       }
       "shard_radius"
@@ -56,7 +56,7 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "23 22 21 20 19 18"
-        "special_bonus_unique_lone_druid_4"               "-5"
+        "special_bonus_unique_lone_druid_4"               "-4"
       }
     }
   }

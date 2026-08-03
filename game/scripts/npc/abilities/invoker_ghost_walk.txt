@@ -25,7 +25,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "60"
+      "duration"                                          "50"
       "aura_fade_time"                                    "2.0"
       "AbilityCooldown" //OAA, intentionally buffed
       {
@@ -34,7 +34,6 @@
       "area_of_effect"
       {
         "value"                                           "450"
-        "special_bonus_shard_1"                           "+150"
       }
       "enemy_slow"
       {
