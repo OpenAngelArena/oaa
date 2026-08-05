@@ -45,6 +45,7 @@
       "on_duration"                                       "1.0"
       "off_duration_initial"                              "1.0"
       "fixed_movement_speed"                              "60"
+      "wisp_duration_tooltip"                             "13.4" // off_duration_initial + on_count * (on_duration + off_duration) - off_duration;
       "bounty"                                            "100"
     }
   }

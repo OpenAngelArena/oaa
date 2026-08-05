@@ -56,9 +56,10 @@
       "lifesteal_percent"                                 "24"
       "berserk_bonus_attack_speed"                        "100"
       "berserk_bonus_movement_speed_melee"                "12"
-      "berserk_bonus_movement_speed"                      "8"
+      "berserk_bonus_movement_speed"                      "6"
       "berserk_armor_reduction"                           "5" //OAA
-      "berserk_slow_resist"                               "30"
+      "berserk_slow_resist_melee"                         "30"
+      "berserk_slow_resist"                               "15"
       "berserk_duration"                                  "6.0"
     }
   }

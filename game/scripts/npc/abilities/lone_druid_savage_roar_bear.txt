@@ -32,11 +32,11 @@
       "bonus_speed"                                       "20"
       "duration"                                          "1.1 1.4 1.7 2.0 2.1 2.2"
       "only_affects_player_units"                         "1"
-      "radius" //OAA, Valve has it wrong, not applied during 7.35
+      "radius" //OAA, Valve has it wrong, not applied during 7.35, not fixed during 7.41e
       {
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+150"
+        "special_bonus_unique_lone_druid_savage_roar_aoe"  "+125"
       }
     }
   }

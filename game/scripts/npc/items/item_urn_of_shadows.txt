@@ -37,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
-    "AbilityTextureName"                                  "item_urn_of_shadows"
+    "AbilityTextureName"                                  "custom/urn_of_shadows_oaa"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -56,12 +56,13 @@
     "ItemAliases"                                         "urn; urn of shadows"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShowGiveIndicatorOnTargetCast"                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_mana_regen"                                  "1.25"
+      "bonus_mana_regen"                                  "1"
       "bonus_all_stats"                                   "2"
       "bonus_armor"                                       "2"
       "bonus_health"                                      "0"

@@ -49,7 +49,6 @@
       {
         "value"                                           "250"
         "special_bonus_facet_snapfire_full_bore"          "=75" // unused
-        "affected_by_aoe_increase"                        "1"
       }
       "blast_width_end"
       {
@@ -65,7 +64,7 @@
         "value"                                           "450"
         "special_bonus_facet_snapfire_full_bore"          "=650" // unused
       }
-      "point_blank_dmg_bonus_pct"                         "30"
+      "point_blank_dmg_bonus_pct"                         "25"
       "point_blank_debuff_duration_pct"                   "50"
       "bonus_applies_at_long_range"
       {

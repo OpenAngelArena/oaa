@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lone Druid: Summon Spirit Bear (Innate)
+  // Lone Druid: Summon Spirit Bear (Innate) FIXEDFUCK
   //=================================================================================================================
   "lone_druid_spirit_bear"
   {
@@ -23,21 +23,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bear_hp"                                           "1500"
-      "bear_regen_tooltip"                                "1.5" // tooltip only, look at npc_dota_lone_druid_bear1
-      "bear_armor"                                        "0"
-      "damage_gain_per_druid_level"                       "0"
-      "hp_gain_per_druid_level"                           "0"
-      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
-      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
-      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "60"
       }
+      "bear_hp"                                           "1500"
+      "bear_regen_tooltip"                                "1.5" // tooltip only, look at npc_dota_lone_druid_bear1
       "bear_bat"
       {
         "value"                                           "1.5"
+      }
+      "bear_armor"
+      {
+        "value"                                           "-1"
+        "show_absolute_values"                            "0"
       }
       "backlash_damage" //OAA, intentionally nerfed
       {
@@ -59,10 +58,15 @@
       {
         "value"                                           "0"
       }
+      "damage_gain_per_druid_level"                       "0"
+      "hp_gain_per_druid_level"                           "0"
       "bear_attack_leash_range"
       {
         "value"                                           "1100"
       }
+      "strength_gain_tooltip"                             "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "agility_gain_tooltip"                              "4.5" // tooltip only, look at npc_dota_lone_druid_bear1
+      "intelligence_gain_tooltip"                         "0.5" // tooltip only, look at npc_dota_lone_druid_bear1
     }
   }
 }

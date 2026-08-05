@@ -12,7 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 70 90 110 130 150"
+    "AbilityManaCost"                                     "70 85 100 115 130 145"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,13 @@
       }
       "arrow_damage_pct" //OAA, because of special_bonus_unique_drow_ranger_1 buff; this is multiplied with (Drow's base (white) damage + Frost Arrow damage)
       {
-        "value"                                           "100 120 140 160 180 200"
-        "special_bonus_unique_drow_ranger_1"              "+40"
+        "value"                                           "80 100 120 140 160 180"
+        "special_bonus_unique_drow_ranger_1"              "+50"
       }
       "arrow_width"                                       "90"
       "arrow_speed"                                       "1300"
-      "arrow_range_multiplier"                            "1.75"
+      "arrow_range_multiplier"                            "1.0"
+      "arrow_range_base"                                  "475"
       "arrow_angle"                                       "50"
       "bypass_block"                                      "1"
       "AbilityCooldown" //OAA, intentionally buffed

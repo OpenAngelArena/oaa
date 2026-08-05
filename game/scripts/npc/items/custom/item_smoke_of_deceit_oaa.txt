@@ -7,7 +7,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/smoke_of_deceit.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "item_smoke_of_deceit"
+    "AbilityTextureName"                                  "custom/smoke_of_deceit_oaa"
     "Model"                                               "models/props_gameplay/smoke.vmdl"
     "Effect"                                              "particles/generic_gameplay/dropped_smoke.vpcf"
 
