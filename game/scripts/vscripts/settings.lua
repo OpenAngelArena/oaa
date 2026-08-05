@@ -177,7 +177,7 @@ USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spaw
 -- Bounty Runes
 FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 240     -- How long in seconds should we wait between bounty rune respawns?
-BOUNTY_RUNE_INITIAL_TEAM_GOLD = 5
+BOUNTY_RUNE_INITIAL_TEAM_GOLD = 9
 BOUNTY_RUNE_MIN_GOLD = 40
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
 -- Power-up Runes

@@ -57,6 +57,7 @@ function modifier_tower_oaa:CheckState()
 end
 
 if IsServer() then
+  --[[
   function modifier_tower_oaa:OnAttackStart(event)
     local parent = self:GetParent()
     local attacker = event.attacker
@@ -70,8 +71,9 @@ if IsServer() then
       return
     end
 
-    --parent:StartGestureWithPlaybackRate(ACT_DOTA_CUSTOM_TOWER_ATTACK, parent:GetAttacksPerSecond(false)) -- does not work
+    parent:StartGestureWithPlaybackRate(ACT_DOTA_CUSTOM_TOWER_ATTACK, parent:GetAttacksPerSecond(false)) -- does not work
   end
+  ]]
 
   function modifier_tower_oaa:OnAttackLanded(event)
     local parent = self:GetParent()
@@ -101,7 +103,7 @@ if IsServer() then
       return
     end
     local max_hp = target:GetMaxHealth()
-    local max_hp_dmg = 2.5 * max_hp * 0.01 -- 2.5% of max hp
+    local max_hp_dmg = 5 * max_hp * 0.01 -- 5% of max hp
 
     local dmg_type = DAMAGE_TYPE_PURE
     local dmg_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
