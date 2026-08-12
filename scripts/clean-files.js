@@ -254,5 +254,5 @@ function cleanItemBuildFile (file) {
 
 walk('game/resource/English', cleanTooltipFile);
 walk('game/scripts/npc', cleanKVFile);
-walk('game/scripts/shops', cleanKVFile);
 walk('game/itembuilds', cleanItemBuildFile);
+cleanKVFile('game/scripts/shops.txt');

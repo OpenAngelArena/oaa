@@ -95,20 +95,26 @@ if not BossProtectionFilter then
     modifier_viper_viper_strike_silence = true, -- pierces bkb
   }
 
-  BossProtectionFilter.ModifierBlockAlwaysList = {
+  BossProtectionFilter.ModifierBlockAlwaysList = { -- we want taunts to affect bosses but if they become a problem/weirdly coded, uncomment them
+    --modifier_axe_berserkers_call = true, -- taunt
     modifier_bane_enfeeble_effect = true, -- cast range reduction
     modifier_brewmaster_fear = true, -- fear
     modifier_dark_willow_debuff_fear = true, -- fear
     modifier_death_prophet_spirit_siphon_fear = true, -- fear
-    modifier_faceless_void_time_zone_effect = true, -- cast speed reduction
+    --modifier_enchantress_little_friends = true, -- taunt
+    --modifier_faceless_void_time_zone_effect = true, -- cast speed reduction, not in the game anymore
+    --modifier_huskar_life_break_taunt = true, -- taunt
     modifier_lone_druid_savage_roar = true, -- fear
-    --modifier_medusa_venomed_volley_slow = true, -- cast speed reduction
+    --modifier_medusa_venomed_volley_slow = true, -- cast speed reduction, does not slow cast speed anymore
     modifier_muerta_dead_shot_fear = true, -- fear
     modifier_nevermore_requiem_fear = true, -- fear
     modifier_queenofpain_scream_of_pain_fear = true, -- fear
     modifier_ringmaster_tame_the_beasts_fear = true, -- fear
+    --modifier_techies_snare_trap_slowed = true, -- cast speed reduction, not in the game yet
     modifier_terrorblade_fear = true, -- fear
     modifier_tinker_warp_grenade = true, -- cast range reduction
+    --modifier_winter_wyvern_winters_curse = true, -- taunt
+    modifier_item_giant_maul_debuff = true, -- cast range reduction
   }
 end
 

@@ -70,4 +70,10 @@ function HidePickScreen () {
   GameEvents.Subscribe('onGameInCheatMode', function () {
     $.Msg('This Match is in Cheat Mode!');
   });
+
+  // Fix shop being doubled
+  const shop1 = FindDotaHudElement('GridBasicItems');
+  shop1.RemoveAndDeleteChildren();
+  const shop2 = FindDotaHudElement('GridUpgradeItems');
+  shop2.RemoveAndDeleteChildren();
 })();

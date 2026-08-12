@@ -225,7 +225,7 @@ if IsServer() then
 
     local undispellable_ability_debuffs = {
       "modifier_antimage_empowered_mana_break_debuff",              -- Anti-Mage scepter debuff
-      "modifier_axe_berserkers_call",
+      "modifier_axe_berserkers_call",                               -- taunt
       "modifier_bloodseeker_rupture",
       "modifier_dazzle_innate_weave_armor_counter",                 -- same modifier used as a buff and debuff
       "modifier_doom_bringer_doom",
@@ -233,6 +233,7 @@ if IsServer() then
       "modifier_doom_bringer_doom_break",
       --"modifier_earth_spirit_magnetize",                          -- Magnetize becomes undispellable with the talent
       "modifier_earthspirit_petrify",                               -- Earth Spirit Enchant Remnant debuff
+      "modifier_enchantress_little_friends",                        -- taunt that affects creeps and bosses
       "modifier_enchantress_little_friends_aura",                   -- Enchantress scepter aura that affects neutral creeps
       "modifier_enchantress_little_friends_kill_credit",            -- Enchantress scepter debuff that allows her to take credit for the kill made with neutrals
       "modifier_forged_spirit_melting_strike_debuff",
