@@ -95,7 +95,7 @@ if not BossProtectionFilter then
     modifier_viper_viper_strike_silence = true, -- pierces bkb
   }
 
-  BossProtectionFilter.ModifierBlockAlwaysList = {
+  BossProtectionFilter.ModifierBlockAlwaysList = { -- we want taunts to affect bosses but if they become a problem/weirdly coded, uncomment them
     --modifier_axe_berserkers_call = true, -- taunt
     modifier_bane_enfeeble_effect = true, -- cast range reduction
     modifier_brewmaster_fear = true, -- fear
