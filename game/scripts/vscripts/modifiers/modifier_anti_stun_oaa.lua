@@ -12,6 +12,15 @@ function modifier_anti_stun_oaa:IsPurgable()
   return false
 end
 
+function modifier_anti_stun_oaa:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    -- Dispel all debuffs (99.99% at least)
+    parent:Purge(false, true, false, true, true)
+    parent:DispelUndispellableDebuffs()
+  end
+end
+
 function modifier_anti_stun_oaa:GetPriority()
   return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
