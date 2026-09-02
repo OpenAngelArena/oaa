@@ -32,9 +32,9 @@
       "shadowraze_cooldown"                               "3"
       "turn_rate_pct"                                     "0"
       "damage_per_soul"                                   "3"
-      "shadowraze_damage" //OAA, intentionally buffed
+      "shadowraze_damage" // buff if damage_per_soul is removed
       {
-        "value"                                           "90 160 230 300 600 900"
+        "value"                                           "85 150 215 280 560 840"
       }
       "shadowraze_radius"
       {

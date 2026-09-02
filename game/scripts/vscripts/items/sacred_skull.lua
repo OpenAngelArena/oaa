@@ -61,6 +61,8 @@ function modifier_item_sacred_skull_passives:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+    self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
     self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
     self.cdr = ability:GetSpecialValueFor("cooldown_reduction")
   end
@@ -81,7 +83,9 @@ end
 function modifier_item_sacred_skull_passives:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, -- GetModifierPhysicalArmorBonus
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
@@ -91,8 +95,16 @@ function modifier_item_sacred_skull_passives:GetModifierHealthBonus()
   return self.bonus_health or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
+function modifier_item_sacred_skull_passives:GetModifierManaBonus()
+  return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
 function modifier_item_sacred_skull_passives:GetModifierPhysicalArmorBonus()
   return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_sacred_skull_passives:GetModifierConstantManaRegen()
+  return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 function modifier_item_sacred_skull_passives:GetModifierPercentageCooldown()

@@ -88,11 +88,14 @@ if not BossProtectionFilter then
   }
 
   BossProtectionFilter.ModifierList = {
+    modifier_axe_berserkers_call = true, -- taunt pierces bkb
     modifier_bashed = true, -- pierces bkb
-    modifier_huskar_life_break_taunt = true, -- pierces bkb
+    modifier_enchantress_little_friends = true, -- taunt that affects creeps and bosses
+    modifier_huskar_life_break_taunt = true, -- taunt pierces bkb
     modifier_stunned = true, -- sometimes pierces bkb
     modifier_queenofpain_sonic_wave_knockback = true, -- pierces bkb
     modifier_viper_viper_strike_silence = true, -- pierces bkb
+    modifier_winter_wyvern_winters_curse = true, -- taunt that affects creeps, heroes, and bosses
   }
 
   BossProtectionFilter.ModifierBlockAlwaysList = { -- we want taunts to affect bosses but if they become a problem/weirdly coded, uncomment them
@@ -101,7 +104,7 @@ if not BossProtectionFilter then
     modifier_brewmaster_fear = true, -- fear
     modifier_dark_willow_debuff_fear = true, -- fear
     modifier_death_prophet_spirit_siphon_fear = true, -- fear
-    --modifier_enchantress_little_friends = true, -- taunt
+    --modifier_enchantress_little_friends = true, -- taunt that affects creeps and bosses
     --modifier_faceless_void_time_zone_effect = true, -- cast speed reduction, not in the game anymore
     --modifier_huskar_life_break_taunt = true, -- taunt
     modifier_lone_druid_savage_roar = true, -- fear
