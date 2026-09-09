@@ -34,7 +34,7 @@
       }
       "toss_bonus_damage" // for the tooltip
       {
-        "value"                                           "100 300 500 1100 1700"
+        "value"                                           "100 300 500 900 1500"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "move_speed"                                        "10 20 30 40 50" // for the tooltip
@@ -76,7 +76,7 @@
       "bonus_damage_oaa"                                  "0 0 0 60 120" // bonus_damage - bonus_damage(at lvl 3)
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
-      "bonus_toss_damage_oaa"                             "0 0 0 600 1200" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
+      "bonus_toss_damage_oaa"                             "0 0 0 400 1000" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
       "bonus_move_speed_oaa"                              "0 0 0 10 20" // move_speed - move_speed(at lvl 3)
     }
   }

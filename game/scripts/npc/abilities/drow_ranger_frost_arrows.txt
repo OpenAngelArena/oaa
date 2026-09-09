@@ -42,9 +42,9 @@
       {
         "special_bonus_scepter"                           "+8"
       }
-      "shard_bonus_damage_per_stack"
+      "shard_bonus_damage_per_stack" //OAA, intentionally buffed because of shard_max_stacks nerf
       {
-        "special_bonus_scepter"                           "+18"
+        "special_bonus_scepter"                           "+20"
       }
       "shard_stack_duration"
       {
@@ -55,9 +55,9 @@
         "special_bonus_scepter"                           "+650"
         "affected_by_aoe_increase"                        "1"
       }
-      "shard_burst_damage_per_stack"
+      "shard_burst_damage_per_stack" //OAA, intentionally buffed because of shard_max_stacks nerf
       {
-        "special_bonus_scepter"                           "+60"
+        "special_bonus_scepter"                           "+66"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "shard_burst_move_slow_pct"

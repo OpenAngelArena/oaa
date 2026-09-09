@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Arc Warden: Runic Infusion (Innate) FIXEDFUCK
+  //=================================================================================================================
+  "arc_warden_runic_infusion"
+  {
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "regeneration_effect"                               "0"
+      "duration"                                          "0"
+      "water_bounty_rune_duration_pct"                    "67"
+      "bonus_stacks_per_rune_pickup"
+      {
+        "value"                                           "1"
+      }
+      "all_attribute_bonus_per_stack" //OAA, intentionally buffed
+      {
+        "value"                                           "3.0" // 1.5
+        "special_bonus_unique_arc_warden_8"               "+1.0"
+      }
+    }
+  }
+}

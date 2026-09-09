@@ -47,10 +47,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "damage_reduction"                                  "20 22 24 26 28" // percentage
-      "duration"                                          "3 3.5 4 4.5 5"
+      "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "AbilityCooldown"
       {
-        "value"                                           "110 105 100 95 90"
+        "value"                                           "100 95 90 85 80"
         "special_bonus_unique_bubble_witch_7"             "-30"
       }
     }

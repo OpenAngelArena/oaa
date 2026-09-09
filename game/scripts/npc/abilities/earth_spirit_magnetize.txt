@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 75 70 65 60" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       }
       "damage_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "60 120 180 300 420"
+        "value"                                           "50 100 150 250 350"
         "special_bonus_unique_earth_spirit_8"             "+25%"
       }
       "damage_duration"

@@ -31,12 +31,12 @@
       "bonus_move_speed_pct"                              "11 14 17 20 23 26"
       "stun_duration"
       {
-        "value"                                           "1.0 1.2 1.4 1.6 1.8 2.0"
+        "value"                                           "1.0 1.2 1.4 1.6 1.7 1.8"
       }
       "AbilityCooldown"
       {
         "value"                                           "18 17 16 15 14 13"
-        "special_bonus_shard"                             "-5"
+        "special_bonus_shard"                             "-5" // Valve I dont think this is intentional
       }
       "AbilityChargeRestoreTime" // unused
       {

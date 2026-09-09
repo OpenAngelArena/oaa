@@ -11,7 +11,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -33,7 +33,7 @@
       "rock_speed"                                        "1600"
       "rock_distance_multiplier"                          "2"
       "delay"                                             "0.6"
-      "damage"                                            "70 80 90 100 200 300" //OAA, intentionally buffed
+      "damage"                                            "60 70 80 90 180 270"
       "AbilityCooldown"                                   "10 8 6 4 4 4" //OAA, intentionally buffed; cooldown starts when current roll ends
       "can_roll_over_allied_heroes"                       "0"
       "radius"

@@ -61,8 +61,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "12 15 19"
-      "bonus_health"                                      "0"
+      "bonus_armor"                                       "11 12 13"
+      "bonus_health"                                      "525 725 975"
+      "bonus_mana"                                        "525 725 975"
+      "bonus_mana_regen"                                  "6.25 7.0 8.0"
       "cooldown_reduction"                                "15"
       "passive_armor_reduction"                           "-8 -11 -15"
       "armor_reduction_duration"                          "7"
