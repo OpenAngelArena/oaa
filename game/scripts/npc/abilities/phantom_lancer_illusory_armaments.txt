@@ -15,11 +15,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "outgoing_floor"
+      "outgoing_floor" //OAA, because of levelup_interval buff
       {
         "value"                                           "17"
         "hero_levelup"                                    "2"
-        "levelup_interval"                                "3"
+        "levelup_interval"                                "2"
       }
       "duration"
       {
