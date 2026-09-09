@@ -47,9 +47,9 @@
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_kez_raptor_dance_radius"    "+50"
       }
-      "base_damage" // intentionally scales poorly
+      "base_damage" //OAA, intentionally buffed
       {
-        "value"                                           "40 70 100 160 220"
+        "value"                                           "40 80 120 200 280"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "max_health_damage_pct"
