@@ -33,10 +33,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA, intentionally nerfed both base value and scepter
+      "radius" //OAA, intentionally nerfed
       {
-        "value"                                           "360"
-        "special_bonus_scepter"                           "+80"
+        "value"                                           "380"
         "affected_by_aoe_increase"                        "1"
       }
       "pit_duration"                                      "8.5 9 9.5 10 10.5 11" //OAA, intentionally nerfed

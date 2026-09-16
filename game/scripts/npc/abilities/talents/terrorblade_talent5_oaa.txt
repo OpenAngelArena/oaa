@@ -1,0 +1,14 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Conjure Image illusion bonus dmg
+  //=================================================================================================================
+  "special_bonus_unique_terrorblade_5_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_base"
+    "AbilityType"                                         "ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  }
+}

@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kez: Shodo Sai
+  // Kez: Shodo Sai FIXEDFUCK
   //=================================================================================================================
   "kez_shodo_sai"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_DIRECT_KEYBIND"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -32,17 +32,16 @@
     "AbilityValues"
     {
       "sai_proc_vuln_chance"                              "20"
-      "stun_duration"                                     "0.1" //OAA, intentionally nerfed
-      "vuln_duration"                                     "8.0"
-      "forward_angle"                                     "180"
-      "speed_penalty"                                     "25"
-      "parry_duration"                                    "1.5"
-      "parry_stun_duration"                               "0.2" //OAA, intentionally nerfed
       "base_crit_pct" //OAA, intentionally rescaled but buffed the talent
       {
         "value"                                           "150 160 170 180 190 200"
         "special_bonus_unique_kez_mark_damage"            "+100"
       }
+      "stun_duration"                                     "0.1" //OAA, intentionally nerfed
+      "vuln_duration"                                     "8.0"
+      "forward_angle"                                     "180"
+      "speed_penalty"                                     "25"
+      "parry_duration"                                    "1.5"
       "parry_bonus_crit"
       {
         "value"                                           "0"
@@ -53,6 +52,8 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+0.2"
       }
+      "parry_stun_duration"                               "0.2" //OAA, intentionally nerfed
+      "parry_only_heroes"                                 "1"
     }
   }
 }

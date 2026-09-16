@@ -32,7 +32,11 @@
     "AbilityValues"
     {
       "zealots"                                           "1"
-      "zealot_respawn_time"                               "15" //OAA, intentionally buffed
+      "zealot_respawn_time" //OAA, intentionally buffed
+      {
+        "value"                                           "30" // 60
+        "hero_levelup"                                    "-0.5" // -1
+      }
       "damage"
       {
         "hero_levelup"                                    "2"

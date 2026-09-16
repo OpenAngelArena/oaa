@@ -834,6 +834,9 @@ function validateMaxLevelAgainstBase (t, abilityName, ourMaxLevelStr, baseMaxLev
   if (allowed.indexOf(our) === -1) {
     t.fail('MaxLevel for ' + abilityName + ' should be ' + base + ' or ' + (base + 2) + ', got ' + our);
   }
+  // if (our === base) {
+  // t.fail('MaxLevel for ' + abilityName + ' is the same as vanilla: ' + base + ' check if correct');
+  // }
 }
 
 function recursivelyCheckAbilityValues (t, itemName, node, basePath, maxLevel) {

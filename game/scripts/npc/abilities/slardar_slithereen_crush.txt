@@ -58,7 +58,7 @@
         "special_bonus_scepter"                           "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "crush_damage" //OAA, because of special_bonus_unique_slardar buff
+      "crush_damage" //OAA, intentionally buffed both base values and special_bonus_unique_slardar talent
       {
         "value"                                           "75 150 225 300 600 1200"
         "special_bonus_unique_slardar"                    "+300"
