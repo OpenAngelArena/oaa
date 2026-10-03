@@ -5,7 +5,7 @@ if (D2CustomLogging == nil) then
         --[[
             @var bool isEnabled - State true if logging is to be enabled
         ]]--
-        isEnabled = (not IsInToolsMode()),
+        isEnabled = false,
 
         --[[
             @var string gameClientVersion - The string game client version detected when the game started up
@@ -136,7 +136,9 @@ if (D2CustomLogging == nil) then
         -- For the moment, just hardcode the Loggly URI construction.  This will likely be a module that will be loaded at a later date
         local requestClient = CreateHTTPRequestScriptVM('POST', 'https://logs-01.loggly.com/inputs/' .. LOGGLY_ACCOUNT_ID .. '/tag/http/')
         -- local encodedPayload = json.encode(payload)
-
+        if not requestClient then
+            return
+        end
         -- For Loggly, send all fields as separate entities WILL be replaced with a more mutable system later on
         requestClient:SetHTTPRequestGetOrPostParameter('eventSeverity', json.encode(eventSeverity))
         requestClient:SetHTTPRequestGetOrPostParameter('eventDescription', eventDescription)

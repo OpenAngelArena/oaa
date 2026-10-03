@@ -282,6 +282,10 @@ function Bottlepass:Request(api, data, cb)
   end
 
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
+  if not req then
+    cb("CreateHTTPRequestScriptVM failed", {})
+    return
+  end
   local encoded = json.encode(data)
 
   local authToken = sha256(encoded .. AUTH_KEY)
