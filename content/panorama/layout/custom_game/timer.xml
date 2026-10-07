@@ -1,9 +1,9 @@
 <root>
   <styles>
-    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
-    <include src="s2r://panorama/styles/hudstyles.vcss_c" />
-    <include src="s2r://panorama/styles/hud/hud_reborn.vcss_c" />
-    <include src="s2r://panorama/styles/hud/dota_hud_top_bar.vcss_c" />
+    <include src="s2r://panorama/styles/dotastyles.vcss" />
+    <include src="s2r://panorama/styles/hudstyles.vcss" />
+    <include src="s2r://panorama/styles/hud/hud_reborn.vcss" />
+    <include src="s2r://panorama/styles/hud/dota_hud_top_bar.vcss" />
     <include src="file://{resources}/styles/custom_game/timer.css" />
   </styles>
   <scripts>

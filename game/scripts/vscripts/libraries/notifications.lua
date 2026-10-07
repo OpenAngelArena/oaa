@@ -28,7 +28,7 @@ NOTIFICATIONS_VERSION = "1.00"
   -For AbilityImages, there is one additional mandatory parameter:
     -ability:  The ability name, e.g. "lina_fiery_soul".
   -For Images, there is one additional mandatory parameter:
-    -image:  The image src string, e.g. "file://{images}/status_icons/dota_generic.psd".
+    -image:  The image src string, e.g. "s2r://panorama/images/status_icons/dota_generic_psd.vtex".
   -For ItemImages, there is one additional mandatory parameter:
     -item:  The item name, e.g. "item_force_staff".
 
@@ -54,7 +54,7 @@ NOTIFICATIONS_VERSION = "1.00"
   Notifications:TopToAll({hero="npc_dota_hero_axe", imagestyle="portrait", continue=true})
 
   -- Display a generic image and then 2 ability icons and an item on the same line for 5 seconds
-  Notifications:TopToAll({image="file://{images}/status_icons/dota_generic.psd", duration=5.0})
+  Notifications:TopToAll({image="s2r://panorama/images/status_icons/dota_generic_psd.vtex", duration=5.0})
   Notifications:TopToAll({ability="nyx_assassin_mana_burn", continue=true})
   Notifications:TopToAll({ability="lina_fiery_soul", continue=true})
   Notifications:TopToAll({item="item_force_staff", continue=true})
