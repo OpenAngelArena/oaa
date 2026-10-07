@@ -299,7 +299,7 @@ args = {"info":{"winner":2,"dire_score":6,"radiant_score":65},"stats":{"0":{"dam
               rewards.name.text = item.name;
               rewards.rarity.text = item.rarity;
               rewards.rarity.AddClass(item.rarity);
-              rewards.image.style.backgroundImage = 'url("file://{resources}/images/items/custom/' + item.image + '.png")';
+              rewards.image.style.backgroundImage = 'url("file://{images}/items/custom/' + item.image + '.png")';
               rewards.image.style.backgroundSize = 'cover';
 
               rp.AddClass('level-up');

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Hoodwink: Sharpshooter
+  // Hoodwink: Sharpshooter FIXEDFUCK
   //=================================================================================================================
   "hoodwink_sharpshooter"
   {
@@ -30,10 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "arrow_range"                                       "3000"
-      "recoil_height"                                     "75"
-      "recoil_duration"                                   "0.4"
-      "base_power"                                        "0.2"
       "AbilityCooldown"
       {
         "value"                                           "45"
@@ -49,6 +45,7 @@
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
       }
+      "arrow_range"                                       "3000"
       "arrow_vision"
       {
         "value"                                           "350"
@@ -69,6 +66,8 @@
       {
         "value"                                           "350"
       }
+      "recoil_height"                                     "75"
+      "recoil_duration"                                   "0.4"
       "max_slow_debuff_duration"
       {
         "value"                                           "5.0"
@@ -103,6 +102,7 @@
         "value"                                           "0"
         "special_bonus_unique_hoodwink_sharpshooter_vision"  "+35"
       }
+      "base_power"                                        "0.2"
       "quick_draw_tooltip_pct_cooldown_reduction"
       {
         "value"                                           "0"
@@ -117,6 +117,8 @@
       {
         "special_bonus_unique_hoodwink_sharpshooter_pure_damage"  "1"
       }
+      "pierce_units"                                      "0"
+      "pierce_hero_damage_reduction_pct"                  "0"
     }
   }
 }

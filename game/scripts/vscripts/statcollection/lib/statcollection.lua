@@ -536,6 +536,10 @@ function statCollection:sendStage(stageName, payload, callback, override_host)
 
     -- Create the request
     local req = CreateHTTPRequestScriptVM('POST', host .. stageName)
+    if not req then
+        print("CreateHTTPRequestScriptVM failed")
+        return
+    end
     local encoded = json.encode(payload)
     if self.TESTING then
         statCollection:print(encoded)

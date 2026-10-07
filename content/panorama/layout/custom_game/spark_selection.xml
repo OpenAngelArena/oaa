@@ -1,7 +1,7 @@
 <root>
   <styles>
-    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
-    <include src="s2r://panorama/styles/hudstyles.vcss_c" />
+    <include src="s2r://panorama/styles/dotastyles.vcss" />
+    <include src="s2r://panorama/styles/hudstyles.vcss" />
     <include src="file://{resources}/styles/custom_game/spark_selection.css" />
   </styles>
   <scripts>

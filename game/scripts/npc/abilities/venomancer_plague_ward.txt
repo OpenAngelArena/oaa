@@ -49,26 +49,28 @@
       {
         "value"                                           "40.0"
       }
-      "ward_multiplier"
-      {
-        "value"                                           "1.0"
-        "special_bonus_unique_venomancer"                 "x2.5"
-      }
       "ward_model_scale"
       {
         "value"                                           "1.0"
         "special_bonus_unique_venomancer"                 "x1.5"
       }
-      "ward_hp_tooltip"
-      {
-        "value"                                           "150 250 350 450 900 1800"
-        "special_bonus_unique_venomancer"                 "x2.5"
-      }
-      "ward_damage_tooltip"
+      "ward_base_damage"
       {
         "value"                                           "16 24 32 40 80 160"
         "special_bonus_unique_venomancer"                 "x2.5"
       }
+      "ward_damage_spread"
+      {
+        "value"                                           "2"
+      }
+      "ward_max_health"
+      {
+        "value"                                           "150 250 350 450 900 1800"
+        "special_bonus_unique_venomancer"                 "x2.5"
+      }
+      "ward_gold_bounty_min"                              "10 14 18 22 44 88"
+      "ward_gold_bounty_max"                              "10 14 18 22 44 88"
+      "magic_immune"                                      "1"
     }
   }
 }

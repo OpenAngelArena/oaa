@@ -35,7 +35,8 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "explosion_interval"                                "0.1"
+      "explosion_interval_tooltip"                        "0.1"
+      "num_explosions"                                    "100"
       "movespeed_slow"                                    "-40 -45 -50 -55 -60" //OAA, intentionally buffed
       "attack_slow"                                       "-80 -120 -160 -200 -240"
       "slow_duration"                                     "1.0"

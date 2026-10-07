@@ -124,8 +124,8 @@ function CreateAllButtons () {
   SentryWardCount.style.textShadow = '0px 0px 3px 1 red';
   SentryWardCount.style.zIndex = '1';
 
-  $.CreatePanel('DOTAItemImage', ObserverWardIcon, 'observer_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_observer.png' });
-  $.CreatePanel('DOTAItemImage', SentryWardIcon, 'sentry_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_sentry.png' });
+  $.CreatePanel('DOTAItemImage', ObserverWardIcon, 'observer_image', { style: 'width:100%;height:100%;', src: 's2r://panorama/images/items/ward_observer_png.vtex', itemname: 'item_ward_observer' });
+  $.CreatePanel('DOTAItemImage', SentryWardIcon, 'sentry_image', { style: 'width:100%;height:100%;', src: 's2r://panorama/images/items/ward_sentry_png.vtex', itemname: 'item_ward_sentry' });
 
   SetObserver(ObserverWardPanel);
   SetSentry(SentryWardPanel);

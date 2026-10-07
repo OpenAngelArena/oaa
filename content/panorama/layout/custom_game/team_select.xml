@@ -1,6 +1,6 @@
 <root>
   <styles>
-    <include src="s2r://panorama/styles/dotastyles.vcss_c"/>
+    <include src="s2r://panorama/styles/dotastyles.vcss"/>
     <include src="file://{resources}/styles/play.css"/>
     <include src="file://{resources}/styles/custom_game/team_select.css" />
   </styles>
@@ -183,7 +183,7 @@
         <Panel id="Header">
           <Panel id="TeamListHeader">
             <Label id="TeamListHeaderLabel" text="#custom_game_team_select" />
-            <Image id="TeamListLockedIcon" src="file://{images}/control_icons/lock_small.png" />
+            <Image id="TeamListLockedIcon" />
           </Panel>
         </Panel>
 
@@ -216,8 +216,8 @@
       <Panel id="GameInfoPanel" >
 
         <Panel id="StartGameCountdownTimer">
-          <Image id="TimerBg" src="file://{images}/status_icons/timer_background.psd" />
-          <Image id="TimerRing" src="file://{images}/status_icons/timer_ring.psd" />
+          <Image id="TimerBg" />
+          <Image id="TimerRing" />
           <Label id="TeamSelectTimer" text="#custom_game_team_select_timer" />
           <Panel id="TimerLabelBox" >
             <Label id="TimerLabelAutoStart" text="#custom_game_team_select_auto_start" />
@@ -238,7 +238,7 @@
           <Panel id="UnassignedPlayersContainer" />
         </Button>
         <Button id="AutoAssignButton" onactivate="OnAutoAssignPressed()">
-          <Image src="file://{images}/control_icons/double_arrow_left.png" />
+          <Image src="s2r://panorama/images/control_icons/double_arrow_left_png.vtex" />
           <Label text="#custom_game_team_select_auto_assign" />
         </Button>
       </Panel>
