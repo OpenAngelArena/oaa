@@ -118,11 +118,11 @@ if IsServer() then
     local max_count = ability:GetSpecialValueFor("spiderling_max_count")
     local spawn_radius = ability:GetSpecialValueFor("spiderling_spawn_radius")
 
-    if HeroSelection then
-      if HeroSelection.is10v10 and not HeroSelection.is6v6 then
-        max_count = math.floor(max_count / 2)
-      end
-    end
+    --if HeroSelection then
+      --if HeroSelection.is10v10 and not HeroSelection.is6v6 then
+        --max_count = math.floor(max_count / 2)
+      --end
+    --end
 
     -- Spiderlings can spawn spiderlings only if near Broodmother, otherwise don't continue
     if killer ~= parent and (killer:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > spawn_radius then

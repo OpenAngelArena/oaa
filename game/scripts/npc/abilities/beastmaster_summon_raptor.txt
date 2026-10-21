@@ -31,9 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA, intentionally because of lag
       {
-        "value"                                           "25"
+        "value"                                           "20"
       }
       "hawk_spawn_interval"                               "0.75"
       "hawk_base_max_health"                              "200 400 600 800 1200 1600" //OAA, intentionally buffed
