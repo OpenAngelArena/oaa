@@ -101,7 +101,7 @@ function CorePointsManager:BuyIfAllowed(item, hero, playerID)
     if allowed_to_buy then
       -- Check for gold cost
       if current_gold >= gold_cost then
-        if hero:HasRoomForItemOAA() then
+        if hero:HasRoomForItemOAA(true, true) then
           CorePointsManager:AddCorePoints(-cp_cost, hero, playerID)
           Gold:ModifyGold(hero, -gold_cost, true, DOTA_ModifyGold_PurchaseItem)
           hero:AddItemByName(item)
@@ -624,7 +624,7 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
 
   if item_name ~= "" then
     --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
-    if hero:HasRoomForItemOAA() then
+    if hero:HasRoomForItemOAA(true, true) then
       hero:AddItemByName(item_name)
     else
       local error_msg_inventory_full = "#dota_hud_error_cant_pick_up_item"

@@ -70,12 +70,11 @@ function electrician_energy_absorption:OnSpellStart()
           mana_to_remove = target_current_mana
         end
 
-        -- Reduce/removed mana of the target (only if not an illusion)
-        -- Don't remove mana from illusions to prevent weird interactions
-        if target:IsRealHero() or target:IsStrongIllusionOAA() then
-          target:ReduceMana(mana_to_remove, self)
-          mana_absorbed = mana_absorbed + mana_to_remove
-        end
+        -- Reduce target's mana (it should work against heroes, creeps, illusions, bosses)
+        target:ReduceMana(mana_to_remove, self)
+
+        -- Increase absorbed mana for each hit unit if they have mana
+        mana_absorbed = mana_absorbed + mana_to_remove
 
         -- Double damage against illusions
         if target:IsIllusion() and not target:IsStrongIllusionOAA() then

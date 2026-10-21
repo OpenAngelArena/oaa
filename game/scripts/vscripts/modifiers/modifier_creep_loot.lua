@@ -29,10 +29,18 @@ if IsServer() then
         local killer = keys.attacker
         local death_location = parent:GetAbsOrigin()
         local killer_location
+        local has_room = true
         if killer and not killer:IsNull() then
           killer_location = killer:GetAbsOrigin()
+          -- Check if killer has room in the inventory, if killer is not a hero it behaves like there is room
+          -- this bit of code is not ideal but it's better than nothing
+          if killer.HasInventory then
+            if killer:HasInventory() and killer.HasAnyAvailableInventorySpace then
+              has_room = killer:HasRoomForItemOAA(false, false)
+            end
+          end
         end
-        CreepItemDrop:CreateDrop(itemToDrop, death_location, killer_location)
+        CreepItemDrop:CreateDrop(itemToDrop, death_location, killer_location, has_room)
       end
     end
   end

@@ -47,9 +47,9 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "spiderling_duration"                               "40"
+      "spiderling_duration"                               "30" // intentionally because of lag
       "spiderling_spawn_count"                            "1"
-      "spiderling_max_count"                              "20"
+      "spiderling_max_count"                              "10" // intentionally because of lag
       "giant_spiderling_base_hp"
       {
         "value"                                           "540"

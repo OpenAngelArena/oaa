@@ -23,7 +23,7 @@ local RARITY_ENUM = 4
 -- the higher the value, the less likely the item is to drop
 --for negative values:
 --  *FROM -> any level smaller or equal than TO will have a chance to drop the item.
---  *TO   -> any level larger or equal than FROM will have  a chance to drop the item.
+--  *TO   -> any level larger or equal than FROM will have a chance to drop the item.
 --  *FROM and TO -> item will drop at any level.
 --  *RARITY -> item will not drop.
 --it is possible to define the same item twice, for maximum flexibility
@@ -50,7 +50,12 @@ function CreepItemDrop:ItemDropUpgradeTimer ()
   return 10.0
 end
 
-function CreepItemDrop:CreateDrop (itemName, death_location, killer_location)
+function CreepItemDrop:CreateDrop (itemName, death_location, killer_location, has_room)
+  if itemName == "item_infinite_bottle" and not has_room then
+    -- break early if hero has no room in the inventory and bottle is supposed to drop
+    -- this is supposed to improve performance when bottles are no longer needed
+    return
+  end
   local newItem = CreateItem(itemName, nil, nil) -- CDOTA_Item
   newItem:SetPurchaseTime(0)
   CreateItemOnPositionSync(death_location, newItem) -- CDOTA_Item_Physical
@@ -59,6 +64,7 @@ function CreepItemDrop:CreateDrop (itemName, death_location, killer_location)
     newItem:LaunchLoot(false, 300, 0.75, death_location + RandomVector(RandomFloat(50, 350)), nil)
 
     -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
+    -- This is affecting performance when multiple bottles spawn (multiple timers active at the same time)
     Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
       -- check if safe to destroy
       if newItem and not newItem:IsNull() then
@@ -70,6 +76,7 @@ function CreepItemDrop:CreateDrop (itemName, death_location, killer_location)
     end)
   else
     newItem:LaunchLoot(false, 300, 0.25, killer_location + RandomVector(RandomFloat(50, 100)), nil)
+    self:CreateDrop("item_infinite_bottle", death_location, killer_location, has_room)
   end
 end
 

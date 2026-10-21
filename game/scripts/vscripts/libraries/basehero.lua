@@ -135,11 +135,16 @@ end
 
 -- HasRoomForItem returns INT which is weird
 -- HasAnyAvailableInventorySpace() is bugged in that it counts wards as empty inventory slots for some reason
-function CDOTA_BaseNPC_Hero:HasRoomForItemOAA()
+-- HasAnyAvailableInventorySpace() does not ignore backpack but ignores stash
+function CDOTA_BaseNPC_Hero:HasRoomForItemOAA(checkBackpack, checkStash)
   -- Iterate over item slots
   local bHasRoom = false
+  local maxSlot = DOTA_ITEM_SLOT_6
+  if checkBackpack then
+    maxSlot = DOTA_ITEM_SLOT_9
+  end
   -- Normal slots and backpack slots
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+  for i = DOTA_ITEM_SLOT_1, maxSlot do
     local item = self:GetItemInSlot(i)
     if not item then
       bHasRoom = true
@@ -147,7 +152,7 @@ function CDOTA_BaseNPC_Hero:HasRoomForItemOAA()
     end
   end
   -- Check stash slots
-  if not bHasRoom then
+  if not bHasRoom and checkStash then
     for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
       local item = self:GetItemInSlot(i)
       if not item then

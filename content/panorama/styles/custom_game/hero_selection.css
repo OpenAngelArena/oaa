@@ -105,20 +105,25 @@ Label {
   height: 100%;
 }
 
-#TeamRadiant, #TeamDire {
-  width: 45%;
-  height: 65%;
-  background-color: #171A2590;
+.SINGLE_DRAFT_MODE #TeamRadiant {
+  height: 85%;
 }
 
-.SINGLE_DRAFT_MODE #TeamRadiant, #TeamDire {
+.SINGLE_DRAFT_MODE #TeamDire {
   height: 85%;
 }
 
 #TeamRadiant {
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
   flow-children: right;
 }
+
 #TeamDire {
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
   flow-children: left;
 }
 
@@ -372,11 +377,19 @@ DOTAMinimap {
   horizontal-align: left;
 }
 
-#CMRadiant.Ban, #CMDire.Ban {
+#CMRadiant.Ban {
   background-color: gradient( linear, 0% 0%, 0% 90%, from( #ff000020 ), to( #171A2590 ) );
 }
 
-#CMRadiant.Pick, #CMDire.Pick {
+#CMDire.Ban {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #ff000020 ), to( #171A2590 ) );
+}
+
+#CMRadiant.Pick {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #0090ff20 ), to( #171A2590 ) );
+}
+
+#CMDire.Pick {
   background-color: gradient( linear, 0% 0%, 0% 90%, from( #0090ff20 ), to( #171A2590 ) );
 }
 
@@ -384,42 +397,57 @@ DOTAMinimap {
   horizontal-align: right;
 }
 
-.CMLabels, .CMHeroImages, .ProgressBar {
+.CMLabels {
+  flow-children: right;
+  width: 100%;
+  height: 100%;
+}
+
+.ProgressBar {
   flow-children: right;
   width: 100%;
   height: 100%;
 }
 
 .CMHeroImages {
+  flow-children: right;
+  width: 100%;
+  height: 100%;
   vertical-align: top;
 }
 
-#CMDire .CMLabels, #CMDire .CMHeroImages {
+#CMDire .CMLabels {
   flow-children: left;
 }
 
-.CMHeroImages DOTAHeroImage, .CMLabels Label {
-  width: fill-parent-flow(1.0);
-  margin: 0 1%;
-  height: 40%;
-  border-radius: 5px;
+#CMDire .CMHeroImages {
+  flow-children: left;
 }
 
-.CMHeroImages DOTAHeroImage.pick, .CMLabels Label.pick {
+.CMHeroImages DOTAHeroImage.pick {
   margin-top: 60%;
 }
 
 .CMHeroImages DOTAHeroImage {
+  width: fill-parent-flow(1.0);
+  margin: 0 1%;
+  height: 40%;
+  border-radius: 5px;
   box-shadow: #000000ff -1px -1px 2px 2px;
 }
 
 .CMLabels Label {
+  width: fill-parent-flow(1.0);
+  margin: 0 1%;
+  height: 40%;
+  border-radius: 5px;
   text-align: center;
 }
 .CMLabels Label.ban {
   background-color: #ff000020;
 }
 .CMLabels Label.pick {
+  margin-top: 60%;
   background-color: #0090ff20;
 }
 
@@ -792,9 +820,6 @@ DOTAScenePanel {
   background-color: #171A2590;
   padding: 10px;
 }
-
-
-
 
 #StrategyContent {
   width: 100%;
