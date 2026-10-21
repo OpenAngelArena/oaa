@@ -184,7 +184,7 @@ function CapturePoints:GiveItemToWholeTeam (item, teamId)
       local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
       if hero then
-        if hero:HasRoomForItemOAA() then
+        if hero:HasRoomForItemOAA(true, true) then
           hero:AddItemByName(item)
         else
           CorePointsManager:AddCorePoints(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), hero, playerId)
