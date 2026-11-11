@@ -36,13 +36,13 @@
     "AbilityValues"
     {
       "radius"                                            "275"
-      "duration"                                          "2" // debuff duration
-      "damage_per_second"                                 "300" // pure
+      "duration"                                          "1.0" // debuff duration (also linger duration)
+      "damage_per_second"                                 "270" // pure
       "armor_reduction"                                   "15"
       "damage_interval"                                   "0.2"
       "slow_movement_speed_pct"                           "-30"
       "projectile_speed"                                  "700"
-      "area_duration"                                     "8.0" // thinker duration
+      "area_duration"                                     "5.0" // thinker duration
     }
   }
 }
