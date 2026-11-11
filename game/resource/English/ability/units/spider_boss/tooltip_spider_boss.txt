@@ -62,12 +62,14 @@
 "dota_tooltip_ability_spider_boss_summon_eggs_spider_lifetime"                  "SPIDER LIFETIME:"
 
 "DOTA_Tooltip_Ability_spider_cold_combustion"                                   "Felfrost Combustion"
-"DOTA_Tooltip_Ability_spider_cold_combustion_Description"                       "Explodes upon either reaching a unit or dying, dealing large amounts of damage as well as slowing nearby units."
+"DOTA_Tooltip_Ability_spider_cold_combustion_Description"                       "Explodes upon either reaching a unit or dying, dealing large amounts of damage as well as slowing nearby units. Slow increases with each explosion."
 "DOTA_Tooltip_Ability_spider_cold_combustion_damage"                            "DAMAGE:"
 "DOTA_Tooltip_Ability_spider_cold_combustion_radius"                            "RADIUS:"
+"DOTA_Tooltip_Ability_spider_cold_combustion_base_slow"                         "%BASE SLOW:"
+"DOTA_Tooltip_Ability_spider_cold_combustion_slow_increase_per_explosion"       "%SLOW INCREASE PER EXPLOSION:"
 
 "DOTA_Tooltip_modifier_felfrost"                                                "Felfrost"
-"DOTA_Tooltip_modifier_felfrost_Description"                                    "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+"DOTA_Tooltip_modifier_felfrost_Description"                                    "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "dota_tooltip_ability_spider_egg_sack"                                          "Spider Eggs"
 "dota_tooltip_ability_spider_egg_sack_description"                              "Eggs explode on contact, spawning more spiders and deals damage."

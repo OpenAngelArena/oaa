@@ -21,8 +21,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "1000" // magical
+      "damage"                                            "2500" // magical
       "radius"                                            "350"
+      "base_slow"                                         "30" // tooltip only; find FELFROST_SLOW_BASE in modifier_felfrost.lua
+      "slow_increase_per_explosion"                       "10" // tooltip only; find FELFROST_SLOW_PERSTACK in modifier_felfrost.lua
     }
 
     // Precache
