@@ -93,7 +93,7 @@ function modifier_ogre_seer_ignite_debuff:DestroyOnExpire()
 end
 
 function modifier_ogre_seer_ignite_debuff:OnCreated()
-  local damage_per_second = 400
+  local damage_per_second = 240
   local interval = 0.2
   local damage_type = DAMAGE_TYPE_MAGICAL
   local slow = -30
