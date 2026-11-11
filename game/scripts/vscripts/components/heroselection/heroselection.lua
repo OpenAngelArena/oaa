@@ -33,15 +33,12 @@ function HeroSelection:Init ()
   self.lowPlayerCount = GetMapName() == "tinymode" or GetMapName() == "tiny_legacy"
   self.is6v6 = GetMapName() == "oaa_alternate"
 
-  local herolistFile = 'scripts/npc/herolist.txt'
+  local herolistFile = 'scripts/npc/herolist_2_6_players.txt'
   if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
   if self.is10v10 and not self.is6v6 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
-  end
-  if self.lowPlayerCount then
-    herolistFile = 'scripts/npc/herolist_2_6_players.txt'
   end
   if self.isRanked or self.is10v10 or self.lowPlayerCount then
     self.isBanning = true
@@ -294,13 +291,6 @@ function HeroSelection:StartSelection ()
 
   if OAAOptions and OAAOptions.settings then
     if OAAOptions.settings.small_player_pool == 1 then
-      local herolistFile = 'scripts/npc/herolist_2_6_players.txt'
-      local herolistTable = LoadKeyValues(herolistFile)
-      for key, value in pairs(herolistTable) do
-        if value == 0 then
-          table.insert(rankedpickorder.bans, key)
-        end
-      end
       HeroSelection.lowPlayerCount = true
     end
     if OAAOptions.settings.GAME_MODE == "ARDM" then
@@ -341,6 +331,29 @@ function HeroSelection:StartSelection ()
         if value == 0 then
           table.insert(rankedpickorder.bans, key)
         end
+      end
+    end
+  end
+
+  if PlayerResource:SafeGetTeamPlayerCount() <= 2 and not IsInToolsMode() then
+    local annoying_in_1v1s = {
+      "npc_dota_hero_arc_warden",
+      "npc_dota_hero_dark_willow",
+      "npc_dota_hero_enigma",
+      "npc_dota_hero_faceless_void",
+      "npc_dota_hero_lone_druid",
+      "npc_dota_hero_obsidian_destroyer",
+      "npc_dota_hero_shadow_demon",
+    }
+    for i = 1, #annoying_in_1v1s do
+      table.insert(rankedpickorder.bans, annoying_in_1v1s[i])
+    end
+  elseif PlayerResource:SafeGetTeamPlayerCount() > 4 and not IsDedicatedServer() and not IsInToolsMode() then
+    local herolistFile = 'scripts/npc/herolist.txt'
+    local herolistTable = LoadKeyValues(herolistFile)
+    for key, value in pairs(herolistTable) do
+      if value == 0 then
+        table.insert(rankedpickorder.bans, key)
       end
     end
   end
