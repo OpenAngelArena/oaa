@@ -12,8 +12,14 @@ end
 
 function wanderer_net:OnAbilityPhaseStart()
   if IsServer() then
+    local caster = self:GetCaster()
+    local delay = self:GetCastPoint()
+
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
+
     -- Warning particle over caster's head
-    self.warningFX = ParticleManager:CreateParticle("particles/generic_gameplay/generic_has_quest.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+    self.warningFX = ParticleManager:CreateParticle("particles/generic_gameplay/generic_has_quest.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
   end
   return true
 end
