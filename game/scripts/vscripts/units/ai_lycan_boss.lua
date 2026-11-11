@@ -5,7 +5,7 @@ function Spawn( entityKeyValues )
   end
 
   thisEntity.LYCAN_BOSS_SUMMONED_UNITS = {}
-  thisEntity.LYCAN_BOSS_MAX_SUMMONS = 50
+  thisEntity.LYCAN_BOSS_MAX_SUMMONS = 28
   thisEntity.nCAST_SUMMON_WOLVES_COUNT = 0
 
   thisEntity.hSummonWolvesAbility = thisEntity:FindAbilityByName( "lycan_boss_summon_wolves" ) or thisEntity:FindAbilityByName( "lycan_boss_summon_wolves_tier5" )
@@ -266,6 +266,9 @@ end
 
 function CastShapeshift()
   thisEntity:DispelWeirdDebuffs()
+
+  -- End CD of Summon Wolves
+  thisEntity.hSummonWolvesAbility:EndCooldown()
 
   local ability = thisEntity.hShapeshiftAbility
   local cast_point = ability:GetCastPoint()

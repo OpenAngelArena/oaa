@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spider Boss: Spidershot
+  // Spider Boss: Spidershot - summons eggs that hatch banelings (exploding spiders)
   //=================================================================================================================
   "spider_boss_spidershot"
   {
@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5"
+    "AbilityCooldown"                                     "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,11 +35,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "impact_damage"                                     "50" // magical
+      "impact_damage"                                     "50" // magical; single unit can be damaged by x5 cocoons resulting in 250 dmg
       "impact_slow_rate"                                  "-30"
       "impact_slow_duration"                              "3.0"
       "explode_time"                                      "5.0"
-      "spiders_count"                                     "3"
+      "spiders_count"                                     "1"
       "projectile_speed"                                  "0.03" // distance traveled during 0.03 seconds (1 second travel time)
       "projectile_height"                                 "300"
     }

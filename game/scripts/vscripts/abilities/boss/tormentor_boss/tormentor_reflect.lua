@@ -56,6 +56,7 @@ function modifier_tormentor_reflect_oaa:OnCreated()
 
   self.radius = self.ability:GetSpecialValueFor("radius")
   self.illusion_damage_pct = self.ability:GetSpecialValueFor("illusion_damage_pct")
+  self.summon_damage_pct = self.ability:GetSpecialValueFor("summon_damage_pct")
   self.reflection = self.ability:GetSpecialValueFor("passive_reflection_pct")
 
   self.pfx_name = {}
@@ -216,6 +217,10 @@ if IsServer() then
 
     if attacker:IsIllusion() then
       damageTable.damage = reflectedDamage * self.illusion_damage_pct / 100
+    end
+
+    if not attacker:IsHero() then
+      damageTable.damage = reflectedDamage * self.summon_damage_pct / 100
     end
 
     ApplyDamage(damageTable)

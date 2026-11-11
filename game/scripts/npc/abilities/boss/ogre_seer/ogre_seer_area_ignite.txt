@@ -36,8 +36,8 @@
     "AbilityValues"
     {
       "radius"                                            "275"
-      "duration"                                          "2" // debuff duration
-      "burn_damage"                                       "400" // magical damage per second
+      "duration"                                          "1.0" // debuff/linger duration
+      "burn_damage"                                       "360" // magical damage per second
       "damage_interval"                                   "0.2"
       "slow_movement_speed_pct"                           "-30"
       "projectile_speed"                                  "700"

@@ -24,16 +24,16 @@
         "value"                                           "3.2" // 2.7
         "hero_levelup"                                    "+0.4" // 0.3
       }
-      "max_mana_regen" //OAA, intentionally buffed
+      "max_mana_regen"
       {
-        "value"                                           "2.4" // 2.2
-        "hero_levelup"                                    "+0.3" // 0.2
+        "value"                                           "2.2"
+        "hero_levelup"                                    "+0.2"
       }
       "time_until_meditation"                             "0.2"
-      "time_until_max_bonus" //OAA, intentionally rescaled
+      "time_until_max_bonus" //OAA, intentionally rescaled (min value at lvl 50 cannot be 0)
       {
-        "value"                                           "1.0" // 1.85
-        "hero_levelup"                                    "-0.02" // -0.05
+        "value"                                           "0.7" // 1.85
+        "hero_levelup"                                    "-0.01" // -0.05
       }
     }
   }

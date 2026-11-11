@@ -2,9 +2,9 @@ modifier_felfrost = class( ModifierBaseClass )
 
 FELFROST_DURATION = 5 -- reset upon being applied
 
-FELFROST_ARMOR_BASE = 0 -- armor loss just by having the debuff
-FELFROST_ARMOR_PERSTACK = -1 -- armor loss based on stack count
-FELFROST_SLOW_BASE = -10 -- slow just by having the debuff
+--FELFROST_ARMOR_BASE = 0 -- armor loss just by having the debuff
+--FELFROST_ARMOR_PERSTACK = -1 -- armor loss based on stack count
+FELFROST_SLOW_BASE = -30 -- slow just by having the debuff
 FELFROST_SLOW_PERSTACK = -10 -- slow based on stack count
 
 --------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ end
 function modifier_felfrost:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		--MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
 end
 --------------------------------------------------------------------------------
@@ -63,6 +63,6 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_felfrost:GetModifierPhysicalArmorBonus( event )
-	return FELFROST_ARMOR_BASE + ( FELFROST_ARMOR_PERSTACK * self:GetStackCount() )
-end
+--function modifier_felfrost:GetModifierPhysicalArmorBonus( event )
+	--return FELFROST_ARMOR_BASE + ( FELFROST_ARMOR_PERSTACK * self:GetStackCount() )
+--end
