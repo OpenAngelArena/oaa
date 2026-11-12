@@ -283,8 +283,8 @@ function DevCheats:SwitchHero(keys)
   local splitted = split(text, " ")
   local playerID = keys.playerid
 
-  if splitted[2] then
-    local herolist = LoadKeyValues('scripts/npc/herolist.txt')
+  if splitted[2] and HeroSelection then
+    local herolist = HeroSelection:GetHeroList()
     for hero,_ in pairs(herolist) do
       if string.find(hero, splitted[2]) then
         PrecacheUnitByNameAsync(
@@ -296,6 +296,7 @@ function DevCheats:SwitchHero(keys)
           end,
           playerID
         )
+        break
       end
     end
   else
