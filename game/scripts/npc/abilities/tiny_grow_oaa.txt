@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Grow (OAA levels) FIXEDFUCK
+  // Tiny: Grow (OAA levels) 7.42
   // Notes: Not breakable
   //=================================================================================================================
   "tiny_grow_oaa"
@@ -9,8 +9,8 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/tiny_grow.lua"
     "AbilityTextureName"                                  "tiny_grow"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"

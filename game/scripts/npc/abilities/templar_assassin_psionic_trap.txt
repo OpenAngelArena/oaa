@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Templar Assassin: Psionic Trap FIXEDFUCK
+  // Templar Assassin: Psionic Trap 7.42
   //=================================================================================================================
   "templar_assassin_psionic_trap"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1800"
+    "AbilityCastRange"                                    "1600 1800 2000 2200 2400"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -76,6 +76,7 @@
       {
         "special_bonus_scepter"                           "+0"
       }
+      "trap_health"                                       "2"
     }
   }
 }
