@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Warlock: Shadow Word FIXEDFUCK
+  // Warlock: Shadow Word 7.42
   //=================================================================================================================
   "warlock_shadow_word"
   {
@@ -34,6 +34,7 @@
       "damage"
       {
         "value"                                           "15 25 35 45 90 180"
+        "special_bonus_unique_warlock_shadow_word_damage"  "+15"
       }
       "duration"
       {
@@ -42,13 +43,12 @@
       "tick_interval"                                     "0.5"
       "spell_aoe"
       {
-        "value"                                           "225"
-        "special_bonus_unique_warlock_7"                  "+150"
+        "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
       "shard_movement_speed_pct" // unused
       {
-        "special_bonus_shard"                             "0"
+        "special_bonus_unique_warlock_7"                  "+8"
       }
       "AbilityCooldown"
       {

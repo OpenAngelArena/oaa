@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Witch Doctor: Death Ward (OAA rework) FIXEDFUCK
+  // Witch Doctor: Death Ward (OAA rework) 7.42
   //=================================================================================================================
   "witch_doctor_death_ward_oaa"
   {
@@ -38,7 +38,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "200 250 300 350 400"
 
     // "precache"
     // {
@@ -57,7 +57,7 @@
       "damage"
       {
         "value"                                           "60 90 120 180 240"
-        "special_bonus_unique_witch_doctor_5"             "+40"
+        "special_bonus_unique_witch_doctor_5"             "+35"
         //"special_bonus_facet_witch_doctor_cleft_death"    "=45 =70 =95 =145 =195" // lvl 3 is: (vanilla value x (1 + secondary_attack_damage_pct/100)) / 2
         "CalculateSpellDamageTooltip"                     "1"
       }
