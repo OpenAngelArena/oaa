@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Desolate (Innate) FIXEDFUCK
+  // Spectre: Desolate (Innate) 7.42
   //=================================================================================================================
   "spectre_desolate"
   {
@@ -17,13 +17,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "350"
       "bonus_damage"
       {
         "value"                                           "23.5"
         "hero_levelup"                                    "+1.5"
-        "special_bonus_unique_spectre_2"                  "+12"
+        "special_bonus_unique_spectre_2"                  "+10"
       }
+      "radius"                                            "350"
       "illusion_damage_outgoing" // This is affecting all illusions that have the Desolate ability
       {
         "special_bonus_unique_spectre_4"                  "+12"
