@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Void Spirit: Astral Step FIXEDFUCK
+  // Void Spirit: Astral Step 7.42
   //=================================================================================================================
   "void_spirit_astral_step"
   {
@@ -69,6 +69,10 @@
       "crit_damage"
       {
         "special_bonus_unique_void_spirit_8"              "140"
+      }
+      "bonus_potency"
+      {
+        "value"                                           "25"
       }
     }
   }

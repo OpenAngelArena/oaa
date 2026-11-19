@@ -1,15 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Undying: Tombstone FIXEDFUCK
+  // Undying: Tombstone 7.42
   //=================================================================================================================
   "undying_tombstone"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // for shard
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // for shard
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -35,10 +33,10 @@
         "value"                                           "80"
         "special_bonus_unique_undying_7"                  "-15"
       }
-      "tombstone_health" // hits_to_destroy_tooltip x 4
+      "tombstone_health" // hits_to_destroy_tooltip
       {
-        "value"                                           "20 24 28 32 36 40"
-        "special_bonus_unique_undying_5"                  "+16"
+        "value"                                           "5 6 7 8 9 10"
+        "special_bonus_unique_undying_5"                  "+4"
       }
       "hits_to_destroy_tooltip"
       {
@@ -67,16 +65,16 @@
       {
         "special_bonus_unique_undying"                    "+20"
       }
-      "zombie_health"                                     "2"
-      "bunker_units"                                      "1"
-      "bunker_heal_pct"                                   "0"
-      "tombstone_grab_radius"
+      "zombie_health"                                     "1"
+      "bunker_units"                                      "1" // unused
+      "bunker_heal_pct"                                   "0" // unused
+      "tombstone_grab_radius" // unused
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "tombstone_bunker_cd"                               "2"
-      "tombstone_stun_penalty"                            "2"
+      "tombstone_bunker_cd"                               "2" // unused
+      "tombstone_stun_penalty"                            "2" // unused
       "zombie_damage_interval"
       {
         "value"                                           "0"

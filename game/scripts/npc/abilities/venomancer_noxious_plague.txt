@@ -1,19 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Venomancer: Noxious Plague FIXEDFUCK
+  // Venomancer: Noxious Plague 7.42
   //=================================================================================================================
   "venomancer_noxious_plague"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // OAA, Valve forgot this
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -39,7 +38,11 @@
       }
       "debuff_duration"                                   "4"
       "impact_damage"                                     "150 250 350 550 750" //OAA, intentionally buffed
-      "damage_per_second"                                 "2 3 4 4 4" // max hp percent dmg
+      "damage_per_second" // max hp percent dmg
+      {
+        "value"                                           "2 3 4 4 4"
+        "special_bonus_unique_venomancer_plague_damage"   "+2"
+      }
       "damage_tick_rate"                                  ".25"
       "debuff_time_transfer"                              "100"
       "movement_slow"                                     "50"

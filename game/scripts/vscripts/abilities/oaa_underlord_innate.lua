@@ -124,16 +124,32 @@ function modifier_underlord_raid_boss_buff_oaa:IsDebuff()
 end
 
 function modifier_underlord_raid_boss_buff_oaa:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_underlord_raid_boss_buff_oaa:OnCreated()
-  self.dmg_reduction = 4
+  local parent = self:GetParent()
+  if not parent or parent:IsNull() then
+    return
+  end
+  self.dmg_reduction = 0
   self.move_speed = 10
+  local hp_to_shield = 17
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.dmg_reduction = ability:GetSpecialValueFor("damage_reduction")
     self.move_speed = ability:GetSpecialValueFor("bonus_ms")
+    hp_to_shield = ability:GetSpecialValueFor("barrier_max_health_pct")
+  end
+
+  if parent.GetMaxHealth == nil then
+    return
+  end
+
+  self.max_shield_hp = math.ceil((hp_to_shield / 100) * parent:GetMaxHealth())
+
+  if IsServer() then
+    self:SetStackCount(0 - self.max_shield_hp)
   end
 end
 
@@ -143,6 +159,7 @@ function modifier_underlord_raid_boss_buff_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT,
   }
 end
 
@@ -152,6 +169,38 @@ end
 
 function modifier_underlord_raid_boss_buff_oaa:GetModifierMoveSpeedBonus_Percentage()
   return self.move_speed
+end
+
+function modifier_underlord_raid_boss_buff_oaa:GetModifierIncomingPhysicalDamageConstant(event)
+  if IsClient() then
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return math.abs(self:GetStackCount()) -- current shield hp
+    end
+  else
+    local parent = self:GetParent()
+    local damage = event.damage
+    local barrier_hp = math.abs(self:GetStackCount())
+
+    -- Don't block more than remaining hp
+    local block_amount = math.min(damage, barrier_hp)
+
+    -- Reduce barrier hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - barrier_hp)
+
+    if block_amount > 0 then
+      -- Visual effect
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+    end
+
+    -- Remove the barrier if hp is reduced to nothing
+    if self:GetStackCount() >= 0 then
+      self:Destroy()
+    end
+
+    return -block_amount
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
