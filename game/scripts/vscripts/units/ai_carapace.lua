@@ -103,6 +103,9 @@ function CarapaceBossThink()
       AttackNearestTarget(thisEntity)
       thisEntity.state = AI_STATE_AGGRO
     else
+      thisEntity:Interrupt()
+      thisEntity:Stop()
+      thisEntity:Hold()
       -- Check if the boss was messed around with displacing abilities (Force Staff for example)
       if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
         --thisEntity:MoveToPosition(thisEntity.spawn_position)
