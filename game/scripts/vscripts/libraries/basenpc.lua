@@ -216,7 +216,7 @@ if IsServer() then
       "modifier_item_nullifier_mute",                  -- Nullifier debuff
       "modifier_item_skadi_slow",
       "modifier_silver_edge_debuff",                   -- Silver Edge debuff
-      "modifier_item_angels_demise_break",             -- Khanda Break
+      --"modifier_item_angels_demise_break",             -- Khanda Break
       -- custom:
       "modifier_item_shade_staff_trees_debuff",        -- Shade Staff debuff
       "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
