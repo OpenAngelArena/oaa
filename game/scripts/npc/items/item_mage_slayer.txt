@@ -49,11 +49,18 @@
     "AbilityValues"
     {
       "bonus_magical_armor"                               "18" // Cloak (18);
-      "spell_amp_debuff"                                  "24" //OAA, intentionally nerfed
+      "spell_amp_debuff" //OAA, intentionally nerfed
+      {
+        "value"                                           "24"
+        "apply_effectiveness"                             "1"
+      }
       "bonus_health_regen"                                "5.5"
       "bonus_mana_regen"                                  "2.5"
       "bonus_damage"                                      "10" //OAA, intentionally nerfed; Blade of Attack (9);
-      "duration"                                          "3"
+      "duration"
+      {
+        "value"                                           "3"
+      }
       "dps"                                               "35"
     }
   }

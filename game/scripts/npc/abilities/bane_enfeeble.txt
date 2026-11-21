@@ -35,7 +35,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"                                  "35 40 45 50 55 60" //OAA, intentionally nerfed; reducing total attack damage;
+      "damage_reduction" //OAA, intentionally nerfed; reducing total attack damage;
+      {
+        "value"                                           "35 40 45 50 55 60"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
       "heal_reduction"
       {
         "value"                                           "0"

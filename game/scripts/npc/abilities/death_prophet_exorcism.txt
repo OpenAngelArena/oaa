@@ -41,7 +41,6 @@
       "heal_percent"                                      "25"
       "average_damage"                                    "65 75 85 115 165" //OAA, intentionally buffed; important for tooltip: (min_damage + max_damage) / 2
       "ghost_spawn_rate"                                  "0.25"
-      "movement_bonus"                                    "0"
       "radius"
       {
         "value"                                           "700"
@@ -52,19 +51,14 @@
         "value"                                           "10 18 26 26 26"
         "special_bonus_unique_death_prophet"              "+6"
       }
-      "scepter_spirit_life_duration"
-      {
-        "special_bonus_scepter"                           "20"
-      }
-      "scepter_spirit_bonus_damage" // this is a percent increase
-      {
-        "special_bonus_scepter"                           "60"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
       "duration_increase_per_kill" //OAA, because of special_bonus_unique_death_prophet_exorcism_duration_on_kill nerf
       {
         "value"                                           "0"
-        "special_bonus_unique_death_prophet_exorcism_duration_on_kill"  "+4"
+      }
+      "unslowable"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_death_prophet_4"            "+1"
       }
       "building_dmg_pct"                                  "150" //OAA, additional effect; percentage bonus damage against bosses
     }

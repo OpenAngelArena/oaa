@@ -39,6 +39,8 @@
       }
       "non_hero_stun_duration"                            "3.0"
       "hero_stun_duration"                                "1.6 1.7 1.8 1.9" //OAA, intentionally buffed
+      "neutral_chance_to_cast"                            "100"
+      "neutral_cast_attempt_cooldown"                     "8"
     }
   }
 }

@@ -7,7 +7,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "BaseClass"                                           "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creep_neutral"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "4"
@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mud_golem_hurl_boulder"
+    "Ability1"                                            "mud_golem_hurl_big_boulder" // "mud_golem_hurl_boulder"
     "Ability2"                                            "mud_golem_shard_split_oaa"   // mud_golem_rock_destroy doesn't work!!!
     "Ability3"                                            ""
     "Ability4"                                            ""

@@ -37,6 +37,24 @@
       }
 
       "attribute_penalty_pct"                             "0"
+      "radius_tooltip"
+      {
+        "special_bonus_shard"                             "+200"
+      }
+      "AbilityManaCost"
+      {
+        "special_bonus_shard"                             "40"
+      }
+      "AbilityCooldown"
+      {
+        "special_bonus_shard"                             "25 20 15 10"
+      }
+      "AbilityCastRange"
+      {
+        "special_bonus_shard"                             "250"
+      }
+      "xp_penalty_time"                                   "5.0"
+      "xp_penalty_pct"                                    "50 66 75 80"
     }
   }
 }

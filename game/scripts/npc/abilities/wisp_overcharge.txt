@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Io (Wisp): Overcharge FIXEDFUCK
+  // Io (Wisp): Overcharge 7.42
   //=================================================================================================================
   "wisp_overcharge"
   {
@@ -54,8 +54,8 @@
       }
       "duration"
       {
-        "value"                                           "8"
-        "special_bonus_unique_wisp_overcharge_duration"   "+1.5"
+        "value"                                           "7"
+        "special_bonus_unique_wisp_overcharge_duration"   "+1"
       }
       "spell_lifesteal"
       {

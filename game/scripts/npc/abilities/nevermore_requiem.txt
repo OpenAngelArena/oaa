@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Fiend: Requiem of Souls
+  // Shadow Fiend: Requiem of Souls 7.42
   //=================================================================================================================
   "nevermore_requiem"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -30,11 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
-      "requiem_reduction_mres"                            "-10" //OAA, Valve has it wrong since 7.41
-      "requiem_soul_conversion"                           "1"
-      "requiem_line_speed"                                "700"
-      "soul_death_release"                                "0.5"
       "AbilityCooldown"
       {
         "value"                                           "120 110 100 90 80"
@@ -45,16 +40,19 @@
         "value"                                           "1000"
         "affected_by_aoe_increase"                        "1"
       }
+      "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
+      "requiem_fear_duration"
+      {
+        "value"                                           "1.2 1.5 1.8 1.9 2.0"
+        "special_bonus_unique_nevermore_6"                "+0.5"
+      }
       "requiem_slow_duration"
       {
-        "value"                                           "0.6"
-        "special_bonus_unique_nevermore_6"                "+0.2"
+        "value"                                           "1.2 1.5 1.8 1.9 2.0"
+        "special_bonus_unique_nevermore_6"                "+0.5"
       }
-      "requiem_slow_duration_max"
-      {
-        "value"                                           "2.15"
-        "special_bonus_unique_nevermore_6"                "+0.45"
-      }
+      "requiem_duration_per_soul"                         "0.1"
+      "requiem_soul_conversion"                           "1"
       "requiem_line_width_start"
       {
         "value"                                           "125"
@@ -65,6 +63,12 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
+      "requiem_line_speed"
+      {
+        "value"                                           "700"
+        "special_bonus_scepter"                           "+30%"
+      }
+      "soul_death_release"                                "0.5"
       "requiem_heal_pct_scepter"
       {
         "special_bonus_scepter"                           "100"
@@ -78,6 +82,8 @@
       {
         "value"                                           "20"
       }
+      "max_fear_duration_oaa"                             "8.5" //OAA, additional effect, check modifyabilitiesfilter.lua for details
+      "fear_immunity_duration_oaa"                        "2" // OAA, additional effect, check modifyabilitiesfilter.lua for details
     }
   }
 }

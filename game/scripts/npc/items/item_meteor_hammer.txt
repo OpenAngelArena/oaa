@@ -12,12 +12,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "300"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                                          "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                                                "item_kaya;item_diadem;item_crown"
+      "01"                                                "item_kaya;item_crown"
     }
   }
 
@@ -40,15 +40,9 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/meteor_hammer.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"                                  "custom/meteor_hammer_1"
+    "AbilityTextureName"                                  "custom/meteor_hammer_oaa" //"custom/meteor_hammer_1"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    // Spicy Paramaters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_meteor_hammer_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -58,12 +52,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilitySharedCooldown"                               "meteor"
-    "AbilityCooldown"                                     "24 23 22 21 20"
-    "AbilityManaCost"                                     "100"
+    "AbilityCooldown"                                     "24"
+    "AbilityManaCost"                                     "75"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3650"
+    "ItemCost"                                            "2750"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh;meteor hammer"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -73,16 +67,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "26 31 41 56 76" // Kaya (16); Diadem (6); Crown (4);
-      "bonus_strength"                                    "12 17 22 27 32" // Diadem (6); Crown (4);
-      "bonus_agility"                                     "12 17 22 27 32" // Diadem (6); Crown (4);
-      "spell_amp"                                         "12 16 20 24 28" // Kaya (10);
-      "mana_regen_multiplier"                             "25 35 45 55 65" // Kaya (20);
+      "bonus_intellect"                                   "20" // Kaya (16); Crown (4);
+      "bonus_strength"                                    "6" // Crown (4);
+      "bonus_agility"                                     "6" // Crown (4);
+      "spell_amp"                                         "6" // Kaya (6);
+      "mana_regen_multiplier"                             "20" // Kaya (20);
 
-      "burn_dps_boss"                                     "150 300 450 600 750"
-      "burn_dps"                                          "55 145 235 325 415" // vanilla: 50
+      "burn_dps_boss"                                     "120"
+      "burn_dps"                                          "60" // vanilla: 60
       "burn_duration"                                     "6"
-      "stun_duration"                                     "1.5" // vanilla: 0.75
+      "stun_duration"                                     "0.75" // vanilla: 0.75
       "burn_interval"                                     "1.0"
       "land_time"                                         "0.5"
       "impact_radius"
@@ -90,9 +84,9 @@
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "150 250 400 600 850" // vanilla: 130;
-      "move_speed_slow_pct"                               "20 25 30 35 40"
+      "impact_damage_boss"                                "200"
+      "impact_damage"                                     "150" // vanilla: 150;
+      "move_speed_slow_pct"                               "15"
       "cooldown_tooltip"                                  "24 23 22 21 20"
     }
 

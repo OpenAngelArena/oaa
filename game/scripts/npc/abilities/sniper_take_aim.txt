@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sniper: Take Aim FIXEDFUCK
+  // Sniper: Take Aim 7.42
   //=================================================================================================================
   "sniper_take_aim"
   {
@@ -23,11 +23,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA, intentionally nerfed
+    "AbilityManaCost"                                     "75" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,11 +45,11 @@
       "headshot_chance"                                   "100"
       "active_attack_range_bonus"
       {
-        "value"                                           "75 150 225 300 310 410"
+        "value"                                           "75 150 225 300 310 320" // scales poorly into OAA lvls intentionally
       }
       "passive_attack_range_bonus"
       {
-        "value"                                           "160 240 320 400 410 420"
+        "value"                                           "160 240 320 400 410 420" // scales poorly into OAA lvls intentionally
         "special_bonus_unique_sniper_5"                   "+50"
       }
       "bonus_vision"                                      "500 750 1000 1250 1350 1450"

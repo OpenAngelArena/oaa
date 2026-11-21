@@ -35,6 +35,8 @@
       }
       "damage_reduction"                                  "60"
       "duration"                                          "4.0 4.5 5.0 5.5" //OAA, intentionally buffed
+      "neutral_chance_to_cast"                            "60"
+      "neutral_cast_attempt_cooldown"                     "8"
     }
   }
 }

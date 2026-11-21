@@ -72,7 +72,10 @@
       "proc_dmg_pct_primary_tooltip"                      "100"
       "base_proc_dmg"                                     "20 30 50 80 110"
       "base_attack_range"                                 "130 140 150 160 170"
-      "poison_duration"                                   "3"
+      "poison_duration"
+      {
+        "value"                                           "3"
+      }
       "poison_base_damage"                                "0"
       "poison_damage_per_second"                          "1.5"
     }

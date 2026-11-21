@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Epicenter FIXEDFUCK
+  // Sand King: Epicenter 7.42
   //=================================================================================================================
   "sandking_epicenter"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -36,16 +36,16 @@
       "AbilityCooldown"
       {
         "value"                                           "120 110 100 90 80"
+        "special_bonus_unique_sand_king_8"                "-15"
       }
       "epicenter_pulses"
       {
         "value"                                           "12 16 20 24 28"
         "special_bonus_unique_sand_king"                  "+6"
       }
-      "epicenter_damage" //OAA, intentionally buffed and because of special_bonus_shard, remove when they change the tooltip
+      "epicenter_damage" //OAA, intentionally buffed
       {
         "value"                                           "60 75 90 120 150"
-        "special_bonus_shard"                             "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"
@@ -78,30 +78,6 @@
       }
       "shard_interval"                                    "3.0"
       "linger_duration"                                   "3.0"
-      "scepter_explosion_radius_pct"
-      {
-        "special_bonus_scepter"                           "+35"
-      }
-      "scepter_explosion_min_dist"
-      {
-        "special_bonus_scepter"                           "+120"
-      }
-      "scepter_explosions_per_pulse"
-      {
-        "special_bonus_scepter"                           "+3"
-      }
-      "spine_tick_rate"
-      {
-        "special_bonus_scepter"                           "=0.5"
-      }
-      "spine_damage_pct"
-      {
-        "special_bonus_scepter"                           "=40"
-      }
-      "shard_explosions_per_pulse"
-      {
-        "special_bonus_scepter"                           "+1"
-      }
     }
   }
 }

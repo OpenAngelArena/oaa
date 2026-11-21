@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wraith King: Bone Guard FIXEDFUCK
+  // Wraith King: Bone Guard 7.42
   //=================================================================================================================
   "skeleton_king_bone_guard"
   {
@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "skeleton_duration" //OAA, intentionally nerfed
+      "skeleton_duration" //OAA, intentionally nerfed because of lag
       {
         "value"                                           "30"
       }
@@ -56,7 +56,7 @@
         "value"                                           "0 5 10 15 20 25"
       }
       "skeleton_building_damage_reduction"                "35"
-      "skeleton_bonus_hero_damage"                        "25 26 27 28 29 30" // OAA, intentionally buffed, percentage increase
+      "skeleton_bonus_hero_damage"                        "24 28 32 36 40 44" // percentage increase
       "skeleton_charges_per_hero_multiplier"              "4"
 
       "skeleton_attack_speed_per_level"                   "1" //OAA, additional effect, tooltip only, actual value in wraith_king_global_skeleton_aura_oaa

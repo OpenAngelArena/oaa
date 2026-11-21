@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Terrorblade: Demon Zeal (shard ability) FIXEDFUCK
+  // Terrorblade: Demon Zeal (shard ability) 7.42
   //=================================================================================================================
   "terrorblade_demon_zeal"
   {
@@ -29,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "berserk_bonus_attack_speed"                        "100"
+      "berserk_bonus_attack_speed"                        "90"
       "berserk_bonus_movement_speed"                      "60"
       "duration"                                          "20" //OAA, intentionally nerfed
       "hp_regen"                                          "20"

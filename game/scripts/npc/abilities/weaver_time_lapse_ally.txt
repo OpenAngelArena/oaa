@@ -1,0 +1,11 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Weaver: Time Lapse on ally (Scepter, follows Time Lapse levels)
+  //=================================================================================================================
+  "weaver_time_lapse_ally"
+  {
+    "MaxLevel"                                            "5"
+    "DependentOnAbility"                                  "weaver_time_lapse"
+  }
+}

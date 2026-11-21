@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Mass Serpent Ward (OAA rework) FIXEDFUCK
+  // Shadow Shaman: Mass Serpent Ward (OAA rework) 7.42
   //=================================================================================================================
   "shadow_shaman_mass_serpent_ward_oaa"
   {
@@ -74,8 +74,8 @@
       }
       "ward_health" // hits to destroy for creeps
       {
-        "value"                                           "4"
-        "special_bonus_unique_shadow_shaman_1"            "+50%"
+        "value"                                           "2"
+        "special_bonus_unique_shadow_shaman_1"            "+1"
       }
       "bonus_attack_targets"
       {

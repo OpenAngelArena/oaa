@@ -40,33 +40,44 @@
         "value"                                           "24"
         "special_bonus_unique_morphling_8"                "+12"
       }
-      "scepter_stat_steal"
+      "scepter_echo_retarget_radius"
       {
-        "special_bonus_scepter"                           "20"
+        "special_bonus_scepter"                           "450"
       }
-      "scepter_spell_amplify"
+      "scepter_echo_visible_duration"
       {
-        "special_bonus_scepter"                           "25"
+        "special_bonus_scepter"                           "0.75"
       }
-      "scepter_attack_speed"
+      "scepter_echo_appear_distance"
       {
-        "special_bonus_scepter"                           "70"
+        "special_bonus_scepter"                           "150"
       }
-      "scepter_status_resist"
+      "scepter_echo_min_model_scale"
       {
-        "special_bonus_scepter"                           "40"
+        "special_bonus_scepter"                           "0.25"
       }
-      "scepter_additional_stats"
+      "scepter_echo_damage_second_tooltip_only"
       {
-        "special_bonus_scepter"                           "20"
+        "special_bonus_scepter"                           "+25"
       }
-      "scepter_illusion_outgoing"
+      "scepter_echo_damage_falloff_pct"
       {
-        "special_bonus_scepter"                           "100"
+        "special_bonus_scepter"                           "+25"
       }
-      "scepter_illusion_incoming"
+      "scepter_echo_damage_outgoing_pct"
       {
-        "special_bonus_scepter"                           "200"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+50"
+      }
+      "scepter_echo_cast_delay"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "0.2"
+      }
+      "scepter_echo_count"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+2"
       }
     }
   }

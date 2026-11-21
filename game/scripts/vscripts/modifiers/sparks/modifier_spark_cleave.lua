@@ -124,10 +124,10 @@ if IsServer() then
     -- Exclude the original attack target from list of units to splinter to
     table.remove(units, index(target, units))
     -- Take only neutral unit types to avoid targeting summons
-    local function IsNeutralUnitType(unit)
+    local function IsNeutralUnitTypeCustom(unit)
       return unit:IsNeutralCreep( false )
     end
-    local neutralUnits = filter(IsNeutralUnitType, units)
+    local neutralUnits = filter(IsNeutralUnitTypeCustom, units)
     -- Take the first splinter_number units to split to
     local nUnits = take_n(splinter_count, neutralUnits)
 

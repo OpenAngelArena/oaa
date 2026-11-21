@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Fowl Play (Innate)
+  // Shadow Shaman: Fowl Play (Innate) 7.42
   //=================================================================================================================
   "shadow_shaman_fowl_play"
   {
@@ -11,22 +11,21 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCooldown"                                     "120"
-
     "AbilityValues"
     {
       "hex_duration"                                      "3.0"
       "movespeed_bonus_pct"
       {
         "value"                                           "5"
-        "hero_levelup"                                    "+5"
-        "levelup_interval"                                "5"
+        "hero_levelup"                                    "+1"
       }
-      "total_chickens" //OAA, intentionally rescaled because of lag
+      "total_chickens" //OAA, intentionally nerfed because of lag
       {
         "value"                                           "2"
-        "hero_levelup"                                    "+1"
-        "levelup_interval"                                "15"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "120"
       }
       "damage_reduction_duration"
       {

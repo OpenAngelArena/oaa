@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kez: Raptor Dance FIXEDFUCK
+  // Kez: Raptor Dance 7.42
   //=================================================================================================================
   "kez_raptor_dance"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
@@ -21,6 +21,9 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "0.0"
 
     // Cost
@@ -43,22 +46,23 @@
       }
       "radius"
       {
-        "value"                                           "450"
+        "value"                                           "425"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_kez_raptor_dance_radius"    "+50"
       }
       "base_damage" //OAA, intentionally buffed
       {
-        "value"                                           "40 80 120 200 280"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                           "50 150 250 450 650"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "max_health_damage_pct"
       {
-        "value"                                           "2.5"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                           "2.75 3.25 3.75 4.25 4.75"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "lifesteal_pct"                                     "100"
       "illusion_lifesteal_pct"                            "20"
+      "lifesteal_from_creeps"                             "0"
       "invuln_period"                                     "0.2"
       "magic_resist"                                      "0"
       "hard_dispel"                                       "0"

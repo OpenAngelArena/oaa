@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: M.A.D. FIXEDFUCK
+  // Techies: M.A.D. (Innate) 7.42
   //=================================================================================================================
   "techies_mutually_assured_destruction"
   {
@@ -19,7 +19,7 @@
     {
       "bonus_mana_as_mana_regen"
       {
-        "value"                                           "0.1"
+        "value"                                           "0.10"
         "hero_levelup"                                    "+0.01"
         "display_type"                                    "kBuffPercentage"
       }
@@ -32,7 +32,7 @@
       "max_mana_pct_as_damage" //OAA, intentionally nerfed
       {
         "value"                                           "15"
-        "special_bonus_shard"                             "+10"
+        "special_bonus_shard"                             "+15"
         "display_type"                                    "kMagicalDamagePercentage"
       }
       "current_mana_regen"
@@ -57,6 +57,10 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "450"
+      }
+      "tooltip_health_pips"
+      {
+        "special_bonus_shard"                             "3"
       }
     }
   }

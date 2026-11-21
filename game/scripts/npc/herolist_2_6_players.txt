@@ -1,7 +1,6 @@
-//
-// <key>  <value>
-// Hero   currently on/off, will be # of instances (-1 = infinite)
-//
+// herolist when the server is dedicated or when number of players is low (<=4)
+// Heroes marked with 0 are completely unplayable
+
 "whitelist"
 {
   "npc_dota_hero_abaddon"                                 "1"

@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9200"
+    "ItemCost"                                            "9000"
     "ItemShopTags"                                        "str;int;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "snk 3;s&k 3;sk 3;sange and kaya 3"
@@ -60,9 +60,9 @@
       "bonus_strength"                                    "20 25 35 50 70"
       "bonus_intellect"                                   "20 25 35 50 70"
       "slow_resistance"                                   "25 27 29 31 33"
-      "mana_regen_multiplier"                             "30 40 50 60 70"
-      "spell_amp"                                         "12 16 20 24 28"
-      "hp_regen_amp"                                      "16 18 20 22 24"
+      "mana_regen_multiplier"                             "25 35 45 55 65"
+      "spell_amp"                                         "10 14 18 22 26"
+      "hp_regen_amp"                                      "20 22 24 26 28"
       "manacost_reduction"                                "20 22 24 26 28"
     }
   }

@@ -1,4 +1,4 @@
-
+-- UNUSED
 item_revenants_brooch_1 = class(ItemBaseClass)
 
 function item_revenants_brooch_1:GetIntrinsicModifierName()

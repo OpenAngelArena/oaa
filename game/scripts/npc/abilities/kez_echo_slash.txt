@@ -39,12 +39,12 @@
       "katana_echo_damage" // percentage of Kez's attack damage
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "value"                                           "70 80 90 100 110 120"
+        "value"                                           "30 45 60 75 90 105"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "echo_hero_damage" // bonus dmg
+      "echo_base_damage"
       {
-        "value"                                           "20 40 60 80 160 320"
+        "value"                                           "40 70 100 130 160 190"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }

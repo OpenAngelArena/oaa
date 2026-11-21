@@ -33,28 +33,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_units"
-      {
-        "value"                                           "1 2 3 4 5 6"
-      }
+      "max_units"                                         "1 2 3 4 5 6"
       "level_req"                                         "6" //OAA, intentionally does not scale
-      "health_min"
-      {
-        "value"                                           "400"
-        "hero_levelup"                                    "+50"
-        "special_bonus_unique_chen_4"                     "+1300"
-      }
       "gold_pct"                                          "25 50 75 100 125 150"
-      "movement_speed_bonus"                              "5 10 20 30 40 50"
-      "damage_bonus" // base damage percentage bonus; does not show in the UI but it works
-      {
-        "value"                                           "5 10 15 20 25 30"
-        "special_bonus_unique_chen_5"                     "+12"
-      }
-      "is_martyr"
-      {
-        "value"                                           "0"
-      }
       "current_hp_pct_tooltip"
       {
         "value"                                           "0"
@@ -66,6 +47,7 @@
       }
       "unsummon_time"                                     "3.0"
       "unsummon_cooldown_reduction"                       "12.0"
+      "teleport_delay"                                    "6 5 4 3 2 1"
     }
   }
 }

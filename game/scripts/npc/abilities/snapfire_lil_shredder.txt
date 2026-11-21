@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Snapfire: Lil Shredder
+  // Snapfire: Lil Shredder 7.42
   //=================================================================================================================
   "snapfire_lil_shredder"
   {
@@ -33,12 +33,6 @@
     "AbilityValues"
     {
       "damage"                                            "20 35 50 65 95 125"
-      "attack_speed_bonus"                                "300"
-      "attack_range_bonus"                                "160 240 320 400 410 420"
-      "buff_duration_tooltip"                             "6"
-      "base_attack_time"                                  "1.0"
-      "armor_reduction_per_attack"                        "0.5"
-      "armor_duration"                                    "5.0"
       "buffed_attacks" //OAA, because of special_bonus_unique_snapfire_2 nerf
       {
         "value"                                           "5"
@@ -49,6 +43,12 @@
         "value"                                           "35"
         "special_bonus_unique_snapfire_6"                 "+60"
       }
+      "attack_speed_bonus"                                "300"
+      "attack_range_bonus"                                "160 240 320 400 410 420" // scales poorly into OAA lvls intentionally
+      "buff_duration_tooltip"                             "6" // same as AbilityDuration
+      "base_attack_time"                                  "1.0"
+      "armor_reduction_per_attack"                        "0.5"
+      "armor_duration"                                    "5.0"
       "extra_targets"
       {
         "special_bonus_unique_snapfire_8"                 "=2"

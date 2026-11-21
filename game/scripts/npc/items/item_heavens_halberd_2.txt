@@ -45,13 +45,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15 14 13 12 11"
     "AbilitySharedCooldown"                               "halberd"
-    "AbilityCastRange"                                    "750 800 850 900 950"
+    "AbilityCastRange"                                    "500 550 600 650 700"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "3900"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd 2;halberd 2"
@@ -66,12 +66,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "9 10 12 15 19"
-      "bonus_health_regen"                                "6.5 9.5 12.5 15.5 18.5"
-      "bonus_evasion"                                     "20 25 30 35 40"
+      "bonus_strength"                                    "12"
+      "bonus_armor"                                       "4.5 5.5 7.5 10.5 14.5"
+      "bonus_health_regen"                                "4.5 7.5 10.5 13.5 16.5"
 
-      "disarm_range"                                      "3.5 3.75 4.0 4.25 4.5"
-      "disarm_melee"                                      "3.5 3.75 4.0 4.25 4.5"
+      "disarm_range"                                      "3.0 3.25 3.50 3.75 4.0"
+      "disarm_melee"                                      "3.0 3.25 3.50 3.75 4.0"
       "cooldown_tooltip"                                  "16 15 14 13 12"
     }
   }

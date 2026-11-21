@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Warlock: Upheaval FIXEDFUCK
+  // Warlock: Upheaval 7.42
   //=================================================================================================================
   "warlock_upheaval"
   {
@@ -36,7 +36,7 @@
       "aoe"
       {
         "value"                                           "575 600 625 650 675 700"
-        "special_bonus_unique_warlock_upheaval_aoe"       "+50"
+        //"special_bonus_unique_warlock_upheaval_aoe"       "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "slow_per_second"                                   "11 14 17 20 23 26"
@@ -48,13 +48,13 @@
       }
       "base_damage"
       {
-        "special_bonus_unique_warlock_3"                  "=45"
+        "special_bonus_unique_warlock_3"                  "=50"
       }
       "damage_per_second"                                 "10 12 14 16 32 48" //OAA, intentionally buffed; min dps
-      "max_damage" //OAA, Valve has the wrong value for special_bonus_unique_warlock_3 since 7.40b
+      "max_damage"
       {
         "value"                                           "35 60 85 110 220 330" // max dps
-        "special_bonus_unique_warlock_3"                  "+45"
+        "special_bonus_unique_warlock_3"                  "+50"
       }
       "damage_tick_interval"
       {

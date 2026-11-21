@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Skywrath Mage: Ancient Seal FIXEDFUCK
+  // Skywrath Mage: Ancient Seal 7.42
   //=================================================================================================================
   "skywrath_mage_ancient_seal"
   {
@@ -32,8 +32,8 @@
     {
       "resist_debuff"
       {
-        "value"                                           "-20 -25 -30 -35 -40 -45"
-        "special_bonus_unique_skywrath_3"                 "-10"
+        "value"                                           "-16 -20 -24 -28 -32 -36"
+        "special_bonus_unique_skywrath_3"                 "-8"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "seal_duration"                                     "3.0 3.5 4.0 4.5 5.0 5.5" //OAA, intentionally nerfed
@@ -45,7 +45,7 @@
       "AbilityCooldown"
       {
         "value"                                           "14"
-        "special_bonus_unique_skywrath"                   "-6"
+        "special_bonus_unique_skywrath"                   "-5"
       }
     }
   }

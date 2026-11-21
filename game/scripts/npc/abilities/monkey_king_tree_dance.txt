@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -37,13 +37,13 @@
       "give_up_distance"                                  "1850"
       "ground_jump_distance"
       {
-        "value"                                           "900"
-        "special_bonus_unique_monkey_king_7"              "+300"
+        "value"                                           "1000"
+        "special_bonus_unique_monkey_king_7"              "+200"
       }
       "perched_jump_distance"
       {
-        "value"                                           "900"
-        "special_bonus_unique_monkey_king_7"              "+300"
+        "value"                                           "1000"
+        "special_bonus_unique_monkey_king_7"              "+200"
       }
       "jump_damage_cooldown"
       {
@@ -61,7 +61,7 @@
         "value"                                           "110 200 290 380 760 1140"
       }
       "impact_movement_slow_tooltip"                      "30 40 50 60 70 80" //OAA, Valve has it wrong: wrong values but it's just a tooltip error, not fixed since 7.36, not fixed during 7.41c
-      "range"                                             "900"
+      "range"                                             "1000"
       "max_level" //OAA, intentionally
       {
         "value"                                           "6"

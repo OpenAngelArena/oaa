@@ -20,27 +20,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_duration"                                     "2"
-      "hit_count"
-      {
-        "value"                                           "1"
-      }
-      "curse_duration"                                    "2.0"
-      "curse_slow"
-      {
-        "value"                                           "10 15 20 25 30 35"
-      }
+      "curse_duration"                                    "3.0"
+      "curse_slow"                                        "10 15 20 25 30 35"
       "curse_attack_speed"
       {
-        "value"                                           "10 20 30 40 50 60"
-        "special_bonus_unique_abaddon_3"                  "+65"
+        "value"                                           "15 20 25 30 35 40"
+        "special_bonus_unique_abaddon_3"                  "+50"
+      }
+      "curse_self_attack_speed_multiplier_tooltip_only"   "1.5"
+      "curse_self_attack_speed"
+      {
+        "value"                                           "22.5 30 37.5 45 52.5 60.0"
+        "special_bonus_unique_abaddon_3"                  "+75"
       }
       "curse_dps"
       {
-        "value"                                           "15 25 35 45 90 135"
-        "special_bonus_unique_abaddon_5"                  "+30"
+        "value"                                           "12 20 28 36 72 108"
+        "special_bonus_unique_abaddon_5"                  "+25"
       }
-      "tower_dps_pct"                                     "100"
+      "tower_dps_penalty_pct"                             "100"
       "curse_interval"                                    "0.5"
     }
   }

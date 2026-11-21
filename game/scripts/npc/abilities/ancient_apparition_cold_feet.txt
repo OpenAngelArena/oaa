@@ -39,15 +39,20 @@
       "damage_per_second"
       {
         "value"                                           "25 45 65 85 170 255"
-        "special_bonus_unique_ancient_apparition_cold_feet_dps"  "+30"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
+      "movement_slow"                                     "4 6 8 10 11 12"
       "break_distance"
       {
         "value"                                           "725 750 775 800 825 850"
-        "special_bonus_unique_ancient_apparition_cold_feet_distance"  "+250"
+        "special_bonus_unique_ancient_apparition_cold_feet_distance"  "+150"
       }
       "stun_duration"                                     "1.8 2.2 2.6 3.0 3.1 3.2"
+      "leash"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ancient_apparition_3"       "+1"
+      }
       "area_of_effect"
       {
         "value"                                           "0"

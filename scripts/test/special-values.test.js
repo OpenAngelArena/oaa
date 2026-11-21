@@ -17,7 +17,6 @@ const allowedIconNames = [
 ];
 const ignoredBaseClasses = [
   'item_abyssal_blade',
-  'item_angels_demise',
   'item_arcane_blink',
   'item_armlet',
   'item_assault',
@@ -37,7 +36,6 @@ const ignoredBaseClasses = [
   'item_harpoon',
   'item_heart',
   'item_heavens_halberd',
-  'item_helm_of_the_overlord',
   'item_hurricane_pike',
   'item_hydras_breath',
   'item_kaya_and_sange',

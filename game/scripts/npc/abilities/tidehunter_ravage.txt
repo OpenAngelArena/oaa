@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tidehunter: Ravage FIXEDFUCK
+  // Tidehunter: Ravage 7.42
   //=================================================================================================================
   "tidehunter_ravage"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
@@ -24,7 +24,7 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "275 475 675 1075 1675" //OAA, intentionally buffed
+    "AbilityDamage"                                       "275 455 635 995 1535" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

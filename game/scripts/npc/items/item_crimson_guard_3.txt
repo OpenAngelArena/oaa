@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_crimson_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/crimson_guard_3"
 
     // Stats
@@ -65,7 +65,7 @@
     "AbilityValues"
     {
       "bonus_health"                                      "250 350 500 700 950"
-      "bonus_health_regen"                                "12 15 18 21 24"
+      "bonus_health_regen"                                "9 12 15 18 21"
       "bonus_armor"                                       "7 8 10 13 17"
       "block_damage_melee"                                "75 125 175 225 275"
       "block_damage_ranged"                               "50 85 120 155 190"
@@ -80,6 +80,13 @@
       "block_chance_active"                               "100"
       "block_penalty_ranged"                              "25"
       "max_hp_pct"                                        "2.0"
+      "bonus_aoe_armor"                                   "2"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "add_nostack_debuff"                                "1"
     }
   }
 }
