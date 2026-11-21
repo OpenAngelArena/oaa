@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Riki: Backstab (Innate)
+  // Riki: Backstab (Innate) 7.42
   //=================================================================================================================
   "riki_innate_backstab"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN" //OAA, Valve is missing '|'
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "1"
@@ -16,8 +16,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "ally_multiplier"                                   "30"
-      "backstab_angle"                                    "105"
       "damage_multiplier"
       {
         "value"                                           "0.55"
@@ -26,17 +24,25 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "bonus_xp_kill"
+      "ally_multiplier"                                   "30"
+      "backstab_angle"                                    "105"
+      "bonus_potency" //OAA, intentionally nerfed
+      {
+        "value"                                           "10"
+        "hero_levelup"                                    "+8"
+        "levelup_interval"                                "15"
+      }
+      "bonus_xp_kill" // unused
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 150 250 350"
       }
-      "bonus_xp_assist"
+      "bonus_xp_assist" // unused
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 75 125 175"
       }
-      "bonus_xp_assist_other"
+      "bonus_xp_assist_other" // unused
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 75 125 175"
