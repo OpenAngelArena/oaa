@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lycan: Feral Impulse FIXEDFUCK
+  // Lycan: Feral Impulse 7.42
   //=================================================================================================================
   "lycan_feral_impulse"
   {
@@ -19,7 +19,7 @@
     {
       "bonus_damage" //OAA, intentionally nerfed
       {
-        "value"                                           "10 16 22 28 34 40"
+        "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
