@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OD: Objurgation FIXEDFUCK
+  // OD: Objurgation 7.42
   //=================================================================================================================
   "obsidian_destroyer_objurgation"
   {
@@ -31,7 +31,7 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "30 29 28 27 26 25"
-        "special_bonus_unique_outworld_devourer_barrier"  "-10"
+        "special_bonus_unique_outworld_devourer_barrier"  "-7"
       }
       "barrier_flat"                                      "150 200 250 300 350 400"
       "mana_to_barrier"
