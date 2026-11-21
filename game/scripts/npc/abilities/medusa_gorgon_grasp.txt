@@ -48,8 +48,8 @@
       "radius"
       {
         "value"                                           "150"
-        "special_bonus_unique_medusa_gorgons_grasp_radius"  "+50" // 7.42 check: vanilla moved this talent from slot 10 to slot 12, heroes/medusa.txt still has slot 10
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_medusa_gorgons_grasp_radius"  "+50"
       }
       "radius_grow"                                       "50"
       "volley_count"                                      "3"
