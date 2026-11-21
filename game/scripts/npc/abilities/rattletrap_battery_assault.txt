@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clockwerk: Battery Assault FIXEDFUCK
+  // Clockwerk: Battery Assault 7.42
   //=================================================================================================================
   "rattletrap_battery_assault"
   {
@@ -22,7 +22,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100"
+    "AbilityManaCost"                                     "70 75 80 85 90 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,16 +38,20 @@
         "value"                                           "330"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "10.5"
+      "duration"
+      {
+        "value"				"10.5"
+        "special_bonus_unique_clockwerk_battery_assault_duration"			"+2.5"
+      }
       "interval"
       {
         "value"                                           "0.7"
         "special_bonus_unique_clockwerk"                  "-0.25"
       }
-      "damage" // OAA, because of special_bonus_unique_clockwerk_3 buff
+      "damage"
       {
         "value"                                           "20 45 70 95 190 285"
-        "special_bonus_unique_clockwerk_3"                "+35"
+        "special_bonus_unique_clockwerk_3"                "+25"
       }
       "creep_damage_multiplier"                           "1.0"
     }
