@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Pugna: Life Drain
+  // Pugna: Life Drain 7.42
   //=================================================================================================================
   "pugna_life_drain"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE" //OAA, Valve added DOTA_UNIT_TARGET_FLAG_NO_INVIS for some reason
@@ -25,9 +25,6 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
@@ -36,54 +33,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "life_drain"
-      {
-        "value"                                           "150 250 350 450 550"
-        "CalculateSpellDamageTooltip"                     "1"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "special_bonus_unique_pugna_1"                    "+50"
-      }
-      "health_to_mana_rate"                               "0"
-      "tick_rate"                                         "0.25"
-      "drain_buffer"                                      "200"
-      "health_drain" //OAA, intentionally buffed
+      "life_drain" //OAA, intentionally buffed
       {
         "value"                                           "150 300 450 750 1050"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "special_bonus_unique_pugna_1"                    "+50"
       }
       "health_drain_death_boost"
       {
         "value"                                           "0"
       }
-      "ally_healing" //OAA, intentionally buffed
-      {
-        "value"                                           "150 300 450 750 1050"
-      }
+      "health_to_mana_rate"                               "0"
+      "tick_rate"                                         "0.25"
+      "drain_buffer"                                      "200"
       "shard_damage_pct_from_ward"
       {
         "special_bonus_shard"                             "75"
       }
-      "spell_amp_drain_rate"
-      {
-        "special_bonus_scepter"                           "+8"
-      }
-      "spell_amp_drain_max"
-      {
-        "special_bonus_scepter"                           "+75"
-      }
-      "spell_amp_drain_rate_ward"
-      {
-        "special_bonus_scepter"                           "+4"
-      }
-      "spell_amp_drain_duration"
-      {
-        "special_bonus_scepter"                           "+8"
-      }
-      "max_spell_amp_drain_pct"
-      {
-        "special_bonus_scepter"                           "+100"
-      }
+      "spell_amp_drain_rate"                              "0"
+      "spell_amp_drain_max"                               "0"
+      "spell_amp_drain_rate_ward"                         "0"
+      "spell_amp_drain_duration"                          "0"
+      "max_spell_amp_drain_pct"                           "0"
       "AbilityCooldown"
       {
         "value"                                           "7"
