@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ogre Magi: Fireblast FIXEDFUCK
+  // Ogre Magi: Fireblast 7.42
   //=================================================================================================================
   "ogre_magi_fireblast"
   {
@@ -31,9 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "14 12 10 8 8 8"
+        "value"                                           "11 10 9 8 8 8"
         "special_bonus_scepter"                           "-1"
       }
       "stun_duration"                                     "1.2"
@@ -41,7 +41,7 @@
       "fireblast_damage"
       {
         "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_ogre_magi_2"                "+125"
+        "special_bonus_unique_ogre_magi_2"                "+125" // change in ogre_magi_unrefined_fireblast too if you change it here
       }
       "fireblast_proc" //OAA, intentionally nerfed
       {

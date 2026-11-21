@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Midnight Feast FIXEDFUCK
+  // Night Stalker: Midnight Feast 7.42
   //=================================================================================================================
   "night_stalker_midnight_feast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC" // only during the night
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"

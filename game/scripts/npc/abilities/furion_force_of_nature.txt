@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nature's Prophet: Nature's Call
+  // Nature's Prophet: Nature's Call 7.42
   //=================================================================================================================
   "furion_force_of_nature"
   {
@@ -26,27 +26,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_treants"
-      {
-        "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_furion_force_of_nature_treants"  "+2"
-      }
-      "treant_duration"                                   "30" //OAA, intentionally because of lag
-      "treant_vision_day"                                 "500"
-      "treant_vision_night"                               "500"
-      "treant_gold_bounty_min"                            "18"
-      "treant_gold_bounty_max"                            "24"
-      "treant_xp_bounty"                                  "30"
-      "treewalking"                                       "1"
       "area_of_effect"
       {
         "value"                                           "150 225 300 375 450 525"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_furion_force_of_nature_treants"  "+50"
       }
+      "max_treants"
+      {
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_furion_force_of_nature_treants"  "+2"
+      }
+      "treant_duration"                                   "30" //OAA, intentionally because of lag
       "treant_health" //OAA, intentionally buffed
       {
-        "value"                                           "450 550 650 750 1500 2250"
+        "value"                                           "450 500 550 600 1200 1800"
         "special_bonus_unique_furion"                     "x3"
       }
       "treant_damage"
@@ -62,14 +56,20 @@
       "treant_armor"                                      "1 2 3 4 5 6"
       "treant_movespeed"
       {
-        "value"                                           "300 315 330 345 325 330"
+        "value"                                           "300 315 330 345 360 375"
         "special_bonus_unique_furion_2"                   "+50"
       }
+      "treant_vision_day"                                 "500"
+      "treant_vision_night"                               "500"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "33 32 31 30 29 28"
         "special_bonus_unique_furion_6"                   "-10"
       }
+      "treant_gold_bounty_min"                            "18"
+      "treant_gold_bounty_max"                            "24"
+      "treant_xp_bounty"                                  "30"
+      "treewalking"                                       "1"
     }
   }
 }

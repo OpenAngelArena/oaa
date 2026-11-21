@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Necrophos: Sadist (Innate)
+  // Necrophos: Sadist (Innate) 7.42
   //=================================================================================================================
   "necrolyte_sadist"
   {
@@ -17,10 +17,10 @@
     {
       "bonus_aoe"                                         "0"
       "hero_multiplier"                                   "4"
-      "regen"
+      "regen" //OAA, intentionally buffed hero_levelup
       {
         "value"                                           "3.3"
-        "hero_levelup"                                    "0.2"
+        "hero_levelup"                                    "+0.4"
       }
       "bonus_spell_amp"
       {

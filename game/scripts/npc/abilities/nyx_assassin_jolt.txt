@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Mind Flare FIXEDFUCK
+  // Nyx Assassin: Mind Flare 7.42
   //=================================================================================================================
   "nyx_assassin_jolt"
   {
@@ -32,21 +32,21 @@
     {
       "AbilityCooldown" //OAA, intentionally nerfed
       {
-        "value"                                           "11 10.5 10 9.5 9 8.5"
-        "special_bonus_unique_nyx_jolt_cooldown"          "-3"
+        "value"                                           "11.5 10.5 9.5 8.5 7.5 6.5"
+        "special_bonus_unique_nyx_jolt_cooldown"          "-2"
       }
       "max_mana_as_damage_pct" //OAA, intentionally nerfed; percent of max mana dealt as dmg
       {
-        "value"                                           "6 9 12 15 18 21"
+        "value"                                           "5 10 15 20 25 30"
       }
       "mana_burn_pct" //OAA, intentionally nerfed; percent of max mana removed (no dmg)
       {
-        "value"                                           "3 6 9 12 15 18"
+        "value"                                           "7.5 10 12.5 15 17.5 20"
       }
       "aoe"
       {
         "value"                                           "0"
-        "special_bonus_unique_nyx"                        "+600"
+        "special_bonus_unique_nyx"                        "+600" // unused
         "affected_by_aoe_increase"                        "1"
       }
       "damage_echo_duration"                              "0"

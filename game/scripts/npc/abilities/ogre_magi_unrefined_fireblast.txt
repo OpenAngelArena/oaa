@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ogre Magi: Unrefined Fireblast FIXEDFUCK
+  // Ogre Magi: Unrefined Fireblast 7.42
   //=================================================================================================================
   "ogre_magi_unrefined_fireblast"
   {
@@ -39,7 +39,7 @@
       "base_damage" //OAA, intentionally added a talent
       {
         "value"                                           "150"
-        "special_bonus_unique_ogre_magi_2"                "+175"
+        "special_bonus_unique_ogre_magi_2"                "+125"
       }
       "str_multiplier"                                    "1.25" // OAA, intentionally nerfed
     }
