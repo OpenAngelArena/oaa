@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Monkey King: Boundless Strike
+  // Monkey King: Boundless Strike 7.42
   //=================================================================================================================
   "monkey_king_boundless_strike"
   {
@@ -30,14 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "strike_flat_damage"                                "25 50 75 100 200 300"
-      "soldier_spawn_duration"                            "0"
-      "acceleration_z"                                    "5000"
-      "min_height_above_lowest"                           "100"
-      "min_height_above_highest"                          "150"
-      "max_horizontal_acceleration"                       "30000"
-      "duration"                                          "0.2"
-      "spring_channel_pct"                                "35"
       "stun_duration"
       {
         "value"                                           "0.75 1.0 1.25 1.5 1.75 2.0"
@@ -49,9 +41,10 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "special_bonus_unique_monkey_king_10"             "+60"
       }
+      "strike_flat_damage"                                "25 50 75 100 200 300"
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "18 17 16 15 14 13"
+        "value"                                           "15 14 13 12 11 10"
       }
       "strike_radius"
       {
@@ -66,6 +59,13 @@
       {
         "value"                                           "1100"
       }
+      "soldier_spawn_duration"                            "0"
+      "acceleration_z"                                    "5000"
+      "min_height_above_lowest"                           "100"
+      "min_height_above_highest"                          "150"
+      "max_horizontal_acceleration"                       "30000"
+      "duration"                                          "0.2"
+      "spring_channel_pct"                                "35"
     }
   }
 }

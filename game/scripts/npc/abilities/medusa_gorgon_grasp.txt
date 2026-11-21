@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Medusa: Gorgon's Grasp
+  // Medusa: Gorgon's Grasp 7.42
   //=================================================================================================================
   "medusa_gorgon_grasp"
   {
@@ -21,10 +21,6 @@
     "AbilityCastRange"                                    "625"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24 23 22 21 20 19" //OAA, intentionally buffed
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "65 85 105 125 145 165"
@@ -33,18 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"                                   "30 25 20 15 10 5"
-      "delay"                                             ".8"
-      "volley_interval"                                   ".25"
-      "volley_spread_pct"                                 "170"
-      "duration"
-      {
-        "value"                                           "0.8 1.2 1.6 2.0 2.2 2.4"
-        "special_bonus_unique_medusa_gorgons_grasp_duration"  "0.4"
-      }
-      "damage"                                            "60 120 180 240 480 960"
-      "damage_pers"                                       "12 24 36 48 60 72"
-      "damage_interval"                                   ".2"
+      "AbilityCooldown"                                   "18 17 16 15 14 13" //OAA, intentionally buffed
       "radius"
       {
         "value"                                           "150"
@@ -52,7 +37,18 @@
         "special_bonus_unique_medusa_gorgons_grasp_radius"  "+50"
       }
       "radius_grow"                                       "50"
+      "delay"                                             ".8"
+      "volley_interval"                                   ".25"
+      "volley_spread_pct"                                 "170"
       "volley_count"                                      "3"
+      "duration" //OAA, Valve forgot '+' on special_bonus_unique_medusa_gorgons_grasp_duration talent
+      {
+        "value"                                           "0.8 1.2 1.6 2.0 2.4 2.8"
+        "special_bonus_unique_medusa_gorgons_grasp_duration"  "+0.4"
+      }
+      "damage"                                            "60 120 180 240 480 960"
+      "damage_pers"                                       "12 24 36 48 96 144"
+      "damage_interval"                                   ".2"
     }
   }
 }

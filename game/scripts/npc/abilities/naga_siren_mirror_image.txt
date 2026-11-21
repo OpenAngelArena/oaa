@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Naga Siren: Mirror Image FIXEDFUCK
+  // Naga Siren: Mirror Image 7.42
   //=================================================================================================================
   "naga_siren_mirror_image"
   {
@@ -26,7 +26,6 @@
     "AbilityValues"
     {
       "illusion_duration"                                 "26"
-      "invuln_duration"                                   "0.5"
       "outgoing_damage" //OAA, intentionally buffed because of images_count nerf
       {
         "value"                                           "-65 -60 -55 -50 -40 -30"
@@ -39,21 +38,22 @@
       }
       "incoming_damage" //OAA, intentionally buffed
       {
-        "value"                                           "225 200 175 150 125 100"
+        "value"                                           "200 175 150 125 100 75"
       }
-      "tooltip_incoming_damage_total_pct" //OAA, intentionally buffed
+      "tooltip_incoming_damage_total_pct" //OAA, intentionally buffed; incoming_damage + 100
       {
-        "value"                                           "325 300 275 250 225 200"
+        "value"                                           "300 275 250 225 200 175"
       }
       "images_count" //OAA, intentionally because of lag
       {
         "value"                                           "2"
         "special_bonus_unique_naga_siren"                 "+1"
       }
+      "invuln_duration"                                   "0.5"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "28 27 26 25 24 23"
-        "special_bonus_unique_naga_siren_6"               "-10"
+        "special_bonus_unique_naga_siren_6"               "-6"
       }
     }
   }
