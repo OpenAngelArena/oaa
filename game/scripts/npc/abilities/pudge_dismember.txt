@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Pudge: Dismember
+  // Pudge: Dismember 7.42
   //=================================================================================================================
   "pudge_dismember"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -33,19 +33,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pull_units_per_second"                             "75"
-      "pull_distance_limit"                               "125"
-      "animation_rate"                                    "1.5"
       "dismember_damage" //OAA, intentionally buffed base values and talent
       {
         "value"                                           "80 120 160 240 360"
-        "special_bonus_unique_pudge_3"                    "x1.8"
+        "special_bonus_unique_pudge_3"                    "x1.5"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "strength_damage"
       {
-        "value"                                           "0.3 0.5 0.7 1.3 1.9"
-        "special_bonus_unique_pudge_3"                    "x1.5" // Valve has it wrong, not applied (it should be 1.5) during 7.36b
+        "value"                                           "0.3 0.5 0.7 1.1 1.5"
+        "special_bonus_unique_pudge_3"                    "x1.5"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "ticks"
@@ -53,6 +50,9 @@
         "value"                                           "6"
         "special_bonus_unique_pudge_6"                    "+2"
       }
+      "pull_units_per_second"                             "75"
+      "pull_distance_limit"                               "125"
+      "animation_rate"                                    "1.5"
       "AbilityChannelTime"
       {
         "value"                                           "2.75"
@@ -62,15 +62,15 @@
       {
         "value"                                           "22 21 20 19 18"
       }
-      "shard_regen_pct"
+      "shard_regen_pct" // unused
       {
         "special_bonus_shard"                             "5"
       }
-      "order_lock_duration"
+      "order_lock_duration" // unused
       {
         "special_bonus_shard"                             "2.75"
       }
-      "shard_cast_range"
+      "shard_cast_range" // unused
       {
         "special_bonus_shard"                             "300"
       }
