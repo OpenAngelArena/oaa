@@ -32,20 +32,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_duration"                                      "5"
-      "initial_travel_speed"                              "1200"
-      "soul_return_time"                                  "0.75"
+      "AbilityCastRange"
+      {
+        "value"                                           "450"
+        "special_bonus_shard"                             "+250"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "70 60 50 40 30"
+        "special_bonus_unique_dazzle_nothl_projection_cooldown" "-15"
+      }
+      "min_duration"                                      "1"
+      "initial_travel_speed"                              "1700"
+      "soul_return_time"                                  "0.5"
       "soul_return_min_speed"                             "500"
-      "leash_start"                                       "1600"
+      "leash_start"
+      {
+        "value"                                           "1600"
+        "special_bonus_shard"                             "+500"
+      }
       "base_leash_pull"                                   "50"
       "leash_increase"                                    "1.5"
       "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA, intentionally nerfed
       "shallow_grave_heal"                                "225 300 375 450 525"
       "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA, intentionally rescaled
+      "shard_leash_range_bonus"                           "500"
+      "shard_cast_range_bonus"                            "250"
       "max_duration"
       {
         "value"                                           "12"
-        "special_bonus_unique_dazzle_nothl_projection_duration"  "+5"
       }
     }
   }

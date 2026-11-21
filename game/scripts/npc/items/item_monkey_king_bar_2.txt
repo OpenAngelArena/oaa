@@ -55,11 +55,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "40 50 70 100 140"
+      "bonus_damage"                                      "45 55 75 105 145"
       "bonus_attack_speed"                                "35 40 45 50 55"
-      "bonus_chance"                                      "80"
-      "bonus_chance_damage"                               "70 80 100 130 170"
-      "melee_attack_range"                                "50"
+      "bonus_chance"
+      {
+        "value"                                           "80"
+        "apply_effectiveness"                             "1"
+      }
+      "bonus_chance_damage"
+      {
+        "value"                                           "70 80 100 130 170"
+      }
+      "bonus_chance_damage_illu"
+      {
+        "value"                                           "30 34 43 56 73"
+      }
     }
   }
 }

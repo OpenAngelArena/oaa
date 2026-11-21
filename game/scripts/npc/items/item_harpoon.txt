@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_harpoon"
     "ItemRequirements"
     {
-      "01"                                                "item_echo_sabre;item_diadem"
+      "01"                                                "item_echo_sabre;item_dragon_lance"
     }
   }
 
@@ -60,10 +60,10 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "20 30 50 80 120" //OAA, Echo Sabre (20);
-      "bonus_strength"                                    "25 30 40 55 75" // Echo Sabre (15); Diadem (6);
-      "bonus_agility"                                     "6 11 16 21 26" //OAA, Diadem (6);
-      "bonus_intellect"                                   "6 11 16 21 26" //OAA, Diadem (6);
-      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5" // Echo Sabre (1.75)
+      "bonus_strength"                                    "30 35 45 60 80" // Echo Sabre (15); Dragon Lance (10); 7.42: Diadem replaced by Dragon Lance, vanilla 25 -> 30
+      "bonus_agility"                                     "15 20 25 30 35" // Dragon Lance (15); 7.42: Diadem (6) replaced by Dragon Lance, vanilla 10 -> 15
+      "base_attack_range_melee"                           "25"
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0" // Echo Sabre (1.75)
 
       "passive_cooldown"                                  "5 3.5 3 2.5 2"
       "movement_slow"                                     "100"

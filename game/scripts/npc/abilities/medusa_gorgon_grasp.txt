@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,29 +33,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "delay"                                             "1"
+      "AbilityCooldown"                                   "30 25 20 15 10 5"
+      "delay"                                             ".8"
       "volley_interval"                                   ".25"
       "volley_spread_pct"                                 "170"
-      "duration"                                          "0.8 1.2 1.6 2.0 2.2 2.4"
-      "damage"                                            "30 70 110 150 300 600"
-      "damage_pers"                                       "100"
+      "duration"
+      {
+        "value"                                           "0.8 1.2 1.6 2.0 2.2 2.4"
+        "special_bonus_unique_medusa_gorgons_grasp_duration" "0.4"
+      }
+      "damage"                                            "60 120 180 240 480 960"
+      "damage_pers"                                       "12 24 36 48 60 72"
       "damage_interval"                                   ".2"
       "radius"
       {
         "value"                                           "150"
-        "special_bonus_unique_medusa_gorgons_grasp_radius"  "+20%"
+        "special_bonus_unique_medusa_gorgons_grasp_radius"  "+50" // 7.42 check: vanilla moved this talent from slot 10 to slot 12, heroes/medusa.txt still has slot 10
         "affected_by_aoe_increase"                        "1"
       }
-      "radius_grow"
-      {
-        "value"                                           "50"
-        "special_bonus_unique_medusa_gorgons_grasp_radius"  "+20%"
-      }
-      "volley_count"
-      {
-        "value"                                           "3"
-        "special_bonus_unique_medusa_gorgons_grasp_volleys"  "1"
-      }
+      "radius_grow"                                       "50"
+      "volley_count"                                      "3"
     }
   }
 }

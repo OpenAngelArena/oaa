@@ -59,12 +59,35 @@
       "bonus_all_stats"                                   "35 40 45 50 55"
       "bonus_health"                                      "0"
       "bonus_mana"                                        "0"
-      "cold_slow_melee"                                   "-25 -30 -35 -40 -45"
-      "cold_attack_slow_melee"                            "-25"
-      "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
-      "cold_attack_slow_ranged"                           "-25"
-      "cold_duration"                                     "3.0"
-      "restoration_reduction"                             "50 54 58 62 66"
+      "cold_slow_melee"
+      {
+        "value"                                           "-20 -25 -30 -35 -40"
+        "apply_effectiveness"                             "1"
+      }
+      "cold_attack_slow_melee"
+      {
+        "value"                                           "-25"
+        "apply_effectiveness"                             "1"
+      }
+      "cold_slow_ranged"
+      {
+        "value"                                           "-40 -45 -50 -55 -60"
+        "apply_effectiveness"                             "1"
+      }
+      "cold_attack_slow_ranged"
+      {
+        "value"                                           "-25"
+        "apply_effectiveness"                             "1"
+      }
+      "cold_duration"
+      {
+        "value"                                           "3.0"
+      }
+      "restoration_reduction"
+      {
+        "value"                                           "50 54 58 62 66"
+        "apply_effectiveness"                             "1"
+      }
     }
   }
 }

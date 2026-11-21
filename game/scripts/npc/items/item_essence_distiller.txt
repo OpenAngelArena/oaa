@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "150"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1775"
+    "ItemCost"                                            "1725" // OAA, 7.42 check: recipe uses item_urn_of_shadows_oaa, so the cost tree may not match vanilla 1725
     "ItemShopTags"                                        "teamfight"
     "ItemQuality"                                         "rare"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"

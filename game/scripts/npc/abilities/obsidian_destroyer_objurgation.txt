@@ -36,11 +36,15 @@
       "barrier_flat"                                      "150 200 250 300 350 400"
       "mana_to_barrier"
       {
-        "value"                                           "12"
-        "special_bonus_scepter"                           "+4"
+        "value"                                           "9 10 11 12 13 14"
+        "special_bonus_scepter"                           "+3"
       }
       "bonus_mana"                                        "80 160 240 320 400 480"
       "barrier_duration"                                  "10"
+      "all_damage"
+      {
+        "value"                                           "1"
+      }
       "automatic_trigger_threshold"
       {
         "special_bonus_scepter"                           "20"

@@ -32,15 +32,20 @@
     {
       "range"                                             "900"
       "speed"                                             "1100 1100 1100 1100 1100 1100"
+      "apply_debuff"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
+      }
       "damage"
       {
         "value"                                           "100 175 250 325 650 975"
-        "special_bonus_unique_death_prophet_crypt_swarm_damage"  "+50"
+        "special_bonus_unique_death_prophet_crypt_swarm_damage"  "+110"
       }
       "AbilityCooldown"
       {
-        "value"                                           "9 8 7 6 6 6"
-        "special_bonus_unique_death_prophet_2"            "-2.5"
+        "value"                                           "10 9 8 7 7 7"
+        "special_bonus_shard"                             "=1.0"
       }
       "start_radius"
       {
@@ -52,13 +57,25 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "slow_percent"
-      {
-        "value"                                           "0"
-      }
       "slow_duration"
       {
         "value"                                           "0"
+        "special_bonus_shard"                             "+0.5"
+      }
+      "AbilityChargeRestoreTime"
+      {
+        "value"                                           "0 0 0 0 0 0"
+        "special_bonus_shard"                             "=10 =9 =8 =7 =6 =5"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+2"
+      }
+      "slow_movement_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+100"
       }
     }
   }

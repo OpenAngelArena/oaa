@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 85 100 115 130 145"
+    "AbilityManaCost"                                     "85 95 105 115 125 135"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,15 +33,15 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "11 10 9 8 8 8"
+        "value"                                           "14 12 10 8 8 8"
         "special_bonus_scepter"                           "-1"
       }
       "stun_duration"                                     "1.2"
       "multicast_delay"                                   "0.6"
       "fireblast_damage"
       {
-        "value"                                           "70 130 190 250 500 750"
-        "special_bonus_unique_ogre_magi_2"                "+175"
+        "value"                                           "100 150 200 250 500 750"
+        "special_bonus_unique_ogre_magi_2"                "+125"
       }
       "fireblast_proc" //OAA, intentionally nerfed
       {
