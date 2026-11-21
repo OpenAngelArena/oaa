@@ -16,21 +16,21 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "20" //OAA, intentionally nerfed
-      "radius"                                            "500"
+      "radius"                                            "600"
       "fade_duration"                                     "0.8"
-      "break_on_attack"                                   "0"
+      "break_on_attack"                                   "1"
       "manacost_reduction_during_blur_pct"
       {
         "value"                                           "0"
@@ -45,8 +45,8 @@
       }
       "active_movespeed_bonus"
       {
-        "value"                                           "9.5"
-        "hero_levelup"                                    "+0.5"
+        "value"                                           "12.0"
+        "hero_levelup"                                    "+0.4"
       }
       "immediate_cast"
       {

@@ -45,14 +45,17 @@
       "bonus_armor_heroes"                                "0" // unused
       "bonus_armor_creeps"                                "0" // unused
       "bonus_attack_speed_creeps"                         "0"
-      "bonus_attack_speed"                                "50 75 100 125 150 175"
+      "bonus_attack_speed"
+      {
+        "value"                                           "50 75 100 125 150 175"
+        "special_bonus_unique_legion_commander_overwhelming_odds_attack_speed" "+30"
+      }
       "duration"                                          "6.0"
       "slow_duration"                                     "0.3"
       "movement_slow"                                     "100"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "18 17 16 15 14 13"
-        "special_bonus_unique_legion_commander_9"         "-2"
       }
       "shield_counts_non_hero_damage"                     "0"
       "shield_per_damage_pct" //OAA, intentionally buffed

@@ -32,7 +32,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "9 10 11 12 13"
+      "duration"                                          "7 9 11 13 15"
       "movement_damage_pct" //OAA, intentionally buffed
       {
         "value"                                           "35 55 75 115 155"
@@ -70,7 +70,11 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+2"
       }
-      "AbilityCooldown"                                   "75 70 65 60 55"
+      "AbilityCooldown"
+      {
+        "value"                                           "75 70 65 60 55"
+        "special_bonus_scepter"                           "-10"
+      }
     }
   }
 }

@@ -20,8 +20,8 @@
       "ultimate_always_applies"                           "0"
       "armor_change"
       {
-        "value"                                           "1"
-        "special_bonus_unique_dazzle_4"                   "+1"
+        "value"                                           "1.0"
+        "hero_levelup"                                    "+0.1"
       }
       "duration"
       {
@@ -45,7 +45,6 @@
       }
       "ally_heal"
       {
-        "special_bonus_shard"                             "60"
       }
     }
   }

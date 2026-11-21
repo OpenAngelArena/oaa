@@ -55,7 +55,11 @@
       "acceleration"                                      "0.75"
       "rotation_initial"                                  "0"
       "debug_draw"                                        "0"
-      "aura_movespeed_slow"                               "-20"
+      "aura_movespeed_slow"
+      {
+        "value"                                           "-20"
+        "special_bonus_unique_muerta_the_calling_slow"    "-20"
+      }
       "silence_duration"                                  "1.5 2 2.5 3 3 3"
       "rotation_direction"                                "-1"
       "kill_check_radius"

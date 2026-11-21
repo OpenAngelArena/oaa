@@ -25,17 +25,15 @@
       "illusion_proc_chance_pct"
       {
         "value"                                           "9"
-        "special_bonus_unique_phantom_lancer_juxtapose_illusio_proc_chance"  "+3"
+        "special_bonus_unique_phantom_lancer_juxtapose_illusio_proc_chance"  "+4"
       }
       "illusion_duration"
       {
-        "value"                                           "8"
-        "special_bonus_unique_phantom_lancer_juxtapose_duration"  "+1"
+        "value"                                           "7"
       }
       "illusion_from_illusion_duration"
       {
         "value"                                           "4"
-        "special_bonus_unique_phantom_lancer_juxtapose_duration"  "+1"
       }
       "illusion_damage_out_pct" //OAA, intentionally buffed because max_illusions is less
       {
@@ -80,7 +78,7 @@
       }
       "AbilityCooldown"
       {
-        "special_bonus_shard"                             "18"
+        "special_bonus_shard"                             "20"
       }
       "uncontrollable_illusions"
       {

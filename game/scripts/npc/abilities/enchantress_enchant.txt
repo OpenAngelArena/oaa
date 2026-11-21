@@ -37,12 +37,16 @@
       "slow_movement_speed"                               "-30 -40 -50 -60 -70 -80"
       "slow_duration"                                     "3.5 4 4.5 5 5.5 6"
       "attack_range_bonus"                                "50 100 150 200 200 200"
+      "radius"
+      {
+        "value"                                           "0"
+      }
       "dominate_duration"                                 "120" //OAA, intentionally buffed
       "xp_gain_pct"                                       "40"
       "level_req"                                         "6" //OAA, intentionally buffed
       "enchant_health"
       {
-        "value"                                           "150 250 350 450 900 1800"
+        "value"                                           "175 250 325 400 800 1600"
       }
       "enchant_damage" //OAA, intentionally buffed
       {
@@ -61,12 +65,12 @@
       "bonus_health"
       {
         "value"                                           "0"
-        "special_bonus_unique_enchantress_enchant_health_damage"  "+150"
+        "special_bonus_unique_enchantress_enchant_health_damage"  "+200"
       }
       "bonus_damage"
       {
         "value"                                           "0"
-        "special_bonus_unique_enchantress_enchant_health_damage"  "+25"
+        "special_bonus_unique_enchantress_enchant_health_damage"  "+30"
       }
       "bonus_attackspeed"
       {

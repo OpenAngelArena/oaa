@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement"                                    "50"
+      "bonus_movement"                                    "55"
       "bonus_armor"                                       "5"
       "bonus_mana"                                        "150"
       "mana_regen"                                        "1.0"
@@ -44,8 +44,6 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "aura_health_regen_bonus"                           "14.5"
-      "aura_bonus_threshold"                              "25"
       "replenish_health"                                  "325"
       "replenish_mana"                                    "200"
       "replenish_radius"
@@ -54,6 +52,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "max_health_pct_heal_amount"                        "0"
+      "add_nostack_debuff"                                "1"
     }
   }
 }

@@ -11,7 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -39,27 +39,32 @@
       "damage"
       {
         "value"                                           "25 50 75 100 200 300"
-        "special_bonus_unique_death_prophet_3"            "+30"
       }
-      "damage_pct"                                        "0" // uses special_bonus_unique_death_prophet_1_oaa
-      "haunt_duration"                                    "6"
+      "haunt_duration"
+      {
+        "value"                                           "6"
+      }
       "siphon_buffer"                                     "250"
       "AbilityChargeRestoreTime" //OAA, intentionally buffed base value and intentionally nerfed special_bonus_unique_death_prophet_5 talent
       {
         "value"                                           "30"
         "special_bonus_unique_death_prophet_5"            "-12"
       }
-      "shard_bonus_charges"
+      "movement_slow"
       {
-        "special_bonus_shard"                             "1"
+        "special_bonus_scepter"                           "+0"
       }
-      "shard_fear_duration"
+      "attack_slow"
       {
-        "special_bonus_shard"                             "1.0"
+        "special_bonus_scepter"                           "+120"
       }
-      "shard_consecutive_siphon_duration"
+      "max_health_damage_pct"
       {
-        "special_bonus_shard"                             "3"
+        "special_bonus_scepter"                           "+2.0"
+      }
+      "bonus_charges"
+      {
+        "value"                                           "+0"
       }
     }
   }

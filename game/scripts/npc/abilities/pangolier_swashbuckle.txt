@@ -41,9 +41,10 @@
       }
       "damage"
       {
-        "value"                                           "35 65 95 125 250 375"
+        "value"                                           "25 50 75 100 200 300"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "potency"                                           "60"
       "attack_damage" // percentage of Pangolier's total attack damage
       {
         "value"                                           "0"
@@ -63,7 +64,7 @@
       }
       "strikes"
       {
-        "value"                                           "3"
+        "value"                                           "4"
       }
       "procs_onhit_effects"                               "1"
       "slow_duration"                                     "0.6"

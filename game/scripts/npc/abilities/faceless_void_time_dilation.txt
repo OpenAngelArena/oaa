@@ -37,22 +37,22 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "7 8 9 10 11 12"
+      "duration"                                          "6 7 8 9 10 11"
       "slow" // same kv for ms and as slow
       {
         "value"                                           "4 5 6 7 8 9"
         "special_bonus_shard"                             "+5"
       }
-      "attack_slow_tooltip_only" // tooltip only. actual value is in "slow"
+      "attack_slow"
       {
         "value"                                           "4 5 6 7 8 9"
-        "special_bonus_shard"                             "+5"
+        "special_bonus_shard"                             "+13"
       }
       "cooldown_percentage"                               "35 40 45 50 55 60" //OAA, intentionally rescaled
       "base_damage"                                       "0"
       "damage_per_stack"
       {
-        "value"                                           "4 6 8 10 20 40"
+        "value"                                           "6 8 10 12 24 48"
         "special_bonus_unique_faceless_void_6"            "+6"
       }
       "self_movespeed_tooltip" // tooltip only. actual value is in "slow"
@@ -63,7 +63,7 @@
       "self_attackspeed_tooltip" // tooltip only. actual value is in "slow"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=9 =10 =11 =12 =13 =14"
+        "special_bonus_shard"                             "=17 =18 =19 =20 =21 =22"
       }
       "self_buff"
       {

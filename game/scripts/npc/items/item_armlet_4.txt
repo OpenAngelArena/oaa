@@ -29,7 +29,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_armlet"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
     "AbilityTextureName"                                  "custom/armlet_dormant_4"
 
     // Stats

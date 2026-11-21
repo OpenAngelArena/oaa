@@ -34,7 +34,7 @@
     {
       "radius"
       {
-        "value"                                           "700"
+        "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA, intentionally buffed
@@ -54,7 +54,7 @@
       }
       "self_regen"
       {
-        "value"                                           "3 4 5 6 7"
+        "value"                                           "2 3 4 5 6"
         "special_bonus_scepter"                           "+100%"
       }
       "infest_duration_enemy"
@@ -76,10 +76,6 @@
       {
         "value"                                           "60 55 50 45 40"
         "special_bonus_scepter"                           "=20"
-      }
-      "open_wounds_duration_pct"
-      {
-        "value"                                           "0"
       }
       "creep_max_hp_drain_pct_per_second"
       {

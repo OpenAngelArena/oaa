@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,10 +50,7 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "formation_time"
-      {
-        "value"                                           "1"
-      }
+      "formation_time"                                    "0.5"
       "duration"
       {
         "value"                                           "4.4"
@@ -72,7 +69,12 @@
       "strike_on_touch"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                             "+1"
+      }
+      "strike_knockback_pct_tooltip_only"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
     }
   }

@@ -11,7 +11,7 @@
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
@@ -43,7 +43,7 @@
       }
       "radius"
       {
-        "value"                                           "450"
+        "value"                                           "425"
         "affected_by_aoe_increase"                        "1"
         "special_bonus_unique_kez_raptor_dance_radius"    "+50"
       }
@@ -54,11 +54,12 @@
       }
       "max_health_damage_pct"
       {
-        "value"                                           "2.5"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                           "2.75 3.25 3.75 3.92 4.09"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "lifesteal_pct"                                     "100"
       "illusion_lifesteal_pct"                            "20"
+      "lifesteal_from_creeps"                             "0"
       "invuln_period"                                     "0.2"
       "magic_resist"                                      "0"
       "hard_dispel"                                       "0"
