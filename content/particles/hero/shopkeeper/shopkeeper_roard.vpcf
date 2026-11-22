@@ -782,11 +782,11 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_ring_wave.vtex"
+					m_hTexture = resource:"materials/particle/particle_ring_wave.vtex"
 				},
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/tile/tile_noise_plasma.vtex"
+					m_hTexture = resource:"materials/particle/tile/tile_noise_plasma.vtex"
 					m_flTextureBlend = 
 					{
 						m_nType = "PF_TYPE_LITERAL"
@@ -951,7 +951,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/warp_ripple4_normal.vtex"
+					m_hTexture = resource:"materials/particle/warp_ripple4_normal.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

@@ -2106,7 +2106,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_glow_08.vtex"
+					m_hTexture = resource:"materials/particle/particle_glow_08.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
@@ -2265,7 +2265,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_flares/anam_white_cross.vtex"
+					m_hTexture = resource:"materials/particle/particle_flares/anam_white_cross.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

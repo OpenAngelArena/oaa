@@ -528,7 +528,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_glow_08.vtex"
+					m_hTexture = resource:"materials/particle/particle_glow_08.vtex"
 					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA_RGBALPHA"
 				},
 			]
@@ -774,7 +774,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/smoke/smokeburst/smokeloop_i_0_sc.vtex"
+					m_hTexture = resource:"materials/particle/smoke/smokeburst/smokeloop_i_0_sc.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

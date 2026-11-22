@@ -13,7 +13,7 @@
 			m_flRadiusScale = 2.000000
 			m_flAlphaScale = 3.000000
 			m_flStartFalloff = 0.100000
-			m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_flares/particle_flare_006_white.vtex"
+			m_hTexture = resource:"materials/particle/particle_flares/particle_flare_006_white.vtex"
 		},
 		
 		{
@@ -23,7 +23,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_flares/particle_flare_006_yellow.vtex"
+					m_hTexture = resource:"materials/particle/particle_flares/particle_flare_006_yellow.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

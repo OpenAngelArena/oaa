@@ -139,7 +139,7 @@
 			_class = "C_OP_RenderDeferredLight"
 			m_flAlphaScale = 4.000000
 			m_flStartFalloff = 0.100000
-			m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/particle_flares/aircraft_white_v3.vtex"
+			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white_v3.vtex"
 		},
 		
 		{
@@ -149,7 +149,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/yellowflare2.vtex"
+					m_hTexture = resource:"materials/particle/yellowflare2.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

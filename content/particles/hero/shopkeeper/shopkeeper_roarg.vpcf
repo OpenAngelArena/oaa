@@ -2367,7 +2367,7 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/smoke1/smoke1.vtex"
+					m_hTexture = resource:"materials/particle/smoke1/smoke1.vtex"
 					m_TextureControls = 
 					{
 						m_flFinalTextureUVRotation = 
@@ -2749,7 +2749,7 @@
 				},
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/warp_ripple4_normal.vtex"
+					m_hTexture = resource:"materials/particle/warp_ripple4_normal.vtex"
 					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_RGB"
 					m_nTextureType = "SPRITECARD_TEXTURE_ZOOM"
 				},

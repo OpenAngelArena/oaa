@@ -649,11 +649,11 @@
 			[
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/flare/flare_01_hole.vtex"
+					m_hTexture = resource:"materials/particle/flare/flare_01_hole.vtex"
 				},
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/dust/dust_02.vtex"
+					m_hTexture = resource:"materials/particle/dust/dust_02.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
