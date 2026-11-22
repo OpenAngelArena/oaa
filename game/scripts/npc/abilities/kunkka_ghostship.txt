@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kunkka: Ghostship FIXEDFUCK
+  // Kunkka: Ghostship 7.42
   //=================================================================================================================
   "kunkka_ghostship"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -24,7 +24,7 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "400 600 800 1200 1800" //OAA, intentionally buffed
+    "AbilityDamage"                                       "350 550 750 1150 1750" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

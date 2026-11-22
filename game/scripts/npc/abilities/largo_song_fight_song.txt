@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Amphibian Rhapsody - Bullbelly Blitz FIXEDFUCK
+  // LARGO: Amphibian Rhapsody - Bullbelly Blitz 7.42
   //=================================================================================================================
   "largo_song_fight_song"
   {
@@ -24,12 +24,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "double_song"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "=1"
       }
+      "song_cost_reduction_per_stack"                     "1 1.5 2 2.5 3"
       "radius"
       {
         "value"                                           "800"
@@ -37,14 +37,14 @@
       }
       "burst_damage" //OAA, intentionally buffed
       {
-        "value"                                           "20 35 50 80 125"
-        "special_bonus_unique_largo_7"                    "+12"
+        "value"                                           "25 45 65 105 145"
+        "special_bonus_unique_largo_7"                    "+20" // Valve says +30% doesnt work here? so we put 30% of the 3rd value
       }
       "damage_per_stack"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+6 +10 +14 +18 +22"
-        "special_bonus_unique_largo_7"                    "+4"
+        "special_bonus_unique_largo_7"                    "+4" // Valve says +30% doesnt work here
       }
       "magic_damage_bonus"
       {
