@@ -1,26 +1,28 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Death Prophet FIXEDFUCK
+  // HERO: Death Prophet 7.42
   //=================================================================================================================
   "npc_dota_hero_death_prophet"
   {
-    //"Ability10"                                           "special_bonus_unique_death_prophet_silence_aoe"
+    //"Ability10"                                           "special_bonus_attack_damage_20"
     //"Ability11"                                           "special_bonus_hp_200"
 
-    //"Ability12"                                           "special_bonus_attack_speed_50"
-    //"Ability13"                                           "special_bonus_unique_death_prophet_2"
+    //"Ability12"                                           "special_bonus_unique_death_prophet_silence_aoe"
+    //"Ability13"                                           "special_bonus_unique_death_prophet_5"
 
     //"Ability14"                                           "special_bonus_unique_death_prophet"
+    //"Ability15"                                           "special_bonus_unique_death_prophet_crypt_swarm_damage"
 
-    //"Ability17"                                           "special_bonus_unique_death_prophet_exorcism_duration_on_kill"
+    //"Ability16"                                           "special_bonus_unique_death_prophet_4"
+    //"Ability17"                                           "special_bonus_unique_death_prophet_2"
 
-    // special_bonus_unique_death_prophet - Exorcism Spirits
-    // special_bonus_unique_death_prophet_2 - Crypt Swarm Cooldown
-    // special_bonus_unique_death_prophet_3 - Spirit Siphon Damage/Heal
+    // special_bonus_unique_death_prophet - bonus Exorcism Spirits
+    // special_bonus_unique_death_prophet_2 - bonus Witchcraft Spirit
+    // special_bonus_unique_death_prophet_3 - Spirit Siphon Damage/Heal           - unused
+    // special_bonus_unique_death_prophet_4 - Unslowable During Exorcism
     // special_bonus_unique_death_prophet_5 - Spirit Siphon Replenish Time
 
-    // special_bonus_unique_death_prophet_1_oaa - Spirit Siphon Max Hp Damage
-    // special_bonus_unique_death_prophet_5_oaa - Spirit Siphon Charge Restore Time
+    // special_bonus_unique_death_prophet_1_oaa - Spirit Siphon Max Hp Damage     - unused, scepter has this
   }
 }
