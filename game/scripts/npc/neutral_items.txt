@@ -15,19 +15,48 @@
       "craft_cost"                                        "5"
       "xp_bonus"                                          "0"
 
-      "items"
+      "item_pools"
       {
-        "item_occult_bracelet"                            "1"
-        "item_kobold_cup"                                 "1"
-        "item_orb_of_destruction"                         "1" // item_chipped_vest
-        "item_polliwog_charm"                             "1"
-        "item_unstable_wand"                              "1" // item_dormant_curio
-        "item_duelist_gloves"                             "1"
-        "item_spark_of_courage"                           "1" // item_weighted_dice
-        "item_ash_legion_shield"                          "1"
-        "item_dagger_of_ristul"                           "1"
-        "item_stonefeather_satchel"                       "1"
-        "item_possessed_mask"                             "1"
+        "pool_a"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_ash_legion_shield"                          "1"
+            "item_orb_of_destruction"                         "1" // item_chipped_vest
+            "item_possessed_mask"                             "1"
+          }
+        }
+        "pool_b"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_duelist_gloves"                             "1"
+            "item_red_ledger"                                 "1" // OAA, new 7.42 neutral
+            "item_spark_of_courage"                           "1" // item_weighted_dice
+          }
+        }
+        "pool_c"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_foragers_kit"                               "1" // OAA, new 7.42 neutral
+            "item_occult_bracelet"                            "1"
+            "item_polliwog_charm"                             "1"
+          }
+        }
+        "pool_d"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_dagger_of_ristul"                           "1"
+            "item_kobold_cup"                                 "1"
+            "item_stonefeather_satchel"                       "1"
+          }
+        }
       }
 
       "enhancements"
@@ -71,17 +100,137 @@
       "craft_cost"                                        "10"
       "xp_bonus"                                          "0"
 
-      "items"
+      "item_pools"
       {
-        "item_essence_ring"                               "1"
-        "item_mana_draught"                               "1"
-        "item_poor_mans_shield"                           "1"
-        "item_searing_signet"                             "1"
-        "item_pogo_stick"                                 "1"
-        "item_defiant_shell"                              "1"
-        "item_crippling_crossbow"                         "1"
-        "item_medallion_of_courage"                       "1"
-        "item_demon_stone"                                "1" // item_seeds_of_serenity
+        "pool_a"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_essence_ring"                               "1"
+            "item_poor_mans_shield"                           "1"
+            "item_safety_bubble"                              "1" // OAA, re-added so every pool has 3 (Darkonius)
+          }
+        }
+        "pool_b"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_crippling_crossbow"                         "1"
+            "item_searing_signet"                             "1"
+            "item_unstable_wand"                              "1" // item_dormant_curio
+          }
+        }
+        "pool_c"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_defiant_shell"                              "1"
+            "item_demon_stone"                                "1" // item_seeds_of_serenity
+            "item_imp_claw"                                   "1" // OAA, re-added so every pool has 3 (Darkonius)
+          }
+        }
+        "pool_d"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_mana_draught"                               "1"
+            "item_medallion_of_courage"                       "1"
+            "item_pogo_stick"                                 "1"
+          }
+        }
+      }
+
+      "enhancements"
+      {
+        "global"
+        {
+          "item_enhancement_quickened"                    "1"
+          "item_enhancement_vital"                        "1"
+        }
+
+        "strength"
+        {
+          "item_enhancement_brawny"                       "1"
+          "item_enhancement_tough"                        "1"
+          "item_enhancement_crude"                        "1"
+        }
+
+        "agility"
+        {
+          "item_enhancement_alert"                        "1"
+          "item_enhancement_brawny"                       "1"
+          "item_enhancement_nimble"                       "1"
+        }
+
+        "intelligence"
+        {
+          "item_enhancement_mystical"                     "1"
+          "item_enhancement_tough"                        "1"
+          "item_enhancement_keen_eyed"                    "1"
+        }
+
+        "universal"
+        {
+          "item_enhancement_alert"                        "1"
+          "item_enhancement_mystical"                     "1"
+          "item_enhancement_titanic"                      "1"
+        }
+      }
+    }
+    "3"
+    {
+      "start_time"                                        "15:00"
+      "trinket_options"                                   "5"
+      "enhancement_options"                               "5"
+      "craft_cost"                                        "10"
+      "xp_bonus"                                          "0"
+
+      "item_pools"
+      {
+        "pool_a"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_prophets_pendulum"                          "1"
+            "item_psychic_headband"                           "1"
+            "item_unrelenting_eye"                            "1"
+          }
+        }
+        "pool_b"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_brick"                                      "1" // OAA, new 7.42 neutral
+            "item_jidi_pollen_bag"                            "1"
+            "item_stormcrafter"                               "1"
+          }
+        }
+        "pool_c"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_cloak_of_flames"                            "1"
+            "item_giant_maul"                                 "1"
+            "item_gunpowder_gauntlets"                        "1"
+          }
+        }
+        "pool_d"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_partisans_brand"                            "1"
+            "item_serrated_shiv"                              "1"
+            "item_spellslinger"                               "1"
+          }
+        }
       }
 
       "enhancements"
@@ -89,7 +238,7 @@
         "global"
         {
           "item_enhancement_quickened"                    "2"
-          "item_enhancement_greedy_oaa"                   "1" // item_enhancement_greedy
+          "item_enhancement_vital"                        "2"
         }
 
         "strength"
@@ -121,25 +270,56 @@
         }
       }
     }
-    "3"
+    "4"
     {
-      "start_time"                                        "15:00"
+      "start_time"                                        "30:00"
       "trinket_options"                                   "5"
       "enhancement_options"                               "5"
       "craft_cost"                                        "10"
       "xp_bonus"                                          "0"
 
-      "items"
+      "item_pools"
       {
-        "item_serrated_shiv"                              "1"
-        "item_gunpowder_gauntlets"                        "1"
-        "item_jidi_pollen_bag"                            "1"
-        "item_psychic_headband"                           "1"
-        "item_unrelenting_eye"                            "1"
-        "item_cloak_of_flames"                            "1"
-        "item_spellslinger"                               "1"
-        "item_stormcrafter"                               "1"
-        "item_partisans_brand"                            "1"
+        "pool_a"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_dandelion_amulet"                           "1"
+            "item_idol_of_screeauk"                           "1"
+            "item_metamorphic_mandible"                       "1"
+          }
+        }
+        "pool_b"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_balmhook"                                   "1" // OAA, new 7.42 neutral
+            "item_mind_breaker"                               "1" // OAA, re-added so every pool has 3 (Darkonius)
+            "item_rattlecage"                                 "1"
+          }
+        }
+        "pool_c"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_ceremonial_robe"                            "1" // OAA, re-added so every pool has 3 (Darkonius)
+            "item_conjurers_catalyst"                         "1"
+            "item_craggy_coat_oaa"                            "1" // item_enchanters_bauble
+          }
+        }
+        "pool_d"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_flayers_bota"                               "1"
+            "item_revenants_brooch"                           "1" // OAA, new 7.42 neutral
+            "item_vile_phial"                                 "1" // OAA, new 7.42 neutral
+          }
+        }
       }
 
       "enhancements"
@@ -179,64 +359,6 @@
         }
       }
     }
-    "4"
-    {
-      "start_time"                                        "30:00"
-      "trinket_options"                                   "5"
-      "enhancement_options"                               "5"
-      "craft_cost"                                        "10"
-      "xp_bonus"                                          "0"
-
-      "items"
-      {
-        "item_giant_maul"                                 "1"
-        "item_rattlecage"                                 "1"
-        "item_idol_of_screeauk"                           "1"
-        "item_flayers_bota"                               "1"
-        "item_metamorphic_mandible"                       "1"
-        "item_dandelion_amulet"                           "1"
-        "item_prophets_pendulum"                          "1"
-        "item_conjurers_catalyst"                         "1"
-        "item_craggy_coat_oaa"                            "1" // item_enchanters_bauble
-      }
-
-      "enhancements"
-      {
-        "global"
-        {
-          "item_enhancement_quickened"                    "4"
-          "item_enhancement_timeless"                     "1"
-        }
-
-        "strength"
-        {
-          "item_enhancement_brawny"                       "4"
-          "item_enhancement_tough"                        "4"
-          "item_enhancement_crude"                        "3"
-        }
-
-        "agility"
-        {
-          "item_enhancement_alert"                        "4"
-          "item_enhancement_brawny"                       "4"
-          "item_enhancement_nimble"                       "3"
-        }
-
-        "intelligence"
-        {
-          "item_enhancement_mystical"                     "4"
-          "item_enhancement_tough"                        "4"
-          "item_enhancement_keen_eyed"                    "3"
-        }
-
-        "universal"
-        {
-          "item_enhancement_alert"                        "4"
-          "item_enhancement_mystical"                     "4"
-          "item_enhancement_titanic"                      "3"
-        }
-      }
-    }
     "5"
     {
       "start_time"                                        "45:00"
@@ -246,25 +368,55 @@
       "recraft_cost"                                      "10"
       "xp_bonus"                                          "0"
 
-      "items"
+      "item_pools"
       {
-        "item_desolator_2"                                "1"
-        "item_stonework_pendant"                          "1" // item_fallen_sky
-        "item_reflex_core"                                "1" // item_demonicon
-        "item_minotaur_horn"                              "1"
-        "item_rune_breaker_oaa"                           "1" // item_spider_legs
-        "item_riftshadow_prism"                           "1"
-        "item_dezun_bloodrite"                            "1"
-        "item_blood_sword"                                "1" // item_divine_regalia
-        "item_harmonizer"                                 "1"
-        "item_heavy_blade"                                "1"
+        "pool_a"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_flicker"                                    "1" // OAA, re-added so every pool has 3 (Darkonius)
+            "item_minotaur_horn"                              "1"
+            "item_stonework_pendant"                          "1" // item_fallen_sky
+          }
+        }
+        "pool_b"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_blood_sword"                                "1" // item_divine_regalia
+            "item_heavy_blade"                                "1"
+            "item_rune_breaker_oaa"                           "1" // item_spider_legs
+          }
+        }
+        "pool_c"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_dezun_bloodrite"                            "1"
+            "item_harmonizer"                                 "1"
+            "item_helm_of_the_hivemind"                       "1" // OAA, new 7.42 neutral
+          }
+        }
+        "pool_d"
+        {
+          "options"                                           "1"
+          "items"
+          {
+            "item_giants_ring"                                "1" // OAA, re-added so every pool has 3 (Darkonius)
+            "item_reflex_core"                                "1" // item_demonicon
+            "item_riftshadow_prism"                           "1"
+          }
+        }
       }
 
       "enhancements"
       {
         "global"
         {
-          "item_enhancement_timeless"                     "2"
+          "item_enhancement_timeless"                     "1"
           "item_enhancement_evolved"                      "1"
           "item_enhancement_fleetfooted"                  "1"
           "item_enhancement_vampiric"                     "1"
@@ -282,7 +434,7 @@
 
         "intelligence"
         {
-          "item_enhancement_feverish"                     "1" // item_arcane_crystal
+          "item_enhancement_feverish"                     "1"
         }
 
         "universal"
