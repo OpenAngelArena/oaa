@@ -328,6 +328,7 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_slark = "power",
     npc_dota_hero_snapfire = "power",
     npc_dota_hero_sniper = "cleave",
+    npc_dota_hero_shopkeeper = "midas",
     npc_dota_hero_sohei = "power", -- cleave or power
     npc_dota_hero_spectre = "power",
     npc_dota_hero_spirit_breaker = "midas",
