@@ -5,8 +5,9 @@
   //=================================================================================================================
     "npc_dota_hero_shopkeeper"
     {
-		"BaseClass" 						"npc_dota_hero_ringmaster"
-        "HeroID"		                    "134"
+		"include_keys_from" 				"npc_dota_hero_ringmaster"
+		"BaseClass" 						"npc_dota_hero"
+        "HeroID"		                    "206"
         "Model" "models/heroes/shopkeeper/shopkeeper_oaa.vmdl"
         "DisableWearables"                  "1"
 

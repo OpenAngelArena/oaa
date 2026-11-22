@@ -204,6 +204,7 @@
     {
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate.lua"
+		"AbilityTextureName"			"alchemist_goblins_greed" // placeholder until a custom icon exists
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"MaxLevel"						"6"
 		"Innate"						"1"
