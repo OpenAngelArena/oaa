@@ -1254,7 +1254,7 @@
 				
 				{
 					m_nTextureType = "SPRITECARD_TEXTURE_UVDISTORTION"
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/warp/uv_warp_01.vtex"
+					m_hTexture = resource:"materials/particle/warp/uv_warp_01.vtex"
 					m_bEnabled = false
 				},
 				
@@ -1636,7 +1636,7 @@
 				},
 				
 				{
-					m_hTexture = resource:"materials/particles/abilities/hero/shopkeeper/particle/warp/uv_warp_01.vtex"
+					m_hTexture = resource:"materials/particle/warp/uv_warp_01.vtex"
 					m_nTextureType = "SPRITECARD_TEXTURE_UVDISTORTION"
 					m_TextureControls = 
 					{
