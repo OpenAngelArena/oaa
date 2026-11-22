@@ -11,17 +11,16 @@ function shopkeeper_hakoware:OnSpellStart()
     local target = self:GetCursorTarget()
     local duration = self:GetSpecialValueFor("duration")
 
-    -- gold transfer
-    local current_gold = caster:GetGold()
-    local loan_amount = math.floor(current_gold * 0.10)
-    caster:SpendGold(loan_amount, DOTA_ModifyGold_Unspecified)
+    -- gold transfer (OAA Gold module, not the engine's capped gold)
+    local loan_amount = math.floor(Gold:GetGold(caster) * self:GetSpecialValueFor("gold_percentage") / 100)
+    Gold:ModifyGold(caster, -loan_amount, true, DOTA_ModifyGold_Unspecified)
 
     -- Apply the debt modifier to the target
     target:AddNewModifier(caster, self, "modifier_shopkeeper_hakoware_debt", {
         duration = duration,
         loan_amount = loan_amount
     })
-    target:ModifyGold(loan_amount, true, DOTA_ModifyGold_Unspecified)
+    Gold:ModifyGold(target, loan_amount, true, DOTA_ModifyGold_Unspecified)
 
     -- Feedback
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, target, loan_amount, caster:GetPlayerOwner())
@@ -92,12 +91,13 @@ function modifier_shopkeeper_hakoware_debt:OnDestroy()
 
     ApplyDamage(damage_table)
 
-    -- Deduct the final debt from the target's gold (make them spend it)
+    -- Collect the debt: the target pays what they can, and Shopkeeper only gets what was actually paid
     local target = self:GetParent()
-    target:ModifyGold(-final_debt, true, DOTA_ModifyGold_Unspecified)
-
-    -- Transfer the final debt (after interest) to the shopkeeper
-    self:GetCaster():ModifyGold(final_debt, true, DOTA_ModifyGold_Unspecified)
+    local paid = math.min(final_debt, Gold:GetGold(target))
+    if paid > 0 then
+        Gold:ModifyGold(target, -paid, true, DOTA_ModifyGold_Unspecified)
+        Gold:ModifyGold(self:GetCaster(), paid, true, DOTA_ModifyGold_Unspecified)
+    end
 
     -- Retrieve the mute duration from the kv file based on ability level
     local mute_duration = self:GetAbility():GetSpecialValueFor("mute_duration")
@@ -146,10 +146,11 @@ if IsServer() then
         self.debt = math.max(self.debt - damage, 0)
         local repayment = old_debt - self.debt
 
-        -- transfer gold from attacker to shopkeeper
-        if repayment > 0 then
-            attacker:SpendGold(math.floor(repayment), DOTA_ModifyGold_Unspecified)
-            damaged_unit:ModifyGold(math.floor(repayment), true, DOTA_ModifyGold_Unspecified)
+        -- transfer gold from attacker to shopkeeper, only as much as the attacker actually has
+        local paid = math.min(math.floor(repayment), Gold:GetGold(attacker))
+        if paid > 0 then
+            Gold:ModifyGold(attacker, -paid, true, DOTA_ModifyGold_Unspecified)
+            Gold:ModifyGold(damaged_unit, paid, true, DOTA_ModifyGold_Unspecified)
         end
 
         self:SetStackCount(math.floor(self.debt))
