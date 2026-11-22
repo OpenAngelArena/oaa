@@ -891,10 +891,6 @@
     "file": "abilities/dazzle_shallow_grave.txt",
     "vanilla": "{\"value\":\"3 5 7 9\"}"
   },
-  "death_prophet_carrion_swarm|AbilityValues/damage": {
-    "file": "abilities/death_prophet_carrion_swarm.txt",
-    "vanilla": "{\"special_bonus_unique_death_prophet_crypt_swarm_damage\":\"+110\",\"value\":\"100 175 250 325\"}"
-  },
   "death_prophet_exorcism|AbilityCooldown": {
     "file": "abilities/death_prophet_exorcism.txt",
     "vanilla": "145 135 125"
@@ -906,10 +902,6 @@
   "death_prophet_exorcism|AbilityValues/building_dmg_pct": {
     "file": "abilities/death_prophet_exorcism.txt",
     "vanilla": null
-  },
-  "death_prophet_exorcism|AbilityValues/duration_increase_per_kill": {
-    "file": "abilities/death_prophet_exorcism.txt",
-    "vanilla": "{\"value\":\"0\"}"
   },
   "death_prophet_exorcism|AbilityValues/max_damage": {
     "file": "abilities/death_prophet_exorcism.txt",
@@ -1503,10 +1495,6 @@
     "file": "abilities/furion_teleportation.txt",
     "vanilla": "{\"special_bonus_unique_furion_3\":\"-100%\",\"value\":\"80 60 40 20\"}"
   },
-  "furion_teleportation|AbilityValues/barrier": {
-    "file": "abilities/furion_teleportation.txt",
-    "vanilla": "{\"special_bonus_unique_furion_teleportation_barrier\":\"+100\",\"value\":\"70 130 190 250\"}"
-  },
   "furion_teleportation|AbilityValues/cast_point_tooltip": {
     "file": "abilities/furion_teleportation.txt",
     "vanilla": null
@@ -1562,10 +1550,6 @@
   "gyrocopter_flak_cannon|AbilityValues/AbilityCooldown": {
     "file": "abilities/gyrocopter_flak_cannon.txt",
     "vanilla": "{\"special_bonus_unique_gyrocopter_1\":\"-6\",\"value\":\"25\"}"
-  },
-  "gyrocopter_flak_cannon|AbilityValues/bonus_damage": {
-    "file": "abilities/gyrocopter_flak_cannon.txt",
-    "vanilla": "{\"value\":\"0\"}"
   },
   "gyrocopter_homing_missile|AbilityCooldown": {
     "file": "abilities/gyrocopter_homing_missile.txt",
@@ -1886,10 +1870,6 @@
   "item_devastator|AbilityManaCost": {
     "file": "items/item_parasma.txt",
     "vanilla": null
-  },
-  "item_devastator|AbilityValues/active_mres_reduction": {
-    "file": "items/item_parasma.txt",
-    "vanilla": "{\"apply_effectiveness\":\"1\",\"value\":\"15\"}"
   },
   "item_devastator|AbilityValues/bonus_armor": {
     "file": "items/item_parasma.txt",
@@ -2543,10 +2523,6 @@
     "file": "items/item_silver_edge.txt",
     "vanilla": null
   },
-  "item_skadi|AbilityValues/cold_slow_ranged": {
-    "file": "items/item_skadi.txt",
-    "vanilla": "{\"apply_effectiveness\":\"1\",\"value\":\"-40\"}"
-  },
   "item_skadi|SpellDispellableType": {
     "file": "items/item_skadi.txt",
     "vanilla": null
@@ -2735,10 +2711,6 @@
     "file": "abilities/juggernaut_healing_ward.txt",
     "vanilla": "{\"special_bonus_unique_juggernaut_5\":\"-12\",\"value\":\"60\"}"
   },
-  "juggernaut_omni_slash|AbilityManaCost": {
-    "file": "abilities/juggernaut_omni_slash.txt",
-    "vanilla": "200 275 350"
-  },
   "juggernaut_omni_slash|AbilityValues/bonus_attack_speed": {
     "file": "abilities/juggernaut_omni_slash.txt",
     "vanilla": "40"
@@ -2746,10 +2718,6 @@
   "juggernaut_omni_slash|AbilityValues/bonus_damage": {
     "file": "abilities/juggernaut_omni_slash.txt",
     "vanilla": "25 30 35"
-  },
-  "juggernaut_omni_slash|AbilityValues/duration": {
-    "file": "abilities/juggernaut_omni_slash.txt",
-    "vanilla": "{\"special_bonus_unique_juggernaut_omnislash_duration\":\"+1\",\"value\":\"3 3.25 3.5\"}"
   },
   "juggernaut_omni_slash|AbilityValues/omni_slash_radius": {
     "file": "abilities/juggernaut_omni_slash.txt",
@@ -2791,11 +2759,19 @@
     "file": "abilities/kez_echo_slash.txt",
     "vanilla": "21 18 15 12"
   },
+  "kez_echo_slash|SpellImmunityType": {
+    "file": "abilities/kez_echo_slash.txt",
+    "vanilla": null
+  },
   "kez_falcon_rush|AbilityCooldown": {
     "file": "abilities/kez_falcon_rush.txt",
     "vanilla": "21 18 15 12"
   },
   "kez_falcon_rush|AbilityUnitTargetType": {
+    "file": "abilities/kez_falcon_rush.txt",
+    "vanilla": null
+  },
+  "kez_falcon_rush|SpellImmunityType": {
     "file": "abilities/kez_falcon_rush.txt",
     "vanilla": null
   },
@@ -3051,10 +3027,6 @@
     "file": "abilities/life_stealer_rage.txt",
     "vanilla": "{\"special_bonus_unique_lifestealer\":\"+1.0\",\"value\":\"3.0 4.0 5.0 6.0\"}"
   },
-  "lina_fiery_soul|AbilityValues/fiery_soul_magic_resist": {
-    "file": "abilities/lina_fiery_soul.txt",
-    "vanilla": "{\"special_bonus_unique_lina_4\":\"+5\"}"
-  },
   "lina_laguna_blade|AbilityValues/AbilityCooldown": {
     "file": "abilities/lina_laguna_blade.txt",
     "vanilla": "{\"special_bonus_unique_lina_6\":\"-20\",\"value\":\"70 60 50\"}"
@@ -3267,10 +3239,6 @@
     "file": "abilities/lycan_wolf_bite.txt",
     "vanilla": "{\"special_bonus_unique_lycan_8\":\"-15\",\"value\":\"105 95 85\"}"
   },
-  "lycan_wolf_bite|AbilityValues/lifesteal_percent": {
-    "file": "abilities/lycan_wolf_bite.txt",
-    "vanilla": "40"
-  },
   "magnataur_empower|AbilityManaCost": {
     "file": "abilities/magnataur_empower.txt",
     "vanilla": "45 55 65 75"
@@ -3395,10 +3363,6 @@
     "file": "abilities/medusa_cold_blooded.txt",
     "vanilla": "12"
   },
-  "medusa_gorgon_grasp|AbilityCooldown": {
-    "file": "abilities/medusa_gorgon_grasp.txt",
-    "vanilla": "30 26 22 18"
-  },
   "medusa_gorgon_grasp|AbilityValues/AbilityCooldown": {
     "file": "abilities/medusa_gorgon_grasp.txt",
     "vanilla": "30 25 20 15"
@@ -3410,10 +3374,6 @@
   "medusa_mana_shield|AbilityValues/damage_per_mana": {
     "file": "abilities/medusa_mana_shield.txt",
     "vanilla": "{\"hero_levelup\":\"+0.1\",\"value\":\"2\"}"
-  },
-  "medusa_mystic_snake|SpellDispellableType": {
-    "file": "abilities/medusa_mystic_snake.txt",
-    "vanilla": null
   },
   "medusa_split_shot|AbilityValues/damage_modifier": {
     "file": "abilities/medusa_split_shot.txt",
@@ -3855,10 +3815,6 @@
     "file": "abilities/omniknight_hammer_of_purity.txt",
     "vanilla": "{\"special_bonus_unique_omniknight_3\":\"-0.5\",\"value\":\"13 10 7 4\"}"
   },
-  "omniknight_hammer_of_purity|AbilityValues/bonus_damage": {
-    "file": "abilities/omniknight_hammer_of_purity.txt",
-    "vanilla": "25 45 65 85"
-  },
   "omniknight_martyr|AbilityCooldown": {
     "file": "abilities/omniknight_martyr.txt",
     "vanilla": "40 35 30 25"
@@ -3918,10 +3874,6 @@
   "phantom_assassin_blur|AbilityValues/AbilityCooldown": {
     "file": "abilities/phantom_assassin_blur.txt",
     "vanilla": "{\"special_bonus_shard\":\"-10\",\"value\":\"45\"}"
-  },
-  "phantom_assassin_blur|AbilityValues/duration": {
-    "file": "abilities/phantom_assassin_blur.txt",
-    "vanilla": "30"
   },
   "phantom_assassin_coup_de_grace|AbilityValues/crit_bonus": {
     "file": "abilities/phantom_assassin_coup_de_grace.txt",
@@ -4035,10 +3987,6 @@
     "file": "abilities/phoenix_sun_ray.txt",
     "vanilla": "30"
   },
-  "phoenix_sun_ray|AbilityValues/base_damage": {
-    "file": "abilities/phoenix_sun_ray.txt",
-    "vanilla": "15 20 25 30"
-  },
   "phoenix_supernova|AbilityCooldown": {
     "file": "abilities/phoenix_supernova.txt",
     "vanilla": "120"
@@ -4150,10 +4098,6 @@
   "primal_beast_uproar|AbilityValues/projectile_damage": {
     "file": "abilities/primal_beast_uproar.txt",
     "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"special_bonus_scepter\":\"85\"}"
-  },
-  "puck_dream_coil|AbilityValues/AbilityCooldown": {
-    "file": "abilities/puck_dream_coil.txt",
-    "vanilla": "{\"special_bonus_unique_puck\":\"-30\",\"value\":\"75\"}"
   },
   "puck_dream_coil|AbilityValues/attack_rate_pct": {
     "file": "abilities/puck_dream_coil.txt",
@@ -5398,14 +5342,6 @@
   "undying_tombstone_zombie_aura|AbilityValues/zombie_interval": {
     "file": "abilities/undying_tombstone_zombie_aura.txt",
     "vanilla": "{\"value\":\"3\"}"
-  },
-  "undying_tombstone|AbilityValues/hits_to_destroy_tooltip": {
-    "file": "abilities/undying_tombstone.txt",
-    "vanilla": "{\"special_bonus_unique_undying_5\":\"+4\",\"value\":\"5 6 7 8\"}"
-  },
-  "undying_tombstone|AbilityValues/tombstone_health": {
-    "file": "abilities/undying_tombstone.txt",
-    "vanilla": "{\"special_bonus_unique_undying_5\":\"+4\",\"value\":\"5 6 7 8\"}"
   },
   "undying_tombstone|AbilityValues/zombie_attack_damage_per_level": {
     "file": "abilities/undying_tombstone.txt",

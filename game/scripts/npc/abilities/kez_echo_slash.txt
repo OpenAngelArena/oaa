@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Kez: Echo Slash
+  // Kez: Echo Slash 7.42
   //=================================================================================================================
   "kez_echo_slash"
   {
@@ -11,6 +11,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve forgot
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,10 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "katana_distance"                                   "800"
-      "travel_distance"                                   "250"
-      "tag_slow"                                          "100"
-      "tag_slow_duration"                                 "0.25"
       "katana_echo_damage" // percentage of Kez's attack damage
       {
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
@@ -44,7 +41,7 @@
       }
       "echo_base_damage"
       {
-        "value"                                           "40 70 100 130 160 190"
+        "value"                                           "40 70 100 130 260 390"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -63,6 +60,10 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
+      "katana_distance"                                   "800"
+      "travel_distance"                                   "250"
+      "tag_slow"                                          "100"
+      "tag_slow_duration"                                 "0.25"
     }
   }
 }
