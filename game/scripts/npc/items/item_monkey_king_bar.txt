@@ -52,14 +52,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "45 55 75 105 145" //OAA, intentionally nerfed; Demon Edge (40); 7.42: Javelin replaced by Quarterstaff (10 dmg), vanilla 50 -> 55, +5 on all tiers
-      "bonus_attack_speed"                                "35 40 45 50 55" //OAA, intentionally nerfed; Blitz Knuckles (35);
-      "bonus_chance" // 7.42: was Javelin (25), Javelin removed; vanilla keeps 80
+      "bonus_damage"                                      "50 60 80 110 150" //OAA, intentionally nerfed; Demon Edge (40); Quarterstaff (10);
+      "bonus_attack_speed"                                "45 50 55 60 65" //OAA, intentionally nerfed; Blitz Knuckles (35); Quarterstaff (10);
+      "bonus_chance"
       {
         "value"                                           "80"
         "apply_effectiveness"                             "1"
       }
-      "bonus_chance_damage" // 7.42: was Javelin (60), Javelin removed; vanilla keeps 70
+      "bonus_chance_damage"
       {
         "value"                                           "70 80 100 130 170"
       }
