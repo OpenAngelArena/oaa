@@ -56,6 +56,9 @@ function modifier_shopkeeper_ability_shard:OnAbilityFullyCast(event)
     local ability = event.ability
     local parent = self:GetParent()
 
+    -- Liquidation is granted by Aghanim's Scepter; the intrinsic modifier exists before that, so check it
+    if not parent:HasScepter() then return end
+
     -- Check if caster is nil or dead
     if not caster or caster:IsNull() or not caster:IsAlive() then return end
 

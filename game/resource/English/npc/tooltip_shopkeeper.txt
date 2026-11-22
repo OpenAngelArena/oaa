@@ -10,9 +10,13 @@
 "DOTA_Tooltip_Facet_facet_shop_keeper_2_Description"                            "All heroes near you in 450 radius can purchase items from the regular shop"
 
 // Innate Ability
-"DOTA_Tooltip_ability_shopkeeper_ability_innate"                                "Wealthstrike"
-"DOTA_Tooltip_ability_shopkeeper_ability_innate_description"                    "Hero's ranged attacks cost gold, each attack spends %gold_distance% gold but deals %distance_damage% additional magical damage.<br><br>Gains periodic gold every minute, increased by %percent%%%."
-"DOTA_Tooltip_ability_shopkeeper_ability_innate_Lore"                           "There is no such thing as a free lunch. Or a free attack."
+"DOTA_Tooltip_ability_shopkeeper_ability_innate"                                "Warranty"
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_description"                    "Allied heroes within %warranty_radius% radius gain %warranty_potency%%% Item Potency, strengthening their item effects. Heroes near Shopkeeper can also buy from him as a shop."
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_Lore"                           "Every purchase comes with a lifetime guarantee. Terms and conditions apply."
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_warranty_radius"                "RADIUS:"
+"DOTA_Tooltip_ability_shopkeeper_ability_innate_warranty_potency"               "%ITEM POTENCY:"
+"DOTA_Tooltip_modifier_shopkeeper_warranty_description"                         "+%dMODIFIER_PROPERTY_TOOLTIP%%% Item Potency."
+"DOTA_Tooltip_modifier_shopkeeper_warranty"                                     "Warranty"
 
 // Ability 1
 "DOTA_Tooltip_ability_shopkeeper_ability_1"                                     "Healing Salve"
@@ -83,11 +87,11 @@
 
 // Talents
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_1"                        "-{s:bonus_AbilityChargeRestoreTime}s Healing Salve Charge Restore Time"
-"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_2"                        "Wealthstrike Attacks Don't Cost Gold"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_2"                        "+{s:bonus_warranty_radius} Warranty Radius"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_3"                        "+{s:bonus_duration}s All In Duration"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_9"                        "Just Business Affects Non-Heroes"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_4"                        "+{s:bonus_heal} Healing Salve Heal"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_5"                        "-20s All In Cooldown"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_6"                        "Hakoware Undispellable"
-"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_7"                        "+{s:bonus_distance_damage} Wealthstrike Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_7"                        "All In grants +{s:bonus_item_potency}%% Item Potency"
 "DOTA_Tooltip_ability_special_bonus_unique_shopkeeper_8"                        "+{s:bonus_mute_duration}s Hakoware Mute Duration"

@@ -154,6 +154,11 @@
             {
                 "value"                         "3000 4000 6000 8000 10000"  // Max shield value scales for 5 levels
             }
+            "item_potency"
+            {
+                "value"                         "0"
+                "special_bonus_unique_shopkeeper_7" "+40" // test value
+            }
         }
     }
 
@@ -163,10 +168,10 @@
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_vagabond.lua"
         "AbilityTextureName"            "custom/shopkeeper_vagabond"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
         "AbilityCooldown"               "300"
         "MaxLevel"                      "1"
-        "IsGrantedByScepter"            "1"
+        "IsGrantedByShard"              "1"
         "AbilityCastPoint"              "0.5"  // Cast point added
 
         "AbilityValues"
@@ -190,13 +195,13 @@
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_shard.lua"
         "AbilityTextureName"            "custom/shopkeeper_ability_shard"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
         "MaxLevel"                      "1"
-        "IsGrantedByShard"              "1"
+        "IsGrantedByScepter"            "1"
         "AbilityValues"
 		{
             "radius"                    "900"
-            "cooldown_reduction"        "0.25"
+            "cooldown_reduction"        "1" // was 0.25 as shard; test value, needs balance
         }
     }
 
@@ -211,20 +216,12 @@
         "DependentOnAbility"			"shopkeeper_all_in"
 		"AbilityValues"
 		{
-            "gold_timer"                "60"
-            "percent"                   "30"
-
-            "gold_distance"
+            "warranty_radius"
             {
-                "value"                              "3"
-                "special_bonus_unique_shopkeeper_2"  "=0"
+                "value"                              "900"
+                "special_bonus_unique_shopkeeper_2"  "+300" // placeholder talent, needs a decision
             }
-            "distance_damage"
-            {
-                "value"                                 "10 35 60 100 150 200"
-                "special_bonus_unique_shopkeeper_7"     "+150"
-            }
-            "distance"                 "520"
+            "warranty_potency"          "50" // test value: % attack (item) potency for allies, needs balance after in-game test
 		}
     }
 

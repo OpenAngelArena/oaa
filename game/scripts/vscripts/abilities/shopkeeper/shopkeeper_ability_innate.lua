@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_shopkeeper_ability_innate", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shopkeeper_ability_innate_shop_buff", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shopkeeper_warranty_aura", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shopkeeper_warranty", "abilities/shopkeeper/shopkeeper_ability_innate", LUA_MODIFIER_MOTION_NONE)
 
 shopkeeper_ability_innate = class(AbilityBaseClass)
 
@@ -78,19 +80,19 @@ function modifier_shopkeeper_ability_innate:IsPurgable() return false end
 function modifier_shopkeeper_ability_innate:IsPurgeException() return false end
 function modifier_shopkeeper_ability_innate:RemoveOnDeath() return false end
 function modifier_shopkeeper_ability_innate:OnCreated()
-    self.gold_distance = self:GetAbility():GetSpecialValueFor("gold_distance")
-    self.distance_damage = self:GetAbility():GetSpecialValueFor("distance_damage")
-    self.distance = self:GetAbility():GetSpecialValueFor("distance")
     if not IsServer() then return end
-    self.ranged_attacks = {}
-    self.timer = 0
-    self.gold_timer = self:GetAbility():GetSpecialValueFor("gold_timer")
-    self:StartIntervalThink(FrameTime())
+    local parent = self:GetParent()
 
-    local particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:CreateParticle("particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     self:AddParticle(particle, false, false, -1, false, false)
+
+    -- Warranty is a second aura, so it runs on its own modifier (one modifier can only be one aura)
+    if not parent:IsIllusion() then
+        parent:AddNewModifier(parent, self:GetAbility(), "modifier_shopkeeper_warranty_aura", {})
+    end
 end
 
+-- Shop aura: heroes next to Shopkeeper can buy from him
 function modifier_shopkeeper_ability_innate:IsAura()
     if self:GetParent():IsIllusion() then return end
     return true
@@ -120,150 +122,65 @@ function modifier_shopkeeper_ability_innate:GetAuraSearchFlags()
     return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
 end
 
-function modifier_shopkeeper_ability_innate:OnIntervalThink()
-    if not IsServer() then return end
-    self.gold_distance = self:GetAbility():GetSpecialValueFor("gold_distance")
-    self.distance_damage = self:GetAbility():GetSpecialValueFor("distance_damage")
-    if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-        if not self:GetParent():IsIllusion() then
-            self.timer = self.timer + FrameTime()
-            if self.timer >= self.gold_timer then
-                self:GetParent():ModifyGoldFiltered(130, false, DOTA_ModifyGold_Unspecified)
-                self.timer = 0
-            end
-        end
-    end
-    local stack_counter = 0
-    if self:GetParent():GetAggroTarget() then
-        local base_attack_range = self:GetParent():GetBaseAttackRange() + 75
-        local distance = (self:GetParent():GetAggroTarget():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-        if distance > base_attack_range then
-            stack_counter = 1
-        end
-        if self:GetStackCount() ~= stack_counter then
-            self:SetStackCount(stack_counter)
-        end
-    end
+---------------------------------------------------------------------------------------------------
+-- Warranty: allied heroes near Shopkeeper get Item Potency (7.42 attack potency)
+
+modifier_shopkeeper_warranty_aura = class(ModifierBaseClass)
+
+function modifier_shopkeeper_warranty_aura:IsHidden() return true end
+function modifier_shopkeeper_warranty_aura:IsPurgable() return false end
+function modifier_shopkeeper_warranty_aura:RemoveOnDeath() return false end
+function modifier_shopkeeper_warranty_aura:IsAura() return true end
+function modifier_shopkeeper_warranty_aura:IsAuraActiveOnDeath() return false end
+
+function modifier_shopkeeper_warranty_aura:GetModifierAura()
+    return "modifier_shopkeeper_warranty"
 end
 
-function modifier_shopkeeper_ability_innate:DeclareFunctions()
-    return
-    {
-        MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-        MODIFIER_EVENT_ON_ATTACK,
-        MODIFIER_EVENT_ON_ATTACK_START,
-        MODIFIER_EVENT_ON_ATTACK_LANDED,
-        MODIFIER_EVENT_ON_ATTACK_RECORD,
-        MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
-        MODIFIER_PROPERTY_PROJECTILE_NAME,
-        MODIFIER_EVENT_ON_ATTACK_CANCELLED,
-        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
-        MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
+function modifier_shopkeeper_warranty_aura:GetAuraRadius()
+    return self:GetAbility():GetSpecialValueFor("warranty_radius")
+end
+
+function modifier_shopkeeper_warranty_aura:GetAuraSearchTeam()
+    return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_shopkeeper_warranty_aura:GetAuraSearchType()
+    return DOTA_UNIT_TARGET_HERO
+end
+
+modifier_shopkeeper_warranty = class(ModifierBaseClass)
+
+function modifier_shopkeeper_warranty:IsHidden() return false end
+function modifier_shopkeeper_warranty:IsDebuff() return false end
+function modifier_shopkeeper_warranty:IsPurgable() return false end
+
+function modifier_shopkeeper_warranty:GetTexture()
+    return "alchemist_goblins_greed"
+end
+
+function modifier_shopkeeper_warranty:OnCreated()
+    local ability = self:GetAbility()
+    self.potency = ability and not ability:IsNull() and ability:GetSpecialValueFor("warranty_potency") or 0
+end
+
+function modifier_shopkeeper_warranty:OnRefresh()
+    self:OnCreated()
+end
+
+function modifier_shopkeeper_warranty:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_ATTACK_POTENCY, -- 7.42; untested: confirm in game that potency-flagged items get stronger
+        MODIFIER_PROPERTY_TOOLTIP,
     }
 end
 
-function modifier_shopkeeper_ability_innate:GetModifierProjectileSpeedBonus()
-    if self:GetStackCount() == 0 then
-	    return 5000
-    end
+function modifier_shopkeeper_warranty:GetModifierPropertyAttackPotency()
+    return self.potency
 end
 
-function modifier_shopkeeper_ability_innate:GetActivityTranslationModifiers()
-    if self:GetStackCount() == 0 then
-        return "melee_attack"
-    end
-    return "range_attack"
-end
-
-function modifier_shopkeeper_ability_innate:OnAttack(params)
-    if self:GetParent() ~= params.attacker then return end
-    if self:GetParent():IsIllusion() then return end
-    local base_attack_range = self:GetParent():GetBaseAttackRange() + 75
-    local distance = (params.target:GetAbsOrigin() - params.attacker:GetAbsOrigin()):Length2D()
-    -- distance <= base_attack_range or self:GetParent():GetGold() < self.gold_distance
-    if not self.ranged_attacks[params.record] then
-        self:GetParent():EmitSound("Hero_Brewmaster.Attack")
-    else
-        if self.gold_distance > 0 then
-            self:GetParent():ModifyGold(-self.gold_distance, false, 0)
-            local particle = ParticleManager:CreateParticle("particles/shopkeeper_attacks.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-            ParticleManager:SetParticleControl(particle, 1, Vector(1, math.abs(self.gold_distance), 0))
-		    ParticleManager:SetParticleControl(particle, 2, Vector(2, string.len(math.abs(self.gold_distance)) + 1, 0))
-            ParticleManager:ReleaseParticleIndex(particle)
-        end
-        self:GetParent():EmitSound("Hero_Invoker.Attack")
-    end
-end
-
-function modifier_shopkeeper_ability_innate:OnAttackCancelled(params)
-    if params.attacker ~= self:GetParent() then return end
-    self:GetParent():StopSound("Hero_Invoker.PreAttack")
-    self:GetParent():StopSound("Hero_Brewmaster.PreAttack")
-end
-
-function modifier_shopkeeper_ability_innate:OnAttackStart(params)
-    if params.attacker ~= self:GetParent() then return end
-    local base_attack_range = self:GetParent():GetBaseAttackRange() + 75
-    local distance = (params.target:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-    local stack_count = 1
-    if distance <= base_attack_range then
-        stack_count = 0
-    end
-    if self:GetParent():GetGold() < self.gold_distance then
-        stack_count = 0
-    end
-    if self:GetStackCount() ~= stack_count then
-        self:SetStackCount(stack_count)
-    end
-end
-
-function modifier_shopkeeper_ability_innate:OnAttackRecord(params)
-    if params.attacker ~= self:GetParent() then return end
-    local base_attack_range = self:GetParent():GetBaseAttackRange() + 75
-    local distance = (params.target:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-    local stack_count = 1
-    if distance <= base_attack_range then
-        stack_count = 0
-    end
-    if self:GetParent():GetGold() < self.gold_distance then
-        stack_count = 0
-    end
-    if self:GetStackCount() ~= stack_count then
-        self:SetStackCount(stack_count)
-    end
-    if self:GetStackCount() == 0 then
-        self:GetParent():StopSound("Hero_Brewmaster.PreAttack")
-        self:GetParent():EmitSound("Hero_Brewmaster.PreAttack")
-    else
-        self:GetParent():StopSound("Hero_Invoker.PreAttack")
-        self:GetParent():EmitSound("Hero_Invoker.PreAttack")
-        self.ranged_attacks[params.record] = true
-    end
-end
-
-function modifier_shopkeeper_ability_innate:OnAttackLanded(params)
-    if params.attacker ~= self:GetParent() then return end
-    if self.ranged_attacks[params.record] then
-        params.target:EmitSound("Hero_Invoker.ProjectileImpact")
-        params.target:EmitSound("ShopKeeper.Hero_sound_15")
-        self.ranged_attacks[params.record] = nil
-    end
-end
-
-function modifier_shopkeeper_ability_innate:GetModifierProcAttack_BonusDamage_Magical(params)
-    if params.attacker ~= self:GetParent() then return end
-    if not self.ranged_attacks[params.record] then return end
-    return self.distance_damage
-end
-
-function modifier_shopkeeper_ability_innate:GetModifierAttackRangeBonus()
-    return self:GetStackCount() * self.distance
-end
-
-function modifier_shopkeeper_ability_innate:GetModifierProjectileName()
-    if self:GetStackCount() == 1 then
-        return "particles/hero/shopkeeper/amir4an/amir4anmods_shopkeeper_base_attack.vpcf"
-    end
+function modifier_shopkeeper_warranty:OnTooltip()
+    return self.potency
 end
 
 modifier_shopkeeper_ability_innate_shop_buff = class(ModifierBaseClass)

@@ -46,11 +46,14 @@ function modifier_shopkeeper_all_in_shield:CheckState()
     }
 end
 
-function modifier_shopkeeper_all_in_shield:OnCreated(kv)local ability = self:GetAbility()
+function modifier_shopkeeper_all_in_shield:OnCreated(kv)
+    local ability = self:GetAbility()
     if ability and not ability:IsNull() then
         self.shield_max_value = ability:GetSpecialValueFor("shield_max_value")
+        self.item_potency = ability:GetSpecialValueFor("item_potency") -- 0 unless talent 7 is learned
     else
         self.shield_max_value = 0
+        self.item_potency = 0
     end
 
 
@@ -66,7 +69,12 @@ function modifier_shopkeeper_all_in_shield:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
         MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
+        MODIFIER_PROPERTY_ATTACK_POTENCY, -- talent 7; untested, see Warranty
     }
+end
+
+function modifier_shopkeeper_all_in_shield:GetModifierPropertyAttackPotency()
+    return self.item_potency or 0
 end
 
 if IsServer() then
