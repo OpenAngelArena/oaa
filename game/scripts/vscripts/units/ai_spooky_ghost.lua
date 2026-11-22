@@ -83,9 +83,13 @@ function GhostThink()
   end
 
   local function StartLeashing(thisEntity)
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_invulnerable", {})
+    thisEntity:Interrupt()
+    thisEntity:Stop()
+    thisEntity:Hold()
     thisEntity.aggro_target = nil
     thisEntity.state = SIMPLE_AI_STATE_LEASH
-    return 1
+    return 0.1
   end
 
   local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
@@ -94,6 +98,7 @@ function GhostThink()
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
     -- Remove debuff protection
     thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    thisEntity:RemoveModifierByName("modifier_invulnerable")
     -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearest unit that is attackable and assign it as aggro_target.
@@ -173,8 +178,12 @@ function GhostThink()
       end
 
       if not thisEntity.aggro_target then
-        thisEntity.state = SIMPLE_AI_STATE_LEASH
+        thisEntity.aggro_target = thisEntity:GetAggroTarget()
       end
+    end
+
+    if not thisEntity.aggro_target and current_hp_pct > aggro_hp_pct then
+      return StartLeashing(thisEntity)
     end
 
     if current_hp_pct > 50/100 then -- phase 1

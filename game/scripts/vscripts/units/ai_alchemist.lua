@@ -100,9 +100,13 @@ function AlchemistThink()
   end
 
   local function StartLeashing(thisEntity)
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_invulnerable", {})
+    thisEntity:Interrupt()
+    thisEntity:Stop()
+    thisEntity:Hold()
     thisEntity.aggro_target = nil
     thisEntity.state = SIMPLE_AI_STATE_LEASH
-    return 1
+    return 0.1
   end
 
   local function FindCannonshotLocations(thisEntity)
@@ -156,6 +160,7 @@ function AlchemistThink()
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
     -- Remove debuff protection
     thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    thisEntity:RemoveModifierByName("modifier_invulnerable")
     -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
       if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
@@ -247,8 +252,12 @@ function AlchemistThink()
         end
 
         if not thisEntity.aggro_target then
-          thisEntity.state = SIMPLE_AI_STATE_LEASH
+          thisEntity.aggro_target = thisEntity:GetAggroTarget()
         end
+      end
+
+      if not thisEntity.aggro_target and current_hp_pct > aggro_hp_pct then
+        return StartLeashing(thisEntity)
       end
     end
 
