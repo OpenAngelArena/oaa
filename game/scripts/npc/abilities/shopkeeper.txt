@@ -3,7 +3,7 @@
     "shopkeeper_ability_1"
     {
         "BaseClass"                                     "ability_lua"
-        "ScriptFile"                                    "abilities/shopkeeper/shopkeeper_ability_1"
+        "ScriptFile"                                    "abilities/shopkeeper/shopkeeper_ability_1.lua"
         "AbilityTextureName"                            "custom/shopkeeper_potion_of_duality"
 
         "MaxLevel"                                            "6"
@@ -93,7 +93,7 @@
     "shopkeeper_ability_3"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_3"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_3.lua"
         "AbilityTextureName"            "custom/shopkeeper_just_business"
 
         "MaxLevel"                                            "6"
@@ -122,7 +122,7 @@
     "shopkeeper_all_in"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_all_in"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_all_in.lua"
         "AbilityTextureName"            "custom/shopkeeper_all_in"
         "MaxLevel"                      "5"
         "RequiredLevel"                 "6"
@@ -135,7 +135,6 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityCastPoint"			    "0.4"
         "AbilityCastRange"              "700"
-        "AbilityGoldCost"               "100%"  // Percent of Shopkeeper's net worth
         "AbilityValues"
         {
             "AbilityCooldown"
@@ -161,7 +160,7 @@
     "shopkeeper_vagabond"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_vagabond"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_vagabond.lua"
         "AbilityTextureName"            "custom/shopkeeper_vagabond"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -189,7 +188,7 @@
     "shopkeeper_ability_shard"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_shard"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_shard.lua"
         "AbilityTextureName"            "custom/shopkeeper_ability_shard"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                      "1"
@@ -204,7 +203,7 @@
     "shopkeeper_ability_innate"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate"
+        "ScriptFile"                    "abilities/shopkeeper/shopkeeper_ability_innate.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"MaxLevel"						"6"
 		"Innate"						"1"

@@ -11,8 +11,9 @@ function shopkeeper_all_in:OnSpellStart()
     -- Deduct the gold manually
     caster:SpendGold(gold_cost, DOTA_ModifyGold_Unspecified)
 
-    -- Hard dispel the target before applying the shield
-    target:Purge(true, true, false, true, true)
+    -- Strong dispel: remove debuffs and stuns only, keep the ally's own buffs
+    -- Purge(RemovePositiveBuffs, RemoveDebuffs, FrameOnly, RemoveStuns, RemoveExceptions)
+    target:Purge(false, true, false, true, true)
 
     -- Get scaling values from the KV
     local conversion_rate = self:GetSpecialValueFor("conversion_rate") / 100
