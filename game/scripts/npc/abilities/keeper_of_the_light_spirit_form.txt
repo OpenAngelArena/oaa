@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Spirit Form FIXEDFUCK
+  // Keeper of the Light: Spirit Form 7.42
   //=================================================================================================================
   "keeper_of_the_light_spirit_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -37,7 +37,7 @@
         "value"                                           "50"
         "special_bonus_unique_keeper_of_the_light_11"     "+25"
       }
-      "cast_range"                                        "100 175 250 325 400"
+      "cast_range"                                        "100 150 200 250 300"
       "illuminate_heal" // percentage of damage that is healing
       {
         "value"                                           "60"

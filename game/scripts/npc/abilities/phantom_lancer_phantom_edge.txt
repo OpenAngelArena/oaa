@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Lancer: Phantom Rush / Phantom Edge
+  // Phantom Lancer: Phantom Rush 7.42
   //=================================================================================================================
   "phantom_lancer_phantom_edge"
   {
@@ -18,21 +18,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_distance"                                      "275"
-      "bonus_speed"                                       "800"
-      "bonus_agility"                                     "0"
-      "agility_duration"                                  "0"
-      "evasion"                                           "20 30 40 50 60 70"
       "AbilityCooldown"
       {
         "value"                                           "15 11 7 3 3 3"
-        "special_bonus_unique_phantom_lancer_phantom_rush_cooldown"  "-2"
+        "special_bonus_unique_phantom_lancer_phantom_rush_cooldown"  "-2" // unused
       }
+      "min_distance"                                      "275"
       "max_distance"
       {
         "value"                                           "600 675 750 825 900 975"
-        "special_bonus_scepter"                           "+575"
+        "special_bonus_scepter"                           "+525"
       }
+      "bonus_speed"                                       "800"
+      "bonus_agility"                                     "0"
+      "agility_duration"                                  "0"
       "illusion_spawn_radius"
       {
         "special_bonus_scepter"                           "125"
@@ -41,6 +40,7 @@
       {
         "special_bonus_scepter"                           "600"
       }
+      "evasion"                                           "20 30 40 50 60 70"
     }
   }
 }

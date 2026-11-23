@@ -33,7 +33,7 @@
       "range"                                             "750"
       "AbilityCastRange"                                  "1000"
       "speed"                                             "1050"
-      "duration"                                          "11"
+      "duration"                                          "8 9 10 11 12 13"
       "start_radius"
       {
         "value"                                           "150"
@@ -52,7 +52,7 @@
       "damage"
       {
         "value"                                           "80 160 240 320 640 960"
-        "special_bonus_unique_dragon_knight_9"            "+220"
+        "special_bonus_unique_dragon_knight_9"            "+180"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "reduction"

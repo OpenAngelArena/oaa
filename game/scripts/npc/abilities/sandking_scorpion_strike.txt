@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sand King: Stinger
+  // Sand King: Stinger 7.42
   //=================================================================================================================
   "sandking_scorpion_strike"
   {
@@ -33,7 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "debuff_duration"                                   "5"
       "radius"
       {
         "value"                                           "230 250 270 290 310 330"
@@ -41,7 +40,7 @@
       }
       "inner_radius"
       {
-        "value"                                           "125"
+        "value"                                           "120 140 160 180 200 220"
         "affected_by_aoe_increase"                        "1"
       }
       "inner_radius_bonus_damage_pct" //OAA, intentionally nerfed
@@ -54,9 +53,10 @@
       }
       "attack_damage"
       {
-        "value"                                           "50 75 100 125 250 375"
+        "value"                                           "50 80 110 140 280 420"
         "special_bonus_unique_sand_king_scorpion_strike_damage"  "+125"
       }
+      "debuff_duration"                                   "5"
       "strike_slow"
       {
         "value"                                           "10 12 14 16 18 20"
@@ -66,6 +66,7 @@
       {
         "value"                                           "0"
       }
+      "potency"                                           "60"
     }
   }
 }

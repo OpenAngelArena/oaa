@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Razor: Static Link
+  // Razor: Static Link 7.42
   //=================================================================================================================
   "razor_static_link"
   {
@@ -28,26 +28,26 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65"
+    "AbilityManaCost"                                     "45 50 55 60 65 70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "drain_duration"                                    "12 14 16 18 18 18" // buff duration
-      "drain_range_buffer"                                "250"
-      "radius"                                            "200"
-      "speed"                                             "900"
-      "vision_duration"                                   "3.34"
       "drain_length" // link duration
       {
         "value"                                           "10"
       }
+      "drain_duration"                                    "12 14 16 18 18 18" // buff duration
       "drain_rate"
       {
         "value"                                           "6 12 18 24 36 48"
         "special_bonus_unique_razor"                      "+6"
       }
+      "drain_range_buffer"                                "250"
+      "radius"                                            "200"
+      "speed"                                             "900"
+      "vision_duration"                                   "3.34"
       "attack_speed_factor"
       {
         "value"                                           "0"

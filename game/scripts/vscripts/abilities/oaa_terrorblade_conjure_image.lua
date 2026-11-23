@@ -96,6 +96,7 @@ function terrorblade_conjure_image_oaa:CreateIllusion(caster, target, duration, 
   -- Modifiers that we want to apply but don't have AllowIllusionDuplicate or their GetRemainingTime is 0
   local wanted_modifiers = {
     "modifier_item_armlet_unholy_strength",
+    "modifier_item_berserkers_sabatons_active", -- Sabatons toggle (upgraded Armlet), name from vanilla tooltips, not checked in game
     "modifier_alchemist_chemical_rage",
     "modifier_terrorblade_metamorphosis",
   }

@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_meteor_hammer_oaa_dot", "items/meteor_hammer.lua"
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_stun", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_meteor_hammer_1 = class(ItemBaseClass)
-item_meteor_hammer_2 = item_meteor_hammer_1
-item_meteor_hammer_3 = item_meteor_hammer_1
-item_meteor_hammer_4 = item_meteor_hammer_1
-item_meteor_hammer_5 = item_meteor_hammer_1
+--item_meteor_hammer_2 = item_meteor_hammer_1
+--item_meteor_hammer_3 = item_meteor_hammer_1
+--item_meteor_hammer_4 = item_meteor_hammer_1
+--item_meteor_hammer_5 = item_meteor_hammer_1
 
 function item_meteor_hammer_1:GetAOERadius()
   return self:GetSpecialValueFor("impact_radius")

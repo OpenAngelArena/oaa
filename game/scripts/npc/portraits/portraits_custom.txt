@@ -307,4 +307,37 @@
       }
     }
   }
+
+  "models/heroes/shopkeeper/shopkeeper_oaa.vmdl"
+  {
+    "PortraitLightPosition"                               "100 -30 200"
+    "PortraitLightAngles"                                 "22.78 139.18 0.00"
+    "PortraitLightFOV"                                    "40"
+    "PortraitLightDistance"                               "160"
+    "PortraitLightColor"                                  "240 245 240"
+    "PortraitShadowColor"                                 "89 90 151"
+    "PortraitShadowScale"                                 "2.000000"
+    "PortraitAmbientColor"                                "141 60 114"
+    "PortraitAmbientScale"                                "6.000000"
+    "PortraitSpecularColor"                               "130 230 111"
+    "PortraitSpecularColor"                               "0.97 0.07 0.09"
+    "PortraitBackgroundTexture"                           "materials/vgui/hud/heroportraits/portraitbackground_underwater.vmat"
+    "PortraitBackgroundColor1"                            ".5 .9 1"
+    "PortraitBackgroundColor2"                            ".5 .9 1"
+    "PortraitBackgroundColor3"                            ".5 .9 1"
+    "PortraitBackgroundColor4"                            "1 1 1"
+    "PortraitLightScale"                                  "1.600000"
+    "PortraitGroundShadowScale"                           "1.500000"
+    "PortraitAmbientDirection"                            "-119.430 135.430 -64.400"
+    "PortraitAnimationActivity"                           "ACT_DOTA_LOADOUT"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"                                "174.88 63.83 220.12"
+        "PortraitAngles"                                  "13.61 201.09 0.00"
+        "PortraitFOV"                                     "14"
+      }
+    }
+  }
 }

@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Demon: Demonic Purge FIXEDFUCK
+  // Shadow Demon: Demonic Purge 7.42
   //=================================================================================================================
   "shadow_demon_demonic_purge"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -39,8 +39,7 @@
     {
       "purge_damage" //OAA, intentionally buffed
       {
-        "value"                                           "300 600 900 1500 2100"
-        "special_bonus_unique_shadow_demon_1"             "+150" // unused
+        "value"                                           "300 550 800 1300 1800"
       }
       "max_charges"
       {

@@ -1,0 +1,69 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nInitialParticles = 1
+	m_flConstantRadius = 0.000000
+	m_nConstantSequenceNumber = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_previewState = 
+			{
+				m_previewModel = "models/heroes/juggernaut/juggernaut.vmdl"
+				m_nModSpecificData = 6
+				m_sequenceName = "idle"
+				m_hitboxSetName = "default"
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_StatusEffect"
+			m_flDetail2Scale = 3.000000
+			m_flColorWarpIntensity = 1.000000
+			m_flAmbientScale = 10.000000
+			m_flRimLightScale = 9.000000
+			m_flSpecularScale = 15.000000
+			m_flSpecularExponent = 3.000000
+			m_flSpecularExponentBlendToFull = 1.000000
+			m_flSpecularBlendToFull = 1.000000
+			m_flReflectionsTintByBaseBlendToNone = 1.000000
+			m_flSelfIllumBlendToFull = 0.250000
+			m_specularColor = 
+			[
+				0,
+				174,
+				255,
+			]
+			m_rimLightColor = 
+			[
+				0,
+				174,
+				255,
+			]
+			m_nDetail2Combo = "DETAIL_2_COMBO_OFF"
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_EndCapTimedDecay"
+		},
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderStatusEffect"
+			m_pTextureColorWarp = resource:"materials/models/heroes/statuseffects/colorwarp_dark_seer_punch_replica.vtex"
+		},
+	]
+}

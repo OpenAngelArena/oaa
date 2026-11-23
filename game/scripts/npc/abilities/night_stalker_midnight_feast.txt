@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Night Stalker: Midnight Feast FIXEDFUCK
+  // Night Stalker: Midnight Feast 7.42
   //=================================================================================================================
   "night_stalker_midnight_feast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC" // only during the night
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
@@ -30,7 +31,7 @@
         "value"                                           "12 16 20 24 48 72"
         "special_bonus_unique_night_stalker_2"            "+100"
       }
-      "hp_restore"                                        "10 15 20 25 30 35" // percentage
+      "hp_restore"                                        "12 16 20 24 28 32" // percentage
       "mp_restore"                                        "10 12 14 16 18 20" // percentage
     }
   }

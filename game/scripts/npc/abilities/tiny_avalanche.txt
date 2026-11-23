@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Avalanche FIXEDFUCK
+  // Tiny: Avalanche 7.42
   //=================================================================================================================
   "tiny_avalanche"
   {
@@ -42,7 +42,11 @@
       "total_duration"                                    "1.5"
       "tick_count"                                        "5"
       "stun_duration"                                     "0.3"
-      "projectile_speed"                                  "1200"
+      "projectile_speed"
+      {
+        "value"                                           "1500"
+        "special_bonus_unique_tiny_4"                     "+250"
+      }
       "avalanche_damage"
       {
         "value"                                           "90 180 270 360 720 1440"

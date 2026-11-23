@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Reactive Tazer FIXEDFUCK
+  // Techies: Reactive Tazer 7.42
   //=================================================================================================================
   "techies_reactive_tazer"
   {
@@ -58,6 +58,7 @@
       "damage"
       {
         "value"                                           "60 110 160 210 420 840"
+        "special_bonus_unique_techies_3"                  "+75" // unused
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }

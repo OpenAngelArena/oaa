@@ -36,12 +36,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_essence_distiller"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
+    "AbilityTextureName"                                  "custom/essence_distiller_2"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "850"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -57,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3275"
+    "ItemCost"                                            "3225"
     "ItemShopTags"                                        "teamfight"
     "ItemQuality"                                         "rare"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"

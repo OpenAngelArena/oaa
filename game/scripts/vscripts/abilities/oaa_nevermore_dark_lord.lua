@@ -128,12 +128,7 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
 
   self.armor_reduction = ability:GetSpecialValueFor("armor_reduction")
   self.armor_reduction_per_stack = ability:GetSpecialValueFor("bonus_armor_per_stack")
-
-  --self.magic_resistance = 0
-  --local caster = self:GetCaster()
-  --if caster:HasShardOAA() then
-    --self.magic_resistance = -14
-  --end
+  self.magic_resistance = ability:GetSpecialValueFor("presence_magic_resistance_reduction")
 end
 
 modifier_nevermore_dark_lord_oaa_armor_debuff.OnRefresh = modifier_nevermore_dark_lord_oaa_armor_debuff.OnCreated
@@ -141,7 +136,7 @@ modifier_nevermore_dark_lord_oaa_armor_debuff.OnRefresh = modifier_nevermore_dar
 function modifier_nevermore_dark_lord_oaa_armor_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
 end
 
@@ -159,9 +154,9 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierPhysicalArmorB
   return base_armor_reduction - math.abs(additional_armor_reduction)
 end
 
--- function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierMagicalResistanceBonus()
-  -- return self.magic_resistance
--- end
+function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierMagicalResistanceBonus()
+  return 0 - math.abs(self.magic_resistance)
+end
 
 ---------------------------------------------------------------------------------------------------
 

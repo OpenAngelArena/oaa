@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Winter Wyvern: Cold Embrace FIXEDFUCK
+  // Winter Wyvern: Cold Embrace 7.42
   //=================================================================================================================
   "winter_wyvern_cold_embrace"
   {
@@ -37,7 +37,7 @@
       "duration"                                          "4.0"
       "heal_additive"
       {
-        "value"                                           "40 45 50 55 110 165"
+        "value"                                           "32 40 48 56 112 168"
         "special_bonus_unique_winter_wyvern_5"            "+15" // we dont use this so ignore
       }
       "heal_percentage"                                   "1.5 2.5 3.5 4.5 5.0 5.5" // uses special_bonus_unique_winter_wyvern_1_oaa

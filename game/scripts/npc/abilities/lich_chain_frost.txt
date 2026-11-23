@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lich: Chain Frost FIXEDFUCK
+  // Lich: Chain Frost 7.42
   //=================================================================================================================
   "lich_chain_frost"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "70 65 60 55 50" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,8 +42,7 @@
       }
       "bonus_jump_damage"
       {
-        "value"                                           "15 20 25 35 50"
-        "special_bonus_unique_lich_jump_damage"           "+100" // unused
+        "value"                                           "20 20 20 40 60"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "jumps"                                             "10" // uses special_bonus_unique_lich_1_oaa
@@ -65,7 +64,7 @@
       "has_unlimited_jumps"
       {
         "value"                                           "0"
-        "special_bonus_unique_lich_5"                     "=1" // we dont use this so ignore
+        "special_bonus_unique_lich_5"                     "=1" // unused in OAA so ignore
       }
       "should_fire_chain_frost_on_death"
       {

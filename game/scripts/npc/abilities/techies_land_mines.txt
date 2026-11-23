@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Proximity Mines FIXEDFUCK
+  // Techies: Proximity Mines 7.42
   //=================================================================================================================
   "techies_land_mines"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -24,12 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "3"
+    "AbilityCooldown"                                     "0.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 230"
+    "AbilityManaCost"                                     "125 175 225 275 325"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -53,27 +52,31 @@
       "activation_delay"
       {
         "value"                                           "1"
-        "special_bonus_unique_techies_4"                  "-0.8"
         "display_type"                                    "kDuration"
       }
       "cast_range_scepter_bonus"
       {
         "special_bonus_scepter"                           "300"
       }
+      "AbilityCharges"
+      {
+        "value"                                           "3"
+        "special_bonus_unique_techies_6"                  "+1"
+      }
       "AbilityChargeRestoreTime"
       {
-        "value"                                           "15"
-        "special_bonus_unique_techies_3"                  "-2"
+        "value"                                           "14 13 12 11 10"
       }
       "outer_damage"                                      "50"
       "min_distance"                                      "150"
       "placement_radius"                                  "350"
-      "mres_reduction" //OAA, intentionally nerfed
+      "mres_reduction"
       {
-        "value"                                           "10 15 20 25 30"
+        "value"                                           "12 16 20 24 28"
         "display_type"                                    "kDebuffPercentage"
       }
       "burn_duration"                                     "4"
+      "tooltip_health_pips"                               "1"
     }
   }
 }

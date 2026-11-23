@@ -31,46 +31,54 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "30 29 28 27 26 25"
+        "value"                                           "33 32 31 30 29 28"
         "special_bonus_unique_furion_6"                   "-10"
       }
       "area_of_effect"
       {
         "value"                                           "150 225 300 375 450 525"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_furion_force_of_nature_treants"  "+50"
       }
       "max_treants"
       {
         "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_furion_force_of_nature_treants"  "+2"
       }
-      "duration"                                          "25"
+      "duration"                                          "30"
       "treant_health"
       {
-        "value"                                           "550 650 750 850 1700 2550"
+        "value"                                           "450 500 550 600 1200 1800"
         "special_bonus_unique_furion"                     "x3"
       }
       "treant_damage"
       {
-        "value"                                           "20 30 40 50 150 250"
+        "value"                                           "15 25 35 45 90 180"
         "special_bonus_unique_furion"                     "x3"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "treant_armor"                                      "0"
+      "treant_armor"                                      "1 2 3 4 5 6"
       "treant_move_speed"
       {
-        "value"                                           "305 310 315 320 325 330"
+        "value"                                           "300 315 330 345 360 375"
         "special_bonus_unique_furion_2"                   "+50"
       }
       "treant_large_health" // treant_health x 2
       {
-        "value"                                           "1100 1300 1500 1700 3400 5100"
+        "value"                                           "900 1000 1100 1200 2400 3600"
         "special_bonus_unique_furion"                     "x3"
       }
-      "treant_large_damage" // treant_damage x 2.5
+      "treant_large_damage" // treant_damage x 2
       {
-        "value"                                           "50 75 100 125 375 625"
+        "value"                                           "30 50 70 90 180 360"
         "special_bonus_unique_furion"                     "x3"
       }
+      "treant_bonus_hero_damage" // not implemented
+      {
+        "value"                                           "5 10 15 20 40 80"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treewalking"                                       "1" // not implemented
     }
   }
 }

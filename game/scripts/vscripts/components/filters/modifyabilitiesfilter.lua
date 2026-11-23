@@ -37,8 +37,10 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       return false
     end
     if caster:HasScepter() and not victim:HasModifier("modifier_oaa_requiem_allowed") then
-      local max_duration = ability:GetSpecialValueFor("requiem_slow_duration_max") + 1.5 * (ability:GetSpecialValueFor("requiem_radius") / ability:GetSpecialValueFor("requiem_line_speed"))
-      victim:AddNewModifier(caster, ability, "modifier_oaa_requiem_allowed", {duration = math.min(max_duration, 6.5), immune_time = 2})
+      local max_duration = 1.5 * (ability:GetSpecialValueFor("requiem_fear_duration") + ability:GetSpecialValueFor("max_soul_release") * ability:GetSpecialValueFor("requiem_duration_per_soul")) + 1.5 * (ability:GetSpecialValueFor("requiem_radius") / ability:GetSpecialValueFor("requiem_line_speed"))
+      local max_duration_we_allow = ability:GetSpecialValueFor("max_fear_duration_oaa")
+      local immune_time = ability:GetSpecialValueFor("fear_immunity_duration_oaa")
+      victim:AddNewModifier(caster, ability, "modifier_oaa_requiem_allowed", {duration = math.min(max_duration, max_duration_we_allow), immune_time = immune_time})
     end
   elseif ability_name == "faceless_void_time_dilation" and modifier_name == "modifier_faceless_void_time_dilation_slow" then
     victim:AddNewModifier(caster, ability, "modifier_faceless_void_time_dilation_degen_oaa", {duration = modifier_duration})

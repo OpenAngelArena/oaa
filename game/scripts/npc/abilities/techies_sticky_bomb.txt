@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Sticky Bomb FIXEDFUCK
+  // Techies: Sticky Bomb 7.42
   //=================================================================================================================
   "techies_sticky_bomb"
   {
@@ -36,7 +36,7 @@
       "duration"                                          "1.2"
       "countdown"
       {
-        "value"                                           "2"
+        "value"                                           "1.5"
         "display_type"                                    "kDuration"
       }
       "radius"
@@ -56,7 +56,7 @@
       }
       "secondary_slow"
       {
-        "value"                                           "15 25 35 45 50 55"
+        "value"                                           "15 25 35 45 55 65"
         "display_type"                                    "kDebuffPercentage"
       }
       "secondary_slow_duration"                           "3"
@@ -64,6 +64,16 @@
       {
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
+      }
+      "stun_on_explosion"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_techies_4"                  "=1"
+      }
+      "explosion_stun_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_techies_4"                  "+1.5"
       }
       "speed"                                             "500.0"
       "acceleration"                                      "2000"

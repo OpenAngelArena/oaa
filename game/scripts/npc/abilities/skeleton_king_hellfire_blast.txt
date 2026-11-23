@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Wraith King: Hellfire Blast FIXEDFUCK
+  // Wraith King: Hellfire Blast 7.42
   //=================================================================================================================
   "skeleton_king_hellfire_blast"
   {
@@ -38,8 +38,8 @@
       "blast_speed"                                       "1200"
       "blast_stun_duration"
       {
-        "value"                                           "1.0 1.2 1.4 1.6 1.7 1.8"
-        "special_bonus_unique_wraith_king_11"             "+0.75"
+        "value"                                           "1.2 1.4 1.6 1.8 1.9 2.0"
+        "special_bonus_unique_wraith_king_11"             "+0.4"
       }
       "blast_dot_duration"
       {

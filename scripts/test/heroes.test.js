@@ -55,7 +55,7 @@ test('test', function (t) {
                 const abilityName = hero.values[ability];
                 const abilityComment = hero.comments[ability];
                 const dotaAbility = dotaHeroes[heroName].values[ability];
-                if (abilityComment && abilityComment.indexOf(dotaAbility) > -1) {
+                if (abilityComment && namesAbility(abilityComment, String(dotaAbility))) {
                   t.pass(abilityName + ' is overwriting ' + dotaAbility);
                 } else {
                   t.equal(abilityName, dotaAbility, abilityName + ' cannot overwrite ' + dotaAbility + ' without naming it in comment');
@@ -89,3 +89,9 @@ test('test', function (t) {
     });
   });
 });
+
+// whole-name match: a comment naming special_bonus_unique_x_1 must not pass for vanilla special_bonus_unique_x_12
+function namesAbility (comment, name) {
+  // ability names are [a-z0-9_] only, so no regex escaping is needed
+  return new RegExp('(^|[^A-Za-z0-9_])' + name + '($|[^A-Za-z0-9_])').test(comment);
+}

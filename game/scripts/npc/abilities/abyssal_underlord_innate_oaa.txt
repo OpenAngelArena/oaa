@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Abyssal Force (Innate) - custom ability FIXEDFUCK
+  // Abyssal Underlord: Abyssal Force (Innate) - custom ability 7.42
   //=================================================================================================================
   "abyssal_underlord_innate_oaa"
   {
@@ -11,7 +11,7 @@
     "ScriptFile"                                          "abilities/oaa_underlord_innate.lua"
     "AbilityTextureName"                                  "abyssal_underlord_raid_boss"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // barrier buff - same as vanilla
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
     "Innate"                                              "1"
@@ -23,19 +23,21 @@
     {
       "damage_reduction"
       {
-        "value"                                           "3.7"
-        "hero_levelup"                                    "+0.3"
-        //"special_bonus_unique_underlord_7"                "+5"
+        "value"                                           "0"
+      }
+      "barrier_max_health_pct"
+      {
+        "value"                                           "17"
+        "hero_levelup"                                    "+0.5"
       }
       "bonus_ms"
       {
         "value"                                           "9.5"
         "hero_levelup"                                    "+0.5"
-        //"special_bonus_unique_underlord_7"                "+5"
       }
       "buff_duration"
       {
-        "value"                                           "5"
+        "value"                                           "6"
       }
       "damage_gain_range"
       {

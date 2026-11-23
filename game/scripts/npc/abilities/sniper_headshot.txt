@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sniper: Headshot FIXEDFUCK
+  // Sniper: Headshot 7.42
   //=================================================================================================================
   "sniper_headshot"
   {
@@ -24,14 +24,21 @@
         "value"                                           "20 50 80 110 140 170"
         "special_bonus_unique_sniper_headshot_damage"     "+30"
       }
-      "proc_chance"                                       "40"
+      "proc_chance"
+      {
+        "value"                                           "40"
+      }
       "knockback_distance"
       {
         "value"                                           "50"
         "special_bonus_unique_sniper_3"                   "+50"
       }
       "slow"                                              "-100"
-      "slow_duration"                                     "0.2 0.3 0.4 0.5 0.6 0.7"
+      "slow_duration"
+      {
+        "value"                                           "0.2 0.3 0.4 0.5 0.6 0.7"
+      }
+      "attack_effectiveness"                              "0"
     }
   }
 }

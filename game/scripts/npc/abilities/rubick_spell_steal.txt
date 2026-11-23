@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Rubick: Spell Steal FIXEDFUCK
+  // Rubick: Spell Steal 7.42
   //=================================================================================================================
   "rubick_spell_steal"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -53,9 +53,9 @@
       }
       "spell_amp_percent"
       {
-        "special_bonus_unique_rubick_5"                   "40"
+        "special_bonus_unique_rubick_5"                   "30"
       }
-      "duration" //OAA, intentionally nerfed
+      "duration" //OAA, intentionally rescaled
       {
         "value"                                           "240"
       }

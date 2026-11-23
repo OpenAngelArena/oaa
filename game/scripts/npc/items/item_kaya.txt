@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2100"
+    "ItemCost"                                            "2000"
     "ItemShopTags"                                        "int;mana"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ky;kaya"
@@ -22,7 +22,7 @@
     "AbilityValues"
     {
       "bonus_intellect"                                   "16"
-      "spell_amp"                                         "10"
+      "spell_amp"                                         "6"
       "mana_regen_multiplier"                             "20"
     }
   }

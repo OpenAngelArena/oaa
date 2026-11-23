@@ -35,11 +35,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "50 42 34 26 18 10"
+        "special_bonus_unique_dark_seer_2"                "-4"
+      }
       "radius"
       {
         "value"                                           "325 400 475 550 625 700"
         "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_dark_seer_2"                "+75"
       }
       "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
       "damage"                                            "75 150 225 300 600 1200" //OAA, intentionally buffed

@@ -24,7 +24,7 @@
     "AbilityManaCost"                                     "100"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "120 240 480 960" //OAA, intentionally rescaled
+    "AbilityDamage"                                       "110 220 440 880" //OAA, intentionally rescaled
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,9 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "distance"                                          "1380"
+      "distance"                                          "1100"
+      "neutral_chance_to_cast"                            "60"
+      "neutral_cast_attempt_cooldown"                     "8"
     }
   }
 }

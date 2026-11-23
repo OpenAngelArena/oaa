@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Fiend: Presence of the Dark Lord (OAA rework)
+  // Shadow Fiend: Presence of the Dark Lord (OAA rework) 7.42
   //=================================================================================================================
   "nevermore_dark_lord_oaa"
   {
@@ -29,7 +29,12 @@
     {
       "armor_reduction"
       {
-        "value"                                           "4 5 6 7 9 11"
+        "value"                                           "2.5 4 5.5 7 10 13"
+        "special_bonus_unique_nevermore_1_oaa"            "+1"
+      }
+      "presence_magic_resistance_reduction"
+      {
+        "value"                                           "4 6 8 10 12 14"
         "special_bonus_unique_nevermore_1_oaa"            "+2"
       }
       "aura_radius"

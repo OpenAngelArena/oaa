@@ -1,0 +1,152 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "item_test"
+						filename = "models/heroes/shopkeeper/itemmodels/item_3_item_test.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						ignore_rotation = false
+						parent_bone = "scroll_root"
+						relative_origin = 
+						[
+							0.286043,
+							47.057790,
+							-25.646300,
+						]
+						relative_angles = 
+						[
+							-34.363090,
+							21.876830,
+							-125.425200,
+						]
+						weight = 1.000000
+					},
+				]
+			},
+			
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					
+					{
+						_class = "AnimIncludeModel"
+						model = "models/props_gameplay/branch.vmdl"
+					},
+				]
+			},
+			
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-52.703690,
+									-0.750000,
+									-61.732960,
+								]
+								hitbox_maxs = 
+								[
+									52.703710,
+									123.843800,
+									61.732950,
+								]
+								name = "root"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "root"
+						origin = 
+						[
+							-0.000000,
+							0.000000,
+							0.000000,
+						]
+						angles = 
+						[
+							-0.000003,
+							90.000010,
+							90.000000,
+						]
+						do_not_discard = true
+						children = 
+						[
+							
+							{
+								_class = "Bone"
+								name = "scroll_root"
+								origin = 
+								[
+									0.000007,
+									35.457540,
+									-0.000004,
+								]
+								angles = 
+								[
+									-53.000000,
+									-0.000014,
+									26.895550,
+								]
+								do_not_discard = true
+							},
+						]
+					},
+				]
+			},
+		]
+	}
+}

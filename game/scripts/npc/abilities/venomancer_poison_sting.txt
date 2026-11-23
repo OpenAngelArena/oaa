@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Venomancer: Poison Sting (Innate) FIXEDFUCK
+  // Venomancer: Poison Sting (Innate) 7.42
   //=================================================================================================================
   "venomancer_poison_sting"
   {
@@ -20,7 +20,7 @@
     {
       "duration" //OAA, intentionally rescaled
       {
-        "value"                                           "6.0"
+        "value"                                           "4.2"
         "hero_levelup"                                    "+0.3"
       }
       "damage" // OAA, intentionally buffed hero_levelup

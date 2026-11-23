@@ -40,6 +40,8 @@
       "movespeed_slow"                                    "-25 -30 -35 -40" //OAA, intentionally buffed
       "attackspeed_slow"                                  "-25 -35 -45 -55" //OAA, intentionally buffed
       "duration"                                          "3.0"
+      "neutral_chance_to_cast"                            "100"
+      "neutral_cast_attempt_cooldown"                     "8"
     }
   }
 }

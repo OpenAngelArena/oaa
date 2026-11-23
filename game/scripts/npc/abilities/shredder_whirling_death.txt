@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Timbersaw: Whirling Death FIXEDFUCK
+  // Timbersaw: Whirling Death 7.42
   //=================================================================================================================
   "shredder_whirling_death"
   {
@@ -40,8 +40,8 @@
       "whirling_damage"                                   "60 120 180 240 480 720"
       "tree_damage_scale"
       {
-        "value"                                           "9 16 23 30 44 58"
-        "special_bonus_unique_timbersaw"                  "+75"
+        "value"                                           "7 14 21 28 42 56"
+        "special_bonus_unique_timbersaw"                  "+65"
       }
       "whirling_tick"                                     "0.3"
       "stat_loss_pct"

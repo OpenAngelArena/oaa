@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Mass Serpent Ward (first 3 levels) - needed for Urnaconda FIXEDFUCK
+  // Shadow Shaman: Mass Serpent Ward (first 3 levels) - needed for Urnaconda 7.42
   //=================================================================================================================
   "shadow_shaman_mass_serpent_ward"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" // must be an ultimate because of Morphling
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 105 100" // it doesnt matter what it says here
+    "AbilityCooldown"                                     "110" // it doesnt matter what it says here
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,8 +52,8 @@
       }
       "ward_health"
       {
-        "value"                                           "4"
-        "special_bonus_unique_shadow_shaman_1"            "+2"
+        "value"                                           "2"
+        "special_bonus_unique_shadow_shaman_1"            "+1"
       }
       "bonus_attack_targets"
       {

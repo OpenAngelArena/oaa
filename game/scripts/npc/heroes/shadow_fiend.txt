@@ -1,17 +1,17 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Shadow Fiend
+  // HERO: Shadow Fiend 7.42
   //=================================================================================================================
   "npc_dota_hero_nevermore"
   {
     "Ability5"                                            "nevermore_dark_lord_oaa" // replaces nevermore_dark_lord
 
     //"Ability10"                                           "special_bonus_unique_nevermore_7"
-    //"Ability11"                                           "special_bonus_unique_nevermore_4"
+    //"Ability11"                                           "special_bonus_unique_nevermore_frenzy_max_collection_count"
 
     "Ability12"                                           "special_bonus_unique_nevermore_1_oaa" // replaces special_bonus_unique_nevermore_3
-    //"Ability13"                                           "special_bonus_unique_nevermore_2"
+    //"Ability13"                                           "special_bonus_unique_nevermore_frenzy_heal_per_soul"
 
     //"Ability14"                                           "special_bonus_unique_nevermore_1"
     //"Ability15"                                           "special_bonus_unique_nevermore_6"
@@ -20,15 +20,17 @@
     //"Ability17"                                           "special_bonus_unique_nevermore_raze_procsattacks"
 
     // special_bonus_unique_nevermore_1 - Damage Per Soul                                   - 20
-    // special_bonus_unique_nevermore_2 - Shadowraze Damage                                 - 15
-    // special_bonus_unique_nevermore_3 - Presence Armor Reduction                          - unused
-    // special_bonus_unique_nevermore_4 - Feast of Souls Attack Speed                       - 10
+    // special_bonus_unique_nevermore_2 - Shadowraze Damage                                 - unused
+    // special_bonus_unique_nevermore_3 - Presence Armor and Resist Reduction               - unused
+    // special_bonus_unique_nevermore_4 - Feast of Souls Attack Speed                       - unused
     // special_bonus_unique_nevermore_5 - Presence Aura Armor                               - unused, does not work
     // special_bonus_unique_nevermore_6 - Requiem Fear per line                             - 20
     // special_bonus_unique_nevermore_7 - Shadowraze Stack Damage                           - 10
     // special_bonus_unique_nevermore_frenzy_castspeed                                      - 25
     // special_bonus_unique_nevermore_raze_procsattacks                                     - 25
     // special_bonus_unique_nevermore_shadowraze_cooldown                                   - unused
+    // special_bonus_unique_nevermore_frenzy_max_collection_count                           - 10
+    // special_bonus_unique_nevermore_frenzy_heal_per_soul                                  - 15
     // special_bonus_unique_nevermore_1_oaa - Presence Aura Armor Reduction                 - 15, custom, using this one as precaution
   }
 }

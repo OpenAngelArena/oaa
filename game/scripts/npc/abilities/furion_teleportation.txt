@@ -1,16 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nature's Prophet: Teleportation
+  // Nature's Prophet: Teleportation 7.42
   //=================================================================================================================
   "furion_teleportation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,17 +26,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "buff_duration"                                     "15"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "35 30 25 20 15 10"
         "special_bonus_unique_furion_3"                   "-100%"
       }
-      "barrier" //OAA, intentionally buffed
+      "barrier"
       {
-        "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_furion_teleportation_barrier"  "+100"
+        "value"                                           "0"
+        "special_bonus_unique_furion_teleportation_barrier"  "0"
       }
+      "buff_duration"                                     "0"
+      "cast_point_tooltip"                                "3 3 3 3 2.5 2" //OAA, because it scales in OAA; same as AbilityCastPoint
     }
   }
 }

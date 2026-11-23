@@ -58,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "19400"
+    "ItemCost"                                            "19250"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 4"
@@ -72,16 +72,19 @@
       "bonus_intellect"                                   "22 27 37 52 72"
       "bonus_attack_speed"                                "70 75 80 85 90"
       "bonus_mana_regen"                                  "4 4.25 4.75 5.5 6.5"
-      "bonus_health_regen"                                "0"
       "silence_duration"                                  "5"
       "silence_damage_percent"                            "40 45 50 55 60"
       "bonus_damage"                                      "20 30 50 80 120"
       "duration"                                          "6"
       "spell_amp_debuff"                                  "35"
-      "proc_damage_heroes"                                "40 45 55 70 90"
-      "proc_damage_creeps"                                "25 30 40 55 70"
-      "passive_proc_damage"                               "60 70 90 120 160"
-      "proc_chance"                                       "40"
+      "proc_damage_heroes"
+      {
+        "value"                                           "40 45 55 70 90"
+      }
+      "proc_damage_creeps"
+      {
+        "value"                                           "20 25 35 50 65"
+      }
     }
   }
 }

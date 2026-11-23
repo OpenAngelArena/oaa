@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Troll Warlord: Battle Trance FIXEDFUCK
+  // Troll Warlord: Battle Trance 7.42
   //=================================================================================================================
   "troll_warlord_battle_trance"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE" //OAA, Valve is missing AbilityBehavior, lmao
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE" //OAA, Valve is missing AbilityBehavior, lmao
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH" // Valve this is a remnant of the old scepter
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // Valve this is a remnant of the old scepter
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -50,9 +50,9 @@
       {
         "value"                                           "35"
       }
-      "slow_resistance"
+      "status_resistance" //OAA, intentionally nerfed
       {
-        "value"                                           "35"
+        "value"                                           "10 15 20 25 30"
       }
       "range"
       {

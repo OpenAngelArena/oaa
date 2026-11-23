@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Legion Commander: Duel FIXEDFUCK
+  // Legion Commander: Duel 7.42
   //=================================================================================================================
   "legion_commander_duel"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -46,7 +46,7 @@
       "duel_refresh_on_victory"
       {
         "value"                                           "0"
-        "special_bonus_unique_legion_commander_duel_refresh_on_victory"  "+30"
+        "special_bonus_unique_legion_commander_duel_refresh_on_victory"  "+25"
       }
       "damage_reduction_pct" // unused
       {

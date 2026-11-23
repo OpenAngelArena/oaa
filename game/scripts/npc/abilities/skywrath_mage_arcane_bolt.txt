@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Skywrath Mage: Arcane Bolt
+  // Skywrath Mage: Arcane Bolt 7.42
   //=================================================================================================================
   "skywrath_mage_arcane_bolt"
   {
@@ -33,10 +33,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bolt_speed"                                        "500"
-      "bolt_vision"                                       "325"
-      "bolt_damage"                                       "60 90 120 150 300 450" // uses special_bonus_unique_skywrath_1_oaa
-      "vision_duration"                                   "3.34"
       "AbilityCastRange"
       {
         "value"                                           "875"
@@ -46,17 +42,22 @@
       {
         "special_bonus_unique_skywrath_6"                 "1"
       }
+      "bolt_speed"                                        "500"
+      "bolt_vision"                                       "325"
+      "bolt_damage"                                       "60 90 120 150 300 450" // uses special_bonus_unique_skywrath_1_oaa
       "int_multiplier"
       {
         "value"                                           "1.5"
         "special_bonus_unique_skywrath_2"                 "+1.5"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "vision_duration"                                   "3.34"
       "extra_bolt_search_radius"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
+      "secondary_bolt_interval"                           "1"
       "total_bolt_count"
       {
         "value"                                           "1"
