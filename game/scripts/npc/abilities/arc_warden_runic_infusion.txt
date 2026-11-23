@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Arc Warden: Runic Infusion (Innate) FIXEDFUCK
+  // Arc Warden: Runic Infusion (Innate) 7.42
   //=================================================================================================================
   "arc_warden_runic_infusion"
   {
@@ -21,7 +21,7 @@
       "all_attribute_bonus_per_stack" //OAA, intentionally buffed
       {
         "value"                                           "3.0" // 1.5
-        "special_bonus_unique_arc_warden_8"               "+1.0"
+        "special_bonus_unique_arc_warden_8"               "+0.5"
       }
     }
   }

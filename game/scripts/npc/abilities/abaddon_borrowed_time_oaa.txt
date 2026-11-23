@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Borrowed Time (OAA rework) FIXEDFUCK
+  // Abaddon: Borrowed Time (OAA rework) 7.42
   //=================================================================================================================
   "abaddon_borrowed_time_oaa"
   {
@@ -10,8 +10,8 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_abaddon_borrowed_time.lua"
     "AbilityTextureName"                                  "abaddon_borrowed_time"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "IsBreakable"                                         "1" // needed because it's a custom ability
 
@@ -19,7 +19,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1" // needed because it's a custom ability
+    "HasScepterUpgrade"                                   "0" // needed because it's a custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -44,17 +44,17 @@
       "duration"
       {
         "value"                                           "4.0 4.25 4.5 5.0 5.5"
-        "special_bonus_scepter"                           "=5.0 =5.5 =6.0 =7.0 =8.0"
+        "special_bonus_unique_abaddon_4"                  "+2"
       }
       "damage_redirect_scepter"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "20 25 30 35 40"
+        //"special_bonus_scepter"                           "20 25 30 35 40"
       }
       "redirect_range_scepter"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "900"
+        //"special_bonus_scepter"                           "900"
         "affected_by_aoe_increase"                        "1"
       }
       "immolate_damage"

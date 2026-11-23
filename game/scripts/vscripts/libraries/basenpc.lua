@@ -48,6 +48,7 @@ if IsServer() then
         local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
         local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
         local timeless_debuff_amp = caster:HasModifier("modifier_item_enhancement_timeless")
+        --local antimage_counterspell_debuff_amp = -- hard to detect if the spell is reflected
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
             local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")

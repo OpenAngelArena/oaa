@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
-	"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "4" //OAA, intentionally, check max_level kv
     "RequiredLevel"                                       "4"
@@ -35,19 +35,19 @@
       {
         "value"                                           "4"
       }
-	  "dps_penalty_pct"                                   "50 66 75 80"
+      "dps_penalty_pct"                                   "50 66 75 80"
       "attribute_penalty_pct"                             "0"
-	  "xp_penalty_pct"                                    "50 66 75 80"
-	  "xp_penalty_time"                                   "5.0"
-	  "AbilityCastRange"
+      "xp_penalty_pct"                                    "50 66 75 80"
+      "xp_penalty_time"                                   "5.0"
+      "AbilityCastRange"
       {
         "special_bonus_shard"                             "250"
       }
-	  "AbilityCooldown"
+      "AbilityCooldown"
       {
         "special_bonus_shard"                             "25 20 15 10"
       }
-	  "AbilityManaCost"
+      "AbilityManaCost"
       {
         "special_bonus_shard"                             "40"
       }

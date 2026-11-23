@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ancient Apparition: Chilling Touch
+  // Ancient Apparition: Chilling Touch 7.42
   //=================================================================================================================
   "ancient_apparition_chilling_touch"
   {
@@ -22,27 +22,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "3" // death rime stacks duration
-      "slow_duration" //OAA, intentionally nerfed
-      {
-        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
-      }
-      "AbilityManaCost"                                   "35 40 45 50 55 60" //OAA, intentionally nerfed
       "damage"
       {
         "value"                                           "40 80 120 160 200 240"
         "special_bonus_unique_ancient_apparition_2"       "+65"
       }
+      "duration"                                          "3" // unused, used to be death rime stacks duration
       "slow"
       {
         "value"                                           "100"
         "display_type"                                    "kDebuffPercentage"
+      }
+      "slow_duration" //OAA, intentionally nerfed
+      {
+        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
       }
       "attack_range_bonus" //OAA, because of special_bonus_unique_ancient_apparition_7 nerf
       {
         "value"                                           "60 90 120 150 180 210"
         "special_bonus_unique_ancient_apparition_7"       "+150"
       }
+      "AbilityManaCost"                                   "30 35 40 45 50 55" //OAA, intentionally nerfed
       "AbilityCooldown"
       {
         "value"                                           "10 7.5 5 2.5 2.5 2.5"

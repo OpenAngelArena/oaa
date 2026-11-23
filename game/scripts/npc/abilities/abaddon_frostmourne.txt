@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Curse of Avernus FIXEDFUCK
+  // Abaddon: Curse of Avernus 7.42
   //=================================================================================================================
   "abaddon_frostmourne"
   {
@@ -27,12 +27,12 @@
         "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_abaddon_3"                  "+50"
       }
-      "curse_self_attack_speed_multiplier_tooltip_only"   "1.5"
       "curse_self_attack_speed"
       {
         "value"                                           "22.5 30 37.5 45 52.5 60"
         "special_bonus_unique_abaddon_3"                  "+75"
       }
+      "curse_self_attack_speed_multiplier_tooltip_only"   "1.5"
       "curse_dps"
       {
         "value"                                           "12 20 28 36 72 108"
