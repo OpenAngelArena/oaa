@@ -775,10 +775,6 @@
     "file": "abilities/dark_seer_surge.txt",
     "vanilla": "{\"special_bonus_shard\":\"-35\"}"
   },
-  "dark_seer_vacuum|AbilityCooldown": {
-    "file": "abilities/dark_seer_vacuum.txt",
-    "vanilla": null
-  },
   "dark_seer_vacuum|AbilityUnitTargetTeam": {
     "file": "abilities/dark_seer_vacuum.txt",
     "vanilla": null
@@ -786,6 +782,10 @@
   "dark_seer_vacuum|AbilityUnitTargetType": {
     "file": "abilities/dark_seer_vacuum.txt",
     "vanilla": null
+  },
+  "dark_seer_vacuum|AbilityValues/AbilityCooldown": {
+    "file": "abilities/dark_seer_vacuum.txt",
+    "vanilla": "{\"special_bonus_unique_dark_seer_2\":\"-4\",\"value\":\"50 42 34 26\"}"
   },
   "dark_seer_vacuum|AbilityValues/damage": {
     "file": "abilities/dark_seer_vacuum.txt",
@@ -859,9 +859,9 @@
     "file": "abilities/dawnbreaker_solar_guardian.txt",
     "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"value\":\"130 160 190\"}"
   },
-  "dazzle_nothl_projection|AbilityCooldown": {
+  "dazzle_nothl_projection|AbilityValues/AbilityCooldown": {
     "file": "abilities/dazzle_nothl_projection.txt",
-    "vanilla": null
+    "vanilla": "{\"special_bonus_unique_dazzle_nothl_projection_cooldown\":\"-15\",\"value\":\"70 60 50\"}"
   },
   "dazzle_nothl_projection|AbilityValues/poison_touch_hex": {
     "file": "abilities/dazzle_nothl_projection.txt",
@@ -4155,6 +4155,10 @@
     "file": "abilities/pudge_rot.txt",
     "vanilla": null
   },
+  "pudge_rot|AbilityUnitTargetType": {
+    "file": "abilities/pudge_rot.txt",
+    "vanilla": null
+  },
   "pudge_rot|AbilityValues/scepter_rot_regen_reduction_pct": {
     "file": "abilities/pudge_rot.txt",
     "vanilla": "{\"special_bonus_scepter\":\"20\"}"
@@ -5658,10 +5662,6 @@
   "weaver_the_swarm|AbilityManaCost": {
     "file": "abilities/weaver_the_swarm.txt",
     "vanilla": "110 105 100 95"
-  },
-  "weaver_the_swarm|AbilityValues/destroy_attacks": {
-    "file": "abilities/weaver_the_swarm.txt",
-    "vanilla": "{\"special_bonus_unique_weaver_4\":\"+1\",\"value\":\"3 4 4 5\"}"
   },
   "weaver_time_lapse|AbilityCastPoint": {
     "file": "abilities/weaver_time_lapse.txt",

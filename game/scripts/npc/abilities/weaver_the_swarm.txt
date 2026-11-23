@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Weaver: The Swarm FIXEDFUCK
+  // Weaver: The Swarm 7.42
   //=================================================================================================================
   "weaver_the_swarm"
   {
@@ -42,10 +42,10 @@
         "special_bonus_unique_weaver_3"                   "+0.5"
       }
       "duration"                                          "16"
-      "destroy_attacks" //OAA, intentionally rescaled
+      "destroy_attacks"
       {
-        "value"                                           "8"
-        "special_bonus_unique_weaver_4"                   "+2"
+        "value"                                           "3 4 4 5 5 5"
+        "special_bonus_unique_weaver_4"                   "+1"
       }
       "radius"
       {
