@@ -45,6 +45,9 @@ function WandererThink ()
     thisEntity.stickyAbility:SetLevel(lvl)
     thisEntity.cleanseAbility:SetLevel(lvl)
     thisEntity.hasSpawned = true
+    if not thisEntity:HasModifier("modifier_disarmed") then
+      thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+    end
     StartWandering()
     return 1
   end
@@ -80,6 +83,9 @@ function WandererThink ()
     thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
+    if not thisEntity:HasModifier("modifier_disarmed") then
+      thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+    end
   end
 
   -- Check if Wanderer is not aggroed but it should be aggroed
@@ -108,6 +114,10 @@ function WandererThink ()
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_wanderer_boss_buff", {duration = 99})
   end
 
+  if thisEntity.isAggro and thisEntity:HasModifier("modifier_disarmed") and not thisEntity.isLeashing then
+    thisEntity:RemoveModifierByName("modifier_disarmed")
+  end
+
   -- Leashing
   if thisEntity.aggroOrigin then
     local distanceFromOrigin = (thisEntity:GetAbsOrigin() - thisEntity.aggroOrigin):Length2D()
@@ -119,7 +129,12 @@ function WandererThink ()
 
     if thisEntity.isLeashing or shouldLeash then
       if not thisEntity.isLeashing or thisEntity:IsIdle() then
+        if not thisEntity:HasModifier("modifier_disarmed") then
+          thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+        end
+        thisEntity:Interrupt()
         thisEntity:Stop()
+        thisEntity:Hold()
         thisEntity.isLeashing = true
         WalkTowardsSpot(thisEntity.aggroOrigin)
       end
@@ -176,7 +191,7 @@ function WandererThink ()
     end
 
     --thisEntity:SetIdleAcquire(true)
-    thisEntity:SetAcquisitionRange(128)
+    --thisEntity:SetAcquisitionRange(128)
 
     if thisEntity:IsIdle() then
       if nearestEnemy then

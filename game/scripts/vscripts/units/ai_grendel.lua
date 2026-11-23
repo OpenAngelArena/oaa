@@ -38,6 +38,9 @@ function GrendelThink ()
 
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
+    if not thisEntity:HasModifier("modifier_disarmed") then
+      thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+    end
     StartWandering()
     return 1
   end
@@ -76,6 +79,9 @@ function GrendelThink ()
     WalkTowardsSpot(thisEntity.aggroOrigin)
     thisEntity.aggroOrigin = nil
     thisEntity.isLeashing = false
+    if not thisEntity:HasModifier("modifier_disarmed") then
+      thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+    end
   end
 
   -- Check if it is not aggroed but it should be aggroed
@@ -95,6 +101,10 @@ function GrendelThink ()
     thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
+  if thisEntity.isAggro and thisEntity:HasModifier("modifier_disarmed") and not thisEntity.isLeashing then
+    thisEntity:RemoveModifierByName("modifier_disarmed")
+  end
+
   -- Leashing
   if thisEntity.aggroOrigin then
     local distanceFromOrigin = (thisEntity:GetAbsOrigin() - thisEntity.aggroOrigin):Length2D()
@@ -106,7 +116,12 @@ function GrendelThink ()
 
     if thisEntity.isLeashing or shouldLeash then
       if not thisEntity.isLeashing or thisEntity:IsIdle() then
+        if not thisEntity:HasModifier("modifier_disarmed") then
+          thisEntity:AddNewModifier(thisEntity, nil, "modifier_disarmed", {})
+        end
+        thisEntity:Interrupt()
         thisEntity:Stop()
+        thisEntity:Hold()
         thisEntity.isLeashing = true
         WalkTowardsSpot(thisEntity.aggroOrigin)
       end
@@ -148,7 +163,7 @@ function GrendelThink ()
     end
 
     --thisEntity:SetIdleAcquire(true)
-    thisEntity:SetAcquisitionRange(128)
+    --thisEntity:SetAcquisitionRange(128)
 
     if thisEntity:IsIdle() then
       if nearestEnemy then
