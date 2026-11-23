@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Batrider: Sticky Napalm (OAA Rework)
+  // Batrider: Sticky Napalm (OAA Rework) 7.42
   //=================================================================================================================
   "batrider_sticky_napalm_oaa"
   {
@@ -29,17 +29,17 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.0"
+    "AbilityCooldown"                                     "4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "22 24 26 28 30 32"
+    "AbilityManaCost"                                     "25 26 27 28 29 30"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stacks_per_cast"                                   "2"
+      "stacks_per_cast"                                   "1"
       "napalm_stacks_on_attack"
       {
         "value"                                           "0"
@@ -47,12 +47,12 @@
       }
       "application_damage" // application (first) damage
       {
-        "value"                                           "5 10 15 20 40 60"
+        "value"                                           "7 14 21 28 56 84"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_per_stack" // proc damage per stack
       {
-        "value"                                           "2.5 5 7.5 10 20 30"
+        "value"                                           "6 12 18 24 48 72"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
@@ -60,21 +60,21 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "6"
+      "duration"                                          "7"
       "movement_speed_pct"
       {
-        "value"                                           "-0.75 -1.5 -2.25 -3 -3.75 -4.5"
-        "special_bonus_unique_batrider_7"                 "-0.75"
+        "value"                                           "2 4 6 8 10 12"
+        "special_bonus_unique_batrider_7"                 "+2"
       }
-      "turn_rate_pct"                                     "-10 -30 -50 -70 -75 -80"
-      "max_stacks"                                        "20"
+      "turn_rate_pct"                                     "10 25 40 55 70 85"
+      "max_stacks"                                        "10"
       "unlimited_stacks"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "1"
       }
-      "damage_creeps"                                     "20" // Percentage of damage dealt to non-ancient creeps
-      "damage_ancients"                                   "20" // Percentage of damage dealt to ancient creeps but not bosses
+      "damage_creeps"                                     "25" // Percentage of damage dealt to non-ancient creeps
+      "damage_ancients"                                   "25" // Percentage of damage dealt to ancient creeps but not bosses
       "damage_bosses" // Percentage of damage dealt to bosses
       {
         "value"                                           "20"

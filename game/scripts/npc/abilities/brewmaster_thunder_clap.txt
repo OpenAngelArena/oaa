@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster: Thunder Clap
+  // Brewmaster: Thunder Clap 7.42
   //=================================================================================================================
   "brewmaster_thunder_clap"
   {
@@ -30,8 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                     "15 30 45 60 65 70"
-      "attack_speed_slow"                                 "15 30 45 60 75 90"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "15 14 13 12 11 10"
@@ -47,6 +45,8 @@
         "value"                                           "80 160 240 320 640 1280"
         "special_bonus_unique_brewmaster_thunder_clap_damage"  "+160"
       }
+      "movement_slow"                                     "15 30 45 60 75 90"
+      "attack_speed_slow"                                 "15 30 45 60 75 90"
       "duration"
       {
         "value"                                           "3.5 3.75 4.0 4.25 4.5 4.75"

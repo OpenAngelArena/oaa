@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Batrider: Flamebreak
+  // Batrider: Flamebreak 7.42
   //=================================================================================================================
   "batrider_flamebreak"
   {
@@ -29,11 +29,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "stun_duration"                                     "0.5"
-      "speed"                                             "1700"
-      "knockback_height"                                  "100"
-      "knockback_duration"                                "0.35"
-      "slow"                                              "6 12 18 24 30 36"
       "damage_impact"
       {
         "value"                                           "30 60 90 120 240 360"
@@ -60,11 +55,15 @@
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
+      "stun_duration"                                     "0.5"
+      "speed"                                             "1700"
       "knockback_distance"
       {
         "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
+      "knockback_height"                                  "100"
+      "knockback_duration"                                "0.35"
       "napalm_stacks"
       {
         "value"                                           "0"
@@ -75,6 +74,7 @@
         "value"                                           "16 15 14 13 12 11"
         "special_bonus_unique_batrider_5"                 "-6"
       }
+      "slow"                                              "6 12 18 24 30 36"
       "damage_total_tooltip"                              "80 150 230 320 640 960" //OAA, damage_impact + damage_per_second x damage_duration, don't delete this
     }
   }

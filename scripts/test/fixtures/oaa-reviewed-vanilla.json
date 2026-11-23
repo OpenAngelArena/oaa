@@ -11,6 +11,10 @@
     "file": "abilities/abaddon_aphotic_shield.txt",
     "vanilla": "SPELL_IMMUNITY_ALLIES_NO"
   },
+  "abaddon_withering_mist|AbilityValues/max_heal_reduction_pct": {
+    "file": "abilities/abaddon_withering_mist.txt",
+    "vanilla": "{\"hero_levelup\":\"+1.0\",\"special_bonus_unique_abaddon_6\":\"+10\",\"value\":\"40.0\"}"
+  },
   "abyssal_underlord_atrophy_aura|AbilityValues/damage_reduction_pct": {
     "file": "abilities/abyssal_underlord_atrophy_aura.txt",
     "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_NONE\",\"special_bonus_unique_underlord_3\":\"+10\",\"value\":\"8 16 24 32\"}"
@@ -291,10 +295,6 @@
     "file": "abilities/beastmaster_summon_raptor.txt",
     "vanilla": "50"
   },
-  "beastmaster_summon_raptor|AbilityValues/AbilityCooldown": {
-    "file": "abilities/beastmaster_summon_raptor.txt",
-    "vanilla": "{\"value\":\"25\"}"
-  },
   "beastmaster_summon_raptor|AbilityValues/dive_damage": {
     "file": "abilities/beastmaster_summon_raptor.txt",
     "vanilla": "{\"special_bonus_unique_beastmaster_2\":\"+30\",\"value\":\"70 110 150 190\"}"
@@ -439,6 +439,10 @@
     "file": "abilities/bounty_hunter_shuriken_toss.txt",
     "vanilla": null
   },
+  "bounty_hunter_track|AbilityManaCost": {
+    "file": "abilities/bounty_hunter_track.txt",
+    "vanilla": "50"
+  },
   "bounty_hunter_track|AbilityUnitTargetFlags": {
     "file": "abilities/bounty_hunter_track.txt",
     "vanilla": "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -479,6 +483,10 @@
     "file": "abilities/brewmaster_fire_permanent_immolation.txt",
     "vanilla": "{\"value\":\"250 250 250 250\"}"
   },
+  "brewmaster_fire_pull|AbilityValues/damage": {
+    "file": "abilities/brewmaster_fire_pull.txt",
+    "vanilla": "50 100 150 200"
+  },
   "brewmaster_primal_split|AbilityManaCost": {
     "file": "abilities/brewmaster_primal_split.txt",
     "vanilla": "150 200 250 250"
@@ -486,10 +494,6 @@
   "brewmaster_primal_split|AbilityValues/AbilityCooldown": {
     "file": "abilities/brewmaster_primal_split.txt",
     "vanilla": "{\"special_bonus_unique_brewmaster_primal_split_cooldown\":\"-12\",\"value\":\"140 130 120\"}"
-  },
-  "brewmaster_primal_split|AbilityValues/bonus_brewling_hp": {
-    "file": "abilities/brewmaster_primal_split.txt",
-    "vanilla": "{\"special_bonus_unique_brewmaster\":\"+600\",\"value\":\"0\"}"
   },
   "brewmaster_primal_split|AbilityValues/duration": {
     "file": "abilities/brewmaster_primal_split.txt",
