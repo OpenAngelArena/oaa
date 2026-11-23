@@ -1,12 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dark Seer: Wall of Replica
+  // Dark Seer: Wall of Replica 7.42
   //=================================================================================================================
   "dark_seer_wall_of_replica"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -32,9 +33,6 @@
     "AbilityValues"
     {
       "duration"                                          "30.0"
-      "replica_scale"                                     "0"
-      "movement_slow"                                     "40"
-      "wall_damage"                                       "25 55 85 145 205" //OAA, intentionally buffed;
       "replica_damage_outgoing" //OAA, intentionally buffed; also affects Normal Punch illusion
       {
         "value"                                           "-30 -10 10 50 90"
@@ -58,6 +56,8 @@
         "value"                                           "1300"
         "affected_by_aoe_increase"                        "1"
       }
+      "replica_scale"                                     "0"
+      "movement_slow"                                     "40"
       "slow_duration"
       {
         "value"                                           "1"
@@ -66,6 +66,7 @@
       {
         "special_bonus_scepter"                           "2"
       }
+      "wall_damage"                                       "25 55 85 145 205" //OAA, intentionally buffed
       "cooldown_reduction" // Valve not using AbilityCooldown lmao
       {
         "special_bonus_unique_dark_seer_13"               "40"

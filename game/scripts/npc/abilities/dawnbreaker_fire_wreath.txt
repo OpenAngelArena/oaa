@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dawnbreaker: Starbreaker (Q)
+  // Dawnbreaker: Starbreaker (Q) 7.42
   //=================================================================================================================
   "dawnbreaker_fire_wreath"
   {
@@ -10,8 +10,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG" //OAA, Valve forgot
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,20 +30,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "1.1"
-      "movement_speed"                                    "215"
-      "total_attacks"                                     "3"
-      "sweep_stun_duration"                               "0.12"
-      "self_stun_duration"                                "0.2"
-      "swipe_slow"                                        "-100"
-      "smash_distance_from_hero"                          "120"
-      "animation_rate"                                    "0"
-      "turn_rate"                                         "90"
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "14 13 12 11 11 11"
         "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-4"
       }
+      "duration"                                          "1.1"
       "swipe_radius"
       {
         "value"                                           "300"
@@ -61,11 +54,19 @@
       {
         "value"                                           "20 35 50 65 130 195"
       }
+      "movement_speed"                                    "215"
+      "total_attacks"                                     "3"
       "smash_stun_duration"
       {
         "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
         "special_bonus_unique_dawnbreaker_fire_wreath_stun_duration"  "+0.5"
       }
+      "sweep_stun_duration"                               "0.12"
+      "self_stun_duration"                                "0.2"
+      "swipe_slow"                                        "-100"
+      "smash_distance_from_hero"                          "120"
+      "animation_rate"                                    "0"
+      "turn_rate"                                         "90"
       "shard_cast_point"
       {
         "value"                                           "0.1"
