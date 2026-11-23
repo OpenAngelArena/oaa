@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Broodmother: Incapacitating Bite FIXEDFUCK
+  // Broodmother: Incapacitating Bite 7.42
   //=================================================================================================================
   "broodmother_incapacitating_bite"
   {
@@ -24,10 +24,10 @@
         "value"                                           "30 40 50 60 65 70"
         "special_bonus_unique_broodmother_4"              "+15"
       }
-      "bonus_movespeed" //OAA, Valve has the wrong value for special_bonus_unique_broodmother_4
+      "bonus_movespeed"
       {
         "value"                                           "-15 -20 -25 -30 -35 -40"
-        "special_bonus_unique_broodmother_4"              "-20"
+        "special_bonus_unique_broodmother_4"              "-15"
       }
       "duration"                                          "2.0"
       "attack_damage" // reminder: also applies to spiders

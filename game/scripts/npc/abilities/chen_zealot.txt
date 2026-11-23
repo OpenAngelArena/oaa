@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chen: Zealot (Innate) FIXEDFUCK
+  // Chen: Zealot (Innate) 7.42
   //=================================================================================================================
   "chen_zealot"
   {
@@ -15,9 +15,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
@@ -25,16 +22,10 @@
     "AbilityValues"
     {
       "zealots"                                           "1"
-      "damage_bonus"
+      "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "5"
-        "hero_levelup"                                    "2"
-        "special_bonus_unique_chen_5"                     "+12"
-      }
-      "movement_speed_bonus"
-      {
-        "value"                                           "5"
-        "hero_levelup"                                    "2"
+        "value"                                           "30" // 60
+        "hero_levelup"                                    "-0.5" // -1
       }
       "health_min"
       {
@@ -42,10 +33,16 @@
         "hero_levelup"                                    "+50"
         "special_bonus_unique_chen_4"                     "+1300"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "movement_speed_bonus"
       {
-        "value"                                           "30" // 60
-        "hero_levelup"                                    "-0.5" // -1
+        "value"                                           "5"
+        "hero_levelup"                                    "2"
+      }
+      "damage_bonus"
+      {
+        "value"                                           "5"
+        "hero_levelup"                                    "2"
+        "special_bonus_unique_chen_5"                     "+12" // this is spell amp too
       }
       "damage"
       {

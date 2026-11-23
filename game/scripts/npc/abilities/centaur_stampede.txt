@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Centaur Warrunner: Stampede FIXEDFUCK
+  // Centaur Warrunner: Stampede 7.42
   //=================================================================================================================
   "centaur_stampede"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -36,7 +36,7 @@
       "base_damage"                                       "0"
       "strength_damage" //OAA, intentionally buffed
       {
-        "value"                                           "2 3 4 5 6"
+        "value"                                           "2.0 2.5 3.0 4.0 5.0"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow_duration"                                     "3"

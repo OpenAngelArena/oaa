@@ -156,20 +156,6 @@ if IsServer() then
       unit_name = "npc_dota_broodmother_giant_spiderling"
     end
 
-    -- Talents for spider stats
-    local hp_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_2_oaa")
-    local dmg_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_4_oaa")
-
-    if hp_talent and hp_talent:GetLevel() > 0 then
-      --base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
-      hp_per_level = hp_per_level + hp_talent:GetSpecialValueFor("value")
-    end
-
-    if dmg_talent and dmg_talent:GetLevel() > 0 then
-      --base_damage = base_damage + dmg_talent:GetSpecialValueFor("value")
-      damage_per_level = damage_per_level + dmg_talent:GetSpecialValueFor("value")
-    end
-
     local level = parent:GetLevel()
     local playerID = parent:GetPlayerID()
 

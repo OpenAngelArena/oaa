@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Crystal Maiden: Freezing Field FIXEDFUCK
+  // Crystal Maiden: Freezing Field 7.42
   //=================================================================================================================
   "crystal_maiden_freezing_field"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -48,7 +48,7 @@
       }
       "damage" //OAA, intentionally buffed both base values and the talent
       {
-        "value"                                           "110 185 260 410 560"
+        "value"                                           "130 190 250 370 490"
         "special_bonus_unique_crystal_maiden_3"           "+75"
       }
       "frostbite_delay"

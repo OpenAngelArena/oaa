@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Skeleton Walk FIXEDFUCK
+  // Clinkz: Skeleton Walk 7.42
   //=================================================================================================================
   "clinkz_wind_walk"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -32,7 +32,7 @@
       "move_speed_bonus_pct"                              "25 35 45 55 65"
       "skeleton_count"
       {
-        "value"                                           "2 3 4 5 6"
+        "value"                                           "2 3 4 4 4" // intentionally dont scale into OAA lvls because of lag
         "special_bonus_unique_clinkz_skeletons"           "+2"
       }
       "AbilityCooldown"
@@ -42,7 +42,6 @@
       }
       "skeleton_offset"                                   "250"
       "skeleton_offset_min"                               "150"
-      "attack_rate"                                       "1.6"
       "skeleton_duration"
       {
         "value"                                           "20 25 30 35 40"
@@ -56,9 +55,10 @@
         "value"                                           "2"
       }
       "skeleton_building_damage_reduction"                "75"
+      "attack_rate"                                       "1.6"
       "damage_percent"
       {
-        "value"                                           "20"
+        "value"                                           "20 20 20 22 24"
       }
     }
   }
