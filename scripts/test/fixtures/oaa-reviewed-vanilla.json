@@ -1351,9 +1351,17 @@
     "file": "abilities/enigma_black_hole.txt",
     "vanilla": "180 170 160"
   },
+  "enigma_black_hole|AbilityValues/damage": {
+    "file": "abilities/enigma_black_hole.txt",
+    "vanilla": "{\"special_bonus_unique_enigma_6\":\"+40\",\"value\":\"90 135 180\"}"
+  },
   "enigma_black_hole|AbilityValues/scepter_drag_speed": {
     "file": "abilities/enigma_black_hole.txt",
     "vanilla": "{\"special_bonus_scepter\":\"150\"}"
+  },
+  "enigma_black_hole|AbilityValues/scepter_pct_damage": {
+    "file": "abilities/enigma_black_hole.txt",
+    "vanilla": "{\"special_bonus_scepter\":\"4\"}"
   },
   "enigma_demonic_conversion|AbilityBehavior": {
     "file": "abilities/enigma_demonic_conversion.txt",
@@ -1539,18 +1547,6 @@
     "file": "abilities/neutrals/wolf_intimidate.txt",
     "vanilla": "1"
   },
-  "grimstroke_dark_artistry|AbilityValues/bonus_damage_per_creep": {
-    "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"10 20 30 40\"}"
-  },
-  "grimstroke_dark_artistry|AbilityValues/bonus_damage_per_hero": {
-    "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"20 40 60 80\"}"
-  },
-  "grimstroke_dark_artistry|AbilityValues/damage": {
-    "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"100 160 220 280\"}"
-  },
   "grimstroke_ink_creature|AbilityCooldown": {
     "file": "abilities/grimstroke_ink_creature.txt",
     "vanilla": "30 26 22 18"
@@ -1614,6 +1610,10 @@
   "hoodwink_decoy|AbilityValues/sharpshooter_damage_pct": {
     "file": "abilities/hoodwink_decoy.txt",
     "vanilla": "60"
+  },
+  "hoodwink_mistwoods_wayfarer|AbilityValues/redirect_chance": {
+    "file": "abilities/hoodwink_mistwoods_wayfarer.txt",
+    "vanilla": "{\"hero_levelup\":\"1\",\"value\":\"10\"}"
   },
   "hoodwink_scurry|AbilityChargeRestoreTime": {
     "file": "abilities/hoodwink_scurry.txt",
