@@ -59,10 +59,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "10 20 40 70 110" //OAA
+      "bonus_damage"                                      "35 40 45 50 55" //OAA
       "bonus_strength"                                    "35 40 45 50 55" //OAA, inherited from Skadi
       "base_attack_range_melee"                           "25"
-      "bonus_agility"                                     "15"
+      "bonus_agility"                                     "35 40 45 50 55" //OAA, inherited from Skadi
       "bash_chance_melee"
       {
         "value"                                           "25"

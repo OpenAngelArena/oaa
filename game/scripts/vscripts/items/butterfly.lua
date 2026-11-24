@@ -48,7 +48,7 @@ end
 
 function modifier_item_butterfly_oaa_passive:OnCreated()
   self:OnRefresh()
-  if IsServer() then
+  if IsServer() and self.as_per_agi and self.as_per_agi > 0 then
     self:StartIntervalThink(0.3)
   end
 end
@@ -63,7 +63,7 @@ function modifier_item_butterfly_oaa_passive:OnRefresh()
     self.dmg = ability:GetSpecialValueFor("bonus_damage")
   end
 
-  if IsServer() then
+  if IsServer() and self.as_per_agi and self.as_per_agi > 0 then
     self:OnIntervalThink()
   end
 end
@@ -90,15 +90,17 @@ function modifier_item_butterfly_oaa_passive:GetModifierBonusStats_Agility()
 end
 
 function modifier_item_butterfly_oaa_passive:GetModifierAttackSpeedBonus_Constant()
-  -- Prevent multiple Butterflies stacking attack speed
-  if self:GetStackCount() ~= 2 then
-    return 0
-  end
   local parent = self:GetParent()
-  if parent.GetAgility == nil then
+  if self.as_per_agi and self.as_per_agi > 0 and parent.GetAgility ~= nil then
+    -- Prevent multiple Butterflies stacking attack speed
+    if self:GetStackCount() ~= 2 then
+      return 0
+    end
+
+    return self.attack_speed + (self.as_per_agi * parent:GetAgility() * 0.01)
+  else
     return self.attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
   end
-  return self.attack_speed + (self.as_per_agi * parent:GetAgility() * 0.01)
 end
 
 function modifier_item_butterfly_oaa_passive:GetModifierEvasion_Constant()

@@ -58,22 +58,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "8 13 18 23 28" // tiers: old Khanda growth (+5 all stats)
-      "bonus_agility"                                     "8 13 18 23 28" // tiers: old Khanda growth (+5 all stats)
-      "bonus_intellect"                                   "20 25 30 35 40" // tiers: old Khanda growth (+5 all stats)
-      "bonus_health"                                      "175 215 275 350 450" // tiers: old Khanda health ratio (450 550 700 900 1150)
-      "bonus_health_regen"                                "6 9 12 15 18" // tiers: old Khanda growth (+3)
-      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5" // tiers: old Khanda mana regen
-      "bonus_spell_damage"                                "175 245 350 490 665" // tiers: old Khanda spell damage ratio (250 350 500 700 950)
-      "slow"                                              "40 45 50 55 60" // tiers: old Khanda slow growth (+5)
-      "slow_duration"                                     "2 2.25 2.5 2.75 3" // tiers: old Khanda slow duration growth (+0.25); even if there is no slow, this needs to be above 0.0 so the delayed_damage happens OnIntervalThink
-      "bonus_heal"                                        "200 280 400 560 760" // tiers: same ratio as bonus_spell_damage
-      "haste"                                             "20 25 30 35 40" // linear like slow, needs balance review
-      "haste_duration"                                    "2 2.25 2.5 2.75 3" // linear like slow_duration, needs balance review
+      "bonus_strength"                                    "8 13 18 23 28"
+      "bonus_agility"                                     "8 13 18 23 28"
+      "bonus_intellect"                                   "20 25 30 35 40"
+      "bonus_health"                                      "175 275 425 625 875"
+      "bonus_health_regen"                                "6 9 12 15 18"
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
+      "bonus_spell_damage"                                "175 275 425 625 875" // old Khanda: 250 350 500 700 950
+      "slow"                                              "40 45 50 55 60"
+      "slow_duration"                                     "2 2.25 2.5 2.75 3" // old Khanda: 4 4.25 4.5 4.75 5
+      "bonus_heal"                                        "200 300 450 650 900"
+      "haste"                                             "20 25 30 35 40"
+      "haste_duration"                                    "2 2.25 2.5 2.75 3"
       "enemy_proc_cooldown"                               "8"
       "ally_proc_cooldown"                                "8"
-      "push_length"                                       "600" // read by modifier_item_forcestaff_active
-      "push_time"                                         "0.5" // read by modifier_item_forcestaff_active
+      "push_length"                                       "600"
+      "push_time"                                         "0.5"
       "enemy_cast_range"                                  "850"
     }
   }

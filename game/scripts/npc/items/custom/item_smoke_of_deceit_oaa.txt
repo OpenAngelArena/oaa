@@ -30,8 +30,8 @@
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
     "ItemStockInitial"                                    "2"
-    "ItemStockMax"                                        "3"
-    "ItemStockTime"                                       "300" // vanilla: 420
+    "ItemStockMax"                                        "4"
+    "ItemStockTime"                                       "300" // vanilla: 330
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemSupport"                                         "1"
     "ItemAlertable"                                       "1"
@@ -51,8 +51,8 @@
         "affected_by_aoe_increase"                        "1"
       }
       "visibility_radius"                                 "1025"
-      "bonus_movement_speed"                              "15"
-      "duration"                                          "45.0"
+      "bonus_movement_speed"                              "25"
+      "duration"                                          "50.0"
       "second_cast_cooldown"                              "2.0"
       "secondary_application_radius"                      "300"
     }

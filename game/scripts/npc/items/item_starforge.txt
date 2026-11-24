@@ -13,7 +13,7 @@
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_starforge"
-    "ItemRequirements" // OAA, OAA Meteor Hammer is item_meteor_hammer_1
+    "ItemRequirements" // OAA
     {
       "01"                                                "item_meteor_hammer_1;item_ultimate_orb"
     }
@@ -38,7 +38,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "24 23 22 21 20" // tiers like the old 5-tier Meteor Hammer
+    "AbilityCooldown"                                     "24 23 22 21 20"
     "AbilityManaCost"                                     "175"
     "AbilitySharedCooldown"                               "meteor"
 
@@ -61,16 +61,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "24 29 34 39 44" // tiers: old Meteor Hammer growth (+5)
-      "bonus_agility"                                     "24 29 34 39 44" // tiers: old Meteor Hammer growth (+5)
-      "bonus_intellect"                                   "40 45 55 70 90" // tiers: old Meteor Hammer growth (+5 +10 +15 +20)
-      "spell_amp"                                         "6 10 14 18 22" // tiers: old Meteor Hammer growth (+4)
-      "mana_regen_multiplier"                             "20 30 40 50 60" // tiers: old Meteor Hammer growth (+10)
+      "bonus_strength"                                    "24 29 34 39 44"
+      "bonus_agility"                                     "24 29 34 39 44"
+      "bonus_intellect"                                   "35 40 45 50 55" // OAA, Meteor Hammer (20) + Ultimate Orb (15)
+      "spell_amp"                                         "10 14 18 22 26" // OAA
+      "mana_regen_multiplier"                             "20 30 40 50 60"
 
-      "burn_dps_units"                                    "60 150 240 330 420" // tiers: old Meteor Hammer burn growth (+90)
-      "burn_slow"                                         "15 20 25 30 35" // tiers: old Meteor Hammer slow growth (+5)
+      "burn_dps_units"                                    "60 150 240 330 420"
+      "burn_slow"                                         "15 20 25 30 35"
       "burn_duration"                                     "6"
-      "stun_duration"                                     "1.5" // OAA, intentionally 1.5 like the old Meteor Hammer that Starforge replaces (vanilla 0.75)
+      "stun_duration"                                     "1.5" // OAA
       "burn_interval"                                     "1.0"
       "land_time"                                         ".5"
       "impact_radius"
@@ -79,14 +79,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "max_duration"                                      "2"
-      "impact_damage_units"                               "150 250 400 600 850" // tiers: old Meteor Hammer impact damage
-      "impact_damage_units_pct_health"                    "15.0" // percentage, does not scale (bosses: boss_basic_properties percentDamageSpells)
-      "building_damage_pct"                               "75"
+      "impact_damage_units"                               "150 250 400 600 850"
+      "impact_damage_units_pct_health"                    "15.0" // percentage
+      "building_damage_pct"                               "75" // unused in OAA so ignore
       "enemy_particles_visible"                           "0"
 
       "passive_debuff_duration"                           "3.0"
-      "slow_pct"                                          "15 20 25 30 35" // linear like burn_slow, needs balance review
-      "burn_per_second"                                   "60 150 240 330 420" // linear like burn_dps_units, needs balance review
+      "slow_pct"                                          "15 20 25 30 35"
+      "burn_per_second"                                   "60 150 240 330 420"
       "passive_burn_interval"                             "1.0"
     }
   }

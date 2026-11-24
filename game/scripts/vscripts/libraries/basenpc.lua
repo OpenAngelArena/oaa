@@ -51,7 +51,7 @@ if IsServer() then
         --local antimage_counterspell_debuff_amp = -- hard to detect if the spell is reflected
         if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
           if ursa_debuff_amp:GetLevel() > 0 then
-            local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
+            local bear_down_debuff_amp = math.abs(ursa_debuff_amp:GetSpecialValueFor("debuff_amp"))
             debuff_amplifications = (1 + debuff_amplifications) * (1 + bear_down_debuff_amp / 100) - 1
           end
         end
@@ -69,7 +69,7 @@ if IsServer() then
         end
         if bristle_debuff_amp and not bristle_debuff_amp:IsNull() then
           if bristle_debuff_amp:GetLevel() > 0 then
-            local prickly_debuff_amp = bristle_debuff_amp:GetSpecialValueFor("amp_pct")
+            local prickly_debuff_amp = math.abs(bristle_debuff_amp:GetSpecialValueFor("amp_pct"))
             local angle = bristle_debuff_amp:GetSpecialValueFor("angle")
             -- The y value of the angles vector contains the angle we actually want: where units are directionally facing in the world.
             local bristle_angle = caster:GetAnglesAsVector().y
@@ -90,7 +90,7 @@ if IsServer() then
         end
         if rubick_debuff_amp and not rubick_debuff_amp:IsNull() then
           if rubick_debuff_amp:GetLevel() > 0 then
-            local base_curiosity_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+            local base_curiosity_debuff_amp = math.abs(rubick_debuff_amp:GetSpecialValueFor("curiosity_modifier_amp"))
             local curiosity_factor = rubick_debuff_amp:GetSpecialValueFor("curiosity_factor")
             local hero_lvl = caster:GetLevel()
             local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
@@ -117,7 +117,7 @@ if IsServer() then
           if timeless_mod then
             local timeless_item = timeless_mod:GetAbility()
             if timeless_item and not timeless_item:IsNull() then
-              local timeless_amp = timeless_item:GetSpecialValueFor("debuff_amp")
+              local timeless_amp = math.abs(timeless_item:GetSpecialValueFor("debuff_amp"))
               debuff_amplifications = (1 + debuff_amplifications) * (1 + timeless_amp / 100) - 1
             end
           end
@@ -181,6 +181,7 @@ if IsServer() then
     end
   end
 
+  -- This is for modifying values of forced-movement debuffs (e.g. knockbacks or enemy force staff)
   function CDOTA_BaseNPC:GetValueChangedByKnockbackResistance(value)
     if self and value then
       local total_knockback_resistance = 0
@@ -207,6 +208,23 @@ if IsServer() then
         end
       end
       local new_value = value * (1 - total_knockback_resistance)
+      return new_value
+    end
+  end
+
+  -- This is for modifying values of forced-movement buffs (e.g. friendly force staff)
+  function CDOTA_BaseNPC:GetValueChangedByKnockbackAmplification(value)
+    if self and value then
+      local total_forced_move_reduction = 0
+      local nullifier_mod = self:FindModifierByNameAndCaster("modifier_item_nullifier_mute", self)
+      if nullifier_mod and not nullifier_mod:IsNull() then
+        local nulllifier_ability = nullifier_mod:GetAbility()
+        if nulllifier_ability and not nulllifier_ability:IsNull() then
+          local reduced_movement = math.abs(nulllifier_ability:GetSpecialValueFor("knockback_reduction"))
+          total_forced_move_reduction = 1 - (1 - reduced_movement / 100) * (1 - total_forced_move_reduction)
+        end
+      end
+      local new_value = value * (1 - total_forced_move_reduction)
       return new_value
     end
   end

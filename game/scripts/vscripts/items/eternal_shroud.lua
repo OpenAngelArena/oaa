@@ -1,3 +1,4 @@
+-- UNUSED
 LinkLuaModifier("modifier_item_eternal_shroud_oaa", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eternal_shroud_oaa_barrier", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 
