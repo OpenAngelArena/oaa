@@ -571,10 +571,6 @@
     "file": "abilities/bristleback_warpath.txt",
     "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_facet_bristleback_berserk\":\"=5\",\"special_bonus_unique_bristleback_3\":\"+18\",\"value\":\"12 16 20\"}"
   },
-  "broodmother_incapacitating_bite|AbilityValues/bonus_movespeed": {
-    "file": "abilities/broodmother_incapacitating_bite.txt",
-    "vanilla": "{\"special_bonus_unique_broodmother_4\":\"-15\",\"value\":\"-15 -20 -25 -30\"}"
-  },
   "broodmother_insatiable_hunger|AbilityCooldown": {
     "file": "abilities/broodmother_insatiable_hunger.txt",
     "vanilla": "45 40 35 30"
@@ -667,6 +663,10 @@
     "file": "abilities/chen_hand_of_god.txt",
     "vanilla": "{\"value\":\"20 30 40\"}"
   },
+  "chen_holy_persuasion|AbilityCooldown": {
+    "file": "abilities/chen_holy_persuasion.txt",
+    "vanilla": "15"
+  },
   "chen_holy_persuasion|AbilityValues/level_req": {
     "file": "abilities/chen_holy_persuasion.txt",
     "vanilla": "3 4 5 6"
@@ -702,6 +702,10 @@
   "clinkz_strafe|AbilityValues/attack_speed_bonus": {
     "file": "abilities/clinkz_strafe.txt",
     "vanilla": "{\"special_bonus_unique_clinkz_7\":\"+40\",\"value\":\"120 160 200 240\"}"
+  },
+  "clinkz_wind_walk|AbilityValues/skeleton_count/value": {
+    "file": "abilities/clinkz_wind_walk.txt",
+    "vanilla": "2 3 4"
   },
   "crystal_maiden_brilliance_aura|AbilityBehavior": {
     "file": "abilities/crystal_maiden_brilliance_aura.txt",
@@ -815,6 +819,14 @@
     "file": "abilities/dark_seer_wall_of_replica.txt",
     "vanilla": "25 40 55"
   },
+  "dark_willow_bedlam|AbilityUnitTargetTeam": {
+    "file": "abilities/dark_willow_bedlam.txt",
+    "vanilla": "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  },
+  "dark_willow_bedlam|AbilityUnitTargetType": {
+    "file": "abilities/dark_willow_bedlam.txt",
+    "vanilla": "DOTA_UNIT_TARGET_HERO"
+  },
   "dark_willow_bedlam|AbilityValues/attack_damage": {
     "file": "abilities/dark_willow_bedlam.txt",
     "vanilla": "{\"special_bonus_unique_dark_willow_4\":\"+30\",\"value\":\"70 110 150\"}"
@@ -839,9 +851,21 @@
     "file": "abilities/dawnbreaker_celestial_hammer.txt",
     "vanilla": "18 16 14 12"
   },
+  "dawnbreaker_celestial_hammer|AbilityUnitTargetTeam": {
+    "file": "abilities/dawnbreaker_celestial_hammer.txt",
+    "vanilla": null
+  },
+  "dawnbreaker_celestial_hammer|AbilityUnitTargetType": {
+    "file": "abilities/dawnbreaker_celestial_hammer.txt",
+    "vanilla": null
+  },
   "dawnbreaker_fire_wreath|AbilityValues/AbilityCooldown": {
     "file": "abilities/dawnbreaker_fire_wreath.txt",
     "vanilla": "{\"special_bonus_unique_dawnbreaker_fire_wreath_cooldown\":\"-4\",\"value\":\"17 15 13 11\"}"
+  },
+  "dawnbreaker_fire_wreath|SpellDispellableType": {
+    "file": "abilities/dawnbreaker_fire_wreath.txt",
+    "vanilla": null
   },
   "dawnbreaker_luminosity|AbilityValues/allied_healing_pct": {
     "file": "abilities/dawnbreaker_luminosity.txt",
@@ -915,6 +939,14 @@
     "file": "abilities/death_prophet_exorcism.txt",
     "vanilla": "62 65 68"
   },
+  "death_prophet_silence|AbilityUnitTargetTeam": {
+    "file": "abilities/death_prophet_silence.txt",
+    "vanilla": null
+  },
+  "death_prophet_silence|AbilityUnitTargetType": {
+    "file": "abilities/death_prophet_silence.txt",
+    "vanilla": null
+  },
   "death_prophet_spirit_siphon|AbilityCharges": {
     "file": "abilities/death_prophet_spirit_siphon.txt",
     "vanilla": "1 2 3 4"
@@ -934,10 +966,6 @@
   "disruptor_glimpse|AbilityValues/min_damage": {
     "file": "abilities/disruptor_glimpse.txt",
     "vanilla": "25"
-  },
-  "disruptor_kinetic_fence|AbilityValues/AbilityCooldown": {
-    "file": "abilities/disruptor_kinetic_fence.txt",
-    "vanilla": "{\"special_bonus_unique_disruptor_2\":\"-3\",\"value\":\"12\"}"
   },
   "disruptor_kinetic_field|AbilityManaCost": {
     "file": "abilities/disruptor_kinetic_field.txt",
@@ -999,6 +1027,10 @@
     "file": "abilities/doom_bringer_scorched_earth.txt",
     "vanilla": "{\"special_bonus_unique_doom_11\":\"=66\",\"value\":\"20 30 40 50\"}"
   },
+  "dragon_knight_breathe_fire|AbilityValues/damage": {
+    "file": "abilities/dragon_knight_breathe_fire.txt",
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"special_bonus_unique_dragon_knight_9\":\"+180\",\"value\":\"80 160 240 320\"}"
+  },
   "dragon_knight_dragon_blood|AbilityBehavior": {
     "file": "abilities/dragon_knight_dragon_blood.txt",
     "vanilla": "DOTA_ABILITY_BEHAVIOR_PASSIVE  |  DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
@@ -1050,18 +1082,6 @@
   "drow_ranger_frost_arrows|AbilityValues/AbilityManaCost": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
     "vanilla": "{\"special_bonus_unique_drow_ranger_7\":\"-18%\",\"value\":\"9 10 11 12\"}"
-  },
-  "drow_ranger_frost_arrows|AbilityValues/shard_bonus_damage_per_stack": {
-    "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+22\"}"
-  },
-  "drow_ranger_frost_arrows|AbilityValues/shard_burst_damage_per_stack": {
-    "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"special_bonus_scepter\":\"+70\"}"
-  },
-  "drow_ranger_frost_arrows|AbilityValues/shard_max_stacks": {
-    "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+7\"}"
   },
   "drow_ranger_frost_arrows|AbilityValues/shard_regen_reduction_pct_per_stack": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
@@ -4250,6 +4270,10 @@
   "rattletrap_armor_power|AbilityValues/can_consume_chainmail": {
     "file": "abilities/rattletrap_armor_power.txt",
     "vanilla": "{\"value\":\"1\"}"
+  },
+  "rattletrap_armor_power|AbilityValues/damage_per_armor": {
+    "file": "abilities/rattletrap_armor_power.txt",
+    "vanilla": "0.55845"
   },
   "rattletrap_battery_assault|AbilityCooldown": {
     "file": "abilities/rattletrap_battery_assault.txt",

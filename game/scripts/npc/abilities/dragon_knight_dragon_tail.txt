@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Dragon Tail
+  // Dragon Knight: Dragon Tail 7.42
   //=================================================================================================================
   "dragon_knight_dragon_tail"
   {
@@ -35,15 +35,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "60 90 120 150 300 600"
-      "damage_pct"                                        "0"
-      "dragon_cast_range"                                 "150"
-      "projectile_speed"                                  "1600"
       "stun_duration"
       {
         "value"                                           "1.8 2.0 2.2 2.4 2.5 2.6"
         "special_bonus_unique_dragon_knight_2"            "+0.3"
       }
+      "damage"                                            "60 90 120 150 300 600"
+      "damage_pct"                                        "0"
+      "dragon_cast_range"                                 "150"
+      "projectile_speed"                                  "1600"
       "aoe"
       {
         "value"                                           "50"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Drow Ranger: Gust
+  // Drow Ranger: Gust 7.42
   //=================================================================================================================
   "drow_ranger_wave_of_silence"
   {
@@ -25,17 +25,17 @@
     "AbilityValues"
     {
       "wave_speed"                                        "2000.0"
+      "wave_width"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "silence_duration"                                  "3 4 5 6 6.5 7"
       "knockback_distance_max"                            "450"
       "knockback_duration"                                "0.6 0.7 0.8 0.9 1.0 1.1"
       "knockback_duration_min"                            "0.4"
       "knockback_height"                                  "0"
       "wave_length"                                       "900"
-      "wave_width"
-      {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
       "bonus_movespeed"
       {
         "value"                                           "0"
@@ -43,7 +43,7 @@
       }
       "AbilityCooldown" //OAA, intentionally buffed
       {
-        "value"                                           "16 15 14 13 12 11"
+        "value"                                           "15 14 13 12 11 10"
       }
       "AbilityManaCost" //OAA, intentionally nerfed
       {

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earth Spirit: Rolling Boulder
+  // Earth Spirit: Rolling Boulder 7.42
   //=================================================================================================================
   "earth_spirit_rolling_boulder"
   {
@@ -29,22 +29,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "1000"
-      "rock_speed"                                        "1600"
-      "rock_distance_multiplier"                          "2"
-      "delay"                                             "0.6"
-      "damage"                                            "60 70 80 90 180 270"
-      "AbilityCooldown"                                   "10 8 6 4 4 4" //OAA, intentionally buffed; cooldown starts when current roll ends
-      "can_roll_over_allied_heroes"                       "0"
       "radius"
       {
         "value"                                           "160"
       }
+      "speed"                                             "1000"
+      "rock_speed"                                        "1600"
       "distance"
       {
         "value"                                           "800"
         "special_bonus_unique_earth_spirit_4"             "+150"
       }
+      "rock_distance_multiplier"                          "2"
+      "delay"                                             "0.6"
+      "damage"                                            "60 70 80 90 180 270"
       "stun_duration"
       {
         "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
@@ -59,10 +57,12 @@
         "value"                                           "100"
         "special_bonus_unique_earth_spirit"               "+250"
       }
+      "AbilityCooldown"                                   "10 8 6 4 4 4" //OAA, intentionally buffed; cooldown starts when current roll ends
       "destroy_stone"
       {
         "value"                                           "1"
       }
+      "can_roll_over_allied_heroes"                       "0"
     }
   }
 }

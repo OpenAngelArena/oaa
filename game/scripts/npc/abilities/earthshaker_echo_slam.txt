@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earthshaker: Echo Slam FIXEDFUCK
+  // Earthshaker: Echo Slam 7.42
   //=================================================================================================================
   "earthshaker_echo_slam"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -47,7 +47,7 @@
       }
       "echo_slam_echo_damage" //OAA, intentionally buffed both base values and the talent
       {
-        "value"                                           "70 110 150 270 390"
+        "value"                                           "60 100 140 260 380"
         "special_bonus_unique_earthshaker_2"              "+100"
       }
       "echo_slam_initial_damage"                          "100 180 260 500 740" //OAA, intentionally buffed

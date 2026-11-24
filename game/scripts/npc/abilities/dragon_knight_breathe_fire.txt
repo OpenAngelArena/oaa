@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Breathe Fire
+  // Dragon Knight: Breathe Fire 7.42
   //=================================================================================================================
   "dragon_knight_breathe_fire"
   {
@@ -30,10 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "range"                                             "750"
-      "AbilityCastRange"                                  "1000"
-      "speed"                                             "1050"
-      "duration"                                          "8 9 10 11 12 13"
       "start_radius"
       {
         "value"                                           "150"
@@ -44,21 +40,25 @@
         "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
+      "range"                                             "750"
+      "AbilityCastRange"                                  "1000"
       "AbilityCooldown"
       {
         "value"                                           "14 13 12 11 10 9"
         "special_bonus_unique_dragon_knight_3"            "-2"
       }
-      "damage"
+      "speed"                                             "1050"
+      "damage" //OAA, because of special_bonus_unique_dragon_knight_9 buff
       {
         "value"                                           "80 160 240 320 640 960"
-        "special_bonus_unique_dragon_knight_9"            "+180"
+        "special_bonus_unique_dragon_knight_9"            "+200"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "reduction"
       {
         "value"                                           "20 24 28 32 36 40"
       }
+      "duration"                                          "8 9 10 11 12 13"
       "dragon_form_bonus_pct"
       {
         "value"                                           "0"
