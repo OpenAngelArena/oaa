@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enchantress: Enchant
+  // Enchantress: Enchant 7.42
   //=================================================================================================================
   "enchantress_enchant"
   {
@@ -42,8 +42,6 @@
         "value"                                           "0"
       }
       "dominate_duration"                                 "120" //OAA, intentionally buffed
-      "xp_gain_pct"                                       "40"
-      "level_req"                                         "6" //OAA, intentionally buffed
       "enchant_health"
       {
         "value"                                           "175 250 325 400 800 1600"
@@ -52,6 +50,8 @@
       {
         "value"                                           "15 30 45 60 120 240"
       }
+      "xp_gain_pct"                                       "40"
+      "level_req"                                         "6" //OAA, intentionally buffed
       "max_creeps" //OAA, intentionally buffed
       {
         "value"                                           "1 2 3 4 5 6"

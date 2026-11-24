@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ember Spirit: Sleight of Fist
+  // Ember Spirit: Sleight of Fist 7.42
   //=================================================================================================================
   "ember_spirit_sleight_of_fist"
   {
@@ -22,13 +22,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA, intentionally nerfed
+    "AbilityManaCost"                                     "60 65 70 75 80 85" //OAA, intentionally nerfed
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_interval"                                   "0.25"
       "radius"
       {
         "value"                                           "250 350 450 550 600 650"
@@ -41,6 +40,7 @@
         "special_bonus_unique_ember_spirit_6"             "+100"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "attack_interval"                                   "0.25"
       "creep_damage_penalty"
       {
         "value"                                           "0"

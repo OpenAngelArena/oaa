@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Gyrocopter: Homing Missile
+  // Gyrocopter: Homing Missile 7.42
   //=================================================================================================================
   "gyrocopter_homing_missile"
   {
@@ -36,23 +36,23 @@
     "AbilityValues"
     {
       "hits_to_kill_tooltip"                              "3"
+      "stun_duration"
+      {
+        "value"                                           "1.3 1.7 2.1 2.5 2.6 2.7"
+        "special_bonus_unique_gyrocopter_6"               "+0.3"
+      }
       "attack_speed_bonus_pct"                            "400"
+      "hit_damage"
+      {
+        "value"                                           "90 180 270 360 720 1440"
+        "special_bonus_unique_gyrocopter_homing_missile_damage"  "+25%"
+      }
       "max_distance"                                      "1500"
       "pre_flight_time"                                   "2.5"
       "hits_to_kill"                                      "3"
       "speed"                                             "500"
       "acceleration"                                      "15"
       "enemy_vision_time"                                 "4"
-      "stun_duration"
-      {
-        "value"                                           "1.3 1.7 2.1 2.5 2.6 2.7"
-        "special_bonus_unique_gyrocopter_6"               "+0.3"
-      }
-      "hit_damage"
-      {
-        "value"                                           "90 180 270 360 720 1440"
-        "special_bonus_unique_gyrocopter_homing_missile_damage"  "+25%"
-      }
       "shard_delay"
       {
         "special_bonus_shard"                             "1.0"

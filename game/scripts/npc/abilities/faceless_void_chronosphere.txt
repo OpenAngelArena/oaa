@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Faceless Void: Chronosphere FIXEDFUCK
+  // Faceless Void: Chronosphere 7.42
   //=================================================================================================================
   "faceless_void_chronosphere"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 

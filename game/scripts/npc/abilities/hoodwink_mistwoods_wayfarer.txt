@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Hoodwink: Mistwoods Wayfarer (Innate)
+  // Hoodwink: Mistwoods Wayfarer (Innate) 7.42
   //=================================================================================================================
   "hoodwink_mistwoods_wayfarer"
   {
@@ -20,10 +20,10 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "redirect_chance"
+      "redirect_chance" //OAA, intentionally nerfed
       {
         "value"                                           "10"
-        "hero_levelup"                                    "1"
+        "hero_levelup"                                    "+0.6"
       }
     }
   }
