@@ -1783,6 +1783,10 @@
     "file": "items/item_abyssal_blade.txt",
     "vanilla": "175"
   },
+  "item_abyssal_blade|AbilityValues/bonus_agility": {
+    "file": "items/item_abyssal_blade.txt",
+    "vanilla": "15"
+  },
   "item_abyssal_blade|AbilityValues/bonus_chance_damage": {
     "file": "items/item_abyssal_blade.txt",
     "vanilla": "{\"value\":\"120\"}"
@@ -2559,21 +2563,17 @@
     "file": "items/item_sphere.txt",
     "vanilla": null
   },
-  "item_starforge_2|AbilityValues/stun_duration": {
-    "file": "items/item_starforge_2.txt",
-    "vanilla": "0.75"
+  "item_starforge|AbilityValues/bonus_intellect": {
+    "file": "items/item_starforge.txt",
+    "vanilla": "40"
   },
-  "item_starforge_3|AbilityValues/stun_duration": {
-    "file": "items/item_starforge_3.txt",
-    "vanilla": "0.75"
+  "item_starforge|AbilityValues/building_damage_pct": {
+    "file": "items/item_starforge.txt",
+    "vanilla": "75"
   },
-  "item_starforge_4|AbilityValues/stun_duration": {
-    "file": "items/item_starforge_4.txt",
-    "vanilla": "0.75"
-  },
-  "item_starforge_5|AbilityValues/stun_duration": {
-    "file": "items/item_starforge_5.txt",
-    "vanilla": "0.75"
+  "item_starforge|AbilityValues/spell_amp": {
+    "file": "items/item_starforge.txt",
+    "vanilla": "6"
   },
   "item_starforge|AbilityValues/stun_duration": {
     "file": "items/item_starforge.txt",
