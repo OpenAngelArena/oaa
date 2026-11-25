@@ -1,12 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Queen of Pain: Sonic Wave FIXEDFUCK
+  // Queen of Pain: Sonic Wave 7.42
   //=================================================================================================================
   "queenofpain_sonic_wave"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -45,8 +46,8 @@
       "speed"                                             "900"
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "325 575 825 1325 1825"
-        "special_bonus_unique_queen_of_pain_7"            "+250"
+        "value"                                           "325 585 845 1365 1885"
+        "special_bonus_unique_queen_of_pain_7"            "+215"
       }
       "tick_rate"                                         "0.1"
       "knockback_distance"
@@ -57,8 +58,8 @@
       "knockback_duration"                                "1.4"
       "AbilityCooldown" //OAA, intentionally buffed base values but nerfed the talent
       {
-        "value"                                           "90 85 80 75 70"
-        "special_bonus_unique_queen_of_pain_3"            "-35"
+        "value"                                           "85 80 75 70 65"
+        "special_bonus_unique_queen_of_pain_3"            "-30"
       }
     }
   }

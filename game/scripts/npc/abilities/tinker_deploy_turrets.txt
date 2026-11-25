@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinker(er): Deploy Turrets FIXEDFUCK
+  // Tinker(er): Deploy Turrets 7.42
   //=================================================================================================================
   "tinker_deploy_turrets"
   {
@@ -91,11 +91,12 @@
       "missile_damage"
       {
         "value"                                           "20 40 60 80 160 240"
-        "special_bonus_unique_tinker_deploy_turrets_missile_damage"  "+60"
+        "special_bonus_unique_tinker_deploy_turrets_missile_damage"  "+45"
       }
       "missile_speed"
       {
         "value"                                           "1350"
+        "special_bonus_scepter"                           "+20%"
       }
       "turret_hp"
       {
@@ -104,10 +105,12 @@
       "missile_target_range"
       {
         "value"                                           "650 700 750 800 850 900"
+        "special_bonus_scepter"                           "+20%"
       }
       "missile_range"
       {
         "value"                                           "750 800 850 900 950 1000"
+        "special_bonus_scepter"                           "+20%"
       }
       "missile_width"
       {
@@ -122,10 +125,6 @@
       {
         "value"                                           "1.5"
         "special_bonus_scepter"                           "-0.3"
-      }
-      "missile_attack_rate_tooltip"
-      {
-        "value"                                           "20"
       }
       "radius_explosion"
       {

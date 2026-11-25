@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Disruptor: Electromagnetic Repulsion (Innate)
+  // Disruptor: Electromagnetic Repulsion (Innate) 7.42
   //=================================================================================================================
   "disruptor_electromagnetic_repulsion"
   {
@@ -30,6 +30,8 @@
       "damage_reset_interval"                             "7"
       "distance_per_int"                                  "0"
       "damage_per_int"                                    "1.5"
+      "shard_touch_interval"                              "3.0"
+      "shard_touch_knockback_pct"                         "50"
     }
   }
 }

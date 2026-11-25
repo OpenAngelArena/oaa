@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "1350"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_bloodthorn"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_orchid;item_oblivion_staff;item_javelin"
+      "01"                                                "item_orchid;item_oblivion_staff"
     }
   }
 
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6400"
+    "ItemCost"                                            "6250"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "orchid malevolence;bloodthorn"
@@ -69,16 +69,19 @@
       "bonus_intellect"                                   "22 27 37 52 72" //OAA, intentionally nerfed; Orchid (12); Oblivion Staff (10);
       "bonus_attack_speed"                                "70 75 80 85 90" // Orchid (35); Oblivion Staff (35);
       "bonus_mana_regen"                                  "4 4.25 4.75 5.5 6.5" // Orchid (2.5); Oblivion Staff (1.25);
-      "bonus_health_regen"                                "0"
       "silence_duration"                                  "5"
       "silence_damage_percent"                            "40 45 50 55 60" //OAA, intentionally nerfed; Orchid (30);
       "bonus_damage"                                      "20 30 50 80 120" // Orchid (20);
       "duration"                                          "6" // unused
       "spell_amp_debuff"                                  "35" // unused
-      "proc_damage_heroes"                                "40 45 55 70 90" //OAA, illusions are considered heroes
-      "proc_damage_creeps"                                "25 30 40 55 70"
-      "passive_proc_damage"                               "60 70 90 120 160" // Javelin (60);
-      "proc_chance"                                       "40" // Javelin (25);
+      "proc_damage_heroes" //OAA, illusions are considered heroes
+      {
+        "value"                                           "40 45 55 70 90"
+      }
+      "proc_damage_creeps"
+      {
+        "value"                                           "20 25 35 50 65"
+      }
     }
   }
 }

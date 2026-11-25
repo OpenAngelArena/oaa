@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dawnbreaker: Luminosity
+  // Dawnbreaker: Luminosity (E) 7.42
   //=================================================================================================================
   "dawnbreaker_luminosity"
   {
@@ -19,10 +19,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_pct"                                          "35 40 45 50 55 60"
-      "heal_from_creeps"                                  "40"
-      "proc_cooldown"                                     "0.00"
-      "allied_healing_pct"                                "90" //OAA, intentionally buffed
       "attack_count"
       {
         "value"                                           "3"
@@ -33,13 +29,17 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
+      "heal_pct"                                          "35 40 45 50 55 60"
+      "heal_from_creeps"                                  "40"
       "bonus_damage"
       {
         "value"                                           "125 150 175 200 225 250"
-        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+25"
+        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+20"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "proc_cooldown"                                     "0.00"
+      "allied_healing_pct"                                "90" //OAA, intentionally buffed
       "cooldown_reduction"
       {
         "value"                                           "0"

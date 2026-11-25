@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Mirana: Sacred Arrow (OAA rework) FIXEDFUCK
+  // Mirana: Sacred Arrow (OAA rework) 7.42
   //=================================================================================================================
   "mirana_arrow_oaa"
   {
@@ -61,7 +61,7 @@
       "arrow_max_stunrange"                               "1800" // vanilla: 1500
       "arrow_min_stun"                                    "0.01"
       "arrow_max_stun"                                    "2.6 3.4 4.2 5 5 5"
-      "arrow_bonus_damage"                                "180"
+      "arrow_bonus_damage"                                "180" // vanilla: 180
       "arrow_vision" // Radius around the arrow while flying and after hitting
       {
         "value"                                           "400"
@@ -74,7 +74,7 @@
       }
       "scepter_starstorm_target_pct"
       {
-        "special_bonus_scepter"                           "80"
+        "special_bonus_scepter"                           "75"
       }
 
       // OAA configuration values for arrow

@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34150"
+    "ItemCost"                                            "34800"
     "ItemShopTags"                                        "mana_pool;damage;armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
@@ -72,6 +72,7 @@
       "armor_aura"                                        "3 4 6 9 13"
       "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
       "lifesteal_aura"                                    "20 25 30 35 40"
+      "spell_lifesteal_aura"                              "18 20 22 24 26"
       "damage_aura"                                       "18 22 26 30 34"
       // Grimoire unique parts
       "damage_reduction_against_bosses"                   "18 20 22 24 26"

@@ -18,8 +18,8 @@ function modifier_provides_vision_oaa:GetModifierProvidesFOWVision()
   return 1
 end
 
-function modifier_provides_vision_oaa:CheckState()
-  return {
-    [MODIFIER_STATE_PROVIDES_VISION] = true
-  }
-end
+--function modifier_provides_vision_oaa:CheckState()
+  --return {
+    --[MODIFIER_STATE_PROVIDES_VISION] = true
+  --}
+--end

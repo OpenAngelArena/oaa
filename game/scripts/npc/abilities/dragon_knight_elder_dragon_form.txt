@@ -1,14 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Elder Dragon Form (first 4 levels) FIXEDFUCK
+  // Dragon Knight: Elder Dragon Form (first 4 levels) 7.42
   //=================================================================================================================
   "dragon_knight_elder_dragon_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE" // must be an ultimate because of Morphling
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, intentionally
+
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "4" //OAA, intentionally; DO NOT CHANGE THIS!
@@ -33,7 +34,7 @@
       "bonus_attack_range"
       {
         "value"                                           "350"
-        "special_bonus_unique_dragon_knight_7"            "+150"
+        "special_bonus_unique_dragon_knight_7"            "+125"
       }
       "bonus_ability_cast_range"                          "350"
       "bonus_attack_damage"                               "0"

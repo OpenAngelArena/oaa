@@ -531,7 +531,7 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
     max_stacks = ability:GetSpecialValueFor("max_stacks")
     unlimited = ability:GetSpecialValueFor("unlimited_stacks") == 1
   else
-    self.move_speed_slow = -1
+    self.move_speed_slow = -2
     self.turn_speed_slow = -10
   end
 
@@ -559,7 +559,7 @@ function modifier_batrider_sticky_napalm_oaa_debuff:GetModifierMoveSpeedBonus_Pe
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:GetModifierTurnRate_Percentage()
-  return self.turn_speed_slow
+  return 0 - math.abs(self.turn_speed_slow)
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:GetStatusEffectName()

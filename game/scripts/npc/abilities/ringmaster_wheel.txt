@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // RINGMASTER: Wheel of Wonder
+  // RINGMASTER: Wheel of Wonder 7.42
   //=================================================================================================================
   "ringmaster_wheel"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -35,14 +35,25 @@
     "AbilityValues"
     {
       "min_range"                                         "700"
+      "mesmerize_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_ringmaster_wheel_radius"    "+150"
+      }
       "projectile_speed"                                  "1200"
+      "AbilityCastRange"
+      {
+        "value"                                           "1400"
+        "special_bonus_unique_ringmaster_wheel_radius"    "+150"
+      }
       "trap_duration"                                     "4"
       "wheel_stun"                                        "2.5 2.75 3.0 3.25 3.5"
       "face_duration"                                     "0.5"
       "aura_tick_interval"                                "0.5"
-      "aura_damage"                                       "50 100 150 250 350" //OAA, intentionally buffed
+      "aura_damage"                                       "50 90 130 210 290" //OAA, intentionally buffed
       "aura_slow"                                         "-50"
-      "explosion_damage"                                  "300 600 900 1500 2100" //OAA, intentionally buffed
+      "explosion_damage"                                  "275 575 875 1475 2075" //OAA, intentionally buffed
       "vision_radius"                                     "400"
       "damage_per_second"                                 "0"
       "tick_rate"                                         "0.25"
@@ -51,17 +62,6 @@
       "knockback_duration"                                "0.35"
       "knockback_distance"                                "100"
       "knockback_height"                                  "100"
-      "mesmerize_radius"
-      {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
-        "special_bonus_unique_ringmaster_wheel_radius"    "+150"
-      }
-      "AbilityCastRange"
-      {
-        "value"                                           "1400"
-        "special_bonus_unique_ringmaster_wheel_radius"    "+150"
-      }
     }
   }
 }

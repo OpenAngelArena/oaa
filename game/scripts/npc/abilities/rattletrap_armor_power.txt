@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clockwerk: Armor Power (Innate) FIXEDFUCK
+  // Clockwerk: Armor Power (Innate) 7.42
   //=================================================================================================================
   "rattletrap_armor_power"
   {
@@ -13,7 +13,7 @@
 
     "AbilityValues"
     {
-      "damage_per_armor"                                  "0.25"
+      "damage_per_armor"                                  "0.35" //OAA, intentionally nerfed
       "damage_tooltip"
       {
         "dynamic_value"                                   "true"

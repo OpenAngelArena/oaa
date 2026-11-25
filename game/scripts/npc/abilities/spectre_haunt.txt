@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Haunt FIXEDFUCK
+  // Spectre: Haunt 7.42
   //=================================================================================================================
   "spectre_haunt"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
@@ -38,6 +38,7 @@
       {
         "value"                                           "-65 -50 -35 -20 -5"
       }
+      "illusion_effectiveness"                            "40"
       "tooltip_outgoing"
       {
         "value"                                           "35 50 65 80 95"

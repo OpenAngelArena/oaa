@@ -1,16 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dawnbreaker: Celestial Hammer (W)
+  // Dawnbreaker: Celestial Hammer (W) 7.42
   //=================================================================================================================
   "dawnbreaker_celestial_hammer"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -31,10 +34,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burn_interval"                                     "0.5"
-      "hammer_aoe_radius"                                 "200"
-      "travel_speed_pct"                                  "100"
-      "return_anim_distance_threshold"                    "300"
       "hammer_damage"
       {
         "value"                                           "50 80 110 140 280 560"
@@ -73,11 +72,15 @@
         "value"                                           "20 30 40 50 100 150"
         "special_bonus_unique_dawnbreaker_celestial_hammer_damage"  "+40%"
       }
+      "burn_interval"                                     "0.5"
       "pause_duration"
       {
         "value"                                           "2"
         "special_bonus_unique_dawnbreaker_gleaming_hammer"  "+2"
       }
+      "hammer_aoe_radius"                                 "200"
+      "travel_speed_pct"                                  "100"
+      "return_anim_distance_threshold"                    "300"
       "range"
       {
         "value"                                           "700 900 1100 1300 1400 1500"

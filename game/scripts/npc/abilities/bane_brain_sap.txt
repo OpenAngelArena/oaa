@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bane: Brain Sap FIXEDFUCK
+  // Bane: Brain Sap 7.42
   //=================================================================================================================
   "bane_brain_sap"
   {
@@ -37,7 +37,7 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_shard"                             "-3"
+        "special_bonus_shard"                             "-4"
       }
       "shard_radius"
       {

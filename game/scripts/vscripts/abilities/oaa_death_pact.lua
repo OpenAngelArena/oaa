@@ -33,15 +33,6 @@ function clinkz_death_pact_oaa:OnSpellStart()
   local damagePct = self:GetSpecialValueFor("damage_gain_pct")
   local damageMax = self:GetSpecialValueFor("damage_gain_max")
 
-  -- Talent that increases hp and dmg gain
-  local talent2 = caster:FindAbilityByName("special_bonus_clinkz_death_pact_oaa")
-  if talent2 and talent2:GetLevel() > 0 then
-    healthPct = healthPct + talent2:GetSpecialValueFor("value")
-    damagePct = damagePct + talent2:GetSpecialValueFor("value2")
-    healthMax = healthMax + talent2:GetSpecialValueFor("value3")
-    damageMax = damageMax + talent2:GetSpecialValueFor("value4")
-  end
-
   -- Calculate bonuses
   local health = targetHealth * healthPct * 0.01
   local damage = targetHealth * damagePct * 0.01

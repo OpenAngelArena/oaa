@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earth Spirit: Stone Remnant (Innate)
+  // Earth Spirit: Stone Remnant (Innate) 7.42
   //=================================================================================================================
   "earth_spirit_stone_caller"
   {
@@ -20,10 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "rolling_offset_distance"                           "150"
-      "attack_damage_per_stone"                           "3.0"
-      "attack_damage_per_stone_used"                      "7.5"
-      "buff_duration"                                     "10"
       "duration" //OAA, intentionally nerfed to reduce number of entities on the map
       {
         "value"                                           "30"
@@ -42,6 +38,7 @@
         "hero_levelup"                                    "+1"
         "levelup_interval"                                "5"
       }
+      "rolling_offset_distance"                           "150"
       "AbilityManaCost"
       {
         "value"                                           "0"
@@ -58,6 +55,9 @@
       {
         "value"                                           "=0"
       }
+      "attack_damage_per_stone"                           "3.0"
+      "attack_damage_per_stone_used"                      "7.5"
+      "buff_duration"                                     "10"
     }
   }
 }

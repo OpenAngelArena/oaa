@@ -79,7 +79,11 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "48 68 98 138 188"
-      "corruption_armor"                                  "-6 -9 -13 -18 -24"
+      "corruption_armor"
+      {
+        "value"                                           "-6 -9 -13 -18 -24"
+        "apply_effectiveness"                             "1"
+      }
       "corruption_duration"                               "7.0"
       "devastator_speed"                                  "1800"
       "devastator_width_initial"
@@ -96,7 +100,7 @@
       "devastator_damage"                                 "0"
       "devastator_movespeed_reduction"                    "-15 -20 -25 -30 -35"
       "devastator_movespeed_reduction_duration"           "7"
-      "devastator_armor_reduction"                        "-8 -11 -15 -20 -26" // better than passive
+      "devastator_armor_reduction"                        "-2" // stacks with the passive
       "devastator_armor_reduction_duration"               "7"
       "interval"                                          "1" // to cancel Arcane Blink it needs to be 2 or less
       "damage_per_interval"                               "0"

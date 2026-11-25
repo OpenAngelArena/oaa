@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sven: Storm Hammer FIXEDFUCK
+  // Sven: Storm Hammer 7.42
   //=================================================================================================================
   "sven_storm_bolt"
   {
@@ -33,7 +33,7 @@
       "AbilityCastRange"
       {
         "value"                                           "600"
-        "special_bonus_scepter"                           "+25%"
+        "special_bonus_scepter"                           "+30%"
       }
       "AbilityCooldown" //OAA, intentionally buffed
       {
@@ -48,7 +48,7 @@
       "bolt_speed"
       {
         "value"                                           "1000"
-        "special_bonus_scepter"                           "+25%"
+        "special_bonus_scepter"                           "+30%"
       }
       "bolt_stun_duration"
       {

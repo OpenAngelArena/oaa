@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Disruptor: Kinetic Fence
+  // Disruptor: Kinetic Fence (shard ability) 7.42
   //=================================================================================================================
   "disruptor_kinetic_fence"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -24,13 +23,12 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "tick_rate"                                         "0.1"
       "wall_width"
       {
         "value"                                           "1200"
@@ -40,9 +38,9 @@
       {
         "value"                                           "100"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown"
       {
-        "value"                                           "11"
+        "value"                                           "12"
         "special_bonus_unique_disruptor_2"                "-3" // unused
       }
       "radius"
@@ -50,10 +48,7 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "formation_time"
-      {
-        "value"                                           "1"
-      }
+      "formation_time"                                    "0.5"
       "duration"
       {
         "value"                                           "4.4"
@@ -64,6 +59,7 @@
         "value"                                           "0"
         "special_bonus_unique_disruptor_kinetic_damage"   "+60"
       }
+      "tick_rate"                                         "0.1"
       "cooldown_share"
       {
         "value"                                           "0"
@@ -72,7 +68,12 @@
       "strike_on_touch"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "0"
+        "special_bonus_shard"                             "+1"
+      }
+      "strike_knockback_pct_tooltip_only"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
     }
   }

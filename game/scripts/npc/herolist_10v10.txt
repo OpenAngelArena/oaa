@@ -1,7 +1,5 @@
-//
-// <key>  <value>
-// Hero   currently on/off, will be # of instances (-1 = infinite)
-//
+// herolist for big maps
+// Heroes marked with 0 are either completely unplayable heroes or only playable when number of players is low (<=4)
 
 "whitelist"
 {
@@ -9,24 +7,24 @@
   "npc_dota_hero_abyssal_underlord"                       "1"
   "npc_dota_hero_alchemist"                               "1"
   "npc_dota_hero_ancient_apparition"                      "1"
-  "npc_dota_hero_antimage"                                "0"
-  "npc_dota_hero_arc_warden"                              "1"
+  "npc_dota_hero_antimage"                                "1"
+  "npc_dota_hero_arc_warden"                              "0" // lag
   "npc_dota_hero_axe"                                     "1"
   "npc_dota_hero_bane"                                    "1"
   "npc_dota_hero_batrider"                                "1"
   "npc_dota_hero_beastmaster"                             "1"
-  "npc_dota_hero_bloodseeker"                             "0"
+  "npc_dota_hero_bloodseeker"                             "0" // lag because of a lot of ms from the passive
   "npc_dota_hero_bounty_hunter"                           "1"
   "npc_dota_hero_brewmaster"                              "1"
   "npc_dota_hero_bristleback"                             "1"
-  "npc_dota_hero_broodmother"                             "1"
+  "npc_dota_hero_broodmother"                             "1" // lag?
   "npc_dota_hero_bubble_witch"                            "1"
   "npc_dota_hero_centaur"                                 "1"
-  "npc_dota_hero_chaos_knight"                            "0"
+  "npc_dota_hero_chaos_knight"                            "0" // lag
   "npc_dota_hero_chen"                                    "1"
-  "npc_dota_hero_clinkz"                                  "1"
+  "npc_dota_hero_clinkz"                                  "1" // lag?
   "npc_dota_hero_crystal_maiden"                          "1"
-  "npc_dota_hero_dark_seer"                               "0"
+  "npc_dota_hero_dark_seer"                               "0" // lag
   "npc_dota_hero_dark_willow"                             "1"
   "npc_dota_hero_dawnbreaker"                             "1"
   "npc_dota_hero_dazzle"                                  "1"
@@ -43,9 +41,9 @@
   "npc_dota_hero_ember_spirit"                            "1"
   "npc_dota_hero_enchantress"                             "1"
   "npc_dota_hero_enigma"                                  "1"
-  "npc_dota_hero_eul"                                     "1"
+  "npc_dota_hero_eul"                                     "0" // lag
   "npc_dota_hero_faceless_void"                           "1"
-  "npc_dota_hero_furion"                                  "1"
+  "npc_dota_hero_furion"                                  "1" // lag?
   "npc_dota_hero_grimstroke"                              "1"
   "npc_dota_hero_gyrocopter"                              "1"
   "npc_dota_hero_hoodwink"                                "1"
@@ -72,10 +70,10 @@
   "npc_dota_hero_medusa"                                  "1"
   "npc_dota_hero_meepo"                                   "0"
   "npc_dota_hero_mirana"                                  "1"
-  "npc_dota_hero_monkey_king"                             "0"
+  "npc_dota_hero_monkey_king"                             "0" // lag
   "npc_dota_hero_morphling"                               "1"
   "npc_dota_hero_muerta"                                  "1"
-  "npc_dota_hero_naga_siren"                              "0"
+  "npc_dota_hero_naga_siren"                              "0" // lag
   "npc_dota_hero_necrolyte"                               "1"
   "npc_dota_hero_nevermore"                               "1"
   "npc_dota_hero_night_stalker"                           "1"
@@ -86,7 +84,7 @@
   "npc_dota_hero_oracle"                                  "1"
   "npc_dota_hero_pangolier"                               "1"
   "npc_dota_hero_phantom_assassin"                        "1"
-  "npc_dota_hero_phantom_lancer"                          "0"
+  "npc_dota_hero_phantom_lancer"                          "0" // lag
   "npc_dota_hero_phoenix"                                 "1"
   "npc_dota_hero_primal_beast"                            "1"
   "npc_dota_hero_puck"                                    "1"
@@ -99,34 +97,34 @@
   "npc_dota_hero_ringmaster"                              "1"
   "npc_dota_hero_rubick"                                  "1"
   "npc_dota_hero_sand_king"                               "1"
-  "npc_dota_hero_shadow_demon"                            "0"
-  "npc_dota_hero_shadow_shaman"                           "1"
+  "npc_dota_hero_shadow_demon"                            "0" // lag
+  "npc_dota_hero_shadow_shaman"                           "1" // lag?
   "npc_dota_hero_shredder"                                "1"
   "npc_dota_hero_silencer"                                "1"
-  "npc_dota_hero_skeleton_king"                           "0"
+  "npc_dota_hero_skeleton_king"                           "0" // lag
   "npc_dota_hero_skywrath_mage"                           "1"
   "npc_dota_hero_slardar"                                 "1"
   "npc_dota_hero_slark"                                   "1"
   "npc_dota_hero_snapfire"                                "1"
   "npc_dota_hero_sniper"                                  "1"
   "npc_dota_hero_sohei"                                   "1"
-  "npc_dota_hero_spectre"                                 "0"
+  "npc_dota_hero_spectre"                                 "0" // lag
   "npc_dota_hero_spirit_breaker"                          "1"
   "npc_dota_hero_storm_spirit"                            "1"
   "npc_dota_hero_sven"                                    "1"
-  "npc_dota_hero_techies"                                 "1"
-  "npc_dota_hero_templar_assassin"                        "1"
-  "npc_dota_hero_terrorblade"                             "0"
+  "npc_dota_hero_techies"                                 "1" // lag?
+  "npc_dota_hero_templar_assassin"                        "1" // lag?
+  "npc_dota_hero_terrorblade"                             "0" // lag
   "npc_dota_hero_tidehunter"                              "1"
-  "npc_dota_hero_tinker"                                  "1"
+  "npc_dota_hero_tinker"                                  "1" // lag?
   "npc_dota_hero_tiny"                                    "1"
-  "npc_dota_hero_treant"                                  "0"
+  "npc_dota_hero_treant"                                  "1" // lag?
   "npc_dota_hero_troll_warlord"                           "1"
   "npc_dota_hero_tusk"                                    "1"
-  "npc_dota_hero_undying"                                 "0"
+  "npc_dota_hero_undying"                                 "0" // lag
   "npc_dota_hero_ursa"                                    "1"
   "npc_dota_hero_vengefulspirit"                          "1"
-  "npc_dota_hero_venomancer"                              "1"
+  "npc_dota_hero_venomancer"                              "1" // lag?
   "npc_dota_hero_viper"                                   "1"
   "npc_dota_hero_visage"                                  "1"
   "npc_dota_hero_void_spirit"                             "1"

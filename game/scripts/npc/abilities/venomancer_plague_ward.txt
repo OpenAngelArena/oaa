@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Venomancer: Plague Ward FIXEDFUCK
+  // Venomancer: Plague Ward 7.42
   //=================================================================================================================
   "venomancer_plague_ward"
   {
@@ -48,6 +48,10 @@
       "duration" //OAA, intentionally because of lag
       {
         "value"                                           "20.0"
+      }
+      "poison_sting_potency"
+      {
+        "value"                                           "50"
       }
       "ward_model_scale"
       {

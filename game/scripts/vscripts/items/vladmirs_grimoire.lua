@@ -288,16 +288,17 @@ if IsServer() then
   function modifier_item_vladmirs_grimoire_aura_effect:OnTakeDamage(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local attacker = event.attacker
-    local damaged_unit = event.unit
-    local damage = event.damage
+    local attacker = event.attacker -- essential
+    local damaged_unit = event.unit -- essential
+    local damage = event.damage -- essential
 
+    -- Check if item that provides this aura exists
     if not ability or ability:IsNull() then
       return
     end
 
-    -- Check if parent already has Vladmir Aura
-    if parent:HasModifier("modifier_item_vladmir_aura") then
+    -- Check if parent already has Vladmir Aura (I know this is too punishing but do not buy multiple Vlads)
+    if parent:HasModifier("modifier_item_vladmir_aura") or parent:HasModifier("modifier_item_ristuls_devotion_aura") then
       return
     end
 
@@ -326,48 +327,145 @@ if IsServer() then
       return
     end
 
-    -- Don't affect buildings, wards and invulnerable units.
+    -- Buildings and wards can't lifesteal and spell lifesteal
+    if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() then
+      return
+    end
+
+    -- Lifesteal and spell lifesteal should not work against buildings, wards and invulnerable units.
     if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
       return
     end
 
-    -- Normal lifesteal should not work for spells and spell damage attacks
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
-      return
-    end
-
-    -- Don't heal while dead
+    -- Lifesteal and spell lifesteal should not work while dead
     if not attacker:IsAlive() then
       return
     end
 
-    -- Get lifesteal percent
-    local lifesteal_percent = ability:GetSpecialValueFor("lifesteal_aura")
-
-    -- Check if damage and lifesteal are > 0
-    if damage <= 0 or lifesteal_percent <= 0 then
+    -- Check damage if 0 or negative
+    if damage <= 0 then
       return
     end
 
-    -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
-    if damaged_unit:IsIllusion() then
-      lifesteal_percent = lifesteal_percent / 2
+    local dmg_type = event.damage_type
+    local dmg_flags = event.damage_flags
+    local inflictor = event.inflictor
+    local dmg_category = event.damage_category
+
+    -- Ignore damage with HP removal flag
+    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+      return
     end
 
-    -- Reduce lifesteal against creeps by 40% (Vladmirs Grimoire intentionally does not have penalty)
-    if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
-      lifesteal_percent = lifesteal_percent * 0.6
+    -- Distinguish lifesteal and spell lifesteal
+    if inflictor or dmg_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+      self:GrimoireSpellLifesteal(attacker, dmg_type, dmg_flags, ability, damaged_unit, damage)
+    elseif dmg_category == DOTA_DAMAGE_CATEGORY_ATTACK and dmg_type ~= DAMAGE_TYPE_PHYSICAL then
+      self:GrimoireSpellLifesteal(attacker, dmg_type, dmg_flags, ability, damaged_unit, damage)
+    else
+      self:GrimoireNormalLifesteal(attacker, dmg_type, dmg_flags, ability, damaged_unit, damage)
     end
-
-    local health_restore = damage * lifesteal_percent * 0.01
-
-    -- Apply Lifesteal
-    attacker:HealWithParams(health_restore, ability, true, true, attacker, false)
-
-    -- Particle
-    local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
-    ParticleManager:ReleaseParticleIndex(particle)
   end
+end
+
+function modifier_item_vladmirs_grimoire_aura_effect:GrimoireSpellLifesteal(attacker, dmg_type, dmg_flags, ability, damaged_unit, damage)
+  local succubus = attacker:FindAbilityByName("queenofpain_succubus")
+  local isSuccubus = succubus and succubus:GetLevel() > 0
+  local spellLifestealReflected = false
+  if isSuccubus then
+    spellLifestealReflected = succubus:GetSpecialValueFor("lifesteal_reflected") == 1
+  end
+
+  -- Ignore pure damage
+  if dmg_type == DAMAGE_TYPE_PURE then
+    if not isSuccubus then
+      return
+    end
+  end
+
+  -- Ignore damage that has the no-reflect flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+    if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+      return
+    end
+    if not spellLifestealReflected then
+      return
+    end
+  end
+
+  -- Ignore damage that has the no-spell-lifesteal flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+    -- Bondage spell lifesteal for reflected dmg only works if dmg is magical or pure
+    if dmg_type ~= DAMAGE_TYPE_MAGICAL and dmg_type ~= DAMAGE_TYPE_PURE then
+      return
+    end
+    if not spellLifestealReflected then
+      return
+    end
+  end
+
+  -- Ignore damage with no-spell-amplification flag
+  -- if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+    -- return
+  -- end
+
+  -- Get spell lifesteal percent
+  local spell_lifesteal_percent = ability:GetSpecialValueFor("spell_lifesteal_aura")
+
+  -- Reduce spell lifesteal against creeps and illusions by 80% (1/5 = 20% = 0.2)
+  if (damaged_unit:IsIllusion() and not damaged_unit:IsStrongIllusionOAA()) or (damaged_unit:IsCreep() and not damaged_unit:IsCreepHero()) then
+    spell_lifesteal_percent = spell_lifesteal_percent / 5
+  end
+
+  local health_restore = damage * spell_lifesteal_percent * 0.01
+
+  -- Apply spell lifesteal
+  attacker:HealWithParams(health_restore, ability, false, true, attacker, true)
+
+  -- Spell lifesteal particle
+  local particle1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+  ParticleManager:SetParticleControl(particle1, 0, attacker:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle1)
+end
+
+function modifier_item_vladmirs_grimoire_aura_effect:GrimoireNormalLifesteal(attacker, dmg_type, dmg_flags, ability, damaged_unit, damage)
+  -- Check for Monkey King ult procs
+  if attacker:HasModifier("modifier_wukongs_command_oaa_no_lifesteal") then
+    return
+  end
+
+  -- Ignore magical and pure dmg
+  if dmg_type ~= DAMAGE_TYPE_PHYSICAL then
+    return
+  end
+
+  -- Ignore damage that has the no-reflect flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    return
+  end
+
+  -- Get lifesteal percent
+  local lifesteal_percent = ability:GetSpecialValueFor("lifesteal_aura")
+
+  -- Reduce lifesteal percent when calculating lifesteal against illusions because they receive more dmg
+  if damaged_unit:IsIllusion() then
+    lifesteal_percent = lifesteal_percent / 2
+  end
+
+  -- Reduce lifesteal against creeps by 40%
+  if damaged_unit:IsCreep() and not damaged_unit:IsOAABoss() and not damaged_unit:IsCreepHero() then
+    lifesteal_percent = lifesteal_percent * 0.6
+  end
+
+  local health_restore = damage * lifesteal_percent * 0.01
+
+  -- Apply lifesteal
+  attacker:HealWithParams(health_restore, ability, true, true, attacker, false)
+
+  -- Lifesteal particle
+  local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+  ParticleManager:ReleaseParticleIndex(particle2)
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:OnTooltip()

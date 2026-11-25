@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Hammer of Purity FIXEDFUCK
+  // Omniknight: Hammer of Purity 7.42
   //=================================================================================================================
   "omniknight_hammer_of_purity"
   {
@@ -41,7 +41,7 @@
         "value"                                           "30 50 70 90 110 130"
         "special_bonus_unique_omniknight_4"               "+75"
       }
-      "bonus_damage"                                      "40 60 80 100 120 140" //OAA, intentionally buffed; this is actually base damage of the spell
+      "bonus_damage"                                      "25 45 65 85 125 165" // this is actually base damage of the spell
       "heal_pct"
       {
         "value"                                           "40"

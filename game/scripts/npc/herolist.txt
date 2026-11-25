@@ -1,7 +1,6 @@
-//
-// <key>  <value>
-// Hero   currently on/off, will be # of instances (-1 = infinite)
-//
+// fallback herolist when custom hero selection doesn't work or it's somehow skipped through bugs
+// Heroes marked with 1 are always playable on low quality servers when number of players is > 2
+// Heroes marked with 0 are either completely unplayable heroes or only playable when number of players is low (<=4)
 
 "whitelist"
 {
@@ -19,12 +18,12 @@
   "npc_dota_hero_bounty_hunter"                           "1"
   "npc_dota_hero_brewmaster"                              "1"
   "npc_dota_hero_bristleback"                             "1"
-  "npc_dota_hero_broodmother"                             "1"
+  "npc_dota_hero_broodmother"                             "1" // lag?
   "npc_dota_hero_bubble_witch"                            "1"
   "npc_dota_hero_centaur"                                 "1"
   "npc_dota_hero_chaos_knight"                            "0" // lag
   "npc_dota_hero_chen"                                    "1"
-  "npc_dota_hero_clinkz"                                  "1"
+  "npc_dota_hero_clinkz"                                  "1" // lag?
   "npc_dota_hero_crystal_maiden"                          "1"
   "npc_dota_hero_dark_seer"                               "0" // lag
   "npc_dota_hero_dark_willow"                             "1"
@@ -115,10 +114,10 @@
   "npc_dota_hero_storm_spirit"                            "1"
   "npc_dota_hero_sven"                                    "1"
   "npc_dota_hero_techies"                                 "1" // lag?
-  "npc_dota_hero_templar_assassin"                        "1"
+  "npc_dota_hero_templar_assassin"                        "1" // lag?
   "npc_dota_hero_terrorblade"                             "0" // lag
   "npc_dota_hero_tidehunter"                              "1"
-  "npc_dota_hero_tinker"                                  "1"
+  "npc_dota_hero_tinker"                                  "1" // lag?
   "npc_dota_hero_tiny"                                    "1"
   "npc_dota_hero_treant"                                  "1" // lag?
   "npc_dota_hero_troll_warlord"                           "1"

@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Windranger: Focus Fire FIXEDFUCK
+  // Windranger: Focus Fire 7.42
   //=================================================================================================================
   "windrunner_focusfire"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -51,15 +51,15 @@
       {
         "special_bonus_facet_windrunner_whirlwind"        "7 9 11 11 11" // unused
       }
-      "focusfire_damage_reduction" //OAA, because of special_bonus_unique_windranger_8 buff
+      "focusfire_damage_reduction"
       {
-        "value"                                           "-25"
-        "special_bonus_facet_windrunner_whirlwind"        "-5" // unused
-        "special_bonus_unique_windranger_8"               "+15"
+        "value"                                           "-18"
+        "special_bonus_unique_windranger_8"               "+8"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "focusfire_fire_on_the_move"                        "1"
+      "focusfire_attack_effectiveness"                    "75"
       "process_procs"
       {
         "value"                                           "1"

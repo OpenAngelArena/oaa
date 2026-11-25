@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Anti-Mage: Mana Break FIXEDFUCK
+  // Anti-Mage: Mana Break 7.42
   //=================================================================================================================
   "antimage_mana_break"
   {
@@ -21,7 +21,8 @@
     {
       "percent_damage_per_burn"
       {
-        "value"                                           "65 65 65 65 70 75"
+        "value"                                           "65"
+        "special_bonus_unique_antimage_mana_break_damage"  "+10"
         "display_type"                                    "kDebuffPercentage"
       }
       "mana_per_hit"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Gyrocopter: Flak Cannon FIXEDFUCK
+  // Gyrocopter: Flak Cannon 7.42
   //=================================================================================================================
   "gyrocopter_flak_cannon"
   {
@@ -35,11 +35,11 @@
       "AbilityCooldown" //OAA, intentionally buffed
       {
         "value"                                           "21 20 19 18 17 16"
-        "special_bonus_unique_gyrocopter_1"               "-6" // we dont use this so ignore
+        "special_bonus_unique_gyrocopter_1"               "-6" // unused in OAA so ignore
       }
       "radius" // uses special_bonus_unique_gyrocopter_1_oaa
       {
-        "value"                                           "1250"
+        "value"                                           "1050"
         "affected_by_aoe_increase"                        "1"
       }
       "max_attacks"
@@ -47,10 +47,11 @@
         "value"                                           "4 5 6 7 8 9"
         "special_bonus_unique_gyrocopter_2"               "+3"
       }
+      "attack_effectiveness"                              "50"
       "projectile_speed"                                  "800"
-      "bonus_damage" //OAA, intentionally buffed
+      "bonus_damage"
       {
-        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"  "+100"
+        "value"                                           "0"
       }
       "bonus_night_vision"                                "0"
       "additional_targets"                                "0"

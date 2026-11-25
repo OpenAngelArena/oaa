@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Anti-Mage: Mana Void FIXEDFUCK
+  // Anti-Mage: Mana Void 7.42
   //=================================================================================================================
   "antimage_mana_void"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -39,7 +39,6 @@
       "mana_void_damage_per_mana"
       {
         "value"                                           "1.0 1.0 1.0 1.2 1.4"
-        "special_bonus_unique_antimage_6"                 "+0.2"
       }
       "mana_void_ministun"
       {
@@ -49,7 +48,6 @@
       "mana_void_aoe_radius"
       {
         "value"                                           "400 450 500 550 600"
-        "special_bonus_unique_antimage_manavoid_aoe"      "+200"
         "affected_by_aoe_increase"                        "1"
       }
       "thirst_enabled"

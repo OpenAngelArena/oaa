@@ -24,12 +24,11 @@
       "spiderling_base_hp"
       {
         "value"                                           "300"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
       }
-      "spiderling_hp_per_level"
+      "spiderling_hp_per_level" // affects giant spiderlings too
       {
         "value"                                           "30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
+        "special_bonus_unique_broodmother_2_oaa"          "+40"
       }
       "spiderling_base_armor"                             "0"
       "spiderling_armor_per_level"                        "0.25"
@@ -37,14 +36,13 @@
       "spiderling_speed"                                  "350"
       "spiderling_base_attack_damage"
       {
-        "value"                                           "11"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
+        "value"                                           "15"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "spiderling_attack_damage_per_level"
+      "spiderling_attack_damage_per_level" // affects giant spiderlings too
       {
         "value"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
+        "special_bonus_unique_broodmother_4_oaa"          "+2.5"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "spiderling_duration"                               "30" // intentionally because of lag
@@ -53,12 +51,10 @@
       "giant_spiderling_base_hp"
       {
         "value"                                           "540"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
       }
       "giant_spiderling_base_attack_damage"
       {
         "value"                                           "30"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "giant_spiderling_spawn_count"                      "1"

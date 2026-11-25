@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ancient Apparition: Ice Blast
+  // Ancient Apparition: Ice Blast 7.42
   //=================================================================================================================
   "ancient_apparition_ice_blast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -28,7 +28,7 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "300 400 500 700 1000" //OAA, intentionally buffed
+    "AbilityDamage"                                       "250 350 450 650 950" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,8 +38,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "1500"
-      "damage_per_second"                                 "12 24 36 72 108"
       "radius_min"
       {
         "value"                                           "300"
@@ -64,6 +62,7 @@
         "value"                                           "7"
         "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+4"
       }
+      "speed"                                             "1500"
       "kill_pct" //OAA, intentionally nerfed
       {
         "value"                                           "10 11 12 13 14"
@@ -80,6 +79,7 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_per_second"                                 "12 24 36 72 108"
     }
   }
 }

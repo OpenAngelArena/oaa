@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Echo Stomp FIXEDFUCK
+  // Elder Titan: Echo Stomp 7.42
   //=================================================================================================================
   "elder_titan_echo_stomp"
   {
@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_time"                                         "1.65" //OAA, intentionally buffed
+      "cast_time"                                         "1.65" //OAA, intentionally buffed; AbilityChannelTime + AbilityCastPoint
       "radius" // needs to match AbilityCastRange
       {
         "value"                                           "475"
@@ -43,7 +43,7 @@
       "stomp_damage" //OAA, intentionally buffed
       {
         "value"                                           "75 125 175 225 450 675"
-        "special_bonus_unique_elder_titan_2"              "+75"
+        "special_bonus_unique_elder_titan_2"              "+65"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE" // DAMAGE_TYPE_PHYSICAL always, + DAMAGE_TYPE_MAGICAL sometimes
       }
       "initial_stun_duration"                             "0.2"
@@ -51,7 +51,7 @@
       "wake_damage_limit"
       {
         "value"                                           "100 150 200 250 500 1000"
-        "special_bonus_unique_elder_titan_4"              "+150"
+        "special_bonus_unique_elder_titan_4"              "+210"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }

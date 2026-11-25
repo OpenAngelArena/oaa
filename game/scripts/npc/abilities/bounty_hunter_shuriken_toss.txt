@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bounty Hunter: Shuriken Toss
+  // Bounty Hunter: Shuriken Toss 7.42
   //=================================================================================================================
   "bounty_hunter_shuriken_toss"
   {
@@ -34,14 +34,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "1000"
-      "cast_range"                                        "525" //OAA, same as AbilityCastRange
-      "slow"                                              "100"
       "bonus_damage" //OAA, because of special_bonus_unique_bounty_hunter_2 buff
       {
         "value"                                           "100 170 240 310 620 930"
         "special_bonus_unique_bounty_hunter_2"            "+300"
       }
+      "speed"                                             "1000"
       "bounce_aoe"
       {
         "value"                                           "1200"
@@ -64,6 +62,8 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
+      "cast_range"                                        "525" //OAA, same as AbilityCastRange
+      "slow"                                              "100"
       "AbilityCastRange" //OAA, intentionally buffed
       {
         "value"                                           "525"

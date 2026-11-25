@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Void Spirit: Resonant Pulse FIXEDFUCK
+  // Void Spirit: Resonant Pulse 7.42
   //=================================================================================================================
   "void_spirit_resonant_pulse"
   {
@@ -50,7 +50,7 @@
       }
       "base_absorb_amount" //OAA, intentionally buffed
       {
-        "value"                                           "75 100 125 150 300 600" // physical shield (vanilla: 25/50/75/100)
+        "value"                                           "75 100 125 150 300 600" // physical shield (vanilla: 40/60/80/100)
         "special_bonus_unique_void_spirit_resonant_pulse_barrier"  "+20%"
       }
       "absorb_per_hero_hit" //OAA, intentionally buffed

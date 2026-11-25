@@ -7,18 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
-    {
-      "value"                                             "50"
-      "value2"                                            "5"
-      "value3"                                            "1000" // Health Max increase
-      "value4"                                            "100" // Damage Max increase
-    }
   }
 }

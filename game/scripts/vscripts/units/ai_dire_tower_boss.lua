@@ -93,6 +93,10 @@ function DireTowerBossThink()
       -- Issue an attack command on the nearast unit that is attackable and assign it as aggro_target.
       AttackNearestTarget(thisEntity)
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
+    else
+      thisEntity:Interrupt()
+      thisEntity:Stop()
+      thisEntity:Hold()
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_AGGRO then
     -- Check if aggro_target exists

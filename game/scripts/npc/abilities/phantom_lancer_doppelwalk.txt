@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Lancer: Doppelganger
+  // Phantom Lancer: Doppelganger 7.42
   //=================================================================================================================
   "phantom_lancer_doppelwalk"
   {
@@ -29,9 +29,6 @@
       "illusion_1_damage_in_pct"                          "0"
       "illusion_2_damage_out_pct"                         "-80 -78 -76 -74 -72 -70" //OAA, intentionally buffed
       "illusion_2_damage_in_pct"                          "500 460 420 380 340 300" //OAA, intentionally buffed
-      "delay"                                             "1"
-      "illusion_duration"                                 "8"
-      "illusion_extended_duration"                        "0" //OAA, intentionally nerfed because of lag
       "target_aoe"
       {
         "value"                                           "325"
@@ -42,6 +39,9 @@
         "value"                                           "900"
         "affected_by_aoe_increase"                        "1"
       }
+      "delay"                                             "1"
+      "illusion_duration"                                 "8"
+      "illusion_extended_duration"                        "0" //OAA, intentionally nerfed because of lag
       "illusion_2_amount"
       {
         "value"                                           "1"
@@ -53,8 +53,8 @@
       }
       "AbilityCooldown" //OAA, intentionally rescaled because of lag
       {
-        "value"                                           "16 15 14 13 12 11"
-        "special_bonus_unique_phantom_lancer_4"           "-4"
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_phantom_lancer_4"           "-3"
       }
       "AbilityCastRange"
       {

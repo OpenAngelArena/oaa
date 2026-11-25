@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Assassin: Stifling Dagger
+  // Phantom Assassin: Stifling Dagger 7.42
   //=================================================================================================================
   "phantom_assassin_stifling_dagger"
   {
@@ -30,24 +30,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "move_slow"                                         "-50"
-      "dagger_speed"                                      "1200"
-      "duration"                                          "2.1 2.4 2.7 3 3.3 3.6"
-      "base_damage"                                       "65 70 75 80 160 240"
       "AbilityCooldown"
       {
         "value"                                           "6"
-        "special_bonus_unique_phantom_assassin_7"         "-2.0"
+        "special_bonus_unique_phantom_assassin_7"         "-2.5"
       }
+      "move_slow"                                         "-50"
+      "dagger_speed"                                      "1200"
+      "duration"                                          "2.1 2.4 2.7 3 3.3 3.6"
+      "base_damage"                                       "65 70 75 80 160 320"
       "attack_factor"
       {
         "value"                                           "-70 -55 -40 -25 -15 -5"
-        "special_bonus_unique_phantom_assassin_5"         "+15"
+        "special_bonus_unique_phantom_assassin_5"         "+20"
       }
-      "attack_factor_tooltip"
+      "attack_factor_tooltip" //OAA, Valve has wrong value for special_bonus_unique_phantom_assassin_5 talent
       {
         "value"                                           "30 45 60 75 85 95"
-        "special_bonus_unique_phantom_assassin_5"         "+15"
+        "special_bonus_unique_phantom_assassin_5"         "+20"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "dagger_recast_time"

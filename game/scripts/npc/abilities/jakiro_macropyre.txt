@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Jakiro: Macropyre FIXEDFUCK
+  // Jakiro: Macropyre 7.42
   //=================================================================================================================
   "jakiro_macropyre"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" // changes to Pure with scepter
@@ -37,8 +37,8 @@
     {
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "100 175 250 400 550"
-        "special_bonus_unique_jakiro_7"                   "+75"
+        "value"                                           "100 180 260 420 580"
+        "special_bonus_unique_jakiro_7"                   "+65"
       }
       "path_width"
       {

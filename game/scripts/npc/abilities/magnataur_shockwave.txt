@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnus: Shockwave
+  // Magnus: Shockwave 7.42
   //=================================================================================================================
   "magnataur_shockwave"
   {
@@ -34,10 +34,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_slow"                                     "75"
-      "slow_duration"                                     "2"
-      "pull_duration"                                     "0.2"
-      "pull_distance"                                     "150"
       "shock_speed"
       {
         "value"                                           "1200"
@@ -49,9 +45,13 @@
       }
       "shock_damage" //OAA, because of special_bonus_unique_magnus buff
       {
-        "value"                                           "75 150 225 300 600 900"
+        "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_magnus"                     "+250"
       }
+      "movement_slow"                                     "75"
+      "slow_duration"                                     "2"
+      "pull_duration"                                     "0.2"
+      "pull_distance"                                     "150"
       "max_level" //OAA, intentionally
       {
         "value"                                           "6"

@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lion: Finger of Death FIXEDFUCK
+  // Lion: Finger of Death 7.42
   //=================================================================================================================
   "lion_finger_of_death"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -37,7 +37,7 @@
     {
       "damage" //OAA, intentionally buffed
       {
-        "value"                                           "600 850 1100 1600 2100"
+        "value"                                           "600 800 1000 1400 2000"
         "special_bonus_scepter"                           "+100"
       }
       "damage_per_kill" //OAA, intentionally buffed special_bonus_unique_lion_8 talent; reminder: this is also bonus attack dmg per kill

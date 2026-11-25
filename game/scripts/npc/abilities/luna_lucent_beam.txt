@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Luna: Lucent Beam FIXEDFUCK
+  // Luna: Lucent Beam 7.42
   //=================================================================================================================
   "luna_lucent_beam"
   {
@@ -44,12 +44,12 @@
       "glaives_fired"
       {
         "value"                                           "0"
-        "special_bonus_unique_luna_8"                     "+2"
+        "special_bonus_unique_luna_8"                     "+2" // unused
       }
       "glaives_attack_radius"
       {
         "value"                                           "0"
-        "special_bonus_unique_luna_8"                     "+500"
+        "special_bonus_unique_luna_8"                     "+500" // unused
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"
@@ -71,10 +71,14 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "lucent_beam_bounce_range" // Lucent Beam Hits additional Target (within 500 radius)
+      "lucent_beam_bounce_range" // Lucent Beam Hits additional targets (closest units within this radius)
       {
         "special_bonus_unique_luna_5"                     "+500"
         "affected_by_aoe_increase"                        "1"
+      }
+      "lucent_beam_additional_targets"
+      {
+        "special_bonus_unique_luna_5"                     "+2"
       }
       "damage_buff_from_eclipse_pct"
       {

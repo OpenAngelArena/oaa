@@ -1,16 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Death Prophet: Silence
+  // Death Prophet: Silence 7.42
   //=================================================================================================================
   "death_prophet_silence"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 11"
+    "AbilityCooldown"                                     "17 15 13 11 10 10"
     "AbilityDuration"                                     "3.5 4.0 4.5 5.0 5.5 6.0"
 
     // Cost
@@ -33,13 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "1750"
       "radius"
       {
         "value"                                           "450"
-        "special_bonus_unique_death_prophet_silence_aoe"  "+75"
+        "special_bonus_unique_death_prophet_silence_aoe"  "+125"
         "affected_by_aoe_increase"                        "1"
       }
+      "projectile_speed"                                  "1750"
       "movement_slow"
       {
         "value"                                           "0"

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Riki: Smoke Screen FIXEDFUCK
+  // Riki: Smoke Screen 7.42
   //=================================================================================================================
   "riki_smoke_screen"
   {
@@ -30,15 +30,15 @@
     {
       "AbilityDuration"
       {
-        "value"                                           "6"
+        "value"                                           "4.5 5 5.5 6 6 6"
       }
       "radius"
       {
-        "value"                                           "425"
+        "value"                                           "400"
         "special_bonus_unique_riki_7"                     "+50"
         "affected_by_aoe_increase"                        "1"
       }
-      "miss_rate"                                         "40 50 60 70 80 90"
+      "miss_rate"                                         "55 60 65 70 75 80"
       "block_targeting"
       {
         "value"                                           "0"

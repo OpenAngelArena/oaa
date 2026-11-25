@@ -85,7 +85,11 @@
         "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
-      "passive_splash_percent"                            "40"
+      "passive_splash_percent"
+      {
+        "value"                                           "40"
+        "apply_effectiveness"                             "1"
+      }
       "active_damage"                                     "450 700"
       "active_radius"
       {

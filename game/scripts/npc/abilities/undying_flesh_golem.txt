@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Undying: Flesh Golem FIXEDFUCK
+  // Undying: Flesh Golem 7.42
   //=================================================================================================================
   "undying_flesh_golem"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -31,7 +31,7 @@
       "slow"                                              "30 35 40 45 50"
       "damage_amp"
       {
-        "value"                                           "25 30 35 35 35"
+        "value"                                           "20 25 30 30 35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "slow_duration"                                     "3"

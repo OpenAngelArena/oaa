@@ -2,7 +2,7 @@ local SIMPLE_AI_STATE_IDLE = 0
 local SIMPLE_AI_STATE_AGGRO = 1
 local SIMPLE_AI_STATE_LEASH = 2
 
-local SIMPLE_BOSS_LEASH_SIZE = BOSS_LEASH_SIZE or 1200
+local SIMPLE_BOSS_LEASH_SIZE = 1800 --BOSS_LEASH_SIZE or 1200
 local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
@@ -91,9 +91,13 @@ function ShielderThink()
   end
 
   local function StartLeashing(thisEntity)
+    thisEntity:AddNewModifier(thisEntity, nil, "modifier_invulnerable", {})
+    thisEntity:Interrupt()
+    thisEntity:Stop()
+    thisEntity:Hold()
     thisEntity.aggro_target = nil
     thisEntity.state = SIMPLE_AI_STATE_LEASH
-    return 1
+    return 0.1
   end
 
   local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
@@ -102,14 +106,18 @@ function ShielderThink()
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
     -- Remove debuff protection
     --thisEntity:RemoveModifierByName("modifier_anti_stun_oaa")
+    thisEntity:RemoveModifierByName("modifier_invulnerable")
     -- Check boss hp
     if current_hp_pct < aggro_hp_pct then
-      -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
+      -- Issue an attack-move command towards the nearest unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
       -- the same as true aggro target (unit that is boss actually attacking at the moment)
       AttackNearestTarget(thisEntity)
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
     else
+      thisEntity:Interrupt()
+      thisEntity:Stop()
+      thisEntity:Hold()
       -- Check if the boss was messed around with displacing abilities (Force Staff for example)
       if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
         --thisEntity:MoveToPosition(thisEntity.spawn_position)
@@ -179,8 +187,12 @@ function ShielderThink()
       end
 
       if not thisEntity.aggro_target then
-        thisEntity.state = SIMPLE_AI_STATE_LEASH
+        thisEntity.aggro_target = thisEntity:GetAggroTarget()
       end
+    end
+
+    if not thisEntity.aggro_target and current_hp_pct > aggro_hp_pct then
+      return StartLeashing(thisEntity)
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
     -- Debuff Protection when leashing - don't add to Shielder

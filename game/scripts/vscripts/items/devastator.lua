@@ -64,27 +64,8 @@ function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
     -- Apply the slow debuff always
     hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
 
-    -- Armor reduction values
-    local armor_reduction = self:GetSpecialValueFor( "devastator_armor_reduction" )
-    local corruption_armor = self:GetSpecialValueFor( "corruption_armor" )
-
-    -- If the target has Desolator debuff then remove it
-    if hTarget:HasModifier("modifier_desolator_buff") then
-      hTarget:RemoveModifierByName("modifier_desolator_buff")
-    end
-
-    -- if the target has Devastator passive armor reduction debuff then check which armor reduction is better
-    if hTarget:HasModifier("modifier_item_devastator_oaa_corruption_armor") then
-      -- If active armor reduction is better than passive then remove Devastator passive armor reduction debuff
-      -- and apply Devastator active armor reduction debuff
-      if math.abs(armor_reduction) > math.abs(corruption_armor) then
-        hTarget:RemoveModifierByName("modifier_item_devastator_oaa_corruption_armor")
-        hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
-      end
-    else
-      -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
-      hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
-    end
+    -- Apply the Devastator active armor reduction debuff
+    hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
 
     -- Damage part should always be applied if devastator_damage is > 0
     if self.devastator_damage > 0 then
@@ -195,9 +176,9 @@ if IsServer() then
       return
     end
 
-    if parent:IsIllusion() then
-      return
-    end
+    --if parent:IsIllusion() then
+      --return
+    --end
 
     -- To prevent crashes:
     if not target or target:IsNull() then
@@ -215,23 +196,9 @@ if IsServer() then
       return
     end
 
-    -- If the target has desolator debuff then remove it (to prevent stacking armor reductions)
+    -- If the target has vanilla desolator debuff then remove it (to prevent stacking armor reductions)
     if target:HasModifier("modifier_desolator_buff") then
       target:RemoveModifierByName("modifier_desolator_buff")
-    end
-
-    local armor_reduction = ability:GetSpecialValueFor( "devastator_armor_reduction" )
-    local corruption_armor = ability:GetSpecialValueFor( "corruption_armor" )
-
-    -- If the target has Devastator active debuff
-    if target:HasModifier("modifier_item_devastator_oaa_reduce_armor") then
-      -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction)
-      -- or desolator passive OnAttackLanded is triggered on our custom desolator then do nothing
-      if math.abs(armor_reduction) > math.abs(corruption_armor) or ability:GetAbilityName() == "item_desolator_oaa" then
-        return
-      end
-      -- If devastator_armor_reduction is lower than corruption_armor then remove the Devastator active debuff
-      target:RemoveModifierByName("modifier_item_devastator_oaa_reduce_armor")
     end
 
     -- Calculate duration of the debuff
@@ -271,7 +238,7 @@ end
 
 modifier_item_devastator_oaa_corruption_armor.OnRefresh = modifier_item_devastator_oaa_corruption_armor.OnCreated
 
---[[
+--[[ -- needed if we use vanilla Desolator to prevent stacking
 function modifier_item_devastator_oaa_corruption_armor:OnIntervalThink()
   local parent = self:GetParent()
 
@@ -429,23 +396,9 @@ function modifier_item_devastator_oaa_reduce_armor:OnCreated()
   if ability and not ability:IsNull() then
     self.armor_reduction = ability:GetSpecialValueFor("devastator_armor_reduction")
   end
-  --if IsServer() then
-    --self:StartIntervalThink(0.1)
-  --end
 end
 
 modifier_item_devastator_oaa_reduce_armor.OnRefresh = modifier_item_devastator_oaa_reduce_armor.OnCreated
-
---[[
-function modifier_item_devastator_oaa_reduce_armor:OnIntervalThink()
-  local parent = self:GetParent()
-  -- We assume that devastator active has a better armor reduction than the desolator armor reduction
-  -- Remove the desolator debuff to prevent stacking armor reductions
-  if parent:HasModifier("modifier_desolator_buff") then
-    parent:RemoveModifierByName("modifier_desolator_buff")
-  end
-end
-]]
 
 function modifier_item_devastator_oaa_reduce_armor:DeclareFunctions()
   return {

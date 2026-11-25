@@ -1,11 +1,11 @@
 "DOTAUnits"
 {
-  "npc_dota_neutral_custom_pine_cone"
+  "npc_dota_neutral_custom_pine_cone" // Odobenus Frostmage
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature"
-    "Model"                                               "models/creeps/pine_cone/pine_cone.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creep_neutral"
+    "Model"                                               "models/creeps/ice_biome/undeadtusk/undead_tuskskeleton02.vmdl"  // Model.
     "SoundSet"                                            "n_creep_Melee"
     "ModelScale"                                          "1.1"
     "Level"                                               "6"

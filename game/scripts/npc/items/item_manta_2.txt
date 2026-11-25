@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6150"
+    "ItemCost"                                            "6050"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "manta style 2;manta 2"
@@ -60,8 +60,9 @@
       "bonus_agility"                                     "26 31 41 56 76"
       "bonus_intellect"                                   "12 17 22 27 32"
       "bonus_attack_speed"                                "15 20 25 30 35"
-      "bonus_movement_speed"                              "10 12 14 16 18"
+      "bonus_movement_speed"                              "6 8 10 12 14"
       "images_count"                                      "2"
+      "illusion_effectiveness"                            "35"
       "illusion_duration"                                 "18"
       "images_do_damage_percent_melee"                    "-65 -60 -50 -35 -15"
       "tooltip_damage_outgoing_melee"                     "35 40 50 65 85"

@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // OD: Sanity's Eclipse FIXEDFUCK
+  // OD: Sanity's Eclipse 7.42
   //=================================================================================================================
   "obsidian_destroyer_sanity_eclipse"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -29,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "200 400 600 1000 1400" //OAA, intentionally buffed
+      "base_damage"                                       "180 360 540 900 1440" //OAA, intentionally buffed
       "radius"
       {
         "value"                                           "500 525 550 575 600"
@@ -38,7 +38,7 @@
       "cast_range"                                        "700" // same as AbilityCastRange
       "damage_multiplier"
       {
-        "value"                                           "0.4"
+        "value"                                           "0.35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "illusion_bonus_damage"                             "0"

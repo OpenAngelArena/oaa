@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Astral Worldsmith (Innate) - custom ability FIXEDFUCK
+  // Elder Titan: Astral Worldsmith (Innate) - custom ability 7.42
   //=================================================================================================================
   "elder_titan_innate_oaa"
   {
@@ -27,7 +27,7 @@
       "attack_speed_from_movespeed" // does not show in the tooltip but it works, maybe because the talent is hardcoded into the engine
       {
         //"value"                                           "0"
-        "special_bonus_unique_elder_titan_momentum_attack_speed"  "20"
+        "special_bonus_unique_elder_titan_momentum_attack_speed"  "40"
       }
     }
   }

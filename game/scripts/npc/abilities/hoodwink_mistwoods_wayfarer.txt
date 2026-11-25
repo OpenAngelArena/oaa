@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Hoodwink: Mistwoods Wayfarer (Innate)
+  // Hoodwink: Mistwoods Wayfarer (Innate) 7.42
   //=================================================================================================================
   "hoodwink_mistwoods_wayfarer"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 
     "MaxLevel"                                            "1"
 
@@ -20,10 +20,10 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "redirect_chance"
+      "redirect_chance" //OAA, intentionally nerfed
       {
-        "value"                                           "14.25"
-        "hero_levelup"                                    "0.75"
+        "value"                                           "10"
+        "hero_levelup"                                    "+0.6"
       }
     }
   }

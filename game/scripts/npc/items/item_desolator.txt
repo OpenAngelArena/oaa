@@ -64,7 +64,11 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "48"
-      "corruption_armor"                                  "-6"
+      "corruption_armor"
+      {
+        "value"                                           "-6"
+        "apply_effectiveness"                             "1"
+      }
       "corruption_duration"                               "7.0"
     }
   }

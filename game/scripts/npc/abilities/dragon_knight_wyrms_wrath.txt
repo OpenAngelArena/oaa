@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Wyrm's Wrath FIXEDFUCK
+  // Dragon Knight: Wyrm's Wrath 7.42
   //=================================================================================================================
   "dragon_knight_wyrms_wrath"
   {
@@ -23,9 +23,9 @@
         "value"                                           "10 20 30 40 80 120"
         "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
       }
-      "bonus_aoe" //OAA, intentionally nerfed
+      "bonus_aoe" //OAA, intentionally rescaled
       {
-        "value"                                           "30 45 60 75 90 105"
+        "value"                                           "50 60 70 80 90 100"
         "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
       }
     }

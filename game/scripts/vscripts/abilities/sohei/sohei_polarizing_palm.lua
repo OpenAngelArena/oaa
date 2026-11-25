@@ -105,6 +105,8 @@ function sohei_polarizing_palm:OnSpellStart()
   -- Sounds
   if not isTargetAnEnemy then
     target:EmitSound("Sohei.Dash")
+    -- Distance for allies is affected by Nullifier
+    distance = target:GetValueChangedByKnockbackAmplification(distance)
   else
     target:EmitSound("Sohei.Momentum")
     -- Distance for enemies is reduced with Knockback resistance
@@ -157,11 +159,7 @@ function modifier_sohei_polarizing_palm_movement:IsDebuff()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
-  if parent:GetTeamNumber() == caster:GetTeamNumber() then
-    return false
-  end
-
-  return true
+  return parent:GetTeamNumber() ~= caster:GetTeamNumber()
 end
 
 function modifier_sohei_polarizing_palm_movement:IsHidden()
@@ -169,7 +167,10 @@ function modifier_sohei_polarizing_palm_movement:IsHidden()
 end
 
 function modifier_sohei_polarizing_palm_movement:IsPurgable()
-  return true
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  return parent:GetTeamNumber() ~= caster:GetTeamNumber()
 end
 
 function modifier_sohei_polarizing_palm_movement:DeclareFunctions()

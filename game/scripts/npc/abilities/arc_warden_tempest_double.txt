@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Arc Warden: Tempest Double FIXEDFUCK
+  // Arc Warden: Tempest Double 7.42
   //=================================================================================================================
   "arc_warden_tempest_double"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,15 +34,14 @@
       {
         "value"                                           "60 55 50 45 40"
       }
-      "bounty"                                            "180 240 300 480 780" // unused
       "bounty_gold"
       {
-        "value"                                           "70"
+        "value"                                           "100"
         "hero_levelup"                                    "+10"
       }
       "bounty_xp"
       {
-        "value"                                           "70"
+        "value"                                           "100"
         "hero_levelup"                                    "+10"
       }
       "duration"                                          "18 21 24 27 30"

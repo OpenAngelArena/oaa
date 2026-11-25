@@ -1,0 +1,83 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Berserker's Sabatons 5
+  //=================================================================================================================
+  "item_recipe_berserkers_sabatons_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_berserkers_sabatons_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_berserkers_sabatons_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Berserker's Sabatons 5
+  //=================================================================================================================
+  "item_berserkers_sabatons_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_berserkers_sabatons"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/berserkers_sabatons_5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       ""
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "35950"
+    "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;move_speed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "berserker's sabatons 5;sabatons 5;berserkers sabatons 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_movement_speed_ranged"                       "45 50 55 60 65"
+      "bonus_movement_speed_melee"                        "55 60 65 70 75"
+      "bonus_damage"                                      "40 50 65 85 110"
+      "bonus_attack_speed"                                "30 35 40 45 50"
+      "bonus_armor"                                       "10 11 13 16 20"
+      "bonus_health_regen"                                "5 8 11 14 17"
+      "phase_movement_speed"                              "20 22 24 26 28"
+      "phase_movement_speed_range"                        "10 11 12 13 14"
+      "unholy_bonus_damage"                               "40 50 65 85 110"
+      "unholy_bonus_strength"                             "30 35 45 60 80"
+      "unholy_bonus_armor"                                "5 6 7 8 9"
+      "unholy_bonus_slow_resistance"                      "40 42 44 46 48"
+      "unholy_health_drain_per_second"                    "45 65 90 120 155"
+      "unholy_health_drain_pct_per_second"                "0"
+      "toggle_cooldown"                                   "0.036"
+    }
+  }
+}

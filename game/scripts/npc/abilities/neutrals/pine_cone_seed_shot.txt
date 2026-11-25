@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Pine Cone: Seed Shot - slows and damages the target
+  // Odobenus Frostmage: Snowball Shot - slows and damages enemies, heals allies
   // TODO: maybe add % max hp dmg and % attack speed slow
   //=================================================================================================================
   "warpine_raider_seed_shot"
@@ -31,12 +31,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "80 110 140 170" //OAA, intentionally buffed
+      "damage"                                            "70 100 130 160" //OAA, intentionally buffed
       "bounces"                                           "4 6 8 12"
       "bounce_range"                                      "500"
       "duration"                                          "1"
       "slow"                                              "100"
       "bounce_delay"                                      "0.3"
+      "neutral_chance_to_cast"                            "60"
+      "neutral_cast_attempt_cooldown"                     "8"
     }
   }
 }

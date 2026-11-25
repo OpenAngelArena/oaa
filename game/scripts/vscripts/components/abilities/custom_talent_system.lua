@@ -36,10 +36,9 @@ local abilities_with_custom_talents = {
   abyssal_underlord_pit_of_malice = {
     pit_damage = {"special_bonus_unique_underlord_7_oaa", "%"},
   },
-  death_prophet_spirit_siphon = {
-    damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
-    AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
-  },
+  --death_prophet_spirit_siphon = {
+    --damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
+  --},
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
@@ -70,9 +69,9 @@ local abilities_with_custom_talents = {
   queenofpain_shadow_strike = {
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
-  skywrath_mage_arcane_bolt = {
-    bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
-  },
+  --skywrath_mage_arcane_bolt = {
+    --bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
+  --},
   storm_spirit_electric_vortex = {
     AbilityCooldown = {"special_bonus_unique_storm_spirit_2_oaa", "+"},
   },

@@ -1,21 +1,28 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Lycan FIXEDFUCK
+  // HERO: Lycan 7.42
   //=================================================================================================================
   "npc_dota_hero_lycan"
   {
-    "Ability7"                                            "lycan_feral_movement_oaa" // replaces undefined
+    //"Ability10"                                           "special_bonus_unique_lycan_howl_armor"
+    //"Ability11"                                           "special_bonus_unique_lycan_3"
+
+    //"Ability12"                                           "special_bonus_unique_lycan_7"
+    //"Ability13"                                           "special_bonus_unique_lycan_8"
 
     //"Ability14"                                           "special_bonus_unique_lycan_1"
-    "Ability15"                                           "special_bonus_unique_lycan_5" // replaces special_bonus_unique_lycan_4
+    //"Ability15"                                           "special_bonus_unique_lycan_4"
 
-    "Ability16"                                           "special_bonus_unique_lycan_4" // replaces special_bonus_unique_lycan_5
+    //"Ability16"                                           "special_bonus_unique_lycan_5"
     //"Ability17"                                           "special_bonus_unique_lycan_2"
 
-    // special_bonus_unique_lycan_1 -- Shapeshift Duration
-    // special_bonus_unique_lycan_2 -- Summon Wolves BAT
-    // special_bonus_unique_lycan_5 -- Howl Reduces Total Attack Damage
-    // special_bonus_unique_lycan_4 -- Feral Impulse Damage
+    // special_bonus_unique_lycan_1 -- Shapeshift Duration                 - 20
+    // special_bonus_unique_lycan_2 -- Summon Wolves BAT                   - 25
+    // special_bonus_unique_lycan_3 -- Summon Wolves Damage                - 10
+    // special_bonus_unique_lycan_4 -- Pack Hunter Bonus Damage Per Stack  - 20
+    // special_bonus_unique_lycan_5 -- Howl Reduces Total Attack Damage    - 25
+    // special_bonus_unique_lycan_7 -- Summon Wolves Health                - 15
+    // special_bonus_unique_lycan_8 -- Shapeshift Cooldown                 - 15
   }
 }

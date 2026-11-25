@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Elder Dragon Form (OAA rework) FIXEDFUCK
+  // Dragon Knight: Elder Dragon Form (OAA rework) 7.42
   //=================================================================================================================
   "dragon_knight_elder_dragon_form_oaa"
   {
@@ -9,8 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_elder_dragon_form.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -42,7 +42,7 @@
       "bonus_attack_range"
       {
         "value"                                           "350"
-        "special_bonus_unique_dragon_knight_7"            "+150"
+        "special_bonus_unique_dragon_knight_7"            "+125"
       }
       "bonus_ability_cast_range"                          "350"
       "model_scale"                                       "10 15 20 30 30"

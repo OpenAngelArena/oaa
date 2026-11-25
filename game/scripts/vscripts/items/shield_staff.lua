@@ -203,6 +203,8 @@ function item_shield_staff:OnSpellStart()
   -- Distance for enemies is reduced with Knockback resistance
   if isTargetAnEnemy then
     distance = target:GetValueChangedByKnockbackResistance(distance)
+  else
+    distance = target:GetValueChangedByKnockbackAmplification(distance)
   end
 
   -- Actual effect
@@ -237,7 +239,12 @@ function modifier_shield_staff_active_buff:IsDebuff()
 end
 
 function modifier_shield_staff_active_buff:IsPurgable()
-  return true
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
+    return self:GetParent():GetTeamNumber() ~= caster:GetTeamNumber()
+  else
+    return false
+  end
 end
 
 function modifier_shield_staff_active_buff:GetPriority()

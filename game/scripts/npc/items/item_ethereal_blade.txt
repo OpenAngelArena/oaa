@@ -43,7 +43,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "20.0"
     "AbilitySharedCooldown"                               "ethereal"
     "AbilityManaCost"                                     "100"
 
@@ -66,9 +66,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "24 29 34 39 44"
-      "bonus_strength"                                    "24 29 34 39 44"
-      "bonus_intellect"                                   "24 29 34 39 44"
+      "bonus_agility"                                     "25 30 35 40 45"
+      "bonus_strength"                                    "25 30 35 40 45"
+      "bonus_intellect"                                   "25 30 35 40 45"
       "blast_movement_slow"                               "-80"
       "duration"                                          "4.0"
       "blast_stat_multiplier"                             "1.0"

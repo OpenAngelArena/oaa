@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bloodseeker: Rupture FIXEDFUCK
+  // Bloodseeker: Rupture 7.42
   //=================================================================================================================
   "bloodseeker_rupture"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -32,10 +32,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "9 10 11 12 13"
+      "duration"                                          "7 9 11 13 15"
       "movement_damage_pct" //OAA, intentionally buffed
       {
-        "value"                                           "35 55 75 115 155"
+        "value"                                           "45 60 75 105 135"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
@@ -70,7 +70,11 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+2"
       }
-      "AbilityCooldown"                                   "75 70 65 60 55"
+      "AbilityCooldown"
+      {
+        "value"                                           "75 70 65 60 55"
+        "special_bonus_scepter"                           "-10"
+      }
     }
   }
 }

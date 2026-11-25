@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Primal Beast: Rock Throw (shard ability) FIXEDFUCK
+  // Primal Beast: Rock Throw (shard ability) 7.42
   //=================================================================================================================
   "primal_beast_rock_throw"
   {
@@ -12,6 +12,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG" //OAA, Valve forgot
 
     "MaxLevel"                                            "1"
 
@@ -34,9 +35,10 @@
     {
       "base_damage"
       {
-        "value"                                           "325"
+        "value"                                           "300"
         "CalculateSpellDamageTooltip"                     "1"
       }
+      "damage_str_pct"                                    "100"
       "impact_radius"
       {
         "value"                                           "225"

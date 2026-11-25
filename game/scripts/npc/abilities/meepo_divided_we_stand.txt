@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Meepo: Divided We Stand
+  // Meepo: Divided We Stand 7.42
   //=================================================================================================================
   "meepo_divided_we_stand"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "MaxLevel"                                            "4" //OAA, intentionally
+    "MaxLevel"                                            "4" //OAA, intentionally, check max_level kv
     "RequiredLevel"                                       "4"
     "LevelsBetweenUpgrades"                               "7"
 
@@ -22,7 +23,6 @@
     "AbilityValues"
     {
       "tooltip_clones"                                    "1 2 3 4"
-      "dps_penalty_pct"                                   "50 66 75 80"
       "required_level"
       {
         "value"                                           "3"
@@ -35,8 +35,26 @@
       {
         "value"                                           "4"
       }
-
+      "dps_penalty_pct"                                   "50 66 75 80"
       "attribute_penalty_pct"                             "0"
+      "xp_penalty_pct"                                    "50 66 75 80"
+      "xp_penalty_time"                                   "5.0"
+      "AbilityCastRange"
+      {
+        "special_bonus_shard"                             "250"
+      }
+      "AbilityCooldown"
+      {
+        "special_bonus_shard"                             "25 20 15 10"
+      }
+      "AbilityManaCost"
+      {
+        "special_bonus_shard"                             "40"
+      }
+      "radius_tooltip"
+      {
+        "special_bonus_shard"                             "+200"
+      }
     }
   }
 }

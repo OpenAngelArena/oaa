@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Muerta: Gunslinger FIXEDFUCK
+  // Muerta: Gunslinger 7.42
   //=================================================================================================================
   "muerta_gunslinger"
   {
@@ -17,16 +17,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "target_search_bonus_range"                         "175"
-      "double_shot_chance" //OAA, intentionally rescaled
+      "double_shot_chance" //OAA, intentionally nerfed
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+20"
+        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+15"
       }
+      "target_search_bonus_range"                         "175"
       "bonus_damage"
       {
         "value"                                           "0"
-        "special_bonus_unique_muerta_gunslinger_bonus_damage"  "+55"
+        "special_bonus_unique_muerta_gunslinger_bonus_damage"  "+55" // unused
       }
       "dead_shot_cooldown_reduction_on_proc"
       {

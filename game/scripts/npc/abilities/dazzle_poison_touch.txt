@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dazzle: Poison Touch
+  // Dazzle: Poison Touch 7.42
   //=================================================================================================================
   "dazzle_poison_touch"
   {
@@ -35,11 +35,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "targets"                                           "2 4 6 8 8 8"
-      "projectile_speed"                                  "1300"
-      "duration"                                          "3.5 5 6.5 8 8.5 9"
-      "bonus_damage"                                      "0"
-      "bonus_slow"                                        "-2.5 -3 -3.5 -4.0 -4.5 -5.0"
       "start_radius"
       {
         "value"                                           "200"
@@ -54,20 +49,29 @@
       {
         "value"                                           "600 700 800 900 1000 1100"
       }
+      "targets"                                           "2 4 6 8 8 8"
       "damage"
       {
         "value"                                           "16 28 40 52 104 208"
-        "special_bonus_unique_dazzle_3"                   "+75"
+        "special_bonus_unique_dazzle_3"                   "+50"
       }
       "slow"
       {
         "value"                                           "-13 -16 -19 -22 -25 -28"
-        "special_bonus_unique_dazzle_1"                   "-40"
+        "special_bonus_unique_dazzle_1"                   "-15"
       }
+      "projectile_speed"                                  "1300"
+      "duration"                                          "3.5 5 6.5 8 8 8"
+      "bonus_damage"                                      "0"
+      "bonus_slow"                                        "-2.5 -3 -3.5 -4.0 -4.5 -5.0"
       "attack_range_bonus"
       {
         "value"                                           "0"
-        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+200"
+      }
+      "undispellable"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_dazzle_poison_touch_undispellable"  "+1"
       }
       "split_radius"
       {

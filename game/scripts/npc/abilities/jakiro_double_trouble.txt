@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Jakiro: Double Trouble (Innate) FIXEDFUCK
+  // Jakiro: Double Trouble (Innate) 7.42
   //=================================================================================================================
   "jakiro_double_trouble"
   {
@@ -19,7 +19,7 @@
       "second_attack_delay"                               "0.2"
       "attack_damage_reduction" //OAA, intentionally nerfed
       {
-        "value"                                           "51"
+        "value"                                           "50"
         "hero_levelup"                                    "-0.5"
       }
     }

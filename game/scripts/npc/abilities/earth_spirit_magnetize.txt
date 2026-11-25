@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Earth Spirit: Magnetize
+  // Earth Spirit: Magnetize 7.42
   //=================================================================================================================
   "earth_spirit_magnetize"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
+    "AbilityCastRange"                                    "350" // same as cast_radius
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -34,18 +34,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_interval"                                   "1.0"
-      "rock_explosion_delay"                              "8.0"
-      "silence_duration"                                  "5.0"
-      "slow_duration"                                     "2.0"
       "cast_radius"
       {
-        "value"                                           "350"
+        "value"                                           "350" // same as AbilityCastRange
         "affected_by_aoe_increase"                        "1"
       }
       "damage_per_second" //OAA, intentionally buffed
       {
-        "value"                                           "50 100 150 250 350"
+        "value"                                           "50 100 150 250 400"
         "special_bonus_unique_earth_spirit_8"             "+35"
       }
       "damage_duration"
@@ -64,6 +60,10 @@
         "value"                                           "600"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_interval"                                   "1.0"
+      "rock_explosion_delay"                              "8.0"
+      "silence_duration"                                  "5.0"
+      "slow_duration"                                     "2.0"
       "magnetized_rocks_buff_self"
       {
         "value"                                           "0"

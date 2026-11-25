@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Keeper of the Light: Solar Bind FIXEDFUCK
+  // Keeper of the Light: Solar Bind 7.42
   //=================================================================================================================
   "keeper_of_the_light_radiant_bind"
   {
@@ -32,8 +32,8 @@
       "slow"                                              "10"
       "magic_resistance" //OAA, intentionally nerfed
       {
-        "value"                                           "20 25 30 35 40"
-        "special_bonus_unique_keeper_of_the_light_3"      "+10"
+        "value"                                           "16 22 28 34 40"
+        "special_bonus_unique_keeper_of_the_light_3"      "+8"
       }
       "stun_duration"
       {

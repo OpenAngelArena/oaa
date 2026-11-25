@@ -42,30 +42,23 @@
       "duration"                                          "65"
       "health_gain_pct"
       {
-
         "value"                                           "40 60 80 100 120"
-        "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
+        "special_bonus_clinkz_death_pact_oaa"             "+50"
       }
       "damage_gain_pct"
       {
-
         "value"                                           "4 8 12 16 20"
-        "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
-        "LinkedSpecialBonusField"                         "value2"
+        "special_bonus_clinkz_death_pact_oaa"             "+5"
       }
       "health_gain_max"
       {
-
         "value"                                           "1000 1500 2000 2500 3000"
-        "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
-        "LinkedSpecialBonusField"                         "value3"
+        "special_bonus_clinkz_death_pact_oaa"             "+1000"
       }
       "damage_gain_max"
       {
-
         "value"                                           "100 150 200 350 500"
-        "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
-        "LinkedSpecialBonusField"                         "value4"
+        "special_bonus_clinkz_death_pact_oaa"             "+100"
       }
     }
   }

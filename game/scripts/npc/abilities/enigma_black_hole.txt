@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Black Hole FIXEDFUCK
+  // Enigma: Black Hole 7.42
   //=================================================================================================================
   "enigma_black_hole"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -34,10 +34,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
+      "damage" //OAA, intentionally buffed
       {
-        "value"                                           "100 150 200 300 400"
-        "special_bonus_unique_enigma_6"                   "+50"
+        "value"                                           "90 180 270 450 630"
+        "special_bonus_unique_enigma_6"                   "+40"
       }
       "radius"
       {
@@ -54,9 +54,9 @@
       }
       "pull_rotate_speed"                                 "0.25"
       "animation_rate"                                    "0.2"
-      "scepter_pct_damage" // nerf this if Enigma too strong
+      "scepter_pct_damage" //OAA, intentionally nerfed
       {
-        "special_bonus_scepter"                           "4"
+        "special_bonus_scepter"                           "2"
       }
       "scepter_radius"
       {
