@@ -13,7 +13,7 @@
   },
   "abaddon_withering_mist|AbilityValues/max_heal_reduction_pct": {
     "file": "abilities/abaddon_withering_mist.txt",
-    "vanilla": "{\"hero_levelup\":\"+1.0\",\"special_bonus_unique_abaddon_6\":\"+10\",\"value\":\"40.0\"}"
+    "vanilla": "{\"hero_levelup\":\"+1.0\",\"special_bonus_unique_abaddon_6\":\"+10\",\"value\":\"35.0\"}"
   },
   "abyssal_underlord_atrophy_aura|AbilityValues/damage_reduction_pct": {
     "file": "abilities/abyssal_underlord_atrophy_aura.txt",
@@ -557,7 +557,7 @@
   },
   "bristleback_scepter_oaa|AbilityValues/quill_release_threshold": {
     "file": "abilities/bristleback_scepter_oaa.txt",
-    "vanilla": "{\"special_bonus_unique_bristleback\":\"-30\",\"value\":\"275 250 225 200\"}"
+    "vanilla": "{\"special_bonus_unique_bristleback\":\"-35\",\"value\":\"275 250 225 200\"}"
   },
   "bristleback_scepter_oaa|AbilityValues/side_angle": {
     "file": "abilities/bristleback_scepter_oaa.txt",
@@ -1385,7 +1385,7 @@
   },
   "enigma_demonic_conversion|AbilityValues/eidolon_bonus_damage": {
     "file": "abilities/enigma_demonic_conversion.txt",
-    "vanilla": "{\"special_bonus_unique_enigma_3\":\"+30\",\"value\":\"0\"}"
+    "vanilla": "{\"special_bonus_unique_enigma_3\":\"+25\",\"value\":\"0\"}"
   },
   "enigma_demonic_conversion|AbilityValues/eidolon_magic_resist": {
     "file": "abilities/enigma_demonic_conversion.txt",
@@ -1533,7 +1533,7 @@
   },
   "furion_wrath_of_nature|AbilityValues/damage": {
     "file": "abilities/furion_wrath_of_nature.txt",
-    "vanilla": "{\"special_bonus_unique_furion_5\":\"+25\",\"value\":\"100 140 180\"}"
+    "vanilla": "{\"special_bonus_unique_furion_5\":\"+30\",\"value\":\"100 140 180\"}"
   },
   "giant_wolf_intimidate|AbilityCooldown": {
     "file": "abilities/neutrals/wolf_intimidate.txt",
@@ -1569,7 +1569,7 @@
   },
   "gyrocopter_flak_cannon|AbilityValues/AbilityCooldown": {
     "file": "abilities/gyrocopter_flak_cannon.txt",
-    "vanilla": "{\"special_bonus_unique_gyrocopter_1\":\"-6\",\"value\":\"25\"}"
+    "vanilla": "{\"special_bonus_unique_gyrocopter_1\":\"-6\",\"value\":\"24\"}"
   },
   "gyrocopter_homing_missile|AbilityCooldown": {
     "file": "abilities/gyrocopter_homing_missile.txt",
@@ -2729,7 +2729,7 @@
   },
   "juggernaut_healing_ward|AbilityManaCost": {
     "file": "abilities/juggernaut_healing_ward.txt",
-    "vanilla": "120"
+    "vanilla": "110"
   },
   "juggernaut_healing_ward|AbilityValues/AbilityCooldown": {
     "file": "abilities/juggernaut_healing_ward.txt",
@@ -2873,7 +2873,7 @@
   },
   "largo_amphibian_rhapsody|AbilityValues/max_stacks": {
     "file": "abilities/largo_amphibian_rhapsody.txt",
-    "vanilla": "{\"value\":\"5\"}"
+    "vanilla": "{\"value\":\"4 5 6\"}"
   },
   "largo_catchy_lick|AbilityCooldown": {
     "file": "abilities/largo_catchy_lick.txt",
@@ -3413,7 +3413,7 @@
   },
   "medusa_stone_gaze|AbilityValues/duration": {
     "file": "abilities/medusa_stone_gaze.txt",
-    "vanilla": "{\"special_bonus_unique_medusa\":\"+3\",\"value\":\"5 5.5 6\"}"
+    "vanilla": "{\"special_bonus_unique_medusa\":\"+3\",\"value\":\"4.5 5 5.5\"}"
   },
   "medusa_stone_gaze|SpellImmunityType": {
     "file": "abilities/medusa_stone_gaze.txt",
@@ -3621,7 +3621,7 @@
   },
   "necrolyte_reapers_scythe|AbilityCooldown": {
     "file": "abilities/necrolyte_reapers_scythe.txt",
-    "vanilla": "100"
+    "vanilla": "95"
   },
   "necrolyte_sadist|AbilityValues/regen": {
     "file": "abilities/necrolyte_sadist.txt",
@@ -3921,7 +3921,7 @@
   },
   "phantom_assassin_phantom_strike|AbilityValues/bonus_attack_speed": {
     "file": "abilities/phantom_assassin_phantom_strike.txt",
-    "vanilla": "{\"special_bonus_unique_phantom_assassin_strike_aspd\":\"+60\",\"value\":\"80 120 160 200\"}"
+    "vanilla": "{\"special_bonus_unique_phantom_assassin_strike_aspd\":\"+60\",\"value\":\"75 100 125 150\"}"
   },
   "phantom_assassin_stifling_dagger|AbilityManaCost": {
     "file": "abilities/phantom_assassin_stifling_dagger.txt",
@@ -3929,7 +3929,7 @@
   },
   "phantom_assassin_stifling_dagger|AbilityValues/attack_factor_tooltip": {
     "file": "abilities/phantom_assassin_stifling_dagger.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_phantom_assassin_5\":\"+15\",\"value\":\"30 45 60 75\"}"
+    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_phantom_assassin_5\":\"+15\",\"value\":\"25 40 55 70\"}"
   },
   "phantom_lancer_doppelwalk|AbilityValues/AbilityCooldown": {
     "file": "abilities/phantom_lancer_doppelwalk.txt",
@@ -3949,7 +3949,7 @@
   },
   "phantom_lancer_illusory_armaments|AbilityValues/outgoing_floor": {
     "file": "abilities/phantom_lancer_illusory_armaments.txt",
-    "vanilla": "{\"hero_levelup\":\"2\",\"levelup_interval\":\"3\",\"value\":\"17\"}"
+    "vanilla": "{\"hero_levelup\":\"2\",\"levelup_interval\":\"3\",\"value\":\"15\"}"
   },
   "phantom_lancer_juxtapose|AbilityValues/illusion_damage_in_pct": {
     "file": "abilities/phantom_lancer_juxtapose.txt",
@@ -4649,7 +4649,7 @@
   },
   "skeleton_king_bone_guard|AbilityManaCost": {
     "file": "abilities/skeleton_king_bone_guard.txt",
-    "vanilla": "70 80 90 100"
+    "vanilla": "70 85 100 115"
   },
   "skeleton_king_bone_guard|AbilityValues/AbilityCooldown": {
     "file": "abilities/skeleton_king_bone_guard.txt",
@@ -5033,7 +5033,7 @@
   },
   "sven_wrath_of_god|AbilityValues/bonus_damage_per_str": {
     "file": "abilities/sven_wrath_of_god.txt",
-    "vanilla": "{\"hero_levelup\":\"0.02\",\"value\":\"0.08\"}"
+    "vanilla": "{\"hero_levelup\":\"0.01\",\"value\":\"0.15\"}"
   },
   "techies_land_mines|AbilityValues/damage": {
     "file": "abilities/techies_land_mines.txt",

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nature's Prophet: Wrath of Nature 7.42
+  // Nature's Prophet: Wrath of Nature 7.42a
   //=================================================================================================================
   "furion_wrath_of_nature"
   {
@@ -36,7 +36,7 @@
       "damage" //OAA, intentionally buffed
       {
         "value"                                           "125 180 235 345 455"
-        "special_bonus_unique_furion_5"                   "+25" // we dont use this so ignore
+        "special_bonus_unique_furion_5"                   "+30" // we dont use this so ignore
       }
       "damage_percent_add"
       {

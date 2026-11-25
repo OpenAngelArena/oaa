@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Medusa: Stone Gaze
+  // Medusa: Stone Gaze 7.42a
   //=================================================================================================================
   "medusa_stone_gaze"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, intentionally nerfed
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -25,20 +25,15 @@
     "AbilityValues"
     {
       "AbilityCastRange"                                  "1200"
-      "slow"                                              "35" // same kv for ms and as slow
-      "stone_duration"                                    "2 2.2 2.4 2.6 2.8"
-      "face_duration"                                     "2.0"
-      "vision_cone"                                       "0.08715"
-      "speed_boost"                                       "50"
       "AbilityCooldown"
       {
         "value"                                           "90"
-        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
+        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%" // unused
       }
       "AbilityManaCost"
       {
         "value"                                           "250"
-        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
+        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%" // unused
       }
       "radius"
       {
@@ -47,15 +42,20 @@
       }
       "duration" //OAA, intentionally rescaled and nerfed the talent
       {
-        "value"                                           "5 5.25 5.5 5.75 6"
-        "special_bonus_unique_medusa"                     "+1.5"
+        "value"                                           "4.5 4.75 5 5.25 5.5"
+        "special_bonus_unique_medusa"                     "+2"
       }
-      "bonus_physical_damage" //OAA, intentionally rescaled
+      "slow"                                              "35" // same kv for ms and as slow
+      "stone_duration"                                    "2 2.2 2.4 2.6 2.8"
+      "face_duration"                                     "2.0"
+      "vision_cone"                                       "0.08715"
+      "bonus_physical_damage" //OAA, intentionally rescaled; only against stoned units
       {
         "value"                                           "35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "special_bonus_unique_medusa_8"                   "+12"
       }
+      "speed_boost"                                       "50"
     }
   }
 }

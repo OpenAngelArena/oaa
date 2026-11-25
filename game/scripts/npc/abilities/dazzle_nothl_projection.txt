@@ -35,7 +35,7 @@
       "AbilityCastRange"
       {
         "value"                                           "450"
-        "special_bonus_shard"                             "+250"
+        "special_bonus_shard"                             "+200"
       }
       "min_duration"                                      "1"
       "max_duration"
@@ -48,15 +48,15 @@
       "leash_start"
       {
         "value"                                           "1600"
-        "special_bonus_shard"                             "+500"
+        "special_bonus_shard"                             "+450"
       }
       "base_leash_pull"                                   "50"
       "leash_increase"                                    "1.5"
       "poison_touch_hex"                                  "1.0 1.2 1.4 1.6 1.8" //OAA, intentionally nerfed
       "shallow_grave_heal"                                "225 300 375 450 525"
       "shadow_wave_cdr"                                   "30 35 40 45 50" //OAA, intentionally rescaled
-      "shard_cast_range_bonus"                            "250" // same as special_bonus_shard in AbilityCastRange
-      "shard_leash_range_bonus"                           "500" // same as special_bonus_shard in leash_start
+      "shard_cast_range_bonus"                            "200" // same as special_bonus_shard in AbilityCastRange
+      "shard_leash_range_bonus"                           "450" // same as special_bonus_shard in leash_start
     }
   }
 }

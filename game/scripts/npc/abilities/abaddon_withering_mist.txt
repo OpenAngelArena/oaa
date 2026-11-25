@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abaddon: Withering Mist (Innate) 7.42
+  // Abaddon: Withering Mist (Innate) 7.42a
   //=================================================================================================================
   "abaddon_withering_mist"
   {
@@ -19,7 +19,7 @@
       }
       "max_heal_reduction_pct" //OAA, intentionally nerfed
       {
-        "value"                                           "40.0"
+        "value"                                           "35.0"
         "hero_levelup"                                    "+0.5"
         "special_bonus_unique_abaddon_6"                  "+10"
       }

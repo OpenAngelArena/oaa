@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // LARGO: Amphibian Rhapsody 7.42
+  // LARGO: Amphibian Rhapsody 7.42a
   //=================================================================================================================
   "largo_amphibian_rhapsody"
   {
@@ -37,7 +37,7 @@
       }
       "rhythm_interval"                                   "1"
       "rhythm_grace_period"                               "0.4"
-      "max_stacks" //OAA, intentionally nerfed
+      "max_stacks" //OAA, intentionally nerfed (does not scale)
       {
         "value"                                           "4"
       }

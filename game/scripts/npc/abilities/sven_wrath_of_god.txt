@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sven: Wrath of God (Innate) 7.41
+  // Sven: Wrath of God (Innate) 7.42a
   //=================================================================================================================
   "sven_wrath_of_god"
   {
@@ -17,7 +17,7 @@
     {
       "bonus_damage_per_str" //OAA, intentionally nerfed
       {
-        "value"                                           "0.08"
+        "value"                                           "0.1"
         "hero_levelup"                                    "0.01"
       }
       "current_bonus_damage_tooltip"

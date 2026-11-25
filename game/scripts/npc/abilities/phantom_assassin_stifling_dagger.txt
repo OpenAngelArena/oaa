@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Assassin: Stifling Dagger 7.42
+  // Phantom Assassin: Stifling Dagger 7.42a
   //=================================================================================================================
   "phantom_assassin_stifling_dagger"
   {
@@ -41,12 +41,12 @@
       "base_damage"                                       "65 70 75 80 160 320"
       "attack_factor"
       {
-        "value"                                           "-70 -55 -40 -25 -15 -5"
+        "value"                                           "-75 -60 -45 -30 -20 -10"
         "special_bonus_unique_phantom_assassin_5"         "+20"
       }
       "attack_factor_tooltip" //OAA, Valve has wrong value for special_bonus_unique_phantom_assassin_5 talent
       {
-        "value"                                           "30 45 60 75 85 95"
+        "value"                                           "25 40 55 70 80 90"
         "special_bonus_unique_phantom_assassin_5"         "+20"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
