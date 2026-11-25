@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Phantom Assassin: Phantom Strike 7.42
+  // Phantom Assassin: Phantom Strike 7.42a
   //=================================================================================================================
   "phantom_assassin_phantom_strike"
   {
@@ -35,9 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed" //OAA, intentionally rescaled
+      "bonus_attack_speed" //OAA, intentionally buffed
       {
-        "value"                                           "150 160 170 180 190 200"
+        "value"                                           "120 130 140 150 160 170"
         "special_bonus_unique_phantom_assassin_strike_aspd"  "+60"
       }
       "duration"
